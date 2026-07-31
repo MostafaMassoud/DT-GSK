@@ -1089,3 +1089,60 @@ applying all surfaced fixes.
   unmoved; nothing pushed (the author pushes). Review-prompt layer 1.5.0-P
   records the corrected bank wording and current pins. **Approver**: author
   ("fix all", 2026-07-31). **Status**: CLOSED.
+
+## D-0029 (2026-07-31) - Supplementary/main DOCX header restored to the MDPI layout; pass-27 re-freeze; tag dtgsk-submission-v2.2-2026-07-31
+
+- **Trigger**: author instruction that the supplementary header must read
+  title / authors with affiliation superscripts / numbered affiliation /
+  correspondence, in **both** DOCX and PDF.
+- **PDF was already correct** and is NOT rebuilt. supplementary.pdf renders
+  exactly the requested block; no .tex source is touched by this pass, so
+  DT-GSK.pdf, supplementary.pdf and cover_letter.pdf stay byte-identical to
+  the pass-26 mint. Both defects were DOCX-only.
+- **Defect 1 - header order (supplement only)**. The two post-processing
+  passes that undo pandoc's metadata hoisting,
+  `_hoist_article_label` and `_affiliations_before_abstract`, were both gated
+  to the main document. The first rested on the false premise that "the
+  supplement has no article-type label": `build_shim` emits the label for
+  either doc_kind and supplementary.pdf carries it above the title. The
+  supplement therefore rendered title / authors / abstract / Article /
+  affiliation -- contradicted by its own PDF. Both gates removed.
+- **Defect 2 - dropped superscripts (both documents)**. Pandoc builds the
+  DOCX title block from document METADATA and silently drops math there, so
+  the author line lost its affiliation and correspondence markers ("Masoud ,
+  Heba Sayed Mohamed Roshdy  and ..." with the stray spaces) and the
+  affiliation line lost its leading number. That is the mapping revision
+  ticket R3-11 exists to preserve. Confirmed against pandoc 3.9.0.2 on a
+  minimal document before any change. Fix: `_sup_markers` rewrites the
+  superscripts to `@@SUP!X@@` markers and
+  `PostProcessor._restore_header_superscripts` rebuilds them as real
+  `w:vertAlign` runs inheriting each source run's `w:rPr`; `make_run` gains a
+  superscript keyword. An unconsumed marker cannot ship:
+  `parts_document_residue` scans for marker shapes and the build raises.
+  Applied to BOTH documents on the author's decision -- main carried the
+  identical defect and two shipped DOCX files should not differ in header
+  convention.
+- **Word-resaved artifact superseded**. Commit fa613cf ("Update Docx",
+  18:31) had replaced papers/DT-GSK.docx with a 1,093,867-byte file carrying
+  Application "Microsoft Office Word" 16.0000, revision 3 and 26 zip entries
+  -- Word's own rewrite of the package, consistent with the D-WORD-01
+  visual-confirmation checklist being run against it. The deliverable is
+  always the deterministic build_docx.py output (997,338 bytes, 27 entries).
+  check_manifest did not observe the substitution because it hashes the
+  WORKING TREE, which still held the correct build; only a fresh clone would
+  have exposed it, and the SuSy step uploads the committed artifacts. The
+  anchor commit restores deterministic bytes on that path. D-WORD-01 remains
+  open as an inspection-only item.
+- **Verification**: both DOCX byte-identical across THREE consecutive builds
+  at SOURCE_DATE_EPOCH=1783641600 (the documented persisted-variable trap);
+  validate_build_hygiene in FULL mode OK (not --logs-only); cross_format
+  parity 724 rows / 0 FAIL; provenance OK; document-consistency OK;
+  citation controls C1-C5; evidence bindings 1135/1135 PASS; validate_docx
+  clean on both files; 601 passed / 2 skipped; ruff clean.
+- **Freeze**: pass-27 minted at anchor 2f9631eb7 (2 of 15 hashes changed,
+  both DOCX, both traceable to this pass), check_manifest 15/15. Manifest
+  edited surgically -- CRLF 117 preserved, zero bare LF. Tag **v2.2** in this
+  standalone repository (monorepo lineage name would be
+  dtgsk-submission-v2.2-2026-07-31) supersedes v2.1 as submission basis; v2.1
+  remains in place, unmoved; nothing pushed (the author pushes). **Approver**: author (supplementary header instruction,
+  2026-07-31). **Status**: CLOSED.
