@@ -1,0 +1,67 @@
+{
+  "name": "dtgsk",
+  "title": "DT-GSK algorithm flowchart",
+  "source": "papers/figures/concept/fig_dtgsk_flowchart_src.tex",
+  "note": "Single source of truth for the DT-GSK process flowchart. Node order and text track Algorithm 1 and the frozen code; type 'ism_added' marks the mechanisms DT-GSK adds to the GSK skeleton (drawn with a light shaded fill, matching the TikZ 'new' style). Coordinates are Visio inches, origin bottom-left, values are shape centers.",
+  "layout": {
+    "page_w": 6.0,
+    "page_h": 13.2,
+    "spine_cx": 2.5,
+    "rail_x": 4.7,
+    "top_y": 12.6,
+    "pitch": 0.72
+  },
+  "style": {
+    "line_weight_pt": 0.75,
+    "ism_added_line_weight_pt": 1.75,
+    "font_pt": 9,
+    "decision_font_pt": 8,
+    "line_color": "#000000",
+    "fill_color": "#FFFFFF",
+    "text_color": "#000000"
+  },
+  "sizes": {
+    "terminal":  {"w": 1.5, "h": 0.45},
+    "process":   {"w": 3.4, "h": 0.55},
+    "ism_added": {"w": 3.4, "h": 0.55},
+    "decision":  {"w": 2.3, "h": 0.95}
+  },
+  "nodes": [
+    {"id": "begin", "type": "terminal",  "level": 0,  "text": "Begin"},
+    {"id": "init",  "type": "process",   "level": 1,  "text": "Initialize NP=5D, KF, KR, Kexp, p; open 13 RNG substreams for dimension D"},
+    {"id": "fit",   "type": "process",   "level": 2,  "text": "Calculate the fitness of each person; identify the global best"},
+    {"id": "adapt", "type": "ism_added", "level": 3,  "text": "Reduce NP by NLPSR; assign each person its (KF, KR, Kexp) by the ACE selector"},
+    {"id": "dims",  "type": "process",   "level": 4,  "text": "Compute the gained and shared dimensions (experience equation)"},
+    {"id": "phase", "type": "process",   "level": 5,  "text": "Apply the junior and senior gaining-sharing knowledge phases"},
+    {"id": "cross", "type": "ism_added", "level": 6,  "text": "Apply the linkage-aware block crossover mask (D≥10; else the KR mask)"},
+    {"id": "acc",   "type": "process",   "level": 7,  "text": "Repair bounds, evaluate, and greedily accept no-worse trials"},
+    {"id": "sgsm",  "type": "ism_added", "level": 8,  "text": "[D≥50] update the interaction-structure memory (ISM) from strictly improving accepted moves"},
+    {"id": "argp",  "type": "ism_added", "level": 9,  "text": "Update the ACE credit and prune stalled arms (ARGP)"},
+    {"id": "bse",   "type": "ism_added", "level": 10, "text": "If stagnating, apply the budget-safe escape (BSE)"},
+    {"id": "sub",   "type": "ism_added", "level": 11, "text": "Run the coordinate local search (gated at [D≥100] by the budget/ROI controller)"},
+    {"id": "pol",   "type": "ism_added", "level": 12, "text": "[D≥50] once, in the final budget slice, apply the eigenframe polish"},
+    {"id": "gbest", "type": "process",   "level": 13, "text": "Update the global best (never loses ground)"},
+    {"id": "rst",   "type": "ism_added", "level": 14, "text": "If a deep stall is detected, restart the population and keep the best"},
+    {"id": "dec",   "type": "decision",  "level": 15, "text": "Is the termination criterion satisfied?"},
+    {"id": "end",   "type": "terminal",  "level": 16, "text": "End"}
+  ],
+  "edges": [
+    {"from": "begin", "to": "init"},
+    {"from": "init",  "to": "fit"},
+    {"from": "fit",   "to": "adapt"},
+    {"from": "adapt", "to": "dims"},
+    {"from": "dims",  "to": "phase"},
+    {"from": "phase", "to": "cross"},
+    {"from": "cross", "to": "acc"},
+    {"from": "acc",   "to": "sgsm"},
+    {"from": "sgsm",  "to": "argp"},
+    {"from": "argp",  "to": "bse"},
+    {"from": "bse",   "to": "sub"},
+    {"from": "sub",   "to": "pol"},
+    {"from": "pol",   "to": "gbest"},
+    {"from": "gbest", "to": "rst"},
+    {"from": "rst",   "to": "dec"},
+    {"from": "dec",   "to": "end",   "label": "Yes"},
+    {"from": "dec",   "to": "adapt", "label": "No", "route": "right_rail"}
+  ]
+}

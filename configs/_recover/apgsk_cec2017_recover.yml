@@ -1,0 +1,24 @@
+# apgsk CEC2017 D10/30/50 per-run RECOVERY (anomaly A2-004: the frozen tree's
+# apgsk cec2017 per_run.csv holds D100 only; D10/30/50 individual-run rows were
+# lost to a save-overwrite before the tree was frozen). This config mirrors the
+# reference protocol EXACTLY (run_config.json: 51 runs, unified seed 20240620,
+# threefry, python backend, F2 excluded), so the deterministic re-run reproduces
+# the original per-run values byte-for-byte (same seeds -> same trajectories).
+optimizers:
+- apgsk
+suite: cec2017
+functions: default          # cec2017 default set = F1,F3..F30 (F2 excluded)
+dimensions:
+- 10
+- 30
+- 50
+runs: 51                     # CEC2017 protocol (NOT 25 - that is the ablation)
+seed: 20240620
+seed_policy: unified
+rand_generator: threefry
+parallel: true
+workers: 12
+generation_logs: false
+convergence_graphs: false
+overwrite: true
+output_root: results/_apgsk_recover

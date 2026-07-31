@@ -1,0 +1,81 @@
+{
+ "table_id": "T16",
+ "manuscript_label": "Table 16",
+ "caption_stub": "CEC2017 Friedman mean ranks per dimension and overall (GSK-family panel; overall = descriptive mean of per-dimension ranks, no test attached).",
+ "headers": [
+  [
+   "Algorithm",
+   "D10_MeanRank",
+   "D30_MeanRank",
+   "D50_MeanRank",
+   "D100_MeanRank",
+   "Overall_MeanRank"
+  ]
+ ],
+ "rows": [
+  [
+   "GSK",
+   "5.517241",
+   "4.500000",
+   "4.758621",
+   "4.034483",
+   "4.702586"
+  ],
+  [
+   "AGSK",
+   "3.051724",
+   "4.689655",
+   "4.793103",
+   "4.827586",
+   "4.340517"
+  ],
+  [
+   "APGSK",
+   "3.568966",
+   "5.413793",
+   "5.344828",
+   "5.896552",
+   "5.056034"
+  ],
+  [
+   "FDBAGSK",
+   "3.448276",
+   "4.413793",
+   "3.965517",
+   "4.551724",
+   "4.094828"
+  ],
+  [
+   "ATMALS-GSK",
+   "5.293103",
+   "4.189655",
+   "4.310345",
+   "3.655172",
+   "4.362069"
+  ],
+  [
+   "EGSK",
+   "4.241379",
+   "2.293103",
+   "2.620690",
+   "2.689655",
+   "2.961207"
+  ],
+  [
+   "DT-GSK",
+   "2.879310",
+   "2.500000",
+   "2.206897",
+   "2.344828",
+   "2.482759"
+  ]
+ ],
+ "notes": [
+  "values transcribed verbatim from the Phase 6 export of release rel-2026-07-20-67d9345f9; see benchmarks/cec_reference_results/_paper_tables/provenance.json",
+  "display names at Word build time MUST apply the frozen Phase 4 glossary: EGSK -> eGSK, FDBAGSK -> FDB-AGSK (headers/rows here are verbatim CSV identifiers, not display names)",
+  "panel order P1: gsk, agsk, apgsk, fdb-agsk, atmals-gsk, egsk, dt-gsk; all comparative wording scoped to the GSK-family panel"
+ ],
+ "number_format": "as-is",
+ "source_csv": "benchmarks/cec_reference_results/_paper_tables/T16.csv",
+ "source_sha256": "e7283882d27cd624d0ed38f2b8e414ba83faf7726e968588970b0308138ff446"
+}

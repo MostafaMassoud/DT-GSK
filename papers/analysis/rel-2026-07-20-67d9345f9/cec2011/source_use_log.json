@@ -1,0 +1,683 @@
+{
+ "release": "rel-2026-07-20-67d9345f9",
+ "anchor_commit": "67d9345f9502a9a584e645fa8948f60a61d70e29",
+ "command": "python papers/scripts/phase6_run_analysis.py",
+ "strict_source": true,
+ "started_utc": "2026-07-20T18:55:46+00:00",
+ "finished_utc": "2026-07-20T18:56:44+00:00",
+ "status": "ok",
+ "opened": [
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\gsk\\gsk_cec2011.csv",
+   "role": "summary_csv"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\agsk\\agsk_cec2011.csv",
+   "role": "summary_csv"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\apgsk\\apgsk_cec2011.csv",
+   "role": "summary_csv"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\fdb-agsk\\fdb-agsk_cec2011.csv",
+   "role": "summary_csv"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\atmals-gsk\\atmals-gsk_cec2011.csv",
+   "role": "summary_csv"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\egsk\\egsk_cec2011.csv",
+   "role": "summary_csv"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\dt-gsk\\dt-gsk_cec2011.csv",
+   "role": "summary_csv"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\gsk\\per_run.csv",
+   "role": "per_run_csv"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\agsk\\per_run.csv",
+   "role": "per_run_csv"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\apgsk\\per_run.csv",
+   "role": "per_run_csv"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\fdb-agsk\\per_run.csv",
+   "role": "per_run_csv"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\atmals-gsk\\per_run.csv",
+   "role": "per_run_csv"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\egsk\\per_run.csv",
+   "role": "per_run_csv"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\dt-gsk\\per_run.csv",
+   "role": "per_run_csv"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\gsk\\gen_logs\\CheckpointErrors_gsk_F1_D6.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\agsk\\gen_logs\\CheckpointErrors_agsk_F1_D6.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\apgsk\\gen_logs\\CheckpointErrors_apgsk_F1_D6.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\fdb-agsk\\gen_logs\\CheckpointErrors_fdb-agsk_F1_D6.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\atmals-gsk\\gen_logs\\CheckpointErrors_atmals-gsk_F1_D6.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\egsk\\gen_logs\\CheckpointErrors_egsk_F1_D6.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\dt-gsk\\gen_logs\\CheckpointErrors_dt-gsk_F1_D6.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\gsk\\gen_logs\\CheckpointErrors_gsk_F2_D30.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\agsk\\gen_logs\\CheckpointErrors_agsk_F2_D30.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\apgsk\\gen_logs\\CheckpointErrors_apgsk_F2_D30.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\fdb-agsk\\gen_logs\\CheckpointErrors_fdb-agsk_F2_D30.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\atmals-gsk\\gen_logs\\CheckpointErrors_atmals-gsk_F2_D30.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\egsk\\gen_logs\\CheckpointErrors_egsk_F2_D30.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\dt-gsk\\gen_logs\\CheckpointErrors_dt-gsk_F2_D30.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\gsk\\gen_logs\\CheckpointErrors_gsk_F3_D1.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\agsk\\gen_logs\\CheckpointErrors_agsk_F3_D1.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\apgsk\\gen_logs\\CheckpointErrors_apgsk_F3_D1.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\fdb-agsk\\gen_logs\\CheckpointErrors_fdb-agsk_F3_D1.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\atmals-gsk\\gen_logs\\CheckpointErrors_atmals-gsk_F3_D1.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\egsk\\gen_logs\\CheckpointErrors_egsk_F3_D1.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\dt-gsk\\gen_logs\\CheckpointErrors_dt-gsk_F3_D1.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\gsk\\gen_logs\\CheckpointErrors_gsk_F4_D1.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\agsk\\gen_logs\\CheckpointErrors_agsk_F4_D1.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\apgsk\\gen_logs\\CheckpointErrors_apgsk_F4_D1.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\fdb-agsk\\gen_logs\\CheckpointErrors_fdb-agsk_F4_D1.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\atmals-gsk\\gen_logs\\CheckpointErrors_atmals-gsk_F4_D1.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\egsk\\gen_logs\\CheckpointErrors_egsk_F4_D1.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\dt-gsk\\gen_logs\\CheckpointErrors_dt-gsk_F4_D1.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\gsk\\gen_logs\\CheckpointErrors_gsk_F5_D30.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\agsk\\gen_logs\\CheckpointErrors_agsk_F5_D30.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\apgsk\\gen_logs\\CheckpointErrors_apgsk_F5_D30.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\fdb-agsk\\gen_logs\\CheckpointErrors_fdb-agsk_F5_D30.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\atmals-gsk\\gen_logs\\CheckpointErrors_atmals-gsk_F5_D30.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\egsk\\gen_logs\\CheckpointErrors_egsk_F5_D30.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\dt-gsk\\gen_logs\\CheckpointErrors_dt-gsk_F5_D30.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\gsk\\gen_logs\\CheckpointErrors_gsk_F6_D30.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\agsk\\gen_logs\\CheckpointErrors_agsk_F6_D30.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\apgsk\\gen_logs\\CheckpointErrors_apgsk_F6_D30.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\fdb-agsk\\gen_logs\\CheckpointErrors_fdb-agsk_F6_D30.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\atmals-gsk\\gen_logs\\CheckpointErrors_atmals-gsk_F6_D30.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\egsk\\gen_logs\\CheckpointErrors_egsk_F6_D30.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\dt-gsk\\gen_logs\\CheckpointErrors_dt-gsk_F6_D30.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\gsk\\gen_logs\\CheckpointErrors_gsk_F7_D20.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\agsk\\gen_logs\\CheckpointErrors_agsk_F7_D20.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\apgsk\\gen_logs\\CheckpointErrors_apgsk_F7_D20.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\fdb-agsk\\gen_logs\\CheckpointErrors_fdb-agsk_F7_D20.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\atmals-gsk\\gen_logs\\CheckpointErrors_atmals-gsk_F7_D20.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\egsk\\gen_logs\\CheckpointErrors_egsk_F7_D20.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\dt-gsk\\gen_logs\\CheckpointErrors_dt-gsk_F7_D20.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\gsk\\gen_logs\\CheckpointErrors_gsk_F8_D7.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\agsk\\gen_logs\\CheckpointErrors_agsk_F8_D7.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\apgsk\\gen_logs\\CheckpointErrors_apgsk_F8_D7.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\fdb-agsk\\gen_logs\\CheckpointErrors_fdb-agsk_F8_D7.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\atmals-gsk\\gen_logs\\CheckpointErrors_atmals-gsk_F8_D7.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\egsk\\gen_logs\\CheckpointErrors_egsk_F8_D7.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\dt-gsk\\gen_logs\\CheckpointErrors_dt-gsk_F8_D7.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\gsk\\gen_logs\\CheckpointErrors_gsk_F9_D126.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\agsk\\gen_logs\\CheckpointErrors_agsk_F9_D126.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\apgsk\\gen_logs\\CheckpointErrors_apgsk_F9_D126.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\fdb-agsk\\gen_logs\\CheckpointErrors_fdb-agsk_F9_D126.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\atmals-gsk\\gen_logs\\CheckpointErrors_atmals-gsk_F9_D126.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\egsk\\gen_logs\\CheckpointErrors_egsk_F9_D126.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\dt-gsk\\gen_logs\\CheckpointErrors_dt-gsk_F9_D126.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\gsk\\gen_logs\\CheckpointErrors_gsk_F10_D12.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\agsk\\gen_logs\\CheckpointErrors_agsk_F10_D12.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\apgsk\\gen_logs\\CheckpointErrors_apgsk_F10_D12.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\fdb-agsk\\gen_logs\\CheckpointErrors_fdb-agsk_F10_D12.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\atmals-gsk\\gen_logs\\CheckpointErrors_atmals-gsk_F10_D12.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\egsk\\gen_logs\\CheckpointErrors_egsk_F10_D12.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\dt-gsk\\gen_logs\\CheckpointErrors_dt-gsk_F10_D12.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\gsk\\gen_logs\\CheckpointErrors_gsk_F11_D120.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\agsk\\gen_logs\\CheckpointErrors_agsk_F11_D120.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\apgsk\\gen_logs\\CheckpointErrors_apgsk_F11_D120.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\fdb-agsk\\gen_logs\\CheckpointErrors_fdb-agsk_F11_D120.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\atmals-gsk\\gen_logs\\CheckpointErrors_atmals-gsk_F11_D120.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\egsk\\gen_logs\\CheckpointErrors_egsk_F11_D120.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\dt-gsk\\gen_logs\\CheckpointErrors_dt-gsk_F11_D120.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\gsk\\gen_logs\\CheckpointErrors_gsk_F12_D240.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\agsk\\gen_logs\\CheckpointErrors_agsk_F12_D240.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\apgsk\\gen_logs\\CheckpointErrors_apgsk_F12_D240.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\fdb-agsk\\gen_logs\\CheckpointErrors_fdb-agsk_F12_D240.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\atmals-gsk\\gen_logs\\CheckpointErrors_atmals-gsk_F12_D240.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\egsk\\gen_logs\\CheckpointErrors_egsk_F12_D240.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\dt-gsk\\gen_logs\\CheckpointErrors_dt-gsk_F12_D240.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\gsk\\gen_logs\\CheckpointErrors_gsk_F13_D6.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\agsk\\gen_logs\\CheckpointErrors_agsk_F13_D6.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\apgsk\\gen_logs\\CheckpointErrors_apgsk_F13_D6.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\fdb-agsk\\gen_logs\\CheckpointErrors_fdb-agsk_F13_D6.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\atmals-gsk\\gen_logs\\CheckpointErrors_atmals-gsk_F13_D6.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\egsk\\gen_logs\\CheckpointErrors_egsk_F13_D6.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\dt-gsk\\gen_logs\\CheckpointErrors_dt-gsk_F13_D6.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\gsk\\gen_logs\\CheckpointErrors_gsk_F14_D13.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\agsk\\gen_logs\\CheckpointErrors_agsk_F14_D13.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\apgsk\\gen_logs\\CheckpointErrors_apgsk_F14_D13.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\fdb-agsk\\gen_logs\\CheckpointErrors_fdb-agsk_F14_D13.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\atmals-gsk\\gen_logs\\CheckpointErrors_atmals-gsk_F14_D13.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\egsk\\gen_logs\\CheckpointErrors_egsk_F14_D13.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\dt-gsk\\gen_logs\\CheckpointErrors_dt-gsk_F14_D13.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\gsk\\gen_logs\\CheckpointErrors_gsk_F15_D15.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\agsk\\gen_logs\\CheckpointErrors_agsk_F15_D15.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\apgsk\\gen_logs\\CheckpointErrors_apgsk_F15_D15.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\fdb-agsk\\gen_logs\\CheckpointErrors_fdb-agsk_F15_D15.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\atmals-gsk\\gen_logs\\CheckpointErrors_atmals-gsk_F15_D15.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\egsk\\gen_logs\\CheckpointErrors_egsk_F15_D15.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\dt-gsk\\gen_logs\\CheckpointErrors_dt-gsk_F15_D15.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\gsk\\gen_logs\\CheckpointErrors_gsk_F16_D40.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\agsk\\gen_logs\\CheckpointErrors_agsk_F16_D40.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\apgsk\\gen_logs\\CheckpointErrors_apgsk_F16_D40.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\fdb-agsk\\gen_logs\\CheckpointErrors_fdb-agsk_F16_D40.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\atmals-gsk\\gen_logs\\CheckpointErrors_atmals-gsk_F16_D40.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\egsk\\gen_logs\\CheckpointErrors_egsk_F16_D40.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\dt-gsk\\gen_logs\\CheckpointErrors_dt-gsk_F16_D40.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\gsk\\gen_logs\\CheckpointErrors_gsk_F17_D140.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\agsk\\gen_logs\\CheckpointErrors_agsk_F17_D140.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\apgsk\\gen_logs\\CheckpointErrors_apgsk_F17_D140.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\fdb-agsk\\gen_logs\\CheckpointErrors_fdb-agsk_F17_D140.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\atmals-gsk\\gen_logs\\CheckpointErrors_atmals-gsk_F17_D140.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\egsk\\gen_logs\\CheckpointErrors_egsk_F17_D140.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\dt-gsk\\gen_logs\\CheckpointErrors_dt-gsk_F17_D140.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\gsk\\gen_logs\\CheckpointErrors_gsk_F18_D96.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\agsk\\gen_logs\\CheckpointErrors_agsk_F18_D96.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\apgsk\\gen_logs\\CheckpointErrors_apgsk_F18_D96.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\fdb-agsk\\gen_logs\\CheckpointErrors_fdb-agsk_F18_D96.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\atmals-gsk\\gen_logs\\CheckpointErrors_atmals-gsk_F18_D96.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\egsk\\gen_logs\\CheckpointErrors_egsk_F18_D96.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\dt-gsk\\gen_logs\\CheckpointErrors_dt-gsk_F18_D96.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\gsk\\gen_logs\\CheckpointErrors_gsk_F19_D96.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\agsk\\gen_logs\\CheckpointErrors_agsk_F19_D96.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\apgsk\\gen_logs\\CheckpointErrors_apgsk_F19_D96.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\fdb-agsk\\gen_logs\\CheckpointErrors_fdb-agsk_F19_D96.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\atmals-gsk\\gen_logs\\CheckpointErrors_atmals-gsk_F19_D96.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\egsk\\gen_logs\\CheckpointErrors_egsk_F19_D96.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\dt-gsk\\gen_logs\\CheckpointErrors_dt-gsk_F19_D96.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\gsk\\gen_logs\\CheckpointErrors_gsk_F20_D96.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\agsk\\gen_logs\\CheckpointErrors_agsk_F20_D96.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\apgsk\\gen_logs\\CheckpointErrors_apgsk_F20_D96.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\fdb-agsk\\gen_logs\\CheckpointErrors_fdb-agsk_F20_D96.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\atmals-gsk\\gen_logs\\CheckpointErrors_atmals-gsk_F20_D96.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\egsk\\gen_logs\\CheckpointErrors_egsk_F20_D96.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\dt-gsk\\gen_logs\\CheckpointErrors_dt-gsk_F20_D96.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\gsk\\gen_logs\\CheckpointErrors_gsk_F21_D26.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\agsk\\gen_logs\\CheckpointErrors_agsk_F21_D26.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\apgsk\\gen_logs\\CheckpointErrors_apgsk_F21_D26.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\fdb-agsk\\gen_logs\\CheckpointErrors_fdb-agsk_F21_D26.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\atmals-gsk\\gen_logs\\CheckpointErrors_atmals-gsk_F21_D26.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\egsk\\gen_logs\\CheckpointErrors_egsk_F21_D26.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\dt-gsk\\gen_logs\\CheckpointErrors_dt-gsk_F21_D26.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\gsk\\gen_logs\\CheckpointErrors_gsk_F22_D22.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\agsk\\gen_logs\\CheckpointErrors_agsk_F22_D22.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\apgsk\\gen_logs\\CheckpointErrors_apgsk_F22_D22.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\fdb-agsk\\gen_logs\\CheckpointErrors_fdb-agsk_F22_D22.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\atmals-gsk\\gen_logs\\CheckpointErrors_atmals-gsk_F22_D22.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\egsk\\gen_logs\\CheckpointErrors_egsk_F22_D22.csv",
+   "role": "checkpoint_log"
+  },
+  {
+   "path": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\benchmarks\\cec_reference_results\\cec2011\\dt-gsk\\gen_logs\\CheckpointErrors_dt-gsk_F22_D22.csv",
+   "role": "checkpoint_log"
+  }
+ ]
+}

@@ -1,0 +1,459 @@
+{
+ "authority": "papers/build_prompt_phases/phase_05/statistical_analysis_plan_addendum_cec2020_lsgo_amendment_01.md Sections A1.1/A1.3",
+ "rule": "a digit-level difference is a DEFECT IN THIS DRIVER, not a new result",
+ "omnibus": {
+  "mean_ranks": {
+   "gsk": {
+    "got": 3.8666666666666667,
+    "pinned": 3.867,
+    "tol": 0.0005,
+    "ok": true
+   },
+   "agsk": {
+    "got": 3.1333333333333333,
+    "pinned": 3.133,
+    "tol": 0.0005,
+    "ok": true
+   },
+   "apgsk": {
+    "got": 4.933333333333334,
+    "pinned": 4.933,
+    "tol": 0.0005,
+    "ok": true
+   },
+   "fdb-agsk": {
+    "got": 3.933333333333333,
+    "pinned": 3.933,
+    "tol": 0.0005,
+    "ok": true
+   },
+   "atmals-gsk": {
+    "got": 3.533333333333333,
+    "pinned": 3.533,
+    "tol": 0.0005,
+    "ok": true
+   },
+   "egsk": {
+    "got": 5.466666666666667,
+    "pinned": 5.467,
+    "tol": 0.0005,
+    "ok": true
+   },
+   "dt-gsk": {
+    "got": 3.1333333333333333,
+    "pinned": 3.133,
+    "tol": 0.0005,
+    "ok": true
+   }
+  },
+  "chi2": {
+   "got": 15.314285714285718,
+   "pinned": 15.3143,
+   "tol": 0.0005,
+   "ok": true
+  },
+  "p_chi2": {
+   "got": 0.01794819252757307,
+   "pinned": 0.01795,
+   "tol": 5e-05,
+   "ok": true
+  },
+  "f_id": {
+   "got": 2.8706962509563896,
+   "pinned": 2.8707,
+   "tol": 0.0005,
+   "ok": true
+  },
+  "p_id": {
+   "got": 0.013582684305559475,
+   "pinned": 0.01358,
+   "tol": 5e-05,
+   "ok": true
+  }
+ },
+ "layer1_AN-PW-LSGO-NATIVE": {
+  "gsk": {
+   "p_exact": {
+    "got": 0.76153564453125,
+    "pinned": 0.761536,
+    "tol": 5e-07,
+    "ok": true
+   },
+   "p_normal": {
+    "got": 0.7547526391460398,
+    "pinned": 0.7548,
+    "tol": 5e-05,
+    "ok": true
+   },
+   "p_holm": {
+    "got": 1.0,
+    "pinned": 1.0,
+    "tol": 5e-05,
+    "ok": true
+   },
+   "outcome": "tie"
+  },
+  "agsk": {
+   "p_exact": {
+    "got": 0.846923828125,
+    "pinned": 0.846924,
+    "tol": 5e-07,
+    "ok": true
+   },
+   "p_normal": {
+    "got": 0.8424296934105662,
+    "pinned": 0.8424,
+    "tol": 5e-05,
+    "ok": true
+   },
+   "p_holm": {
+    "got": 1.0,
+    "pinned": 1.0,
+    "tol": 5e-05,
+    "ok": true
+   },
+   "outcome": "tie"
+  },
+  "apgsk": {
+   "p_exact": {
+    "got": 0.05535888671875,
+    "pinned": 0.055359,
+    "tol": 5e-07,
+    "ok": true
+   },
+   "p_normal": {
+    "got": 0.05708320658278343,
+    "pinned": 0.0571,
+    "tol": 5e-05,
+    "ok": true
+   },
+   "p_holm": {
+    "got": 0.2874755859375,
+    "pinned": 0.2875,
+    "tol": 5e-05,
+    "ok": true
+   },
+   "outcome": "tie"
+  },
+  "fdb-agsk": {
+   "p_exact": {
+    "got": 0.083251953125,
+    "pinned": 0.083252,
+    "tol": 5e-07,
+    "ok": true
+   },
+   "p_normal": {
+    "got": 0.08322300611576039,
+    "pinned": 0.0832,
+    "tol": 5e-05,
+    "ok": true
+   },
+   "p_holm": {
+    "got": 0.3330078125,
+    "pinned": 0.333,
+    "tol": 5e-05,
+    "ok": true
+   },
+   "outcome": "tie"
+  },
+  "atmals-gsk": {
+   "p_exact": {
+    "got": 0.1688232421875,
+    "pinned": 0.168823,
+    "tol": 5e-07,
+    "ok": true
+   },
+   "p_normal": {
+    "got": 0.16407200426494106,
+    "pinned": 0.1641,
+    "tol": 5e-05,
+    "ok": true
+   },
+   "p_holm": {
+    "got": 0.5064697265625,
+    "pinned": 0.5065,
+    "tol": 5e-05,
+    "ok": true
+   },
+   "outcome": "tie"
+  },
+  "egsk": {
+   "p_exact": {
+    "got": 0.04791259765625,
+    "pinned": 0.047913,
+    "tol": 5e-07,
+    "ok": true
+   },
+   "p_normal": {
+    "got": 0.05005782743580112,
+    "pinned": 0.0501,
+    "tol": 5e-05,
+    "ok": true
+   },
+   "p_holm": {
+    "got": 0.2874755859375,
+    "pinned": 0.2875,
+    "tol": 5e-05,
+    "ok": true
+   },
+   "outcome": "tie"
+  }
+ },
+ "layer1_holm_significant": {
+  "got": 0,
+  "pinned": 0,
+  "ok": true
+ },
+ "layer2_AN-PWRUN-LSGO-NATIVE": {
+  "gsk": {
+   "wins": [
+    2,
+    3,
+    4,
+    6,
+    8,
+    10,
+    12,
+    14
+   ],
+   "losses": [
+    1,
+    5,
+    7,
+    9,
+    13,
+    15
+   ],
+   "counts_got": [
+    8,
+    6
+   ],
+   "counts_pinned": [
+    8,
+    6
+   ],
+   "ok": true
+  },
+  "agsk": {
+   "wins": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    8,
+    9,
+    10,
+    12
+   ],
+   "losses": [
+    1,
+    7,
+    11,
+    13,
+    14,
+    15
+   ],
+   "counts_got": [
+    9,
+    6
+   ],
+   "counts_pinned": [
+    9,
+    6
+   ],
+   "ok": true
+  },
+  "apgsk": {
+   "wins": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    8,
+    9,
+    11,
+    12,
+    14
+   ],
+   "losses": [
+    7,
+    13,
+    15
+   ],
+   "counts_got": [
+    11,
+    3
+   ],
+   "counts_pinned": [
+    11,
+    3
+   ],
+   "ok": true
+  },
+  "fdb-agsk": {
+   "wins": [
+    1,
+    3,
+    4,
+    5,
+    6,
+    8,
+    9,
+    10,
+    11,
+    12,
+    14
+   ],
+   "losses": [
+    2,
+    7,
+    13,
+    15
+   ],
+   "counts_got": [
+    11,
+    4
+   ],
+   "counts_pinned": [
+    11,
+    4
+   ],
+   "ok": true
+  },
+  "atmals-gsk": {
+   "wins": [
+    4,
+    5,
+    8,
+    9,
+    10,
+    11,
+    14
+   ],
+   "losses": [
+    1,
+    2,
+    3,
+    7,
+    12,
+    15
+   ],
+   "counts_got": [
+    7,
+    6
+   ],
+   "counts_pinned": [
+    7,
+    6
+   ],
+   "ok": true
+  },
+  "egsk": {
+   "wins": [
+    1,
+    2,
+    3,
+    4,
+    6,
+    8,
+    10,
+    11,
+    12,
+    13,
+    14
+   ],
+   "losses": [
+    5,
+    7,
+    9,
+    15
+   ],
+   "counts_got": [
+    11,
+    4
+   ],
+   "counts_pinned": [
+    11,
+    4
+   ],
+   "ok": true
+  }
+ },
+ "cross_comparator_regularities": {
+  "F4_win_vs_all_six": {
+   "got": [
+    "gsk",
+    "agsk",
+    "apgsk",
+    "fdb-agsk",
+    "atmals-gsk",
+    "egsk"
+   ],
+   "ok": true
+  },
+  "F8_win_vs_all_six": {
+   "got": [
+    "gsk",
+    "agsk",
+    "apgsk",
+    "fdb-agsk",
+    "atmals-gsk",
+    "egsk"
+   ],
+   "ok": true
+  },
+  "F7_loss_vs_all_six": {
+   "got": [
+    "gsk",
+    "agsk",
+    "apgsk",
+    "fdb-agsk",
+    "atmals-gsk",
+    "egsk"
+   ],
+   "ok": true
+  },
+  "F15_loss_vs_all_six": {
+   "got": [
+    "gsk",
+    "agsk",
+    "apgsk",
+    "fdb-agsk",
+    "atmals-gsk",
+    "egsk"
+   ],
+   "ok": true
+  }
+ },
+ "nemenyi_power_disclosure": {
+  "N=8": {
+   "recomputed": 3.1852840532674636,
+   "addendum_section_7": 3.185,
+   "q_alpha_005": 2.949,
+   "k": 7,
+   "abs_delta": 0.0002840532674635021,
+   "verdict": "reproduces addendum Section 7"
+  },
+  "N=10": {
+   "recomputed": 2.8490046683008434,
+   "addendum_section_7": 2.849,
+   "q_alpha_005": 2.949,
+   "k": 7,
+   "abs_delta": 4.668300843224671e-06,
+   "verdict": "reproduces addendum Section 7"
+  },
+  "N=15": {
+   "recomputed": 2.326202570714769,
+   "addendum_section_7": 2.327,
+   "q_alpha_005": 2.949,
+   "k": 7,
+   "abs_delta": 0.0007974292852308551,
+   "verdict": "TEXT DISCREPANCY (disclosed, not a driver defect): addendum Section 7 records CD=2.327 for N=15, which follows from q=2.950; the tabulated two-tailed q_0.05(k=7) is 2.949 (Demsar 2006 Table 5a), giving CD=2.326203. The driver reports the recomputed value and does not edit the pre-registration; quoting 2.327 in the manuscript would need a dated amendment."
+  }
+ },
+ "failures": [],
+ "status": "PASS"
+}

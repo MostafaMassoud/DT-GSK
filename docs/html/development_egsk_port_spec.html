@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="EGSK — Algorithm Spec &amp; Porting Verdict - GSK Family Python Documentation">
+  <title>EGSK — Algorithm Spec &amp; Porting Verdict | GSK Family Python Documentation</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <div class="site-shell">
+    <aside class="sidebar">
+<div class="brand"><a href="index.html">GSK Family Python</a></div>
+<input class="nav-search" type="search" placeholder="Filter docs" aria-label="Filter docs">
+<nav class="nav-list" aria-label="Documentation">
+<section><h2>Getting Started</h2>
+<a class="nav-link" href="getting-started_configuration.html">Configuration</a>
+<a class="nav-link" href="getting-started_explainer.html">Explainer</a>
+<a class="nav-link" href="getting-started_runbook.html">Runbook</a>
+<a class="nav-link" href="getting-started_troubleshooting.html">Troubleshooting</a>
+<a class="nav-link" href="getting-started_tutorial.html">Tutorial</a>
+<a class="nav-link" href="getting-started_user_guide.html">User Guide</a>
+</section>
+<section><h2>Reference</h2>
+<a class="nav-link" href="reference_api.html">API Reference</a>
+<a class="nav-link" href="reference_architecture.html">Architecture</a>
+<a class="nav-link" href="reference_benchmark_mapping.html">Benchmark Mapping</a>
+<a class="nav-link" href="reference_benchmark_protocol.html">Benchmark Protocol</a>
+<a class="nav-link" href="reference_cec2011_cpp_python_equivalence_review.html">CEC2011 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013_cpp_python_equivalence_review.html">CEC2013 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013lsgo_cpp_python_equivalence_review.html">CEC2013LSGO C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2017_cpp_python_equivalence_review.html">CEC2017 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2020_cpp_python_equivalence_review.html">CEC2020 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="index.html">Documentation Index</a>
+<a class="nav-link" href="reference_fp_regime.html">Floating-Point Regime Verification</a>
+<a class="nav-link" href="reference_diagrams.html">Flowcharts And Diagrams</a>
+<a class="nav-link" href="reference_glossary.html">Glossary</a>
+<a class="nav-link" href="LICENSES.html">Licenses</a>
+<a class="nav-link" href="reference_module_dependencies.html">Module Dependencies</a>
+<a class="nav-link" href="reference_project_structure.html">Project Structure</a>
+<a class="nav-link" href="reference_python_optimizer_interface.html">Python Optimizer Interface</a>
+<a class="nav-link" href="reference_result_schema.html">Result Schema</a>
+<a class="nav-link" href="reference_seed_policy.html">Seed Policy</a>
+<a class="nav-link" href="reference_workflows.html">Workflows</a>
+</section>
+<section><h2>Algorithm Guides</h2>
+<a class="nav-link" href="algorithms_agsk.html">AGSK — Adaptive Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_apgsk.html">APGSK — Adaptive-Parameters Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_atmals-gsk.html">ATMALS-GSK — Adaptive Tuning, Memory, Adaptive Local Search</a>
+<a class="nav-link" href="algorithms_dt-gsk.html">DT-GSK — Dimension-Tiered Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_egsk.html">EGSK — Enhanced Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_fdb-agsk.html">FDB-AGSK — Fitness-Distance-Balance AGSK</a>
+<a class="nav-link" href="algorithms_gsk.html">GSK — Gaining-Sharing Knowledge</a>
+</section>
+<section><h2>Development</h2>
+<a class="nav-link" href="development_BUG_resume_summary_truncation.html">BUG-RESUME-01 — resume mode truncates (and mis-computes) the per-dimension summary CSV</a>
+<a class="nav-link" href="development_LSGO_ACCELERATION_PLAN.html">CEC2013LSGO Acceleration Plan — all 7 GSK-family algorithms, bit-identically</a>
+<a class="nav-link" href="development_LSGO_INTEGRATION_CAMPAIGN.html">CEC2013LSGO Integration — Campaign Plan</a>
+<a class="nav-link" href="development_CEC2017_PREC_adjudication.html">CEC2017-PREC — adjudication (CLOSED 2026-07-25)</a>
+<a class="nav-link" href="development_code_reading_guide.html">Code Reading Guide</a>
+<a class="nav-link" href="development_contributor_guide.html">Contributor Guide</a>
+<a class="nav-link" href="development_DECC_G_port_record.html">DECC-G port — fidelity and validation record</a>
+<a class="nav-link" href="development_developer_guide.html">Developer Guide</a>
+<a class="nav-link" href="development_README.html">Development Docs</a>
+<a class="nav-link" href="development_dt_gsk_core_reference.html">DT-GSK Core Reference — the vendored core and its byte-identity lock</a>
+<a class="nav-link" href="development_evidence_rerun_runbook.html">DT-GSK re-run runbook — corrected implementation (C006 + graph backend)</a>
+<a class="nav-link active" href="development_egsk_port_spec.html">EGSK — Algorithm Spec &amp; Porting Verdict</a>
+<a class="nav-link" href="development_extension_guide.html">Extension Guide</a>
+<a class="nav-link" href="development_FAMILY_ACCELERATION_PLAN.html">Family-wide acceleration plan — 7 algorithms x 5 suites, bit-identical only</a>
+<a class="nav-link" href="development_FINAL_PUBLICATION_PLAN.html">FINAL PUBLICATION PLAN — DT-GSK, Four(/Five)-Suite Scope</a>
+<a class="nav-link" href="development_ACCELERATION_CAMPAIGN_PROMPT.html">GSK-Family Acceleration Campaign — Execution Prompt</a>
+<a class="nav-link" href="development_maintenance_guide.html">Maintenance Guide</a>
+<a class="nav-link" href="development_PORT_05_TUNING_TRIAGE.html">Porting project-05 tuning into 02 — Phase 1 audit and triage</a>
+<a class="nav-link" href="development_REFERENCE_PROMOTION_PLAN.html">Reference Promotion Plan — CEC2013LSGO now, CEC2020 behind its completeness gate</a>
+<a class="nav-link" href="development_SIBLING_CAMPAIGN_TRANSFER.html">Sibling-Campaign Transfer — every tuning that can make the GSK family fast</a>
+</section>
+<section><h2>Research</h2>
+<a class="nav-link" href="research_egsk_validation_appendix.html">EGSK Validation Appendix — Paired Port-vs-Reference Equivalence</a>
+<a class="nav-link" href="research_numerical_examples.html">Numerical Examples</a>
+<a class="nav-link" href="research_performance.html">Performance</a>
+<a class="nav-link" href="research_reproducibility.html">Reproducibility</a>
+<a class="nav-link" href="research_researcher_handbook.html">Researcher Handbook</a>
+<a class="nav-link" href="research_statistical_analysis.html">Statistical Analysis (GSK-family comparison)</a>
+<a class="nav-link" href="research_validation_report.html">Validation Report</a>
+</section>
+<section><h2>Prompts</h2>
+<a class="nav-link" href="prompt_documentation-deep-upgrade.html">Deep Documentation Review &amp; Upgrade Prompt — GSK Family Python</a>
+<a class="nav-link" href="prompt_project-review.html">Deep Expert Review Prompt For GSK Family Python</a>
+<a class="nav-link" href="prompt_documentation-review.html">Documentation Review Prompt</a>
+<a class="nav-link" href="prompt_publication-polish.html">Final Publication Prompt — Production-Ready Q1 Release of GSK Family Python v1.1</a>
+</section>
+<section><h2>Python API</h2>
+<a class="nav-link" href="api_index.html">API Module Index</a>
+<a class="nav-link api-link" href="api/gsk_family.__init__.html">gsk_family.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.__init__.html">gsk_family.analysis.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.family_report.html">gsk_family.analysis.family_report</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.figures.html">gsk_family.analysis.figures</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.latex_tables.html">gsk_family.analysis.latex_tables</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.project_policy.html">gsk_family.analysis.project_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.result_loader.html">gsk_family.analysis.result_loader</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistical_tests.html">gsk_family.analysis.statistical_tests</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistics.html">gsk_family.analysis.statistics</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.__init__.html">gsk_family.benchmark_adapter.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.factory.html">gsk_family.benchmark_adapter.factory</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.problem.html">gsk_family.benchmark_adapter.problem</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.protocol.html">gsk_family.benchmark_adapter.protocol</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.__init__.html">gsk_family.cli.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.list.html">gsk_family.cli.list</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.run.html">gsk_family.cli.run</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.stats.html">gsk_family.cli.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.validate.html">gsk_family.cli.validate</a>
+<a class="nav-link api-link" href="api/gsk_family.common.__init__.html">gsk_family.common.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.common.bounds.html">gsk_family.common.bounds</a>
+<a class="nav-link api-link" href="api/gsk_family.common.donors.html">gsk_family.common.donors</a>
+<a class="nav-link api-link" href="api/gsk_family.common.numeric_compat.html">gsk_family.common.numeric_compat</a>
+<a class="nav-link api-link" href="api/gsk_family.common.population.html">gsk_family.common.population</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reduction.html">gsk_family.common.reduction</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reference_rng.html">gsk_family.common.reference_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.rng.html">gsk_family.common.rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.threefry_rng.html">gsk_family.common.threefry_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.__init__.html">gsk_family.optimizers.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_profiles.html">gsk_family.optimizers._dt_profiles</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_rng.html">gsk_family.optimizers._dt_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._kernels.html">gsk_family.optimizers._kernels</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.agsk.html">gsk_family.optimizers.agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.apgsk.html">gsk_family.optimizers.apgsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_gsk.html">gsk_family.optimizers.atmals_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_helpers.html">gsk_family.optimizers.atmals_helpers</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.dt_gsk.html">gsk_family.optimizers.dt_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.egsk.html">gsk_family.optimizers.egsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.__init__.html">gsk_family.optimizers.external.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._base.html">gsk_family.optimizers.external._base</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._telemetry_shim.html">gsk_family.optimizers.external._telemetry_shim</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.cmaes.html">gsk_family.optimizers.external.cmaes</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.decc_g.html">gsk_family.optimizers.external.decc_g</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.ebowithcmar.html">gsk_family.optimizers.external.ebowithcmar</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.jso.html">gsk_family.optimizers.external.jso</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade.html">gsk_family.optimizers.external.lshade</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade_spacma.html">gsk_family.optimizers.external.lshade_spacma</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.mos_cec2013lsgo.html">gsk_family.optimizers.external.mos_cec2013lsgo</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.shade_ils.html">gsk_family.optimizers.external.shade_ils</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_agsk.html">gsk_family.optimizers.fdb_agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_scores.html">gsk_family.optimizers.fdb_scores</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.gsk.html">gsk_family.optimizers.gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.__init__.html">gsk_family.runners.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.config.html">gsk_family.runners.config</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.fp_regime.html">gsk_family.runners.fp_regime</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.output.html">gsk_family.runners.output</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.parallel.html">gsk_family.runners.parallel</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.performance.html">gsk_family.runners.performance</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.run_experiment.html">gsk_family.runners.run_experiment</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.seed_policy.html">gsk_family.runners.seed_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.verification.html">gsk_family.runners.verification</a>
+<a class="nav-link api-link" href="api/gsk_family.stats.html">gsk_family.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.types.html">gsk_family.types</a>
+</section>
+</nav></aside>
+    <main class="content">
+      <article class="doc-card">
+        <h1 id="egsk-algorithm-spec-porting-verdict">EGSK — Algorithm Spec &amp; Porting Verdict</h1>
+<p>Algorithm specification and porting verdict for the EGSK optimizer (now shipped as <code>optimizers/egsk.py</code>). Source of truth for the port: <code>01-GSK_Family_MATLAB_v1.0/gsk_family/src/optimizers/egsk/</code>.</p>
+<blockquote><strong>Outcome (post-Phase 0): Option A was implemented.</strong> EGSK is now a runnable optimizer</blockquote>
+<blockquote>(<code>src/gsk_family/optimizers/egsk.py</code>) — a faithful port whose interior-point refinement uses</blockquote>
+<blockquote><code>scipy</code>-SLSQP in place of MATLAB <code>fmincon</code>, validated by a paired per-run test. See</blockquote>
+<blockquote><a href="algorithms_egsk.html">egsk.md</a> and</blockquote>
+<blockquote><a href="research_egsk_validation_appendix.html">egsk_validation_appendix.md</a>. The options below are the</blockquote>
+<blockquote>original Phase 0 analysis; Option A is the one that shipped.</blockquote>
+<h2 id="1-what-egsk-is-enhanced-gsk">1. What EGSK is (Enhanced GSK)</h2>
+<p>Base GSK (junior/senior gaining-sharing over a fixed population of NP=100) <strong>plus three enhancements</strong>:</p>
+<ol>
+<li><strong>Dual adaptive knowledge factors KF1 (junior) &amp; KF2 (senior).</strong> Constant <code>0.5</code> until late stage</li>
+<p>(<code>g &gt;= 0.75·G_Max</code>), then recomputed <strong>per individual</strong> via a triangular membership function over ranked-fitness anchors (KF1: <code>fitness(Rg1,Rg3,Rg2)</code>; KF2: scalar <code>fitness(min R1,min R2,min R3)</code>), clamped to <code>[0,1)</code>.</p>
+<li><strong>Fixed 10/90 senior partition</strong> — <code>round(NP·0.1)</code> / <code>round(NP·0.9)</code> hardcoded in</li>
+<p><code>egsk_gained_shared_senior.m</code> (the base GSK helper is parameterized <code>P</code>; <strong>must not be reused as-is</strong>).</p>
+<li><strong>Interior-point local refinement <code>egsk_ip_refine</code></strong> — MATLAB <strong><code>fmincon</code> (algorithm=&#x27;sqp&#x27;)</strong>,</li>
+<p>budget <code>ceil(0.002·max_nfes)</code>, fired in late stage when <code>std([a2 b2 c2])·1e-2 &lt;= 1</code> and best-so-far is above target; refines the incumbent and writes it back to row <code>NO_i</code>.</p>
+</ol>
+<p>Key constants: <code>NP=100</code>, <code>KR=1</code>, <code>K=10</code>, junior schedule <code>ceil(D·(1-g/G_Max)^K)</code>, <code>G_Max=fix(max_nfes/NP)</code>, midpoint bound repair, <strong>asymmetric population selection</strong> (compare <code>sum(fitness)</code> vs <code>sum(children)</code> to pick the base, then greedy per-individual), termination at <code>nfes&gt;=max_nfes</code> (no early stop). Per-generation random draws (order matters): 3 mask draws <code>rand(NP,D)</code> + the senior R1/R2/R3 index sampling in <code>egsk_gained_shared_senior</code>.</p>
+<h2 id="2-rng-verdict-byte-identity-is-infeasible-for-the-published-reference">2. RNG verdict — byte-identity is <strong>INFEASIBLE</strong> (for the published reference)</h2>
+<ul>
+<li>✅ <strong>RNG/seed are byte-reproducible.</strong> The EGSK reference CSVs were generated with <strong>threefry</strong> (not the</li>
+<p>code&#x27;s default <code>twister</code>); the seed formula is identical to Python&#x27;s <code>get_cec_seed</code>; and <code>common/threefry_rng.py</code> already reproduces MATLAB&#x27;s <code>rng(seed,&#x27;threefry&#x27;)</code> stream <strong>bit-for-bit</strong> (validated to machine epsilon — the basis of the existing family ports). So the GSK population search *can* be byte-faithful.</p>
+<li>❌ <strong><code>fmincon</code> breaks it.</strong> <code>egsk_optimize.m:21</code> — *&quot;the published eGSK reference <strong>always</strong> calls</li>
+<p>fmincon&quot;* — and the code errors if it&#x27;s unavailable. MATLAB&#x27;s <code>fmincon</code> SQP has <strong>no byte-identical Python equivalent</strong> (scipy <code>SLSQP</code>/<code>trust-constr</code> is a different algorithm with a different iteration path and floating-point trajectory). The reference CSVs are visibly SQP-polished (F1/F3/F6 best = 0.0).</p>
+<li><strong>Conclusion:</strong> because the reference always ran <code>fmincon</code> and <code>fmincon</code> can&#x27;t be reproduced in Python,</li>
+<p><strong>full byte-identity is impossible.</strong> Validation must be <strong>Tier B — statistical equivalence</strong>.</p>
+</ul>
+<h2 id="3-helper-reuse-map-python-common">3. Helper reuse map (Python <code>common/</code>)</h2>
+<ul>
+<li><strong>Reuse directly:</strong> <code>gained_shared_junior_r1r2r3</code> (donors.py:24), <code>gsk_bound_repair</code> (bounds.py:12),</li>
+<p><code>gsk_initial_population_from_options</code> + <code>gsk_init_population</code> (population.py:53/66), <code>gsk_restore_rng_after_initialization</code> (population.py:94). (<code>reduction</code> exists but EGSK keeps NP fixed.)</p>
+<li><strong>Must create:</strong> (1) <strong>EGSK senior partition</strong> (fixed 10/90 — *not* the parameterized <code>P</code> version);</li>
+<p>(2) <strong><code>egsk_ip_refine</code></strong> wrapping <code>scipy.optimize.minimize(method=&#x27;SLSQP&#x27;, bounds=…, maxiter/maxfun capped)</code> as the <code>fmincon</code> substitute; (3) inline <strong>KF triangular-membership adaptation</strong>; (4) inline <strong>asymmetric selection</strong> twist.</p>
+<li><strong>As shipped (<code>optimizers/egsk.py</code>):</strong> (1) turned out <strong>not</strong> to need a new partition — the shared</li>
+<p><code>gained_shared_senior_r1r2r3</code> is reused with <code>p = 0.1</code> (<code>_SENIOR_P = 0.1</code>), because <code>round(NP·0.9) == round(NP·(1−0.1))</code> for every <code>NP</code>, so the fixed 10/90 split *is* the parameterized helper at <code>p = 0.1</code>. (2) <code>_egsk_ip_refine</code> wraps <code>scipy.optimize.minimize(method=&quot;SLSQP&quot;)</code> (details in §6). (3) <code>_triangular_membership</code> + <code>_clamp_kf</code> perform the KF adaptation. (4) the asymmetric <code>sum(fitness)</code> vs <code>sum(children)</code> selection is written inline in the generation loop.</p>
+</ul>
+<h2 id="4-python-contract-registration">4. Python contract &amp; registration</h2>
+<ul>
+<li><code>src/gsk_family/optimizers/egsk.py</code> mirrors <code>agsk.py</code>: <code>optimize(problem, options) -&gt; OptimizerResult</code>,</li>
+<p><code>_option_value</code>, <code>gsk_initial_population_from_options</code>, <code>RandomContext</code>, <code>_scan_best</code>, <code>_append_convergence</code>, budget tracking, the result fields + <code>params</code>/<code>notes</code>.</p>
+<li>Register: add <code>&#x27;egsk&#x27;</code> to <code>OPTIMIZER_IDS</code> (<code>optimizers/__init__.py</code>) and make it RUNNABLE in</li>
+<p><code>analysis/project_policy.py</code> (it is currently <code>REFERENCE_COMPARATORS</code>-only) — keeping the comparator semantics consistent.</p>
+<li><strong>As shipped:</strong> <code>&#x27;egsk&#x27;</code> is in <code>OPTIMIZER_IDS</code> and now appears in <strong>both</strong> <code>RUNNABLE_OPTIMIZERS</code></li>
+<p><strong>and</strong> <code>REFERENCE_COMPARATORS</code> (<code>analysis/project_policy.py</code>) — runnable locally while still available as committed reference statistics. It is one of the <strong>seven</strong> runnable family optimizers.</p>
+<li><strong>Smoke oracle</strong> (<code>test_egsk_smoke.m</code>): sphere F1, D10, <code>max_nfes=10000</code>, <code>seed=777</code>, target <code>1e-8</code> —</li>
+<p>the first parity check.</p>
+</ul>
+<h2 id="5-recommended-validation-strategy-tier-b-the-decision-you-must-make">5. Recommended validation strategy (Tier B) + the decision you must make</h2>
+<p>Because of <code>fmincon</code>, there are three honest options — <strong>this is the Phase-0 decision gate:</strong></p>
+<ul>
+<li>**Option A (recommended): port EGSK faithfully *with* a scipy-SLSQP <code>ip_refine</code>, validate</li>
+<p>statistically.<strong> Algorithm-faithful; the GSK part is byte-exact; document the <code>fmincon→SLSQP</code> substitution. Accept that on the SQP-polished functions exact agreement with the reference is </strong>not** expected — report the achieved per-function statistical agreement (paired Wilcoxon, mean/median within tolerance) honestly. Risk: may *not* statistically match the <code>fmincon</code> reference where SQP dominates.</p>
+<li>**Option B: port the GSK core *without* <code>ip_refine</code> (the <code>use_fmincon=false</code> mode).<strong> This </strong>is**</li>
+<p>byte-reproducible — but it does <strong>not</strong> match the committed (fmincon) reference; you&#x27;d have to regenerate the EGSK reference in no-fmincon mode (a different, weaker algorithm than published EGSK).</p>
+<li><strong>Option C: keep EGSK reference-only</strong> and document why (the <code>fmincon</code> dependency makes a clean,</li>
+<p>reproducible Python port impossible without an SQP substitution).</p>
+</ul>
+<h2 id="6-phase-1-questions-resolved-in-the-shipped-port-optimizers-egsk-py">6. Phase-1 questions — <strong>resolved in the shipped port</strong> (<code>optimizers/egsk.py</code>)</h2>
+<ul>
+<li><strong>Triangular-membership convention &amp; the <code>min(R1)</code> index quirk — confirmed intentional.</strong></li>
+<p><code>_triangular_membership</code> vectorizes the reference <code>y = (x−a)/(b−a)</code> on <code>[a, b]</code>, <code>(c−x)/(c−b)</code> on <code>[b, c]</code>, else <code>0</code>; <code>_clamp_kf</code> then applies the reference clamp (<code>y ≥ 1 → 0</code>, <code>y ≤ 0 → 0</code>, and non-finite <code>→ 0</code>, a no-move that keeps the parent). The senior anchors take <code>min</code> over the <strong>index</strong> vector — <code>a2 = fitness[min(r1)]</code>, <code>b2 = fitness[min(r2)]</code>, <code>c2 = fitness[min(r3)]</code> — reproduced verbatim and flagged in-code as a deliberate reference quirk.</p>
+<li><strong>The IP budget is honoured and counted into <code>nfes</code>.</strong> <code>_egsk_ip_refine</code> sets</li>
+<p><code>budget = min(ceil(2e-3·max_nfes), max_nfes − nfes)</code> and calls <code>minimize(method=&quot;SLSQP&quot;, bounds=…, options={&quot;maxiter&quot;: budget, &quot;ftol&quot;: 1e-12})</code>. SLSQP has no <code>MaxFunEvals</code>/<code>maxfun</code> option, so the budget is enforced by a <strong>hard per-call counter</strong> that raises a <code>_BudgetExceeded</code> sentinel; every objective call (value + finite-difference gradient) is then added to <code>nfes</code>, exactly as <code>details.funcCount</code> is in the reference. The refinement draws <strong>no</strong> RNG.</p>
+<li><strong>IP trigger thresholds are hardcoded per reference</strong> — the late stage begins at <code>g ≥ 0.75·G_Max</code></li>
+<p>(<code>_LATE_STAGE_FRAC</code>), and refinement fires only when <code>std([a2, b2, c2])·1e-2 ≤ 1</code> <strong>and</strong> best-so-far is above <code>optimum + val_2_reach</code>. The refined incumbent is written back to its producing row <code>NO_i</code>.</p>
+</ul>
+      </article>
+    </main>
+    <aside class="page-toc" aria-label="On this page">
+<h2>On This Page</h2>
+<a class="toc-level-1" href="#egsk-algorithm-spec-porting-verdict">EGSK — Algorithm Spec &amp; Porting Verdict</a>
+<a class="toc-level-2" href="#1-what-egsk-is-enhanced-gsk">1. What EGSK is (Enhanced GSK)</a>
+<a class="toc-level-2" href="#2-rng-verdict-byte-identity-is-infeasible-for-the-published-reference">2. RNG verdict — byte-identity is **INFEASIBLE** (for the published reference)</a>
+<a class="toc-level-2" href="#3-helper-reuse-map-python-common">3. Helper reuse map (Python `common/`)</a>
+<a class="toc-level-2" href="#4-python-contract-registration">4. Python contract &amp; registration</a>
+<a class="toc-level-2" href="#5-recommended-validation-strategy-tier-b-the-decision-you-must-make">5. Recommended validation strategy (Tier B) + the decision you must make</a>
+<a class="toc-level-2" href="#6-phase-1-questions-resolved-in-the-shipped-port-optimizers-egsk-py">6. Phase-1 questions — **resolved in the shipped port** (`optimizers/egsk.py`)</a>
+</aside>
+  </div>
+  <script src="assets/search.js"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+# ISM(SGSM)-overlay direct-isolation on the PRIMARY suite (CEC2017) at the
+# ISM-active tiers D50 and D100. Cell: no_finalpolish. Mirrors the pre-registered
+# X-ABL-02 four-cell design (full / no_sgsm / no_adaptive / no_finalpolish);
+# all four cells share identical seed / runs / suite / dims -- only
+# optimizer_options differ, so the comparison is paired (common random numbers).
+# Bump runs to 51 to match the primary panel's statistical power.
+optimizers:
+- dt-gsk
+suite: cec2017
+functions: default
+dimensions:
+- 50
+- 100
+runs: 25
+seed: 20240620
+seed_policy: unified
+rand_generator: threefry
+parallel: true
+workers: 8
+generation_logs: false
+convergence_graphs: false
+overwrite: true
+output_root: results/_ablation_sgsm_cec2017/no_finalpolish
+optimizer_options:
+  interaction_graph_enabled: true
+  final_polish_enabled: false

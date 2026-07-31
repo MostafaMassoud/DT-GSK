@@ -1,0 +1,22 @@
+{
+  "failures": [],
+  "functions_checked": 58,
+  "generated_dir": "results\\_ablation_sgsm_cec2017_51\\full\\dt-gsk\\cec2017",
+  "hard_failures": 0,
+  "missing_reference": 0,
+  "optimizer": "dt-gsk",
+  "reduced_budget": false,
+  "reference_root": "benchmarks\\cec_reference_results",
+  "suite": "cec2017",
+  "thresholds": {
+    "gross_factor": 1000000.0,
+    "negative_error_floor": -1e-06,
+    "reference_trivial_floor": 1e-08
+  },
+  "verdict": "CONSISTENT",
+  "win_tie_loss": [
+    0,
+    58,
+    0
+  ]
+}

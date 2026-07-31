@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="BUG-RESUME-01 — resume mode truncates (and mis-computes) the per-dimension summary CSV - GSK Family Python Documentation">
+  <title>BUG-RESUME-01 — resume mode truncates (and mis-computes) the per-dimension summary CSV | GSK Family Python Documentation</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <div class="site-shell">
+    <aside class="sidebar">
+<div class="brand"><a href="index.html">GSK Family Python</a></div>
+<input class="nav-search" type="search" placeholder="Filter docs" aria-label="Filter docs">
+<nav class="nav-list" aria-label="Documentation">
+<section><h2>Getting Started</h2>
+<a class="nav-link" href="getting-started_configuration.html">Configuration</a>
+<a class="nav-link" href="getting-started_explainer.html">Explainer</a>
+<a class="nav-link" href="getting-started_runbook.html">Runbook</a>
+<a class="nav-link" href="getting-started_troubleshooting.html">Troubleshooting</a>
+<a class="nav-link" href="getting-started_tutorial.html">Tutorial</a>
+<a class="nav-link" href="getting-started_user_guide.html">User Guide</a>
+</section>
+<section><h2>Reference</h2>
+<a class="nav-link" href="reference_api.html">API Reference</a>
+<a class="nav-link" href="reference_architecture.html">Architecture</a>
+<a class="nav-link" href="reference_benchmark_mapping.html">Benchmark Mapping</a>
+<a class="nav-link" href="reference_benchmark_protocol.html">Benchmark Protocol</a>
+<a class="nav-link" href="reference_cec2011_cpp_python_equivalence_review.html">CEC2011 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013_cpp_python_equivalence_review.html">CEC2013 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013lsgo_cpp_python_equivalence_review.html">CEC2013LSGO C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2017_cpp_python_equivalence_review.html">CEC2017 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2020_cpp_python_equivalence_review.html">CEC2020 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="index.html">Documentation Index</a>
+<a class="nav-link" href="reference_fp_regime.html">Floating-Point Regime Verification</a>
+<a class="nav-link" href="reference_diagrams.html">Flowcharts And Diagrams</a>
+<a class="nav-link" href="reference_glossary.html">Glossary</a>
+<a class="nav-link" href="LICENSES.html">Licenses</a>
+<a class="nav-link" href="reference_module_dependencies.html">Module Dependencies</a>
+<a class="nav-link" href="reference_project_structure.html">Project Structure</a>
+<a class="nav-link" href="reference_python_optimizer_interface.html">Python Optimizer Interface</a>
+<a class="nav-link" href="reference_result_schema.html">Result Schema</a>
+<a class="nav-link" href="reference_seed_policy.html">Seed Policy</a>
+<a class="nav-link" href="reference_workflows.html">Workflows</a>
+</section>
+<section><h2>Algorithm Guides</h2>
+<a class="nav-link" href="algorithms_agsk.html">AGSK — Adaptive Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_apgsk.html">APGSK — Adaptive-Parameters Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_atmals-gsk.html">ATMALS-GSK — Adaptive Tuning, Memory, Adaptive Local Search</a>
+<a class="nav-link" href="algorithms_dt-gsk.html">DT-GSK — Dimension-Tiered Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_egsk.html">EGSK — Enhanced Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_fdb-agsk.html">FDB-AGSK — Fitness-Distance-Balance AGSK</a>
+<a class="nav-link" href="algorithms_gsk.html">GSK — Gaining-Sharing Knowledge</a>
+</section>
+<section><h2>Development</h2>
+<a class="nav-link active" href="development_BUG_resume_summary_truncation.html">BUG-RESUME-01 — resume mode truncates (and mis-computes) the per-dimension summary CSV</a>
+<a class="nav-link" href="development_LSGO_ACCELERATION_PLAN.html">CEC2013LSGO Acceleration Plan — all 7 GSK-family algorithms, bit-identically</a>
+<a class="nav-link" href="development_LSGO_INTEGRATION_CAMPAIGN.html">CEC2013LSGO Integration — Campaign Plan</a>
+<a class="nav-link" href="development_CEC2017_PREC_adjudication.html">CEC2017-PREC — adjudication (CLOSED 2026-07-25)</a>
+<a class="nav-link" href="development_code_reading_guide.html">Code Reading Guide</a>
+<a class="nav-link" href="development_contributor_guide.html">Contributor Guide</a>
+<a class="nav-link" href="development_DECC_G_port_record.html">DECC-G port — fidelity and validation record</a>
+<a class="nav-link" href="development_developer_guide.html">Developer Guide</a>
+<a class="nav-link" href="development_README.html">Development Docs</a>
+<a class="nav-link" href="development_dt_gsk_core_reference.html">DT-GSK Core Reference — the vendored core and its byte-identity lock</a>
+<a class="nav-link" href="development_evidence_rerun_runbook.html">DT-GSK re-run runbook — corrected implementation (C006 + graph backend)</a>
+<a class="nav-link" href="development_egsk_port_spec.html">EGSK — Algorithm Spec &amp; Porting Verdict</a>
+<a class="nav-link" href="development_extension_guide.html">Extension Guide</a>
+<a class="nav-link" href="development_FAMILY_ACCELERATION_PLAN.html">Family-wide acceleration plan — 7 algorithms x 5 suites, bit-identical only</a>
+<a class="nav-link" href="development_FINAL_PUBLICATION_PLAN.html">FINAL PUBLICATION PLAN — DT-GSK, Four(/Five)-Suite Scope</a>
+<a class="nav-link" href="development_ACCELERATION_CAMPAIGN_PROMPT.html">GSK-Family Acceleration Campaign — Execution Prompt</a>
+<a class="nav-link" href="development_maintenance_guide.html">Maintenance Guide</a>
+<a class="nav-link" href="development_PORT_05_TUNING_TRIAGE.html">Porting project-05 tuning into 02 — Phase 1 audit and triage</a>
+<a class="nav-link" href="development_REFERENCE_PROMOTION_PLAN.html">Reference Promotion Plan — CEC2013LSGO now, CEC2020 behind its completeness gate</a>
+<a class="nav-link" href="development_SIBLING_CAMPAIGN_TRANSFER.html">Sibling-Campaign Transfer — every tuning that can make the GSK family fast</a>
+</section>
+<section><h2>Research</h2>
+<a class="nav-link" href="research_egsk_validation_appendix.html">EGSK Validation Appendix — Paired Port-vs-Reference Equivalence</a>
+<a class="nav-link" href="research_numerical_examples.html">Numerical Examples</a>
+<a class="nav-link" href="research_performance.html">Performance</a>
+<a class="nav-link" href="research_reproducibility.html">Reproducibility</a>
+<a class="nav-link" href="research_researcher_handbook.html">Researcher Handbook</a>
+<a class="nav-link" href="research_statistical_analysis.html">Statistical Analysis (GSK-family comparison)</a>
+<a class="nav-link" href="research_validation_report.html">Validation Report</a>
+</section>
+<section><h2>Prompts</h2>
+<a class="nav-link" href="prompt_documentation-deep-upgrade.html">Deep Documentation Review &amp; Upgrade Prompt — GSK Family Python</a>
+<a class="nav-link" href="prompt_project-review.html">Deep Expert Review Prompt For GSK Family Python</a>
+<a class="nav-link" href="prompt_documentation-review.html">Documentation Review Prompt</a>
+<a class="nav-link" href="prompt_publication-polish.html">Final Publication Prompt — Production-Ready Q1 Release of GSK Family Python v1.1</a>
+</section>
+<section><h2>Python API</h2>
+<a class="nav-link" href="api_index.html">API Module Index</a>
+<a class="nav-link api-link" href="api/gsk_family.__init__.html">gsk_family.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.__init__.html">gsk_family.analysis.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.family_report.html">gsk_family.analysis.family_report</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.figures.html">gsk_family.analysis.figures</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.latex_tables.html">gsk_family.analysis.latex_tables</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.project_policy.html">gsk_family.analysis.project_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.result_loader.html">gsk_family.analysis.result_loader</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistical_tests.html">gsk_family.analysis.statistical_tests</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistics.html">gsk_family.analysis.statistics</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.__init__.html">gsk_family.benchmark_adapter.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.factory.html">gsk_family.benchmark_adapter.factory</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.problem.html">gsk_family.benchmark_adapter.problem</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.protocol.html">gsk_family.benchmark_adapter.protocol</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.__init__.html">gsk_family.cli.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.list.html">gsk_family.cli.list</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.run.html">gsk_family.cli.run</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.stats.html">gsk_family.cli.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.validate.html">gsk_family.cli.validate</a>
+<a class="nav-link api-link" href="api/gsk_family.common.__init__.html">gsk_family.common.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.common.bounds.html">gsk_family.common.bounds</a>
+<a class="nav-link api-link" href="api/gsk_family.common.donors.html">gsk_family.common.donors</a>
+<a class="nav-link api-link" href="api/gsk_family.common.numeric_compat.html">gsk_family.common.numeric_compat</a>
+<a class="nav-link api-link" href="api/gsk_family.common.population.html">gsk_family.common.population</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reduction.html">gsk_family.common.reduction</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reference_rng.html">gsk_family.common.reference_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.rng.html">gsk_family.common.rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.threefry_rng.html">gsk_family.common.threefry_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.__init__.html">gsk_family.optimizers.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_profiles.html">gsk_family.optimizers._dt_profiles</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_rng.html">gsk_family.optimizers._dt_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._kernels.html">gsk_family.optimizers._kernels</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.agsk.html">gsk_family.optimizers.agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.apgsk.html">gsk_family.optimizers.apgsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_gsk.html">gsk_family.optimizers.atmals_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_helpers.html">gsk_family.optimizers.atmals_helpers</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.dt_gsk.html">gsk_family.optimizers.dt_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.egsk.html">gsk_family.optimizers.egsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.__init__.html">gsk_family.optimizers.external.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._base.html">gsk_family.optimizers.external._base</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._telemetry_shim.html">gsk_family.optimizers.external._telemetry_shim</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.cmaes.html">gsk_family.optimizers.external.cmaes</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.decc_g.html">gsk_family.optimizers.external.decc_g</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.ebowithcmar.html">gsk_family.optimizers.external.ebowithcmar</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.jso.html">gsk_family.optimizers.external.jso</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade.html">gsk_family.optimizers.external.lshade</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade_spacma.html">gsk_family.optimizers.external.lshade_spacma</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.mos_cec2013lsgo.html">gsk_family.optimizers.external.mos_cec2013lsgo</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.shade_ils.html">gsk_family.optimizers.external.shade_ils</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_agsk.html">gsk_family.optimizers.fdb_agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_scores.html">gsk_family.optimizers.fdb_scores</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.gsk.html">gsk_family.optimizers.gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.__init__.html">gsk_family.runners.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.config.html">gsk_family.runners.config</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.fp_regime.html">gsk_family.runners.fp_regime</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.output.html">gsk_family.runners.output</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.parallel.html">gsk_family.runners.parallel</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.performance.html">gsk_family.runners.performance</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.run_experiment.html">gsk_family.runners.run_experiment</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.seed_policy.html">gsk_family.runners.seed_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.verification.html">gsk_family.runners.verification</a>
+<a class="nav-link api-link" href="api/gsk_family.stats.html">gsk_family.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.types.html">gsk_family.types</a>
+</section>
+</nav></aside>
+    <main class="content">
+      <article class="doc-card">
+        <h1 id="bug-resume-01-resume-mode-truncates-and-mis-computes-the-per-dimension-summary-csv">BUG-RESUME-01 — resume mode truncates (and mis-computes) the per-dimension summary CSV</h1>
+<p><strong>Status: ✅ FIXED 2026-07-25 — CR-0012.</strong> Was present for all 7 algorithms and all 5 suites. Fix verified RED-then-GREEN plus end-to-end against the real runner; full suite 491 passed (was 488). See &quot;Resolution&quot; at the bottom.</p>
+<p>⚠ <strong>Any summary CSV previously produced BY A RESUME is suspect</strong> and should be regenerated from <code>per_run.csv</code>, which is authoritative and was never affected. <strong>Reported:</strong> 2026-07-25, reproduced by the author in the sibling project <code>05-Human-Inspired-Family_Python_v0.1</code> (shade-ils, cec2013lsgo). <strong>Severity:</strong> HIGH — silent data corruption of a released artifact. <strong>Urgency here:</strong> the dt-gsk CEC2013LSGO campaign currently sits at <strong>100/375 runs</strong>, so the next resume will trigger this.</p>
+<h2 id="symptom-as-reported">Symptom (as reported)</h2>
+<p>Resuming a config <strong>without</strong> <code>--overwrite</code> (so only missing runs dispatch) rewrites <code>&lt;alg&gt;_&lt;suite&gt;_D&lt;dim&gt;.csv</code> with <strong>only the functions it touched</strong>. In the sibling project a resume that filled 6 missing F8 runs left the D1000 summary containing a single row (F8); F1–F7, F9–F12, F15 were dropped. <code>per_run.csv</code> still held all 375 runs and was used to regenerate the summaries by hand.</p>
+<h2 id="root-cause-in-this-project-verified-in-source">Root cause in this project (verified in source)</h2>
+<p><code>src/gsk_family/runners/run_experiment.py</code>:</p>
+<div class="table-wrap"><table><thead><tr><th>line</th><th>code</th><th>effect</th></tr></thead><tbody><tr><td>1353–1355</td><td><code>existing_rows = ... read_existing_per_run(...)</code>; <code>all_rows = list(existing_rows)</code></td><td><strong><code>per_run.csv</code> correctly merges</strong> prior runs</td></tr><tr><td>1356</td><td><code>artifacts: list[RunArtifact] = []</code></td><td>starts <strong>empty</strong></td></tr><tr><td>1366–1371</td><td>already-complete <code>key_seed</code> → <code>continue</code></td><td>existing runs are <strong>skipped, never reconstructed</strong> as <code>RunArtifact</code></td></tr><tr><td>1630</td><td><code>artifacts.append(artifact)</code></td><td>only <strong>new</strong> runs enter <code>artifacts</code></td></tr><tr><td>1678, 1756</td><td><code>write_summary_tables(dirs[&quot;summary&quot;], optimizer, cfg.suite, artifacts)</code></td><td>summary built from new runs only</td></tr></tbody></table></div>
+<p><code>src/gsk_family/runners/output.py:146</code> <code>write_summary_tables</code> groups <code>artifacts</code> by <code>(dim, func)</code> and opens each <code>&lt;alg&gt;_&lt;suite&gt;_D&lt;dim&gt;.csv</code> with mode <strong><code>&quot;w&quot;</code></strong> (truncate) — so untouched functions are erased. The <code>cec2011</code> rollup path (<code>&lt;alg&gt;_cec2011.csv</code>) has the identical defect.</p>
+<h2 id="second-worse-face-of-the-bug-not-in-the-original-report">⚠ Second, worse face of the bug — NOT in the original report</h2>
+<p>Because <code>artifacts</code> holds only new runs, a <strong>partially</strong> resumed function is summarised over the new runs alone. A resume that adds 6 runs to an F8 that already had 19 writes Best/Median/Mean/Worst/SD computed from <strong>6 runs, not 25</strong> — a plausible-looking but wrong row, rather than an obviously missing one. Function truncation is visible; this is not.</p>
+<h2 id="fix-designed-not-yet-applied">Fix (designed, not yet applied)</h2>
+<p><strong>Rebuild the summary from <code>per_run.csv</code>, which is authoritative and already complete.</strong> This closes both faces at once; merging on-disk summary rows would fix only the first.</p>
+<p>Value selection is exactly reproducible from the CSV — <code>stats.py:69</code> <code>statistic_values</code> returns:</p>
+<ul>
+<li><code>statistics_basis == &quot;raw_objective&quot;</code> → <code>best_fitness</code> unchanged;</li>
+<li><code>statistics_basis == &quot;error_vs_optimum&quot;</code> → <code>compute_error(...)</code>, which is what the</li>
+<p><code>error</code> column already stores.</p>
+</ul>
+<p>and <code>per_run.csv</code> carries <strong>both</strong> columns (<code>optimizer,suite,function,dimension,run,seed,best_fitness,error,nfes,termination,runtime_seconds</code>).</p>
+<p>Implementation sketch:</p>
+<ol>
+<li>Add to <code>output.py</code> a row-based writer, e.g.</li>
+<p><code>write_summary_tables_from_rows(summary_dir, optimizer, suite, rows, statistics_basis)</code>: group rows by <code>(dimension, function)</code>, select <code>best_fitness</code> or <code>error</code> per basis, <code>summarize(...)</code>, write every function present — same header and <code>format_scientific</code> formatting as today.</p>
+<li>Replace both <code>write_summary_tables(..., artifacts)</code> call sites with the</li>
+<p>row-based writer fed <code>all_rows</code>. Keep the streaming site (1678) so an interrupted campaign still refreshes the summary — it becomes *more* correct, not less, because <code>all_rows</code> includes prior runs.</p>
+<li>Keep <code>write_summary_tables</code> (artifact-based) only if something else needs it;</li>
+<p>otherwise delete to prevent reintroduction.</p>
+</ol>
+<h2 id="regression-test-to-add">Regression test to add</h2>
+<p><code>tests/regression/test_resume_summary_not_truncated.py</code>:</p>
+<ul>
+<li>seed a <code>per_run.csv</code> bank covering several functions at one dim, plus matching</li>
+<p>summary CSV;</p>
+<li>run a resume that dispatches <strong>one</strong> function;</li>
+<li>assert the summary CSV still lists <strong>every</strong> function present in <code>per_run.csv</code>;</li>
+<li>assert the resumed function&#x27;s row equals the statistics over <strong>all</strong> its runs in</li>
+<p><code>per_run.csv</code>, not just the new ones (this is the check that catches face 2).</p>
+</ul>
+<h2 id="cross-project-note">Cross-project note</h2>
+<p>The same defect exists in <code>05-Human-Inspired-Family_Python_v0.1</code> (<code>src/human_inspired_family/runners/run_experiment.py</code>). Fixing it there is outside this project&#x27;s change scope — the author holds that decision.</p>
+<p>---</p>
+<h2 id="resolution-cr-0012-2026-07-25">Resolution — CR-0012, 2026-07-25</h2>
+<p><strong>The originally-proposed fix was rejected after measurement.</strong> &quot;Always recompute all functions from <code>per_run.csv</code>&quot; (§Fix above, and the author&#x27;s own preferred option) turns out to perturb released numbers: <code>per_run.csv</code> stores <code>%.10e</code>-rounded values while the artifact path summarises full float64, so a rebuild shifts <strong>Mean/SD in the 10th significant digit</strong>. Measured on real dt-gsk LSGO data, <strong>5 of 20 fields differed</strong> — e.g. F3 Mean <code>2.0522500209E+01</code> vs <code>2.0522500208E+01</code>, F2 SD <code>3.1119309017E+02</code> vs <code>3.1119309016E+02</code>. Best/Median/Worst always matched (rounding is monotonic, so selection is stable).</p>
+<p>That drift never reaches manuscript precision (paper tables print ~3 significant digits) but it <strong>would break the file hash of every frozen summary it rewrote</strong> — unacceptable for cec2017/cec2011/cec2013.</p>
+<h3 id="what-was-implemented-instead-never-perturb-a-number-you-did-not-recompute">What was implemented instead — never perturb a number you did not recompute</h3>
+<p>Per cell, in order of preference:</p>
+<ol>
+<li><strong>Untouched function</strong> → its existing on-disk row is carried over</li>
+<p><strong>byte-for-byte</strong> (<code>_read_existing_summary</code>). A resume cannot rewrite it.</p>
+<li><strong>Fully covered by this session</strong> → exact artifact computation, unchanged from</li>
+<p>before, at full float64 precision.</p>
+<li><strong>Partially resumed</strong> → summarised from the complete banked values</li>
+<p>(<code>bank_counts</code> / <code>bank_values</code>, derived from <code>per_run.csv</code> by <code>_bank_from_rows</code>, basis-aware: <code>best_fitness</code> for <code>raw_objective</code>, the precomputed <code>error</code> column otherwise). Accepts the 10th-digit drift because the alternative — statistics over an arbitrary subset — is far worse, and the earlier runs&#x27; full-precision values no longer exist.</p>
+</ol>
+<p>The <code>&quot;w&quot;</code> truncation is gone: both the per-dimension tables and the CEC2011 rollup now merge into whatever is already on disk.</p>
+<h3 id="verification">Verification</h3>
+<ul>
+<li><strong>RED-then-GREEN.</strong> On pre-fix code the new test reproduces the reported symptom</li>
+<p>verbatim: <code>resume dropped functions: kept [8], expected [1, 2, 3, 8, 15]</code>, plus <code>cec2011 rollup dropped functions</code>. All pass after.</p>
+<li><code>tests/regression/test_resume_summary_not_truncated.py</code> — 3 tests: truncation,</li>
+<p><strong>subset statistics</strong> (the invisible face), and the CEC2011 rollup.</p>
+<li>Full suite <strong>491 passed</strong> (was 488).</li>
+<li><strong>End-to-end against the real runner:</strong> ran F1/F2/F3 × 2, then resumed touching</li>
+<p>only F2 (<code>runs: 3</code>, no <code>--overwrite</code>). Summary retained <code>[&#x27;1&#x27;,&#x27;2&#x27;,&#x27;3&#x27;]</code>; <code>per_run.csv</code> showed <code>{1: 2, 2: 3, 3: 2}</code>.</p>
+</ul>
+<h3 id="still-open">Still open</h3>
+<p>The same defect exists in <code>05-Human-Inspired-Family_Python_v0.1</code> (<code>src/human_inspired_family/runners/run_experiment.py</code> + its <code>output.py</code>). Porting this fix there is outside this project&#x27;s change scope — author&#x27;s decision.</p>
+      </article>
+    </main>
+    <aside class="page-toc" aria-label="On this page">
+<h2>On This Page</h2>
+<a class="toc-level-1" href="#bug-resume-01-resume-mode-truncates-and-mis-computes-the-per-dimension-summary-csv">BUG-RESUME-01 — resume mode truncates (and mis-computes) the per-dimension summary CSV</a>
+<a class="toc-level-2" href="#symptom-as-reported">Symptom (as reported)</a>
+<a class="toc-level-2" href="#root-cause-in-this-project-verified-in-source">Root cause in this project (verified in source)</a>
+<a class="toc-level-2" href="#second-worse-face-of-the-bug-not-in-the-original-report">⚠ Second, worse face of the bug — NOT in the original report</a>
+<a class="toc-level-2" href="#fix-designed-not-yet-applied">Fix (designed, not yet applied)</a>
+<a class="toc-level-2" href="#regression-test-to-add">Regression test to add</a>
+<a class="toc-level-2" href="#cross-project-note">Cross-project note</a>
+<a class="toc-level-2" href="#resolution-cr-0012-2026-07-25">Resolution — CR-0012, 2026-07-25</a>
+<a class="toc-level-3" href="#what-was-implemented-instead-never-perturb-a-number-you-did-not-recompute">What was implemented instead — never perturb a number you did not recompute</a>
+<a class="toc-level-3" href="#verification">Verification</a>
+<a class="toc-level-3" href="#still-open">Still open</a>
+</aside>
+  </div>
+  <script src="assets/search.js"></script>
+</body>
+</html>

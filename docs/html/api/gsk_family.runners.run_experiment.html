@@ -1,0 +1,559 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Python API documentation for gsk_family.runners.run_experiment">
+  <title>gsk_family.runners.run_experiment | GSK Family Python Documentation</title>
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+  <div class="site-shell">
+    <aside class="sidebar">
+<div class="brand"><a href="../index.html">GSK Family Python</a></div>
+<input class="nav-search" type="search" placeholder="Filter docs" aria-label="Filter docs">
+<nav class="nav-list" aria-label="Documentation">
+<section><h2>Getting Started</h2>
+<a class="nav-link" href="../getting-started_configuration.html">Configuration</a>
+<a class="nav-link" href="../getting-started_explainer.html">Explainer</a>
+<a class="nav-link" href="../getting-started_runbook.html">Runbook</a>
+<a class="nav-link" href="../getting-started_troubleshooting.html">Troubleshooting</a>
+<a class="nav-link" href="../getting-started_tutorial.html">Tutorial</a>
+<a class="nav-link" href="../getting-started_user_guide.html">User Guide</a>
+</section>
+<section><h2>Reference</h2>
+<a class="nav-link" href="../reference_api.html">API Reference</a>
+<a class="nav-link" href="../reference_architecture.html">Architecture</a>
+<a class="nav-link" href="../reference_benchmark_mapping.html">Benchmark Mapping</a>
+<a class="nav-link" href="../reference_benchmark_protocol.html">Benchmark Protocol</a>
+<a class="nav-link" href="../reference_cec2011_cpp_python_equivalence_review.html">CEC2011 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="../reference_cec2013_cpp_python_equivalence_review.html">CEC2013 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="../reference_cec2013lsgo_cpp_python_equivalence_review.html">CEC2013LSGO C++ to Python Equivalence Review</a>
+<a class="nav-link" href="../reference_cec2017_cpp_python_equivalence_review.html">CEC2017 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="../reference_cec2020_cpp_python_equivalence_review.html">CEC2020 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="../index.html">Documentation Index</a>
+<a class="nav-link" href="../reference_fp_regime.html">Floating-Point Regime Verification</a>
+<a class="nav-link" href="../reference_diagrams.html">Flowcharts And Diagrams</a>
+<a class="nav-link" href="../reference_glossary.html">Glossary</a>
+<a class="nav-link" href="../LICENSES.html">Licenses</a>
+<a class="nav-link" href="../reference_module_dependencies.html">Module Dependencies</a>
+<a class="nav-link" href="../reference_project_structure.html">Project Structure</a>
+<a class="nav-link" href="../reference_python_optimizer_interface.html">Python Optimizer Interface</a>
+<a class="nav-link" href="../reference_result_schema.html">Result Schema</a>
+<a class="nav-link" href="../reference_seed_policy.html">Seed Policy</a>
+<a class="nav-link" href="../reference_workflows.html">Workflows</a>
+</section>
+<section><h2>Algorithm Guides</h2>
+<a class="nav-link" href="../algorithms_agsk.html">AGSK — Adaptive Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="../algorithms_apgsk.html">APGSK — Adaptive-Parameters Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="../algorithms_atmals-gsk.html">ATMALS-GSK — Adaptive Tuning, Memory, Adaptive Local Search</a>
+<a class="nav-link" href="../algorithms_dt-gsk.html">DT-GSK — Dimension-Tiered Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="../algorithms_egsk.html">EGSK — Enhanced Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="../algorithms_fdb-agsk.html">FDB-AGSK — Fitness-Distance-Balance AGSK</a>
+<a class="nav-link" href="../algorithms_gsk.html">GSK — Gaining-Sharing Knowledge</a>
+</section>
+<section><h2>Development</h2>
+<a class="nav-link" href="../development_BUG_resume_summary_truncation.html">BUG-RESUME-01 — resume mode truncates (and mis-computes) the per-dimension summary CSV</a>
+<a class="nav-link" href="../development_LSGO_ACCELERATION_PLAN.html">CEC2013LSGO Acceleration Plan — all 7 GSK-family algorithms, bit-identically</a>
+<a class="nav-link" href="../development_LSGO_INTEGRATION_CAMPAIGN.html">CEC2013LSGO Integration — Campaign Plan</a>
+<a class="nav-link" href="../development_CEC2017_PREC_adjudication.html">CEC2017-PREC — adjudication (CLOSED 2026-07-25)</a>
+<a class="nav-link" href="../development_code_reading_guide.html">Code Reading Guide</a>
+<a class="nav-link" href="../development_contributor_guide.html">Contributor Guide</a>
+<a class="nav-link" href="../development_DECC_G_port_record.html">DECC-G port — fidelity and validation record</a>
+<a class="nav-link" href="../development_developer_guide.html">Developer Guide</a>
+<a class="nav-link" href="../development_README.html">Development Docs</a>
+<a class="nav-link" href="../development_dt_gsk_core_reference.html">DT-GSK Core Reference — the vendored core and its byte-identity lock</a>
+<a class="nav-link" href="../development_evidence_rerun_runbook.html">DT-GSK re-run runbook — corrected implementation (C006 + graph backend)</a>
+<a class="nav-link" href="../development_egsk_port_spec.html">EGSK — Algorithm Spec &amp; Porting Verdict</a>
+<a class="nav-link" href="../development_extension_guide.html">Extension Guide</a>
+<a class="nav-link" href="../development_FAMILY_ACCELERATION_PLAN.html">Family-wide acceleration plan — 7 algorithms x 5 suites, bit-identical only</a>
+<a class="nav-link" href="../development_FINAL_PUBLICATION_PLAN.html">FINAL PUBLICATION PLAN — DT-GSK, Four(/Five)-Suite Scope</a>
+<a class="nav-link" href="../development_ACCELERATION_CAMPAIGN_PROMPT.html">GSK-Family Acceleration Campaign — Execution Prompt</a>
+<a class="nav-link" href="../development_maintenance_guide.html">Maintenance Guide</a>
+<a class="nav-link" href="../development_PORT_05_TUNING_TRIAGE.html">Porting project-05 tuning into 02 — Phase 1 audit and triage</a>
+<a class="nav-link" href="../development_REFERENCE_PROMOTION_PLAN.html">Reference Promotion Plan — CEC2013LSGO now, CEC2020 behind its completeness gate</a>
+<a class="nav-link" href="../development_SIBLING_CAMPAIGN_TRANSFER.html">Sibling-Campaign Transfer — every tuning that can make the GSK family fast</a>
+</section>
+<section><h2>Research</h2>
+<a class="nav-link" href="../research_egsk_validation_appendix.html">EGSK Validation Appendix — Paired Port-vs-Reference Equivalence</a>
+<a class="nav-link" href="../research_numerical_examples.html">Numerical Examples</a>
+<a class="nav-link" href="../research_performance.html">Performance</a>
+<a class="nav-link" href="../research_reproducibility.html">Reproducibility</a>
+<a class="nav-link" href="../research_researcher_handbook.html">Researcher Handbook</a>
+<a class="nav-link" href="../research_statistical_analysis.html">Statistical Analysis (GSK-family comparison)</a>
+<a class="nav-link" href="../research_validation_report.html">Validation Report</a>
+</section>
+<section><h2>Prompts</h2>
+<a class="nav-link" href="../prompt_documentation-deep-upgrade.html">Deep Documentation Review &amp; Upgrade Prompt — GSK Family Python</a>
+<a class="nav-link" href="../prompt_project-review.html">Deep Expert Review Prompt For GSK Family Python</a>
+<a class="nav-link" href="../prompt_documentation-review.html">Documentation Review Prompt</a>
+<a class="nav-link" href="../prompt_publication-polish.html">Final Publication Prompt — Production-Ready Q1 Release of GSK Family Python v1.1</a>
+</section>
+<section><h2>Python API</h2>
+<a class="nav-link" href="../api_index.html">API Module Index</a>
+<a class="nav-link api-link" href="../api/gsk_family.__init__.html">gsk_family.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.__init__.html">gsk_family.analysis.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.family_report.html">gsk_family.analysis.family_report</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.figures.html">gsk_family.analysis.figures</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.latex_tables.html">gsk_family.analysis.latex_tables</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.project_policy.html">gsk_family.analysis.project_policy</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.result_loader.html">gsk_family.analysis.result_loader</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.statistical_tests.html">gsk_family.analysis.statistical_tests</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.statistics.html">gsk_family.analysis.statistics</a>
+<a class="nav-link api-link" href="../api/gsk_family.benchmark_adapter.__init__.html">gsk_family.benchmark_adapter.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.benchmark_adapter.factory.html">gsk_family.benchmark_adapter.factory</a>
+<a class="nav-link api-link" href="../api/gsk_family.benchmark_adapter.problem.html">gsk_family.benchmark_adapter.problem</a>
+<a class="nav-link api-link" href="../api/gsk_family.benchmark_adapter.protocol.html">gsk_family.benchmark_adapter.protocol</a>
+<a class="nav-link api-link" href="../api/gsk_family.cli.__init__.html">gsk_family.cli.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.cli.list.html">gsk_family.cli.list</a>
+<a class="nav-link api-link" href="../api/gsk_family.cli.run.html">gsk_family.cli.run</a>
+<a class="nav-link api-link" href="../api/gsk_family.cli.stats.html">gsk_family.cli.stats</a>
+<a class="nav-link api-link" href="../api/gsk_family.cli.validate.html">gsk_family.cli.validate</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.__init__.html">gsk_family.common.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.bounds.html">gsk_family.common.bounds</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.donors.html">gsk_family.common.donors</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.numeric_compat.html">gsk_family.common.numeric_compat</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.population.html">gsk_family.common.population</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.reduction.html">gsk_family.common.reduction</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.reference_rng.html">gsk_family.common.reference_rng</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.rng.html">gsk_family.common.rng</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.threefry_rng.html">gsk_family.common.threefry_rng</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.__init__.html">gsk_family.optimizers.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers._dt_profiles.html">gsk_family.optimizers._dt_profiles</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers._dt_rng.html">gsk_family.optimizers._dt_rng</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers._kernels.html">gsk_family.optimizers._kernels</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.agsk.html">gsk_family.optimizers.agsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.apgsk.html">gsk_family.optimizers.apgsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.atmals_gsk.html">gsk_family.optimizers.atmals_gsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.atmals_helpers.html">gsk_family.optimizers.atmals_helpers</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.dt_gsk.html">gsk_family.optimizers.dt_gsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.egsk.html">gsk_family.optimizers.egsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.__init__.html">gsk_family.optimizers.external.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external._base.html">gsk_family.optimizers.external._base</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external._telemetry_shim.html">gsk_family.optimizers.external._telemetry_shim</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.cmaes.html">gsk_family.optimizers.external.cmaes</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.decc_g.html">gsk_family.optimizers.external.decc_g</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.ebowithcmar.html">gsk_family.optimizers.external.ebowithcmar</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.jso.html">gsk_family.optimizers.external.jso</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.lshade.html">gsk_family.optimizers.external.lshade</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.lshade_spacma.html">gsk_family.optimizers.external.lshade_spacma</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.mos_cec2013lsgo.html">gsk_family.optimizers.external.mos_cec2013lsgo</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.shade_ils.html">gsk_family.optimizers.external.shade_ils</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.fdb_agsk.html">gsk_family.optimizers.fdb_agsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.fdb_scores.html">gsk_family.optimizers.fdb_scores</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.gsk.html">gsk_family.optimizers.gsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.__init__.html">gsk_family.runners.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.config.html">gsk_family.runners.config</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.fp_regime.html">gsk_family.runners.fp_regime</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.output.html">gsk_family.runners.output</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.parallel.html">gsk_family.runners.parallel</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.performance.html">gsk_family.runners.performance</a>
+<a class="nav-link api-link active" href="../api/gsk_family.runners.run_experiment.html">gsk_family.runners.run_experiment</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.seed_policy.html">gsk_family.runners.seed_policy</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.verification.html">gsk_family.runners.verification</a>
+<a class="nav-link api-link" href="../api/gsk_family.stats.html">gsk_family.stats</a>
+<a class="nav-link api-link" href="../api/gsk_family.types.html">gsk_family.types</a>
+</section>
+</nav></aside>
+    <main class="content">
+      <article class="doc-card">
+        <h1>gsk_family.runners.run_experiment</h1>
+<p class="source-path">Source: <code>src/gsk_family/runners/run_experiment.py</code></p>
+<p>Experiment runner for Python GSK-family experiments.</p>
+<h2 id="members">Members</h2>
+<section class="api-member" id="function-runtime-provenance-116">
+<div class="member-kind">function</div>
+<h2>_runtime_provenance</h2>
+<pre><code>_runtime_provenance(project_root: Path) -&gt; dict[str, Any]</code></pre>
+<p>Collect Python-truthful provenance fields for environment metadata.</p>
+</section>
+<section class="api-member" id="function-run-config-optimizer-params-140">
+<div class="member-kind">function</div>
+<h2>_run_config_optimizer_params</h2>
+<pre><code>_run_config_optimizer_params(optimizer: str, options: dict[str, Any]) -&gt; dict[str, Any]</code></pre>
+<p>Return the resolved optimizer parameters recorded in ``run_config.json``.</p>
+</section>
+<section class="api-member" id="class-experimentrunsummary-161">
+<div class="member-kind">class</div>
+<h2>ExperimentRunSummary</h2>
+<pre><code>ExperimentRunSummary</code></pre>
+<p>Summary returned by ``run_experiment``.</p>
+</section>
+<section class="api-member" id="function-build-config-171">
+<div class="member-kind">function</div>
+<h2>_build_config</h2>
+<pre><code>_build_config(config: ExperimentConfig | dict[str, Any] | None, kwargs: dict[str, Any]) -&gt; ExperimentConfig</code></pre>
+<p>Merge direct keyword overrides and return a normalized config.</p>
+</section>
+<section class="api-member" id="function-resolve-cells-186">
+<div class="member-kind">function</div>
+<h2>_resolve_cells</h2>
+<pre><code>_resolve_cells(config: ExperimentConfig) -&gt; list[tuple[int, int]]</code></pre>
+<p>Resolve configured functions and dimensions into run cells.</p>
+</section>
+<section class="api-member" id="function-execution-ordered-cells-225">
+<div class="member-kind">function</div>
+<h2>_execution_ordered_cells</h2>
+<pre><code>_execution_ordered_cells(config: ExperimentConfig, cells: list[tuple[int, int]]) -&gt; list[tuple[int, int]]</code></pre>
+<p>Return reference-compatible dimension-major execution order for fixed-dimension suites.</p>
+</section>
+<section class="api-member" id="function-resolve-suite-warmup-cells-232">
+<div class="member-kind">function</div>
+<h2>_resolve_suite_warmup_cells</h2>
+<pre><code>_resolve_suite_warmup_cells(config: ExperimentConfig) -&gt; list[tuple[int, int]]</code></pre>
+<p>Return the default suite grid used for publication warmup.</p>
+</section>
+<section class="api-member" id="function-resolve-warmup-cells-254">
+<div class="member-kind">function</div>
+<h2>_resolve_warmup_cells</h2>
+<pre><code>_resolve_warmup_cells(config: ExperimentConfig, selected_cells: list[tuple[int, int]]) -&gt; list[tuple[int, int]]</code></pre>
+<p>Return selected-cell or full-suite warmup cells.</p>
+</section>
+<section class="api-member" id="function-current-schedule-rows-261">
+<div class="member-kind">function</div>
+<h2>_current_schedule_rows</h2>
+<pre><code>_current_schedule_rows(config: ExperimentConfig, optimizer: str, cells: list[tuple[int, int]]) -&gt; list[SeedScheduleRow]</code></pre>
+<p>Build seed schedule rows for one optimizer over resolved cells.</p>
+</section>
+<section class="api-member" id="function-row-key-285">
+<div class="member-kind">function</div>
+<h2>_row_key</h2>
+<pre><code>_row_key(row: dict[str, str]) -&gt; tuple[int, int, int]</code></pre>
+<p>Return the function, dimension, and run key for a per-run CSV row.</p>
+</section>
+<section class="api-member" id="function-bank-from-rows-290">
+<div class="member-kind">function</div>
+<h2>_bank_from_rows</h2>
+<pre><code>_bank_from_rows(rows: list[dict[str, Any]], statistics_basis: str) -&gt; tuple[dict[tuple[int, int], int], dict[tuple[int, int], list[float]]]</code></pre>
+<p>Index per-run rows by ``(dim, func)`` for BUG-RESUME-01.</p>
+<p>``per_run.csv`` is the authoritative bank: it merges prior runs on resume,
+while ``artifacts`` holds only this session&#x27;s. Returning counts AND values
+lets the summary writer detect a partially-resumed cell (bank count exceeds
+artifact count) and summarise the complete set instead of the new subset.
+The basis selects the column that ``stats.statistic_values`` would return --
+``best_fitness`` for raw_objective, the precomputed ``error`` otherwise.</p>
+</section>
+<section class="api-member" id="function-matching-existing-rows-316">
+<div class="member-kind">function</div>
+<h2>_matching_existing_rows</h2>
+<pre><code>_matching_existing_rows(rows: list[dict[str, str]]) -&gt; dict[tuple[int, int, int, int], dict[str, str]]</code></pre>
+<p>Index existing per-run rows by cell and seed for resume behavior.</p>
+</section>
+<section class="api-member" id="function-run-record-from-result-328">
+<div class="member-kind">function</div>
+<h2>_run_record_from_result</h2>
+<pre><code>_run_record_from_result(result: Any, run: int) -&gt; RunRecord</code></pre>
+<p>Convert an optimizer result into a normalized runner record.</p>
+</section>
+<section class="api-member" id="function-optimizer-population-size-345">
+<div class="member-kind">function</div>
+<h2>_optimizer_population_size</h2>
+<pre><code>_optimizer_population_size(optimizer: str, optimizer_options: dict[str, Any]) -&gt; int</code></pre>
+<p>Return the population size required for a fair-start payload.</p>
+</section>
+<section class="api-member" id="function-run-one-354">
+<div class="member-kind">function</div>
+<h2>_run_one</h2>
+<pre><code>_run_one(config: ExperimentConfig, optimizer: str, func: int, dim: int, run: int, seed: int) -&gt; RunArtifact</code></pre>
+<p>Execute one optimizer/function/dimension/run cell.</p>
+</section>
+<section class="api-member" id="function-task-from-schedule-row-412">
+<div class="member-kind">function</div>
+<h2>_task_from_schedule_row</h2>
+<pre><code>_task_from_schedule_row(optimizer: str, row: SeedScheduleRow) -&gt; RunTask</code></pre>
+<p>Convert a seed schedule row into a parallel-dispatch task.</p>
+</section>
+<section class="api-member" id="function-log-console-423">
+<div class="member-kind">function</div>
+<h2>_log_console</h2>
+<pre><code>_log_console(enabled: bool, message: str) -&gt; None</code></pre>
+<p>Write one flushed console progress line when console logging is enabled.</p>
+</section>
+<section class="api-member" id="function-progress-bar-429">
+<div class="member-kind">function</div>
+<h2>_progress_bar</h2>
+<pre><code>_progress_bar(completed: int, total: int, *, width: int = 24) -&gt; str</code></pre>
+<p>Return a compact ASCII progress bar suitable for PowerShell logs.</p>
+</section>
+<section class="api-member" id="function-log-finalize-progress-438">
+<div class="member-kind">function</div>
+<h2>_log_finalize_progress</h2>
+<pre><code>_log_finalize_progress(enabled: bool, optimizer: str, completed: int, total: int, label: str) -&gt; None</code></pre>
+<p>Print one finalization progress line outside the function summary table.</p>
+</section>
+<section class="api-member" id="function-format-number-list-449">
+<div class="member-kind">function</div>
+<h2>_format_number_list</h2>
+<pre><code>_format_number_list(values: list[int] | tuple[int, ...] | set[int]) -&gt; str</code></pre>
+<p>Return a reference-style bracketed integer list.</p>
+</section>
+<section class="api-member" id="function-format-dimension-label-454">
+<div class="member-kind">function</div>
+<h2>_format_dimension_label</h2>
+<pre><code>_format_dimension_label(dimensions: list[int] | tuple[int, ...] | set[int]) -&gt; str</code></pre>
+<p>Return a compact dimension label.</p>
+</section>
+<section class="api-member" id="function-excluded-functions-460">
+<div class="member-kind">function</div>
+<h2>_excluded_functions</h2>
+<pre><code>_excluded_functions(config: ExperimentConfig, functions_run: set[int]) -&gt; list[int]</code></pre>
+<p>Return functions excluded from a run-all style request.</p>
+</section>
+<section class="api-member" id="function-statistical-analysis-enabled-467">
+<div class="member-kind">function</div>
+<h2>_statistical_analysis_enabled</h2>
+<pre><code>_statistical_analysis_enabled(config: ExperimentConfig, optimizer: str) -&gt; bool</code></pre>
+<p>Return True when the opt-in per-dim statistical analysis should run.</p>
+<p>Mirrors the reference runner&#x27;s gating: only the advanced GSK-family
+optimizers (never vanilla ``gsk``) participate in the Wilcoxon + Friedman
+panel.  Both fixed-dimension suites (e.g. ``cec2017``) and the
+native-dimension ``cec2011`` rollup are supported now that CEC2011
+reference rollups are committed -- CEC2011 emits a single per-suite panel
+(see ``_emit_statistical_analysis`` and ``close_streaming_table``).</p>
+</section>
+<section class="api-member" id="function-emit-statistical-analysis-484">
+<div class="member-kind">function</div>
+<h2>_emit_statistical_analysis</h2>
+<pre><code>_emit_statistical_analysis(config: ExperimentConfig, optimizer: str, dirs: dict[str, Path], dim: int, funcs_to_run: set[int]) -&gt; &#x27;StatAnalysisResult | None&#x27;</code></pre>
+<p>Run and print the per-dimension Wilcoxon + Friedman panel for one dim.</p>
+<p>Returns the ``StatAnalysisResult`` so the caller can accumulate it for the
+end-of-run cross-dimension summary, or ``None`` when the panel could not be
+built. Never raises: any failure is logged as a one-line skip notice so a
+statistical hiccup can never crash an experiment run.</p>
+</section>
+<section class="api-member" id="function-statistics-label-552">
+<div class="member-kind">function</div>
+<h2>_statistics_label</h2>
+<pre><code>_statistics_label(statistics_basis: str) -&gt; str</code></pre>
+<p>Return a human-readable statistics basis label.</p>
+</section>
+<section class="api-member" id="function-max-nfes-label-557">
+<div class="member-kind">function</div>
+<h2>_max_nfes_label</h2>
+<pre><code>_max_nfes_label(config: ExperimentConfig) -&gt; str</code></pre>
+<p>Return a reference-style budget label.</p>
+</section>
+<section class="api-member" id="function-benchmark-backend-for-optimizer-566">
+<div class="member-kind">function</div>
+<h2>_benchmark_backend_for_optimizer</h2>
+<pre><code>_benchmark_backend_for_optimizer(config: ExperimentConfig, optimizer: str) -&gt; str</code></pre>
+<p>Return the actual benchmark evaluator backend for one optimizer run.</p>
+</section>
+<section class="api-member" id="function-benchmark-backend-summary-575">
+<div class="member-kind">function</div>
+<h2>_benchmark_backend_summary</h2>
+<pre><code>_benchmark_backend_summary(config: ExperimentConfig) -&gt; str</code></pre>
+<p>Return a concise backend summary for console/provenance output.</p>
+</section>
+<section class="api-member" id="function-statistics-basis-for-cells-585">
+<div class="member-kind">function</div>
+<h2>_statistics_basis_for_cells</h2>
+<pre><code>_statistics_basis_for_cells(config: ExperimentConfig, cells: list[tuple[int, int]]) -&gt; str</code></pre>
+<p>Return the statistics basis for the first resolved run cell.</p>
+</section>
+<section class="api-member" id="function-artifact-value-599">
+<div class="member-kind">function</div>
+<h2>_artifact_value</h2>
+<pre><code>_artifact_value(artifact: RunArtifact) -&gt; float</code></pre>
+<p>Return the result value in the artifact statistics basis.</p>
+</section>
+<section class="api-member" id="function-stats-by-dimension-610">
+<div class="member-kind">function</div>
+<h2>_stats_by_dimension</h2>
+<pre><code>_stats_by_dimension(artifacts: list[RunArtifact], cell_wall_seconds: dict[tuple[int, int], float] | None = None) -&gt; dict[int, dict[int, tuple[Any, float, list[RunArtifact]]]]</code></pre>
+<p>Return summary statistics, per-function wall time, and artifacts by dim/function.</p>
+<p>``Time/s`` is the wall-clock time for each (function, dimension) batch of runs
+(matching the reference ``cell_timer = tic`` row timing), not the sum of the
+per-run times. When ``cell_wall_seconds`` is absent it falls back to the sum.</p>
+</section>
+<section class="api-member" id="function-stats-by-function-640">
+<div class="member-kind">function</div>
+<h2>_stats_by_function</h2>
+<pre><code>_stats_by_function(artifacts: list[RunArtifact], cell_wall_seconds: dict[tuple[int, int], float] | None = None) -&gt; dict[int, tuple[Any, float, list[RunArtifact]]]</code></pre>
+<p>Return summary statistics grouped by function across native dimensions.</p>
+</section>
+<section class="api-member" id="function-config-lines-666">
+<div class="member-kind">function</div>
+<h2>_config_lines</h2>
+<pre><code>_config_lines(config: ExperimentConfig, optimizer: str, funcs_to_run: set[int], dims_to_run: set[int], output_dir: Path, project_root: Path, statistics_basis: str) -&gt; list[str]</code></pre>
+<p>Return detailed configuration lines matching the reference console style.</p>
+</section>
+<section class="api-member" id="function-optimizer-options-line-709">
+<div class="member-kind">function</div>
+<h2>_optimizer_options_line</h2>
+<pre><code>_optimizer_options_line(config: ExperimentConfig, optimizer: str) -&gt; str</code></pre>
+<p>Return a concise optimizer-parameter line for the console table header.</p>
+</section>
+<section class="api-member" id="function-dimension-summary-lines-728">
+<div class="member-kind">function</div>
+<h2>_dimension_summary_lines</h2>
+<pre><code>_dimension_summary_lines(config: ExperimentConfig, optimizer: str, dim: int, by_func: dict[int, tuple[Any, float, list[RunArtifact]]]) -&gt; list[str]</code></pre>
+<p>Return the main per-dimension summary table.</p>
+</section>
+<section class="api-member" id="function-native-function-summary-lines-751">
+<div class="member-kind">function</div>
+<h2>_native_function_summary_lines</h2>
+<pre><code>_native_function_summary_lines(config: ExperimentConfig, optimizer: str, by_func: dict[int, tuple[Any, float, list[RunArtifact]]]) -&gt; list[str]</code></pre>
+<p>Return one CEC2011-style native-dimension summary table.</p>
+</section>
+<section class="api-member" id="function-dimension-summary-header-lines-771">
+<div class="member-kind">function</div>
+<h2>_dimension_summary_header_lines</h2>
+<pre><code>_dimension_summary_header_lines(config: ExperimentConfig, optimizer: str, dim: int, *, function_count: int, runs: int, first_artifact: RunArtifact) -&gt; list[str]</code></pre>
+<p>Return per-dimension summary table heading lines.</p>
+</section>
+<section class="api-member" id="function-native-function-summary-header-lines-808">
+<div class="member-kind">function</div>
+<h2>_native_function_summary_header_lines</h2>
+<pre><code>_native_function_summary_header_lines(config: ExperimentConfig, optimizer: str, *, function_count: int, runs: int, first_artifact: RunArtifact) -&gt; list[str]</code></pre>
+<p>Return one native-dimension suite table header for CEC2011.</p>
+</section>
+<section class="api-member" id="function-dimension-summary-row-834">
+<div class="member-kind">function</div>
+<h2>_dimension_summary_row</h2>
+<pre><code>_dimension_summary_row(func: int, stats: Any, total_time: float) -&gt; str</code></pre>
+<p>Return one per-function summary row for a completed run batch.</p>
+</section>
+<section class="api-member" id="function-dimension-summary-footer-lines-848">
+<div class="member-kind">function</div>
+<h2>_dimension_summary_footer_lines</h2>
+<pre><code>_dimension_summary_footer_lines(by_func: dict[int, tuple[Any, float, list[RunArtifact]]]) -&gt; list[str]</code></pre>
+<p>Return per-dimension summary table footer lines.</p>
+</section>
+<section class="api-member" id="function-comparison-lines-860">
+<div class="member-kind">function</div>
+<h2>_comparison_lines</h2>
+<pre><code>_comparison_lines(config: ExperimentConfig, optimizer: str, dim: int | None, by_func: dict[int, tuple[Any, float, list[RunArtifact]]]) -&gt; list[str]</code></pre>
+<p>Return a reference-mean comparison table when matching references exist.</p>
+</section>
+<section class="api-member" id="function-write-text-933">
+<div class="member-kind">function</div>
+<h2>_write_text</h2>
+<pre><code>_write_text(path: Path, lines: list[str]) -&gt; None</code></pre>
+<p>Write text lines with UTF-8 encoding.</p>
+</section>
+<section class="api-member" id="function-write-skipped-runs-941">
+<div class="member-kind">function</div>
+<h2>_write_skipped_runs</h2>
+<pre><code>_write_skipped_runs(path: Path, skipped_cells: list[dict[str, Any]]) -&gt; None</code></pre>
+<p>Persist every failed run with its exception text (full rewrite per call).</p>
+</section>
+<section class="api-member" id="function-run-log-lines-952">
+<div class="member-kind">function</div>
+<h2>_run_log_lines</h2>
+<pre><code>_run_log_lines(optimizer: str, suite: str, dim: int, by_func: dict[int, tuple[Any, float, list[RunArtifact]]], timestamp: str) -&gt; list[str]</code></pre>
+<p>Return a detailed per-run log.</p>
+</section>
+<section class="api-member" id="function-native-run-log-lines-990">
+<div class="member-kind">function</div>
+<h2>_native_run_log_lines</h2>
+<pre><code>_native_run_log_lines(optimizer: str, suite: str, by_func: dict[int, tuple[Any, float, list[RunArtifact]]], timestamp: str) -&gt; list[str]</code></pre>
+<p>Return a detailed per-run log for native-dimension CEC2011 functions.</p>
+</section>
+<section class="api-member" id="function-write-compatibility-json-1028">
+<div class="member-kind">function</div>
+<h2>_write_compatibility_json</h2>
+<pre><code>_write_compatibility_json(summary_dir: Path, config: ExperimentConfig, optimizer: str, funcs_to_run: set[int], dims_to_run: set[int], statistics_basis: str) -&gt; None</code></pre>
+<p>Write run_config.json and phase0_protocol.json compatibility artifacts.</p>
+</section>
+<section class="api-member" id="function-task-progress-line-1106">
+<div class="member-kind">function</div>
+<h2>_task_progress_line</h2>
+<pre><code>_task_progress_line(optimizer: str, completed: int, total: int, task: RunTask, outcome: Any) -&gt; str</code></pre>
+<p>Return one compact completed-task progress line.</p>
+</section>
+<section class="api-member" id="function-emit-compatibility-outputs-1132">
+<div class="member-kind">function</div>
+<h2>_emit_compatibility_outputs</h2>
+<pre><code>_emit_compatibility_outputs(config: ExperimentConfig, optimizer: str, dirs: dict[str, Path], artifacts: list[RunArtifact], project_root: Path, *, cell_wall_seconds: dict[tuple[int, int], float] | None = None, emit_config_lines: bool = True, emit_dimension_lines: bool = True) -&gt; None</code></pre>
+<p>Write and print reference-style summary artifacts.</p>
+</section>
+<section class="api-member" id="function-init-process-worker-1224">
+<div class="member-kind">function</div>
+<h2>_init_process_worker</h2>
+<pre><code>_init_process_worker(cfg: ExperimentConfig, numba_threads: int, expected_fp_sentinel: str | None = None) -&gt; None</code></pre>
+<p>Per-worker initializer: stash config, cap numba threads, warm JIT once.</p>
+<p>Runs once in each spawned worker process. Capping numba threads to
+``cores // workers`` keeps total threads (workers x numba) within the core
+budget; the one-time warmup hides JIT compilation from the timed run loop.</p>
+<p>The FP-regime gate below is deliberately OUTSIDE any exception swallowing:
+a worker whose numba import silently failed would run every task in a
+second deterministic floating-point regime (NumPy fallback kernels; see
+``gsk_family.runners.fp_regime``). Raising here kills the worker at spawn;
+the pool-rebuild logic retries and ultimately runs the cell on the
+parent&#x27;s already-verified serial backend instead of mixing regimes.</p>
+</section>
+<section class="api-member" id="function-process-run-task-1264">
+<div class="member-kind">function</div>
+<h2>_process_run_task</h2>
+<pre><code>_process_run_task(task: RunTask) -&gt; RunArtifact</code></pre>
+<p>Top-level picklable worker: run one task using the per-process config.</p>
+</section>
+<section class="api-member" id="function-run-experiment-1279">
+<div class="member-kind">function</div>
+<h2>run_experiment</h2>
+<pre><code>run_experiment(config: ExperimentConfig | dict[str, Any] | None = None, **kwargs: Any) -&gt; ExperimentRunSummary</code></pre>
+<p>Run a configured experiment and write schema-compatible outputs.</p>
+</section>
+      </article>
+    </main>
+    <aside class="page-toc" aria-label="On this page">
+<h2>On This Page</h2>
+<a class="toc-level-1" href="#gsk-family-runners-run-experiment">gsk_family.runners.run_experiment</a>
+<a class="toc-level-2" href="#members">Members</a>
+<a class="toc-level-2" href="#function-runtime-provenance-116">_runtime_provenance</a>
+<a class="toc-level-2" href="#function-run-config-optimizer-params-140">_run_config_optimizer_params</a>
+<a class="toc-level-2" href="#class-experimentrunsummary-161">ExperimentRunSummary</a>
+<a class="toc-level-2" href="#function-build-config-171">_build_config</a>
+<a class="toc-level-2" href="#function-resolve-cells-186">_resolve_cells</a>
+<a class="toc-level-2" href="#function-execution-ordered-cells-225">_execution_ordered_cells</a>
+<a class="toc-level-2" href="#function-resolve-suite-warmup-cells-232">_resolve_suite_warmup_cells</a>
+<a class="toc-level-2" href="#function-resolve-warmup-cells-254">_resolve_warmup_cells</a>
+<a class="toc-level-2" href="#function-current-schedule-rows-261">_current_schedule_rows</a>
+<a class="toc-level-2" href="#function-row-key-285">_row_key</a>
+<a class="toc-level-2" href="#function-bank-from-rows-290">_bank_from_rows</a>
+<a class="toc-level-2" href="#function-matching-existing-rows-316">_matching_existing_rows</a>
+<a class="toc-level-2" href="#function-run-record-from-result-328">_run_record_from_result</a>
+<a class="toc-level-2" href="#function-optimizer-population-size-345">_optimizer_population_size</a>
+<a class="toc-level-2" href="#function-run-one-354">_run_one</a>
+<a class="toc-level-2" href="#function-task-from-schedule-row-412">_task_from_schedule_row</a>
+<a class="toc-level-2" href="#function-log-console-423">_log_console</a>
+<a class="toc-level-2" href="#function-progress-bar-429">_progress_bar</a>
+<a class="toc-level-2" href="#function-log-finalize-progress-438">_log_finalize_progress</a>
+<a class="toc-level-2" href="#function-format-number-list-449">_format_number_list</a>
+<a class="toc-level-2" href="#function-format-dimension-label-454">_format_dimension_label</a>
+<a class="toc-level-2" href="#function-excluded-functions-460">_excluded_functions</a>
+<a class="toc-level-2" href="#function-statistical-analysis-enabled-467">_statistical_analysis_enabled</a>
+<a class="toc-level-2" href="#function-emit-statistical-analysis-484">_emit_statistical_analysis</a>
+<a class="toc-level-2" href="#function-statistics-label-552">_statistics_label</a>
+<a class="toc-level-2" href="#function-max-nfes-label-557">_max_nfes_label</a>
+<a class="toc-level-2" href="#function-benchmark-backend-for-optimizer-566">_benchmark_backend_for_optimizer</a>
+<a class="toc-level-2" href="#function-benchmark-backend-summary-575">_benchmark_backend_summary</a>
+<a class="toc-level-2" href="#function-statistics-basis-for-cells-585">_statistics_basis_for_cells</a>
+<a class="toc-level-2" href="#function-artifact-value-599">_artifact_value</a>
+<a class="toc-level-2" href="#function-stats-by-dimension-610">_stats_by_dimension</a>
+<a class="toc-level-2" href="#function-stats-by-function-640">_stats_by_function</a>
+<a class="toc-level-2" href="#function-config-lines-666">_config_lines</a>
+<a class="toc-level-2" href="#function-optimizer-options-line-709">_optimizer_options_line</a>
+<a class="toc-level-2" href="#function-dimension-summary-lines-728">_dimension_summary_lines</a>
+<a class="toc-level-2" href="#function-native-function-summary-lines-751">_native_function_summary_lines</a>
+<a class="toc-level-2" href="#function-dimension-summary-header-lines-771">_dimension_summary_header_lines</a>
+<a class="toc-level-2" href="#function-native-function-summary-header-lines-808">_native_function_summary_header_lines</a>
+<a class="toc-level-2" href="#function-dimension-summary-row-834">_dimension_summary_row</a>
+<a class="toc-level-2" href="#function-dimension-summary-footer-lines-848">_dimension_summary_footer_lines</a>
+<a class="toc-level-2" href="#function-comparison-lines-860">_comparison_lines</a>
+<a class="toc-level-2" href="#function-write-text-933">_write_text</a>
+<a class="toc-level-2" href="#function-write-skipped-runs-941">_write_skipped_runs</a>
+<a class="toc-level-2" href="#function-run-log-lines-952">_run_log_lines</a>
+<a class="toc-level-2" href="#function-native-run-log-lines-990">_native_run_log_lines</a>
+<a class="toc-level-2" href="#function-write-compatibility-json-1028">_write_compatibility_json</a>
+<a class="toc-level-2" href="#function-task-progress-line-1106">_task_progress_line</a>
+<a class="toc-level-2" href="#function-emit-compatibility-outputs-1132">_emit_compatibility_outputs</a>
+<a class="toc-level-2" href="#function-init-process-worker-1224">_init_process_worker</a>
+<a class="toc-level-2" href="#function-process-run-task-1264">_process_run_task</a>
+<a class="toc-level-2" href="#function-run-experiment-1279">run_experiment</a>
+</aside>
+  </div>
+  <script src="../assets/search.js"></script>
+</body>
+</html>

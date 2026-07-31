@@ -1,0 +1,869 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Section 3 -- Proposed DT-GSK (Phase 8 rewrite, drafting steps 1-2).
+% Written fresh from the frozen claim set (papers/governance/claims_evidence_matrix.csv:
+% MT-01..MT-11, BG-04, LM-02, PR-06) and the frozen Phase-3 method artifacts.
+% Method exhibits are \input from their canonical phase_03 renderings
+% (artifact_binding.csv rows ART-NOTATION/ART-PSEUDOCODE/ART-PARAMS/ART-EQUATIONS);
+% conceptual figures from papers/figures/concept/ (FIG-ARCH/FIG-SGSM-MECH/FIG-GATING).
+% NO ablation content; component causality deferred to the Supplementary Materials.
+% NO theoretical convergence claims (the former "Theoretical Properties"
+% subsection is removed per phase_04/novelty_scope.md non-claim 3).
+% The complexity label is defined exactly once (the former duplicate-label
+% defect of this file is fixed).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Proposed \dtgsk{} Algorithm}\label{sec:algorithm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\dtgsk{} retains the junior and senior gaining-sharing \emph{vector-update
+equations} of GSK verbatim (Eqs.~(\ref{eq:junior-idx})--(\ref{eq:gsk-update})).
+What it modifies is the generation mechanics that surround them: the crossover
+mask (linkage blocks, Eq.~(\ref{eq:kr-mask})), tie handling in the greedy
+selection ($\le$, Eq.~(\ref{eq:greedy-accept})), the $KR$ floor, an optional
+DE trial arm, the senior partition, and the population size (NLPSR). On top of
+that core it layers four kinds of machinery: control, budget, structure-memory,
+and polish. % BIND: phase_03/contribution_matrix.md (novelty statement)
+The contribution boundaries are marked explicitly throughout: no new base
+operator is claimed, the dimension-tiered adaptive scaffold is C2, the
+eigenframe final polish is C1, and the determinism layer is C3; the
+interaction-structure memory is a supporting mechanism, not a contribution.
+Every mechanism below is presented as proposed and fully specified, and
+each design constant is either justified in one sentence or labeled a
+frozen default of the single shipped configuration.
+
+%------------------------------------------------------------------
+\subsection{Notation and Base-GSK Recap}\label{sec:alg:notation}
+%------------------------------------------------------------------
+
+Table~\ref{tab:notation} collects the core problem, population, and base-GSK
+symbols; the subsystem symbols are introduced with their sections
+(Tables~\ref{tab:notation-scaffold} and~\ref{tab:notation-ism}) and the RNG
+substream key with the reproducibility material (Supplementary Materials, Section~S5). Throughout,
+symbols keep one casing and one meaning across prose, equations, pseudocode,
+and tables.
+
+% Canonical notation tables (ART-NOTATION; labels tab:notation,
+% tab:notation-scaffold, tab:notation-ism). N-015 split the former single
+% near-full-page key into a core table here plus per-subsystem tables placed
+% with Sections 3.3-3.4; at ~19 rows the core table is an ordinary [t] float,
+% so the Phase-8 [H] override that used to wrap this \input is retired.
+\input{build_prompt_phases/phase_03/notation_table.tex}
+
+We consider bound-constrained minimization of
+$f:\mathbb{R}^D\to\mathbb{R}$ over the box
+$\prod_{j=1}^{D}[\ell_j,u_j]$, whose bounds are given per coordinate
+(the uniform case $\ell_j\equiv\ell$, $u_j\equiv u$ recovers the scalar
+box $[\ell,u]^D$), under a fixed
+evaluation budget MaxFES.
+GSK~\cite{mohamed2020gaining} evolves a population $P$ through a
+junior (gaining) and a senior (sharing) knowledge-transfer phase.
+In the junior phase, each individual at fitness rank $r_i$ draws its
+knowledge sources from its rank neighbors and one random peer,
+Eq.~(\ref{eq:junior-idx}). In the senior phase the sources come from
+the top, middle, and worst partitions of the ranked population, with
+the outer group sizes set by the partition fraction $p$,
+Eq.~(\ref{eq:senior-idx}).
+The expected number of coordinates treated by the junior rule decays with the
+consumed budget fraction $x=t/\text{MaxFES}$ through the schedule of
+Eq.~(\ref{eq:kexp-schedule}), where $K_{\exp}$ is the schedule exponent
+(frozen default $K_{\exp}=10$). % BIND: phase_03/parameter_table.md (core GSK operator)
+Both phases apply the gaining-sharing update of
+Eq.~(\ref{eq:gsk-update}), where $KF$ scales the step and
+$s\in\{+1,-1\}$ is the sign of the fitness comparison between the
+individual and the knowledge source its phase compares against. That source is
+the random peer $R_3$ in the junior phase and the middle-group source $R_2$
+in the senior phase, exactly as in the published operator.
+Out-of-bounds components are repaired to the midpoint of the parent and
+the violated bound, Eq.~(\ref{eq:midpoint-repair}), the rule introduced
+with JADE~\cite{zhang2009jade} and carried through the L-SHADE
+lineage~\cite{tanabe2014improving}, and survivors are chosen by
+greedy elitist selection, Eq.~(\ref{eq:greedy-accept}): a
+child replaces its parent if it is no worse ($\le$; ties accepted).
+
+These four elements --- the junior/senior operator with its index
+rules, the junior-dimension schedule, the midpoint bound repair, and
+the greedy selection --- are inherited from their cited
+sources~\cite{mohamed2020gaining,tanabe2014improving} with their
+vector-update numerics unchanged; the only relaxation is the $\le$
+tie-handling in selection (accepting equal-fitness trials).
+For single-source reference, the complete frozen set of update rules
+for \dtgsk{} is reproduced below:
+Eqs.~(\ref{eq:junior-idx})--(\ref{eq:gsk-update}),
+(\ref{eq:midpoint-repair}), and (\ref{eq:greedy-accept}) are the
+inherited rules just discussed.
+Eq.~(\ref{eq:kr-mask}) (crossover mask) is discussed with the linkage
+channel in Section~\ref{sec:alg:ism}.
+Eqs.~(\ref{eq:nlpsr}), (\ref{eq:ace-update}), and
+(\ref{eq:bse-cauchy}) belong to the scaffold of
+Section~\ref{sec:alg:scaffold}.
+Eqs.~(\ref{eq:sgsm-graph}) and (\ref{eq:eigen-polish}) define the
+structure memory and the polish
+(Sections~\ref{sec:alg:ism}--\ref{sec:alg:polish}). Finally,
+Eq.~(\ref{eq:rng-substreams}) defines the determinism layer
+(Section~\ref{sec:alg:profile}).
+
+% Canonical frozen equation registry E1a-E12 (ART-EQUATIONS,
+% labels eq:junior-idx ... eq:rng-substreams).
+\input{build_prompt_phases/phase_03/equations.tex}
+
+%------------------------------------------------------------------
+\subsection{Architecture Overview and Execution Order}\label{sec:alg:overview}
+%------------------------------------------------------------------
+
+\dtgsk{} ships as a single frozen configuration,
+which resolves every setting from the problem dimension and is
+hash-frozen (Section~\ref{sec:alg:profile}); no per-suite or per-run
+tuning exists on the four bound-constrained suites, and the single
+large-scale exception --- two linkage-block-size entries for
+CEC2013LSGO's native dimensions --- is disclosed in
+Section~\ref{sec:alg:profile} and Supplementary Section~S7.
+Table~\ref{tab:architecture} shows how the subsystems compose around
+the unchanged GSK vector-update equations, Algorithm~\ref{alg:dt-gsk} gives the
+canonical loop, and Figures~\ref{fig:gsk-flowchart}
+and~\ref{fig:dtgsk-flowchart} chart the control flow of base GSK and
+\dtgsk{}, respectively.
+
+\begin{table}[t]
+\caption{Architecture of \dtgsk{}: the eight subsystems composed
+around the unchanged GSK vector-update operator, with each subsystem's category
+(inherited / scaffold / dimension-gated), active tier, and role. Every
+objective evaluation --- trials, escapes, local-search and polish probes,
+restart resamples --- is charged through one budget controller, and all
+randomness draws from the 13-substream RNG rail
+(Eq.~(\ref{eq:rng-substreams})); the deep-stall restart preserves the global
+best.}
+\label{tab:architecture}
+\centering
+\footnotesize
+\zebra
+\begin{tabular}{p{3.3cm}ll p{6.5cm}}
+\toprule
+\textbf{Subsystem (Eq.)} & \textbf{Category} & \textbf{Tier} & \textbf{Role in the composition} \\
+\midrule
+Inherited GSK core (Eqs.~(\ref{eq:junior-idx})--(\ref{eq:gsk-update}), (\ref{eq:midpoint-repair})) & inherited & all & junior/senior gaining-sharing vector update and midpoint repair (numerics unchanged); the crossover mask and greedy-selection ties are modified (rows~3,~5; Eq.~(\ref{eq:greedy-accept})) \\
+1. NLPSR schedule (Eq.~(\ref{eq:nlpsr})) & scaffold & all & tier-floored population-size reduction \\
+2. ACE selector + ARGP pruning (Eq.~(\ref{eq:ace-update})) & scaffold & all & operator-pool control from aggregate fitness improvement; recoverably soft-freezes stalled arms to the probability floor \\
+3. Linkage-aware block crossover (Eq.~(\ref{eq:kr-mask})) & scaffold & $D{\ge}10$ & block mask (arbitrary index subsets, \emph{not} contiguous ranges) on a tier-dependent fraction of rows (rest keep the $KR$ mask); ISM-fed blocks at $D{\ge}50$ \\
+4. ISM interaction-structure memory (Eq.~(\ref{eq:sgsm-graph})) & gated & $D{\ge}50$ & strictly-improving-accepted-move EMA graph; acts when $\operatorname{conf}(G_{\mathrm{abs}})\ge\kappa_{\min}$ \\
+5. Local search (coordinate) & scaffold & all & charged axis-aligned coordinate search; an ISM-block \emph{subspace} variant is implemented but not enabled in the frozen configuration \\
+6. BSE budget-safe escape (Eq.~(\ref{eq:bse-cauchy})) + diversity archive & scaffold & all & hard-capped stagnation escape; reseeds from the archive \\
+7. Upper-tier controllers (basin memory, subspace-sampling floor, late-accept clip, frozen-broaden, linkage random-mix) & gated & $D{\ge}100$ & method-level protections at upper tier \\
+8. Eigenframe final polish (Eq.~(\ref{eq:eigen-polish})) & gated & $D{\ge}50$ & one-shot, RNG-free compass search on the ISM eigenbasis, in the final budget slice \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+One configuration asymmetry follows from running each algorithm at its own
+published defaults rather than at a common population size. The six
+comparators use $NP=100$ at every dimension, as specified in their source
+papers, whereas \dtgsk{} initializes $NP=5D$ (Table~\ref{tab:parameters})
+before the NLPSR reduction; at $D=100$ that is $500$ against $100$. All seven
+receive the identical evaluation budget, so the difference lies in how each
+algorithm spends that budget rather than in how much it is given. We state it
+explicitly because population size is a design choice that can materially
+affect upper-tier behavior, and a reader comparing at $D=100$ should
+know the initial populations differ by a factor of five; a common-$NP$
+replication is identified as future work.
+
+% Canonical pseudocode (ART-PSEUDOCODE, label alg:dt-gsk).
+\input{build_prompt_phases/phase_03/algorithm_pseudocode.tex}
+
+% Control-flow flowcharts (base GSK and DT-GSK), in the GSK-paper style.
+% Diagram sources: figures/concept/fig_gsk_flowchart_src.tex,
+%                  figures/concept/fig_dtgsk_flowchart_src.tex (standalone TikZ).
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=0.62\textwidth]{figures/concept/fig_gsk_flowchart.pdf}
+\caption{Flowchart of the base GSK algorithm of Mohamed et
+al.~\cite{mohamed2020gaining}, redrawn here from that paper's description: a
+single generation loop of
+fitness evaluation, gained--shared dimension counting, the junior and senior
+gaining-sharing knowledge phases, and greedy update, repeated until the
+termination criterion is met. The figure depicts prior work and contributes
+nothing new; it is included so the \dtgsk{} flowchart in
+Figure~\ref{fig:dtgsk-flowchart} can be read against its parent.}
+\label{fig:gsk-flowchart}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\includegraphics[height=0.86\textheight]{figures/concept/fig_dtgsk_flowchart.pdf}
+\caption{Flowchart of the \dtgsk{} algorithm, drawn in the same style as
+Figure~\ref{fig:gsk-flowchart} for direct comparison. The GSK core (fitness
+evaluation, dimension counting, the junior and senior phases, and the update) is
+retained; the boxes with a \textbf{light shaded fill} are the mechanisms \dtgsk{}
+adds: the nonlinear population-size reduction (NLPSR) and the ACE selector with
+acceptance-gated pruning, the linkage-aware block crossover, the dimension-gated
+interaction-structure memory, the coordinate local search, the
+budget-safe escape with deep-stall restart,
+and the one-shot eigenframe final polish. At $D\ge100$ the upper-tier controllers are cross-cutting rather than a single stage --- they act within the population-reduction, trial-construction, acceptance, and escape steps above (and gate the local search) --- so they are not drawn as a separate node. The global best is preserved
+throughout.}
+\label{fig:dtgsk-flowchart}
+\end{figure}
+
+Within one generation the subsystems execute in the fixed order below,
+which Algorithm~\ref{alg:dt-gsk} lists and
+Figure~\ref{fig:dtgsk-flowchart} charts.
+\begin{enumerate}[noitemsep,topsep=2pt,leftmargin=*,label=(\arabic*)]
+\item Nonlinear Population-Size Reduction (NLPSR).
+\item Operator-arm sampling by the Adaptive Control Engine (ACE).
+\item Junior/senior trial construction and crossover masking.
+\item Bound repair and evaluation.
+\item Elitist acceptance and the diversity-archive update.
+\item At $D\ge50$, the interaction-graph (ISM) update from strictly improving accepted moves.
+\item The operator-credit update and Acceptance-Rate Gated Pruning (ARGP)
+of the operator pool.
+\item Stagnation escape by the Budget-Safe Escape (BSE) mechanism.
+\item The charged coordinate local search.
+\item At $D\ge50$, the one-shot eigenframe final polish in the final
+budget slice.
+\item Global-best update.
+\item The deep-stall restart check.
+\end{enumerate}
+The $D\ge100$ upper-tier controllers do not form a separate step in this order: they are cross-cutting, acting within population reduction (the subspace-sampling floor), trial construction (frozen-streak broaden and late linkage random-mix), acceptance (the late-acceptance clip and the basin-memory update), and the budget-safe escape (basin-novelty reseed); a budget/ROI gate additionally gates the local search (a matching hook exists on the escape but never blocks it in the frozen configuration).
+% BIND: phase_03/algorithm_pseudocode.md (frozen loop order)
+A step written ``\textbf{if} $D\ge d$'' in Algorithm~\ref{alg:dt-gsk} is
+inactive below tier~$d$. Every subsystem is elitist with respect to the
+working population --- it cannot return a population whose best is worse
+than the incumbent it was given --- with one deliberate exception: the
+deep-stall restart resamples the working population outright
+(Section~\ref{sec:alg:deepstall}). The global best $x^{gb}$ is held
+separately from the working population, is never re-initialized, and is
+what the run returns; it therefore never loses ground.
+% BIND: N-014 (clauses relocated from the Algorithm 1 caption)
+Dimension-tier gating is stated once and holds everywhere.
+The blockwise linkage mask is active from $D\ge10$, applied to a
+tier-dependent fraction of the population, with the remainder keeping
+the per-coordinate $KR$ mask of Eq.~(\ref{eq:kr-mask}).
+The interaction-structure memory and the
+eigenframe final polish activate at $D\ge50$, while the coordinate local search
+is active at all tiers. The protective
+controllers activate at $D\ge100$. % BIND: phase_03/algorithm_pseudocode.md (dimension-gating note) + phase_03/parameter_table.md
+Below its tier, each gated block is a no-op.
+Table~\ref{tab:dim-gating} gives the activation pattern.
+
+% BIND: ART-PARAMS (tier boundaries and per-tier gates, hash-frozen in
+%   _dt_profiles.py); phase_03/parameter_table.md (canonical constant list)
+\begin{table}[t]
+\caption{Subsystem activation across the frozen configuration's four
+dimension tiers ($D<20$, $20$--$49$, $50$--$99$, $D\geq100$; the CEC benchmark
+dimensions $10/30/50/100$ are the respective tier representatives).
+\emph{on}/\emph{off} give the activation state per tier and the last column the
+tier-varying parameters. The threshold structure follows the frozen parameter
+table (Table~\ref{tab:parameters}). Within the $D{<}20$ tier the linkage mask
+carries its own $D\geq10$ gate (Table~\ref{tab:architecture}), so it is
+additionally inactive at the CEC2020 $D=5$ cells.}
+\label{tab:dim-gating}
+\centering
+\footnotesize
+\zebra
+\begin{tabular}{p{3.2cm}cccc p{3.9cm}}
+\toprule
+\textbf{Subsystem (Eq.)} & \textbf{$D{<}20$} & \textbf{$20$--$49$} & \textbf{$50$--$99$} & \textbf{$D{\ge}100$} & \textbf{Key parameters (by tier)} \\
+\midrule
+Inherited GSK core (Eqs.~(\ref{eq:junior-idx})--(\ref{eq:kr-mask}), (\ref{eq:midpoint-repair}), (\ref{eq:greedy-accept})) & on & on & on & on & senior $p$ $0.05$ ($0.15$ at $20$--$49$), split-bottom $0.10$ at $D{\ge}50$ \\
+NLPSR schedule (Eq.~(\ref{eq:nlpsr})) & on & on & on & on & floor $N_{\min}$ $12$, then $25$ at $D{\ge}50$ \\
+ACE selector + ARGP (Eq.~(\ref{eq:ace-update})) & on & on & on & on & single memory, then top/bottom at $D{\ge}20$; DE arm on for $20{\le}D{<}100$ \\
+Linkage block crossover (Eq.~(\ref{eq:kr-mask})) & on & on & on & on & block $5$, then $10$; mix $0.70/0.40/0.70/0.70$; ISM-fed blocks at $D{\ge}50$ \\
+ISM memory (Eq.~(\ref{eq:sgsm-graph})) & off & off & on & on & $\lambda{=}0.95$, gate $\kappa_{\min}{=}0.35$ (adaptive) \\
+Local search (coordinate) & on & on & on & on & axis-aligned; charged; ISM-subspace variant off \\
+BSE escape (Eq.~(\ref{eq:bse-cauchy})) + archive & on & on & on & on & $r_{c}$ $0.10$; $r_{\mathrm{rst}}$ $0.30$ then $0.10$; $R_{\max}$ $4/2/4/2$ by tier \\
+Upper-tier controllers & off & off & off & on & basin memory, subspace floor, late-accept clip, frozen-broaden, linkage random-mix \\
+Eigenframe polish (Eq.~(\ref{eq:eigen-polish})) & off & off & on & on & one-shot, start $0.96$ \\
+Deep-stall restart & on & on & on & on & fraction $0.25$; global best preserved \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+%------------------------------------------------------------------
+\subsection{Dimension-Tiered Adaptive Scaffold (Contribution C2)}\label{sec:alg:scaffold}
+%------------------------------------------------------------------
+
+The scaffold answers a control and budget problem: a single frozen
+configuration must remain usable from $D=10$ to $D=100$ without
+per-problem tuning, under a greedy selection rule (a trial replaces its
+parent when no worse, $\le$; Eq.~(\ref{eq:greedy-accept})) that can
+starve the search of accepted moves.
+Its five sub-mechanisms are labeled honestly: ACE, NLPSR, BSE, the
+diversity archive, and the deep-stall restart are modifications of cited
+antecedents; we did not find ARGP's acceptance-rate-gated arm-freezing
+rule among the surveyed GSK variants.
+The individual contribution of the scaffold subsystems is examined in a
+remove-one component study in the Supplementary Materials (with
+the interaction-structure memory held off in every cell); ARGP, the final
+polish and the deep-stall restart are pre-specified exclusions from that study
+and are therefore not isolated. A direct isolation
+of the memory overlay itself is reported in the Supplementary Materials
+(Section~S6.5) and finds no significant standalone benefit at the
+memory's active tiers. The dimension-tiering itself --- resolving control
+by dimension rather than at a single fixed operating point --- is likewise
+not isolated by a controlled uniform-versus-tiered contrast; C2 is therefore
+claimed as the performance of the integrated frozen scaffold as a package,
+not as evidence that dimension-tiering is individually causal. Here each
+mechanism is specified with its trigger,
+timing, and cost. Table~\ref{tab:notation-scaffold} lists the symbols this
+subsection introduces.
+
+% Scaffold-subsystem notation (ART-NOTATION; label tab:notation-scaffold).
+% N-015 split: placed with Section 3.3 so ACE/ARGP/NLPSR/BSE symbols are
+% introduced at first use rather than in a single front-loaded key.
+\input{build_prompt_phases/phase_03/notation_table_scaffold.tex}
+
+\subsubsection{ACE: Bandit Control of the Operator Pool}\label{sec:alg:ace}
+
+A fixed $(KF, KR, K_{\exp})$ triple that suits one landscape or one
+dimension tier is brittle on another.
+AGSK adapts $KF/KR$ from a fixed pool by success
+history~\cite{mohamed2020agsk}, and APGSK widens the adapted parameter
+pools~\cite{apgsk2021}; both adapt at the parameter level.
+% Phase 8 assembly citation fix: APGSK origin is apgsk2021 per
+% governance/citation_role_map.csv (mohamed2021novel is a SHADE/LSHADE
+% mutation paper, role B.2 -- wrong referent here).
+ACE instead adapts at the operator level: it maintains a pool of five complete $(KF, KR, K_{\exp})$
+operator settings (a sixth, optional differential-evolution arm joins at
+the mid-dimension tiers, below) --- arm~3 is the GSK-pure setting $(0.5, 0.9, 10)$
+--- and draws one arm per individual per generation. % BIND: phase_03/parameter_table.md (ACE arm pool)
+Each arm's per-generation reward is its \emph{aggregate fitness
+improvement} $d_m$ --- the summed $f(x_i){-}f(v_i)$ over the individuals
+that drew it, not a raw acceptance count. The credit target $\tau$ is mixed
+by an exponential moving average at learning rate $c=0.10$ (frozen default)
+into the selection-probability vector $\pi$, which is projected onto the
+floored simplex $\pi_m\ge\pi_{\min}=0.05$, Eq.~(\ref{eq:ace-update}). When the
+generation improves in aggregate ($S>0$) the target is the full-pool share
+$d/S$. When it does not, the target is restricted to the arms that
+individually improved. When no arm improves --- or the aggregate is
+exactly zero --- $\pi$ is held unchanged apart from that projection. The floor keeps every arm alive for exploration, and the
+improvement-weighted update is in the spirit of SHADE's success
+history~\cite{tanabe2013shade}. % BIND: phase_03/parameter_table.md (ACE learning rate, floor)
+At $D\ge20$ the credit assignment splits into a top/bottom improvement
+memory, and for $20{\le}D{<}100$ an optional differential-evolution arm
+joins the pool~\cite{storn1997differential}. % BIND: phase_03/parameter_table.md (ACE memory mode, DE arm)
+The bandit literature grounds this framing of operator selection as a
+dynamic exploration--exploitation
+problem~\cite{auer2002finite,fialho2010adaptive}; ACE is not an
+instance of those algorithms, and no regret bound is claimed for it.
+ACE is control-plane only: it consumes no objective evaluations, and
+its per-generation cost is $O(NP + M)$ for $M\in\{5,6\}$ arms (five, or six
+with the optional mid-tier DE arm). % BIND: phase_03/complexity_analysis.md (ACE row)
+
+\subsubsection{ARGP: Acceptance-Rate Gated Pruning}\label{sec:alg:argp}
+
+The probability floor that keeps ACE exploring also forces draws of
+arms that have stopped producing accepted moves.
+ARGP resolves this. After a warm-up of 0.15 of
+the budget, any arm whose acceptance rate over a rolling window of
+$W_{\text{argp}}=30$ generations falls below the tier threshold
+$\tau_{\text{argp}}$ (0.02, tightened to 0.010 at $D\ge50$) is
+\emph{soft-frozen} to the probability floor $p_{\min}=0.05$ rather than removed,
+provided at least two arms remain active. Subsequent draws therefore
+concentrate on productive operators.  The freeze is recoverable: a frozen arm is re-activated
+as soon as its windowed acceptance climbs back to $\tau_{\text{argp}}$, so ARGP
+redistributes operator budget rather than permanently retiring it. % BIND: phase_03/parameter_table.md (ARGP window/threshold/warmup)
+Its bookkeeping cost is $O(M\cdot W_{\text{argp}})$ per
+generation. % BIND: phase_03/complexity_analysis.md (ARGP row)
+
+\subsubsection{NLPSR: Tier-Floored Population-Size Reduction}\label{sec:alg:nlpsr}
+
+NLPSR is explicitly not claimed as new. It keeps the concave $x^{(1-x)}$
+reduction shape of APGSK's NLPSR schedule~\cite{apgsk2021} and
+modifies its endpoints, starting from the dimension-scaled
+$NP_{\text{init}}=5D$ and bottoming at a tier-specific floor
+$N_{\min}$ (25 at $D\ge50$, 12 below) rather than a fixed minimum,
+Eq.~(\ref{eq:nlpsr}). Each generation the worst surplus rows are
+culled. % BIND: phase_03/parameter_table.md (NLPSR tier floor) + phase_03/contribution_matrix.md row 5
+The tier floor is the modification that preserves enough parallel
+samples for the structure memory at upper tier while letting low
+tiers shrink further.
+Table~\ref{tab:worked-example} hand-checks the two schedules at
+$D=50$.
+
+% Phase 8 assembly: [t] -> [H]. The four [t] table floats of this build could
+% not satisfy top-placement and were all deferred past the references to the
+% document end; [H] matches every other table in the build (build_record.md).
+\begin{table}[H]
+\caption{Worked numeric example at $D=50$: the tier-resolved NLPSR
+schedule $NP(x)$ of Eq.~(\ref{eq:nlpsr}) (with $NP_{\text{init}}=250$,
+$N_{\min}=25$; rounded half-up) and the junior-dimension schedule
+$D_{\text{jun}}$ of Eq.~(\ref{eq:kexp-schedule}) (with
+$K_{\exp}=10$), against the consumed budget fraction $x$. Milestones
+mark the frozen configuration's gates; all values are analytic
+evaluations of the schedule formulas.}
+\label{tab:worked-example}
+\centering
+\small
+\begin{tabular}{llll}
+\toprule
+$x$ & $NP(x)$ & $D_{\text{jun}}$ & Milestone at this budget fraction\\
+\midrule
+0.00 & 250 & 50 & initialization ($NP_{\text{init}}=5D$)\\
+0.10 & 222 & 18 & interaction-graph warm-up ends\\
+0.25 & 170 & 3  & deep-stall trigger horizon ($\rho_{\text{ds}}=0.25$ of budget frozen)\\
+0.50 & 91  & 1  & senior phase dominates (one junior coordinate remains)\\
+0.75 & 41  & 1  & ---\\
+0.90 & 27  & 1  & deep-stall restarts stop (stop fraction 0.9)\\
+1.00 & 25  & 0  & all coordinates senior; $N_{\min}$ reached; polish window opened at $s_{\text{fp}}=0.96$\\
+\bottomrule
+\end{tabular}
+\end{table}
+% BIND: analytic evaluation of phase_03/equation_registry.csv E5/E2 with
+% phase_03/parameter_table.md tier values (NP_init=250, N_min=25, Kexp=10,
+% warmup 0.10, deep-stall frac 0.25 / stop 0.9, polish start 0.96).
+
+\subsubsection{BSE and the Diversity Archive: Budget-Safe Escape}\label{sec:alg:bse}
+
+Greedy selection over a shrinking population can stagnate: no
+accepted moves, collapsing diversity, and a flat improvement signal.
+BSE monitors these symptoms over a window of $W=50$ generations. At
+$D\ge20$ it uses a triple-trigger detector (signal window 10,
+scale-aware tolerance $\epsilon=10^{-8}$, acceptance floor 0.10,
+diversity floor 0.35); below $D=20$ it falls back to a single
+stagnation trigger, for which the acceptance and diversity floors are
+inactive. When triggered it first perturbs the
+worst $r_{c}$ fraction of the population with heavy-tailed
+Cauchy draws, Eq.~(\ref{eq:bse-cauchy}); a successful rescue --- one that
+lowers the incumbent best --- cancels the restart for that generation, and
+only when the rescue fails does BSE then reseed part of the population from
+a diversity archive: a Cauchy-rescue-then-partial-restart design in the
+external-archive lineage of adaptive differential
+evolution~\cite{storn1997differential,zhang2009jade,tanabe2013shade}. % BIND: phase_03/parameter_table.md (BSE block); claim MT-06
+The archive is a distance-filtered \emph{diversity} store, not a
+fitness-ranked elite set. A candidate is admitted only when it is at
+least a normalized-L2 distance $0.05$ from every stored point. Once
+the store is full ($|A| = 200$ at every dimension in the frozen configuration; the $1.5\,NP_{\text{init}}$ sizing is the fallback used only when no absolute cap is set, and is inert here)
+a new admission overwrites the spatially \emph{closest} entry. There is no
+fitness-quality admission or eviction criterion. % BIND: phase_03/parameter_table.md (archive size/distance)
+The modification that names the mechanism is its budget safety: BSE is
+hard-capped by a maximum restart count $R_{\max}$ (4 at $D{<}20$ and
+$50{\le}D{<}100$, else 2) and by a stop fraction beyond which it is disabled, so as a
+design fact it can never overshoot
+MaxFES. % BIND: phase_03/parameter_table.md (max restarts) + phase_03/contribution_matrix.md row 9
+When it fires, its cost is $O(r_{\text{rst}}\cdot NP\cdot D)$, and its
+restart evaluations are charged like any others
+(Section~\ref{sec:alg:complexity}). % BIND: phase_03/complexity_analysis.md (BSE row)
+
+\subsubsection{Deep-Stall Restart with the Global-Best Invariant}\label{sec:alg:deepstall}
+
+BSE perturbs within the current basin; a search that is deeply stuck
+needs more.
+The deep-stall full restart (multi-start) re-initializes the working
+population when the incumbent has been frozen for at least
+$\rho_{\text{ds}}=0.25$ of the budget, subject to a cooldown
+(0.15 of budget) and a stop fraction (0.9). It draws up to
+$\min(NP, \text{remaining budget})$ fresh individuals, truncated when little
+budget is left, and the resampled points are evaluated through the same budget
+as any other trial. A separate
+global-best pair $(x^{gb},f^{gb})$ is preserved across restarts and is what
+the run returns. % BIND: phase_03/parameter_table.md (deep-stall row)
+This yields the restart-never-loses-ground invariant, a design
+property of the implementation: no restart can worsen the reported
+result, because the global best is never re-initialized.
+A minimum-budget guard (20{,}000 evaluations) keeps tiny budgets
+inert, so the mechanism cannot perturb short
+runs. % BIND: phase_03/parameter_table.md (deep-stall min-budget)
+
+%------------------------------------------------------------------
+\subsection{Interaction-Structure Memory and Linkage-Aware Exploitation (Supporting Mechanism)}\label{sec:alg:ism}
+%------------------------------------------------------------------
+
+% ISM / eigenframe-polish notation (ART-NOTATION; label tab:notation-ism).
+% N-015 split: placed with Section 3.4 (and serving the C1 polish in 3.5,
+% which reads on the eigenbasis of the signed graph defined here).
+\input{build_prompt_phases/phase_03/notation_table_ism.tex}
+
+As established in Section~\ref{sec:related}, no cited GSK-family variant
+learns or exploits the interaction structure of the moves a run has
+already accepted.
+Outside the family, structure learning is available, but at a different
+cost or mechanism. Differential grouping spends a dedicated offline
+budget of objective evaluations, of order $O(n^{2}/m)$, on pairwise
+probing before optimization starts~\cite{omidvar2014dg}. Covariance
+matrix adaptation learns a full sampling covariance from selected
+steps~\cite{hansen2001cmaes}. Eigenvector-based crossover
+recomputes the population-covariance eigenbasis every
+generation~\cite{guo2015eig}. % BIND: phase_04/novelty_scope.md Section 1 (card-bounded costs)
+The design observation behind the interaction-structure memory is that greedy
+selection already exposes this signal for free: each accepted move
+records which coordinate pairs moved together on an improving step, and
+reading that record consumes none of the run's evaluation budget.
+
+The interaction-structure memory accumulates
+this evidence in a decaying $D\times D$ interaction graph, updated
+only from strictly-improving accepted-move deltas at learning rate $\eta=1.0$.
+The retained graph is decayed by $\lambda=0.95$ at each update so that stale
+evidence fades, Eq.~(\ref{eq:sgsm-graph}). There $\Delta x_i$ is the
+accepted move of individual $i$, contributed as an improvement-weighted,
+per-move $\ell_1$-normalized outer product. Two of the four state components, the co-evolving interaction
+matrices, share this decay--accumulate form; both are symmetrized with a zero
+diagonal. A non-negative \emph{magnitude} graph $G_{\mathrm{abs}}$ (built from
+$|\Delta x_i|$) supplies the confidence gate $\operatorname{conf}(G_{\mathrm{abs}})$
+and the linkage blocks. A \emph{signed} graph $G_{\mathrm{signed}}$
+(built from the raw $\Delta x_i$) supplies the eigenframe-polish basis of
+Section~\ref{sec:alg:polish}. The
+full per-move weighting, normalization, and support bookkeeping are in the
+Supplementary Materials (Section~S5). Because the graph is allocated only at
+$D\ge50$, the operative confidence gate there is $\kappa_{\min}=0.35$,
+superseded by an adaptive rolling-window median of recent confidences,
+floored at $0.12$; a block is used only when
+$\operatorname{conf}(G_{\mathrm{abs}})\ge\kappa_{\min}$. % BIND: phase_03/parameter_table.md (SGSM block)
+The graph is updated every generation and its linkage blocks are
+re-extracted every 5 generations --- at $D\ge100$, every 10 and 20
+generations respectively --- after a warm-up of 0.10 of the
+budget. % BIND: phase_03/parameter_table.md (refresh period / warmup)
+Formally, $G_{\mathrm{signed}}$ is a signed, decaying second-moment (co-movement)
+statistic over coordinate \emph{indices}: it is covariance-like in
+construction, and the terminal polish of
+Section~\ref{sec:alg:polish} operates on its eigenbasis --- a
+covariance-eigenbasis operation. The novelty is therefore not that the
+learned object is of a fundamentally new type. It is that the object is
+accumulated only from strictly-improving accepted moves --- ties and DE-arm
+moves are excluded, and local-search moves enter at weight $0.25$ --- then held
+signed and decaying, and exploited discretely through block masks and the polish
+eigenbasis, all while the GSK vector-update numerics are left unchanged. The
+interaction memory records which coordinate indices co-move on improving steps;
+it is not a recovered map of the objective's true variable interactions.
+% BIND: MT-08; MT-09 (accepted-move memory; polish on its eigenbasis); phase_04/novelty_scope.md (co-movement over indices, not recovered linkage)
+ISM consumes no extra objective evaluations, since it observes moves the
+run already evaluated. It is not free of cost, however. At $D \geq 50$ each
+generation costs $O(D^{2})$ to decay the graph, plus $O(k\,D^{2})$ to
+accumulate the $k$ strictly-improving accepted-move outer products ($k \leq NP$).
+It also stores four decaying accumulators: the two $O(D^{2})$ interaction
+matrices (magnitude $G_{\mathrm{abs}}$ and signed $G_{\mathrm{signed}}$), the
+$O(D^{2})$ co-occurrence support $C$, and the $O(D)$ per-dimension activity
+$g_{\mathrm{act}}$
+(Section~\ref{sec:alg:complexity}). % BIND: phase_03/complexity_analysis.md (SGSM row)
+
+The learned structure is exploited through two active channels
+(Table~\ref{tab:sgsm-mechanism}): the linkage-aware block crossover and,
+terminally, the eigenframe polish of Section~\ref{sec:alg:polish}. A third
+channel --- an ISM-block subspace local search --- is implemented but not
+enabled in the frozen configuration.
+The first active channel is the linkage-aware block crossover. For a
+tier-dependent fraction of the population --- about $70\%$ at $D\ge50$ and
+$40\%$ at $20$--$49$ --- the per-coordinate $KR$ mask of
+Eq.~(\ref{eq:kr-mask}) is replaced by a linkage-block mask that copies a
+whole block together. The mask is
+refreshed every 20 generations ($D{<}50$) or 10 ($D\ge50$). % BIND: phase_03/parameter_table.md (linkage block)
+The blocks are \emph{not} contiguous coordinate ranges: the random groups
+are permutation chunks (arbitrary index subsets) and the ISM-supplied groups
+are learned graph components.
+Below $D=50$ the blocks are random groups of size 5 --- a
+variant of the inherited mask, not a claimed contribution. From
+$D\ge50$ each blockwise row draws its blocks from the learned ISM graph
+with probability $0.5$, and from the random permutation partition
+otherwise (block size 10), so the learned structure supplies about half
+of the blockwise rows rather than all of them.
+The graph itself is active only for $D\ge50$ and is rebuilt every 5
+generations at $D=50$ and every 20 at $D=100$. % BIND: phase_03/parameter_table.md (block size by tier) + phase_03/contribution_matrix.md row 8
+The graph's top-$k$ blocks could \emph{also} define a bounded subspace (at
+most 20 coordinates) for a structure-aware local search, but this ISM-block
+subspace variant is \emph{not enabled} in the frozen configuration, which
+runs a charged axis-aligned coordinate local search instead (the second
+active channel, the eigenframe polish, is Section~\ref{sec:alg:polish}). Either
+way the local-search probes are charged through the normal budget path. % BIND: phase_03/parameter_table.md (local_search_method="coordinate" is the shipped default; interaction_ls_dim_cap bounds the disabled subspace variant)
+
+ISM activates at $D\ge50$ under the frozen configuration; below that
+tier no $D\times D$ structure is allocated and \dtgsk{} runs the
+adaptive scaffold alone, a structural design fact of the
+dimension gating. % BIND: phase_03/parameter_table.md (interaction_graph_min_dim=50); claim LM-02
+The four-dimensional contrast against the closest structure-learning
+lines --- online accepted-move updates, no extra objective evaluations,
+a soft decaying pair graph rather than a hard partition or a full
+sampling covariance, and discrete exploitation --- is developed in
+Section~\ref{sec:rel:structure} and not repeated here.
+As stated there, ISM is not claimed to recover the objective's true
+separability structure, to confer rotational invariance, or to extend
+to large-scale global optimization beyond the dimensions evaluated.
+
+% BIND: ART-PARAMS; ig_update_from_accepted interaction_graph.py:222-368;
+%   decay 0.95 / lr 1.0 _dt_profiles.py:120-121 (hash-frozen)
+\begin{table}[t]
+\caption{How strictly improving accepted moves become exploitable structure:
+strictly improving acceptance events update the interaction-structure
+memory (ISM) graph EMA (Eq.~(\ref{eq:sgsm-graph})), whose confidence-gated
+blocks feed the linkage crossover mask (Eq.~(\ref{eq:kr-mask})), while the
+signed graph feeds the eigenframe final polish (Eq.~(\ref{eq:eigen-polish}))
+directly (without the confidence gate).
+The graph is updated continuously from strictly improving accepted moves; the
+polish fires once. Eligibility is exactly: only strictly positive improvements
+update the ISM (a non-improving move, $\Delta \le 0$, does not; this is the
+graph's own strict-positivity gate, not the $10^{-8}$ win/tie/loss reporting
+band); DE-arm moves have update weight $0$ in the frozen profile; and
+successful local-search displacements enter at weight $0.25$.
+No measured interaction structure is shown.}
+\label{tab:sgsm-mechanism}
+\centering
+\footnotesize
+\begin{tabular}{p{2.4cm}p{7.6cm}p{3.7cm}}
+\toprule
+\textbf{Stage} & \textbf{What happens} & \textbf{Key detail} \\
+\midrule
+1. Learn & Strictly improving accepted-move deltas $\Delta x$ update the graph; rejected trials and ties do not. & Improvement signal only; zero extra objective evaluations. \\
+2. Memory (Eq.~(\ref{eq:sgsm-graph})) & Two co-evolving accumulators --- a magnitude graph $G_{\mathrm{abs}}$ and a signed graph $G_{\mathrm{signed}}$ --- share $G_\bullet \gets \lambda G_\bullet + \eta\,\operatorname{outer}(\phi_\bullet(\Delta x))$, with $\lambda{=}0.95$, $\eta{=}1.0$. & The linkage-crossover consumer acts only when the magnitude-graph confidence $\operatorname{conf}(G_{\mathrm{abs}})\ge\kappa_{\min}$; the eigenframe polish reads $G_{\mathrm{signed}}$ and fires on any non-zero signed signal (no confidence gate). \\
+3. Exploit (two active channels) & (i)~magnitude-graph linkage blocks $\to$ block crossover mask (Eq.~(\ref{eq:kr-mask})); (ii)~signed graph $\to$ eigenbasis $\to$ eigenframe final polish (Eq.~(\ref{eq:eigen-polish})). An ISM-block \emph{subspace} local search is implemented but not enabled (the frozen configuration runs a coordinate local search). & Four-part state ($G_{\mathrm{abs}}$, $G_{\mathrm{signed}}$, support $C$, activity $g_{\mathrm{act}}$): the magnitude graph feeds the crossover mask, the signed graph feeds the polish; the polish fires once, in the final budget slice. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+%------------------------------------------------------------------
+\subsection{Eigenframe Final Polish (Contribution C1)}\label{sec:alg:polish}
+%------------------------------------------------------------------
+
+At the end of a budget-limited run, the incumbent typically sits near
+a local minimizer that the population operators refine slowly; a
+direct-search endgame is a natural refinement step.
+Classical pattern and compass search iterate in the coordinate frame
+with a run length that is not bounded a
+priori~\cite{kolda2003directsearch}, and the Nelder--Mead simplex, the
+common derivative-free default, has documented failure modes and
+degrades with
+dimension~\cite{nelder1965simplex,kolda2003directsearch,gao2012implementing}.
+These properties motivate a capped, deterministic design; they are not
+evidence about the polish itself.
+
+The eigenframe final polish is a one-shot deterministic compass search
+executed on the eigenbasis $V$ of the ISM signed interaction matrix,
+Eq.~(\ref{eq:eigen-polish}), falling back to the coordinate axes when
+the graph carries no signal.
+It fires at most once, in the final budget slice
+($s_{\text{fp}}=0.96$ of the budget), and only at $D\ge50$,
+where the graph exists. % BIND: phase_03/parameter_table.md (final polish start; SGSM tier)
+Two properties define it.
+First, it is RNG-free but not evaluation-free. It draws no random
+numbers, so the random-number substreams --- and hence the run up to
+the final budget slice --- are byte-identical whether it fires or not.
+Every compass probe it then makes is an objective evaluation charged
+through the strict budget path, so the polish can never exceed
+MaxFES. % BIND: phase_03/evaluation_accounting_report.md Section 4
+It operates on the working incumbent, re-materialized atomically from the current
+population best at the moment it fires, so the incumbent vector and its fitness
+always refer to the same individual. A probe is accepted only if strictly
+better, so the stage never returns a
+point worse than the incumbent and cannot corrupt any reported result. Any out-of-bounds probe component here is repaired by a hard clip to the violated bound (an element-wise projection onto $[\ell_j,u_j]$), not by the parent-and-bound midpoint of Eq.~(\ref{eq:midpoint-repair}) used for the junior/senior and DE trials, matching the standard feasibility rule for a bound-constrained direct search.
+Second, its basis is drawn from the interaction-structure memory's accepted-move
+record rather than from the coordinate frame. Whether this learned basis
+outperforms coordinate axes is not established at $D\le100$: the direct
+isolation of Supplementary Materials Section~S6.5 cannot separate them.
+Any effect that isolation measures therefore attaches to the deterministic,
+budget-exact compass endgame as a whole, not to the learned directions.
+Its one-time cost is the $O(D^{3})$ eigendecomposition of the
+$D\times D$ matrix, incurred once per run
+(Section~\ref{sec:alg:complexity}). % BIND: phase_03/complexity_analysis.md (polish row)
+The comparison to direct search is conceptual only; no
+generating-set-search convergence guarantee is transferred to the
+polish or to \dtgsk{}.
+
+%------------------------------------------------------------------
+\subsection{Upper-Tier Controllers ($D\ge100$)}\label{sec:alg:highd}
+%------------------------------------------------------------------
+
+At $D\ge100$, the frozen configuration enables a set of protective
+controllers documented here as method detail under contribution C2's
+dimension-tier scope, not as headline contributions: a late-acceptance
+clip, a frozen-streak broadening, a late linkage random-mix, a bounded
+basin memory, and a subspace-sampling floor. % BIND: phase_03/parameter_table.md (D>=100 controllers)
+They are scalar guards and bounded memories that protect the late
+budget phase of the upper-tier ($D{\ge}100$) runs: clipping late acceptance
+drift, broadening after frozen streaks, randomizing a fraction of
+linkage assignments, remembering visited basins by spatial novelty, and
+keeping a floor on subspace sampling. All are gated to
+$D\ge100$ and are no-ops below that tier.
+A trust-region displacement governor from earlier development was
+\emph{removed} from the code at the paper freeze (it was runtime-dead: its
+enable flag was always false, and its clip-rate telemetry is pinned at zero).
+A linkage-reliability/predicted-value admission gate remains present in the
+codebase as an optional component but is never instantiated by the frozen
+configuration. Neither affects any reported trajectory and neither is claimed
+as an active mechanism.
+Their aggregate per-generation cost is $O(NP\cdot D)$, with the basin
+memory bounded at $O(64\cdot D)$. % BIND: phase_03/complexity_analysis.md (D>=100 controllers row)
+
+%------------------------------------------------------------------
+\subsection{Parameter Configuration, Determinism, and Configuration Lock (Contribution C3)}\label{sec:alg:profile}
+%------------------------------------------------------------------
+
+Table~\ref{tab:parameters} consolidates \dtgsk{}'s tier-resolved
+configuration, hash-frozen in the repository's freeze manifest and
+enforced by unit tests, so the pseudocode, the prose above, and the
+executed configuration cannot drift apart; the finer $D\ge100$
+controller scalars are pinned in the same frozen manifest.
+Where a value varies by tier, the table shows all four tiers; nothing
+is tuned per suite or per run on the four bound-constrained suites. On
+CEC2013LSGO alone, two linkage-block-size entries are added for
+$D = 905$ and $D = 1000$ --- native dimensions outside the shipped tier
+table --- set to the benchmark's declared group size of 50 rather than
+fitted to any observed result; the rule, its rationale, and its timing
+are disclosed in Supplementary Section~S7.
+% BIND: production_deviation_record.md D-8.4 (linkage_block_size_by_dim 905/1000 -> 50)
+
+% Canonical frozen parameter table (ART-PARAMS, label tab:parameters).
+% N-013: this input was previously wrapped in an lrbox and scaled to \textwidth
+% with \resizebox, because the combined 48-row table overflowed by ~126pt. That
+% shrink-to-fit rendered the body at 5.3pt -- below the journal's 8pt table
+% guidance and barely legible in print. The table is now split by audience:
+% the core (run-level, core GSK operator, population schedule) stays here and
+% fits at its natural \small size, so no scaling is applied; the per-subsystem
+% constants moved to Supplementary Table~\ref{tab:parameters-detail}.
+% The scoped group still forces the artifact's [t] float spec to [H]
+% (deferred-float fix, as for the notation table above).
+\begingroup
+\let\phviiiTableB\table
+\let\phviiiEndTableB\endtable
+\renewenvironment{table}[1][t]{\phviiiTableB[H]}{\phviiiEndTableB}
+\input{build_prompt_phases/phase_03/parameter_table.tex}
+\endgroup
+
+Table~\ref{tab:panel} records the comparator panel and its
+configuration provenance.
+All seven algorithms are run in-repository under one frozen protocol;
+the six comparators run their published reference constants, and eGSK
+is the Python port in which the SciPy SLSQP solver substitutes the
+published MATLAB fmincon polish --- the panel column is
+therefore ``eGSK (Python port, SLSQP polish)'', with no
+numerical-equivalence claim between the two
+backends. % BIND: papers/governance/comparability_audit.md Sections 1-4 (T-PANEL source)
+
+% Phase 8 assembly: [t] -> [H] (deferred-float fix; see build_record.md).
+\begin{table}[H]
+\caption{GSK-family panel roster and configuration provenance.
+All panel results are produced by in-repository
+re-runs under one frozen protocol (identical evaluator, budgets,
+seeds, and shared initial populations; the \dtgsk{} self-init
+exception is documented in the experimental setup). No
+literature-copied numbers appear in any panel exhibit.}
+\label{tab:panel}
+\centering
+\small
+\begin{tabular}{lll}
+\toprule
+\textbf{Algorithm} & \textbf{Reference} & \textbf{Configuration in this study}\\
+\midrule
+GSK & \cite{mohamed2020gaining} & published constants, $NP=100$ at every $D$; in-repository re-run\\
+AGSK & \cite{mohamed2020agsk} & published constants, $NP=100$ at every $D$; in-repository re-run\\
+APGSK & \cite{apgsk2021} & published constants, $NP=100$ at every $D$; in-repository re-run\\
+% Phase 8 assembly citation fix: APGSK panel row must cite apgsk2021
+% (role map B.1: "exact settings for reproduction"), not mohamed2021novel.
+FDB-AGSK & \cite{fdbagsk2023} & published constants, $NP=100$ at every $D$; in-repository re-run\\
+ATMALS-GSK & \cite{alfadli2025atmals} & published constants, $NP=100$ at every $D$; in-repository re-run\\
+eGSK & \cite{jawad2024egsk} & Python port; SLSQP substitutes the published
+fmincon polish (disclosed)\\
+\dtgsk{} & this paper & frozen tier-resolved configuration
+(Table~\ref{tab:parameters}); hash-locked\\
+\bottomrule
+\end{tabular}
+\end{table}
+% BIND: papers/governance/comparability_audit.md (panel roster, reference
+% constants, eGSK SLSQP provenance; rule R-EGSK-1).
+
+The exact numeric settings behind ``published constants'' are reproduced
+in Table~\ref{tab:comparator-params-main} so the main text is
+parameter-complete without the Supplementary Material: every value is
+read programmatically from the shipped optimizer modules --- module
+constants imported, runner-visible defaults extracted from source ---
+never hand-transcribed, and the frozen campaign configuration records an
+empty per-optimizer override set for every comparator, so these module
+defaults are the settings of record. Pools are written first:step:last.
+\dtgsk{} is omitted from this table because its complete frozen
+configuration is already given in Table~\ref{tab:parameters}; its single
+documented per-suite exception --- the two CEC2013LSGO linkage-block
+entries ($905 \to 50$, $1000 \to 50$) --- is disclosed in
+Section~\ref{sec:exp:cec2013lsgo} and Supplementary Section~S7.
+% BIND: generated by papers/scripts/generate_comparator_params.py from the
+% shipped optimizer modules -- read, never hand-transcribed; frozen
+% run_config.json optimizer_options {} for all six comparators
+\begin{table}[H]
+\caption{GSK-family comparator parameter settings exactly as run in this
+study, read from the shipped optimizer modules. Identical settings apply
+on all five suites; no comparator is tuned per suite. Bracketed lists are
+per-arm pools; ranges are written first:step:last.}\label{tab:comparator-params-main}
+\centering
+\tablesize{\footnotesize}
+\resizebox{\textwidth}{!}{\input{generated/comparator_params}}
+\end{table}
+
+Determinism is contribution C3's core.
+A 13-substream, append-only, prefix-locked counter-based random-number
+layer child-seeds every subsystem from one run seed,
+Eq.~(\ref{eq:rng-substreams}), where substream $k$ is derived by
+counter-based child-seeding and substream 0 is the run seed
+verbatim. % BIND: phase_03/notation_table.md (RNG block)
+Because each subsystem draws from its own named substream --- with a
+few closely related mechanisms, such as the deep-stall restart, sharing
+the budget-safe-escape substream --- toggling a subsystem cannot
+disturb the draw order of any subsystem on a different substream. Three
+distinct reproducibility levels should be kept apart. The first is
+\emph{RNG-substream isolation}: the structural guarantee just stated, which
+makes component-level re-evaluation well defined and is test-enforced in the
+repository's regression suite. The second is \emph{same-environment trajectory
+repeatability}: bit-for-bit identical runs under the same single-threaded
+build with a fixed floating-point reduction order, which is the shipped
+configuration. That is not a cross-thread or cross-platform guarantee, as noted
+in Section~\ref{sec:experiments}. The third is \emph{artifact byte-identity}:
+the released result files reproduce byte-for-byte after the documented
+normalization. All three cover \dtgsk{} and this repository's pipeline only;
+no byte-stability claim is made for the comparator implementations.
+
+%------------------------------------------------------------------
+\subsection{Complexity and Evaluation Accounting}\label{sec:alg:complexity}
+%------------------------------------------------------------------
+
+\paragraph{Computational cost.}
+Per generation, the scaffold costs what the base algorithm costs:
+trial construction, masking, and bound repair are $O(NP\cdot D)$,
+ranking is $O(NP\log NP)$, ACE and ARGP add $O(NP+M)$ and
+$O(M\cdot W_{\text{argp}})$ bookkeeping, and the archive update is an
+$O(|A|\cdot D)$ distance check. % BIND: phase_03/complexity_analysis.md (per-generation table)
+The dimension-gated structures dominate only at upper tier. The three
+$O(D^{2})$ interaction matrices are decayed at $O(D^{2})$ per update, the
+$O(D)$ activity vector at $O(D)$, and each
+strictly-improving accepted move contributes a rank-one outer product over
+its active-coordinate set $J$ ($O(|J|^{2})$, $|J|\le D$); this sums to
+$O(NP\cdot D^{2})$ worst case, and less when the per-move support is sparse.
+That update runs every generation at $D=50$--$99$, but is thinned at $D\ge100$
+to every tenth generation from a capped sample of accepted moves, with its
+linkage blocks re-extracted on a slower multi-generation cadence. The
+eigenframe polish performs a single $O(D^{3})$ eigendecomposition once per
+run. % BIND: phase_03/complexity_analysis.md (dimension-gated table)
+For $D<50$ no $D^{2}$ or $D^{3}$ interaction structure is allocated. The
+sub-$20$ tier is $O(NP\cdot D)$ per generation like GSK. At $20\le D<50$ the
+only added term is the optional DE arm's vectorized donor selection: a partial
+selection over an $n_{\mathrm{DE}}\times NP$ key matrix, $O(n_{\mathrm{DE}}\cdot NP)$
+with a matching transient buffer (up to $O(NP^{2})$ when most rows draw DE).
+That is bounded compute, not budget. % BIND: phase_03/complexity_analysis.md (whole-run model)
+Memory is dominated by the $O(NP\cdot D)$ population family at every tier ---
+the population, trial, and three-buffer RNG workspaces, all $\Theta(NP\cdot D)$
+with $NP_{\text{init}}=5D$ --- which at $D=100$ is on the order of a few
+megabytes in float64.  The dimension-gated interaction state adds three
+persistent $O(D^{2})$ matrices (magnitude $G_{\mathrm{abs}}$, signed
+$G_{\mathrm{signed}}$, and co-occurrence support $C$), an $O(D)$ activity vector,
+and several reusable $O(D^{2})$ scratch buffers. That is about half a megabyte at
+$D=100$ --- a minority of the live footprint even where it is largest. Alongside
+it sit the diversity archive ($\le 200\cdot D$) and the one-shot $O(D^{2})$
+eigenframe workspace. % BIND: phase_03/complexity_analysis.md (memory paragraph)
+We claim no complexity improvement over GSK: the $D^{2}/D^{3}$ terms
+are bounded compute overhead --- not budget --- paid for
+zero-extra-objective-evaluation structure learning, and the
+dimension gating means low-dimensional runs pay none of it.
+Measured wall-clock overhead is reported with the experimental
+results.
+
+\paragraph{Evaluation accounting.}
+Every objective evaluation flows through a single
+budget controller holding the evaluation budget MaxFES ($10^{4}D$ for
+CEC2017 and CEC2013, $150{,}000$ for CEC2011, $5\times10^{4}$,
+$10^{6}$, $3\times10^{6}$ and $10^{7}$ at $D = 5/10/15/20$ for CEC2020,
+and $3\times10^{6}$ for CEC2013LSGO); there is
+no second counter and no path that calls the objective
+directly. % BIND: phase_03/evaluation_accounting_report.md Sections 1-2; SAP addendum Section 2 (CEC2020/CEC2013LSGO budgets)
+This includes every evaluation spent by the coordinate local search, the
+BSE rescue, the deep-stall re-initialization, and the polish probes
+--- none is exempt.
+When a final batch would exceed the remaining budget, only the prefix
+that fits is evaluated and charged, so runs are MaxFES-exact by
+construction: budget-exact, monotone, and repeat-identical, as
+verified by the repository's deterministic
+trace. % BIND: phase_03/evaluation_accounting_report.md Section 3; claim MT-11
+One protocol exception is disclosed here and documented in the
+experimental setup: \dtgsk{} self-initializes, drawing its own
+$5D$-point initial population from the same seed-paired stream as the
+shared runner-generated initial populations, rather than consuming the
+runner's matrix; the draw is deterministic and charged like any
+other. % BIND: phase_03/contribution_matrix.md row 16; claim PR-06

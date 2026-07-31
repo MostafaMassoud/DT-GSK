@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Python API documentation for gsk_family.analysis.result_loader">
+  <title>gsk_family.analysis.result_loader | GSK Family Python Documentation</title>
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+  <div class="site-shell">
+    <aside class="sidebar">
+<div class="brand"><a href="../index.html">GSK Family Python</a></div>
+<input class="nav-search" type="search" placeholder="Filter docs" aria-label="Filter docs">
+<nav class="nav-list" aria-label="Documentation">
+<section><h2>Getting Started</h2>
+<a class="nav-link" href="../getting-started_configuration.html">Configuration</a>
+<a class="nav-link" href="../getting-started_explainer.html">Explainer</a>
+<a class="nav-link" href="../getting-started_runbook.html">Runbook</a>
+<a class="nav-link" href="../getting-started_troubleshooting.html">Troubleshooting</a>
+<a class="nav-link" href="../getting-started_tutorial.html">Tutorial</a>
+<a class="nav-link" href="../getting-started_user_guide.html">User Guide</a>
+</section>
+<section><h2>Reference</h2>
+<a class="nav-link" href="../reference_api.html">API Reference</a>
+<a class="nav-link" href="../reference_architecture.html">Architecture</a>
+<a class="nav-link" href="../reference_benchmark_mapping.html">Benchmark Mapping</a>
+<a class="nav-link" href="../reference_benchmark_protocol.html">Benchmark Protocol</a>
+<a class="nav-link" href="../reference_cec2011_cpp_python_equivalence_review.html">CEC2011 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="../reference_cec2013_cpp_python_equivalence_review.html">CEC2013 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="../reference_cec2013lsgo_cpp_python_equivalence_review.html">CEC2013LSGO C++ to Python Equivalence Review</a>
+<a class="nav-link" href="../reference_cec2017_cpp_python_equivalence_review.html">CEC2017 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="../reference_cec2020_cpp_python_equivalence_review.html">CEC2020 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="../index.html">Documentation Index</a>
+<a class="nav-link" href="../reference_fp_regime.html">Floating-Point Regime Verification</a>
+<a class="nav-link" href="../reference_diagrams.html">Flowcharts And Diagrams</a>
+<a class="nav-link" href="../reference_glossary.html">Glossary</a>
+<a class="nav-link" href="../LICENSES.html">Licenses</a>
+<a class="nav-link" href="../reference_module_dependencies.html">Module Dependencies</a>
+<a class="nav-link" href="../reference_project_structure.html">Project Structure</a>
+<a class="nav-link" href="../reference_python_optimizer_interface.html">Python Optimizer Interface</a>
+<a class="nav-link" href="../reference_result_schema.html">Result Schema</a>
+<a class="nav-link" href="../reference_seed_policy.html">Seed Policy</a>
+<a class="nav-link" href="../reference_workflows.html">Workflows</a>
+</section>
+<section><h2>Algorithm Guides</h2>
+<a class="nav-link" href="../algorithms_agsk.html">AGSK — Adaptive Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="../algorithms_apgsk.html">APGSK — Adaptive-Parameters Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="../algorithms_atmals-gsk.html">ATMALS-GSK — Adaptive Tuning, Memory, Adaptive Local Search</a>
+<a class="nav-link" href="../algorithms_dt-gsk.html">DT-GSK — Dimension-Tiered Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="../algorithms_egsk.html">EGSK — Enhanced Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="../algorithms_fdb-agsk.html">FDB-AGSK — Fitness-Distance-Balance AGSK</a>
+<a class="nav-link" href="../algorithms_gsk.html">GSK — Gaining-Sharing Knowledge</a>
+</section>
+<section><h2>Development</h2>
+<a class="nav-link" href="../development_BUG_resume_summary_truncation.html">BUG-RESUME-01 — resume mode truncates (and mis-computes) the per-dimension summary CSV</a>
+<a class="nav-link" href="../development_LSGO_ACCELERATION_PLAN.html">CEC2013LSGO Acceleration Plan — all 7 GSK-family algorithms, bit-identically</a>
+<a class="nav-link" href="../development_LSGO_INTEGRATION_CAMPAIGN.html">CEC2013LSGO Integration — Campaign Plan</a>
+<a class="nav-link" href="../development_CEC2017_PREC_adjudication.html">CEC2017-PREC — adjudication (CLOSED 2026-07-25)</a>
+<a class="nav-link" href="../development_code_reading_guide.html">Code Reading Guide</a>
+<a class="nav-link" href="../development_contributor_guide.html">Contributor Guide</a>
+<a class="nav-link" href="../development_DECC_G_port_record.html">DECC-G port — fidelity and validation record</a>
+<a class="nav-link" href="../development_developer_guide.html">Developer Guide</a>
+<a class="nav-link" href="../development_README.html">Development Docs</a>
+<a class="nav-link" href="../development_dt_gsk_core_reference.html">DT-GSK Core Reference — the vendored core and its byte-identity lock</a>
+<a class="nav-link" href="../development_evidence_rerun_runbook.html">DT-GSK re-run runbook — corrected implementation (C006 + graph backend)</a>
+<a class="nav-link" href="../development_egsk_port_spec.html">EGSK — Algorithm Spec &amp; Porting Verdict</a>
+<a class="nav-link" href="../development_extension_guide.html">Extension Guide</a>
+<a class="nav-link" href="../development_FAMILY_ACCELERATION_PLAN.html">Family-wide acceleration plan — 7 algorithms x 5 suites, bit-identical only</a>
+<a class="nav-link" href="../development_FINAL_PUBLICATION_PLAN.html">FINAL PUBLICATION PLAN — DT-GSK, Four(/Five)-Suite Scope</a>
+<a class="nav-link" href="../development_ACCELERATION_CAMPAIGN_PROMPT.html">GSK-Family Acceleration Campaign — Execution Prompt</a>
+<a class="nav-link" href="../development_maintenance_guide.html">Maintenance Guide</a>
+<a class="nav-link" href="../development_PORT_05_TUNING_TRIAGE.html">Porting project-05 tuning into 02 — Phase 1 audit and triage</a>
+<a class="nav-link" href="../development_REFERENCE_PROMOTION_PLAN.html">Reference Promotion Plan — CEC2013LSGO now, CEC2020 behind its completeness gate</a>
+<a class="nav-link" href="../development_SIBLING_CAMPAIGN_TRANSFER.html">Sibling-Campaign Transfer — every tuning that can make the GSK family fast</a>
+</section>
+<section><h2>Research</h2>
+<a class="nav-link" href="../research_egsk_validation_appendix.html">EGSK Validation Appendix — Paired Port-vs-Reference Equivalence</a>
+<a class="nav-link" href="../research_numerical_examples.html">Numerical Examples</a>
+<a class="nav-link" href="../research_performance.html">Performance</a>
+<a class="nav-link" href="../research_reproducibility.html">Reproducibility</a>
+<a class="nav-link" href="../research_researcher_handbook.html">Researcher Handbook</a>
+<a class="nav-link" href="../research_statistical_analysis.html">Statistical Analysis (GSK-family comparison)</a>
+<a class="nav-link" href="../research_validation_report.html">Validation Report</a>
+</section>
+<section><h2>Prompts</h2>
+<a class="nav-link" href="../prompt_documentation-deep-upgrade.html">Deep Documentation Review &amp; Upgrade Prompt — GSK Family Python</a>
+<a class="nav-link" href="../prompt_project-review.html">Deep Expert Review Prompt For GSK Family Python</a>
+<a class="nav-link" href="../prompt_documentation-review.html">Documentation Review Prompt</a>
+<a class="nav-link" href="../prompt_publication-polish.html">Final Publication Prompt — Production-Ready Q1 Release of GSK Family Python v1.1</a>
+</section>
+<section><h2>Python API</h2>
+<a class="nav-link" href="../api_index.html">API Module Index</a>
+<a class="nav-link api-link" href="../api/gsk_family.__init__.html">gsk_family.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.__init__.html">gsk_family.analysis.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.family_report.html">gsk_family.analysis.family_report</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.figures.html">gsk_family.analysis.figures</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.latex_tables.html">gsk_family.analysis.latex_tables</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.project_policy.html">gsk_family.analysis.project_policy</a>
+<a class="nav-link api-link active" href="../api/gsk_family.analysis.result_loader.html">gsk_family.analysis.result_loader</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.statistical_tests.html">gsk_family.analysis.statistical_tests</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.statistics.html">gsk_family.analysis.statistics</a>
+<a class="nav-link api-link" href="../api/gsk_family.benchmark_adapter.__init__.html">gsk_family.benchmark_adapter.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.benchmark_adapter.factory.html">gsk_family.benchmark_adapter.factory</a>
+<a class="nav-link api-link" href="../api/gsk_family.benchmark_adapter.problem.html">gsk_family.benchmark_adapter.problem</a>
+<a class="nav-link api-link" href="../api/gsk_family.benchmark_adapter.protocol.html">gsk_family.benchmark_adapter.protocol</a>
+<a class="nav-link api-link" href="../api/gsk_family.cli.__init__.html">gsk_family.cli.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.cli.list.html">gsk_family.cli.list</a>
+<a class="nav-link api-link" href="../api/gsk_family.cli.run.html">gsk_family.cli.run</a>
+<a class="nav-link api-link" href="../api/gsk_family.cli.stats.html">gsk_family.cli.stats</a>
+<a class="nav-link api-link" href="../api/gsk_family.cli.validate.html">gsk_family.cli.validate</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.__init__.html">gsk_family.common.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.bounds.html">gsk_family.common.bounds</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.donors.html">gsk_family.common.donors</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.numeric_compat.html">gsk_family.common.numeric_compat</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.population.html">gsk_family.common.population</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.reduction.html">gsk_family.common.reduction</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.reference_rng.html">gsk_family.common.reference_rng</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.rng.html">gsk_family.common.rng</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.threefry_rng.html">gsk_family.common.threefry_rng</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.__init__.html">gsk_family.optimizers.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers._dt_profiles.html">gsk_family.optimizers._dt_profiles</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers._dt_rng.html">gsk_family.optimizers._dt_rng</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers._kernels.html">gsk_family.optimizers._kernels</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.agsk.html">gsk_family.optimizers.agsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.apgsk.html">gsk_family.optimizers.apgsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.atmals_gsk.html">gsk_family.optimizers.atmals_gsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.atmals_helpers.html">gsk_family.optimizers.atmals_helpers</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.dt_gsk.html">gsk_family.optimizers.dt_gsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.egsk.html">gsk_family.optimizers.egsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.__init__.html">gsk_family.optimizers.external.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external._base.html">gsk_family.optimizers.external._base</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external._telemetry_shim.html">gsk_family.optimizers.external._telemetry_shim</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.cmaes.html">gsk_family.optimizers.external.cmaes</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.decc_g.html">gsk_family.optimizers.external.decc_g</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.ebowithcmar.html">gsk_family.optimizers.external.ebowithcmar</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.jso.html">gsk_family.optimizers.external.jso</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.lshade.html">gsk_family.optimizers.external.lshade</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.lshade_spacma.html">gsk_family.optimizers.external.lshade_spacma</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.mos_cec2013lsgo.html">gsk_family.optimizers.external.mos_cec2013lsgo</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.shade_ils.html">gsk_family.optimizers.external.shade_ils</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.fdb_agsk.html">gsk_family.optimizers.fdb_agsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.fdb_scores.html">gsk_family.optimizers.fdb_scores</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.gsk.html">gsk_family.optimizers.gsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.__init__.html">gsk_family.runners.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.config.html">gsk_family.runners.config</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.fp_regime.html">gsk_family.runners.fp_regime</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.output.html">gsk_family.runners.output</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.parallel.html">gsk_family.runners.parallel</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.performance.html">gsk_family.runners.performance</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.run_experiment.html">gsk_family.runners.run_experiment</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.seed_policy.html">gsk_family.runners.seed_policy</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.verification.html">gsk_family.runners.verification</a>
+<a class="nav-link api-link" href="../api/gsk_family.stats.html">gsk_family.stats</a>
+<a class="nav-link api-link" href="../api/gsk_family.types.html">gsk_family.types</a>
+</section>
+</nav></aside>
+    <main class="content">
+      <article class="doc-card">
+        <h1>gsk_family.analysis.result_loader</h1>
+<p class="source-path">Source: <code>src/gsk_family/analysis/result_loader.py</code></p>
+<p>Unified result loading for DT-GSK paper table generation.</p>
+<p>The paper compares DT-GSK against the **GSK family only**
+(``gsk``, ``agsk``, ``apgsk``, ``fdb-agsk``, ``egsk``, ``atmals-gsk``);
+the non-GSK metaheuristic comparator panel was removed when the paper
+scope was narrowed to the GSK family.</p>
+<p>Handles two reference CSV schema variants:
+    Schema A (GSK-family): ``Function`` header, ``F1`` prefix, full stats
+    Schema B (Classical):  ``Func`` header, numeric ID, often sparse</p>
+<p>Also loads locally-reproduced results from the experiment runner, which
+writes suite-partitioned summaries under
+``results/_run_all/&lt;optimizer&gt;/&lt;suite&gt;/summary/&lt;optimizer&gt;_&lt;suite&gt;_D&lt;dim&gt;.csv``
+(and a ``&lt;optimizer&gt;_&lt;suite&gt;.csv`` rollup for CEC2011) with a ``Function``
+header and full stats.</p>
+<p>Every loaded result carries a provenance tag per the experiment contract
+(Section 4.4): reproduced_locally, imported_reference, derived_summary,
+or unavailable.</p>
+<h2 id="members">Members</h2>
+<section class="api-member" id="class-strictsourceviolation-84">
+<div class="member-kind">class</div>
+<h2>StrictSourceViolation</h2>
+<pre><code>StrictSourceViolation(RuntimeError)</code></pre>
+<p>Raised when strict-source mode blocks a non-reference data source.</p>
+</section>
+<section class="api-member" id="function-set-strict-source-88">
+<div class="member-kind">function</div>
+<h2>set_strict_source</h2>
+<pre><code>set_strict_source(enabled: Optional[bool]) -&gt; None</code></pre>
+<p>Programmatically force strict-source mode on/off.</p>
+<p>``True``/``False`` override the environment variable; ``None`` restores
+deferral to ``GSK_STRICT_SOURCE``.</p>
+</section>
+<section class="api-member" id="function-strict-source-enabled-98">
+<div class="member-kind">function</div>
+<h2>strict_source_enabled</h2>
+<pre><code>strict_source_enabled() -&gt; bool</code></pre>
+<p>Return True when publication strict-source mode is active.</p>
+</section>
+<section class="api-member" id="function-get-source-audit-107">
+<div class="member-kind">function</div>
+<h2>get_source_audit</h2>
+<pre><code>get_source_audit() -&gt; List[Dict[str, str]]</code></pre>
+<p>Return a copy of the opened-evidence-path audit log.</p>
+</section>
+<section class="api-member" id="function-clear-source-audit-112">
+<div class="member-kind">function</div>
+<h2>clear_source_audit</h2>
+<pre><code>clear_source_audit() -&gt; None</code></pre>
+<p>Reset the opened-evidence-path audit log.</p>
+</section>
+<section class="api-member" id="function-audit-source-open-117">
+<div class="member-kind">function</div>
+<h2>audit_source_open</h2>
+<pre><code>audit_source_open(path: str | Path, role: str = &#x27;data&#x27;) -&gt; None</code></pre>
+<p>Record (and, in strict mode, police) a data file that is being opened.</p>
+<p>Appends the resolved path to the collectable audit list and logs it. In
+strict mode, raises :class:`StrictSourceViolation` if the path lies
+outside the canonical immutable evidence tree
+(``benchmarks/cec_reference_results/``).</p>
+</section>
+<section class="api-member" id="class-functionstats-204">
+<div class="member-kind">class</div>
+<h2>FunctionStats</h2>
+<pre><code>FunctionStats</code></pre>
+<p>Normalized per-function statistics.</p>
+<div class="method-list"><h3>Methods</h3>
+<section class="api-member" id="method-has-mean-213">
+<div class="member-kind">method</div>
+<h2>has_mean</h2>
+<pre><code>has_mean(self) -&gt; bool</code></pre>
+<p>Return True if mean error is available.</p>
+</section>
+<section class="api-member" id="method-has-full-stats-217">
+<div class="member-kind">method</div>
+<h2>has_full_stats</h2>
+<pre><code>has_full_stats(self) -&gt; bool</code></pre>
+<p>Return True if all five statistics are available.</p>
+</section>
+<section class="api-member" id="method-mean-sd-str-224">
+<div class="member-kind">method</div>
+<h2>mean_sd_str</h2>
+<pre><code>mean_sd_str(self, fmt: str = &#x27;.2E&#x27;) -&gt; str</code></pre>
+<p>Format as &#x27;Mean +/- SD&#x27; for paper tables.</p>
+</section>
+</div>
+</section>
+<section class="api-member" id="class-algorithmresult-236">
+<div class="member-kind">class</div>
+<h2>AlgorithmResult</h2>
+<pre><code>AlgorithmResult</code></pre>
+<p>Normalized results for one algorithm at one suite/dimension.</p>
+<div class="method-list"><h3>Methods</h3>
+<section class="api-member" id="method-func-ids-247">
+<div class="member-kind">method</div>
+<h2>func_ids</h2>
+<pre><code>func_ids(self) -&gt; List[int]</code></pre>
+<p>Sorted list of available function IDs.</p>
+</section>
+<section class="api-member" id="method-mean-errors-251">
+<div class="member-kind">method</div>
+<h2>mean_errors</h2>
+<pre><code>mean_errors(self, excluded: Optional[set[int]] = None) -&gt; Dict[int, float]</code></pre>
+<p>Return {func_id: mean_error} for functions with available mean.</p>
+<p>Compatible with ``wilcoxon_signed_rank()`` and
+``friedman_rank_test()`` in ``gsk.statistical_tests``.</p>
+</section>
+<section class="api-member" id="method-len-266">
+<div class="member-kind">method</div>
+<h2>__len__</h2>
+<pre><code>__len__(self) -&gt; int</code></pre>
+<p>Return the number of functions with loaded statistics.</p>
+</section>
+</div>
+</section>
+<section class="api-member" id="function-parse-func-id-274">
+<div class="member-kind">function</div>
+<h2>_parse_func_id</h2>
+<pre><code>_parse_func_id(raw: str) -&gt; int</code></pre>
+<p>Parse function ID from either &#x27;F1&#x27; or &#x27;1&#x27; format.</p>
+</section>
+<section class="api-member" id="function-parse-float-282">
+<div class="member-kind">function</div>
+<h2>_parse_float</h2>
+<pre><code>_parse_float(raw: str) -&gt; Optional[float]</code></pre>
+<p>Parse a float, returning None for empty/missing values.</p>
+</section>
+<section class="api-member" id="function-load-summary-csv-293">
+<div class="member-kind">function</div>
+<h2>load_summary_csv</h2>
+<pre><code>load_summary_csv(path: str | Path) -&gt; Dict[int, FunctionStats]</code></pre>
+<p>Load a per-function summary CSV, auto-detecting schema variant.</p>
+<p>Handles multiple schemas:
+    Schema A: Function,Best,Median,Mean,Worst,SD  (F1 or numeric)
+    Schema B: Func,Best,Median,Mean,Worst,SD       (numeric, sparse)
+    Schema C: F,Min,Median,Max,Mean,Std            (eGSK convention)</p>
+<p>Parameters
+----------
+path : str or Path
+    Path to the summary CSV.</p>
+<p>Returns
+-------
+dict[int, FunctionStats]
+    Mapping from function ID to normalised statistics.
+    Empty dict if file does not exist or is unparseable.</p>
+</section>
+<section class="api-member" id="function-reference-csv-path-373">
+<div class="member-kind">function</div>
+<h2>_reference_csv_path</h2>
+<pre><code>_reference_csv_path(alg: str, suite: str, dim: int, base_dir: Optional[Path] = None) -&gt; Optional[Path]</code></pre>
+<p>Resolve path to a reference result CSV in benchmarks/cec_reference_results/.</p>
+<p>Tries multiple naming conventions:
+  {alg}_{suite}_D{dim}.csv,  {alg}_{suite}_D{dim}.txt,
+  {alg}_{suite}.csv (CEC2011)</p>
+</section>
+<section class="api-member" id="function-candidate-result-filenames-405">
+<div class="member-kind">function</div>
+<h2>_candidate_result_filenames</h2>
+<pre><code>_candidate_result_filenames(alg: str, suite: str, dim: int) -&gt; list[str]</code></pre>
+<p>Return accepted local result filenames for one algorithm/suite/dim.</p>
+</section>
+<section class="api-member" id="function-first-existing-summary-413">
+<div class="member-kind">function</div>
+<h2>_first_existing_summary</h2>
+<pre><code>_first_existing_summary(summary_dir: Path, alg: str, suite: str, dim: int) -&gt; Optional[Path]</code></pre>
+<p>Return the first matching CSV in ``summary_dir`` using stable precedence.</p>
+</section>
+<section class="api-member" id="function-reproduced-csv-path-424">
+<div class="member-kind">function</div>
+<h2>_reproduced_csv_path</h2>
+<pre><code>_reproduced_csv_path(alg: str, suite: str, dim: int, results_dir: Optional[Path] = None) -&gt; Optional[Path]</code></pre>
+<p>Resolve path to a locally reproduced result CSV under ``results/_run_all``.</p>
+<p>The experiment runner writes suite-partitioned outputs for every optimizer
+(DT-GSK included) under its ``output_root`` (``results/_run_all``):
+  results/_run_all/{alg}/{suite}/summary/{alg}_{suite}_D{dim}.csv
+For CEC2011 the per-function rollup ``{alg}_{suite}.csv`` is used instead.</p>
+<p>``results_dir`` (when given) overrides ``results/_run_all`` and is the
+directory that directly contains the ``&lt;optimizer&gt;/`` subtrees. A legacy
+flat ``&lt;root&gt;/{alg}/summary/`` layout is checked last so older local
+artifacts remain readable.</p>
+<p>In strict-source mode this resolver refuses to run at all: reproduced
+staging paths are never admissible for publication analyses.</p>
+</section>
+<section class="api-member" id="function-load-reference-469">
+<div class="member-kind">function</div>
+<h2>load_reference</h2>
+<pre><code>load_reference(alg: str, suite: str, dim: int, base_dir: Optional[Path] = None) -&gt; Optional[AlgorithmResult]</code></pre>
+<p>Load reference results from benchmarks/cec_reference_results/.</p>
+<p>Returns None if the file does not exist or is empty.</p>
+</section>
+<section class="api-member" id="function-load-reproduced-497">
+<div class="member-kind">function</div>
+<h2>load_reproduced</h2>
+<pre><code>load_reproduced(alg: str, suite: str, dim: int, results_dir: Optional[Path] = None) -&gt; Optional[AlgorithmResult]</code></pre>
+<p>Load locally reproduced results from the results/ directory.</p>
+<p>Returns None if the file does not exist. Raises
+:class:`StrictSourceViolation` in strict-source mode: reproduced staging
+data is never an admissible publication source (Section 2.3).</p>
+</section>
+<section class="api-member" id="function-load-algorithm-532">
+<div class="member-kind">function</div>
+<h2>load_algorithm</h2>
+<pre><code>load_algorithm(alg: str, suite: str, dim: int, results_dir: Optional[Path] = None, ref_base_dir: Optional[Path] = None) -&gt; Optional[AlgorithmResult]</code></pre>
+<p>Load results for an algorithm, trying reference first, then reproduced.</p>
+<p>The committed reference panel (``benchmarks/cec_reference_results/``) is
+the paper&#x27;s single source of truth for every algorithm, the proposed
+method included; a locally reproduced run is only a fallback for cells
+the reference tree does not carry.</p>
+<p>In strict-source mode the fallback is disabled: a cell missing from the
+immutable evidence release raises :class:`StrictSourceViolation` (fail
+loudly, Section 2.3) instead of silently reading staging data.</p>
+</section>
+<section class="api-member" id="function-load-comparison-set-562">
+<div class="member-kind">function</div>
+<h2>load_comparison_set</h2>
+<pre><code>load_comparison_set(suite: str, dim: int, algorithms: Sequence[str], results_dir: Optional[Path] = None, ref_base_dir: Optional[Path] = None, require_mean: bool = False) -&gt; Dict[str, AlgorithmResult]</code></pre>
+<p>Load all algorithms in a comparison set.</p>
+<p>Parameters
+----------
+suite : str
+    Benchmark suite (e.g. &#x27;CEC2017&#x27;).
+dim : int
+    Problem dimension (0 for CEC2011).
+algorithms : sequence of str
+    Algorithm names to load.
+results_dir : Path, optional
+    Override for reproduced results directory.
+ref_base_dir : Path, optional
+    Override for reference results directory.
+require_mean : bool
+    If True, skip algorithms without any mean values.</p>
+<p>Returns
+-------
+dict[str, AlgorithmResult]
+    Successfully loaded algorithms.  Missing algorithms are
+    silently omitted.</p>
+</section>
+<section class="api-member" id="function-discover-reference-algorithms-606">
+<div class="member-kind">function</div>
+<h2>discover_reference_algorithms</h2>
+<pre><code>discover_reference_algorithms(suite: str, base_dir: Optional[Path] = None) -&gt; List[str]</code></pre>
+<p>Discover all algorithm directories under benchmarks/cec_reference_results/{suite}/.</p>
+<p>Returns
+-------
+list[str]
+    Sorted list of algorithm directory names.</p>
+</section>
+<section class="api-member" id="function-common-func-ids-631">
+<div class="member-kind">function</div>
+<h2>common_func_ids</h2>
+<pre><code>common_func_ids(results: Dict[str, AlgorithmResult], excluded: Optional[set[int]] = None, require_mean: bool = True) -&gt; List[int]</code></pre>
+<p>Find function IDs common to all algorithms in *results*.</p>
+<p>Parameters
+----------
+results : dict[str, AlgorithmResult]
+    Loaded algorithm results.
+excluded : set of int, optional
+    Function IDs to exclude (e.g. {2} for CEC2017).
+require_mean : bool
+    If True, only include functions where all algorithms have mean.</p>
+<p>Returns
+-------
+list[int]
+    Sorted list of common function IDs.</p>
+</section>
+<section class="api-member" id="function-provenance-report-678">
+<div class="member-kind">function</div>
+<h2>provenance_report</h2>
+<pre><code>provenance_report(results: Dict[str, AlgorithmResult]) -&gt; str</code></pre>
+<p>Generate a machine-readable provenance summary.</p>
+<p>Returns a CSV-formatted string with columns:
+Algorithm, Suite, Dimension, Provenance, NumFunctions, SourcePath</p>
+</section>
+<section class="api-member" id="function-availability-matrix-694">
+<div class="member-kind">function</div>
+<h2>availability_matrix</h2>
+<pre><code>availability_matrix(suites_dims: Optional[Dict[str, list[int]]] = None, algorithms: Optional[list[str]] = None, results_dir: Optional[Path] = None, ref_base_dir: Optional[Path] = None) -&gt; Dict[str, Dict[str, Optional[str]]]</code></pre>
+<p>Check data availability across suites, dims, and algorithms.</p>
+<p>Returns a nested dict: {(suite, dim): {alg: provenance_or_None}}.
+Useful for reporting which tables can be generated.</p>
+</section>
+      </article>
+    </main>
+    <aside class="page-toc" aria-label="On this page">
+<h2>On This Page</h2>
+<a class="toc-level-1" href="#gsk-family-analysis-result-loader">gsk_family.analysis.result_loader</a>
+<a class="toc-level-2" href="#members">Members</a>
+<a class="toc-level-2" href="#class-strictsourceviolation-84">StrictSourceViolation</a>
+<a class="toc-level-2" href="#function-set-strict-source-88">set_strict_source</a>
+<a class="toc-level-2" href="#function-strict-source-enabled-98">strict_source_enabled</a>
+<a class="toc-level-2" href="#function-get-source-audit-107">get_source_audit</a>
+<a class="toc-level-2" href="#function-clear-source-audit-112">clear_source_audit</a>
+<a class="toc-level-2" href="#function-audit-source-open-117">audit_source_open</a>
+<a class="toc-level-2" href="#class-functionstats-204">FunctionStats</a>
+<a class="toc-level-2" href="#class-algorithmresult-236">AlgorithmResult</a>
+<a class="toc-level-2" href="#function-parse-func-id-274">_parse_func_id</a>
+<a class="toc-level-2" href="#function-parse-float-282">_parse_float</a>
+<a class="toc-level-2" href="#function-load-summary-csv-293">load_summary_csv</a>
+<a class="toc-level-2" href="#function-reference-csv-path-373">_reference_csv_path</a>
+<a class="toc-level-2" href="#function-candidate-result-filenames-405">_candidate_result_filenames</a>
+<a class="toc-level-2" href="#function-first-existing-summary-413">_first_existing_summary</a>
+<a class="toc-level-2" href="#function-reproduced-csv-path-424">_reproduced_csv_path</a>
+<a class="toc-level-2" href="#function-load-reference-469">load_reference</a>
+<a class="toc-level-2" href="#function-load-reproduced-497">load_reproduced</a>
+<a class="toc-level-2" href="#function-load-algorithm-532">load_algorithm</a>
+<a class="toc-level-2" href="#function-load-comparison-set-562">load_comparison_set</a>
+<a class="toc-level-2" href="#function-discover-reference-algorithms-606">discover_reference_algorithms</a>
+<a class="toc-level-2" href="#function-common-func-ids-631">common_func_ids</a>
+<a class="toc-level-2" href="#function-provenance-report-678">provenance_report</a>
+<a class="toc-level-2" href="#function-availability-matrix-694">availability_matrix</a>
+</aside>
+  </div>
+  <script src="../assets/search.js"></script>
+</body>
+</html>

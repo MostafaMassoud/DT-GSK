@@ -1,0 +1,7 @@
+suite,dimension,function,comparator,test_level,n_pairs,statistic,p_raw,p_holm,outcome,availability,rank_biserial,w_plus,w_minus,n_zero,direction
+cec2017,10,0,gsk,across_functions_funclevel,29,2.200000e+01,1.652950e-04,9.917700e-04,win,ok,8.646154e-01,2.200000e+01,3.030000e+02,4,favors_dt-gsk
+cec2017,10,0,agsk,across_functions_funclevel,29,1.510000e+02,5.421589e-01,1.000000e+00,tie,ok,-1.396011e-01,2.000000e+02,1.510000e+02,3,favors_comparator
+cec2017,10,0,apgsk,across_functions_funclevel,29,1.610000e+02,9.785339e-01,1.000000e+00,tie,ok,-9.230769e-03,1.640000e+02,1.610000e+02,4,favors_comparator
+cec2017,10,0,fdb-agsk,across_functions_funclevel,29,1.760000e+02,7.639389e-01,1.000000e+00,tie,ok,-6.878307e-02,2.020000e+02,1.760000e+02,2,favors_comparator
+cec2017,10,0,atmals-gsk,across_functions_funclevel,29,6.500000e+01,9.055076e-03,3.622030e-02,win,ok,6.000000e-01,6.500000e+01,2.600000e+02,4,favors_dt-gsk
+cec2017,10,0,egsk,across_functions_funclevel,29,3.600000e+01,6.983405e-04,3.491702e-03,win,ok,7.784615e-01,3.600000e+01,2.890000e+02,4,favors_dt-gsk

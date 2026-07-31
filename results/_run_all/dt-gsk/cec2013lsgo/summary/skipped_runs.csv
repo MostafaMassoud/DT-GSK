@@ -1,0 +1,444 @@
+optimizer,suite,function,dimension,run,seed,reason,traceback
+dt-gsk,cec2013lsgo,1,1000,1,1022243691,"MemoryError: Unable to allocate 1.10 MiB for an array with shape (144, 1000) and data type float64 | at File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_core.py"", line 3408, in dt_gsk_optimize","
+""""""
+Traceback (most recent call last):
+  File ""C:\AI\Python\Python310\lib\concurrent\futures\process.py"", line 246, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\runners\run_experiment.py"", line 1208, in _process_run_task
+    return _run_one(
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\runners\run_experiment.py"", line 339, in _run_one
+    result = OPTIMIZER_FUNCTIONS[optimizer](problem, options)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\dt_gsk.py"", line 281, in optimize
+    result = dt_gsk_optimize(objective=objective, config=config, curve_callback=curve_callback)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_core.py"", line 3408, in dt_gsk_optimize
+    accepted_displacements = ui[idx_imp, :] - pop[idx_imp, :]  # before replacement
+numpy._core._exceptions._ArrayMemoryError: Unable to allocate 1.10 MiB for an array with shape (144, 1000) and data type float64
+"""""""
+dt-gsk,cec2013lsgo,1,1000,2,1023243728,"MemoryError: Unable to allocate 7.63 MiB for an array with shape (1000, 1000) and data type float64 | at File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_subsystems\interaction_graph.py"", line 346, in ig_update_from_accepted","
+""""""
+Traceback (most recent call last):
+  File ""C:\AI\Python\Python310\lib\concurrent\futures\process.py"", line 246, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\runners\run_experiment.py"", line 1208, in _process_run_task
+    return _run_one(
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\runners\run_experiment.py"", line 339, in _run_one
+    result = OPTIMIZER_FUNCTIONS[optimizer](problem, options)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\dt_gsk.py"", line 281, in optimize
+    result = dt_gsk_optimize(objective=objective, config=config, curve_callback=curve_callback)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_core.py"", line 4654, in dt_gsk_optimize
+    ig_update_from_accepted(
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_subsystems\interaction_graph.py"", line 346, in ig_update_from_accepted
+    state.matrix += lr_f * agg
+numpy._core._exceptions._ArrayMemoryError: Unable to allocate 7.63 MiB for an array with shape (1000, 1000) and data type float64
+"""""""
+dt-gsk,cec2013lsgo,1,1000,3,1024243765,"MemoryError: Unable to allocate 7.63 MiB for an array with shape (1000, 1000) and data type float64 | at File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_subsystems\interaction_graph.py"", line 346, in ig_update_from_accepted","
+""""""
+Traceback (most recent call last):
+  File ""C:\AI\Python\Python310\lib\concurrent\futures\process.py"", line 246, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\runners\run_experiment.py"", line 1208, in _process_run_task
+    return _run_one(
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\runners\run_experiment.py"", line 339, in _run_one
+    result = OPTIMIZER_FUNCTIONS[optimizer](problem, options)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\dt_gsk.py"", line 281, in optimize
+    result = dt_gsk_optimize(objective=objective, config=config, curve_callback=curve_callback)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_core.py"", line 4654, in dt_gsk_optimize
+    ig_update_from_accepted(
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_subsystems\interaction_graph.py"", line 346, in ig_update_from_accepted
+    state.matrix += lr_f * agg
+numpy._core._exceptions._ArrayMemoryError: Unable to allocate 7.63 MiB for an array with shape (1000, 1000) and data type float64
+"""""""
+dt-gsk,cec2013lsgo,1,1000,4,1025243802,"MemoryError: Unable to allocate 2.84 MiB for an array with shape (372, 1000) and data type float64 | at File ""C:\AI\Python\Python310\lib\site-packages\numpy\_core\_methods.py"", line 191, in _var","
+""""""
+Traceback (most recent call last):
+  File ""C:\AI\Python\Python310\lib\concurrent\futures\process.py"", line 246, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\runners\run_experiment.py"", line 1208, in _process_run_task
+    return _run_one(
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\runners\run_experiment.py"", line 339, in _run_one
+    result = OPTIMIZER_FUNCTIONS[optimizer](problem, options)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\dt_gsk.py"", line 281, in optimize
+    result = dt_gsk_optimize(objective=objective, config=config, curve_callback=curve_callback)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_core.py"", line 4500, in dt_gsk_optimize
+    coord_scale = np.std(pop, axis=0, dtype=np.float64)
+  File ""C:\AI\Python\Python310\lib\site-packages\numpy\_core\fromnumeric.py"", line 4064, in std
+    return _methods._std(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+  File ""C:\AI\Python\Python310\lib\site-packages\numpy\_core\_methods.py"", line 223, in _std
+    ret = _var(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+  File ""C:\AI\Python\Python310\lib\site-packages\numpy\_core\_methods.py"", line 191, in _var
+    x = asanyarray(arr - arrmean)
+numpy._core._exceptions._ArrayMemoryError: Unable to allocate 2.84 MiB for an array with shape (372, 1000) and data type float64
+"""""""
+dt-gsk,cec2013lsgo,1,1000,5,1026243839,"MemoryError: Unable to allocate 7.63 MiB for an array with shape (1000, 1000) and data type float64 | at File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_subsystems\interaction_graph.py"", line 346, in ig_update_from_accepted","
+""""""
+Traceback (most recent call last):
+  File ""C:\AI\Python\Python310\lib\concurrent\futures\process.py"", line 246, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\runners\run_experiment.py"", line 1208, in _process_run_task
+    return _run_one(
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\runners\run_experiment.py"", line 339, in _run_one
+    result = OPTIMIZER_FUNCTIONS[optimizer](problem, options)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\dt_gsk.py"", line 281, in optimize
+    result = dt_gsk_optimize(objective=objective, config=config, curve_callback=curve_callback)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_core.py"", line 3502, in dt_gsk_optimize
+    ig_update_from_accepted(
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_subsystems\interaction_graph.py"", line 346, in ig_update_from_accepted
+    state.matrix += lr_f * agg
+numpy._core._exceptions._ArrayMemoryError: Unable to allocate 7.63 MiB for an array with shape (1000, 1000) and data type float64
+"""""""
+dt-gsk,cec2013lsgo,1,1000,6,1027243876,"MemoryError: Unable to allocate 7.63 MiB for an array with shape (1000, 1000) and data type float64 | at File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_subsystems\interaction_graph.py"", line 346, in ig_update_from_accepted","
+""""""
+Traceback (most recent call last):
+  File ""C:\AI\Python\Python310\lib\concurrent\futures\process.py"", line 246, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\runners\run_experiment.py"", line 1208, in _process_run_task
+    return _run_one(
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\runners\run_experiment.py"", line 339, in _run_one
+    result = OPTIMIZER_FUNCTIONS[optimizer](problem, options)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\dt_gsk.py"", line 281, in optimize
+    result = dt_gsk_optimize(objective=objective, config=config, curve_callback=curve_callback)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_core.py"", line 4654, in dt_gsk_optimize
+    ig_update_from_accepted(
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_subsystems\interaction_graph.py"", line 346, in ig_update_from_accepted
+    state.matrix += lr_f * agg
+numpy._core._exceptions._ArrayMemoryError: Unable to allocate 7.63 MiB for an array with shape (1000, 1000) and data type float64
+"""""""
+dt-gsk,cec2013lsgo,1,1000,7,1028243913,"MemoryError: Unable to allocate 1.57 MiB for an array with shape (206, 1000) and data type float64 | at File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_core.py"", line 3408, in dt_gsk_optimize","
+""""""
+Traceback (most recent call last):
+  File ""C:\AI\Python\Python310\lib\concurrent\futures\process.py"", line 246, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\runners\run_experiment.py"", line 1208, in _process_run_task
+    return _run_one(
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\runners\run_experiment.py"", line 339, in _run_one
+    result = OPTIMIZER_FUNCTIONS[optimizer](problem, options)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\dt_gsk.py"", line 281, in optimize
+    result = dt_gsk_optimize(objective=objective, config=config, curve_callback=curve_callback)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_core.py"", line 3408, in dt_gsk_optimize
+    accepted_displacements = ui[idx_imp, :] - pop[idx_imp, :]  # before replacement
+numpy._core._exceptions._ArrayMemoryError: Unable to allocate 1.57 MiB for an array with shape (206, 1000) and data type float64
+"""""""
+dt-gsk,cec2013lsgo,1,1000,8,1029243950,"MemoryError: Unable to allocate 7.63 MiB for an array with shape (1000, 1000) and data type float64 | at File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_subsystems\interaction_graph.py"", line 346, in ig_update_from_accepted","
+""""""
+Traceback (most recent call last):
+  File ""C:\AI\Python\Python310\lib\concurrent\futures\process.py"", line 246, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\runners\run_experiment.py"", line 1208, in _process_run_task
+    return _run_one(
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\runners\run_experiment.py"", line 339, in _run_one
+    result = OPTIMIZER_FUNCTIONS[optimizer](problem, options)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\dt_gsk.py"", line 281, in optimize
+    result = dt_gsk_optimize(objective=objective, config=config, curve_callback=curve_callback)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_core.py"", line 4654, in dt_gsk_optimize
+    ig_update_from_accepted(
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_subsystems\interaction_graph.py"", line 346, in ig_update_from_accepted
+    state.matrix += lr_f * agg
+numpy._core._exceptions._ArrayMemoryError: Unable to allocate 7.63 MiB for an array with shape (1000, 1000) and data type float64
+"""""""
+dt-gsk,cec2013lsgo,1,1000,9,1030243987,"MemoryError: Unable to allocate 7.63 MiB for an array with shape (1000, 1000) and data type float64 | at File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_subsystems\interaction_graph.py"", line 346, in ig_update_from_accepted","
+""""""
+Traceback (most recent call last):
+  File ""C:\AI\Python\Python310\lib\concurrent\futures\process.py"", line 246, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\runners\run_experiment.py"", line 1208, in _process_run_task
+    return _run_one(
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\runners\run_experiment.py"", line 339, in _run_one
+    result = OPTIMIZER_FUNCTIONS[optimizer](problem, options)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\dt_gsk.py"", line 281, in optimize
+    result = dt_gsk_optimize(objective=objective, config=config, curve_callback=curve_callback)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_core.py"", line 3502, in dt_gsk_optimize
+    ig_update_from_accepted(
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_subsystems\interaction_graph.py"", line 346, in ig_update_from_accepted
+    state.matrix += lr_f * agg
+numpy._core._exceptions._ArrayMemoryError: Unable to allocate 7.63 MiB for an array with shape (1000, 1000) and data type float64
+"""""""
+dt-gsk,cec2013lsgo,1,1000,10,1031244024,"MemoryError: Unable to allocate 7.63 MiB for an array with shape (1000, 1000) and data type float64 | at File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_subsystems\interaction_graph.py"", line 346, in ig_update_from_accepted","
+""""""
+Traceback (most recent call last):
+  File ""C:\AI\Python\Python310\lib\concurrent\futures\process.py"", line 246, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\runners\run_experiment.py"", line 1208, in _process_run_task
+    return _run_one(
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\runners\run_experiment.py"", line 339, in _run_one
+    result = OPTIMIZER_FUNCTIONS[optimizer](problem, options)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\dt_gsk.py"", line 281, in optimize
+    result = dt_gsk_optimize(objective=objective, config=config, curve_callback=curve_callback)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_core.py"", line 3502, in dt_gsk_optimize
+    ig_update_from_accepted(
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_subsystems\interaction_graph.py"", line 346, in ig_update_from_accepted
+    state.matrix += lr_f * agg
+numpy._core._exceptions._ArrayMemoryError: Unable to allocate 7.63 MiB for an array with shape (1000, 1000) and data type float64
+"""""""
+dt-gsk,cec2013lsgo,1,1000,11,1032244061,"MemoryError: Unable to allocate 1.14 MiB for an array with shape (150, 1000) and data type float64 | at File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_core.py"", line 3408, in dt_gsk_optimize","
+""""""
+Traceback (most recent call last):
+  File ""C:\AI\Python\Python310\lib\concurrent\futures\process.py"", line 246, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\runners\run_experiment.py"", line 1208, in _process_run_task
+    return _run_one(
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\runners\run_experiment.py"", line 339, in _run_one
+    result = OPTIMIZER_FUNCTIONS[optimizer](problem, options)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\dt_gsk.py"", line 281, in optimize
+    result = dt_gsk_optimize(objective=objective, config=config, curve_callback=curve_callback)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_core.py"", line 3408, in dt_gsk_optimize
+    accepted_displacements = ui[idx_imp, :] - pop[idx_imp, :]  # before replacement
+numpy._core._exceptions._ArrayMemoryError: Unable to allocate 1.14 MiB for an array with shape (150, 1000) and data type float64
+"""""""
+dt-gsk,cec2013lsgo,1,1000,12,1033244098,"MemoryError: Allocation failed (probably too large). | at File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_subsystems\interaction_graph.py"", line 172, in _symmetrise_nonneg","
+""""""
+Traceback (most recent call last):
+  File ""C:\AI\Python\Python310\lib\concurrent\futures\process.py"", line 246, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\runners\run_experiment.py"", line 1208, in _process_run_task
+    return _run_one(
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\runners\run_experiment.py"", line 339, in _run_one
+    result = OPTIMIZER_FUNCTIONS[optimizer](problem, options)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\dt_gsk.py"", line 281, in optimize
+    result = dt_gsk_optimize(objective=objective, config=config, curve_callback=curve_callback)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_core.py"", line 4664, in dt_gsk_optimize
+    ig_extract_blocks(
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_subsystems\interaction_graph.py"", line 583, in ig_extract_blocks
+    Wn = _normalised_graph(state.matrix)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_subsystems\interaction_graph.py"", line 375, in _normalised_graph
+    A = _symmetrise_nonneg(W)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_subsystems\interaction_graph.py"", line 172, in _symmetrise_nonneg
+    return ig_symmetrise_nonneg_fast(A)
+MemoryError: Allocation failed (probably too large).
+"""""""
+dt-gsk,cec2013lsgo,1,1000,13,1034244135,"MemoryError: Unable to allocate 7.63 MiB for an array with shape (1000, 1000) and data type float64 | at File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_subsystems\interaction_graph.py"", line 346, in ig_update_from_accepted","
+""""""
+Traceback (most recent call last):
+  File ""C:\AI\Python\Python310\lib\concurrent\futures\process.py"", line 246, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\runners\run_experiment.py"", line 1208, in _process_run_task
+    return _run_one(
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\runners\run_experiment.py"", line 339, in _run_one
+    result = OPTIMIZER_FUNCTIONS[optimizer](problem, options)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\dt_gsk.py"", line 281, in optimize
+    result = dt_gsk_optimize(objective=objective, config=config, curve_callback=curve_callback)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_core.py"", line 4654, in dt_gsk_optimize
+    ig_update_from_accepted(
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_subsystems\interaction_graph.py"", line 346, in ig_update_from_accepted
+    state.matrix += lr_f * agg
+numpy._core._exceptions._ArrayMemoryError: Unable to allocate 7.63 MiB for an array with shape (1000, 1000) and data type float64
+"""""""
+dt-gsk,cec2013lsgo,1,1000,14,1035244172,"MemoryError: Unable to allocate 38.1 MiB for an array with shape (5000000,) and data type float64 | at File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\common\threefry_rng.py"", line 331, in _draw","
+""""""
+Traceback (most recent call last):
+  File ""C:\AI\Python\Python310\lib\concurrent\futures\process.py"", line 246, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\runners\run_experiment.py"", line 1208, in _process_run_task
+    return _run_one(
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\runners\run_experiment.py"", line 339, in _run_one
+    result = OPTIMIZER_FUNCTIONS[optimizer](problem, options)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\dt_gsk.py"", line 281, in optimize
+    result = dt_gsk_optimize(objective=objective, config=config, curve_callback=curve_callback)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_core.py"", line 2127, in dt_gsk_optimize
+    pop = lower + _sample_unit(NP) * span
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_core.py"", line 2108, in _sample_unit
+    return rngs.init.random((int(n), int(D)))
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_rng.py"", line 119, in random
+    values = self._rng.random(size)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\common\reference_rng.py"", line 56, in random
+    flat = self._draw(count)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\common\threefry_rng.py"", line 331, in _draw
+    out: np.ndarray = np.empty(count, dtype=np.float64)
+numpy._core._exceptions._ArrayMemoryError: Unable to allocate 38.1 MiB for an array with shape (5000000,) and data type float64
+"""""""
+dt-gsk,cec2013lsgo,1,1000,15,1036244209,"MemoryError: Unable to allocate 38.1 MiB for an array with shape (5000000,) and data type float64 | at File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\common\threefry_rng.py"", line 331, in _draw","
+""""""
+Traceback (most recent call last):
+  File ""C:\AI\Python\Python310\lib\concurrent\futures\process.py"", line 246, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\runners\run_experiment.py"", line 1208, in _process_run_task
+    return _run_one(
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\runners\run_experiment.py"", line 339, in _run_one
+    result = OPTIMIZER_FUNCTIONS[optimizer](problem, options)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\dt_gsk.py"", line 281, in optimize
+    result = dt_gsk_optimize(objective=objective, config=config, curve_callback=curve_callback)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_core.py"", line 2127, in dt_gsk_optimize
+    pop = lower + _sample_unit(NP) * span
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_core.py"", line 2108, in _sample_unit
+    return rngs.init.random((int(n), int(D)))
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_rng.py"", line 119, in random
+    values = self._rng.random(size)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\common\reference_rng.py"", line 56, in random
+    flat = self._draw(count)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\common\threefry_rng.py"", line 331, in _draw
+    out: np.ndarray = np.empty(count, dtype=np.float64)
+numpy._core._exceptions._ArrayMemoryError: Unable to allocate 38.1 MiB for an array with shape (5000000,) and data type float64
+"""""""
+dt-gsk,cec2013lsgo,1,1000,16,1037244246,"MemoryError: Unable to allocate 114. MiB for an array with shape (15000, 1000) and data type float64 | at File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_core.py"", line 2573, in dt_gsk_optimize","
+""""""
+Traceback (most recent call last):
+  File ""C:\AI\Python\Python310\lib\concurrent\futures\process.py"", line 246, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\runners\run_experiment.py"", line 1208, in _process_run_task
+    return _run_one(
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\runners\run_experiment.py"", line 339, in _run_one
+    result = OPTIMIZER_FUNCTIONS[optimizer](problem, options)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\dt_gsk.py"", line 281, in optimize
+    result = dt_gsk_optimize(objective=objective, config=config, curve_callback=curve_callback)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_core.py"", line 2573, in dt_gsk_optimize
+    _rng_3buf = np.empty((3 * NP_init, D), dtype=np.float64)
+numpy._core._exceptions._ArrayMemoryError: Unable to allocate 114. MiB for an array with shape (15000, 1000) and data type float64
+"""""""
+dt-gsk,cec2013lsgo,1,1000,17,1038244283,"MemoryError: Unable to allocate 38.1 MiB for an array with shape (5000, 1000) and data type float64 | at File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_core.py"", line 2550, in dt_gsk_optimize","
+""""""
+Traceback (most recent call last):
+  File ""C:\AI\Python\Python310\lib\concurrent\futures\process.py"", line 246, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\runners\run_experiment.py"", line 1208, in _process_run_task
+    return _run_one(
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\runners\run_experiment.py"", line 339, in _run_one
+    result = OPTIMIZER_FUNCTIONS[optimizer](problem, options)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\dt_gsk.py"", line 281, in optimize
+    result = dt_gsk_optimize(objective=objective, config=config, curve_callback=curve_callback)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_core.py"", line 2550, in dt_gsk_optimize
+    _vi_jun_buf = np.empty((NP_init, D), dtype=np.float64)
+numpy._core._exceptions._ArrayMemoryError: Unable to allocate 38.1 MiB for an array with shape (5000, 1000) and data type float64
+"""""""
+dt-gsk,cec2013lsgo,1,1000,18,1039244320,"MemoryError: Unable to allocate 38.1 MiB for an array with shape (5000, 1000) and data type float64 | at File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_core.py"", line 2542, in dt_gsk_optimize","
+""""""
+Traceback (most recent call last):
+  File ""C:\AI\Python\Python310\lib\concurrent\futures\process.py"", line 246, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\runners\run_experiment.py"", line 1208, in _process_run_task
+    return _run_one(
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\runners\run_experiment.py"", line 339, in _run_one
+    result = OPTIMIZER_FUNCTIONS[optimizer](problem, options)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\dt_gsk.py"", line 281, in optimize
+    result = dt_gsk_optimize(objective=objective, config=config, curve_callback=curve_callback)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_core.py"", line 2542, in dt_gsk_optimize
+    _ui_buf = np.empty((NP_init, D), dtype=np.float64)  # pre-allocated trial buffer
+numpy._core._exceptions._ArrayMemoryError: Unable to allocate 38.1 MiB for an array with shape (5000, 1000) and data type float64
+"""""""
+dt-gsk,cec2013lsgo,1,1000,19,1040244357,"MemoryError: Unable to allocate 38.1 MiB for an array with shape (5000, 1000) and data type float64 | at File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_core.py"", line 2542, in dt_gsk_optimize","
+""""""
+Traceback (most recent call last):
+  File ""C:\AI\Python\Python310\lib\concurrent\futures\process.py"", line 246, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\runners\run_experiment.py"", line 1208, in _process_run_task
+    return _run_one(
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\runners\run_experiment.py"", line 339, in _run_one
+    result = OPTIMIZER_FUNCTIONS[optimizer](problem, options)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\dt_gsk.py"", line 281, in optimize
+    result = dt_gsk_optimize(objective=objective, config=config, curve_callback=curve_callback)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_core.py"", line 2542, in dt_gsk_optimize
+    _ui_buf = np.empty((NP_init, D), dtype=np.float64)  # pre-allocated trial buffer
+numpy._core._exceptions._ArrayMemoryError: Unable to allocate 38.1 MiB for an array with shape (5000, 1000) and data type float64
+"""""""
+dt-gsk,cec2013lsgo,1,1000,20,1041244394,"MemoryError: Unable to allocate 38.1 MiB for an array with shape (5000, 1000) and data type float64 | at File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_core.py"", line 2550, in dt_gsk_optimize","
+""""""
+Traceback (most recent call last):
+  File ""C:\AI\Python\Python310\lib\concurrent\futures\process.py"", line 246, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\runners\run_experiment.py"", line 1208, in _process_run_task
+    return _run_one(
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\runners\run_experiment.py"", line 339, in _run_one
+    result = OPTIMIZER_FUNCTIONS[optimizer](problem, options)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\dt_gsk.py"", line 281, in optimize
+    result = dt_gsk_optimize(objective=objective, config=config, curve_callback=curve_callback)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_core.py"", line 2550, in dt_gsk_optimize
+    _vi_jun_buf = np.empty((NP_init, D), dtype=np.float64)
+numpy._core._exceptions._ArrayMemoryError: Unable to allocate 38.1 MiB for an array with shape (5000, 1000) and data type float64
+"""""""
+dt-gsk,cec2013lsgo,1,1000,21,1042244431,"MemoryError: Unable to allocate 38.1 MiB for an array with shape (5000, 1000) and data type float64 | at File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_core.py"", line 2550, in dt_gsk_optimize","
+""""""
+Traceback (most recent call last):
+  File ""C:\AI\Python\Python310\lib\concurrent\futures\process.py"", line 246, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\runners\run_experiment.py"", line 1208, in _process_run_task
+    return _run_one(
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\runners\run_experiment.py"", line 339, in _run_one
+    result = OPTIMIZER_FUNCTIONS[optimizer](problem, options)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\dt_gsk.py"", line 281, in optimize
+    result = dt_gsk_optimize(objective=objective, config=config, curve_callback=curve_callback)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_core.py"", line 2550, in dt_gsk_optimize
+    _vi_jun_buf = np.empty((NP_init, D), dtype=np.float64)
+numpy._core._exceptions._ArrayMemoryError: Unable to allocate 38.1 MiB for an array with shape (5000, 1000) and data type float64
+"""""""
+dt-gsk,cec2013lsgo,1,1000,22,1043244468,"MemoryError: Unable to allocate 38.1 MiB for an array with shape (5000, 1000) and data type float64 | at File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_core.py"", line 2542, in dt_gsk_optimize","
+""""""
+Traceback (most recent call last):
+  File ""C:\AI\Python\Python310\lib\concurrent\futures\process.py"", line 246, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\runners\run_experiment.py"", line 1208, in _process_run_task
+    return _run_one(
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\runners\run_experiment.py"", line 339, in _run_one
+    result = OPTIMIZER_FUNCTIONS[optimizer](problem, options)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\dt_gsk.py"", line 281, in optimize
+    result = dt_gsk_optimize(objective=objective, config=config, curve_callback=curve_callback)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_core.py"", line 2542, in dt_gsk_optimize
+    _ui_buf = np.empty((NP_init, D), dtype=np.float64)  # pre-allocated trial buffer
+numpy._core._exceptions._ArrayMemoryError: Unable to allocate 38.1 MiB for an array with shape (5000, 1000) and data type float64
+"""""""
+dt-gsk,cec2013lsgo,1,1000,23,1044244505,"MemoryError: Unable to allocate 4.77 MiB for an array with shape (5000, 1000) and data type bool | at File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\benchmark_adapter\problem.py"", line 60, in as_population","
+""""""
+Traceback (most recent call last):
+  File ""C:\AI\Python\Python310\lib\concurrent\futures\process.py"", line 246, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\runners\run_experiment.py"", line 1208, in _process_run_task
+    return _run_one(
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\runners\run_experiment.py"", line 339, in _run_one
+    result = OPTIMIZER_FUNCTIONS[optimizer](problem, options)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\dt_gsk.py"", line 281, in optimize
+    result = dt_gsk_optimize(objective=objective, config=config, curve_callback=curve_callback)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_core.py"", line 2128, in dt_gsk_optimize
+    fitness, n0 = budget.eval_batch_strict(pop)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_subsystems\budget.py"", line 232, in eval_batch_strict
+    y = np.asarray(self._objective(X_eval), dtype=np.float64)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\dt_gsk.py"", line 276, in objective
+    return np.asarray(problem.evaluate(population), dtype=np.float64).reshape(-1)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\benchmark_adapter\factory.py"", line 119, in evaluate
+    pop = as_population(population, dim=dim, suite=suite, func_id=func_id)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\benchmark_adapter\problem.py"", line 60, in as_population
+    if not np.all(np.isfinite(pop)):
+numpy._core._exceptions._ArrayMemoryError: Unable to allocate 4.77 MiB for an array with shape (5000, 1000) and data type bool
+"""""""
+dt-gsk,cec2013lsgo,1,1000,24,1045244542,"MemoryError: Unable to allocate 38.1 MiB for an array with shape (5000000,) and data type float64 | at File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\common\threefry_rng.py"", line 331, in _draw","
+""""""
+Traceback (most recent call last):
+  File ""C:\AI\Python\Python310\lib\concurrent\futures\process.py"", line 246, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\runners\run_experiment.py"", line 1208, in _process_run_task
+    return _run_one(
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\runners\run_experiment.py"", line 339, in _run_one
+    result = OPTIMIZER_FUNCTIONS[optimizer](problem, options)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\dt_gsk.py"", line 281, in optimize
+    result = dt_gsk_optimize(objective=objective, config=config, curve_callback=curve_callback)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_core.py"", line 2127, in dt_gsk_optimize
+    pop = lower + _sample_unit(NP) * span
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_core.py"", line 2108, in _sample_unit
+    return rngs.init.random((int(n), int(D)))
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_rng.py"", line 119, in random
+    values = self._rng.random(size)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\common\reference_rng.py"", line 56, in random
+    flat = self._draw(count)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\common\threefry_rng.py"", line 331, in _draw
+    out: np.ndarray = np.empty(count, dtype=np.float64)
+numpy._core._exceptions._ArrayMemoryError: Unable to allocate 38.1 MiB for an array with shape (5000000,) and data type float64
+"""""""
+dt-gsk,cec2013lsgo,1,1000,25,1046244579,"MemoryError: Unable to allocate 4.77 MiB for an array with shape (5000, 1000) and data type bool | at File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\benchmark_adapter\problem.py"", line 60, in as_population","
+""""""
+Traceback (most recent call last):
+  File ""C:\AI\Python\Python310\lib\concurrent\futures\process.py"", line 246, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\runners\run_experiment.py"", line 1208, in _process_run_task
+    return _run_one(
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\runners\run_experiment.py"", line 339, in _run_one
+    result = OPTIMIZER_FUNCTIONS[optimizer](problem, options)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\dt_gsk.py"", line 281, in optimize
+    result = dt_gsk_optimize(objective=objective, config=config, curve_callback=curve_callback)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_core.py"", line 2128, in dt_gsk_optimize
+    fitness, n0 = budget.eval_batch_strict(pop)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\_dt_subsystems\budget.py"", line 232, in eval_batch_strict
+    y = np.asarray(self._objective(X_eval), dtype=np.float64)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\optimizers\dt_gsk.py"", line 276, in objective
+    return np.asarray(problem.evaluate(population), dtype=np.float64).reshape(-1)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\benchmark_adapter\factory.py"", line 119, in evaluate
+    pop = as_population(population, dim=dim, suite=suite, func_id=func_id)
+  File ""D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\src\gsk_family\benchmark_adapter\problem.py"", line 60, in as_population
+    if not np.all(np.isfinite(pop)):
+numpy._core._exceptions._ArrayMemoryError: Unable to allocate 4.77 MiB for an array with shape (5000, 1000) and data type bool
+"""""""

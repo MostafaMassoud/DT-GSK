@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Python API documentation for gsk_family.common.reference_rng">
+  <title>gsk_family.common.reference_rng | GSK Family Python Documentation</title>
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+  <div class="site-shell">
+    <aside class="sidebar">
+<div class="brand"><a href="../index.html">GSK Family Python</a></div>
+<input class="nav-search" type="search" placeholder="Filter docs" aria-label="Filter docs">
+<nav class="nav-list" aria-label="Documentation">
+<section><h2>Getting Started</h2>
+<a class="nav-link" href="../getting-started_configuration.html">Configuration</a>
+<a class="nav-link" href="../getting-started_explainer.html">Explainer</a>
+<a class="nav-link" href="../getting-started_runbook.html">Runbook</a>
+<a class="nav-link" href="../getting-started_troubleshooting.html">Troubleshooting</a>
+<a class="nav-link" href="../getting-started_tutorial.html">Tutorial</a>
+<a class="nav-link" href="../getting-started_user_guide.html">User Guide</a>
+</section>
+<section><h2>Reference</h2>
+<a class="nav-link" href="../reference_api.html">API Reference</a>
+<a class="nav-link" href="../reference_architecture.html">Architecture</a>
+<a class="nav-link" href="../reference_benchmark_mapping.html">Benchmark Mapping</a>
+<a class="nav-link" href="../reference_benchmark_protocol.html">Benchmark Protocol</a>
+<a class="nav-link" href="../reference_cec2011_cpp_python_equivalence_review.html">CEC2011 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="../reference_cec2013_cpp_python_equivalence_review.html">CEC2013 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="../reference_cec2013lsgo_cpp_python_equivalence_review.html">CEC2013LSGO C++ to Python Equivalence Review</a>
+<a class="nav-link" href="../reference_cec2017_cpp_python_equivalence_review.html">CEC2017 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="../reference_cec2020_cpp_python_equivalence_review.html">CEC2020 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="../index.html">Documentation Index</a>
+<a class="nav-link" href="../reference_fp_regime.html">Floating-Point Regime Verification</a>
+<a class="nav-link" href="../reference_diagrams.html">Flowcharts And Diagrams</a>
+<a class="nav-link" href="../reference_glossary.html">Glossary</a>
+<a class="nav-link" href="../LICENSES.html">Licenses</a>
+<a class="nav-link" href="../reference_module_dependencies.html">Module Dependencies</a>
+<a class="nav-link" href="../reference_project_structure.html">Project Structure</a>
+<a class="nav-link" href="../reference_python_optimizer_interface.html">Python Optimizer Interface</a>
+<a class="nav-link" href="../reference_result_schema.html">Result Schema</a>
+<a class="nav-link" href="../reference_seed_policy.html">Seed Policy</a>
+<a class="nav-link" href="../reference_workflows.html">Workflows</a>
+</section>
+<section><h2>Algorithm Guides</h2>
+<a class="nav-link" href="../algorithms_agsk.html">AGSK — Adaptive Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="../algorithms_apgsk.html">APGSK — Adaptive-Parameters Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="../algorithms_atmals-gsk.html">ATMALS-GSK — Adaptive Tuning, Memory, Adaptive Local Search</a>
+<a class="nav-link" href="../algorithms_dt-gsk.html">DT-GSK — Dimension-Tiered Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="../algorithms_egsk.html">EGSK — Enhanced Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="../algorithms_fdb-agsk.html">FDB-AGSK — Fitness-Distance-Balance AGSK</a>
+<a class="nav-link" href="../algorithms_gsk.html">GSK — Gaining-Sharing Knowledge</a>
+</section>
+<section><h2>Development</h2>
+<a class="nav-link" href="../development_BUG_resume_summary_truncation.html">BUG-RESUME-01 — resume mode truncates (and mis-computes) the per-dimension summary CSV</a>
+<a class="nav-link" href="../development_LSGO_ACCELERATION_PLAN.html">CEC2013LSGO Acceleration Plan — all 7 GSK-family algorithms, bit-identically</a>
+<a class="nav-link" href="../development_LSGO_INTEGRATION_CAMPAIGN.html">CEC2013LSGO Integration — Campaign Plan</a>
+<a class="nav-link" href="../development_CEC2017_PREC_adjudication.html">CEC2017-PREC — adjudication (CLOSED 2026-07-25)</a>
+<a class="nav-link" href="../development_code_reading_guide.html">Code Reading Guide</a>
+<a class="nav-link" href="../development_contributor_guide.html">Contributor Guide</a>
+<a class="nav-link" href="../development_DECC_G_port_record.html">DECC-G port — fidelity and validation record</a>
+<a class="nav-link" href="../development_developer_guide.html">Developer Guide</a>
+<a class="nav-link" href="../development_README.html">Development Docs</a>
+<a class="nav-link" href="../development_dt_gsk_core_reference.html">DT-GSK Core Reference — the vendored core and its byte-identity lock</a>
+<a class="nav-link" href="../development_evidence_rerun_runbook.html">DT-GSK re-run runbook — corrected implementation (C006 + graph backend)</a>
+<a class="nav-link" href="../development_egsk_port_spec.html">EGSK — Algorithm Spec &amp; Porting Verdict</a>
+<a class="nav-link" href="../development_extension_guide.html">Extension Guide</a>
+<a class="nav-link" href="../development_FAMILY_ACCELERATION_PLAN.html">Family-wide acceleration plan — 7 algorithms x 5 suites, bit-identical only</a>
+<a class="nav-link" href="../development_FINAL_PUBLICATION_PLAN.html">FINAL PUBLICATION PLAN — DT-GSK, Four(/Five)-Suite Scope</a>
+<a class="nav-link" href="../development_ACCELERATION_CAMPAIGN_PROMPT.html">GSK-Family Acceleration Campaign — Execution Prompt</a>
+<a class="nav-link" href="../development_maintenance_guide.html">Maintenance Guide</a>
+<a class="nav-link" href="../development_PORT_05_TUNING_TRIAGE.html">Porting project-05 tuning into 02 — Phase 1 audit and triage</a>
+<a class="nav-link" href="../development_REFERENCE_PROMOTION_PLAN.html">Reference Promotion Plan — CEC2013LSGO now, CEC2020 behind its completeness gate</a>
+<a class="nav-link" href="../development_SIBLING_CAMPAIGN_TRANSFER.html">Sibling-Campaign Transfer — every tuning that can make the GSK family fast</a>
+</section>
+<section><h2>Research</h2>
+<a class="nav-link" href="../research_egsk_validation_appendix.html">EGSK Validation Appendix — Paired Port-vs-Reference Equivalence</a>
+<a class="nav-link" href="../research_numerical_examples.html">Numerical Examples</a>
+<a class="nav-link" href="../research_performance.html">Performance</a>
+<a class="nav-link" href="../research_reproducibility.html">Reproducibility</a>
+<a class="nav-link" href="../research_researcher_handbook.html">Researcher Handbook</a>
+<a class="nav-link" href="../research_statistical_analysis.html">Statistical Analysis (GSK-family comparison)</a>
+<a class="nav-link" href="../research_validation_report.html">Validation Report</a>
+</section>
+<section><h2>Prompts</h2>
+<a class="nav-link" href="../prompt_documentation-deep-upgrade.html">Deep Documentation Review &amp; Upgrade Prompt — GSK Family Python</a>
+<a class="nav-link" href="../prompt_project-review.html">Deep Expert Review Prompt For GSK Family Python</a>
+<a class="nav-link" href="../prompt_documentation-review.html">Documentation Review Prompt</a>
+<a class="nav-link" href="../prompt_publication-polish.html">Final Publication Prompt — Production-Ready Q1 Release of GSK Family Python v1.1</a>
+</section>
+<section><h2>Python API</h2>
+<a class="nav-link" href="../api_index.html">API Module Index</a>
+<a class="nav-link api-link" href="../api/gsk_family.__init__.html">gsk_family.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.__init__.html">gsk_family.analysis.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.family_report.html">gsk_family.analysis.family_report</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.figures.html">gsk_family.analysis.figures</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.latex_tables.html">gsk_family.analysis.latex_tables</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.project_policy.html">gsk_family.analysis.project_policy</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.result_loader.html">gsk_family.analysis.result_loader</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.statistical_tests.html">gsk_family.analysis.statistical_tests</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.statistics.html">gsk_family.analysis.statistics</a>
+<a class="nav-link api-link" href="../api/gsk_family.benchmark_adapter.__init__.html">gsk_family.benchmark_adapter.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.benchmark_adapter.factory.html">gsk_family.benchmark_adapter.factory</a>
+<a class="nav-link api-link" href="../api/gsk_family.benchmark_adapter.problem.html">gsk_family.benchmark_adapter.problem</a>
+<a class="nav-link api-link" href="../api/gsk_family.benchmark_adapter.protocol.html">gsk_family.benchmark_adapter.protocol</a>
+<a class="nav-link api-link" href="../api/gsk_family.cli.__init__.html">gsk_family.cli.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.cli.list.html">gsk_family.cli.list</a>
+<a class="nav-link api-link" href="../api/gsk_family.cli.run.html">gsk_family.cli.run</a>
+<a class="nav-link api-link" href="../api/gsk_family.cli.stats.html">gsk_family.cli.stats</a>
+<a class="nav-link api-link" href="../api/gsk_family.cli.validate.html">gsk_family.cli.validate</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.__init__.html">gsk_family.common.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.bounds.html">gsk_family.common.bounds</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.donors.html">gsk_family.common.donors</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.numeric_compat.html">gsk_family.common.numeric_compat</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.population.html">gsk_family.common.population</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.reduction.html">gsk_family.common.reduction</a>
+<a class="nav-link api-link active" href="../api/gsk_family.common.reference_rng.html">gsk_family.common.reference_rng</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.rng.html">gsk_family.common.rng</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.threefry_rng.html">gsk_family.common.threefry_rng</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.__init__.html">gsk_family.optimizers.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers._dt_profiles.html">gsk_family.optimizers._dt_profiles</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers._dt_rng.html">gsk_family.optimizers._dt_rng</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers._kernels.html">gsk_family.optimizers._kernels</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.agsk.html">gsk_family.optimizers.agsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.apgsk.html">gsk_family.optimizers.apgsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.atmals_gsk.html">gsk_family.optimizers.atmals_gsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.atmals_helpers.html">gsk_family.optimizers.atmals_helpers</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.dt_gsk.html">gsk_family.optimizers.dt_gsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.egsk.html">gsk_family.optimizers.egsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.__init__.html">gsk_family.optimizers.external.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external._base.html">gsk_family.optimizers.external._base</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external._telemetry_shim.html">gsk_family.optimizers.external._telemetry_shim</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.cmaes.html">gsk_family.optimizers.external.cmaes</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.decc_g.html">gsk_family.optimizers.external.decc_g</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.ebowithcmar.html">gsk_family.optimizers.external.ebowithcmar</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.jso.html">gsk_family.optimizers.external.jso</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.lshade.html">gsk_family.optimizers.external.lshade</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.lshade_spacma.html">gsk_family.optimizers.external.lshade_spacma</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.mos_cec2013lsgo.html">gsk_family.optimizers.external.mos_cec2013lsgo</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.shade_ils.html">gsk_family.optimizers.external.shade_ils</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.fdb_agsk.html">gsk_family.optimizers.fdb_agsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.fdb_scores.html">gsk_family.optimizers.fdb_scores</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.gsk.html">gsk_family.optimizers.gsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.__init__.html">gsk_family.runners.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.config.html">gsk_family.runners.config</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.fp_regime.html">gsk_family.runners.fp_regime</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.output.html">gsk_family.runners.output</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.parallel.html">gsk_family.runners.parallel</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.performance.html">gsk_family.runners.performance</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.run_experiment.html">gsk_family.runners.run_experiment</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.seed_policy.html">gsk_family.runners.seed_policy</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.verification.html">gsk_family.runners.verification</a>
+<a class="nav-link api-link" href="../api/gsk_family.stats.html">gsk_family.stats</a>
+<a class="nav-link api-link" href="../api/gsk_family.types.html">gsk_family.types</a>
+</section>
+</nav></aside>
+    <main class="content">
+      <article class="doc-card">
+        <h1>gsk_family.common.reference_rng</h1>
+<p class="source-path">Source: <code>src/gsk_family/common/reference_rng.py</code></p>
+<p>Reference-matching ``twister`` (MT19937) and ``seed`` (mcg16807) generators.</p>
+<p>These reproduce the external reference&#x27;s non-threefry global generators so the
+Python port can also reproduce reference data produced with them (the
+``reference`` seed policy uses ``twister`` for the linear GSK variant and
+``seed`` for the adaptive/product variants).</p>
+<p>* ``twister`` -&gt; MT19937 (mt19937ar) seeded with ``init_genrand(seed)`` and
+  emitting doubles via ``genrand_res53`` (two 32-bit words per double); this is
+  the generator selected by ``rng(seed, &#x27;twister&#x27;)``.
+* ``seed`` -&gt; the legacy v4 multiplicative congruential generator mcg16807
+  (Park-Miller minimal standard, ``x &lt;- 16807 * x mod (2^31 - 1)``), selected by
+  ``RandStream(&#x27;mcg16807&#x27;, &#x27;Seed&#x27;, seed)``.</p>
+<p>Matrix draws fill **column-major** to match ``rand(m, n)``; ``randi`` and
+``randperm`` reuse the shared ``floor(imax*rand)+1`` / ``sort(rand(n))`` rules so
+every generator exposes the same integer/permutation semantics as the reference.</p>
+<p>Shared scalar/vector helpers live in :class:`DoublesStreamGenerator`; the twister,
+seed, and threefry generators all subclass it and only supply the underlying
+``_draw`` and their state snapshot.</p>
+<h2 id="members">Members</h2>
+<section class="api-member" id="class-doublesstreamgenerator-39">
+<div class="member-kind">class</div>
+<h2>DoublesStreamGenerator</h2>
+<pre><code>DoublesStreamGenerator</code></pre>
+<p>Shared ``random``/``integers``/``permutation`` over a ``_draw`` stream.</p>
+<div class="method-list"><h3>Methods</h3>
+<section class="api-member" id="method-draw-42">
+<div class="member-kind">method</div>
+<h2>_draw</h2>
+<pre><code>_draw(self, count: int) -&gt; np.ndarray</code></pre>
+<p>Return ``count`` consecutive uniform ``[0, 1)`` doubles.</p>
+</section>
+<section class="api-member" id="method-random-46">
+<div class="member-kind">method</div>
+<h2>random</h2>
+<pre><code>random(self, size: int | tuple[int, ...] | None = None) -&gt; np.ndarray | float</code></pre>
+<p>Draw uniform ``[0, 1)`` values, column-major for matrix shapes.</p>
+</section>
+<section class="api-member" id="method-integers-67">
+<div class="member-kind">method</div>
+<h2>integers</h2>
+<pre><code>integers(self, low: int, high: int | None = None, size: int | tuple[int, ...] | None = None) -&gt; np.ndarray | int</code></pre>
+<p>Reference-exact ``randi``: ``lo + floor(span * rand)`` per draw.</p>
+</section>
+<section class="api-member" id="method-permutation-88">
+<div class="member-kind">method</div>
+<h2>permutation</h2>
+<pre><code>permutation(self, n: int) -&gt; np.ndarray</code></pre>
+<p>Reference-exact ``randperm``: ``argsort(rand(n))`` (0-based, n doubles).</p>
+</section>
+<section class="api-member" id="method-choice-98">
+<div class="member-kind">method</div>
+<h2>choice</h2>
+<pre><code>choice(self, a: Any, size: int | tuple[int, ...] | None = None, replace: bool = True, p: Any = None) -&gt; Any</code></pre>
+<p>Stream-deterministic choice over ``range(a)`` or a 1-D array.</p>
+</section>
+</div>
+</section>
+<section class="api-member" id="function-mt-init-123">
+<div class="member-kind">function</div>
+<h2>_mt_init</h2>
+<pre><code>_mt_init(seed: int) -&gt; np.ndarray</code></pre>
+<p>Seed the MT19937 state with the reference ``init_genrand`` recurrence.</p>
+</section>
+<section class="api-member" id="function-mt-fill-u32-133">
+<div class="member-kind">function</div>
+<h2>_mt_fill_u32</h2>
+<pre><code>_mt_fill_u32(mt: np.ndarray, mti: int, out: np.ndarray) -&gt; int</code></pre>
+<p>Fill ``out`` with tempered 32-bit words; twist as needed; return new mti.</p>
+</section>
+<section class="api-member" id="class-twistergenerator-167">
+<div class="member-kind">class</div>
+<h2>TwisterGenerator</h2>
+<pre><code>TwisterGenerator(DoublesStreamGenerator)</code></pre>
+<p>MT19937 reproducing the reference ``rng(seed, &#x27;twister&#x27;)`` stream.</p>
+<div class="method-list"><h3>Methods</h3>
+<section class="api-member" id="method-init-170">
+<div class="member-kind">method</div>
+<h2>__init__</h2>
+<pre><code>__init__(self, seed: int) -&gt; None</code></pre>
+<p>Seed MT19937 via the reference ``init_genrand`` recurrence.</p>
+</section>
+<section class="api-member" id="method-draw-175">
+<div class="member-kind">method</div>
+<h2>_draw</h2>
+<pre><code>_draw(self, count: int) -&gt; np.ndarray</code></pre>
+<p>Emit ``count`` doubles via ``genrand_res53`` (two words per double).</p>
+</section>
+<section class="api-member" id="method-copy-state-185">
+<div class="member-kind">method</div>
+<h2>copy_state</h2>
+<pre><code>copy_state(self) -&gt; dict[str, Any]</code></pre>
+<p>Return a deep-copyable MT19937 state snapshot.</p>
+</section>
+<section class="api-member" id="method-restore-state-189">
+<div class="member-kind">method</div>
+<h2>restore_state</h2>
+<pre><code>restore_state(self, state: dict[str, Any]) -&gt; None</code></pre>
+<p>Restore a previously captured MT19937 state.</p>
+</section>
+</div>
+</section>
+<section class="api-member" id="function-mcg-fill-205">
+<div class="member-kind">function</div>
+<h2>_mcg_fill</h2>
+<pre><code>_mcg_fill(state: int, out: np.ndarray) -&gt; int</code></pre>
+<p>Advance the Park-Miller stream into ``out`` (doubles); return new state.</p>
+</section>
+<section class="api-member" id="class-mcg16807generator-221">
+<div class="member-kind">class</div>
+<h2>Mcg16807Generator</h2>
+<pre><code>Mcg16807Generator(DoublesStreamGenerator)</code></pre>
+<p>Legacy v4 mcg16807 (Park-Miller) generator for the ``seed`` label.</p>
+<p>Reverse-engineered from reference draws: the internal state is seeded as
+``x0 = (seed &lt;&lt; 16) mod (2**31 - 2**15)`` (the reference seeding folds the
+overflow with ``2**31 == 2**15``), then each draw advances
+``x &lt;- 16807 * x mod (2**31 - 1)`` and emits ``u = x / (2**31 - 1)``.</p>
+<div class="method-list"><h3>Methods</h3>
+<section class="api-member" id="method-init-230">
+<div class="member-kind">method</div>
+<h2>__init__</h2>
+<pre><code>__init__(self, seed: int) -&gt; None</code></pre>
+<p>Seed the multiplicative congruential state (``x0 = seed &lt;&lt; 16``).</p>
+</section>
+<section class="api-member" id="method-draw-235">
+<div class="member-kind">method</div>
+<h2>_draw</h2>
+<pre><code>_draw(self, count: int) -&gt; np.ndarray</code></pre>
+<p>Emit ``count`` doubles from the Park-Miller recurrence.</p>
+</section>
+<section class="api-member" id="method-copy-state-243">
+<div class="member-kind">method</div>
+<h2>copy_state</h2>
+<pre><code>copy_state(self) -&gt; dict[str, Any]</code></pre>
+<p>Return a deep-copyable mcg16807 state snapshot.</p>
+</section>
+<section class="api-member" id="method-restore-state-247">
+<div class="member-kind">method</div>
+<h2>restore_state</h2>
+<pre><code>restore_state(self, state: dict[str, Any]) -&gt; None</code></pre>
+<p>Restore a previously captured mcg16807 state.</p>
+</section>
+</div>
+</section>
+      </article>
+    </main>
+    <aside class="page-toc" aria-label="On this page">
+<h2>On This Page</h2>
+<a class="toc-level-1" href="#gsk-family-common-reference-rng">gsk_family.common.reference_rng</a>
+<a class="toc-level-2" href="#members">Members</a>
+<a class="toc-level-2" href="#class-doublesstreamgenerator-39">DoublesStreamGenerator</a>
+<a class="toc-level-2" href="#function-mt-init-123">_mt_init</a>
+<a class="toc-level-2" href="#function-mt-fill-u32-133">_mt_fill_u32</a>
+<a class="toc-level-2" href="#class-twistergenerator-167">TwisterGenerator</a>
+<a class="toc-level-2" href="#function-mcg-fill-205">_mcg_fill</a>
+<a class="toc-level-2" href="#class-mcg16807generator-221">Mcg16807Generator</a>
+</aside>
+  </div>
+  <script src="../assets/search.js"></script>
+</body>
+</html>

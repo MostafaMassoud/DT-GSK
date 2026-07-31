@@ -1,0 +1,12 @@
+{
+  "schema": "benchmark_variant/v1",
+  "suite": "cec2013lsgo",
+  "ackley_variant": "transformed",
+  "functions_affected": [
+    3,
+    6,
+    10
+  ],
+  "detail": "F3/F6/F10 evaluate the TRANSFORMED Ackley chain (T_osz -> T_asy(0.2) -> Lambda(10) -> ackley), Molina-package form as used by SHADE-ILS. Published raw-Ackley results (e.g. the MOS table) are a different objective on these functions and are never comparable to this bank.",
+  "authority": "production_deviation_record.md D-8.2; SAP Addendum 1 Section 2"
+}

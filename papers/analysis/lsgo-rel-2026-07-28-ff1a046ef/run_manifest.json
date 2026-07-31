@@ -1,0 +1,39 @@
+{
+ "release_id": "lsgo-rel-2026-07-28-ff1a046ef",
+ "anchor_commit": "ff1a046ef741db628c68c6f4fc0df3162c533b60",
+ "suites": [
+  "cec2013lsgo"
+ ],
+ "script": "papers/scripts/phase6b_run_analysis_newsuites.py",
+ "command": "python papers/scripts/phase6b_run_analysis_newsuites.py --suite lsgo",
+ "git_head_at_run": "5867abe1e32c22f69ed0751a2b710a7096be7596",
+ "preregistration": {
+  "addendum": "papers/build_prompt_phases/phase_05/statistical_analysis_plan_addendum_cec2020_lsgo.md",
+  "amendment_01": "papers/build_prompt_phases/phase_05/statistical_analysis_plan_addendum_cec2020_lsgo_amendment_01.md",
+  "signing_commit": "5c9bfae82"
+ },
+ "conventions": [
+  "floats C-locale %.6e; integers plain; literal n/a for disclosed cells",
+  "sort: suite, dimension asc, function asc, P1 algorithm order (gsk, agsk, apgsk, fdb-agsk, atmals-gsk, egsk, dt-gsk)",
+  "no timestamps anywhere in the bundle (byte-reproducible)",
+  "cec2013lsgo endpoint = best_fitness (raw basis; the error column is not populated on this suite); F13/F14 sit at their native D=905",
+  "cec2020 endpoint = error with floor 1e-8; 38 protocol cells (F6/F7 undefined at D=5)",
+  "per-function means/medians computed from per_run.csv (the inputs pinned by Amendment 1 A1.3), cross-checked against the promoted summary CSVs",
+  "across-function Wilcoxon decision p = EXACT sign-flip enumeration over 2^n patterns; the normal approximation (statistics.wilcoxon_paired) is recorded alongside; method recorded per row (SAP 6a)",
+  "zeros |d| < 1e-8 discarded; n_eff reported after discard; n_eff < 6 -> verbatim 'not decidable at alpha=0.05 (exact two-sided floor 2/2^5 = 0.0625)'",
+  "Nemenyi q_0.05 parameterized by k (k=7 here, Demsar 2006 Table 5a); CD emitted only when the omnibus is significant",
+  "omnibus permutation companion (CEC2020 only): B=100000 within-block permutations, SeedSequence([20240620, 2020, dim, 0, 99]), fixed 5000-draw chunks, p=(1+ge)/(B+1); this p governs boundary disagreements",
+  "BCa B=10000, SeedSequence([20240620, suite_ordinal, dimension, function, comparator_P1_index]); suite ordinals cec2020=2020, cec2013lsgo=2113",
+  "F2 is NEVER excluded on either suite; every function list is built with an explicit exclusion argument (Amendment 1 A1.1 latent hazard)",
+  "NO statistic pools suites (addendum Section 8, absolute)"
+ ],
+ "disclosures": {
+  "cec2013lsgo_tier": "DESCRIPTIVE-AFTER-INSPECTION (addendum Section 6): the mean ranks, the omnibus and the W/T/L descriptives were inspected informally before the addendum was signed; they carry no confirmatory weight and never enter a headline",
+  "cec2013lsgo_objective": "F3/F6/F10 evaluate the TRANSFORMED Ackley variant; results on those functions are NOT comparable to published raw-Ackley values and no such comparison is drawn (addendum Section 2)",
+  "cec2020_rankagg_caption": "DESCRIPTIVE ONLY; no test is attached. The four per-dimension rank vectors are NOT on a common protocol: D5 uses a REDUCED TASK SET of 8 of the 10 functions (F6 and F7 are undefined at D=5, addendum Section 2), and MaxFES CHANGES BY DIMENSION (50,000 / 1,000,000 / 3,000,000 / 10,000,000 at D=5/10/15/20), so the aggregate mixes budget regimes.",
+  "power": "k=7 Nemenyi CD is 3.185 (N=8), 2.849 (N=10), 2.327 (N=15): these families are low-powered by construction; non-significance is worded 'no separation demonstrated'"
+ },
+ "notes": [
+  "AN-OMNI Nemenyi CD N=15: addendum Section 7 says 2.327, q_0.05(k=7)=2.949 gives 2.326203 (last-digit text slip; disclosed, not corrected here)"
+ ]
+}

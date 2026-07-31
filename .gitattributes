@@ -1,0 +1,27 @@
+# Freeze-critical artifacts -- SE-003.
+#
+# papers/governance/main_manuscript_freeze_manifest.json pins the SHA-256 of the
+# 15 submission files over their RAW BYTES.  Git's end-of-line conversion
+# (core.autocrlf, which is machine-local and was `true` on the minting machine)
+# rewrote CRLF to LF for five of them on commit, so the committed blobs did not
+# match the manifest: the freeze validated 15/15 in the minting worktree but only
+# 10/15 at HEAD and 7/15 at the declared anchor.  A reviewer cloning the repo
+# could not reproduce the freeze -- which is the paper's reproducibility claim.
+#
+# `-text` disables all EOL conversion, so git stores and checks out these paths
+# byte-for-byte on every platform regardless of the cloner's git configuration.
+# Do not replace this with `text eol=...`: that still rewrites bytes on checkout.
+
+papers/main.tex                                 -text
+papers/sections/*.tex                           -text
+papers/supplementary.tex                        -text
+papers/cover_letter.tex                         -text
+papers/references.bib                           -text
+papers/governance/claims_evidence_matrix.csv    -text
+papers/governance/citation_usage_map.csv        -text
+papers/governance/artifact_binding.csv          -text
+papers/governance/*.json                        -text
+
+# Binary submission artifacts: never diff, never convert.
+papers/*.pdf     binary
+papers/*.docx    binary

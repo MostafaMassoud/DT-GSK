@@ -1,0 +1,29 @@
+{
+  "schema": "external_baseline_provenance/EV-09",
+  "suite": "cec2013lsgo",
+  "status": "out_of_paper_scope",
+  "authority": "CR-0019 (papers/governance/change_request_register.csv); FINAL_PUBLICATION_PLAN.md ruling R7",
+  "comparability": "context-only; NOT admissible for the seven-method panel; no comparability audit claimed (see data_ledger.csv rows)",
+  "content": "summary-only table (no per-run data, no environment/seed records); 3-4 significant figures consistent with a published-results transcription; transcription NOT re-verified against the source table in this repository",
+  "previous_path_before_2026_07_28": "benchmarks/cec_reference_results/cec2013lsgo/shade-ils/",
+  "protocol_attributed": "15 functions, D=1000 (F13/F14 at 905); suite convention 25 runs / 3e6 FES -- attributed, not verified from these files",
+  "algorithm": "shade-ils",
+  "related_publication": {
+    "citation_key": "molina2018shadeils",
+    "title_from_pdf": "SHADE with Iterative Local Search for Large-Scale Global Optimization",
+    "doi_crossref_verified_2026_07_28": "10.1109/CEC.2018.8477755",
+    "pages_crossref": "1-8",
+    "venue_crossref": "2018 IEEE Congress on Evolutionary Computation (CEC)"
+  },
+  "objective_variant_flag": "SHADE-ILS used the transformed package form (Molina's package) -- variant-comparable with the family banks on all 15 functions; values are mean-only",
+  "import_history_git": [
+    {
+      "commit": "7f28cb27b",
+      "date": "2026-07-26",
+      "note": "imported by the author during the LSGO ranking sessions; sha256 prefix 07cc993304c0db81 recorded in docs/development/LSGO_INTEGRATION_CAMPAIGN.md at import time"
+    }
+  ],
+  "file": "shade-ils_cec2013lsgo.csv",
+  "sha256": "07cc993304c0db81e06f9c06f013e72732d44cb6e2d44772ff4a4caa5c0db46b",
+  "bytes": 282
+}

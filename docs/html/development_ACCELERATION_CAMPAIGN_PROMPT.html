@@ -1,0 +1,946 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="GSK-Family Acceleration Campaign — Execution Prompt - GSK Family Python Documentation">
+  <title>GSK-Family Acceleration Campaign — Execution Prompt | GSK Family Python Documentation</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <div class="site-shell">
+    <aside class="sidebar">
+<div class="brand"><a href="index.html">GSK Family Python</a></div>
+<input class="nav-search" type="search" placeholder="Filter docs" aria-label="Filter docs">
+<nav class="nav-list" aria-label="Documentation">
+<section><h2>Getting Started</h2>
+<a class="nav-link" href="getting-started_configuration.html">Configuration</a>
+<a class="nav-link" href="getting-started_explainer.html">Explainer</a>
+<a class="nav-link" href="getting-started_runbook.html">Runbook</a>
+<a class="nav-link" href="getting-started_troubleshooting.html">Troubleshooting</a>
+<a class="nav-link" href="getting-started_tutorial.html">Tutorial</a>
+<a class="nav-link" href="getting-started_user_guide.html">User Guide</a>
+</section>
+<section><h2>Reference</h2>
+<a class="nav-link" href="reference_api.html">API Reference</a>
+<a class="nav-link" href="reference_architecture.html">Architecture</a>
+<a class="nav-link" href="reference_benchmark_mapping.html">Benchmark Mapping</a>
+<a class="nav-link" href="reference_benchmark_protocol.html">Benchmark Protocol</a>
+<a class="nav-link" href="reference_cec2011_cpp_python_equivalence_review.html">CEC2011 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013_cpp_python_equivalence_review.html">CEC2013 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013lsgo_cpp_python_equivalence_review.html">CEC2013LSGO C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2017_cpp_python_equivalence_review.html">CEC2017 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2020_cpp_python_equivalence_review.html">CEC2020 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="index.html">Documentation Index</a>
+<a class="nav-link" href="reference_fp_regime.html">Floating-Point Regime Verification</a>
+<a class="nav-link" href="reference_diagrams.html">Flowcharts And Diagrams</a>
+<a class="nav-link" href="reference_glossary.html">Glossary</a>
+<a class="nav-link" href="LICENSES.html">Licenses</a>
+<a class="nav-link" href="reference_module_dependencies.html">Module Dependencies</a>
+<a class="nav-link" href="reference_project_structure.html">Project Structure</a>
+<a class="nav-link" href="reference_python_optimizer_interface.html">Python Optimizer Interface</a>
+<a class="nav-link" href="reference_result_schema.html">Result Schema</a>
+<a class="nav-link" href="reference_seed_policy.html">Seed Policy</a>
+<a class="nav-link" href="reference_workflows.html">Workflows</a>
+</section>
+<section><h2>Algorithm Guides</h2>
+<a class="nav-link" href="algorithms_agsk.html">AGSK — Adaptive Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_apgsk.html">APGSK — Adaptive-Parameters Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_atmals-gsk.html">ATMALS-GSK — Adaptive Tuning, Memory, Adaptive Local Search</a>
+<a class="nav-link" href="algorithms_dt-gsk.html">DT-GSK — Dimension-Tiered Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_egsk.html">EGSK — Enhanced Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_fdb-agsk.html">FDB-AGSK — Fitness-Distance-Balance AGSK</a>
+<a class="nav-link" href="algorithms_gsk.html">GSK — Gaining-Sharing Knowledge</a>
+</section>
+<section><h2>Development</h2>
+<a class="nav-link" href="development_BUG_resume_summary_truncation.html">BUG-RESUME-01 — resume mode truncates (and mis-computes) the per-dimension summary CSV</a>
+<a class="nav-link" href="development_LSGO_ACCELERATION_PLAN.html">CEC2013LSGO Acceleration Plan — all 7 GSK-family algorithms, bit-identically</a>
+<a class="nav-link" href="development_LSGO_INTEGRATION_CAMPAIGN.html">CEC2013LSGO Integration — Campaign Plan</a>
+<a class="nav-link" href="development_CEC2017_PREC_adjudication.html">CEC2017-PREC — adjudication (CLOSED 2026-07-25)</a>
+<a class="nav-link" href="development_code_reading_guide.html">Code Reading Guide</a>
+<a class="nav-link" href="development_contributor_guide.html">Contributor Guide</a>
+<a class="nav-link" href="development_DECC_G_port_record.html">DECC-G port — fidelity and validation record</a>
+<a class="nav-link" href="development_developer_guide.html">Developer Guide</a>
+<a class="nav-link" href="development_README.html">Development Docs</a>
+<a class="nav-link" href="development_dt_gsk_core_reference.html">DT-GSK Core Reference — the vendored core and its byte-identity lock</a>
+<a class="nav-link" href="development_evidence_rerun_runbook.html">DT-GSK re-run runbook — corrected implementation (C006 + graph backend)</a>
+<a class="nav-link" href="development_egsk_port_spec.html">EGSK — Algorithm Spec &amp; Porting Verdict</a>
+<a class="nav-link" href="development_extension_guide.html">Extension Guide</a>
+<a class="nav-link" href="development_FAMILY_ACCELERATION_PLAN.html">Family-wide acceleration plan — 7 algorithms x 5 suites, bit-identical only</a>
+<a class="nav-link" href="development_FINAL_PUBLICATION_PLAN.html">FINAL PUBLICATION PLAN — DT-GSK, Four(/Five)-Suite Scope</a>
+<a class="nav-link active" href="development_ACCELERATION_CAMPAIGN_PROMPT.html">GSK-Family Acceleration Campaign — Execution Prompt</a>
+<a class="nav-link" href="development_maintenance_guide.html">Maintenance Guide</a>
+<a class="nav-link" href="development_PORT_05_TUNING_TRIAGE.html">Porting project-05 tuning into 02 — Phase 1 audit and triage</a>
+<a class="nav-link" href="development_REFERENCE_PROMOTION_PLAN.html">Reference Promotion Plan — CEC2013LSGO now, CEC2020 behind its completeness gate</a>
+<a class="nav-link" href="development_SIBLING_CAMPAIGN_TRANSFER.html">Sibling-Campaign Transfer — every tuning that can make the GSK family fast</a>
+</section>
+<section><h2>Research</h2>
+<a class="nav-link" href="research_egsk_validation_appendix.html">EGSK Validation Appendix — Paired Port-vs-Reference Equivalence</a>
+<a class="nav-link" href="research_numerical_examples.html">Numerical Examples</a>
+<a class="nav-link" href="research_performance.html">Performance</a>
+<a class="nav-link" href="research_reproducibility.html">Reproducibility</a>
+<a class="nav-link" href="research_researcher_handbook.html">Researcher Handbook</a>
+<a class="nav-link" href="research_statistical_analysis.html">Statistical Analysis (GSK-family comparison)</a>
+<a class="nav-link" href="research_validation_report.html">Validation Report</a>
+</section>
+<section><h2>Prompts</h2>
+<a class="nav-link" href="prompt_documentation-deep-upgrade.html">Deep Documentation Review &amp; Upgrade Prompt — GSK Family Python</a>
+<a class="nav-link" href="prompt_project-review.html">Deep Expert Review Prompt For GSK Family Python</a>
+<a class="nav-link" href="prompt_documentation-review.html">Documentation Review Prompt</a>
+<a class="nav-link" href="prompt_publication-polish.html">Final Publication Prompt — Production-Ready Q1 Release of GSK Family Python v1.1</a>
+</section>
+<section><h2>Python API</h2>
+<a class="nav-link" href="api_index.html">API Module Index</a>
+<a class="nav-link api-link" href="api/gsk_family.__init__.html">gsk_family.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.__init__.html">gsk_family.analysis.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.family_report.html">gsk_family.analysis.family_report</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.figures.html">gsk_family.analysis.figures</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.latex_tables.html">gsk_family.analysis.latex_tables</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.project_policy.html">gsk_family.analysis.project_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.result_loader.html">gsk_family.analysis.result_loader</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistical_tests.html">gsk_family.analysis.statistical_tests</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistics.html">gsk_family.analysis.statistics</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.__init__.html">gsk_family.benchmark_adapter.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.factory.html">gsk_family.benchmark_adapter.factory</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.problem.html">gsk_family.benchmark_adapter.problem</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.protocol.html">gsk_family.benchmark_adapter.protocol</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.__init__.html">gsk_family.cli.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.list.html">gsk_family.cli.list</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.run.html">gsk_family.cli.run</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.stats.html">gsk_family.cli.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.validate.html">gsk_family.cli.validate</a>
+<a class="nav-link api-link" href="api/gsk_family.common.__init__.html">gsk_family.common.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.common.bounds.html">gsk_family.common.bounds</a>
+<a class="nav-link api-link" href="api/gsk_family.common.donors.html">gsk_family.common.donors</a>
+<a class="nav-link api-link" href="api/gsk_family.common.numeric_compat.html">gsk_family.common.numeric_compat</a>
+<a class="nav-link api-link" href="api/gsk_family.common.population.html">gsk_family.common.population</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reduction.html">gsk_family.common.reduction</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reference_rng.html">gsk_family.common.reference_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.rng.html">gsk_family.common.rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.threefry_rng.html">gsk_family.common.threefry_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.__init__.html">gsk_family.optimizers.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_profiles.html">gsk_family.optimizers._dt_profiles</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_rng.html">gsk_family.optimizers._dt_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._kernels.html">gsk_family.optimizers._kernels</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.agsk.html">gsk_family.optimizers.agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.apgsk.html">gsk_family.optimizers.apgsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_gsk.html">gsk_family.optimizers.atmals_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_helpers.html">gsk_family.optimizers.atmals_helpers</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.dt_gsk.html">gsk_family.optimizers.dt_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.egsk.html">gsk_family.optimizers.egsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.__init__.html">gsk_family.optimizers.external.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._base.html">gsk_family.optimizers.external._base</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._telemetry_shim.html">gsk_family.optimizers.external._telemetry_shim</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.cmaes.html">gsk_family.optimizers.external.cmaes</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.decc_g.html">gsk_family.optimizers.external.decc_g</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.ebowithcmar.html">gsk_family.optimizers.external.ebowithcmar</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.jso.html">gsk_family.optimizers.external.jso</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade.html">gsk_family.optimizers.external.lshade</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade_spacma.html">gsk_family.optimizers.external.lshade_spacma</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.mos_cec2013lsgo.html">gsk_family.optimizers.external.mos_cec2013lsgo</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.shade_ils.html">gsk_family.optimizers.external.shade_ils</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_agsk.html">gsk_family.optimizers.fdb_agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_scores.html">gsk_family.optimizers.fdb_scores</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.gsk.html">gsk_family.optimizers.gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.__init__.html">gsk_family.runners.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.config.html">gsk_family.runners.config</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.fp_regime.html">gsk_family.runners.fp_regime</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.output.html">gsk_family.runners.output</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.parallel.html">gsk_family.runners.parallel</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.performance.html">gsk_family.runners.performance</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.run_experiment.html">gsk_family.runners.run_experiment</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.seed_policy.html">gsk_family.runners.seed_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.verification.html">gsk_family.runners.verification</a>
+<a class="nav-link api-link" href="api/gsk_family.stats.html">gsk_family.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.types.html">gsk_family.types</a>
+</section>
+</nav></aside>
+    <main class="content">
+      <article class="doc-card">
+        <h1 id="gsk-family-acceleration-campaign-execution-prompt">GSK-Family Acceleration Campaign — Execution Prompt</h1>
+<p><strong>Version 1.2 · 2026-07-17 · grounded on commit <code>056fb3ff0</code> · repo <code>02-GSK_Family_Python_v1.1</code></strong></p>
+<blockquote>**CURRENT STATUS (2026-07-20) — read before acting; this campaign is not the active</blockquote>
+<blockquote>workstream.<strong> The project is in </strong>final pre-submission remediation of a BUILT manuscript**,</blockquote>
+<blockquote>not an open acceleration push. The 80-ticket remediation ledger</blockquote>
+<blockquote>(<code>papers/governance/remediation_2026_07_18/ticket_status.csv</code>) stands at <strong>73/80 closed</strong>,</blockquote>
+<blockquote>every build / cross-format-parity / provenance / citation gate green (2026-07-20). The</blockquote>
+<blockquote>evidence base was just re-minted as <code>rel-2026-07-20-67d9345f9</code> / <code>abl-rel-2026-07-20</code>, so</blockquote>
+<blockquote>§5&#x27;s byte-reproducibility constraint is at its <strong>most</strong> binding now, not least. Two live</blockquote>
+<blockquote>items bear directly on this campaign:</blockquote>
+<blockquote>- <strong>RT-001 is CLOSED — do not re-run it.</strong> The six-comparator re-timing was executed and</blockquote>
+<blockquote>  *failed* its determinism gate (3,772 differing rows), so it was not adopted; <code>tab:runtime</code></blockquote>
+<blockquote>  was narrowed to DT-GSK-only, single-session instead. It is recorded here only as campaign</blockquote>
+<blockquote>  history. It originally existed because the</blockquote>
+<blockquote>  <strong>M038 backend fix</strong> bound DT-GSK&#x27;s compiled interaction-graph (numba) kernels — bit-for-bit</blockquote>
+<blockquote>  identical to the NumPy path, yet <strong>−39.8 %</strong> DT-GSK wall-clock at D100 (69.04 → 41.59 s).</blockquote>
+<blockquote>  That is the D≥100 <strong>KERNEL-BOUND</strong> term the §3 triage flagged for DT-GSK, already reclaimed</blockquote>
+<blockquote>  as a correctness/backend fix (not via this campaign), every scientific column byte-identical.</blockquote>
+<blockquote>- The <strong>terminal freeze is pending</strong>: ticket <strong>C-008</strong> (mint a fresh</blockquote>
+<blockquote>  <code>main_manuscript_freeze_manifest.json</code>) → <strong>C-001</strong> (single authoritative commit). Do not let</blockquote>
+<blockquote>  any acceleration edit enlarge the pending refreeze (§5.5 item 4) while it is open. The v1.2</blockquote>
+<blockquote>  lever ranking below still stands, but serial twins remain <strong>governance-gated</strong> here (frozen</blockquote>
+<blockquote>  DT-GSK core §5.4 + archived evidence §5); the near-term R1 surface is the Threefry unroll, the</blockquote>
+<blockquote>  <code>_kernels.py</code>/adapter ceremony, and ATMALS scalar fast paths.</blockquote>
+<blockquote></blockquote>
+<blockquote><strong>v1.2 — MAJOR CORRECTION.</strong> v1.0–v1.1 claimed serial-kernel twins were &quot;mostly</blockquote>
+<blockquote>inapplicable&quot; here because the family is population-batch. **That was WRONG, and it was</blockquote>
+<blockquote>this document&#x27;s central claim.** The sibling campaign&#x27;s own <code>gsk.py</code> is population-batch</blockquote>
+<blockquote>with the identical shape and measured <strong>3.2×–10.8×</strong> from serial twins, becoming the</blockquote>
+<blockquote>fastest optimizer in its suite. <strong>Batch shape does not gate the technique</strong>;</blockquote>
+<blockquote><code>parallel=True</code> kernels + low thread count do, and this repo has both. See the correction</blockquote>
+<blockquote>box in §3.1 and the re-based expectations in §11. Full ported inventory of the sibling&#x27;s</blockquote>
+<blockquote>proven techniques: <strong><code>docs/development/SIBLING_CAMPAIGN_TRANSFER.md</code></strong>.</blockquote>
+<blockquote></blockquote>
+<blockquote><strong>v1.1 — owner ruling landed:</strong> §5.5 ruling 1 is **answered — cec2013lsgo and cec2020 are</blockquote>
+<blockquote>IN SCOPE** (2026-07-17). §4&#x27;s projection stands; cec2020 D=20 (~29% of the campaign) is</blockquote>
+<blockquote>the block to measure first. Rulings 2 (R2/R3 dual path) and 3 (refreeze appetite) remain</blockquote>
+<blockquote>open; <strong>the default stands: R1-only, no dual paths.</strong></blockquote>
+<p>---</p>
+<h2 id="0-what-this-document-is-and-how-to-use-it">0. What this document is, and how to use it</h2>
+<p>This is an <strong>execution prompt</strong> for an engineering agent (or engineer) tasked with accelerating the GSK-family benchmarking codebase across all five CEC suites.</p>
+<p>It has two parts, and <strong>they are not equal in authority</strong>:</p>
+<div class="table-wrap"><table><thead><tr><th>Part</th><th>Authority</th><th>Contents</th></tr></thead><tbody><tr><td><strong>Parts 1–10</strong> (this document)</td><td><strong>Binding.</strong> Project-specific. Where it contradicts Appendix A, this wins.</td><td>Scope, verified triage, projection, governance overlay, phase plan, gates, live traps</td></tr><tr><td><strong>Appendix A</strong></td><td><strong>Normative reference.</strong> Codebase-agnostic method.</td><td>The Stochastic-Computing Acceleration Manual v2, verbatim</td></tr></tbody></table></div>
+<p><strong>Read Appendix A first, once, end to end.</strong> Then return here. Appendix A teaches the method; Parts 1–10 tell you what is already known about *this* repository, what is forbidden in it, and in what order to work. Appendix A was written from a <strong>different project</strong> (the sibling 24-algorithm study at <code>D:/AI/PhD-Projects/00-GSK-Family/05-Human-Inspired-Family_Python_v0.1</code>, whose evidence record <code>docs/development/OPTIMIZER_PERFORMANCE_AUDIT.md</code> <strong>does not exist in this repo</strong>). Its worked examples are from that codebase. <strong>Its patterns transfer; its diagnoses do not.</strong> Section 3 below explains exactly where this repo&#x27;s profile differs — and it differs on the manual&#x27;s single biggest lever.</p>
+<p><strong>The prime directive of this campaign is not speed. It is that <code>benchmarks/cec_reference_results/</code> remains byte-reproducible.</strong> A paper depends on it. Read §5 before you touch anything; §5 is the reason most of Appendix A&#x27;s toolkit is unavailable to you here.</p>
+<p>---</p>
+<h2 id="1-mission">1. Mission</h2>
+<p>Reduce campaign wall-clock for the GSK-family benchmarking codebase across <strong>7 algorithms × 5 CEC suites</strong>, with:</p>
+<ul>
+<li><strong>zero regressions</strong>, every change gated on a proof, most bitwise;</li>
+<li><strong>zero change to archived evidence reproducibility</strong> (§5 — this is a hard constraint,</li>
+<p>not a goal);</p>
+<li>a <strong>written attribution ledger and ceiling proof</strong> as the permanent deliverable, so a</li>
+<p>future maintainer does not repeat this work (Appendix A §13, §4).</p>
+</ul>
+<p><strong>Stopping is a deliverable.</strong> If the ledger shows only ceiling lines, write the proof and stop. A campaign that lands 4 proven changes and one honest &quot;the rest is the published algorithm&#x27;s mandated cost&quot; is a success. A campaign that lands 40 changes and breaks one frozen hash is a failure that costs the paper.</p>
+<p>---</p>
+<h2 id="2-scope-grid">2. Scope grid</h2>
+<h3 id="2-1-the-seven-algorithms">2.1 The seven algorithms</h3>
+<div class="table-wrap"><table><thead><tr><th>Algorithm</th><th>File</th><th>LOC</th><th>Archived evidence?</th></tr></thead><tbody><tr><td>GSK</td><td><code>src/gsk_family/optimizers/gsk.py</code></td><td>234</td><td>cec2011, cec2013, cec2017</td></tr><tr><td>AGSK</td><td><code>src/gsk_family/optimizers/agsk.py</code></td><td>388</td><td>cec2011, cec2013, cec2017</td></tr><tr><td>APGSK</td><td><code>src/gsk_family/optimizers/apgsk.py</code></td><td>275</td><td>cec2011, cec2013, cec2017</td></tr><tr><td>FDB-AGSK</td><td><code>src/gsk_family/optimizers/fdb_agsk.py</code></td><td>378 (+71 <code>fdb_scores.py</code>)</td><td>cec2011, cec2013, cec2017</td></tr><tr><td>ATMALS-GSK</td><td><code>src/gsk_family/optimizers/atmals_gsk.py</code></td><td>400 (+201 <code>atmals_helpers.py</code>)</td><td>cec2011, cec2013, cec2017</td></tr><tr><td>EGSK</td><td><code>src/gsk_family/optimizers/egsk.py</code></td><td>365</td><td>cec2011, cec2013, cec2017</td></tr><tr><td><strong>DT-GSK</strong></td><td><code>dt_gsk.py</code> (328, adapter) + <strong><code>_dt_core.py</code> (5,162, FROZEN)</strong></td><td>~8,600 total</td><td>cec2011, cec2013, cec2017</td></tr></tbody></table></div>
+<p>Shared: <code>_kernels.py</code> (214) — the sequential <code>gsk_build_trial</code> kernel used by all six classics. DT-GSK subsystems: <code>_numba_accel.py</code> (1,433), <code>interaction_graph.py</code> (968), <code>budget.py</code> (328), <code>budget_policy.py</code> (296), <code>_dt_rng.py</code> (261), <code>_dt_profiles.py</code> (293).</p>
+<h3 id="2-2-the-five-suites-all-six-registered-names-verified-from-suite-protocols">2.2 The five suites (all six registered names verified from <code>SUITE_PROTOCOLS</code>)</h3>
+<div class="table-wrap"><table><thead><tr><th>Suite</th><th>Funcs</th><th>Dims</th><th>Budget rule</th><th>Kernel decorator policy</th><th>Archived GSK-family cells</th></tr></thead><tbody><tr><td><strong>cec2017</strong></td><td>29 (F2 excluded from defaults)</td><td>10, 30, 50, 100</td><td><code>10_000·D</code></td><td><code>parallel=True, fastmath=True</code> <strong>except</strong> <code>_cf_cal_nb</code> (composition weights), <code>bent_cigar_strict_nb</code>, <code>_shift_only_strict_nb</code>, <code>_shift_rotate_strict_nb</code></td><td><strong>all 7</strong></td></tr><tr><td><strong>cec2013</strong></td><td>28</td><td>10, 30, 50 (suite validates {2,5,10…100})</td><td><code>10_000·D</code></td><td><code>parallel=True</code>, <strong>fastmath absent suite-wide</strong> (audit M-03)</td><td><strong>all 7</strong></td></tr><tr><td><strong>cec2011</strong></td><td>22</td><td>native per-function (1 … 240)</td><td><strong>flat 150,000</strong></td><td><strong>scalar per-row Python dispatcher</strong> (&quot;NOT vectorizable&quot;); numba assists hot spots only, <strong>no <code>parallel=True</code> anywhere</strong>; mixed fastmath</td><td><strong>all 7</strong></td></tr><tr><td><strong>cec2013lsgo</strong></td><td>15</td><td>native: 1000 (F13/F14 = 905)</td><td><strong>flat 3,000,000</strong></td><td>fused single-pass <code>parallel=True, fastmath=True</code> <strong>except</strong> 4 group-reduction kernels</td><td><strong>NONE</strong> — only imported <code>decc-g</code>, <code>mos</code></td></tr><tr><td><strong>cec2020</strong></td><td>10</td><td>5, 10, 15, 20</td><td><strong>per-dim</strong>: {5: 50k, 10: 1M, 15: 3M, <strong>20: 10M</strong>}</td><td><code>parallel=True</code>, <strong>fastmath absent suite-wide</strong> (audit H1)</td><td><strong>NONE</strong> — only imported <code>agsk</code></td></tr></tbody></table></div>
+<p><code>sphere</code> is the sixth registered suite (smoke test, pure NumPy) — out of scope except as a harness fixture.</p>
+<p><strong>Verified constructibility:</strong> cec2013lsgo and cec2020 are fully constructible end to end (vendored SHA-256-verified <code>data.pkl</code> blobs; live construction + evaluation confirmed). <strong>Four cec2020 cells are hard-unavailable and raise at construction</strong>: (F1,D5), (F1,D15), (F8,D5), (F8,D15) — the reference distribution ships no shuffle data for them.</p>
+<h3 id="2-3-the-scope-finding-you-must-surface-before-starting">2.3 The scope finding you must surface before starting</h3>
+<p><strong>No GSK-family algorithm has ever been run on cec2013lsgo or cec2020 in this repo.</strong> Those directories contain *imported third-party reference tables* (<code>decc-g</code>, <code>mos</code> for LSGO; <code>agsk</code> for cec2020 — a source-faithful import, D05 zero-padded), not runs we generated. Yet by §4&#x27;s projection they are <strong>52% of the projected campaign</strong>.</p>
+<p>So the mission as scoped is <strong>not</strong> &quot;speed up existing runs.&quot; It is:</p>
+<ul>
+<li><strong>cec2011 / cec2013 / cec2017</strong> → accelerate *re-runs* of a campaign that already has</li>
+<p>frozen results (maximum governance constraint, §5);</p>
+<li><strong>cec2013lsgo / cec2020</strong> → make a campaign that has <strong>never been run</strong> feasible at all</li>
+<p>(no archived GSK-family results to protect — but see §5.3, the constraint travels with the *algorithm*, not the suite).</p>
+</ul>
+<p>State this explicitly in your P0 report. If the owner&#x27;s intent was only the first, the projection changes completely and cec2020/D20 drops out of the ranking.</p>
+<p>---</p>
+<h2 id="3-the-pre-computed-triage-verify-it-do-not-rediscover-it">3. The pre-computed triage — <strong>verify it, do not rediscover it</strong></h2>
+<p>A five-agent reconnaissance sweep (2026-07-17) already produced the Appendix A §2 triage with file:line evidence. <strong>Your job is to confirm or refute it by measurement (Appendix A §3), not to redo the reading.</strong> If measurement contradicts the table below, the measurement wins and you must say so loudly — a wrong triage is how Appendix A §11 T3 burned a whole round in the source campaign.</p>
+<div class="table-wrap"><table><thead><tr><th>Algorithm</th><th>Triage class</th><th>Evidence</th></tr></thead><tbody><tr><td>GSK, AGSK, APGSK, FDB-AGSK</td><td><strong>PYTHON-FLOOR-BOUND</strong></td><td>1 batch eval/gen; trial math compiled; residual = 2 full <code>(NP,D)</code> copies + <code>stable_argsort</code> + wrapper conversions + validation</td></tr><tr><td><strong>ATMALS-GSK</strong></td><td><strong>RNG-CALL-BOUND</strong></td><td><code>_local_search</code> draws scalar <code>float(rng.random())</code> in a <strong>nested Python loop</strong>: <code>nls(=5) × D</code> gate draws + one per hit ⇒ <strong>≥ 5·D single-double RNG dispatches/gen</strong> (D=100 → 500+/gen). <code>atmals_gsk.py:71-108</code> (esp. 90, 95-107)</td></tr><tr><td><strong>EGSK</strong></td><td><strong>DISPATCH-BOUND</strong></td><td>scipy-SLSQP endgame <code>_egsk_ip_refine</code> makes <strong>single-row <code>(1,D)</code></strong> <code>problem.evaluate</code> calls (<code>evaluate(z.reshape(1,dim))</code>, <code>egsk.py:186</code>), budget <code>min(ceil(2e-3·max_nfes), remaining)</code> per triggered generation (<code>:59,170-171</code>), <strong>no cooldown</strong>. Trigger = <code>gen ≥ 0.75·g_max</code> <strong>AND</strong> <code>(no optimum or best &gt; optimum+target)</code> <strong>AND</strong> <code>std([a2,b2,c2])·1e-2 ≤ 1.0</code> (<code>:313, 320-321</code>) — the latter two usually hold late on hard functions, so it approximates &quot;every late generation&quot;, <strong>but instrument the real condition, not the shorthand</strong>. Measured share of budget in 1-row dispatches: <strong>16.6% (D10) / 21.4% (D30) / 22.7% (D50) / 23.8% (D100)</strong>; closed form <code>0.25·ip_fe/(NP+ip_fe)</code>, strictly <strong>&lt; 25%</strong>. Wall share is *higher* (1-row evals cost more each) + SLSQP&#x27;s own FD gradients. Side effect: EGSK terminates ~21–24% short of <code>g_max</code> generations</td></tr><tr><td><strong>DT-GSK</strong></td><td><strong>PYTHON-FLOOR-BOUND</strong> (low/mid D) → <strong>KERNEL-BOUND</strong> (D≥100)</td><td>~30 sequential Python subsystem blocks/gen is the floor; already heavily de-overheaded (pre-alloc B03/B04/B14, hoists S5/S7, fused bincounts H1, argpartition H6b, argsort skip B06, telemetry gate MEM-1). At D≥100: <code>NP=5·D=500</code>, parallel <code>(NP,D)</code> kernels + 3 reference-RNG fills dominate</td></tr><tr><td>*(any)*</td><td><strong>TELEMETRY-BOUND</strong></td><td><strong>applies to no default configuration.</strong> All six classics record exactly 1 convergence point/gen. DT-GSK&#x27;s MEM-1 fast path emits 2 scalars/gen and <code>continue</code>s past the ~150-field log. The JSONL diagnostics path is <strong>opt-in</strong> (<code>dt_diagnostics</code>)</td></tr></tbody></table></div>
+<h3 id="3-1-serial-kernel-twins-are-the-biggest-lever-here-v1-0-of-this-document-said-the-opposite-and-was-wrong">3.1 ⚠ Serial-kernel twins ARE the biggest lever here — <strong>v1.0 of this document said the opposite and was WRONG</strong></h3>
+<blockquote><strong>CORRECTION (v1.2, 2026-07-17).</strong> v1.0–v1.1 of this section claimed serial twins were</blockquote>
+<blockquote>&quot;mostly inapplicable because the family is population-batch.&quot; **That was wrong, and it was</blockquote>
+<blockquote>the document&#x27;s most load-bearing claim.** The sibling campaign&#x27;s own <code>gsk.py</code> is</blockquote>
+<blockquote><strong>population-batch with exactly the same shape as this family</strong> (2 evaluate sites: init +</blockquote>
+<blockquote>one <code>(NP,D)</code> trial per generation, NP=100 fixed) — and it measured</blockquote>
+<blockquote><strong>batch→serial gsk: 3.2× (F1 D10) to 10.8× (F28 D10)</strong>, which made it *the fastest</blockquote>
+<blockquote>optimizer in its suite*. Source: `05-Human-Inspired-Family_Python_v0.1/docs/development/</blockquote>
+<blockquote>OPTIMIZER_PERFORMANCE_AUDIT.md`, §&quot;GSK REFREEZE (2026-07-17)&quot;.</blockquote>
+<blockquote></blockquote>
+<blockquote><strong>The error, named so it is not repeated:</strong> I reasoned that a 60 µs launch amortizes to</blockquote>
+<blockquote>0.6 µs/eval across NP=100 rows. It does not. **One <code>problem.evaluate</code> is 2–15 kernel</blockquote>
+<blockquote>launches, not one** (&quot;2 launches for F1–F10 ≈ 135 µs, 4 for hybrids ≈ 272 µs, 6–15 for</blockquote>
+<blockquote>compositions ≈ 580–965 µs&quot;), and at <code>threads=1</code> a <code>parallel=True</code> kernel pays the numba</blockquote>
+<blockquote><strong>workqueue launch on every call regardless of batch size</strong> — 1-thread parallel is</blockquote>
+<blockquote>literally *serial + launch tax*. Appendix A §5.2 states this outright (&quot;**No batch-size</blockquote>
+<blockquote>threshold when production runs 1 thread/worker: serial beats parallel at every batch size</blockquote>
+<blockquote>there**&quot;); v1.0 quoted that line and then contradicted it with assumed arithmetic instead</blockquote>
+<blockquote>of the sibling&#x27;s measured data. <strong>Measure, don&#x27;t derive — Appendix A&#x27;s first rule.</strong></blockquote>
+<blockquote></blockquote>
+<blockquote>Round 2 of that campaign closed the question explicitly: &quot;**at threads=1 the parallel</blockquote>
+<blockquote>launch is pure overhead at every batch size**, so the &#x27;indifferent&#x27; 11 also gain.&quot;</blockquote>
+<blockquote></blockquote>
+<blockquote>**Batch shape does NOT gate this technique. <code>parallel=True</code> kernels + low thread count</blockquote>
+<blockquote>gate it.** This repo has both (§2.2; <code>run_campaign.py</code> pins <code>NUMBA_NUM_THREADS=1</code>).</blockquote>
+<blockquote><strong>Serial twins are P3, not a footnote.</strong></blockquote>
+<p><strong>Appendix A §5.2 (serial-kernel twins) was worth 17–36× per dispatch in the source campaign. Its headline victims were member-sequential — but its own population-batch gsk still gained 3.2–10.8×.</strong></p>
+<p><strong>The shape facts still hold</strong> (verified adversarially, §3.4): the six classic optimizers are strictly population-batch — one <code>problem.evaluate(pop)</code> per generation, batch = current <code>NP</code> (GSK/ATMALS/EGSK: fixed 100; AGSK/APGSK/FDB-AGSK: 100→12; DT-GSK: 5·D → n_min = 12 default, <strong>25 at D≥50</strong>); EGSK adds a single-row SLSQP endgame and DT-GSK a 2-row polish loop. <strong>What changed is the conclusion drawn from them: shape governs how many dispatches you make, NOT whether the launch tax is worth killing.</strong> Both classes gain.</p>
+<p><strong>Open with the serial-twin port</strong> (§7 P3). Expected here, by direct analogy to the sibling&#x27;s population-batch gsk: <strong>~3–10× on cec2017</strong>, less at high D where kernel volume dominates (their gsk got only <strong>1.5×</strong> on LSGO D=1000). The extra dispatch surface below gains *on top* of that, and is where the sibling&#x27;s 17–36×-per-dispatch figures live:</p>
+<ol>
+<li><strong>EGSK&#x27;s SLSQP endgame</strong> — the family&#x27;s <strong>largest</strong> member-sequential path</li>
+<p>(§3, DISPATCH-BOUND). This is where §5.2/§5.4 earn their keep, if anywhere.</p>
+<li><strong>DT-GSK&#x27;s final polish</strong> — a serial Python <code>while</code> loop dispatching <strong>2-row batches</strong></li>
+<p>via <code>eval_batch_strict</code> at <strong><code>_dt_core.py:1960</code></strong> (called from <code>:4621</code>; <code>cand = np.empty((2, …))</code> at <code>:1948</code>), D≥50 only, budget <code>floor(0.02·max_nfes)</code> ⇒ up to <strong>~5,000 dispatches at D=50</strong>. This is a <strong>second near-serial path</strong> — the family&#x27;s member-sequential surface is *not* EGSK alone. <strong>The polish call site is inside the frozen core (§5.4) — you may not touch it.</strong></p>
+<li><strong>DT-GSK&#x27;s conditional extra batches</strong> — BSE cauchy (~0.10·NP rows), BSE restart</li>
+<p>(~0.30·NP), coordinate-LS (≤2·elites rows), deep-stall (NP rows). Small batches, not single rows. Frozen core.</p>
+<li><strong>cec2011 as a whole</strong> — the dispatcher is a <strong>per-row Python loop</strong> over M rows</li>
+<p>(<code>cec2011/functions.py:536-545</code>) with no <code>parallel=True</code> kernels at all. There is no launch tax to remove; the cost is Python per row. Note it is <strong>1% of the campaign</strong> — do not spend a round here regardless of how bad it looks.</p>
+<li><strong>DT-GSK&#x27;s dormant single-row LS paths</strong> — <code>subspace_nm</code> / <code>nelder_mead</code> evaluate</li>
+<p><code>(1,D)</code> per objective call <strong>but are dormant under the pub profile</strong> (<code>local_search_method</code> defaults to <code>&quot;coordinate&quot;</code> at every tier). <strong>Do not optimize a dormant path.</strong></p>
+</ol>
+<p><strong>Where the twins might still pay, and you must measure rather than assume:</strong> the suite kernels *are* <code>parallel=True</code>, and production runs <strong>1 numba thread per worker</strong> (§4.2). A 1-thread <code>parallel=True</code> kernel is &quot;serial + launch overhead&quot; (Appendix A §5.2). At <code>NP=100</code>, a 60 µs launch amortizes to 0.6 µs/eval — but cec2020 D20 runs <strong>10M evals = ~100,000 generations/run</strong>, so that is ~6 s/run of pure tax, ×10 funcs ×25 runs ×7 algorithms. Whether that is 1% or 15% of the cell <strong>is an empirical question</strong>. Answer it with Appendix A §3.2 at <code>K = NP</code> (not K=1) before deciding.</p>
+<h3 id="3-2-the-three-concrete-7-class-targets-already-located">3.2 The three concrete §7-class targets already located</h3>
+<p>Verified, with evidence. Each is a candidate; each still needs its own G1 gate.</p>
+<blockquote><strong>Verification provenance.</strong> §3.1&#x27;s headline, EGSK&#x27;s trigger/budget, ATMALS&#x27;s draw</blockquote>
+<blockquote>counts, the <code>_rng_3buf</code> bypass, the dormant-LS claim, and the Threefry-unroll question</blockquote>
+<blockquote>were each put to an <strong>adversarial verifier instructed to refute them</strong> (2026-07-17).</blockquote>
+<blockquote>Results: ATMALS, <code>_rng_3buf</code>, and dormant-LS <strong>confirmed</strong>; EGSK&#x27;s trigger and the</blockquote>
+<blockquote>&quot;population-batch everywhere&quot; headline came back <strong>partly wrong</strong> and are corrected above;</blockquote>
+<blockquote>the Threefry-unroll hedge came back <strong>refuted</strong> (it is *not* unrolled — the lever is</blockquote>
+<blockquote>live). Two claims in five needed correction. **Apply the same standard to your own P0</blockquote>
+<blockquote>findings: they will not be better than these were.**</blockquote>
+<ol>
+<li><strong><code>_kernels.py</code> wrapper ceremony (all six classics, every generation)</strong> —</li>
+<p><code>gsk_build_trial</code> normalizes every input per call: <strong>8 <code>ascontiguousarray</code> casts</strong> plus <strong>4 <code>_as_f64_vector</code> calls that <code>np.full</code>-allocate NP-length vectors</strong> when <code>kf</code>/<code>kr</code>/ <code>junior_prob</code> are scalars. This is Appendix A §5.3 (dispatch pre-resolution) + §7 item 2, and it lands <strong>once for six algorithms</strong>. <code>_kernels.py:159-214</code>.</p>
+<li><strong>Adapter + dispatcher duplicate ceremony (every suite, every call)</strong> — <code>as_population</code></li>
+<p>does contiguity coercion <strong>and a full <code>np.all(np.isfinite)</code> scan</strong>, and the suite dispatcher <strong>does it again</strong>; plus argument-order sniffing and (cec2017) per-call <code>fp_mode</code> string normalization. Appendix A §5.3 exactly. <code>benchmark_adapter/problem.py:48-63</code>, <code>factory.py:103-110</code>.</p>
+<li><strong>DT-GSK&#x27;s <code>_rng_3buf</code> fast path is dead code in every production run</strong> —</li>
+<p><code>_build_phase4_masks</code> only uses the pre-allocated single-fill buffer when <code>not rng_core.uses_reference_matrix_order</code>; <strong><code>ReferenceRNG</code> sets it <code>True</code> as a CLASS attribute</strong> (<code>_dt_rng.py:85</code>), so the fast path is unreachable under <strong>every</strong> generator (threefry, twister, mcg16807 alike — it is *not* a threefry-specific effect). Production always takes the else branch: <strong>three separate <code>(NP,D)</code> column-major draws per generation, each a freshly allocated non-contiguous transposed view</strong> (<code>reference_rng.py:59</code>: <code>flat.reshape(…, cols, rows).swapaxes(-1,-2)</code>), then consumed by numba mask kernels. At D=100, NP=500 → 3 × 50,000-element non-contiguous fills/gen. The <code>(3·NP_init, D)</code> buffer allocated at <code>_dt_core.py:2573</code> <strong>is never filled in any run.</strong> Guard repeats at <code>:993-1001</code> and <code>:1064-1077</code>. <strong>The blocker is the guard, not the buffer</strong> — and the reference matrix order it protects is load-bearing (T2′), not incidental. <strong>⚠ This is inside the FROZEN core (§5.4). It is a documented ceiling line for this campaign, not a target.</strong> Record it in the ledger as <code>ceiling (frozen-core)</code> with a note that it is the single largest known unrealized DT-GSK saving, so a future refreeze-authorized campaign knows where to look. <strong>Do not edit it. Do not &quot;just try it&quot; on a branch to see.</strong></p>
+</ol>
+<h3 id="3-3-the-rng-picture">3.3 The RNG picture</h3>
+<p>All three reference generators (<code>ThreefryGenerator</code>, <code>TwisterGenerator</code>, <code>Mcg16807Generator</code>) are Python classes over <strong>njit fill kernels</strong>, subclassing <code>DoublesStreamGenerator</code>. <strong>A scalar <code>rng.random()</code> costs a full Python → wrapper → njit round trip for one double.</strong> That is precisely why ATMALS is RNG-CALL-BOUND.</p>
+<ul>
+<li>Production campaign generator: <strong>threefry</strong> (<code>run_campaign.py</code> passes</li>
+<p><code>--rand-generator threefry</code>). GSK&#x27;s own default is <code>twister</code> — <strong>Appendix A §3.1 rule 2 applies: profile with the production stream or your RNG numbers are meaningless.</strong></p>
+<li>**[STALE 2026-07-25 — CORRECTED] The Threefry fill kernel IS NOW UNROLLED; this</li>
+<p>lever is CLOSED, not available.** Delivered by <code>61dc84bd8</code> (&quot;unroll the Threefry-4x64-20 fill kernel - 4.19x, bit-identical (R1)&quot;). The current source has 20 explicit <code># --- round N ---</code> blocks with literal rotation constants and literal key injection; none of the anti-patterns quoted below remain. Do not re-attempt. Any RNG share measured now is the cost of the ALREADY-optimised kernel. Original (now historical) finding follows:</p>
+<li>~~<strong>The Threefry fill kernel is NOT unrolled — §6.1&#x27;s lever is AVAILABLE.</strong>~~ Adversarially</li>
+<p>verified against <code>threefry_rng.py:113-130</code>: the rounds loop exhibits <strong>all three</strong> of Appendix A §6.1&#x27;s trigger anti-patterns —</p>
+</ul>
+<pre><code class="code-block language-python">  for r in range(20):
+      j = r % 8                       # modulo
+      r1 = rot_x1[j]                  # rotation-table lookup
+      r3 = rot_x3[j]                  # rotation-table lookup
+      ...
+      if (r + 1) % 4 == 0:            # branchy key injection
+          s = (r + 1) // 4
+          x0 = x0 + (parity if (s % 5) == 4 else np.uint64(0))</code></pre>
+<p>Three distinct modulos (<code>r % 8</code>, <code>(r+1) % 4</code>, <code>s % 5</code>), table lookups, ternary key injection, <strong>no literal constants</strong>. Appendix A §6.1 measured <strong>3.9×</strong> (96 → 376M doubles/s) for exactly this shape, suite-wide, and it is <strong>R1 bit-identical by construction</strong> (pure integer ops in identical order) — so it survives the §5 governance overlay intact. <strong>Fair caveat before you commit the round:</strong> the kernel is <code>njit(cache=True, fastmath=False)</code>-compiled (<code>:138-139</code>) and LLVM may already unroll a constant-trip-count <code>range(20)</code> loop, so the *measured* win may fall well short of what the source shape suggests. <strong>Measure first</strong> (Appendix A §3.2), then decide. Generate the unrolled code mechanically, never by hand-transcription.</p>
+<ul>
+<li><strong>Column-major fills are real here</strong> (Appendix A trap T2): 2-D draws fill column-major</li>
+<p>and return a transposed <code>reshape/swapaxes</code> <strong>view (non-contiguous)</strong>. The ✅/❌ table in Appendix A §6.3 is <strong>live</strong> — this is not a hypothetical trap.</p>
+<li><strong>Existing RNG KATs</strong> to protect you: <code>tests/unit/test_rng.py</code> (threefry known-answer</li>
+<p>draws vs external reference + top-of-range seeds), <code>tests/unit/test_dt_rng.py</code> (13-substream KAT vs <code>fixtures/dt_rng_kat.json</code> generated from the source project).</p>
+</ul>
+<p>---</p>
+<h2 id="4-campaign-projection-the-ranking-that-sets-your-work-order">4. Campaign projection — the ranking that sets your work order</h2>
+<p>Appendix A §4 demands a projection <strong>before</strong> optimizing. It is done. Assumptions stated so you can redo it: 51 runs for cec2017/cec2013 (campaign standard), 25 for cec2011 (campaign standard), <strong>25 assumed for cec2013lsgo/cec2020 (never run — confirm with the owner)</strong>, all four cec2020 unavailable cells excluded.</p>
+<div class="table-wrap"><table><thead><tr><th>Suite</th><th>evals/algorithm</th><th>family × 7</th><th><strong>share</strong></th></tr></thead><tbody><tr><td><strong>cec2020</strong></td><td>3.36e9</td><td><strong>23.5e9</strong></td><td><strong>38.8 %</strong></td></tr><tr><td><strong>cec2017</strong></td><td>2.81e9</td><td><strong>19.7e9</strong></td><td><strong>32.4 %</strong></td></tr><tr><td>cec2013</td><td>1.29e9</td><td>9.0e9</td><td>14.8 %</td></tr><tr><td>cec2013lsgo</td><td>1.12e9</td><td>7.9e9</td><td>13.0 %</td></tr><tr><td>cec2011</td><td>0.08e9</td><td>0.6e9</td><td><strong>1.0 %</strong></td></tr><tr><td><strong>TOTAL</strong></td><td></td><td><strong>60.6e9</strong></td><td></td></tr></tbody></table></div>
+<p>At 51 runs instead of 25, cec2020 → 48.0e9 and cec2013lsgo → 16.1e9, pushing the two greenfield suites to <strong>~64%</strong> of the campaign.</p>
+<p><strong>What this ranking means for you:</strong></p>
+<ul>
+<li><strong>cec2020 D=20 alone is 74.4% of the cec2020 suite ⇒ ~29% of the entire campaign.</strong></li>
+<p>One dim of one suite. Its 10M-eval budget with <code>NP=100</code> is ~100,000 generations/run — the <strong>per-generation Python floor is multiplied by 100,000</strong>, which is exactly why §7-class micro-work (normally worth 0.1–0.8 s/run) can matter here and nowhere else. This is your highest-value block. <strong>Start your measurement here.</strong></p>
+<li><strong>cec2011 is 1% of the campaign.</strong> It is the most *pathological*-looking suite</li>
+<p>(per-row Python, no parallel kernels, 22 bespoke problems, ODE integrators). Appendix A §4&#x27;s whole point is that this is a trap: it will absorb unlimited effort for ≤1% of wall. <strong>Do not enter it</strong> unless the ledger proves otherwise.</p>
+<li><strong>cec2013lsgo D=1000</strong> is only 13% despite 3M evals/run, because it is 15 functions.</li>
+<p>Its kernels are *already* fused single-pass (no <code>M×1000</code> temporaries) — likely KERNEL-BOUND and near ceiling. Check §5.3 of Appendix A (pre-resolution) and stop.</p>
+<li><strong>cec2017 (32%) is the paper&#x27;s primary suite</strong> — and therefore the one where §5&#x27;s</li>
+<p>governance constraint bites hardest. Maximum value, minimum freedom.</p>
+</ul>
+<p><strong>Before you use this table: convert it to hours.</strong> Eval counts are not wall-clock; cec2011 F5/F6 (Tersoff) and F3/F4 (ODE) may be 10³× more expensive *per eval* than a cec2017 sphere. Run the Appendix A §4 projection properly: short-budget timing × (full budget / short budget) × runs × cases ÷ workers, <strong>per (algorithm, suite, dim) block</strong>. The eval-share table above is a *starting hypothesis*, not the answer. Report the hours-ranked table in P0 and work strictly down it.</p>
+<p>---</p>
+<h2 id="5-the-governance-overlay-read-this-before-touching-a-file">5. ⚠ The governance overlay — <strong>read this before touching a file</strong></h2>
+<p>This is where this repo departs most sharply from the source campaign. Appendix A&#x27;s risk ladder (R1–R4) assumes you can negotiate tolerance and draw-order rulings. <strong>Here, three of the four rungs are effectively closed.</strong></p>
+<h3 id="5-1-the-archived-evidence-surface">5.1 The archived-evidence surface</h3>
+<p><code>benchmarks/cec_reference_results/</code> is the <strong>single source of evidence for a paper under submission</strong>. It is bound by four manifests:</p>
+<div class="table-wrap"><table><thead><tr><th>Manifest</th><th>Release id</th><th>Binds</th><th>Format</th></tr></thead><tbody><tr><td><code>papers/governance/evidence_release_manifest.json</code></td><td><code>rel-2026-07-20-67d9345f9</code></td><td><strong>3,403 files</strong>, 712,437,624 bytes — cec2011/cec2013/cec2017 × 7 algorithms (context_suites now empty — no cec2013lsgo/cec2020 CSVs)</td><td>LF, 1-space indent</td></tr><tr><td><code>benchmarks/cec_reference_results/_ablation/manifest.json</code></td><td><code>abl-rel-2026-07-20</code></td><td>1,297 files (amendment A1, 2026-07-17)</td><td><strong>LF, 1-space indent</strong></td></tr><tr><td>~~<code>benchmarks/cec_reference_results/_oracle/manifest.json</code>~~ (<strong>REMOVED</strong> 2026-07-18, commit <code>0d2f291fd</code>)</td><td><code>orc-rel-2026-07-14</code></td><td>tree deleted with the oracle study&#x27;s removal from the paper; <strong>no longer a verification target</strong> (absent from <code>BENCHMARK_EVIDENCE_INDEX.md</code>)</td><td>n/a</td></tr><tr><td><code>benchmarks/cec_reference_results/_paper_tables/manifest.json</code></td><td><code>rel-2026-07-20-67d9345f9</code></td><td>17 files</td><td>CRLF, 1-space</td></tr></tbody></table></div>
+<p>Plus the paper freeze manifests in <code>papers/governance/</code> — <strong>CRLF + 2-space indent</strong>, edited <strong>byte-surgically, never rewritten wholesale</strong>.</p>
+<p><strong>Every hash binds mint-time working-tree bytes.</strong></p>
+<h3 id="5-2-the-risk-ladder-mapped-to-this-repo">5.2 The risk ladder, mapped to this repo</h3>
+<div class="table-wrap"><table><thead><tr><th>Class</th><th>Appendix A says</th><th><strong>Verdict here</strong></th></tr></thead><tbody><tr><td><strong>R1 bit-identical</strong></td><td>Gate G1</td><td>✅ <strong>AVAILABLE.</strong> This is your campaign. Nearly everything you land must be R1.</td></tr><tr><td><strong>R2 tolerance</strong> (fastmath compile variance)</td><td>Gate G2 + standing human ruling</td><td>❌ <strong>CLOSED by default.</strong> Every one of the 7 algorithms has archived cec2011+cec2013+cec2017 results. Appendix A G2 item 4 is explicit: *&quot;Consumers with archived results excluded by construction — never argue tolerance for frozen data.&quot;* An opt-in fast path with a config allowlist could open R2 <strong>for new suites only</strong> — but see §5.3, the trap.</td></tr><tr><td><strong>R3 trajectory-changing</strong> (block draws)</td><td>Gate G3 + standing &quot;P29 precedent&quot; ruling</td><td>❌ <strong>CLOSED.</strong> No such precedent exists in this repo. Appendix A G3 item 7: *&quot;No archived results exist for the algorithm, or a refreeze is signed.&quot;* All 7 algorithms have archived results. <strong>The one juicy R3 target — ATMALS&#x27;s <code>5·D</code> scalar LS draws — is exactly the change that would invalidate ATMALS&#x27;s archived cec2011/cec2013/cec2017 cells.</strong></td></tr><tr><td><strong>R4 protocol-visible</strong> (telemetry)</td><td>Gate G4 + explicit sign-off</td><td>⚪ <strong>MOOT.</strong> Telemetry is already thin by default (1 point/gen; DT-GSK MEM-1 emits 2 scalars). Nothing to thin. Do not manufacture work here.</td></tr></tbody></table></div>
+<h3 id="5-3-the-trap-that-will-bite-you-the-constraint-travels-with-the-algorithm-not-the-suite">5.3 The trap that will bite you: *the constraint travels with the algorithm, not the suite*</h3>
+<p>It is tempting to reason: &quot;cec2013lsgo and cec2020 have no GSK-family archived results, so I can use R3 block draws there.&quot; <strong>That is wrong and it is the single most likely way this campaign destroys the paper.</strong></p>
+<p><code>atmals_gsk.py</code> is <strong>one file</strong>. If you reorder its draws to run LSGO faster, ATMALS&#x27;s archived <strong>cec2017</strong> results stop reproducing. The suite you are *running* is irrelevant; the constraint attaches to the <strong>algorithm source</strong>.</p>
+<p>The only structurally sound way to open R2/R3 for the greenfield suites is Appendix A §5.2&#x27;s discipline, applied to *algorithms* rather than kernels: an <strong>opt-in, default-off, config-allowlisted path</strong>, with a <strong>loader guard that refuses the fast path for any (algorithm, suite) cell that has archived results</strong>, so the frozen cells keep the legacy path <strong>by construction</strong> and no tolerance/draw-order argument is ever needed for them. That is a substantial piece of engineering with its own correctness burden, and it splits each algorithm into two behavioral paths — a real maintenance and publication-defense cost.</p>
+<p><strong>Do not build it on your own authority.</strong> Propose it, price it, and get the owner&#x27;s explicit ruling (§5.5).</p>
+<h3 id="5-4-the-frozen-core-absolutely-untouchable">5.4 The frozen core — absolutely untouchable</h3>
+<p>Under a <strong>byte-identity lock</strong>, &quot;vendored and must not be edited for behavior&quot;:</p>
+<pre><code class="code-block">src/gsk_family/optimizers/_dt_core.py            (5,162 LOC)
+src/gsk_family/optimizers/_dt_rng.py             (261)
+src/gsk_family/optimizers/_dt_profiles.py        (293)   &quot;data, not logic; never hand-edit a value&quot;
+src/gsk_family/optimizers/_dt_subsystems/        (all: _numba_accel, interaction_graph,
+                                                  budget, budget_policy, basin_memory,
+                                                  bound_constraint, gained_shared_junior,
+                                                  gained_shared_senior, _dt_provenance)</code></pre>
+<p><code>dt_gsk.py</code> (the adapter) is <strong>not</strong> frozen. Per-file SHA-256 of every frozen file is recorded in <code>papers/governance/audit_evidence/evaluator_hash_inventory.csv</code> (e.g. <code>_dt_core.py</code> = 253,027 bytes, <code>1ef815ce…</code>).</p>
+<p><strong>Consequence:</strong> DT-GSK — the paper&#x27;s own algorithm, ~8,600 LOC, and the *most* compute at D≥50 — is <strong>almost entirely off-limits</strong>. Its residual per-generation Python (linkage flatten rebuild, deque means at ~6 sites/gen, ARGP ring-buffer loops, <code>_rng_3buf</code> bypass) is a <strong>ceiling line for this campaign by governance, not by physics.</strong> Say so in the ledger, precisely, with the note that a future refreeze-authorized campaign could reclaim it. Do not blur &quot;we may not&quot; into &quot;we cannot.&quot;</p>
+<h3 id="5-5-owner-rulings-you-must-obtain-before-the-corresponding-work">5.5 Owner rulings you must obtain <strong>before</strong> the corresponding work</h3>
+<p>Ask once, in one batch, at the end of P0 — do not trickle these out, and do not proceed on any of them by assuming:</p>
+<ol>
+<li>~~<strong>Scope</strong>: is cec2013lsgo/cec2020 GSK-family execution actually intended?~~</li>
+<p>✅ <strong>RULED 2026-07-17 — IN SCOPE.</strong> The owner confirmed <strong>cec2013lsgo and cec2020 are both in scope</strong> for GSK-family execution. Consequences, binding:</p>
+</ol>
+<ul>
+<li>§4&#x27;s projection <strong>stands as written</strong>: 60.6e9 evals, <strong>cec2020 38.8% + cec2017 32.4%</strong>,</li>
+<p><strong>cec2020 D=20 alone ≈ 29% of the entire campaign</strong>. Work the hours-ranked table.</p>
+<li>This is a <strong>greenfield campaign for 52% of the work</strong> — no GSK-family results exist for</li>
+<p>either suite. Two things follow that do *not* apply to the paper suites: (i) there is no archived baseline to replay against, so <strong>the §6.2 fingerprint battery is the only safety net there</strong> — build it first; (ii) the <strong>§5.3 trap is now live and dangerous</strong> — these suites are greenfield, but <strong>the algorithms are not</strong>, and R2/R3 on a shared algorithm file breaks its archived cec2011/cec2013/cec2017 cells. Re-read §5.3.</p>
+<li><strong>Run count is still unconfirmed.</strong> §4 assumes 25; at 51 the two greenfield suites rise</li>
+<p>to ~64% of the campaign (cec2020 → 48.0e9, cec2013lsgo → 16.1e9). Confirm before costing, and state which you used in the P0 report.</p>
+<li><strong>Feasibility is now a first-class P0 question, not an afterthought</strong>: nobody has ever</li>
+<p>run these cells, so the per-eval cost of cec2013lsgo D=1000 and the wall-clock of a single cec2020 D=20 run (10M evals) are <strong>unmeasured</strong>. Measure one cell of each *before* projecting the block, and report if either is infeasible on this machine regardless of acceleration.</p>
+</ul>
+<ol>
+<li><strong>R2/R3 for greenfield suites</strong>: build the opt-in allowlisted dual path (§5.3), or stay</li>
+<p>strictly R1 everywhere?</p>
+<li><strong>Refreeze appetite</strong>: is any deliberate, signed refreeze of archived cells on the</li>
+<p>table (Appendix A §9.3), or is byte-reproducibility of <code>rel-2026-07-20-67d9345f9</code> absolute for this paper cycle?</p>
+<li><strong>The already-pending refreeze</strong>: <code>papers/governance/_pending_refreeze.json</code></li>
+<p>(regenerated 2026-07-20 under <code>rel-2026-07-20-67d9345f9</code>) records that <code>main_manuscript_freeze_manifest.json</code> still binds pre-rerun bytes for <strong>11 of 12 files</strong> (<code>main.tex</code>, <code>conclusions.tex</code>, <code>introduction.tex</code>, <code>performance.tex</code>, <code>proposed_algorithm.tex</code>, <code>related_work.tex</code>, <code>DT-GSK.pdf</code>, <code>DT-GSK.docx</code>, <code>claims_evidence_matrix.csv</code>, <code>citation_usage_map.csv</code>, <code>artifact_binding.csv</code>) — remediation ticket <strong>C-008</strong> (terminal, still open). It is a <strong>human byte-surgical step</strong> (*&quot;CRLF + 2-space indent; edit hashes in place, never rewrite the file&quot;*). <strong>Do not perform it as part of this campaign</strong> and do not let your changes enlarge it.</p>
+</ol>
+<p><strong>Default if no ruling arrives: R1-only, all suites, no dual paths.</strong> That default is a legitimate, publishable campaign. Take it and proceed rather than blocking.</p>
+<p>---</p>
+<h2 id="6-what-this-repo-already-has-and-what-it-is-missing">6. What this repo already has, and what it is missing</h2>
+<h3 id="6-1-already-in-place-do-not-rebuild-appendix-a-10-assets-that-exist">6.1 Already in place (do not rebuild — Appendix A §10 assets that exist)</h3>
+<div class="table-wrap"><table><thead><tr><th>Appendix A asset</th><th>This repo&#x27;s version</th><th>Notes</th></tr></thead><tbody><tr><td><strong>§10.5 integrity sentinel</strong></td><td>✅ <strong><code>runners/fp_regime.py:265-297</code></strong> — hard-verified <strong>at every worker spawn</strong>; <code>run_experiment.py:1149-1186</code> passes it via <code>initargs</code> at every pool build; recorded in <code>environment.json</code>. Motivating witness in its docstring: CEC2017 F20 D10 seed 54241459 → <code>3.1217325598e-01</code> in fallback vs <code>0.0</code> fully-JIT</td><td><strong>This is the manual&#x27;s §10.5 design already realized.</strong> Its existence is exactly why Appendix A&#x27;s *&quot;make every fast path opt-in so the sentinel is invariant by construction&quot;* is not optional advice here — it is enforced by a process that <strong>fails the pool</strong></td></tr><tr><td><strong>§10.2 parity sweep (partial)</strong></td><td>✅ <code>tests/regression/test_dt_graph_backend_parity.py</code> — numba-vs-NumPy bit-identity for 6 interaction-graph kernels at D≥50, <strong>and</strong> asserts the kernels are actually *bound* (guards the historical silent-fallback bug)</td><td>Model your sweeps on this</td></tr><tr><td><strong>§10.1 fingerprint battery (DT-GSK only)</strong></td><td>✅ <code>tests/regression/test_dt_gsk_byte_stable.py</code> — 4 golden cells, seed 12345, <code>max_nfes=3000</code></td><td>D≤30 only (below the D≥50 tier)</td></tr><tr><td>FP-regime bit sentinel test</td><td>✅ <code>tests/regression/test_fp_regime.py</code> — exact IEEE-754 bit pattern (struct-packed hex)</td><td></td></tr><tr><td>RNG / config KATs</td><td>✅ <code>tests/unit/test_rng.py</code>, <code>test_dt_rng.py</code> (13 substreams), <code>test_dt_profiles.py</code></td><td>Generated from the source project</td></tr><tr><td>Replay ladder</td><td>✅ <code>tests/regression/test_validation_ladder.py</code> — exact Python replay of runner artifacts</td><td></td></tr><tr><td>Thread/BLAS pinning</td><td>✅ <strong>only in the wrappers</strong>: <code>scripts/run_campaign.py:146-153</code> and <code>papers/scripts/finalize_evidence.py:149-157</code> set <code>OMP/MKL/OPENBLAS/VECLIB/NUMEXPR/NUMBA_NUM_THREADS=1</code></td><td>⚠ see §9 T3′</td></tr><tr><td>Output-safety guard</td><td>✅ <code>runners/verification.py</code> — <code>ensure_output_root_allowed</code> <strong>refuses to write generated output into the reference tree</strong></td><td></td></tr></tbody></table></div>
+<p>Full suite: <strong>~324 tests, ~3 min</strong>, <code>python -m pytest</code> (testpaths=<code>tests</code>, pythonpath=<code>src</code>,<code>.</code>).</p>
+<h3 id="6-2-the-gap-you-must-close-first-six-of-seven-algorithms-have-no-golden-trajectory">6.2 The gap you must close first — <strong>six of seven algorithms have no golden trajectory</strong></h3>
+<p><strong>Golden-trajectory KATs exist only for DT-GSK.</strong> GSK, AGSK, APGSK, FDB-AGSK, ATMALS-GSK and EGSK have only contract/determinism smoke tests (same-seed-twice, fair-start equivalence) and exact values on <strong>tiny hand-computable quadratics (46.0 / 90.0)</strong>. EGSK&#x27;s test is a MATLAB smoke-oracle *threshold* (<code>sphere F1 D10 &lt; 1e-2</code>) — <strong>not</strong> a golden trajectory.</p>
+<p><strong>Appendix A G1 step 1 is therefore not optional and not cheap here: you must build the fingerprint battery for six algorithms before you edit any of them.</strong> Follow §10.1: ≥3 cells across function classes × ≥2 seeds × every kernel path, recording <code>repr(best)</code>, <code>sha256(solution bytes)</code>, <code>sha256(full trace arrays)</code>, <code>nfes</code>. Capture <strong>through the production runner entry point</strong> (§9 T4′), on the <strong>threefry</strong> stream, <strong>before</strong> the first edit. Commit the captured JSON.</p>
+<p>There is a strong argument for promoting that battery into <code>tests/regression/</code> permanently — it is the asset the repo most conspicuously lacks, and it outlives this campaign.</p>
+<h3 id="6-3-absent-do-not-go-looking">6.3 Absent (do not go looking)</h3>
+<ul>
+<li><strong><code>docs/development/OPTIMIZER_PERFORMANCE_AUDIT.md</code> does not exist in this repo.</strong> It is</li>
+<p>the sibling project&#x27;s record (<code>05-Human-Inspired-Family_Python_v0.1</code>). <strong>You will create this repo&#x27;s equivalent — that is deliverable D5 (§10).</strong></p>
+<li>No <code>CLAUDE.md</code> anywhere in the tree or above it.</li>
+<li>The DT-GSK tuning registry — referenced in older notes under its former name</li>
+<p><code>ism_gsk_tuning_registry.md</code> (pre the 2026-07-14 ISM-GSK→DT-GSK rename) — <strong>does not exist</strong> in this repo under either that name or a renamed <code>dt_gsk_*</code> path; do not hunt for it.</p>
+<li>Nothing under <code>results/</code> for cec2013lsgo or cec2020.</li>
+</ul>
+<p>---</p>
+<h2 id="7-phase-plan">7. Phase plan</h2>
+<p>Work strictly in order. Each phase has an exit artifact. <strong>Do not skip P0 — the entire value of Appendix A is that P0 stops you from optimizing the wrong term.</strong></p>
+<h3 id="p0-parity-census-ledger-projection-no-edits">P0 — Parity, census, ledger, projection *(no edits)*</h3>
+<ol>
+<li>Establish production parity (Appendix A §3.1). <strong>All four rules, all live here:</strong></li>
+</ol>
+<ul>
+<li><strong>threads</strong>: <code>numba.set_num_threads(1)</code> *before anything compiles* — production is</li>
+<p><code>run_campaign.py --workers 15</code> with <code>NUMBA_NUM_THREADS=1</code>. Note <code>run_experiment.py</code>&#x27;s own default is <code>workers=2</code> with an <strong>auto CEC2017 F21+ cap of 8</strong>, and each worker&#x27;s initializer caps numba threads to <code>cores // workers</code>. <strong>Profile the campaign regime (15/1), not the CLI default.</strong></p>
+<li><strong>stream</strong>: <code>threefry</code> (campaign) — <strong>not</strong> GSK&#x27;s <code>twister</code> default.</li>
+<li><strong>warmup</strong>: the runner JIT-warms the first cell per worker; your probes must too.</li>
+<li><strong>load discipline</strong>: interleaved A/B/A/B, report <code>min</code>, ratios vs a same-session</li>
+<p>reference.</p>
+</ul>
+<ol>
+<li>Dispatch census (Appendix A §3.3) per (algorithm, suite): calls + batch-size histogram.</li>
+<p><strong>Expected result: K=NP-dominant everywhere except EGSK&#x27;s endgame.</strong> If you see K=1 dominance anywhere else, §3.1 above is wrong — report it.</p>
+<li>Layer isolation (§3.2) at K=1 <strong>and</strong> K=NP for each suite&#x27;s <code>evaluate</code>.</li>
+<li>Attribution ledger (§4): 100% of a run&#x27;s wall to named owners, each stamped <strong>ceiling</strong></li>
+<p>or <strong>target</strong>. Stamp frozen-core lines <code>ceiling (frozen-core)</code> — a distinct third label; do not silently merge them into physics-ceiling.</p>
+<li><strong>Hours-ranked campaign projection</strong> (§4) per block. Convert §4&#x27;s eval-share table into</li>
+<p>wall-hours. cec2011&#x27;s per-eval cost is the biggest unknown — measure it.</p>
+<li><strong>Exit artifact</strong>: a P0 report containing the ledger, the hours-ranked table, the</li>
+<p>confirmed-or-refuted §3 triage, the §2.3 scope finding, and the <strong>§5.5 ruling requests</strong>.</p>
+</ol>
+<h3 id="p1-build-the-fingerprint-battery-no-optimization-edits">P1 — Build the fingerprint battery *(no optimization edits)*</h3>
+<p>Six algorithms × the §6.2 recipe, through the production entry point, on threefry. Commit the baseline JSON. <strong>Exit</strong>: batteries regenerate byte-identically twice in a row (this also proves determinism, G1 step 4).</p>
+<h3 id="p2-wire-the-gates">P2 — Wire the gates</h3>
+<p>G1–G4 checklists (§8) as runnable scripts before landing anything. Frozen-replay gate (§10.4) covering every archived (algorithm, suite) cell.</p>
+<h3 id="p3-the-highest-projected-block-from-p0-s-hours-ranking-not-from-4-s-guess">P3 — The highest-projected block *(from P0&#x27;s hours ranking, not from §4&#x27;s guess)*</h3>
+<p>Almost certainly cec2020 D=20 (≈29% of campaign) or cec2017. Enter Appendix A Part II at the section your ledger points to — <strong>most likely §7 (micro-set) and §5.3 (pre-resolution)</strong>, given the triage.</p>
+<h3 id="p4-the-shared-land-once-wins">P4 — The shared, land-once wins</h3>
+<p><code>_kernels.py</code> wrapper (§3.2 item 1) and adapter/dispatcher double-ceremony (§3.2 item 2). These benefit <strong>six algorithms × five suites</strong> from one change each. All R1. Highest value-per-risk in the campaign.</p>
+<h3 id="p5-atmals-gsk-within-r1">P5 — ATMALS-GSK, within R1</h3>
+<p>Its <code>5·D</code> scalar-draw loop is the family&#x27;s hottest scalar site — <strong>and the block-draw fix is R3, which is closed (§5.2).</strong> So: what is reachable at R1?</p>
+<ul>
+<li>Appendix A <strong>§6.2 scalar fast paths</strong> (bit-identical, 1.3–2×) — *if* the scalar path</li>
+<p>isn&#x27;t already fast-pathed. <strong>Verify first.</strong></p>
+<li>Appendix A <strong>§6.4 persistent draw buffers</strong> — R1 *by construction* for counter-based</li>
+<p>generators (block N yields the same values ⇒ stream bytes unchanged). <strong>This is the one structural RNG lever that survives the governance overlay.</strong> It is the most interesting technical question of this campaign: can you refill in bulk chunks and serve ATMALS&#x27;s singles from the buffer, bitwise-identically, for the <strong>threefry</strong> counter-based stream? (For MT19937/mcg16807 the same argument needs its own proof — they are sequential generators, not counter-based.)</p>
+<li>Appendix A <strong>§6.1 unroll</strong> — <strong>check whether it is already unrolled</strong> (§3.3) before</li>
+<p>planning.</p>
+<li>If none survive: <strong>stamp it ceiling and say why.</strong> &quot;R3 would give 19× and is</li>
+<p>governance-closed&quot; is a legitimate, valuable ledger line — it tells the owner the exact price of the freeze.</p>
+</ul>
+<h3 id="p6-egsk-s-dispatch-surface">P6 — EGSK&#x27;s dispatch surface</h3>
+<p>The family&#x27;s only genuine §5.2/§5.4 target. Note the endgame calls <code>problem.evaluate</code> with <code>(1,D)</code>; Appendix A §5.4&#x27;s K=1 wrapper fast path applies to the <strong>adapter</strong>, which is shared — so it must be R1 with <strong>identical error strings, state transitions, and return values</strong>, and it is covered by the frozen-replay gate for all seven algorithms.</p>
+<h3 id="p7-cec2013lsgo-cec2020-kernels-only-if-p0-s-hours-say-so">P7 — cec2013lsgo / cec2020 kernels *(only if P0&#x27;s hours say so)*</h3>
+<p>LSGO kernels are already fused single-pass; expect KERNEL-BOUND / near-ceiling. cec2020 is <code>parallel=True, fastmath=False</code> <strong>suite-wide by audit ruling H1</strong> (composition F8–F10 blend basic-kernel outputs; FMA/reordering would break bit-for-bit reproducibility). <strong>Adding fastmath there is not a tuning decision — it would overturn a recorded audit ruling. Do not.</strong></p>
+<h3 id="p8-re-ledger-ceiling-proofs-stop">P8 — Re-ledger, ceiling proofs, stop</h3>
+<p>Appendix A §13 per algorithm: residual wall decomposed into (a) mandated RNG volume (a formula), (b) mandated dispatch structure, (c) mandated kernel math, <strong>(d) governance- frozen (this repo&#x27;s fourth category — name the manifest/lock and what it would take to reclaim)</strong>. Then stop.</p>
+<p>---</p>
+<h2 id="8-gates-appendix-a-9-with-this-repo-s-actual-commands">8. Gates — Appendix A §9, with this repo&#x27;s actual commands</h2>
+<p>Run mechanically. **Revert rule: any gate failure reverts the *item*, not the batch.**</p>
+<p><strong>G1 (bit-identical)</strong> — every change in this campaign, by default:</p>
+<pre><code class="code-block"># 1. BEFORE any edit — capture (§6.2 battery), through the production runner, threefry
+# 2. edit
+# 3. regenerate → dict-equality, no tolerance
+# 4. determinism: same seed twice ⇒ identical repr
+python -m pytest tests/unit tests/smoke tests/regression -q     # ~324 tests, ~3 min
+# 5. if shared code touched (_kernels.py, benchmark_adapter/*, common/rng*) → ALSO G4</code></pre>
+<p><strong>G2 (tolerance)</strong> — <strong>presumed unavailable (§5.2).</strong> Do not open it without a §5.5 ruling. If ruled available for greenfield suites only: exhaustive sweep, all functions × dims × K ∈ {1,3,8,50} × ≥300 seeded batches, ≥10⁵ rows, ULP via Appendix A §10.2&#x27;s sign-corrected int64 distance; calibrate the documented bound <strong>on the exhaustive sweep</strong> (trap T5); archived cells excluded <strong>by construction</strong>.</p>
+<p><strong>G3 (trajectory-changing)</strong> — <strong>unavailable (§5.2/§5.3).</strong> No standing ruling exists.</p>
+<p><strong>G4 (shared-code / protocol)</strong> — mandatory whenever you touch <code>_kernels.py</code>, <code>benchmark_adapter/*</code>, <code>common/rng.py</code>, <code>common/reference_rng.py</code>, <code>common/threefry_rng.py</code>, or anything the runner imports:</p>
+<pre><code class="code-block"># 1. frozen replays: EVERY archived (algorithm, suite) cell reproduces byte-identically
+#    THROUGH THE PRODUCTION RUNNER (never a direct algorithm call — trap T4′)
+# 2. FP-regime integrity sentinel unchanged (runners/fp_regime.py) — it fails the pool if not
+python -m pytest -q                                            # full suite green
+# 3. verify manifest hashes still resolve:
+#      papers/governance/evidence_release_manifest.json         (3,403 files)
+#      benchmarks/cec_reference_results/_ablation/manifest.json (1,297)
+#    EOL-TOLERANTLY (§9 T10′) — raw, CRLF→LF, LF→CRLF
+# 4. commit the verified state promptly (trap T8)</code></pre>
+<p><strong>G5 — this repo&#x27;s extra gate. THE MANIFESTS.</strong> Not in Appendix A because the source campaign had no equivalent. Before <strong>and</strong> after any landed batch:</p>
+<ul>
+<li>recompute the 3,403-file release manifest and the 1,297-file ablation manifest</li>
+<p><strong>EOL-tolerantly</strong>;</p>
+<li>confirm <code>papers/governance/_pending_refreeze.json</code> still lists <strong>exactly 11</strong> changed</li>
+<p>files — <strong>if your work enlarges that list, you have broken the paper&#x27;s freeze and must revert</strong>;</p>
+<li>never rewrite a manifest wholesale. **Freeze manifests: CRLF + 2-space, byte-surgical</li>
+<p>edits in place. Ablation manifest: LF + 1-space.<strong> <code>sed -i</code> and <code>Path.read_text()/write_text()</code> </strong>normalize line endings and silently break every hash in the file.** Read bytes, write bytes.</p>
+</ul>
+<p>---</p>
+<h2 id="9-traps-appendix-a-11-re-scored-for-this-repo">9. Traps — Appendix A §11, re-scored for <strong>this</strong> repo</h2>
+<p>Appendix A&#x27;s traps are all real. These are the ones that are <strong>live here specifically</strong>, with this repo&#x27;s evidence:</p>
+<ul>
+<li><strong>T1′ Cache-artifact poisoning</strong> — LIVE if you attempt serial twins (§3.1). Every suite</li>
+<p>kernel is <code>cache=True</code>. <code>cache=False</code> on all <code>py_func</code> re-jits, warmup per worker.</p>
+<li><strong>T2′ Column-major fills</strong> — <strong>LIVE, confirmed</strong>: 2-D draws fill column-major and return</li>
+<p>non-contiguous transposed views (<code>reference_rng.py:39-59</code>). Any draw consolidation must obey Appendix A §6.3&#x27;s ✅/❌ table. This is also *why* DT-GSK&#x27;s <code>_rng_3buf</code> fast path is bypassed in production (§3.2 item 3) — the reference matrix order is load-bearing, not incidental.</p>
+<li><strong>T3′ Off-parity profiling</strong> — <strong>LIVE and sharpened</strong>: <code>run_experiment.py</code> **sets no env</li>
+<p>vars itself<strong>; BLAS/OMP pinning exists </strong>only<strong> in <code>run_campaign.py</code> and <code>finalize_evidence.py</code>. </strong>A bare <code>python run.py …</code> runs UNPINNED.** If you profile that way, your numbers are from a different machine than production. Put the parity preamble in every probe script.</p>
+<li><strong>T4′ False replay mismatches</strong> — <strong>LIVE and pre-loaded</strong>: GSK&#x27;s default generator is</li>
+<p><code>twister</code>, the campaign uses <code>threefry</code>; <code>run_experiment.py</code> defaults <code>workers=2</code>, the campaign uses 15. A direct algorithm call resolves <strong>different defaults</strong> and will &quot;fail&quot; a replay that is actually fine. <strong>Replays go through the production entry point, always.</strong></p>
+<li><strong>T5′ Sampled-tolerance falsification</strong> — dormant (G2 closed). Reactivates the moment a</li>
+<p>§5.5 ruling opens R2.</p>
+<li><strong>T6′ Hidden re-association</strong> — <strong>LIVE, high probability</strong>: the §3.2 §7-class targets are</li>
+<p>exactly where this bites (<code>d_junior = ceil(dim*power(schedule_base, k_vec))</code>, the <code>_as_f64_vector</code> scalar broadcasts, hoisting <code>(ub-lb)</code>). Appendix A §7 item 2&#x27;s rule is absolute: <strong>never re-associate</strong>. Keep <code>((1-2r)*(ub-lb))/t</code>; keep <code>floor((1.0+r)+0.5)</code>. Diff the float expression trees, not the algebra.</p>
+<li><strong>T7′ Tie-set divergence</strong> — <strong>LIVE</strong>: all six classics call <code>stable_argsort</code> every</li>
+<p>generation, and it is an obvious argpartition &quot;optimization&quot; target. <strong>First-occurrence semantics are part of the behavioral contract.</strong> DT-GSK already uses argpartition for DE donors (H6b) *inside the frozen core* — that is precedent for the core, <strong>not</strong> licence for the classics.</p>
+<li><strong>T8′ Shared-tree races</strong> — <strong>LIVE</strong>: this session has already hit <code>index.lock</code> from</li>
+<p>concurrent git operations. Capture baselines and re-checks in the same tree state; verify <code>HEAD == verified tree</code>.</p>
+<li><strong>T9′ Trusting run-config cosmetics</strong> — LIVE: per-run <code>run_config.json</code> records *runner*</li>
+<p>values; do not read them as algorithm parameters.</p>
+<li><strong>T10′ (NEW — not in Appendix A) EOL / hash-basis.</strong> <code>core.autocrlf = true</code>, **no</li>
+<p><code>.gitattributes</code> anywhere<strong> in this repo or at the git root <code>D:/AI/PhD-Projects</code>. Hash basis is </strong>checkout-EOL-dependent<strong> (the now-removed <code>_oracle</code> tree was the mixed-CRLF/LF case). All manifest verification must be EOL-tolerant (raw / CRLF→LF / LF→CRLF). A <code>-text</code> pin plus one-time re-mint is planned </strong>post-submission<strong> — </strong>not your job, and do not pre-empt it**: adding <code>.gitattributes</code> mid-campaign would re-write working-tree bytes and break 3,403 hashes at once.</p>
+<li><strong>T11′ (NEW) Optimizing a dormant path.</strong> DT-GSK&#x27;s <code>subspace_nm</code>/<code>nelder_mead</code> single-row</li>
+<p>LS paths look like prime §5.4 targets and are <strong>never executed under the pub profile</strong> (<code>local_search_method</code> defaults to <code>&quot;coordinate&quot;</code> at every tier). Verify a path is live in the <strong>production profile</strong> before you cost it. The same applies to <code>atmals_prob_update</code>&#x27;s O(history) vstack — <strong>it exists but the optimizer never calls it</strong>.</p>
+</ul>
+<p>---</p>
+<h2 id="10-deliverables">10. Deliverables</h2>
+<div class="table-wrap"><table><thead><tr><th>#</th><th>Deliverable</th><th>Where</th></tr></thead><tbody><tr><td><strong>D1</strong></td><td><strong>P0 report</strong> — ledger (ceiling / target / <strong>ceiling(frozen-core)</strong>), hours-ranked projection, triage confirmed-or-refuted, §2.3 scope finding, <strong>§5.5 ruling requests</strong></td><td><code>docs/development/</code></td></tr><tr><td><strong>D2</strong></td><td><strong>Fingerprint batteries</strong> for the six un-KAT&#x27;d algorithms, captured pre-edit; ideally promoted to <code>tests/regression/</code></td><td><code>tests/</code> + committed JSON</td></tr><tr><td><strong>D3</strong></td><td><strong>Landed changes</strong>, each with its proof attached, each R1 unless a §5.5 ruling says otherwise</td><td>source + gate evidence</td></tr><tr><td><strong>D4</strong></td><td><strong>Ceiling proofs</strong> (Appendix A §13) per algorithm, with this repo&#x27;s 4th category: *governance-frozen* — naming the manifest/lock and the cost to reclaim</td><td><code>docs/development/</code></td></tr><tr><td><strong>D5</strong></td><td><strong><code>docs/development/OPTIMIZER_PERFORMANCE_AUDIT.md</code></strong> — this repo&#x27;s permanent audit register (the sibling project&#x27;s equivalent is the model). <strong>The register is the publication defense.</strong></td><td><code>docs/development/</code></td></tr></tbody></table></div>
+<p><strong>Do not <code>git push</code>.</strong> The owner pushes. Commit verified states promptly with real messages (T8′).</p>
+<p>---</p>
+<h2 id="11-the-honest-prior">11. The honest prior</h2>
+<p>The source campaign cut weeks → 1–2 days. <strong>A large win IS available here</strong> — the sibling&#x27;s own population-batch gsk is the proof. But the mix is different: its kernel/RNG-layer wins transfer wholesale, while its dispatch-collapsing wins (two-thirds of that campaign) target member-sequential shapes this family doesn&#x27;t have, and its biggest RNG win is governance-closed here.</p>
+<p>Measured in the sibling campaign (<strong>not</strong> estimates), mapped:</p>
+<div class="table-wrap"><table><thead><tr><th>Technique</th><th>Its measured win</th><th><strong>Available here?</strong></th></tr></thead><tbody><tr><td><strong>§5.2 serial twins — cec2017</strong></td><td><strong>gsk (population-batch) 3.2×→10.8×</strong>; member-sequential 17–36×/dispatch</td><td>✅ <strong>YES — the biggest lever. P3.</strong> Our cec2017 kernels are <code>parallel=True</code> + campaign pins <code>threads=1</code>. ⚠ <strong>R2 (≤3e-15 rel under fastmath)</strong> ⇒ governance-gated (§5.2)</td></tr><tr><td><strong>§5.2 serial twins — LSGO D=1000</strong></td><td>gsk <strong>1.5×</strong> (kernel volume dominates at high D)</td><td>✅ available; <strong>greenfield, no archive to protect</strong> — 0 ULP measured there (their group kernels are <code>fastmath=False</code>, as ours are)</td></tr><tr><td>§5.2 serial twins — cec2011</td><td><strong>none</strong> — &quot;zero prange kernels, no launch tax&quot;</td><td>❌ <strong>N/A by construction.</strong> Matches our recon exactly. And it&#x27;s 1% of our campaign</td></tr><tr><td><strong>§6.1 Threefry unroll</strong></td><td><strong>96→376 M doubles/s (3.9×)</strong>, suite-wide, <strong>stream-identical</strong></td><td>✅ <strong>YES, R1.</strong> Verified NOT banked here (<code>threefry_rng.py:113-130</code>). Their note: &quot;<strong>gsk, the heaviest RNG consumer (3·NP·D doubles/gen), gains disproportionately</strong>&quot;</td></tr><tr><td><strong>§7 gsk.py micro-set</strong></td><td><strong>~8–15%</strong> on the serial residual, 5 named R1 edits</td><td>✅ <strong>YES, R1</strong> — copy elimination, kernel-arg hoisting, donor scratch reuse, flat 1-D draw, scalar pow. Directly shape-compatible</td></tr><tr><td>§5.3 dispatch pre-resolve</td><td>~3 µs of a ~15 µs <strong>single-row</strong> round-trip</td><td>⚠ <strong>marginal</strong> — only EGSK&#x27;s endgame is single-row here</td></tr><tr><td>§6.2 RNG scalar fast paths</td><td>8.1→3.2 µs on <code>integers(size=1)</code></td><td>✅ <strong>R1</strong> — pays for <strong>ATMALS</strong> (<code>≥5·D</code> scalar draws/gen)</td></tr><tr><td>§6.3 block draws</td><td><strong>19×</strong> on their worst algorithm</td><td>❌ <strong>R3, governance-closed</strong> — and it is exactly ATMALS&#x27;s hot site. Their enabler was explicit: *&quot;ema has no async structure and <strong>no frozen results</strong>&quot;*</td></tr><tr><td>§7 telemetry dedup</td><td>82% of snapshot recomputes avoided</td><td>⚪ <strong>moot</strong> — our classics record 1 point/gen; their gsk&#x27;s 47%-ceiling telemetry lead does <strong>not</strong> transfer (different harness)</td></tr><tr><td>§6.3 gsk r3-collision blocking</td><td>—</td><td>❌ <strong>certified dead</strong>: &quot;class iii <strong>not-blockable</strong> (unbounded redraw-until), ≤0.5 ms/run — leave as-is&quot;. <strong>Do not re-propose</strong></td></tr><tr><td>Kernel fusion</td><td>~3–5% of the launch slice</td><td>❌ <strong>rejected twice</strong> — not bit-identical, breaks F11–F30 reproducibility. Serial twins get the same prize without touching kernel arithmetic</td></tr></tbody></table></div>
+<p><strong>Realistic shape of the win: serial twins on cec2017 (~3–10×) + Threefry unroll (up to 3.9× on RNG) + the micro-set (~8–15%), concentrated at cec2020 D=20</strong> where a 10M-eval budget at NP=100 multiplies every per-generation saving by ~100,000 generations.</p>
+<p><strong>But the governance ceiling is real and it is the difference between the two projects.</strong> The sibling could land serial twins on gsk only via an <strong>explicit user-authorized un-freeze</strong> that cost: a 30-fingerprint battery, a named production replay, a <strong>1.2 GB archive retired to a dated backup</strong>, allowlist surgery, and <strong>a full regeneration of gsk&#x27;s leg — the old results were thrown away and recomputed</strong>. Here, *all seven* algorithms × three suites are archived under a 3,403-file manifest. <strong>The serial-twin win on cec2017 is R2 (≤3e-15 relative under fastmath), so it is not free: it requires the same ruling (§5.5 #3), or it must be scoped to the greenfield suites by construction.</strong> LSGO/cec2020 need no ruling — nothing is frozen there, exactly as LSGO needed none in the sibling (&quot;no LSGO results exist to fork&quot;).</p>
+<p><strong>So the honest priced choice for the owner:</strong></p>
+<ul>
+<li><strong>R1-only, all suites</strong> → Threefry unroll + micro-set + scalar fast paths. Real, safe, modest.</li>
+<li><strong>R1 everywhere + serial twins on greenfield only</strong> (cec2013lsgo/cec2020, 52% of the</li>
+<p>campaign) → <strong>no refreeze needed, no ruling needed</strong> — the archive is untouched by construction. <strong>This is the recommended default.</strong></p>
+<li><strong>+ serial twins on cec2017</strong> → the 3–10× on the paper&#x27;s primary suite, but it costs a</li>
+<p>signed refreeze and a full regeneration of every archived cell. The sibling paid exactly that price and judged it worth it — but they had one algorithm to re-run, not seven.</p>
+</ul>
+<p>--- ---</p>
+<h1 id="appendix-a-the-stochastic-computing-acceleration-manual-v2">APPENDIX A — The Stochastic-Computing Acceleration Manual (v2)</h1>
+<blockquote><strong>Normative reference, reproduced verbatim.</strong> Its worked examples come from the sibling</blockquote>
+<blockquote>24-algorithm campaign, <strong>not</strong> this repo. Where it conflicts with Parts 1–10 above,</blockquote>
+<blockquote>Parts 1–10 win. Its evidence record <code>docs/development/OPTIMIZER_PERFORMANCE_AUDIT.md</code></blockquote>
+<blockquote>lives in <code>05-Human-Inspired-Family_Python_v0.1</code>, not here.</blockquote>
+<h1 id="the-stochastic-computing-acceleration-manual">The Stochastic-Computing Acceleration Manual</h1>
+<h3 id="gsk-family-tuning-playbook-v2-codebase-agnostic-edition">(GSK-Family Tuning Playbook, v2 — codebase-agnostic edition)</h3>
+<p><strong>Purpose.</strong> A complete, self-contained acceleration manual for any scientific-Python codebase of the GSK-family shape: NumPy/Numba compute cores, stochastic algorithms with reproducibility constraints, and campaign-scale workloads (thousands of runs × millions of evaluations). An engineer who has never seen the originating repository should be able to follow this document alone and reproduce order-of-magnitude campaign accelerations with a zero-regression safety record.</p>
+<p><strong>Provenance.</strong> Every pattern here was developed, proven, and landed in a real four-round campaign (a 24-algorithm metaheuristics benchmarking study, 2026-07-14 → 2026-07-17) that cut total campaign wall-clock from <strong>weeks to ~1–2 days</strong> with <strong>every change gated on a proof</strong> — most bitwise, the rest distributionally validated. The concrete instances and measured numbers from that campaign appear throughout as *worked examples*; the patterns are primary. Full evidence record: <code>docs/development/OPTIMIZER_PERFORMANCE_AUDIT.md</code>.</p>
+<p><strong>How to use this manual.</strong> Read Part I once. Then triage your codebase with §2, enter Part II at the section the triage points to, and never land anything without the matching gate checklist from Part III.</p>
+<p>---</p>
+<h1 id="part-i-method">PART I — METHOD</h1>
+<h2 id="1-the-cost-model">1. The cost model</h2>
+<blockquote><strong>wall ≈ Python/RNG floor + (number of dispatches) × (fixed cost per dispatch)</strong></blockquote>
+<p>Every hot loop in this class of codebase decomposes into these three terms. The entire manual is techniques for shrinking each term — but the order is fixed: <strong>measure which term dominates before touching anything.</strong> Optimizing the wrong term produced zero-value work every time it was attempted.</p>
+<p>A *dispatch* is any crossing from interpreted Python into compiled/vectorized work: a JIT kernel call, a BLAS call, a vectorized NumPy op on a tiny array. Each carries a fixed cost (argument boxing, runtime entry, thread-pool launch) that is invisible for large batches and dominant for small ones.</p>
+<h2 id="2-triage-decision-tree">2. Triage decision tree</h2>
+<p>Profile first (§3), then follow the tree. Expected-gain ranges are from the worked campaign; your mileage scales with how badly the symptom presents.</p>
+<pre><code class="code-block">START: cProfile one production-shaped run (§3.1). Where does cumulative time sit?
+│
+├─ Mostly inside compiled kernels / problem.evaluate?
+│   ├─ Is evaluate(1 row) ≈ evaluate(100 rows) in wall time?     → DISPATCH-BOUND
+│   │     → §5 (serial twins, launch-tax elimination)             gain 2–25×
+│   │     risk: bit-identical-or-tolerance  |  gates: G1+G2+G4
+│   └─ Per-row math genuinely dominates at all batch sizes?      → KERNEL-BOUND
+│         → you are near ceiling; only §5.3 pre-resolution +      gain 5–15%
+│           §7 micro-set apply. Consider it proven-floor (§13).
+│
+├─ Mostly inside RNG calls (generator._draw, random(), integers())?
+│   ├─ Millions of SCALAR draws (size None/1) per run?           → RNG-CALL-BOUND
+│   │     → §6.3 P29 block draws (if in data-dependent loops)     gain 5–20×
+│   │     → §6.2 scalar fast paths (if unavoidable singles)       gain 1.3–2×
+│   └─ Bulk draws but the fill kernel itself is slow?            → RNG-FILL-BOUND
+│         → §6.1 unroll the generator                             gain 2–4×
+│
+├─ Mostly in the algorithm&#x27;s own Python (loops, allocation, copies)?
+│                                                                 → PYTHON-FLOOR-BOUND
+│     → §7 micro-set sweep (hoists, aliases, draw consolidation)  gain 1.1–2×/file
+│     → §5.2 if the loop also emits tiny dispatches (usually both)
+│
+├─ Mostly in telemetry/recording?                                 → TELEMETRY-BOUND
+│     → §8 compute-thinning + snapshot caching                    gain 5–15%
+│     risk: PROTOCOL-VISIBLE — requires human sign-off (§9.3)
+│
+└─ Nothing dominates / all small?                                 → NEAR CEILING
+      → write the ceiling proof (§13) and STOP. Stopping is a
+        deliverable, not a failure.</code></pre>
+<p><strong>Risk classes referenced everywhere below:</strong></p>
+<ul>
+<li><strong>R1 BIT-IDENTICAL</strong> — outputs provably byte-equal. Gate checklist G1.</li>
+<li><strong>R2 TOLERANCE</strong> — outputs equal within a measured, documented FP bound</li>
+<p>(compile-variance class). Gate checklist G2. Requires a standing human ruling on the acceptable bound.</p>
+<li><strong>R3 TRAJECTORY-CHANGING</strong> — same distributions/consumed-counts, different</li>
+<p>draw order ⇒ legitimately different runs. Gate checklist G3. Requires a standing human ruling (the &quot;P29 precedent&quot; in the worked campaign).</p>
+<li><strong>R4 PROTOCOL-VISIBLE</strong> — changes recorded artifacts (telemetry density,</li>
+<p>archived formats). Gate checklist G4 + explicit human sign-off per change.</p>
+</ul>
+<h2 id="3-production-parity-profiling">3. Production-parity profiling</h2>
+<h3 id="3-1-the-parity-rules">3.1 The parity rules</h3>
+<p>Measure under the *exact* production regime or your numbers will lie:</p>
+<ol>
+<li><strong>Thread count:</strong> set it before any kernel compiles or runs</li>
+<p>(<code>numba.set_num_threads(1)</code> if production pins one thread per worker). *Worked example:* the campaign&#x27;s worst offender measured &quot;96× slower than baseline&quot; at default 16 threads but ~7× at production 1 thread — the per-launch cost changes &gt;2× with thread count, and interleaved thread-wake penalties change it far more. A whole round of prioritization would have been wrong.</p>
+<li><strong>RNG stream:</strong> use the production generator. Ad-hoc calls often fall to</li>
+<p>a different default (twister vs threefry here) and mis-measure RNG-heavy code paths completely.</p>
+<li><strong>Warmup:</strong> run each subject once before timing (JIT compilation).</li>
+<li><strong>Load discipline:</strong> measure <code>min</code> over interleaved A/B/A/B repetitions so</li>
+<p>machine-load drift hits every variant equally; report load conditions; treat *ratios against a same-session reference* as the durable quantity, never absolutes.</p>
+</ol>
+<h3 id="3-2-layer-isolation-skeleton">3.2 Layer isolation skeleton</h3>
+<pre><code class="code-block language-python">import time, numba
+numba.set_num_threads(PROD_THREADS)          # BEFORE anything compiles
+
+def timeit(fn, *a, reps=2000):
+    fn(*a)                                    # warm
+    t0 = time.perf_counter()
+    for _ in range(reps): fn(*a)
+    return (time.perf_counter() - t0) / reps
+
+full   = timeit(problem.evaluate, one_row)        # public API
+kernel = timeit(inner_kernel, *prepared_args)     # innermost JIT directly
+# wrapper cost = full - kernel; repeat at K=1 and K=100 to expose fixed costs</code></pre>
+<h3 id="3-3-dispatch-census-skeleton">3.3 Dispatch census skeleton</h3>
+<p>Count every evaluate call and its batch size per algorithm — the histogram identifies dispatch-tax victims instantly (K=1-dominant ⇒ victim):</p>
+<pre><code class="code-block language-python">CTR = {&quot;calls&quot;: 0, &quot;hist&quot;: collections.Counter()}
+orig = problem.evaluate
+def counting(x):
+    a = np.atleast_2d(np.asarray(x)); CTR[&quot;calls&quot;] += 1; CTR[&quot;hist&quot;][a.shape[0]] += 1
+    return orig(x)
+object.__setattr__(problem, &quot;evaluate&quot;, counting)   # frozen dataclass override
+run_algorithm(problem, options)</code></pre>
+<p>*Worked example:* the census showed three algorithms issuing 95–99% single-row dispatches (4,400–6,300 per 6,000 evaluations) — the launch-tax victims — and one issuing 10× more *rows* than counted evaluations (a speculative design: math-bound, not tax-bound). Two different problems, two different fixes.</p>
+<h2 id="4-attribution-ledger-wall-clock-projection">4. Attribution ledger + wall-clock projection</h2>
+<p><strong>Ledger:</strong> attribute 100% of a run&#x27;s wall to named owners (kernel math, RNG, algorithm Python, harness wrapper, telemetry, dispatch overhead) and stamp every line <strong>ceiling</strong> (mandated by the published algorithm/protocol — untouchable) or <strong>target</strong> (implementation-borne — must die). Only targets get effort. The ledger is also your stopping criterion (§13).</p>
+<p><strong>Projection:</strong> before optimizing, project the full campaign per work block: <code>short-budget timing × (full budget / short budget) × runs × cases ÷ workers</code>. Rank blocks by projected hours; work strictly down the ranking. *Worked example:* projection revealed one algorithm was <strong>49.7% of the entire remaining campaign</strong> and one benchmark suite was <strong>75–85% of all remaining wall</strong> — neither was the loudest-looking problem in casual profiling.</p>
+<p>---</p>
+<h1 id="part-ii-strategies">PART II — STRATEGIES</h1>
+<p>Every strategy: <strong>Trigger → Recipe (skeleton) → Proof → Risk class → Worked example.</strong></p>
+<h2 id="5-dispatch-bound-codebases">5. Dispatch-bound codebases</h2>
+<h3 id="5-1-know-the-launch-tax">5.1 Know the launch tax</h3>
+<p><code>@njit(parallel=True)</code> kernels enter the threading runtime on every call: ~60 µs/launch at 1 thread (workqueue), ~110 µs at 16, and worse when calls interleave with Python (sleeping worker threads must wake). One logical &quot;evaluation&quot; may be several launches (shift kernel + base kernel + composition weights…). The tax is per-*call*, not per-row.</p>
+<p><strong>Detection test:</strong> time <code>evaluate</code> at K=1 and K=100. If they are within ~2× of each other, you are paying fixed dispatch cost, not math.</p>
+<h3 id="5-2-serial-kernel-twins-the-biggest-lever-r1-or-r2">5.2 Serial-kernel twins (the biggest lever; R1-or-R2)</h3>
+<p>Give every parallel kernel a <code>parallel=False</code> twin compiled from the *same* source object, and route opted-in callers to the twins through a thread-local scope. Same math, no launch.</p>
+<pre><code class="code-block language-python"># _numba_serial.py — twin factory
+def _serial_twin(dispatcher):
+    opts = dict(dispatcher.targetoptions)        # inherits per-kernel fastmath policy
+    opts.pop(&quot;parallel&quot;, None); opts.pop(&quot;nopython&quot;, None); opts.pop(&quot;cache&quot;, None)
+    return njit(cache=False, **opts)(dispatcher.py_func)
+    #          ^^^^^^^^^^^ LOAD-BEARING. cache=True silently LOADS THE
+    #          PARALLEL BUILD&#x27;S on-disk artifact for the same py_func —
+    #          your &quot;serial&quot; twin runs at parallel speed with no warning.
+    #          Verified twice. Pay the ~0.25 s/kernel compile once per
+    #          worker in an explicit warmup() instead.
+
+# _kernel_mode.py — thread-local routing (per compute-backend package)
+_STATE = threading.local()
+def serial_kernels_active(): return getattr(_STATE, &quot;serial&quot;, False)
+class serial_kernel_scope:                       # __slots__ class ≈ 0.1 µs/entry
+    __slots__ = (&quot;_prev&quot;,)
+    def __enter__(self): self._prev = getattr(_STATE, &quot;serial&quot;, False); _STATE.serial = True
+    def __exit__(self, *exc): _STATE.serial = self._prev
+
+# each kernel call site
+kernel = _ns.rastrigin_nb if serial_kernels_active() else _rastrigin_nb
+return kernel(np.ascontiguousarray(x, dtype=np.float64))</code></pre>
+<p>Design rules proven necessary:</p>
+<ul>
+<li><strong>Opt-in only, default off.</strong> Callers with archived/frozen results and any</li>
+<p>integrity sentinel keep the legacy path *by construction* — no tolerance argument needed for them.</p>
+<li><strong>Per-backend scopes</strong> (one thread-local per compute package) so a scope</li>
+<p>can never route a different backend&#x27;s kernels.</p>
+<li><strong>No batch-size threshold</strong> when production runs 1 thread/worker: serial</li>
+<p>beats parallel at *every* batch size there (1-thread parallel = serial + launch overhead). One kernel set per opted-in run ⇒ clean provenance.</p>
+<li><strong>Config allowlist + loader guard:</strong> opting in is a per-algorithm config</li>
+<p>entry; the loader *refuses* algorithms whose archived results were generated on the legacy path (removing one from the guard is a deliberate, signed &quot;refreeze&quot; — §9.3). Make the guard *scope-aware*: it protects the dataset it was written for, not unrelated datasets with no archives.</p>
+<li><strong>Fail closed:</strong> if the twins&#x27; JIT is unavailable, constructing an</li>
+<p>opted-in problem raises — never silently fall back to a different FP path.</p>
+<li><strong>Record provenance everywhere:</strong> console banner, per-run config JSON,</li>
+<p>problem metadata.</p>
+</ul>
+<p><strong>Proof:</strong> exhaustive twin-vs-original parity sweep over ALL functions × dims × batch sizes (§10.2). Non-fastmath kernels: bitwise <strong>by construction</strong> (same instruction order). Fastmath kernels: compile-variance tolerance, calibrated on the exhaustive sweep (§11, trap T5).</p>
+<p>*Worked example:* single-row kernel call 60→0.4 µs (~160×); end-to-end per-dispatch 17–36×; the three member-sequential victims went from 58–85× the reference to 2.4–3.8×; on a D=1000 suite the same port was worth an estimated 45–110 wall-hours, with 4,080/4,080 parity rows bitwise (hot kernels were non-fastmath).</p>
+<h3 id="5-3-dispatch-pre-resolution-r1">5.3 Dispatch pre-resolution (R1)</h3>
+<p><strong>Trigger:</strong> the public evaluate wrapper re-does per-call ceremony on values frozen at construction — argument sniffing, mode parsing, duplicate contiguity coercion, duplicate finiteness scans, dimension re-validation. <strong>Recipe:</strong> bind the final callable once at closure-build time; keep exactly one validation layer and *write the redundancy proof in a comment* (&quot;upstream <code>as_population</code> already returns validated contiguous finite float64 of the right width&quot;). ~3 µs of a ~15 µs single-row round-trip in the worked example.</p>
+<h3 id="5-4-the-k-1-fast-path-in-shared-wrappers-r1">5.4 The K=1 fast path in shared wrappers (R1)</h3>
+<p><strong>Trigger:</strong> member-sequential algorithms make ~one single-row wrapper call per evaluation; array machinery (<code>np.all(np.isfinite(v))</code>, argmin) on a 1-element vector is ~2 µs of pure overhead. <strong>Recipe:</strong> a <code>shape[0]==1</code> branch using scalar ops — with <strong>identical error strings, state transitions, and return values</strong> (byte-equality of behavior, not just numbers). Lands once, benefits every caller.</p>
+<h2 id="6-rng-bound-codebases">6. RNG-bound codebases</h2>
+<h3 id="6-1-unroll-counter-based-fill-kernels-r1">6.1 Unroll counter-based fill kernels (R1)</h3>
+<p><strong>Trigger:</strong> the generator&#x27;s fill kernel loops rounds with table lookups (<code>rot[r % 8]</code>), modulo, and branchy key-injection per round. <strong>Recipe:</strong> fully unroll with literal constants; *generate the unrolled code mechanically* (a 20-round transcription by hand invites typos; a bitwise verifier catches them, but generation avoids them). Pure integer ops in identical order ⇒ bit-identical by construction — still verify on 100k+ values across seeds, counter offsets, and the carry/wraparound path. *Worked example:* Threefry-4x64-20 fill 96 → 376M doubles/s (<strong>3.9×</strong>), suite-wide; the heaviest RNG consumer (the reference algorithm itself, 3·N·D doubles/gen) gained disproportionately — this single change flipped the final &quot;fastest algorithm&quot; ranking.</p>
+<h3 id="6-2-bit-identical-scalar-fast-paths-r1">6.2 Bit-identical scalar fast paths (R1)</h3>
+<p><strong>Trigger:</strong> hot single-value draws routed through vectorized machinery (per-call <code>asarray/floor/astype/clip</code> + dtype-info construction for ONE value). <strong>Recipe + the two proofs that make it R1 (write both in comments):</strong></p>
+<pre><code class="code-block language-python">if size is None or size == 1:
+    u = float(self._draw(1)[0])
+    v = lo + int(u * span)      # int() == floor ONLY because u*span &gt;= 0
+    if v &gt; hi - 1: v = hi - 1   # u&lt;1 can still ROUND u*span up to span at
+    ...                         # the float boundary — clamp is reachable</code></pre>
+<p><strong>Gate:</strong> stream equivalence (singles sequence == block draw, bitwise, plus generator state match) <strong>and</strong> frozen replays (§10.4) — shared RNG code is upstream of everything.</p>
+<h3 id="6-3-the-block-draw-doctrine-r3-the-approved-trajectory-changing-class">6.3 The block-draw doctrine (R3 — the approved trajectory-changing class)</h3>
+<p><strong>Trigger:</strong> scalar draws inside *data-dependent* loops — draw-until-done allocation loops, per-member redraws — thousands per generation. <strong>Recipe:</strong> pre-draw fixed-shape blocks sized by the loop&#x27;s hard cap; consume them by index inside the <strong>unchanged</strong> recurrence; unread tails are deliberate speculative draws (the schedule stays data-independent).</p>
+<pre><code class="code-block language-python"># per phase: one index block (rows, CAP+1) + one fraction block (rows, CAP)
+dims  = rng.integers(0, dim, size=rows * (CAP + 1)).reshape(rows, CAP + 1)
+fracs = rng.random(rows * CAP).reshape(rows, CAP)
+# the recurrence body is IDENTICAL — only where values come from changed:
+while budget &gt; tol and steps &lt; CAP:
+    amount = float(fracs_row[steps]) * budget
+    delta[int(dims_row[steps])] += sign * amount
+    budget -= amount; steps += 1</code></pre>
+<p><strong>What must stay exact:</strong> per-element distributions; per-operation *consumed* draw counts; the recurrence&#x27;s floating-point association (<strong>never</strong> reformulate <code>budget -= f*budget</code> via cumprod — it reassociates and can change step counts). Only draw ORDER moves.</p>
+<p><strong>THE COLUMN-MAJOR TRAP (memorize):</strong> reference-faithful RNGs fill matrices column-major (MATLAB semantics). Therefore:</p>
+<ul>
+<li>✅ <code>random(3n)</code> == three consecutive <code>random(n)</code> (1-D fills are stream slices)</li>
+<li>✅ <code>random((k, N, D))</code> == k successive <code>random((N, D))</code> (leading-axis collapse)</li>
+<li>❌ <code>random((3, N))</code> ≠ three <code>random(N)</code>  — interleaves the stream</li>
+<li>❌ widening 2-D shapes (<code>(5N, D)</code>, <code>(N, 5D)</code>) — interleaves the stream</li>
+</ul>
+<p><strong>Proof (all four required, §10.3):</strong> recording-RNG replay (block path == scalar path bitwise given the same values); KS-grade distribution tests; algorithm-invariant checks; full-budget quality sanity vs sibling algorithms. *Worked example:* the campaign&#x27;s worst algorithm made ~395k scalar RNG round-trips per run (80% of its wall). Block draws: 19× — from 49.7% of the campaign to noise — with 500/500 recording-replay cases bitwise and KS p-values 0.29–0.90 on every distributional check.</p>
+<h3 id="6-4-persistent-draw-buffers-r1">6.4 Persistent draw buffers (R1)</h3>
+<p>Refill scalar-draw streams in bulk chunks from the counter-based generator (block N always yields the same values ⇒ stream bytes unchanged); singles are then buffer reads instead of kernel dispatches.</p>
+<h2 id="7-python-floor-bound-the-micro-set-catalogue-all-r1">7. Python-floor-bound: the micro-set catalogue (all R1)</h2>
+<p>Run this rubric over every algorithm file. Each item: the pattern, the one-line proof requirement.</p>
+<div class="table-wrap"><table><thead><tr><th>#</th><th>Pattern</th><th>Recipe</th><th>Proof point</th></tr></thead><tbody><tr><td>1</td><td>Full-array copies per generation</td><td>alias + one blended <code>np.where(mask[:,None], new, old)</code></td><td>prove the aliased array is never mutated before its last read; fresh output array keeps id-keyed caches honest</td></tr><tr><td>2</td><td>Loop-invariant recomputation</td><td>hoist <code>(ub-lb)</code>, <code>np.full</code> constants, partition bounds, <code>np.finfo</code> tiny, scalar powers of constants</td><td><strong>never re-associate</strong>: keep <code>((1-2r)*(ub-lb))/t</code>, never pre-divide; keep <code>floor((1.0+r)+0.5)</code>, never <code>1.5+r</code> — both change rounding</td></tr><tr><td>3</td><td>Scratch buffers rebuilt per generation</td><td>hoist + <code>.fill()</code> reset</td><td>every element rewritten each use; no consumer retains a reference</td></tr><tr><td>4</td><td>Consecutive same-size draws</td><td>one flat draw + slices (§6.3 rules!)</td><td>1-D only, or leading-axis; never 2-D widening</td></tr><tr><td>5</td><td>Fancy gathers on contiguous ranges</td><td><code>arr[start:stop]</code> views instead of <code>arr[np.arange(start,stop)]</code> copies; drop <code>.copy()</code> after advanced indexing (already fresh)</td><td>nothing mutates the source during the view&#x27;s lifetime</td></tr><tr><td>6</td><td>Per-element Python unboxing loops</td><td><code>.tolist()</code> first, or vectorize the scan</td><td>control flow identical</td></tr><tr><td>7</td><td>Per-call helper ceremony</td><td>specialize generic helpers at hot sites (e.g. 1-exclusion index draw: <code>d=rng.integers(0,n-1); d += d&gt;=i</code>)</td><td>identical reduced-range draw + shift mapping, probe 10k draws</td></tr><tr><td>8</td><td>Dict/list rebuilds per generation</td><td>hoist + reset in place</td><td>trivial; watch signature churn (skip if it costs more review than it saves)</td></tr></tbody></table></div>
+<p><strong>Measured anti-patterns (do not do):</strong> <code>count_nonzero</code>→<code>any</code> (slower); argpartition for top-k with ties (tie-order divergence ⇒ R3, not R1); norm→loop without checking accumulation order; buffer-threading through 3+ signatures for &lt;1 ms/run (skip and record the judgment).</p>
+<p>*Worked example:* a five-agent sweep with this rubric landed ~60 items across 18 algorithm files — every one gated byte-identical, zero reverts — worth 0.1–0.8 s/run per file on top of the structural wins.</p>
+<h2 id="8-telemetry-bound-r4-protocol-visible">8. Telemetry-bound (R4 — protocol-visible)</h2>
+<ul>
+<li><strong>Snapshot caching (R1):</strong> multi-phase algorithms record the same</li>
+<p>population several times per iteration — cache the O(N·D) snapshot keyed by a collision-safe population fingerprint (id + shape + corners + sum).</p>
+<li><strong>Compute-thinning (R4):</strong> compute expensive per-generation statistics only</li>
+<p>on a log-spaced evaluation grid via a default-off config knob; keep counters and cheap stats dense; keep protocol checkpoints exact (they compute their own snapshots). <strong>Requires explicit sign-off</strong> because archived series density changes. Verify: default-off byte-identity; on-grid values byte-equal to a dense run; trajectory identical.</p>
+<li><strong>Storage-thinning (R1 for storage):</strong> subsample the on-disk log,</li>
+<p>compute summaries from the full in-memory series.</p>
+</ul>
+<p>---</p>
+<h1 id="part-iii-safety">PART III — SAFETY</h1>
+<h2 id="9-risk-classes-and-gate-checklists-run-these-mechanically">9. Risk classes and gate checklists (run these mechanically)</h2>
+<h3 id="g1-bit-identical-claims">G1 — BIT-IDENTICAL claims</h3>
+<ol>
+<li>□ <strong>Capture BEFORE any edit:</strong> fingerprint battery (§10.1) on every</li>
+<p>touched algorithm: ≥3 cells across function classes × ≥2 seeds × every kernel path, recording <code>repr(best)</code>, sha256(solution bytes), sha256(full trace arrays), evaluation count.</p>
+<li>□ Apply the change.</li>
+<li>□ Regenerate the battery: <strong>every fingerprint byte-equal.</strong> Any mismatch</li>
+<p>⇒ bisect items, revert the offender, record it with evidence.</p>
+<li>□ Determinism: same seed twice ⇒ identical <code>repr</code>.</li>
+<li>□ Unit + smoke tests for the touched files green.</li>
+<li>□ If shared code was touched → also G4.</li>
+</ol>
+<h3 id="g2-tolerance-claims-compile-variance-class">G2 — TOLERANCE claims (compile-variance class)</h3>
+<ol>
+<li>□ A standing human ruling exists for the bound (get one; don&#x27;t assume).</li>
+<li>□ <strong>Exhaustive</strong> parity sweep — all functions × dims × batch sizes,</li>
+<p>≥10⁵ rows total; calibrate the documented bound on this sweep (trap T5).</p>
+<li>□ Non-fastmath subset verified strictly bitwise.</li>
+<li>□ Consumers with archived results excluded by construction (opt-in gating)</li>
+<p>— never argue tolerance for frozen data.</p>
+<li>□ Provenance label distinguishes the new path in every artifact.</li>
+</ol>
+<h3 id="g3-trajectory-changing-block-draw-draw-order-claims">G3 — TRAJECTORY-CHANGING (block-draw / draw-order) claims</h3>
+<ol>
+<li>□ A standing human ruling covers the class; the change is draw-ORDER only.</li>
+<li>□ Recording-replay proof: new path == old path <strong>bitwise</strong> when fed the</li>
+<p>identical values (≥100 randomized cases).</p>
+<li>□ KS tests (α=0.01, ≥2k samples) on step counts + per-dimension marginals.</li>
+<li>□ Algorithm invariants hold through the *production* path (e.g.,</li>
+<p>conservation identities to ~1e-16 relative).</p>
+<li>□ Full-budget quality sanity vs sibling algorithms (nothing catastrophic).</li>
+<li>□ Consumed-count and distribution documentation updated in the module</li>
+<p>docstring + notes metadata (trajectories differ — say so).</p>
+<li>□ No archived results exist for the algorithm, or a refreeze is signed.</li>
+</ol>
+<h3 id="g4-shared-code-protocol-changes">G4 — SHARED-CODE / PROTOCOL changes</h3>
+<ol>
+<li>□ Frozen replays (§10.4): every archived algorithm reproduces its recorded</li>
+<p>fingerprint <strong>byte-identically</strong> through the *production* execution path.</p>
+<li>□ Integrity sentinel (§10.5) unchanged.</li>
+<li>□ Full test suite (unit + smoke + regression) green.</li>
+<li>□ For R4 specifically: explicit human sign-off recorded with date and</li>
+<p>scope before landing.</p>
+<li>□ Commit the verified state promptly (trap T8).</li>
+</ol>
+<p><strong>Revert rule (all classes):</strong> any gate failure reverts the *item*, not the batch; bisect to the offender; a frozen-replay failure reverts *everything* touching that algorithm, no exceptions.</p>
+<h2 id="10-verification-harness-skeletons">10. Verification harness skeletons</h2>
+<h3 id="10-1-fingerprint-battery">10.1 Fingerprint battery</h3>
+<pre><code class="code-block language-python">def fingerprint(alg, cells, seeds, budget, **path_flags):
+    out = {}
+    for f, d in cells:
+        for s in seeds:
+            r = run(alg, make_problem(SUITE, f, d, budget=budget, **path_flags),
+                    {&quot;seed&quot;: s, &quot;rand_generator&quot;: PROD_STREAM})
+            out[f&quot;{f}_{d}_{s}&quot;] = dict(
+                bf=repr(float(r.best_fitness)),
+                bx=sha256(np.asarray(r.best_x).tobytes()).hexdigest(),
+                conv=sha256(np.asarray(r.convergence).tobytes()).hexdigest(),
+                nfes=int(r.nfes))
+    return out
+# capture → json to disk → edit → regenerate → dict-equality, no tolerance</code></pre>
+<h3 id="10-2-exhaustive-parity-sweep-for-g2">10.2 Exhaustive parity sweep (for G2)</h3>
+<p>All functions × dims × K ∈ {1, 3, 8, 50} × ≥300 seeded batches; per cell: fraction bitwise + max ULP via sign-corrected int64 bit-pattern distance:</p>
+<pre><code class="code-block language-python">ia = a.view(np.int64).copy(); ia[ia &lt; 0] = np.int64(-(2**63) + 1) - ia[ia &lt; 0]
+ib = b.view(np.int64).copy(); ib[ib &lt; 0] = np.int64(-(2**63) + 1) - ib[ib &lt; 0]
+max_ulp = int(np.max(np.abs(ia - ib)))</code></pre>
+<h3 id="10-3-recording-rng-equivalence-proof-for-g3">10.3 Recording-RNG equivalence proof (for G3)</h3>
+<pre><code class="code-block language-python">class RecordingRng:                       # wraps the real generator
+    def integers(self, lo, hi, size=1):
+        v = self._rng.integers(lo, hi, size=size); self.ints.append(int(v[0])); return v
+    def random(self, size=1):
+        v = self._rng.random(size); self.fracs.append(float(v[0])); return v
+# 1) run the SCALAR path with the recorder → expected output + value log
+# 2) pack the log into the block layout (pad tails arbitrarily — unread)
+# 3) run the BLOCK path on the packed log → np.array_equal REQUIRED</code></pre>
+<h3 id="10-4-frozen-replay-gate">10.4 Frozen-replay gate</h3>
+<p>Record, once, the production-path fingerprints of every algorithm with archived results (a short fixed cell, fixed seed, through the *runner&#x27;s* own entry point — <strong>not</strong> a direct algorithm call, which resolves different defaults and produces false mismatches; this mistake cost a real debugging session — trap T4). Re-run after every shared-code change; byte-equality or revert.</p>
+<h3 id="10-5-integrity-sentinel">10.5 Integrity sentinel</h3>
+<p>A hash over (a) compiled-kernel availability flags and (b) output bytes of fixed probe inputs through *default-constructed* problems, enforced at worker spawn. Any default-path FP change breaks loudly and fails the pool. <strong>Design consequence:</strong> make every fast path opt-in so the sentinel is invariant *by construction* — you never have to argue about it.</p>
+<h3 id="10-6-adversarial-verification-highest-assurance-changes">10.6 Adversarial verification (highest-assurance changes)</h3>
+<p>Independent reviewers/agents instructed to <strong>refute</strong> the safety claim: thread-leak attacks on the scope, cache-poisoning checks (list compiled- artifact dirs before/after), replays against pre-change checkouts, exhaustive sweeps sized to falsify sampled claims. In the worked campaign this layer *did* falsify a sampled tolerance claim (§11 T5) — that is it paying rent.</p>
+<h2 id="11-the-traps-paid-for-once-never-pay-again">11. THE TRAPS (paid for once; never pay again)</h2>
+<p><strong>T1 — Cache-artifact poisoning.</strong> *Symptom:* a <code>parallel=False</code> re-jit shows zero speedup; &quot;compile&quot; takes 0.2 s. *Wrong conclusion:* &quot;serial kernels don&#x27;t help here.&quot; *Detection:* time the twin — if 1-row ≈ the parallel build, you loaded its cached artifact; also <code>twin.targetoptions</code> looks right, which deepens the trap. *Handling:* <code>cache=False</code> on all <code>py_func</code> re-jits; explicit warmup per worker.</p>
+<p><strong>T2 — Column-major matrix fills.</strong> *Symptom:* a consolidated 2-D draw passes shape checks but the fingerprint battery diverges. *Wrong conclusion:* &quot;the consolidation math is wrong somewhere else.&quot; *Detection:* compare <code>random((k, n))</code> element order against k×<code>random(n)</code>. *Handling:* the ✅/❌ table in §6.3. Leading-axis collapse and flat-1-D only.</p>
+<p><strong>T3 — Off-parity profiling.</strong> *Symptom:* huge slowdowns that shrink dramatically in production. *Wrong conclusion:* mis-ranked optimization targets (a full round of effort). *Detection:* re-measure the headline number at production thread count/stream. *Handling:* §3.1 parity rules; put the parity preamble in every probe script.</p>
+<p><strong>T4 — False replay mismatches.</strong> *Symptom:* a frozen replay &quot;fails&quot; after a provably inert change. *Wrong conclusion:* &quot;the bit-identical claim was wrong&quot; — panic revert. *Detection:* did you call the algorithm directly instead of through the production runner? Different default generator/init ⇒ different result. *Handling:* replays go through the production entry point, always (§10.4).</p>
+<p><strong>T5 — Sampled-tolerance falsification.</strong> *Symptom:* the exhaustive sweep finds ULP outliers far beyond the sampled bound (here: &quot;≤2 ULP&quot; from 6k rows became <strong>11 ULP</strong> at 2.16M rows). *Wrong conclusion:* shipping a documented contract that reviewers can falsify. *Detection/Handling:* calibrate documented bounds on the exhaustive sweep; restate docs everywhere the old bound appeared; keep relative-error framing (11 ULP ≈ 2.5e-15 relative) alongside ULP counts.</p>
+<p><strong>T6 — Hidden re-association.</strong> *Symptom:* an &quot;algebraically identical&quot; refactor fails the battery. *Wrong conclusion:* &quot;the battery is flaky.&quot; *Detection:* diff the float expression trees: <code>1.0+r+0.5</code> vs <code>1.5+r</code>, <code>x/t</code> hoisted as <code>x*(1/t)</code>, <code>a-=f*a</code> vs <code>a*=(1-f)</code>, cumprod forms. *Handling:* preserve the exact association and operation order; write &quot;do not refold&quot; comments at the load-bearing spots.</p>
+<p><strong>T7 — Tie-set divergence.</strong> *Symptom:* argpartition/argsort-based &quot;equivalent&quot; selection changes results on ties. *Handling:* first-occurrence semantics (<code>argmin</code>, stable sorts) are part of the behavioral contract; treat any change as R3, not R1.</p>
+<p><strong>T8 — Shared-tree races.</strong> *Symptom:* background auto-commit jobs snapshot mid-edit states; concurrent agents confound each other&#x27;s before/after baselines. *Handling:* capture baselines and run final re-checks in the same tree state; commit verified states promptly with real messages; move archives aside (dated backup dirs), never delete; verify <code>HEAD == verified tree</code> after any auto-commit interference.</p>
+<p><strong>T9 — Trusting run-config cosmetics.</strong> *Symptom:* archived config fields that record *runner* values (e.g. a fair-start payload size) get read as *algorithm* parameters by reviewers. *Handling:* audit recorded-artifact field names before publication.</p>
+<h2 id="12-governance-the-lines-that-are-never-crossed">12. Governance (the lines that are never crossed)</h2>
+<ul>
+<li>Published operators, equations, phase ordering, selection semantics, and</li>
+<p>search dynamics: exactly per the source specification. Performance work never changes *what* is computed for accepted results — only how fast.</p>
+<li>Asynchronous member-sequential structures stay asynchronous. (The</li>
+<p>async→phase-synchronous &quot;vectorization&quot; was attempted twice by independent implementers in the worked campaign and reverted both times by ruling — it changes search dynamics.)</p>
+<li>Draw distributions and per-operation consumed counts are sacred; draw</li>
+<p>order is movable only under a standing R3 ruling.</p>
+<li>Archived result sets are byte-reproducible or deliberately, sign-off</li>
+<p>refrozen — nothing in between.</p>
+<li>Every landing carries its proof, and the proof is preserved in the audit</li>
+<p>register: the register *is* the publication defense.</p>
+</ul>
+<p>---</p>
+<h1 id="part-iv-evidence-appendix-the-worked-campaign">PART IV — EVIDENCE APPENDIX (the worked campaign)</h1>
+<h2 id="13-ceiling-proofs-the-stopping-criterion">13. Ceiling proofs — the stopping criterion</h2>
+<p>Optimization *stops* when the attribution ledger shows only ceiling lines, and that endpoint is <strong>proven, not assumed</strong>, with a short written argument per algorithm: its residual wall decomposed into (a) mandated RNG volume (a formula: draws per generation × generations), (b) mandated dispatch structure (e.g. ~3N single-row evaluations per iteration for asynchronous member-sequential designs — irreducible without changing the published algorithm), (c) mandated kernel math. *Worked example:* the slowest compliant algorithms plateau at ~2–4× the reference precisely because of (b) — the written proof of that floor is what lets future maintainers not waste a fifth round discovering it.</p>
+<h2 id="14-the-measured-ledger-what-each-strategy-bought">14. The measured ledger (what each strategy bought)</h2>
+<p>Campaign trajectory: <strong>weeks → ~57 h → ~1–2 days</strong> for 24 algorithms × 3 benchmark suites, zero regressions, every change proof-gated.</p>
+<div class="table-wrap"><table><thead><tr><th>Strategy</th><th>§</th><th>Measured effect (worked campaign)</th></tr></thead><tbody><tr><td>Serial-kernel twins, suite 1</td><td>5.2</td><td>dispatch 17–36×; worst algorithms 58–96× ref → 2.4–3.8×</td></tr><tr><td>Serial-kernel twins, D=1000 suite</td><td>5.2</td><td>5.3×/4.4×/1.7× end-to-end; ~45–110 h recovered</td></tr><tr><td>Block-draw doctrine (worst algorithm)</td><td>6.3</td><td>3.83 → 0.202 s (19×); 49.7% of campaign → noise</td></tr><tr><td>Generator unroll (Threefry)</td><td>6.1</td><td>96→376M doubles/s; flipped the fastest-algorithm ranking</td></tr><tr><td>RNG scalar fast paths</td><td>6.2</td><td>~30% on scalar-draw-heavy algorithms</td></tr><tr><td>Reference-algorithm micro-set + refreeze</td><td>7, 9.3</td><td>rank 12 → rank 1 of 24 (4/4 race cells)</td></tr><tr><td>K=1 wrapper fast path</td><td>5.4</td><td>~2 µs/evaluation × every member-sequential algorithm, landed once</td></tr><tr><td>All-file micro-set sweep (~60 items)</td><td>7</td><td>0.1–0.8 s/run per file; zero reverts across 18 files</td></tr><tr><td>Dispatch pre-resolution</td><td>5.3</td><td>~3 µs of a ~15 µs round-trip</td></tr><tr><td>Telemetry thinning (D=1000, signed)</td><td>8</td><td>few core-hours; protocol-gated</td></tr></tbody></table></div>
+<h2 id="15-replay-checklist-for-a-new-codebase">15. Replay checklist for a new codebase</h2>
+<ol>
+<li>□ Production parity established (§3.1) — threads, stream, warmup, load discipline.</li>
+<li>□ Dispatch census + attribution ledger + campaign projection (§3.3, §4).</li>
+<li>□ Triage via §2; enter Part II at the indicated section, in projected-hours order.</li>
+<li>□ Wire §10 harnesses and the §9 gates BEFORE landing anything.</li>
+<li>□ Dispatch-bound → serial twins (mind T1), pre-resolution, K=1 paths.</li>
+<li>□ RNG-bound → unroll, scalar fast paths, block draws (mind T2, T6).</li>
+<li>□ Python-floor → run the §7 rubric over every algorithm file.</li>
+<li>□ Telemetry → quantify, then sign-off before thinning.</li>
+<li>□ Re-ledger; stamp remaining lines ceiling; write the §13 proofs; STOP.</li>
+<li>□ Preserve the ledger + proofs as the permanent audit register.</li>
+</ol>
+      </article>
+    </main>
+    <aside class="page-toc" aria-label="On this page">
+<h2>On This Page</h2>
+<a class="toc-level-1" href="#gsk-family-acceleration-campaign-execution-prompt">GSK-Family Acceleration Campaign — Execution Prompt</a>
+<a class="toc-level-2" href="#0-what-this-document-is-and-how-to-use-it">0. What this document is, and how to use it</a>
+<a class="toc-level-2" href="#1-mission">1. Mission</a>
+<a class="toc-level-2" href="#2-scope-grid">2. Scope grid</a>
+<a class="toc-level-3" href="#2-1-the-seven-algorithms">2.1 The seven algorithms</a>
+<a class="toc-level-3" href="#2-2-the-five-suites-all-six-registered-names-verified-from-suite-protocols">2.2 The five suites (all six registered names verified from `SUITE_PROTOCOLS`)</a>
+<a class="toc-level-3" href="#2-3-the-scope-finding-you-must-surface-before-starting">2.3 The scope finding you must surface before starting</a>
+<a class="toc-level-2" href="#3-the-pre-computed-triage-verify-it-do-not-rediscover-it">3. The pre-computed triage — **verify it, do not rediscover it**</a>
+<a class="toc-level-3" href="#3-1-serial-kernel-twins-are-the-biggest-lever-here-v1-0-of-this-document-said-the-opposite-and-was-wrong">3.1 ⚠ Serial-kernel twins ARE the biggest lever here — **v1.0 of this document said the opposite and was WRONG**</a>
+<a class="toc-level-3" href="#3-2-the-three-concrete-7-class-targets-already-located">3.2 The three concrete §7-class targets already located</a>
+<a class="toc-level-3" href="#3-3-the-rng-picture">3.3 The RNG picture</a>
+<a class="toc-level-2" href="#4-campaign-projection-the-ranking-that-sets-your-work-order">4. Campaign projection — the ranking that sets your work order</a>
+<a class="toc-level-2" href="#5-the-governance-overlay-read-this-before-touching-a-file">5. ⚠ The governance overlay — **read this before touching a file**</a>
+<a class="toc-level-3" href="#5-1-the-archived-evidence-surface">5.1 The archived-evidence surface</a>
+<a class="toc-level-3" href="#5-2-the-risk-ladder-mapped-to-this-repo">5.2 The risk ladder, mapped to this repo</a>
+<a class="toc-level-3" href="#5-3-the-trap-that-will-bite-you-the-constraint-travels-with-the-algorithm-not-the-suite">5.3 The trap that will bite you: *the constraint travels with the algorithm, not the suite*</a>
+<a class="toc-level-3" href="#5-4-the-frozen-core-absolutely-untouchable">5.4 The frozen core — absolutely untouchable</a>
+<a class="toc-level-3" href="#5-5-owner-rulings-you-must-obtain-before-the-corresponding-work">5.5 Owner rulings you must obtain **before** the corresponding work</a>
+<a class="toc-level-2" href="#6-what-this-repo-already-has-and-what-it-is-missing">6. What this repo already has, and what it is missing</a>
+<a class="toc-level-3" href="#6-1-already-in-place-do-not-rebuild-appendix-a-10-assets-that-exist">6.1 Already in place (do not rebuild — Appendix A §10 assets that exist)</a>
+<a class="toc-level-3" href="#6-2-the-gap-you-must-close-first-six-of-seven-algorithms-have-no-golden-trajectory">6.2 The gap you must close first — **six of seven algorithms have no golden trajectory**</a>
+<a class="toc-level-3" href="#6-3-absent-do-not-go-looking">6.3 Absent (do not go looking)</a>
+<a class="toc-level-2" href="#7-phase-plan">7. Phase plan</a>
+<a class="toc-level-3" href="#p0-parity-census-ledger-projection-no-edits">P0 — Parity, census, ledger, projection *(no edits)*</a>
+<a class="toc-level-3" href="#p1-build-the-fingerprint-battery-no-optimization-edits">P1 — Build the fingerprint battery *(no optimization edits)*</a>
+<a class="toc-level-3" href="#p2-wire-the-gates">P2 — Wire the gates</a>
+<a class="toc-level-3" href="#p3-the-highest-projected-block-from-p0-s-hours-ranking-not-from-4-s-guess">P3 — The highest-projected block *(from P0&#x27;s hours ranking, not from §4&#x27;s guess)*</a>
+<a class="toc-level-3" href="#p4-the-shared-land-once-wins">P4 — The shared, land-once wins</a>
+<a class="toc-level-3" href="#p5-atmals-gsk-within-r1">P5 — ATMALS-GSK, within R1</a>
+<a class="toc-level-3" href="#p6-egsk-s-dispatch-surface">P6 — EGSK&#x27;s dispatch surface</a>
+<a class="toc-level-3" href="#p7-cec2013lsgo-cec2020-kernels-only-if-p0-s-hours-say-so">P7 — cec2013lsgo / cec2020 kernels *(only if P0&#x27;s hours say so)*</a>
+<a class="toc-level-3" href="#p8-re-ledger-ceiling-proofs-stop">P8 — Re-ledger, ceiling proofs, stop</a>
+<a class="toc-level-2" href="#8-gates-appendix-a-9-with-this-repo-s-actual-commands">8. Gates — Appendix A §9, with this repo&#x27;s actual commands</a>
+<a class="toc-level-2" href="#9-traps-appendix-a-11-re-scored-for-this-repo">9. Traps — Appendix A §11, re-scored for **this** repo</a>
+<a class="toc-level-2" href="#10-deliverables">10. Deliverables</a>
+<a class="toc-level-2" href="#11-the-honest-prior">11. The honest prior</a>
+<a class="toc-level-1" href="#appendix-a-the-stochastic-computing-acceleration-manual-v2">APPENDIX A — The Stochastic-Computing Acceleration Manual (v2)</a>
+<a class="toc-level-1" href="#the-stochastic-computing-acceleration-manual">The Stochastic-Computing Acceleration Manual</a>
+<a class="toc-level-3" href="#gsk-family-tuning-playbook-v2-codebase-agnostic-edition">(GSK-Family Tuning Playbook, v2 — codebase-agnostic edition)</a>
+<a class="toc-level-1" href="#part-i-method">PART I — METHOD</a>
+<a class="toc-level-2" href="#1-the-cost-model">1. The cost model</a>
+<a class="toc-level-2" href="#2-triage-decision-tree">2. Triage decision tree</a>
+<a class="toc-level-2" href="#3-production-parity-profiling">3. Production-parity profiling</a>
+<a class="toc-level-3" href="#3-1-the-parity-rules">3.1 The parity rules</a>
+<a class="toc-level-3" href="#3-2-layer-isolation-skeleton">3.2 Layer isolation skeleton</a>
+<a class="toc-level-3" href="#3-3-dispatch-census-skeleton">3.3 Dispatch census skeleton</a>
+<a class="toc-level-2" href="#4-attribution-ledger-wall-clock-projection">4. Attribution ledger + wall-clock projection</a>
+<a class="toc-level-1" href="#part-ii-strategies">PART II — STRATEGIES</a>
+<a class="toc-level-2" href="#5-dispatch-bound-codebases">5. Dispatch-bound codebases</a>
+<a class="toc-level-3" href="#5-1-know-the-launch-tax">5.1 Know the launch tax</a>
+<a class="toc-level-3" href="#5-2-serial-kernel-twins-the-biggest-lever-r1-or-r2">5.2 Serial-kernel twins (the biggest lever; R1-or-R2)</a>
+<a class="toc-level-3" href="#5-3-dispatch-pre-resolution-r1">5.3 Dispatch pre-resolution (R1)</a>
+<a class="toc-level-3" href="#5-4-the-k-1-fast-path-in-shared-wrappers-r1">5.4 The K=1 fast path in shared wrappers (R1)</a>
+<a class="toc-level-2" href="#6-rng-bound-codebases">6. RNG-bound codebases</a>
+<a class="toc-level-3" href="#6-1-unroll-counter-based-fill-kernels-r1">6.1 Unroll counter-based fill kernels (R1)</a>
+<a class="toc-level-3" href="#6-2-bit-identical-scalar-fast-paths-r1">6.2 Bit-identical scalar fast paths (R1)</a>
+<a class="toc-level-3" href="#6-3-the-block-draw-doctrine-r3-the-approved-trajectory-changing-class">6.3 The block-draw doctrine (R3 — the approved trajectory-changing class)</a>
+<a class="toc-level-3" href="#6-4-persistent-draw-buffers-r1">6.4 Persistent draw buffers (R1)</a>
+<a class="toc-level-2" href="#7-python-floor-bound-the-micro-set-catalogue-all-r1">7. Python-floor-bound: the micro-set catalogue (all R1)</a>
+<a class="toc-level-2" href="#8-telemetry-bound-r4-protocol-visible">8. Telemetry-bound (R4 — protocol-visible)</a>
+<a class="toc-level-1" href="#part-iii-safety">PART III — SAFETY</a>
+<a class="toc-level-2" href="#9-risk-classes-and-gate-checklists-run-these-mechanically">9. Risk classes and gate checklists (run these mechanically)</a>
+<a class="toc-level-3" href="#g1-bit-identical-claims">G1 — BIT-IDENTICAL claims</a>
+<a class="toc-level-3" href="#g2-tolerance-claims-compile-variance-class">G2 — TOLERANCE claims (compile-variance class)</a>
+<a class="toc-level-3" href="#g3-trajectory-changing-block-draw-draw-order-claims">G3 — TRAJECTORY-CHANGING (block-draw / draw-order) claims</a>
+<a class="toc-level-3" href="#g4-shared-code-protocol-changes">G4 — SHARED-CODE / PROTOCOL changes</a>
+<a class="toc-level-2" href="#10-verification-harness-skeletons">10. Verification harness skeletons</a>
+<a class="toc-level-3" href="#10-1-fingerprint-battery">10.1 Fingerprint battery</a>
+<a class="toc-level-3" href="#10-2-exhaustive-parity-sweep-for-g2">10.2 Exhaustive parity sweep (for G2)</a>
+<a class="toc-level-3" href="#10-3-recording-rng-equivalence-proof-for-g3">10.3 Recording-RNG equivalence proof (for G3)</a>
+<a class="toc-level-3" href="#10-4-frozen-replay-gate">10.4 Frozen-replay gate</a>
+<a class="toc-level-3" href="#10-5-integrity-sentinel">10.5 Integrity sentinel</a>
+<a class="toc-level-3" href="#10-6-adversarial-verification-highest-assurance-changes">10.6 Adversarial verification (highest-assurance changes)</a>
+<a class="toc-level-2" href="#11-the-traps-paid-for-once-never-pay-again">11. THE TRAPS (paid for once; never pay again)</a>
+<a class="toc-level-2" href="#12-governance-the-lines-that-are-never-crossed">12. Governance (the lines that are never crossed)</a>
+<a class="toc-level-1" href="#part-iv-evidence-appendix-the-worked-campaign">PART IV — EVIDENCE APPENDIX (the worked campaign)</a>
+<a class="toc-level-2" href="#13-ceiling-proofs-the-stopping-criterion">13. Ceiling proofs — the stopping criterion</a>
+<a class="toc-level-2" href="#14-the-measured-ledger-what-each-strategy-bought">14. The measured ledger (what each strategy bought)</a>
+<a class="toc-level-2" href="#15-replay-checklist-for-a-new-codebase">15. Replay checklist for a new codebase</a>
+</aside>
+  </div>
+  <script src="assets/search.js"></script>
+</body>
+</html>

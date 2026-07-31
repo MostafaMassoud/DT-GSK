@@ -1,0 +1,204 @@
+requirement_id,line_no,summary,phase,artifact,validation,owner
+R-1254,1254,"Verify per suite x algorithm x dimension cell: hashes, objectives, functions, dims, runs, seeds, MaxFES, params, completeness, checksums",2,comparability_audit.md; data_ledger.csv,Phase 2 protocol verification; Section 15.7 evidence-release validation,P4
+R-1272,1272,"Confirm expected suite anchors: CEC2017 29f/D10-100/51 runs (F2 rule), CEC2011 22/native/25, CEC2013 28/D10-50/51 no F2 exclusion",2,comparability_audit.md,Phase 2 protocol verification matrix; P4 sign-off,P4
+R-1282,1282,"Before combining algorithms in any table or test, verify the 11 comparator-fairness conditions (objectives, budgets, pairing, provenance)",2,comparability_audit.md,Phase 2 comparator-fairness audit; Phase 6 entry check,P4
+R-1296,1296,Assign exactly one comparability status (A/B/C/D as defined) to every comparison cell,2,comparability_audit.md,Phase 2 gate review; R2 statistical review,P4
+R-1303,1303,Status C evidence may appear only in a clearly labeled descriptive context,cross,comparability_audit.md; manuscript results,P9 integrity audit; R2 review; Section 15.2 claim coverage,P3
+R-1304,1304,Status D evidence MUST NOT enter the manuscript's formal comparison,cross,comparability_audit.md; manuscript results,P9 integrity audit; R2 review,P3
+R-1308,1308,Verify that common seeds represent a meaningful pairing for each algorithm,2,comparability_audit.md,Phase 2 seed governance checks,P4
+R-1309,1309,"Do not treat a shared numeric seed as a valid pair when initialization, RNG consumption, or task definitions differ materially",2,comparability_audit.md,Phase 2 seed governance checks; R2 review,P4
+R-1311,1311,"Record the exact pairing key, normally suite x function x dimension x run",2,data_ledger.csv; statistical_analysis_plan.md,Phase 5 SAP freeze; Section 15.8,P4
+R-1312,1312,Do not pair summary means or medians as if they were raw run pairs,6,primary_stats/statistical_results.csv,R2 statistical review,P3
+R-1313,1313,Do not treat repeated runs on one function as independent benchmark tasks,6,statistical_analysis_plan.md,R2 statistical review,P3
+R-1314,1314,"Preserve seed_schedule.csv and test uniqueness, cardinality, and formula",2,seed_schedule.csv; reproducibility_manifest.json,Section 15.7 evidence-release validation,P4
+R-1315,1315,Never change the base seed or mix seed policies inside an exhibit,cross,exhibit_plan.csv; artifact_binding.csv,Section 15.4 exhibit-binding validation; R3 review,P4
+R-1319,1319,"Classify every artifact as raw immutable evidence, verified derived evidence, or rendered artifact",2,asset_map.md; data_ledger.csv,Phase 2 asset audit; Section 15.7,P4
+R-1327,1327,Rendered artifacts never regenerate data; derived values reproducible from raw; designate one authoritative output and test exact equality,cross,asset_map.md; artifact_binding.csv,Section 15.3 number binding; deterministic rerun-and-diff,P5
+R-1333,1333,Selected empirical release MUST have evidence_release_manifest.json in governance root carrying the 16 required fields,2,evidence_release_manifest.json,Section 15.7 evidence-release validation,P4
+R-1356,1356,"Selected release ID MUST appear in every data ledger row, analysis output, caption provenance record, and reproducibility statement",cross,data_ledger.csv; analysis bundle; artifact_binding.csv,Sections 15.3/15.4/15.7 binding checks,P5
+R-1361,1361,Convergence evidence uses only curves and checkpoint logs in the selected immutable release,6,curve analysis inputs; strict-source guard,Section 2.3 strict-source guard; Section 15.7,P4
+R-1362,1362,Verify checkpoint definitions and identical evaluation coordinates before aggregating curves,2,comparability_audit.md,Phase 2 verification; R2 review,P4
+R-1363,1363,Aggregate convergence with a declared statistic and uncertainty band,5,statistical_analysis_plan.md; figures,Phase 5 SAP freeze; R2 review,P3
+R-1364,1364,Do not smooth away failures or unfavorable convergence behavior,7,convergence figures,R2/R6 review of figures,P3
+R-1365,1365,Do not extrapolate beyond a terminated run,7,convergence figures,R2 review,P3
+R-1366,1366,Pre-specify main-text curve selection rule from summary statistics before viewing final plots; document prior figure exposure as limitation,5,curve_selection.csv; statistical_analysis_plan.md,Phase 5 freeze; R2 pre-registration check,P3
+R-1372,1372,Include at least one difficult or unfavorable convergence case,7,curve_selection.csv; exhibit_plan.csv,Section 15.4; R6 review,P3
+R-1373,1373,Put complete convergence function grids in the supplement,8,supplementary materials,Section 15.4; R4 review,P6
+R-1386,1386,Treat parameter sensitivity and ablation as separate studies,cross,statistical_analysis_plan.md,R2 review; Gate 11 pre-ablation check,P3
+R-1388,1388,Label the expected three-run parameter study as exploratory sensitivity,5,statistical_analysis_plan.md; manuscript,R2 review,P3
+R-1389,1389,"State grid/range, tasks, dimensions, runs, seeds, metric, and selection rule for the sensitivity study",5,statistical_analysis_plan.md,Phase 5 freeze; R2 review,P3
+R-1390,1390,Disclose whether the same sensitivity cases influenced final parameter choices,8,experimental setup / discussion sections,P9 integrity audit,P3
+R-1391,1391,Do not use a three-run sweep as definitive evidence of robustness,cross,claims_evidence_matrix.csv,R2/R6 review; Section 15.2,P3
+R-1392,1392,Do not convert sensitivity results into component-causality claims,cross,claims_evidence_matrix.csv,R2/R6 review; Section 15.2,P3
+R-1393,1393,Include full sensitivity evidence in supplement when useful; keep main-text treatment concise and non-promotional,8,exhibit_plan.csv; supplement,R4 review,P6
+R-1398,1398,"Primary study SHOULD include controlled cost analysis before final ablation: evals, wall time, overhead, memory, cadence, limits, checks",6,complexity_analysis.md; primary_stats bundle,Phase 6 validation; R2 review,P3
+R-1413,1413,Peak-memory harness is OPTIONAL pre-freeze; else RQ7/5.7/6.9/7.12 report runtime+overhead only and gap logged in evidence_gap_register.md,5,complexity_analysis.md; evidence_gap_register.md,Phase 5 freeze check; Section 15.2 gap disposition,P4
+R-1421,1421,"Wall-time comparison invalid when hardware, language, parallelism, termination, or objective-call counts differ materially",cross,comparability_audit.md; complexity_analysis.md,R2/R6 review,P3
+R-1426,1426,"Pre-final-phase ablation actions limited to: script audit, verified dry-run, toggle/schema checks, pre-registration, resource reservation",cross,decision_log.md; phase_gate_register.csv,Gate 11 pre-ablation hard gate; P9 audit,P1
+R-1429,1429,Ablation --dry-run pre-final only after inspection proves zero objective evaluations; authoritative dry-run re-run after Gate 11 (task 12.7),12,engineering preflight record; decision_log.md,Phase 12 task 12.7; R3 review,P5
+R-1438,1438,"Before final phase MUST NOT: run ablation evals, view unvalidated outcomes, generate ablation content, tune on it, or put it in main text",cross,phase_gate_register.csv,Gate 11 hard gate; P9 integrity audit,P1
+R-1446,1446,"Historical ablation outputs under results/ are quarantined; archive or masked parser tests only, never design or claims input",cross,asset_map.md,P9 integrity audit; Section 0.3 staging rule,P9
+R-1454,1454,Create and freeze statistical_analysis_plan.md before interpreting primary results; reconstruct intent; label post hoc as exploratory,5,statistical_analysis_plan.md,Phase 5 review gate (R2); Section 15.8,P3
+R-1461,1461,Use a small explicit research-question set; defaults RQ1-RQ8 as defined,5,statistical_analysis_plan.md,Phase 5 freeze; R2 review,P3
+R-1482,1482,"Ablation RQs pre-registered separately, answered only in the final phase and only in the supplement",12,statistical_analysis_plan.md; supplement,Gate 11/Gate 12 checks,P3
+R-1487,1487,"Define before analysis: endpoint, floor, transformation, estimands, tendency/dispersion, threshold, direction, encoding, panel, families",5,statistical_analysis_plan.md,Phase 5 freeze; R2 review,P3
+R-1501,1501,Do not average raw errors across heterogeneous functions unless the transformation yields a defensible comparable scale,cross,statistical_analysis_plan.md,R2 statistical review,P3
+R-1506,1506,"For every analysis state units, aggregation, pairing key, independence, tie/zero/failure handling, sidedness, n, correction family",5,statistical_analysis_plan.md,Phase 5 freeze; R2 review,P3
+R-1518,1518,Avoid pseudoreplication; run-level and across-function variability MUST NOT be silently mixed,cross,statistical_analysis_plan.md; statistical_results.csv,R2 statistical review,P3
+R-1523,1523,"Retain per function x dimension x algorithm cell: best, median, mean, worst, SD, IQR (when raw runs permit), failure count, run count",6,primary_stats bundle,Section 15.3 number binding; Phase 6 checks,P3
+R-1534,1534,"Use unrounded values for ranks, tests, ties; apply display rounding only after calculation and store the formatting policy",6,analysis bundle; artifact_binding.csv,Section 15.3; R2 review,P3
+R-1539,1539,"Omnibus: per-task ranks, Friedman test, full reporting, Nemenyi CD only when design matches, narrative follows formal inference",6,primary_stats/statistical_results.csv,R2 review; Section 15.3,P3
+R-1549,1549,Do not pool dimensions into one omnibus test unless estimand and weighting are pre-specified and defensible,5,statistical_analysis_plan.md,Phase 5 freeze; R2 review,P3
+R-1554,1554,Use Wilcoxon signed-rank only for valid paired observations,6,statistical_results.csv,R2 statistical review,P3
+R-1555,1555,"Define the primary family, normally DT-GSK versus each comparator within one suite and dimension",5,statistical_analysis_plan.md,Phase 5 freeze,P3
+R-1557,1557,Use Holm adjustment for primary family-wise error control when supported by the approved corpus,6,statistical_results.csv,R2 review; Section 15.3,P3
+R-1559,1559,"Report raw p, adjusted p, test statistic, direction, observation count, and tie/zero method",6,statistical_results.csv,Section 15.3 number binding,P3
+R-1561,1561,Do not report p = 0; use a bound or software precision,6,statistical_results.csv; tables,R2 review,P3
+R-1562,1562,Benjamini-Hochberg only as a distinctly labeled exploratory FDR analysis with separate family and interpretation,6,statistical_analysis_plan.md; statistical_results.csv,R2 review,P3
+R-1564,1564,Never mix Holm and BH results inside one claim,cross,claims_evidence_matrix.csv,R2 review; Section 15.2,P3
+R-1568,1568,Report Vargha-Delaney A12 with groups and direction defined,6,statistical_results.csv,R2 review; Section 15.3,P3
+R-1569,1569,Avoid qualitative effect labels unless supported by the local source and appropriate to the design,8,manuscript; claims_evidence_matrix.csv,P9 audit; R2 review,P3
+R-1571,1571,Attach an uncertainty interval to every headline effect,6,statistical_results.csv,Section 15.3; R2 review,P3
+R-1572,1572,"For BCa bootstrap intervals state statistic, resampling unit, hierarchy, resamples, seed, confidence level, failure handling",5,statistical_analysis_plan.md,Phase 5 freeze; R2 review,P3
+R-1574,1574,Use deterministic analysis RNG; verify generate_t16_bca.py seed scheme and record it; do not confuse with run-seed base 20240620,5,statistical_analysis_plan.md; reproducibility_manifest.json,R3 reproducibility review; Section 15.8,P3
+R-1580,1580,Do not bootstrap individual runs for across-function claims unless the hierarchy is explicitly modeled,6,statistical_analysis_plan.md,R2 statistical review,P3
+R-1585,1585,"Define W/T/L basis (means/medians/test decisions), tie rules, correction timing, function denominator, missing-case treatment",5,statistical_analysis_plan.md,Phase 5 freeze; R2 review,P3
+R-1593,1593,Never infer significance from a win/tie/loss count unless the count is defined by the inferential test,cross,claims_evidence_matrix.csv,R2 review; Section 15.2,P3
+R-1598,1598,Convergence analysis uses identical checkpoints or a documented alignment method,6,analysis bundle,R2 review,P3
+R-1599,1599,Pre-register representative convergence cases in curve_selection.csv before rendering,5,curve_selection.csv,Phase 5 freeze check,P3
+R-1600,1600,Include one hard/adverse case in convergence analysis,7,curve_selection.csv; exhibit_plan.csv,R6 review; Section 15.4,P3
+R-1601,1601,State aggregation and uncertainty for convergence exhibits,7,figure captions; exhibit_plan.csv,Section 15.4; R4 review,P3
+R-1602,1602,Separate descriptive convergence shape from causal mechanism explanation,8,manuscript discussion,R6 review; P9 audit,P3
+R-1603,1603,Do not select the best-looking run or function for convergence display,cross,curve_selection.csv,R2 pre-registration check,P3
+R-1607,1607,"Function-class analysis only with verified labels, no memory-reconstruction, pre-specified/exploratory label, multiplicity, small-n caveat",5,statistical_analysis_plan.md,Phase 5 freeze; R2 review,P3
+R-1615,1615,Do not claim a mechanism works because of a class-level pattern without direct evidence,cross,claims_evidence_matrix.csv,R6 review; Section 15.2,P3
+R-1620,1620,"Pre-specify robustness checks (9 dimensions incl. summaries, floors, encoding, pairing, correction, aggregation) where evidence permits",5,statistical_analysis_plan.md,Phase 5 freeze; R2 review,P3
+R-1632,1632,A headline conclusion that reverses under a reasonable analysis choice MUST be reported as unstable,6,statistical_results.csv; manuscript,R2 review,P3
+R-1637,1637,"Pre-specify cost analysis: environment, repetitions, warm-up, normalization, runtime metric, memory policy, dims, CI, invalid comparisons",5,statistical_analysis_plan.md,Phase 5 freeze; R2 review,P3
+R-1652,1652,Run stats commands in strict reference-only mode writing to papers/analysis/<release_id>/; never default into results/_run_all/_analysis/,6,analysis bundle root; reproducibility_manifest.json,Section 15.8 engineering validation; strict-source guard,P5
+R-1666,1666,Verify or implement a guard proving every empirical source path belongs to the selected cec_reference_results release (inspect loaders),6,strict-source guard code; result_loader.py inspection record,Section 15.8; R3 review,P5
+R-1682,1682,"Derived outputs stay working artifacts until inputs, commands, checksums, release ID are bound; published numbers trace to immutable data",cross,artifact_binding.csv,Sections 15.3/15.4 binding validation,P5
+R-1688,1688,Every reported statistic has a machine-readable row in primary_stats/statistical_results.csv (28-field schema) inside the controlled bundle,6,primary_stats/statistical_results.csv,Phase 6 orphan check; Section 15.3,P3
+R-1702,1702,"No statistic may exist only in prose, a LaTeX fragment, a Word table, or a plot",cross,primary_stats/statistical_results.csv,Section 15.3 number-binding validation,P3
+R-1706,1706,After SAP freeze: changes need revision entry; outcome-driven = exploratory; separate primary/exploratory; versioned code; rerun-and-diff,cross,revision_log.md; statistical_analysis_plan.md,R2/R3 review; Section 15.8,P3
+R-1720,1720,"Every exhibit answers a named question with generator, command, sources, checksums, release ID, right location, self-contained caption",7,exhibit_plan.csv; artifact_binding.csv,Section 15.4 exhibit-binding validation,P7
+R-1733,1733,Never hand-edit a data-backed number or plotted point,cross,artifact_binding.csv,Sections 15.3/15.4; R3 review,P7
+R-1737,1737,"Main-text tables limited to permitted set: protocol, per-dim summaries, ranks/WTL, adjusted pairwise, secondary suite, sensitivity, overhead",5,exhibit_plan.csv,Phase 5 exhibit freeze; R4 review,P6
+R-1747,1747,The main manuscript MUST NOT contain an ablation table,cross,exhibit_plan.csv; main manuscript,P9 audit; Gate 11 pre-ablation check,P9
+R-1749,1749,"Per-function tables, complete pairwise matrices, convergence grids, large sensitivity grids, and all ablation evidence go to the supplement",8,supplementary materials; exhibit_plan.csv,R4 review; Section 15.4,P6
+R-1754,1754,Tables state statistic and dispersion explicitly,7,table generators; rendered tables,R4 review,P7
+R-1755,1755,Tables state minimization/maximization direction,7,rendered tables,R4 review,P7
+R-1756,1756,"Define bolding, significance, effect, win/tie/loss, imported-evidence, and missingness symbols",7,table notes; rendered tables,R4 review,P7
+R-1758,1758,Use unrounded values for table decisions,7,table generators,Section 15.3; R2 review,P7
+R-1759,1759,Do not bold rounded ties incorrectly,7,table generators,Section 15.3; R2 review,P7
+R-1760,1760,Do not mark significance from unadjusted values when adjusted inference is claimed,7,table generators,R2 statistical review,P3
+R-1762,1762,Distinguish exact zero from below-precision values,7,table generators,R2 review,P7
+R-1763,1763,Include run count and function denominator where needed,7,rendered tables,R4 review,P7
+R-1764,1764,Preserve a machine-readable source for every table,7,artifact_binding.csv,Section 15.4 exhibit binding,P7
+R-1766,1766,"Audit expected LaTeX macros (bestval, wmark, lmark, emark) before use",7,macro audit record; main.tex,Section 15.6 build validation,P7
+R-1782,1782,"Figures: vector, publication-size labels, accessible palette, grayscale-safe, honest axes, uncertainty, matched scales, full captions",7,figures; artifact_binding.csv,Section 15.4; R4 review,P7
+R-1799,1799,Verify expected non-ablation generator commands against the runbook and strict source guard before use,7,reproducibility_manifest.json,Section 15.8 engineering validation,P5
+R-1817,1817,Generators reading results/ as empirical input MUST be changed to read the immutable release; art generators use no unverified values,7,generator scripts; strict-source guard,Section 15.8; R3 review,P5
+R-1821,1821,CEC2013 convergence scope is D30; exceeding D30 requires prior filename tooling extension and recorded extra invocations,7,generate_cec2013_convergence.py; exhibit_plan.csv,Phase 7 verification; Section 15.4,P7
+R-1829,1829,Trace/adaptive-params generators MAY run only against a validated promoted GenLog diagnostic release; else mark unavailable and log gap,7,diagnostic release; evidence_gap_register.md,Section 2.4 promotion process; Section 15.7,P4
+R-1842,1842,Main paper independently supports its central conclusion without ablation; supplement carries the 8 listed content classes,8,main manuscript; supplementary materials,R1/R4 review; Gate 8,P6
+R-1857,1857,Default-to-supplement rule: non-essential material defaults to supplement; supplement migration is the only page-limit relief valve,8,exhibit_plan.csv; manuscript,R4 review; Section 1.5 budget check,P6
+R-1866,1866,Guards: contrary primary results not hidden in supplement; every conclusion-critical number appears at least in summary in main text,8,claims_evidence_matrix.csv; manuscript,P9 audit; R1 review,P9
+R-1877,1877,Use target-journal headings while preserving the 13-part scientific logic (Title through References),8,main manuscript structure,R4 review; Phase 4 manuscript plan,P6
+R-1894,1894,Ablation is absent from the main manuscript section sequence,cross,main manuscript structure,P9 audit; Gate 11,P6
+R-1898,1898,"Title names DT-GSK and the central verified mechanism, avoids unsupported superlatives/banned adjectives, stays accurate for tested scope",8,title; claims_evidence_matrix.csv,R1/R4 review; P9 audit,P6
+R-1908,1908,"Abstract default ceiling 250 words, subject to current journal rules",8,abstract,R4 review; P10 journal compliance,P6
+R-1910,1910,"Abstract includes problem/gap, mechanism, verified scope, 1-2 primary results with scope and uncertainty, boundary, reproducibility note",8,abstract; claims_evidence_matrix.csv,Section 15.2; R1 review,P6
+R-1920,1920,"Abstract excludes ablation, prohibited citations, exhaustive mechanism lists, and numbers without an accepted claim row",8,abstract,P9 audit; Section 15.3,P6
+R-1925,1925,"Introduction: context, verified GSK, specific limitation, hypothesis-framed rationale, bounded gap, 3-5 evidenced bullets, roadmap",8,introduction; claims_evidence_matrix.csv,R1 review; Section 15.2,P6
+R-1935,1935,"Each claimed GSK limitation (fixed params, no local search, weak stagnation recovery, no linkage awareness) verified and fairly worded",8,introduction; evidence_cards/,P9 audit; Section 15.2,P6
+R-1941,1941,Related work organized by relationship into the 5 defined groups,8,related-work section,R4 review,P6
+R-1950,1950,Explain every source's role; avoid chronology-only catalogues and exhaustive-coverage claims,8,related-work section; citation_usage_map.csv,P9 audit; R1 review,P6
+R-1955,1955,"Separate inherited GSK mechanics from extension; define problem, notation, bounds, objective, minimal operators; cite verified GSK source",8,formulation section,R1/R6 review; implementation_correspondence.md,P2
+R-1961,1961,"Present each mechanism via the 8-step template (problem, rationale, mechanism, timing, accounting, cost, behavior, planned test)",8,method section,R1/R6 review,P2
+R-1968,1968,"Method section: labels, full SGSM definition, interactions, pseudocode, parameters, safeguards, complexity, code map; no ablation results",8,method section; implementation_correspondence.md,R1 review; P9 audit,P2
+R-1974,1974,"Setup states 13 items: RQs, release ID, suites/dims/runs, seeds, MaxFES, panel, params, environment, failure, data rule, stats, availability",8,experimental setup section,R2/R3 review; Section 15.2,P4
+R-1990,1990,Explicitly explain why a same-family panel is a controlled scope rather than a field-wide competitiveness claim,8,setup/discussion sections,R6 review,P1
+R-2007,2007,"Each results subsection states question, evidence, measurement, conservative interpretation, and exception; no cell-by-cell narration",8,results section,R4 review,P6
+R-2013,2013,"Discussion addresses 9 topics: memory interpretation, alternatives, concentration, panel limits, bias, comparability, costs, validity",8,discussion section,R1/R6 review,P6
+R-2025,2025,A mechanism explanation inferred only from performance curves remains a hypothesis until ablation or direct diagnostic evidence supports it,cross,claims_evidence_matrix.csv,R6 review; Section 15.2,P9
+R-2030,2030,Include a visible limitations/threats section covering the 11 listed items,8,limitations section,R1 review,P6
+R-2044,2044,Do not dilute candid limitations with promotional counterclaims,8,limitations section,R4 review; P9 audit,P6
+R-2048,2048,Conclusion restates only pre-ablation primary evidence; no new results/citations/mechanisms; ablation stays in supplement (narrowing only),8,conclusion section,P9 audit; Gate 12 correction exception,P6
+R-2056,2056,Prepare current journal-required declarations from verified information only (8 declaration classes),8,declarations section; administrative_gap_register.md,P10 submission check,P10
+R-2073,2073,Maintain one semantic manuscript model with two renderings; LaTeX and Word MUST NOT evolve as independent manuscripts,9,canonical content model,Section 15.5 cross-document consistency,P8
+R-2076,2076,"Maintain registries for claim IDs, equation IDs, table/figure/algorithm IDs and labels, and citation keys",9,claims matrix; equation registry; artifact_binding.csv; field_registry.csv,Sections 15.4/15.5,P8
+R-2084,2084,"Track section IDs, captions, footnotes, supplementary IDs through the canonical model and existing registry columns, not new registry files",9,artifact_binding.csv; word/field_registry.csv,Section 15.5,P8
+R-2090,2090,Every content change goes through canonical source or a recorded transformation; run cross-format checks after each build,9,cross_format_consistency.csv,Section 15.5; Phase 9 gate,P8
+R-2095,2095,Use the verified target-journal class/template for LaTeX/PDF,9,main.tex; Definitions/mdpi.cls,Section 15.6 build validation,P7
+R-2096,2096,Build LaTeX from a clean state,9,build_pdf.py run record,Section 15.6 build validation,P7
+R-2097,2097,Use vector figures where accepted,9,figures,Section 15.6; R4 review,P7
+R-2098,2098,"Resolve undefined references/citations, missing files, harmful overfull boxes, broken links, and font substitution",9,LaTeX build log,Section 15.6 build validation,P7
+R-2100,2100,Embed required fonts according to journal rules,9,PDF output,Section 15.6; P10 compliance,P7
+R-2101,2101,"Verify PDF metadata, bookmarks, accessibility options where supported, and page rendering",9,PDF output; validation report,Section 15.6,P7
+R-2103,2103,Inspect every PDF page visually at 100% and print-scale zoom,9,review notes,Phase 10 R4 review,P7
+R-2104,2104,"Preserve LaTeX source, class files, bibliography, figures, and build command",9,source package,Section 15.6; R3 review,P7
+R-2106,2106,Verify expected build commands against the repository before use,9,reproducibility_manifest.json,Section 15.8 engineering validation,P5
+R-2116,2116,DOCX manuscript fully editable and suitable for direct journal submission with little or no manual repair,9,manuscript .docx,word_validation_report.md; R5 review,P8
+R-2121,2121,"Every equation uses native OMML (m:oMath inline, m:oMathPara display, native constructs, editable in Word Equation Editor)",9,manuscript .docx,Section 9.3.9 package inspection; R5 review,P8
+R-2130,2130,"Equations MUST NOT be inserted as images, PDF/OLE objects, screenshots, or flattened text",9,manuscript .docx,word_validation_report.md; R5 review,P8
+R-2133,2133,"DOCX validation proves OMML per registry ID, no image placeholders, LaTeX match, symbol consistency, open-save-open editability",9,word_validation_report.md,Phase 10 R5 review,P8
+R-2143,2143,Use native SEQ Equation fields or an equivalent journal-compatible field mechanism,9,manuscript .docx fields,word_validation_report.md,P8
+R-2145,2145,Use REF fields for equation cross-references,9,manuscript .docx fields,word_validation_report.md,P8
+R-2146,2146,Keep equation labels in the field registry,9,word/field_registry.csv,Section 15.5,P8
+R-2147,2147,Ensure field codes are not converted to static text,9,manuscript .docx,R5 review,P8
+R-2148,2148,Set update-on-open where appropriate and verify an update does not corrupt numbering,9,manuscript .docx,word_validation_report.md; R5 review,P8
+R-2153,2153,"Every manuscript table is a native w:tbl: editable cells, header rows, accessible order, consistent alignment, journal-editable design",9,manuscript .docx tables,Section 9.3.9 counts; R5 review,P8
+R-2164,2164,Verify that every Word cell value equals the authoritative machine-readable table source,9,cross_format_consistency.csv,Section 15.5,P8
+R-2169,2169,Embed vector graphics in Word when supported; otherwise journal-compliant high-resolution raster,9,manuscript .docx figures,R5 review,P8
+R-2171,2171,Captions remain editable Word paragraphs using the journal's caption style,9,manuscript .docx,R5 review,P8
+R-2173,2173,Figure and table numbering MUST use SEQ fields,9,manuscript .docx fields,Section 9.3.9 field counts,P8
+R-2174,2174,Cross-references MUST use REF fields,9,manuscript .docx fields,Section 9.3.9 field counts,P8
+R-2175,2175,Alt text MUST be added where required or useful,9,manuscript .docx,Section 9.3.9 alt-text coverage,P8
+R-2176,2176,No caption may be baked into the image,9,manuscript .docx figures,R5 review,P8
+R-2180,2180,"Diagrams SHOULD be native DrawingML/SmartArt; else embed vector plus editable source, preserved labels, fonts, verified consistency",9,manuscript .docx; diagram sources,R5 review; word_validation_report.md,P8
+R-2193,2193,"Use Word styles/multilevel lists for section numbering and fields for sections, figures, tables, algorithms, equations, appendices",9,manuscript .docx,Section 9.3.9; R5 review,P8
+R-2202,2202,Manual typed numbering prohibited where Word supports an automatic field or style mechanism,9,manuscript .docx,R5 review,P8
+R-2207,2207,"TOC, list of figures, list of tables, list of algorithms, and list of abbreviations MUST be native and updateable",9,manuscript .docx,Section 9.3.9 TOC/LOF/LOT checks,P8
+R-2215,2215,Set appropriate heading/caption styles and verify field updates after document reopening,9,word_validation_report.md,R5 review,P8
+R-2220,2220,Word preserves auto-updateable citations/bibliography via native CITATION fields + customXml store or accepted dynamic manager fields,9,manuscript .docx,Section 9.3.9 CITATION/BIBLIOGRAPHY checks,P8
+R-2228,2228,"Flattened citations unacceptable; pipeline verifies key mapping, unique tags, bib agreement, journal style, safe updates, no static objects",9,word_validation_report.md,Section 15.1; R5 review,P8
+R-2240,2240,Inspect the unzipped DOCX OOXML and report the 15 listed counts and checks,9,word_validation_report.md,Phase 9 validation; R5 review,P8
+R-2260,2260,"Perform visual inspection in Microsoft Word when available; LibreOffice only for secondary checks, does not prove native behavior",10,word review record,Phase 10 R5 review,P8
+R-2266,2266,LaTeX/PDF and Word agree on the 12 listed content dimensions for every main and supplementary artifact,9,cross_format_consistency.csv,Section 15.5 validation,P8
+R-2282,2282,Any cross-format divergence blocks the phase gate,9,phase_gate_register.csv,Gate 9 review,P1
+R-2286,2286,Word source: deterministic generator from canonical model preferred; PDF-to-Word prohibited; LaTeX-to-Word only if native OOXML checks pass,9,Word build pipeline,Section 15.6; R5 review,P8
+R-2292,2292,"Phase 9 MUST upgrade or replace the non-compliant pandoc build_docx.py (OOXML post-processing + validators), not adopt it unmodified",9,papers/scripts/build_docx.py; validators,Section 15.6; word_validation_report.md,P8
+R-2305,2305,"Preserve future-revision package: canonical source, LaTeX, reference.docx, generators, registries, diagrams, figure data, validators",12,final submission package,Section 15.9 definition of done,P5
+R-2324,2324,Use professional academic English,8,manuscript prose,R4 editorial review,P6
+R-2325,2325,Use a consistent first-person plural voice where appropriate,8,manuscript prose,R4 editorial review,P6
+R-2326,2326,Prefer concrete subjects and active verbs,8,manuscript prose,R4 editorial review,P6
+R-2327,2327,Use one term per concept and one acronym per term,8,manuscript prose,R4 editorial review,P6
+R-2328,2328,Define acronyms in the abstract and main text as journal rules require,8,manuscript prose,R4 review; P10 compliance,P6
+R-2329,2329,"Use calibrated verbs: shows, suggests, is consistent with, does not establish",8,manuscript prose,Section 14.9 natural-prose rubric; R4,P6
+R-2332,2332,"Separate observation, inference, and speculation",8,manuscript prose,R4/R6 review,P6
+R-2342,2342,No paragraph may chain unsupported assertions; keep citations and evidence references adjacent to supported content,8,manuscript; citation_usage_map.csv,P9 audit; Section 15.2,P6
+R-2347,2347,"Write clear, specific, non-formulaic prose; improve rhythm and flow without changing facts",8,manuscript prose,Section 14.9 natural-prose rubric,P6
+R-2361,2361,Avoid the 16 prohibited rhetoric phrases unless directly supported and precisely scoped,8,manuscript prose,P9 scan; Section 14.9 rubric,P6
+R-2382,2382,"Avoid stock transitions, marketing language, repetitive tricolons, needless abstract nouns, anthropomorphism, generic filler sentences",8,manuscript prose,Section 14.9 rubric; R4 review,P6
+R-2388,2388,"Prefer specific scoped formulations (suite, dimension, counts, adjusted statistics) over vague claims",8,manuscript prose,R4 review,P6
+R-2397,2397,Use actual values only after binding them,cross,artifact_binding.csv; claims_evidence_matrix.csv,Section 15.3 number binding,P6
+R-2401,2401,Cite immediately after the supported clause or sentence,8,manuscript; citation_usage_map.csv,P9 audit; Section 15.1,P6
+R-2402,2402,Group sources only when every source supports the grouped claim,8,citation_usage_map.csv,P9 semantic check,P6
+R-2403,2403,"For contrasts, cite each side where needed",8,citation_usage_map.csv,P9 semantic check,P6
+R-2404,2404,Cite benchmark/statistical definitions at first material use,8,manuscript; citation_usage_map.csv,P9 audit,P6
+R-2405,2405,Avoid unnecessary citation repetition within a tightly scoped paragraph,8,manuscript prose,R4 review,P6
+R-2406,2406,Every citation occurrence must have a citation_usage_map.csv row,cross,citation_usage_map.csv,Section 15.1 citation-set validation,P9
+R-2410,2410,"Style-only pass changes wording/order/breaks only; MUST NOT change numbers, scope, keys, refs, equations, exhibits, behavior, interpretation",cross,revision_log.md,Diff review; Section 14.9; P9 audit,P6
+R-2422,2422,"Review the style-pass diff; factual corrections use the normal claim/evidence and review workflow, not the style-only path",cross,revision_log.md,P9 audit,P6
+R-2429,2429,"Agent SHALL explicitly adopt the defined roles (P1-P10, R1-R6) in working notes; each lens requires a separate pass",cross,decision_log.md; review records,Phase QA checkpoints; Section 14 rubrics,P1
+R-2472,2472,"Deliverable passes only when R1-R6 all pass: no critical issues, valid inference, traceability, clarity, Word nativity, no overclaims",cross,review reports; phase_gate_register.csv,Section 14 rubrics; phase review gates,P1
+R-2481,2481,Every reviewer category must score at least 4/5 with explicit evidence for the score,cross,review score records,Section 14.1 scoring rule,P1
+R-2490,2490,Every phase includes the 19 mandatory fields (objective through review gate),cross,phase definitions; phase_gate_register.csv,Phase gate audits; Section 15.9,P1
+R-2511,2511,Phase begins only after entry criteria demonstrated in phase_gate_register.csv; Phase 0 bootstrap exempt; failed acceptance keeps it open,cross,phase_gate_register.csv,Gate reviews; Section 12.2 state machine,P1
+R-2518,2518,"Use the phase states NOT_STARTED, ENTRY_CHECK, IN_PROGRESS, VALIDATION, REVIEW, ACCEPTED, FROZEN",cross,phase_gate_register.csv,Section 15.9; gate audits,P1
+R-2525,2525,Reopen a frozen phase only through a change request row in change_request_register.csv using the 9-field schema,cross,change_request_register.csv,P1 gate review; Section 3.9 audit-trail rule,P1
+R-2536,2536,"Every nontrivial decision follows the 6-step protocol (alternatives, evidence, choice, rationale, register updates, autonomous continuation)",cross,decision_log.md,P1 audit of decision log,P1
+R-2547,2547,"When evidence is tied or incomplete, choose the more conservative claim or analysis",cross,decision_log.md,P9/R6 review,P1
+R-2552,2552,Governance artifacts live in papers/governance/ (validators read there); phase reports under papers/build_prompt_phases/phase_<NN>/,cross,governance root; build_prompt_phases layout,Section 15.1 path resolution; P5 audit,P5
+R-2562,2562,"Legacy flat PHASE_<n> companions stay untouched examples, never receive authoritative outputs; use immutable snapshots/hashes downstream",cross,build_prompt_phases layout,P5/P9 audit,P5

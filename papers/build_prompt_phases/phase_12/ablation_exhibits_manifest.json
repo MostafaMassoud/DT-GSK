@@ -1,0 +1,19 @@
+{
+  "schema": "ablation_exhibits_manifest/v1",
+  "study_id": "abl-rel-2026-07-20",
+  "immutable_release": "benchmarks/cec_reference_results/_ablation/scaffold",
+  "generator": "papers/scripts/generate_ablation_exhibits.py",
+  "exhibits": {
+    "tab:abl-scaffold": "papers/tables/SA01.tex",
+    "tab:abl-wilcoxon": "papers/tables/SA02.tex",
+    "fig:abl-rankdelta": "papers/figures/ablation/abl_rank_delta.pdf"
+  },
+  "outputs": {
+    "papers/tables/SA01.tex": "5d7b6fc4774e57534a144d6afeea4b0284ada95f29c2443bd17cbf1cf6a970b1",
+    "papers/tables/SA02.tex": "45bcfa245418ac3c787d9fed8bb4ce39df00c58f5e5a4e6bf8c1bfd2060946f5",
+    "papers/tables/word_sources/SA01.json": "84923fa7c9c36d16556c0760382a379e3efd21154f1d5ca361e56c8e27311439",
+    "papers/tables/word_sources/SA02.json": "e1c92b2dff17ab73f0e6843850c4a0abd4f51d4860d40d80f5bb7192bc56eda8",
+    "papers/figures/ablation/abl_rank_delta.pdf": "7f372eb1f4f63713e3b177f736028da964247db7e14c4ecdf2585920d67ae090",
+    "papers/figures/ablation/abl_rank_delta.png": "5bad92e0c15c967ecffd1ab828aacfe47426688e5387c98dc7e9025ea185d677"
+  }
+}

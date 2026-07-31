@@ -1,0 +1,23 @@
+{
+  "failures": [],
+  "functions_checked": 15,
+  "generated_dir": "results\\_run_all\\dt-gsk\\cec2013lsgo",
+  "hard_failures": 0,
+  "missing_reference": 0,
+  "optimizer": "dt-gsk",
+  "reason": null,
+  "reduced_budget": false,
+  "reference_root": "benchmarks\\cec_reference_results",
+  "suite": "cec2013lsgo",
+  "thresholds": {
+    "gross_factor": 1000000.0,
+    "negative_error_floor": -1e-06,
+    "reference_trivial_floor": 1e-08
+  },
+  "verdict": "CONSISTENT",
+  "win_tie_loss": [
+    0,
+    15,
+    0
+  ]
+}

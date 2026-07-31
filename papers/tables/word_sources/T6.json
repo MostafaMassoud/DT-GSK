@@ -1,0 +1,53 @@
+{
+ "table_id": "T6",
+ "manuscript_label": "Table 6",
+ "caption_stub": "CEC2011 Wilcoxon signed-rank summary, DT-GSK vs GSK (R+/R-, p-value, win/tie/loss).",
+ "headers": [
+  [
+   "Metric",
+   "Value"
+  ]
+ ],
+ "rows": [
+  [
+   "R+",
+   "159"
+  ],
+  [
+   "R-",
+   "51"
+  ],
+  [
+   "p_value",
+   "0.0457927"
+  ],
+  [
+   "p_holm",
+   "0.1373781"
+  ],
+  [
+   "Wins(+)",
+   "13"
+  ],
+  [
+   "Ties(=)",
+   "2"
+  ],
+  [
+   "Losses(-)",
+   "7"
+  ],
+  [
+   "Decision",
+   "="
+  ]
+ ],
+ "notes": [
+  "values transcribed verbatim from the Phase 6 export of release rel-2026-07-20-67d9345f9; see benchmarks/cec_reference_results/_paper_tables/provenance.json",
+  "display names at Word build time MUST apply the frozen Phase 4 glossary: EGSK -> eGSK, FDBAGSK -> FDB-AGSK (headers/rows here are verbatim CSV identifiers, not display names)",
+  "R+ = rank sum favoring DT-GSK; ties |d|<1e-8 dropped"
+ ],
+ "number_format": "as-is",
+ "source_csv": "benchmarks/cec_reference_results/_paper_tables/T6.csv",
+ "source_sha256": "bacb11e539dbc9724ec359737a91bd6ba713a12c5ad4f91d4a47532c60bada52"
+}

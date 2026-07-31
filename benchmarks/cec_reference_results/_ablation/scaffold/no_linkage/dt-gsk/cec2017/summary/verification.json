@@ -1,0 +1,30 @@
+{
+  "failures": [
+    {
+      "dimension": 50,
+      "function": 3,
+      "hard": true,
+      "kind": "gross_deviation",
+      "message": "Generated mean exceeds gross full-budget threshold (2271.4870096 vs reference 3.4504967843e-08)."
+    }
+  ],
+  "functions_checked": 116,
+  "generated_dir": "results\\_ablation\\no_linkage\\dt-gsk\\cec2017",
+  "hard_failures": 1,
+  "missing_reference": 0,
+  "optimizer": "dt-gsk",
+  "reduced_budget": false,
+  "reference_root": "benchmarks\\cec_reference_results",
+  "suite": "cec2017",
+  "thresholds": {
+    "gross_factor": 1000000.0,
+    "negative_error_floor": -1e-06,
+    "reference_trivial_floor": 1e-08
+  },
+  "verdict": "DEVIATES",
+  "win_tie_loss": [
+    58,
+    6,
+    52
+  ]
+}

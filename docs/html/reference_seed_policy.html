@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Seed Policy - GSK Family Python Documentation">
+  <title>Seed Policy | GSK Family Python Documentation</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <div class="site-shell">
+    <aside class="sidebar">
+<div class="brand"><a href="index.html">GSK Family Python</a></div>
+<input class="nav-search" type="search" placeholder="Filter docs" aria-label="Filter docs">
+<nav class="nav-list" aria-label="Documentation">
+<section><h2>Getting Started</h2>
+<a class="nav-link" href="getting-started_configuration.html">Configuration</a>
+<a class="nav-link" href="getting-started_explainer.html">Explainer</a>
+<a class="nav-link" href="getting-started_runbook.html">Runbook</a>
+<a class="nav-link" href="getting-started_troubleshooting.html">Troubleshooting</a>
+<a class="nav-link" href="getting-started_tutorial.html">Tutorial</a>
+<a class="nav-link" href="getting-started_user_guide.html">User Guide</a>
+</section>
+<section><h2>Reference</h2>
+<a class="nav-link" href="reference_api.html">API Reference</a>
+<a class="nav-link" href="reference_architecture.html">Architecture</a>
+<a class="nav-link" href="reference_benchmark_mapping.html">Benchmark Mapping</a>
+<a class="nav-link" href="reference_benchmark_protocol.html">Benchmark Protocol</a>
+<a class="nav-link" href="reference_cec2011_cpp_python_equivalence_review.html">CEC2011 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013_cpp_python_equivalence_review.html">CEC2013 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013lsgo_cpp_python_equivalence_review.html">CEC2013LSGO C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2017_cpp_python_equivalence_review.html">CEC2017 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2020_cpp_python_equivalence_review.html">CEC2020 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="index.html">Documentation Index</a>
+<a class="nav-link" href="reference_fp_regime.html">Floating-Point Regime Verification</a>
+<a class="nav-link" href="reference_diagrams.html">Flowcharts And Diagrams</a>
+<a class="nav-link" href="reference_glossary.html">Glossary</a>
+<a class="nav-link" href="LICENSES.html">Licenses</a>
+<a class="nav-link" href="reference_module_dependencies.html">Module Dependencies</a>
+<a class="nav-link" href="reference_project_structure.html">Project Structure</a>
+<a class="nav-link" href="reference_python_optimizer_interface.html">Python Optimizer Interface</a>
+<a class="nav-link" href="reference_result_schema.html">Result Schema</a>
+<a class="nav-link active" href="reference_seed_policy.html">Seed Policy</a>
+<a class="nav-link" href="reference_workflows.html">Workflows</a>
+</section>
+<section><h2>Algorithm Guides</h2>
+<a class="nav-link" href="algorithms_agsk.html">AGSK — Adaptive Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_apgsk.html">APGSK — Adaptive-Parameters Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_atmals-gsk.html">ATMALS-GSK — Adaptive Tuning, Memory, Adaptive Local Search</a>
+<a class="nav-link" href="algorithms_dt-gsk.html">DT-GSK — Dimension-Tiered Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_egsk.html">EGSK — Enhanced Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_fdb-agsk.html">FDB-AGSK — Fitness-Distance-Balance AGSK</a>
+<a class="nav-link" href="algorithms_gsk.html">GSK — Gaining-Sharing Knowledge</a>
+</section>
+<section><h2>Development</h2>
+<a class="nav-link" href="development_BUG_resume_summary_truncation.html">BUG-RESUME-01 — resume mode truncates (and mis-computes) the per-dimension summary CSV</a>
+<a class="nav-link" href="development_LSGO_ACCELERATION_PLAN.html">CEC2013LSGO Acceleration Plan — all 7 GSK-family algorithms, bit-identically</a>
+<a class="nav-link" href="development_LSGO_INTEGRATION_CAMPAIGN.html">CEC2013LSGO Integration — Campaign Plan</a>
+<a class="nav-link" href="development_CEC2017_PREC_adjudication.html">CEC2017-PREC — adjudication (CLOSED 2026-07-25)</a>
+<a class="nav-link" href="development_code_reading_guide.html">Code Reading Guide</a>
+<a class="nav-link" href="development_contributor_guide.html">Contributor Guide</a>
+<a class="nav-link" href="development_DECC_G_port_record.html">DECC-G port — fidelity and validation record</a>
+<a class="nav-link" href="development_developer_guide.html">Developer Guide</a>
+<a class="nav-link" href="development_README.html">Development Docs</a>
+<a class="nav-link" href="development_dt_gsk_core_reference.html">DT-GSK Core Reference — the vendored core and its byte-identity lock</a>
+<a class="nav-link" href="development_evidence_rerun_runbook.html">DT-GSK re-run runbook — corrected implementation (C006 + graph backend)</a>
+<a class="nav-link" href="development_egsk_port_spec.html">EGSK — Algorithm Spec &amp; Porting Verdict</a>
+<a class="nav-link" href="development_extension_guide.html">Extension Guide</a>
+<a class="nav-link" href="development_FAMILY_ACCELERATION_PLAN.html">Family-wide acceleration plan — 7 algorithms x 5 suites, bit-identical only</a>
+<a class="nav-link" href="development_FINAL_PUBLICATION_PLAN.html">FINAL PUBLICATION PLAN — DT-GSK, Four(/Five)-Suite Scope</a>
+<a class="nav-link" href="development_ACCELERATION_CAMPAIGN_PROMPT.html">GSK-Family Acceleration Campaign — Execution Prompt</a>
+<a class="nav-link" href="development_maintenance_guide.html">Maintenance Guide</a>
+<a class="nav-link" href="development_PORT_05_TUNING_TRIAGE.html">Porting project-05 tuning into 02 — Phase 1 audit and triage</a>
+<a class="nav-link" href="development_REFERENCE_PROMOTION_PLAN.html">Reference Promotion Plan — CEC2013LSGO now, CEC2020 behind its completeness gate</a>
+<a class="nav-link" href="development_SIBLING_CAMPAIGN_TRANSFER.html">Sibling-Campaign Transfer — every tuning that can make the GSK family fast</a>
+</section>
+<section><h2>Research</h2>
+<a class="nav-link" href="research_egsk_validation_appendix.html">EGSK Validation Appendix — Paired Port-vs-Reference Equivalence</a>
+<a class="nav-link" href="research_numerical_examples.html">Numerical Examples</a>
+<a class="nav-link" href="research_performance.html">Performance</a>
+<a class="nav-link" href="research_reproducibility.html">Reproducibility</a>
+<a class="nav-link" href="research_researcher_handbook.html">Researcher Handbook</a>
+<a class="nav-link" href="research_statistical_analysis.html">Statistical Analysis (GSK-family comparison)</a>
+<a class="nav-link" href="research_validation_report.html">Validation Report</a>
+</section>
+<section><h2>Prompts</h2>
+<a class="nav-link" href="prompt_documentation-deep-upgrade.html">Deep Documentation Review &amp; Upgrade Prompt — GSK Family Python</a>
+<a class="nav-link" href="prompt_project-review.html">Deep Expert Review Prompt For GSK Family Python</a>
+<a class="nav-link" href="prompt_documentation-review.html">Documentation Review Prompt</a>
+<a class="nav-link" href="prompt_publication-polish.html">Final Publication Prompt — Production-Ready Q1 Release of GSK Family Python v1.1</a>
+</section>
+<section><h2>Python API</h2>
+<a class="nav-link" href="api_index.html">API Module Index</a>
+<a class="nav-link api-link" href="api/gsk_family.__init__.html">gsk_family.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.__init__.html">gsk_family.analysis.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.family_report.html">gsk_family.analysis.family_report</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.figures.html">gsk_family.analysis.figures</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.latex_tables.html">gsk_family.analysis.latex_tables</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.project_policy.html">gsk_family.analysis.project_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.result_loader.html">gsk_family.analysis.result_loader</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistical_tests.html">gsk_family.analysis.statistical_tests</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistics.html">gsk_family.analysis.statistics</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.__init__.html">gsk_family.benchmark_adapter.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.factory.html">gsk_family.benchmark_adapter.factory</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.problem.html">gsk_family.benchmark_adapter.problem</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.protocol.html">gsk_family.benchmark_adapter.protocol</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.__init__.html">gsk_family.cli.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.list.html">gsk_family.cli.list</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.run.html">gsk_family.cli.run</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.stats.html">gsk_family.cli.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.validate.html">gsk_family.cli.validate</a>
+<a class="nav-link api-link" href="api/gsk_family.common.__init__.html">gsk_family.common.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.common.bounds.html">gsk_family.common.bounds</a>
+<a class="nav-link api-link" href="api/gsk_family.common.donors.html">gsk_family.common.donors</a>
+<a class="nav-link api-link" href="api/gsk_family.common.numeric_compat.html">gsk_family.common.numeric_compat</a>
+<a class="nav-link api-link" href="api/gsk_family.common.population.html">gsk_family.common.population</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reduction.html">gsk_family.common.reduction</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reference_rng.html">gsk_family.common.reference_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.rng.html">gsk_family.common.rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.threefry_rng.html">gsk_family.common.threefry_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.__init__.html">gsk_family.optimizers.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_profiles.html">gsk_family.optimizers._dt_profiles</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_rng.html">gsk_family.optimizers._dt_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._kernels.html">gsk_family.optimizers._kernels</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.agsk.html">gsk_family.optimizers.agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.apgsk.html">gsk_family.optimizers.apgsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_gsk.html">gsk_family.optimizers.atmals_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_helpers.html">gsk_family.optimizers.atmals_helpers</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.dt_gsk.html">gsk_family.optimizers.dt_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.egsk.html">gsk_family.optimizers.egsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.__init__.html">gsk_family.optimizers.external.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._base.html">gsk_family.optimizers.external._base</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._telemetry_shim.html">gsk_family.optimizers.external._telemetry_shim</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.cmaes.html">gsk_family.optimizers.external.cmaes</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.decc_g.html">gsk_family.optimizers.external.decc_g</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.ebowithcmar.html">gsk_family.optimizers.external.ebowithcmar</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.jso.html">gsk_family.optimizers.external.jso</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade.html">gsk_family.optimizers.external.lshade</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade_spacma.html">gsk_family.optimizers.external.lshade_spacma</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.mos_cec2013lsgo.html">gsk_family.optimizers.external.mos_cec2013lsgo</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.shade_ils.html">gsk_family.optimizers.external.shade_ils</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_agsk.html">gsk_family.optimizers.fdb_agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_scores.html">gsk_family.optimizers.fdb_scores</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.gsk.html">gsk_family.optimizers.gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.__init__.html">gsk_family.runners.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.config.html">gsk_family.runners.config</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.fp_regime.html">gsk_family.runners.fp_regime</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.output.html">gsk_family.runners.output</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.parallel.html">gsk_family.runners.parallel</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.performance.html">gsk_family.runners.performance</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.run_experiment.html">gsk_family.runners.run_experiment</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.seed_policy.html">gsk_family.runners.seed_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.verification.html">gsk_family.runners.verification</a>
+<a class="nav-link api-link" href="api/gsk_family.stats.html">gsk_family.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.types.html">gsk_family.types</a>
+</section>
+</nav></aside>
+    <main class="content">
+      <article class="doc-card">
+        <h1 id="seed-policy">Seed Policy</h1>
+<blockquote><strong>What this page is.</strong> The exact deterministic seed formulas, the four seed</blockquote>
+<blockquote>policies, and how a fair start is shared across optimizers.</blockquote>
+<blockquote><strong>Who it is for.</strong> Anyone reproducing results or auditing determinism.</blockquote>
+<blockquote><strong>Prerequisites.</strong> <a href="research_reproducibility.html">Reproducibility</a> for the</blockquote>
+<blockquote>surrounding procedure; a worked derivation is in</blockquote>
+<blockquote><a href="research_numerical_examples.html">Numerical Examples</a>.</blockquote>
+<p>The runner supports four deterministic seed policies:</p>
+<ul>
+<li><code>unified</code>: optimizer-independent seeds for fair cross-optimizer comparisons.</li>
+<li><code>reference</code>: optimizer-family reference formulas.</li>
+<li><code>native</code>: derived diagnostic seed.</li>
+<li><code>derived</code>: same derived diagnostic seed path as <code>native</code>.</li>
+</ul>
+<h2 id="unified-formula">Unified Formula</h2>
+<pre><code class="code-block language-text">seed = mod(base_seed + 1000003*Dim + 1000033*Function + 1000037*Run, 2147483646) + 1</code></pre>
+<p>Example:</p>
+<pre><code class="code-block language-text">base_seed = 20240620, D = 30, F = 7, run = 12
+seed = 69241386</code></pre>
+<p>In unified mode the runner also creates a fair-start initial population and passes the captured post-initialization RNG state into each optimizer. The single function that implements this formula is <code>gsk_family.runners.seed_policy.get_cec_seed(base_seed, dim, func, run)</code>.</p>
+<p>This means two optimizers in the same <code>(dimension, function, run)</code> cell receive the same seed and the same initial population. Optimizers that are not ported yet still receive the same seed schedule in their output directory when the runner skips them.</p>
+<p>This shared-seed footing is also what makes the downstream statistical comparison fair: the <code>gsk-stats</code> family report (see <a href="research_statistical_analysis.html">research/statistical_analysis.md</a>) ranks the proposed optimizer against comparators that were all started from the same unified seed schedule, so rank differences reflect the algorithms rather than divergent initial conditions.</p>
+<h2 id="reference-policy">Reference Policy</h2>
+<p>Baseline GSK-family linear variants use:</p>
+<pre><code class="code-block language-text">seed = base_seed + 9973*Function + (Run - 1)</code></pre>
+<p>Adaptive/product-family variants use:</p>
+<pre><code class="code-block language-text">seed = Dim * Function * Run</code></pre>
+<h2 id="dt-gsk-unified-only-seeding">DT-GSK Unified-Only Seeding</h2>
+<p><code>dt-gsk</code> is in <code>seed_policy.UNIFIED_ONLY_OPTIMIZERS</code>: under <strong>every</strong> seed policy it always uses the unified shared seed (<code>get_cec_seed</code>, the <a href="#unified-formula">unified formula</a> above) together with the <code>threefry</code> generator — its default, with <code>twister</code> honored only when explicitly requested (<code>effective_rand_generator</code>). This puts it on exactly the same shared seed and generator footing as the rest of the GSK family under the unified policy, regardless of the policy configured for the campaign.</p>
+<p>DT-GSK also self-inits its own <code>5*D</code> initial population (<code>np_init_mult = 5</code> in <code>DTGSKConfig</code>) from that same unified <code>threefry(seed)</code> stream (its <code>init</code> substream equals <code>threefry(seed)</code>). It intentionally ignores the runner&#x27;s fair-start population — a documented fair-start exception intrinsic to the algorithm — yet because it draws from the identical shared seed/stream it remains directly comparable to the rest of the family.</p>
+<h3 id="dt-gsk-substream-layer">DT-GSK substream layer</h3>
+<p>The one scheduled run seed is not consumed as a single stream. DT-GSK derives a fixed set of <strong>13 named, independent substreams</strong> (<code>optimizers/_dt_rng.py</code>, <code>RNGStreams.from_seed</code>) so toggling any subsystem cannot perturb another subsystem&#x27;s draws. In declaration order (<code>SUBSTREAM_NAMES</code>, load-bearing because each child seed is assigned by position):</p>
+<pre><code class="code-block language-text">init, core, ace, kexp, div, bse, arch, link, de, control, flow, basin, trust</code></pre>
+<p>The child seed for substream index <code>i</code> (<code>_child_seed</code>) is:</p>
+<pre><code class="code-block language-text">i == 0 (init):  child = run_seed                                   (verbatim)
+i  &gt; 0:         child = (run_seed + 1_000_003 * (i + 1)) mod 2_147_483_646 + 1</code></pre>
+<p>so <strong>stream 0 (<code>init</code>) is the run seed verbatim</strong> — which is exactly why the initial-population draw equals <code>threefry(run_seed)</code> and stays comparable to the family fair start. The first nine names are prefix-locked; new substreams may only be appended at the end (append-only contract).</p>
+<p>Worked derivation for the <code>agsk</code>/<code>gsk</code>/<code>dt-gsk</code> shared cell F1, D10, run 1 (<code>run_seed = 32240721</code>, from the <a href="#unified-formula">unified formula</a>):</p>
+<pre><code class="code-block language-text">init  (i=0): 32240721                                        (verbatim)
+core  (i=1): (32240721 + 1_000_003 * 2) mod 2_147_483_646 + 1 = 34240728
+ace   (i=2): (32240721 + 1_000_003 * 3) mod 2_147_483_646 + 1 = 35240731</code></pre>
+<p>Every substream draws from a <code>threefry</code> generator seeded with its child seed, reproducing the source DT-GSK trajectory bit-for-bit.</p>
+<h2 id="rng-labels">RNG Labels</h2>
+<p>The Python runtime records the requested generator label and resolves each to a generator that matches the MATLAB family it names:</p>
+<ul>
+<li><code>threefry</code> -&gt; a bundled counter-based Threefry-4x64-20 generator reproducing</li>
+<p><code>rng(seed, &#x27;threefry&#x27;)</code> bit-for-bit (the default).</p>
+<li><code>twister</code> -&gt; MT19937 seeded with the reference <code>init_genrand(seed)</code> recurrence</li>
+<p>and emitting doubles via <code>genrand_res53</code> (two 32-bit words per double), matching <code>rng(seed, &#x27;twister&#x27;)</code>.</p>
+<li><code>seed</code> -&gt; the legacy v4 multiplicative congruential generator mcg16807</li>
+<p>(Park-Miller, <code>x &lt;- 16807 * x mod (2^31 - 1)</code>, seeded <code>x0 = (seed &lt;&lt; 16) mod (2^31 - 2^15)</code>), matching <code>RandStream(&#x27;mcg16807&#x27;, &#x27;Seed&#x27;, seed)</code>.</p>
+</ul>
+<p>These three are the only supported generators; any other label is rejected. The v5 <code>state</code> generator (swb2712) is intentionally not bundled -- it combines a subtract-with-borrow generator (lags 27/12) with a second 53-bit generator whose state is not recoverable from MATLAB&#x27;s floating-point introspection, so it cannot be reproduced bit-for-bit. All three generators fill matrices column-major to match <code>rand(m, n)</code> and share the <code>floor(imax*rand)+1</code> / <code>sort(rand(n))</code> rules for <code>randi</code> / <code>randperm</code>.</p>
+<p>The MATLAB threefry seeding was reverse-engineered from the <code>RandStream</code> state: key <code>(0, 0, 0, 0)</code> and a counter derived from the integer seed <code>S</code> as <code>counter[j] = bitshift(S + 2*j + 1, 32) + (S + 2*j)</code> for <code>j = 0..3</code>. Each 4-output block yields four doubles via <code>(word &gt;&gt; 11) * 2^-53</code>, the low counter word advances by one per block, and matrix draws fill column-major to match <code>rand(m, n)</code>. This makes the <code>rand</code> stream identical to MATLAB, so the <code>rand</code>-only optimizers (GSK, AGSK, APGSK) reproduce the imported reference convergence to machine precision.</p>
+<p>The effective generator is written to <code>summary/environment.json</code> so result folders remain self-describing.</p>
+<h2 id="matlab-seed-compatibility-exception">MATLAB Seed-Compatibility Exception</h2>
+<p>This is the only active documentation section that intentionally keeps the MATLAB term. The Python runner imitates the original seed labels and seed formulas so experiments configured with the same base seed, dimension, function, and run index can use the same intended seed schedule in Python. This supports fair comparison, reproducible reruns, and traceable validation against imported reference summaries.</p>
+<p>The exception is seed-policy specific. It does not mean the project requires MATLAB at runtime, writes output into external reference folders, or promises byte-identical random streams for every generator implementation. The contract is:</p>
+<ul>
+<li>preserve the documented seed formulas;</li>
+<li>preserve accepted generator labels for readable metadata;</li>
+<li>map those labels to deterministic NumPy generators;</li>
+<li>record both requested and effective generator metadata in results;</li>
+<li>use fair-start initial populations when the unified policy is selected;</li>
+<li>compare results under the same configured seed schedule whenever validation</li>
+<p>evidence is available.</p>
+</ul>
+<p>When exact stream identity is required, document the generator, seed, suite, dimension, function, run index, Python dependency versions, and output metadata beside the experiment results.</p>
+<h2 id="stream-reproduction-status">Stream Reproduction Status</h2>
+<p>With <code>rand_generator: threefry</code> the full random stream is now byte-identical to the MATLAB reference: <code>rand</code> (column-major), <code>randi</code> (<code>floor(imax*rand)+1</code>), and <code>randperm</code> (the <code>sort(rand(1,n))</code> method) all match reference draws bit-for-bit (see the RNG Labels section). Validated against the imported <code>cec2017</code> <code>gen_logs</code> checkpoints:</p>
+<ul>
+<li><strong>Bit-parity (machine precision):</strong> GSK, AGSK, APGSK, ATMALS-GSK reproduce the</li>
+<p>reference convergence to ~1e-13 relative across functions and dimensions.</p>
+<li><strong>Residual difference (benchmark arithmetic):</strong> the remaining gap is the</li>
+<p>irreducible floating-point difference between the numba benchmark kernels and the reference MEX (relative ~1e-14), which can flip a selection tie in the deep tail of an already-solved function.</p>
+<li><strong>Documented exception:</strong> FDB-AGSK is more sensitive to the</li>
+<p>benchmark-arithmetic residual than the others: its donor selection ranks fitness-distance-balance scores (built from floating-point distances), so a ~1e-14 score difference can pick a different donor and amplify over generations. This is the same floating-point sensitivity, not an RNG difference -- <code>randi</code> and <code>randperm</code> are stream-exact.</p>
+</ul>
+<h2 id="cli-examples">CLI Examples</h2>
+<p>YAML config:</p>
+<pre><code class="code-block language-yaml">seed: 20240620
+seed_policy: unified
+rand_generator: threefry</code></pre>
+<p>Direct command:</p>
+<pre><code class="code-block language-powershell">gsk-run --optimizer gsk --suite sphere --dimension 4 --function 1 --runs 2 --seed 20240620 --seed-policy unified --rand-generator threefry --max-evaluations 80 --overwrite</code></pre>
+      </article>
+    </main>
+    <aside class="page-toc" aria-label="On this page">
+<h2>On This Page</h2>
+<a class="toc-level-1" href="#seed-policy">Seed Policy</a>
+<a class="toc-level-2" href="#unified-formula">Unified Formula</a>
+<a class="toc-level-2" href="#reference-policy">Reference Policy</a>
+<a class="toc-level-2" href="#dt-gsk-unified-only-seeding">DT-GSK Unified-Only Seeding</a>
+<a class="toc-level-3" href="#dt-gsk-substream-layer">DT-GSK substream layer</a>
+<a class="toc-level-2" href="#rng-labels">RNG Labels</a>
+<a class="toc-level-2" href="#matlab-seed-compatibility-exception">MATLAB Seed-Compatibility Exception</a>
+<a class="toc-level-2" href="#stream-reproduction-status">Stream Reproduction Status</a>
+<a class="toc-level-2" href="#cli-examples">CLI Examples</a>
+</aside>
+  </div>
+  <script src="assets/search.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+# GSK family on CEC2017
+#
+# The seven-method panel every statistical claim in the manuscript is computed over.
+# Do not add external baselines here -- the panel definition is what the statistics assume.
+#
+# Usage:
+#   python run.py --config configs/family_cec2017.yml --workers 14
+#
+# Resume is automatic and safe: re-running the same line skips every completed
+# (function, run, seed) cell. Do NOT add `overwrite: true` unless you intend to
+# discard existing runs -- it is scoped per optimizer, so it would clear exactly
+# the optimizers listed below.
+#
+# Protocol is identical across family and baselines so the cells are directly
+# comparable and fold into one cross-optimizer analysis: same seed schedule,
+# same generator, same budget, same output tree.
+
+optimizers:
+  - gsk
+  - agsk
+  - apgsk
+  - fdb-agsk
+  - atmals-gsk
+  - egsk
+  - dt-gsk
+
+suite: cec2017
+functions: default          # 29 scored functions; F2 excluded (withdrawn as unstable)
+dimensions:
+  - 10
+  - 30
+  - 50
+  - 100
+runs: 51                # CEC2017 convention (Awad et al. 2016 problem definitions)
+
+seed: 20240620
+seed_policy: unified
+rand_generator: threefry
+max_evaluations: 0          # 0 = the suite's own protocol budget
+
+overwrite: false
+parallel: true
+parallel_backend: process
+numba_threads: 1
+generation_logs: true
+convergence_graphs: false
+benchmark_fp_mode: default
+benchmark_backend: auto
+data_root: benchmarks/cec_suite_python
+reference_root: benchmarks/cec_reference_results
+output_root: results/_run_all

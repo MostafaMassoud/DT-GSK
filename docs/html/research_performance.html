@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Performance - GSK Family Python Documentation">
+  <title>Performance | GSK Family Python Documentation</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <div class="site-shell">
+    <aside class="sidebar">
+<div class="brand"><a href="index.html">GSK Family Python</a></div>
+<input class="nav-search" type="search" placeholder="Filter docs" aria-label="Filter docs">
+<nav class="nav-list" aria-label="Documentation">
+<section><h2>Getting Started</h2>
+<a class="nav-link" href="getting-started_configuration.html">Configuration</a>
+<a class="nav-link" href="getting-started_explainer.html">Explainer</a>
+<a class="nav-link" href="getting-started_runbook.html">Runbook</a>
+<a class="nav-link" href="getting-started_troubleshooting.html">Troubleshooting</a>
+<a class="nav-link" href="getting-started_tutorial.html">Tutorial</a>
+<a class="nav-link" href="getting-started_user_guide.html">User Guide</a>
+</section>
+<section><h2>Reference</h2>
+<a class="nav-link" href="reference_api.html">API Reference</a>
+<a class="nav-link" href="reference_architecture.html">Architecture</a>
+<a class="nav-link" href="reference_benchmark_mapping.html">Benchmark Mapping</a>
+<a class="nav-link" href="reference_benchmark_protocol.html">Benchmark Protocol</a>
+<a class="nav-link" href="reference_cec2011_cpp_python_equivalence_review.html">CEC2011 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013_cpp_python_equivalence_review.html">CEC2013 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013lsgo_cpp_python_equivalence_review.html">CEC2013LSGO C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2017_cpp_python_equivalence_review.html">CEC2017 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2020_cpp_python_equivalence_review.html">CEC2020 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="index.html">Documentation Index</a>
+<a class="nav-link" href="reference_fp_regime.html">Floating-Point Regime Verification</a>
+<a class="nav-link" href="reference_diagrams.html">Flowcharts And Diagrams</a>
+<a class="nav-link" href="reference_glossary.html">Glossary</a>
+<a class="nav-link" href="LICENSES.html">Licenses</a>
+<a class="nav-link" href="reference_module_dependencies.html">Module Dependencies</a>
+<a class="nav-link" href="reference_project_structure.html">Project Structure</a>
+<a class="nav-link" href="reference_python_optimizer_interface.html">Python Optimizer Interface</a>
+<a class="nav-link" href="reference_result_schema.html">Result Schema</a>
+<a class="nav-link" href="reference_seed_policy.html">Seed Policy</a>
+<a class="nav-link" href="reference_workflows.html">Workflows</a>
+</section>
+<section><h2>Algorithm Guides</h2>
+<a class="nav-link" href="algorithms_agsk.html">AGSK — Adaptive Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_apgsk.html">APGSK — Adaptive-Parameters Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_atmals-gsk.html">ATMALS-GSK — Adaptive Tuning, Memory, Adaptive Local Search</a>
+<a class="nav-link" href="algorithms_dt-gsk.html">DT-GSK — Dimension-Tiered Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_egsk.html">EGSK — Enhanced Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_fdb-agsk.html">FDB-AGSK — Fitness-Distance-Balance AGSK</a>
+<a class="nav-link" href="algorithms_gsk.html">GSK — Gaining-Sharing Knowledge</a>
+</section>
+<section><h2>Development</h2>
+<a class="nav-link" href="development_BUG_resume_summary_truncation.html">BUG-RESUME-01 — resume mode truncates (and mis-computes) the per-dimension summary CSV</a>
+<a class="nav-link" href="development_LSGO_ACCELERATION_PLAN.html">CEC2013LSGO Acceleration Plan — all 7 GSK-family algorithms, bit-identically</a>
+<a class="nav-link" href="development_LSGO_INTEGRATION_CAMPAIGN.html">CEC2013LSGO Integration — Campaign Plan</a>
+<a class="nav-link" href="development_CEC2017_PREC_adjudication.html">CEC2017-PREC — adjudication (CLOSED 2026-07-25)</a>
+<a class="nav-link" href="development_code_reading_guide.html">Code Reading Guide</a>
+<a class="nav-link" href="development_contributor_guide.html">Contributor Guide</a>
+<a class="nav-link" href="development_DECC_G_port_record.html">DECC-G port — fidelity and validation record</a>
+<a class="nav-link" href="development_developer_guide.html">Developer Guide</a>
+<a class="nav-link" href="development_README.html">Development Docs</a>
+<a class="nav-link" href="development_dt_gsk_core_reference.html">DT-GSK Core Reference — the vendored core and its byte-identity lock</a>
+<a class="nav-link" href="development_evidence_rerun_runbook.html">DT-GSK re-run runbook — corrected implementation (C006 + graph backend)</a>
+<a class="nav-link" href="development_egsk_port_spec.html">EGSK — Algorithm Spec &amp; Porting Verdict</a>
+<a class="nav-link" href="development_extension_guide.html">Extension Guide</a>
+<a class="nav-link" href="development_FAMILY_ACCELERATION_PLAN.html">Family-wide acceleration plan — 7 algorithms x 5 suites, bit-identical only</a>
+<a class="nav-link" href="development_FINAL_PUBLICATION_PLAN.html">FINAL PUBLICATION PLAN — DT-GSK, Four(/Five)-Suite Scope</a>
+<a class="nav-link" href="development_ACCELERATION_CAMPAIGN_PROMPT.html">GSK-Family Acceleration Campaign — Execution Prompt</a>
+<a class="nav-link" href="development_maintenance_guide.html">Maintenance Guide</a>
+<a class="nav-link" href="development_PORT_05_TUNING_TRIAGE.html">Porting project-05 tuning into 02 — Phase 1 audit and triage</a>
+<a class="nav-link" href="development_REFERENCE_PROMOTION_PLAN.html">Reference Promotion Plan — CEC2013LSGO now, CEC2020 behind its completeness gate</a>
+<a class="nav-link" href="development_SIBLING_CAMPAIGN_TRANSFER.html">Sibling-Campaign Transfer — every tuning that can make the GSK family fast</a>
+</section>
+<section><h2>Research</h2>
+<a class="nav-link" href="research_egsk_validation_appendix.html">EGSK Validation Appendix — Paired Port-vs-Reference Equivalence</a>
+<a class="nav-link" href="research_numerical_examples.html">Numerical Examples</a>
+<a class="nav-link active" href="research_performance.html">Performance</a>
+<a class="nav-link" href="research_reproducibility.html">Reproducibility</a>
+<a class="nav-link" href="research_researcher_handbook.html">Researcher Handbook</a>
+<a class="nav-link" href="research_statistical_analysis.html">Statistical Analysis (GSK-family comparison)</a>
+<a class="nav-link" href="research_validation_report.html">Validation Report</a>
+</section>
+<section><h2>Prompts</h2>
+<a class="nav-link" href="prompt_documentation-deep-upgrade.html">Deep Documentation Review &amp; Upgrade Prompt — GSK Family Python</a>
+<a class="nav-link" href="prompt_project-review.html">Deep Expert Review Prompt For GSK Family Python</a>
+<a class="nav-link" href="prompt_documentation-review.html">Documentation Review Prompt</a>
+<a class="nav-link" href="prompt_publication-polish.html">Final Publication Prompt — Production-Ready Q1 Release of GSK Family Python v1.1</a>
+</section>
+<section><h2>Python API</h2>
+<a class="nav-link" href="api_index.html">API Module Index</a>
+<a class="nav-link api-link" href="api/gsk_family.__init__.html">gsk_family.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.__init__.html">gsk_family.analysis.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.family_report.html">gsk_family.analysis.family_report</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.figures.html">gsk_family.analysis.figures</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.latex_tables.html">gsk_family.analysis.latex_tables</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.project_policy.html">gsk_family.analysis.project_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.result_loader.html">gsk_family.analysis.result_loader</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistical_tests.html">gsk_family.analysis.statistical_tests</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistics.html">gsk_family.analysis.statistics</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.__init__.html">gsk_family.benchmark_adapter.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.factory.html">gsk_family.benchmark_adapter.factory</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.problem.html">gsk_family.benchmark_adapter.problem</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.protocol.html">gsk_family.benchmark_adapter.protocol</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.__init__.html">gsk_family.cli.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.list.html">gsk_family.cli.list</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.run.html">gsk_family.cli.run</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.stats.html">gsk_family.cli.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.validate.html">gsk_family.cli.validate</a>
+<a class="nav-link api-link" href="api/gsk_family.common.__init__.html">gsk_family.common.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.common.bounds.html">gsk_family.common.bounds</a>
+<a class="nav-link api-link" href="api/gsk_family.common.donors.html">gsk_family.common.donors</a>
+<a class="nav-link api-link" href="api/gsk_family.common.numeric_compat.html">gsk_family.common.numeric_compat</a>
+<a class="nav-link api-link" href="api/gsk_family.common.population.html">gsk_family.common.population</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reduction.html">gsk_family.common.reduction</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reference_rng.html">gsk_family.common.reference_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.rng.html">gsk_family.common.rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.threefry_rng.html">gsk_family.common.threefry_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.__init__.html">gsk_family.optimizers.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_profiles.html">gsk_family.optimizers._dt_profiles</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_rng.html">gsk_family.optimizers._dt_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._kernels.html">gsk_family.optimizers._kernels</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.agsk.html">gsk_family.optimizers.agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.apgsk.html">gsk_family.optimizers.apgsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_gsk.html">gsk_family.optimizers.atmals_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_helpers.html">gsk_family.optimizers.atmals_helpers</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.dt_gsk.html">gsk_family.optimizers.dt_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.egsk.html">gsk_family.optimizers.egsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.__init__.html">gsk_family.optimizers.external.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._base.html">gsk_family.optimizers.external._base</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._telemetry_shim.html">gsk_family.optimizers.external._telemetry_shim</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.cmaes.html">gsk_family.optimizers.external.cmaes</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.decc_g.html">gsk_family.optimizers.external.decc_g</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.ebowithcmar.html">gsk_family.optimizers.external.ebowithcmar</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.jso.html">gsk_family.optimizers.external.jso</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade.html">gsk_family.optimizers.external.lshade</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade_spacma.html">gsk_family.optimizers.external.lshade_spacma</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.mos_cec2013lsgo.html">gsk_family.optimizers.external.mos_cec2013lsgo</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.shade_ils.html">gsk_family.optimizers.external.shade_ils</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_agsk.html">gsk_family.optimizers.fdb_agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_scores.html">gsk_family.optimizers.fdb_scores</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.gsk.html">gsk_family.optimizers.gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.__init__.html">gsk_family.runners.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.config.html">gsk_family.runners.config</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.fp_regime.html">gsk_family.runners.fp_regime</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.output.html">gsk_family.runners.output</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.parallel.html">gsk_family.runners.parallel</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.performance.html">gsk_family.runners.performance</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.run_experiment.html">gsk_family.runners.run_experiment</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.seed_policy.html">gsk_family.runners.seed_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.verification.html">gsk_family.runners.verification</a>
+<a class="nav-link api-link" href="api/gsk_family.stats.html">gsk_family.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.types.html">gsk_family.types</a>
+</section>
+</nav></aside>
+    <main class="content">
+      <article class="doc-card">
+        <h1 id="performance">Performance</h1>
+<blockquote><strong>What this page is.</strong> How to run the project efficiently — parallel backends,</blockquote>
+<blockquote>warmup, Numba kernels, profiling — and an honest statement of what has and has</blockquote>
+<blockquote>not been measured yet.</blockquote>
+<blockquote></blockquote>
+<blockquote><strong>Who it is for.</strong> Researchers running large campaigns who care about wall</blockquote>
+<blockquote>time, and anyone interpreting the timing artifacts.</blockquote>
+<blockquote></blockquote>
+<blockquote><strong>What you will get.</strong> How the default process pool works, how to cap workers,</blockquote>
+<blockquote>how to warm up before timing, where the Numba kernels are, what <code>profile.json</code></blockquote>
+<blockquote>records, and which comparison tables are still pending.</blockquote>
+<blockquote></blockquote>
+<blockquote><strong>Prerequisites.</strong> Basic running is in the</blockquote>
+<blockquote><a href="getting-started_user_guide.html">User Guide</a>; determinism guarantees are in</blockquote>
+<blockquote><a href="research_reproducibility.html">Reproducibility</a>. Terms are defined in</blockquote>
+<blockquote><a href="reference_glossary.html">the glossary</a>.</blockquote>
+<blockquote></blockquote>
+<blockquote><strong>Key point.</strong> Timing here is <strong>diagnostic</strong>. It is not intended to reproduce</blockquote>
+<blockquote>reference wall-clock times — the Python port uses different libraries, process</blockquote>
+<blockquote>startup, and local-search implementations. Performance work must never change</blockquote>
+<blockquote>the numbers; determinism is the invariant, speed is the optimization.</blockquote>
+<h2 id="parallel-execution">Parallel execution</h2>
+<p>Independent runs are spread across a reused, JIT-warmed worker pool — this is on by default, so normal runs need no extra flags. Each cell (<code>optimizer, suite, function, dimension, run</code>) is one independent task, which is why parallelizing across cells is safe and order-independent.</p>
+<p>The example below adds <code>--profile</code> only to capture timing for this section:</p>
+<pre><code class="code-block language-powershell">gsk-run --config configs/smoke.yml --root . --profile</code></pre>
+<p>Two backends are selectable with <code>parallel_backend</code> (or <code>--parallel-backend</code>):</p>
+<ul>
+<li><code>process</code> (default): a reused <code>ProcessPoolExecutor</code> (spawn) — true multi-core</li>
+<p>parallelism with no GIL contention; the correct choice for real campaigns. If a worker dies (an intermittent Numba/spawn crash, or out of memory) the run rebuilds the pool and retries, and finishes a cell serially only if it keeps failing, so the run always completes. Tiny runs (task count not greater than the worker count) run in-process to avoid spawn overhead.</p>
+<li><code>thread</code>: a <code>ThreadPoolExecutor</code>. The optimizer loop is Python/NumPy and holds</li>
+<p>the GIL, so threads do not scale for CPU-bound runs; worse, calling <code>parallel=True</code> Numba kernels from many threads can <strong>deadlock</strong>. Avoid it — use the process backend, or <code>--serial</code> for a single-process run.</p>
+</ul>
+<p><code>--serial</code> forces a single in-process run with no pool at all — the simplest way to get a clean stack trace when debugging, and the reference point for the byte-identity check below.</p>
+<p>Serial and process results are byte-identical: run seeds are derived before dispatch and results are returned in input order. (See <a href="research_numerical_examples.html#parallel-determinism">Numerical Examples — Parallel determinism</a> for why out-of-order completion still yields in-order, identical output.)</p>
+<pre class="mermaid">flowchart LR
+    A[&quot;Cells&lt;br/&gt;(opt, suite, func, dim, run)&quot;] --&gt; B[&quot;Derive each cell&#x27;s&lt;br/&gt;seed BEFORE dispatch&quot;]
+    B --&gt; C[&quot;Worker pool&lt;br/&gt;(out-of-order completion)&quot;]
+    C --&gt; D[&quot;Reorder results&lt;br/&gt;to input order&quot;]
+    D --&gt; E[&quot;Write per_run.csv&lt;br/&gt;and summary CSVs&quot;]</pre>
+<p>Because each cell&#x27;s seed is a pure function of its coordinates and is fixed before any task is dispatched, neither the backend nor the worker count can touch the numbers; the reorder step before writing is what turns non-deterministic *completion* order back into deterministic *output* order.</p>
+<p>The automatic worker count is intentionally small so a copied command does not consume a shared workstation. It uses two workers when at least two logical cores are available, otherwise one:</p>
+<div class="table-wrap"><table><thead><tr><th>Logical cores</th><th>Automatic worker count</th></tr></thead><tbody><tr><td>22</td><td>2</td></tr><tr><td>20</td><td>2</td></tr><tr><td>10</td><td>2</td></tr><tr><td>2</td><td>2</td></tr><tr><td>1</td><td>1</td></tr></tbody></table></div>
+<p>For CEC2017 composition cells (<code>F21</code>-<code>F30</code>) on the default <code>process</code> backend, automatic runs retain an upper memory-safety cap of 8 effective workers. The normal two-worker default is already below this cap; the cap remains as a guard if the automatic policy is raised in the future. Passing <code>--workers N</code> is an explicit override and is recorded as the user&#x27;s chosen speed/memory tradeoff.</p>
+<p>With the process backend each worker caps its own Numba threads to about <code>logical_cores // workers</code>, so total threads (workers x Numba) stay within the core budget. Start campaign commands with <code>--parallel --workers 2</code>, then raise the worker count only when the machine has enough spare CPU and RAM:</p>
+<pre><code class="code-block language-powershell">gsk-run --config configs/smoke.yml --root . --parallel --workers 2 --profile</code></pre>
+<h2 id="warmup">Warmup</h2>
+<p>Warm up the JIT before you measure, so first-call compilation does not inflate the timing.</p>
+<pre><code class="code-block language-powershell">gsk-run --config configs/smoke.yml --root . --warmup --profile</code></pre>
+<p>Warmup preloads benchmark cells and records warmup metadata in the profile artifact. Scope it with <code>--warmup-scope</code>:</p>
+<div class="table-wrap"><table><thead><tr><th><code>--warmup-scope</code></th><th>Warms</th></tr></thead><tbody><tr><td><code>selected</code></td><td>only the cells the campaign will actually run</td></tr><tr><td><code>suite</code></td><td>every default cell in the suite</td></tr></tbody></table></div>
+<p>Warm only what you measure: warming the whole suite when the campaign runs a few cells inflates setup time without improving the timed numbers. The per-cell warmup records and <code>benchmark_warmup_seconds_total</code> land in <code>profile.json</code>.</p>
+<h2 id="numba-kernels">Numba kernels</h2>
+<p>Several CEC suites ship Numba-oriented kernels so the expensive benchmark math runs as compiled code.</p>
+<pre><code class="code-block language-text">benchmarks/cec_suite_python/cec2011/_numba.py
+benchmarks/cec_suite_python/cec2013/_numba.py
+benchmarks/cec_suite_python/cec2013lsgo/_numba.py
+benchmarks/cec_suite_python/cec2017/_numba.py
+benchmarks/cec_suite_python/cec2020/_numba.py</code></pre>
+<p>Optimization policy — speed must never change the numbers:</p>
+<ul>
+<li>Use Numba for benchmark kernels where it preserves numerical behavior.</li>
+<li>Keep optimizer RNG and control flow deterministic.</li>
+<li>Prefer vectorized NumPy operations for population updates.</li>
+<li>Measure before replacing readable Python with JIT-heavy code.</li>
+</ul>
+<p>CEC evaluator policy:</p>
+<ul>
+<li>The <code>--benchmark-backend</code> flag accepts <code>auto</code> (default) and <code>python</code>; both</li>
+<p>route to the Python/Numba evaluator. The kernels above are compiled transparently on first use, which is what warmup pre-pays.</p>
+<li>The benchmark FP mode is recorded as <code>benchmark_fp_mode</code> in <code>profile.json</code> so</li>
+<p>the evaluator configuration is part of the run&#x27;s provenance.</p>
+</ul>
+<h2 id="profiling-artifacts">Profiling artifacts</h2>
+<p>When profiling is enabled (<code>--profile</code>), the runner writes <code>results/_run_all/&lt;optimizer&gt;/&lt;suite&gt;/summary/profile.json</code> capturing worker count, task counts, skipped cells, warmup records, per-run optimizer timing, and environment and configuration metadata. The recorded fields include:</p>
+<div class="table-wrap"><table><thead><tr><th>Field</th><th>Meaning</th></tr></thead><tbody><tr><td><code>parallel</code>, <code>parallel_backend</code></td><td>Whether parallel ran, and which backend.</td></tr><tr><td><code>workers</code>, <code>workers_auto</code>, <code>workers_requested</code>, <code>workers_effective</code></td><td>Resolved worker count and how it was chosen.</td></tr><tr><td><code>worker_cap_applied</code>, <code>worker_cap_functions</code>, <code>worker_cap_workers</code></td><td>Whether the CEC2017 composition memory cap fired and on which functions.</td></tr><tr><td><code>tasks_dispatched</code>, <code>tasks_completed</code>, <code>tasks_skipped_or_failed</code></td><td>Task accounting for the optimizer&#x27;s cells.</td></tr><tr><td><code>optimizer_wall_seconds</code></td><td>Wall time for the whole optimizer pass.</td></tr><tr><td><code>benchmark_warmup_seconds_total</code>, <code>benchmark_warmup</code>, <code>warmup_scope</code></td><td>Warmup timing and per-cell warmup records.</td></tr><tr><td><code>numba_runtime</code></td><td>Numba runtime metadata.</td></tr><tr><td><code>benchmark_backend</code>, <code>benchmark_backend_requested</code>, <code>benchmark_fp_mode</code></td><td>Evaluator backend actually used vs requested, and the FP mode.</td></tr><tr><td><code>generation_logs_enabled</code>, <code>convergence_graphs_enabled</code></td><td>Whether <code>gen_logs</code> curves and PNGs were produced.</td></tr><tr><td><code>run_runtime_seconds</code></td><td>Per-run timing keyed by <code>function</code>, <code>dimension</code>, <code>run</code>, <code>seed</code>.</td></tr></tbody></table></div>
+<p>Timing is diagnostic. It is not intended to reproduce reference wall-clock times, because Python uses different libraries, process startup, and local-search implementations. Use <code>profile.json</code> to compare configurations on the *same* machine, not to make cross-toolchain wall-clock claims.</p>
+<p>When a performance change is meant to leave the *numbers* untouched (the invariant above), the FP-regime guard is what proves it. Comparing two campaigns at run level is only valid when both were run sequentially on the same machine+build and record matching FP sentinels <strong>and</strong> zero guard-cell differences; otherwise a wall-clock or worker-count change may have silently altered the floating-point regime and the delta is not bit-comparable. See <a href="reference_fp_regime.html">Floating-Point Regime Verification</a> and <a href="research_reproducibility.html#environment">Reproducibility</a> for the sentinel and the guard-cell validity check.</p>
+<h2 id="implemented-performance-features">Implemented performance features</h2>
+<p>These optimizations are already in the code:</p>
+<ul>
+<li>Vectorized NumPy population operations in optimizers.</li>
+<li>Numba-oriented benchmark helper modules in the bundled CEC suites.</li>
+<li>Reused process/thread parallel execution for independent run tasks.</li>
+<li>Conservative automatic worker count of 2 (or 1 on a one-core machine), with</li>
+<p>an effective cap of 8 for automatic CEC2017 composition cells.</p>
+<li>Optional benchmark warmup before timed runs.</li>
+<li>Optional <code>profile.json</code> output.</li>
+<li>Optional convergence graph PNG rendering. Use <code>--convergence-graphs</code> or</li>
+<p><code>convergence_graphs: true</code> only when rendered PNG plots are needed; curve CSVs are retained either way.</p>
+</ul>
+<h2 id="remaining-measurement-work">Remaining measurement work</h2>
+<p>These comparison tables still require full campaigns before final delivery. They are listed here so the evidence gap is explicit:</p>
+<div class="table-wrap"><table><thead><tr><th>Report</th><th>Status</th></tr></thead><tbody><tr><td>reference vs Python runtime</td><td>Pending full reference replay evidence.</td></tr><tr><td>Python baseline vs optimized Python</td><td>Pending optimizer-kernel microbenchmark harness.</td></tr><tr><td>Single-threaded vs parallel execution</td><td>Partially covered by performance tests; full campaign pending.</td></tr><tr><td>Numba on vs Numba off</td><td>Pending benchmark-kernel toggle campaign.</td></tr><tr><td>Vectorized vs non-vectorized paths</td><td>Pending historical baseline or microbenchmark harness.</td></tr></tbody></table></div>
+<h2 id="scaling-notes">Scaling notes</h2>
+<p>Practical advice for keeping large campaigns affordable:</p>
+<ul>
+<li>CEC2013LSGO and native-dimension CEC2011 functions can be expensive.</li>
+<li>Use reduced budgets before launching full campaigns.</li>
+<li>Omit <code>--convergence-graphs</code> for CSV-only runs when PNG rendering time or file</li>
+<p>count is not needed.</p>
+<li>Keep <code>results/</code> separate from reference tables to avoid accidental evidence</li>
+<p>mixing.</p>
+</ul>
+      </article>
+    </main>
+    <aside class="page-toc" aria-label="On this page">
+<h2>On This Page</h2>
+<a class="toc-level-1" href="#performance">Performance</a>
+<a class="toc-level-2" href="#parallel-execution">Parallel execution</a>
+<a class="toc-level-2" href="#warmup">Warmup</a>
+<a class="toc-level-2" href="#numba-kernels">Numba kernels</a>
+<a class="toc-level-2" href="#profiling-artifacts">Profiling artifacts</a>
+<a class="toc-level-2" href="#implemented-performance-features">Implemented performance features</a>
+<a class="toc-level-2" href="#remaining-measurement-work">Remaining measurement work</a>
+<a class="toc-level-2" href="#scaling-notes">Scaling notes</a>
+</aside>
+  </div>
+  <script src="assets/search.js"></script>
+  <script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs'; mermaid.initialize({ startOnLoad: true, securityLevel: 'loose', theme: 'neutral' });</script>
+</body>
+</html>

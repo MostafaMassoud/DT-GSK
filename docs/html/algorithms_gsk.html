@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="GSK — Gaining-Sharing Knowledge - GSK Family Python Documentation">
+  <title>GSK — Gaining-Sharing Knowledge | GSK Family Python Documentation</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <div class="site-shell">
+    <aside class="sidebar">
+<div class="brand"><a href="index.html">GSK Family Python</a></div>
+<input class="nav-search" type="search" placeholder="Filter docs" aria-label="Filter docs">
+<nav class="nav-list" aria-label="Documentation">
+<section><h2>Getting Started</h2>
+<a class="nav-link" href="getting-started_configuration.html">Configuration</a>
+<a class="nav-link" href="getting-started_explainer.html">Explainer</a>
+<a class="nav-link" href="getting-started_runbook.html">Runbook</a>
+<a class="nav-link" href="getting-started_troubleshooting.html">Troubleshooting</a>
+<a class="nav-link" href="getting-started_tutorial.html">Tutorial</a>
+<a class="nav-link" href="getting-started_user_guide.html">User Guide</a>
+</section>
+<section><h2>Reference</h2>
+<a class="nav-link" href="reference_api.html">API Reference</a>
+<a class="nav-link" href="reference_architecture.html">Architecture</a>
+<a class="nav-link" href="reference_benchmark_mapping.html">Benchmark Mapping</a>
+<a class="nav-link" href="reference_benchmark_protocol.html">Benchmark Protocol</a>
+<a class="nav-link" href="reference_cec2011_cpp_python_equivalence_review.html">CEC2011 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013_cpp_python_equivalence_review.html">CEC2013 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013lsgo_cpp_python_equivalence_review.html">CEC2013LSGO C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2017_cpp_python_equivalence_review.html">CEC2017 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2020_cpp_python_equivalence_review.html">CEC2020 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="index.html">Documentation Index</a>
+<a class="nav-link" href="reference_fp_regime.html">Floating-Point Regime Verification</a>
+<a class="nav-link" href="reference_diagrams.html">Flowcharts And Diagrams</a>
+<a class="nav-link" href="reference_glossary.html">Glossary</a>
+<a class="nav-link" href="LICENSES.html">Licenses</a>
+<a class="nav-link" href="reference_module_dependencies.html">Module Dependencies</a>
+<a class="nav-link" href="reference_project_structure.html">Project Structure</a>
+<a class="nav-link" href="reference_python_optimizer_interface.html">Python Optimizer Interface</a>
+<a class="nav-link" href="reference_result_schema.html">Result Schema</a>
+<a class="nav-link" href="reference_seed_policy.html">Seed Policy</a>
+<a class="nav-link" href="reference_workflows.html">Workflows</a>
+</section>
+<section><h2>Algorithm Guides</h2>
+<a class="nav-link" href="algorithms_agsk.html">AGSK — Adaptive Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_apgsk.html">APGSK — Adaptive-Parameters Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_atmals-gsk.html">ATMALS-GSK — Adaptive Tuning, Memory, Adaptive Local Search</a>
+<a class="nav-link" href="algorithms_dt-gsk.html">DT-GSK — Dimension-Tiered Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_egsk.html">EGSK — Enhanced Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_fdb-agsk.html">FDB-AGSK — Fitness-Distance-Balance AGSK</a>
+<a class="nav-link active" href="algorithms_gsk.html">GSK — Gaining-Sharing Knowledge</a>
+</section>
+<section><h2>Development</h2>
+<a class="nav-link" href="development_BUG_resume_summary_truncation.html">BUG-RESUME-01 — resume mode truncates (and mis-computes) the per-dimension summary CSV</a>
+<a class="nav-link" href="development_LSGO_ACCELERATION_PLAN.html">CEC2013LSGO Acceleration Plan — all 7 GSK-family algorithms, bit-identically</a>
+<a class="nav-link" href="development_LSGO_INTEGRATION_CAMPAIGN.html">CEC2013LSGO Integration — Campaign Plan</a>
+<a class="nav-link" href="development_CEC2017_PREC_adjudication.html">CEC2017-PREC — adjudication (CLOSED 2026-07-25)</a>
+<a class="nav-link" href="development_code_reading_guide.html">Code Reading Guide</a>
+<a class="nav-link" href="development_contributor_guide.html">Contributor Guide</a>
+<a class="nav-link" href="development_DECC_G_port_record.html">DECC-G port — fidelity and validation record</a>
+<a class="nav-link" href="development_developer_guide.html">Developer Guide</a>
+<a class="nav-link" href="development_README.html">Development Docs</a>
+<a class="nav-link" href="development_dt_gsk_core_reference.html">DT-GSK Core Reference — the vendored core and its byte-identity lock</a>
+<a class="nav-link" href="development_evidence_rerun_runbook.html">DT-GSK re-run runbook — corrected implementation (C006 + graph backend)</a>
+<a class="nav-link" href="development_egsk_port_spec.html">EGSK — Algorithm Spec &amp; Porting Verdict</a>
+<a class="nav-link" href="development_extension_guide.html">Extension Guide</a>
+<a class="nav-link" href="development_FAMILY_ACCELERATION_PLAN.html">Family-wide acceleration plan — 7 algorithms x 5 suites, bit-identical only</a>
+<a class="nav-link" href="development_FINAL_PUBLICATION_PLAN.html">FINAL PUBLICATION PLAN — DT-GSK, Four(/Five)-Suite Scope</a>
+<a class="nav-link" href="development_ACCELERATION_CAMPAIGN_PROMPT.html">GSK-Family Acceleration Campaign — Execution Prompt</a>
+<a class="nav-link" href="development_maintenance_guide.html">Maintenance Guide</a>
+<a class="nav-link" href="development_PORT_05_TUNING_TRIAGE.html">Porting project-05 tuning into 02 — Phase 1 audit and triage</a>
+<a class="nav-link" href="development_REFERENCE_PROMOTION_PLAN.html">Reference Promotion Plan — CEC2013LSGO now, CEC2020 behind its completeness gate</a>
+<a class="nav-link" href="development_SIBLING_CAMPAIGN_TRANSFER.html">Sibling-Campaign Transfer — every tuning that can make the GSK family fast</a>
+</section>
+<section><h2>Research</h2>
+<a class="nav-link" href="research_egsk_validation_appendix.html">EGSK Validation Appendix — Paired Port-vs-Reference Equivalence</a>
+<a class="nav-link" href="research_numerical_examples.html">Numerical Examples</a>
+<a class="nav-link" href="research_performance.html">Performance</a>
+<a class="nav-link" href="research_reproducibility.html">Reproducibility</a>
+<a class="nav-link" href="research_researcher_handbook.html">Researcher Handbook</a>
+<a class="nav-link" href="research_statistical_analysis.html">Statistical Analysis (GSK-family comparison)</a>
+<a class="nav-link" href="research_validation_report.html">Validation Report</a>
+</section>
+<section><h2>Prompts</h2>
+<a class="nav-link" href="prompt_documentation-deep-upgrade.html">Deep Documentation Review &amp; Upgrade Prompt — GSK Family Python</a>
+<a class="nav-link" href="prompt_project-review.html">Deep Expert Review Prompt For GSK Family Python</a>
+<a class="nav-link" href="prompt_documentation-review.html">Documentation Review Prompt</a>
+<a class="nav-link" href="prompt_publication-polish.html">Final Publication Prompt — Production-Ready Q1 Release of GSK Family Python v1.1</a>
+</section>
+<section><h2>Python API</h2>
+<a class="nav-link" href="api_index.html">API Module Index</a>
+<a class="nav-link api-link" href="api/gsk_family.__init__.html">gsk_family.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.__init__.html">gsk_family.analysis.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.family_report.html">gsk_family.analysis.family_report</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.figures.html">gsk_family.analysis.figures</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.latex_tables.html">gsk_family.analysis.latex_tables</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.project_policy.html">gsk_family.analysis.project_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.result_loader.html">gsk_family.analysis.result_loader</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistical_tests.html">gsk_family.analysis.statistical_tests</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistics.html">gsk_family.analysis.statistics</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.__init__.html">gsk_family.benchmark_adapter.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.factory.html">gsk_family.benchmark_adapter.factory</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.problem.html">gsk_family.benchmark_adapter.problem</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.protocol.html">gsk_family.benchmark_adapter.protocol</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.__init__.html">gsk_family.cli.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.list.html">gsk_family.cli.list</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.run.html">gsk_family.cli.run</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.stats.html">gsk_family.cli.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.validate.html">gsk_family.cli.validate</a>
+<a class="nav-link api-link" href="api/gsk_family.common.__init__.html">gsk_family.common.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.common.bounds.html">gsk_family.common.bounds</a>
+<a class="nav-link api-link" href="api/gsk_family.common.donors.html">gsk_family.common.donors</a>
+<a class="nav-link api-link" href="api/gsk_family.common.numeric_compat.html">gsk_family.common.numeric_compat</a>
+<a class="nav-link api-link" href="api/gsk_family.common.population.html">gsk_family.common.population</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reduction.html">gsk_family.common.reduction</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reference_rng.html">gsk_family.common.reference_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.rng.html">gsk_family.common.rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.threefry_rng.html">gsk_family.common.threefry_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.__init__.html">gsk_family.optimizers.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_profiles.html">gsk_family.optimizers._dt_profiles</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_rng.html">gsk_family.optimizers._dt_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._kernels.html">gsk_family.optimizers._kernels</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.agsk.html">gsk_family.optimizers.agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.apgsk.html">gsk_family.optimizers.apgsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_gsk.html">gsk_family.optimizers.atmals_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_helpers.html">gsk_family.optimizers.atmals_helpers</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.dt_gsk.html">gsk_family.optimizers.dt_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.egsk.html">gsk_family.optimizers.egsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.__init__.html">gsk_family.optimizers.external.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._base.html">gsk_family.optimizers.external._base</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._telemetry_shim.html">gsk_family.optimizers.external._telemetry_shim</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.cmaes.html">gsk_family.optimizers.external.cmaes</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.decc_g.html">gsk_family.optimizers.external.decc_g</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.ebowithcmar.html">gsk_family.optimizers.external.ebowithcmar</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.jso.html">gsk_family.optimizers.external.jso</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade.html">gsk_family.optimizers.external.lshade</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade_spacma.html">gsk_family.optimizers.external.lshade_spacma</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.mos_cec2013lsgo.html">gsk_family.optimizers.external.mos_cec2013lsgo</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.shade_ils.html">gsk_family.optimizers.external.shade_ils</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_agsk.html">gsk_family.optimizers.fdb_agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_scores.html">gsk_family.optimizers.fdb_scores</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.gsk.html">gsk_family.optimizers.gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.__init__.html">gsk_family.runners.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.config.html">gsk_family.runners.config</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.fp_regime.html">gsk_family.runners.fp_regime</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.output.html">gsk_family.runners.output</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.parallel.html">gsk_family.runners.parallel</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.performance.html">gsk_family.runners.performance</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.run_experiment.html">gsk_family.runners.run_experiment</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.seed_policy.html">gsk_family.runners.seed_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.verification.html">gsk_family.runners.verification</a>
+<a class="nav-link api-link" href="api/gsk_family.stats.html">gsk_family.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.types.html">gsk_family.types</a>
+</section>
+</nav></aside>
+    <main class="content">
+      <article class="doc-card">
+        <h1 id="gsk-gaining-sharing-knowledge">GSK — Gaining-Sharing Knowledge</h1>
+<blockquote><strong>What this is:</strong> the reference algorithm of the family and the base every</blockquote>
+<blockquote>other optimizer extends. <strong>For:</strong> anyone who wants to understand the core</blockquote>
+<blockquote>gaining-sharing update before reading a variant. <strong>Prerequisites:</strong> basic</blockquote>
+<blockquote>population-based optimization. <strong>After reading</strong> you can trace one generation</blockquote>
+<blockquote>by hand and map every line of <code>src/gsk_family/optimizers/gsk.py</code> to its math.</blockquote>
+<h2 id="intuition">Intuition</h2>
+<p>GSK models how people acquire and share knowledge in two phases:</p>
+<ul>
+<li><strong>Junior phase (exploration).</strong> Early on, an individual learns from the two</li>
+<p>neighbours next to it in the fitness ranking and from one random peer. This spreads search widely.</p>
+<li><strong>Senior phase (exploitation).</strong> Later, an individual learns from the</li>
+<p><strong>elite</strong> and the <strong>worst</strong> of the population, mediated by a <strong>middle</strong> performer. This refines around good regions.</p>
+</ul>
+<p>Each *dimension* of an individual is assigned to one phase per generation. A schedule moves dimensions from junior to senior as the run progresses, so the search transitions smoothly from exploration to exploitation.</p>
+<h2 id="mathematical-formulation">Mathematical formulation</h2>
+<p>Let <code>x_i</code> be individual <code>i</code>, with the population sorted best→worst. <code>kf</code> is the knowledge factor (step scale), <code>kr</code> the knowledge ratio (per-dimension update probability), <code>p</code> the senior partition fraction.</p>
+<p><strong>Junior gained vector</strong> (<code>_kernels.py:128-131</code>). Donors <code>rg1</code>, <code>rg2</code> are the better and worse neighbours of <code>x_i</code> in the ranking; <code>rg3</code> is a random, collision-free peer (<code>donors.py:24-67</code>). With <code>worse = f(x_i) &gt; f(x_rg3)</code>:</p>
+<pre><code class="code-block language-text">worse:      g_j = x_i + kf * ( x_rg1 - x_rg2 + x_rg3 - x_i )
+otherwise:  g_j = x_i + kf * ( x_rg1 - x_rg2 + x_i - x_rg3 )</code></pre>
+<p><strong>Senior gained vector</strong> (<code>_kernels.py:136-139</code>). The sorted population is split into a best block (top <code>round(NP*p)</code>), a middle block, and a worst block (bottom <code>round(NP*p)</code>); <code>r1</code>, <code>r2</code>, <code>r3</code> are random picks from those blocks (<code>donors.py:70-105</code>). With <code>worse = f(x_i) &gt; f(x_r2)</code>:</p>
+<pre><code class="code-block language-text">worse:      g_s = x_i + kf * ( x_r1 - x_i + x_r2 - x_r3 )
+otherwise:  g_s = x_i + kf * ( x_r1 - x_r2 + x_i - x_r3 )</code></pre>
+<p><strong>Midpoint bound repair</strong> (inline in the trial kernel, <code>_kernels.py:132-135,140-143</code>). Per coordinate <code>j</code>, using the *parent* value <code>x_i,j</code>:</p>
+<pre><code class="code-block language-text">g &lt; lb_j:  g = (x_i,j + lb_j) / 2
+g &gt; ub_j:  g = (x_i,j + ub_j) / 2</code></pre>
+<p><strong>Junior dimension schedule</strong> (<code>gsk.py:147-148</code>). At generation <code>g</code> of <code>G_max</code>:</p>
+<pre><code class="code-block language-text">D_junior = ceil( D * (1 - g / G_max) ^ k )
+junior_prob = D_junior / D</code></pre>
+<p><code>(1 - g/G_max)</code> shrinks from 1 to 0, and the exponent <code>k = 10</code> makes the junior→senior handover sharp: early generations are almost all junior, late generations almost all senior.</p>
+<p><strong>Per-dimension mask</strong> (<code>_kernels.py:144-149</code>). Two independent random draws per coordinate decide what reaches the trial vector; otherwise the parent value is kept:</p>
+<pre><code class="code-block language-text">rand_split &lt;= junior_prob  -&gt; junior dim: take g_j only if rand_kr_junior &lt;= kr
+otherwise                  -&gt; senior dim: take g_s only if rand_kr_senior &lt;= kr</code></pre>
+<p><strong>Selection</strong> is strictly greedy (<code>gsk.py:201-204</code>): the child replaces the parent only if <code>f(child) &lt; f(parent)</code>.</p>
+<h2 id="pseudocode">Pseudocode</h2>
+<pre><code class="code-block language-text">G_max = fix(max_nfes / NP)                      # gsk.py:110
+initialize / accept fair-start population, evaluate, record best
+for g = 1, 2, ... until nfes &gt;= max_nfes:       # gsk.py:145
+    D_junior   = ceil(D * (1 - g/G_max)^k)      # gsk.py:148
+    order      = argsort(fitness)               # best -&gt; worst
+    rg1,rg2,rg3 = junior_donors(order)          # rank neighbours + random
+    r1,r2,r3    = senior_donors(order, p)        # best / middle / worst blocks
+    for each individual i, dimension j:
+        g_j = junior_update(...);  repair(g_j)
+        g_s = senior_update(...);  repair(g_s)
+        trial[i,j] = masked choice of g_j / g_s / parent   # split + KR gates
+    evaluate trial; nfes += NP
+    greedy replace: parent &lt;- child where f(child) &lt; f(parent)
+    append (nfes, best_so_far) to the convergence trace</code></pre>
+<h2 id="parameters">Parameters</h2>
+<div class="table-wrap"><table><thead><tr><th>Option</th><th>Symbol</th><th>Default</th><th>Valid range</th><th>Meaning</th><th>Code</th></tr></thead><tbody><tr><td><code>np</code></td><td>NP</td><td><code>100</code></td><td>integer ≥ 4 (≥ 6 at the default <code>p=0.1</code> so the senior blocks are non-empty; NP=4,5 raise an error)</td><td>Population size (junior donors need NP≥4; senior needs non-empty blocks).</td><td><code>gsk.py:92</code></td></tr><tr><td><code>kf</code></td><td>kf</td><td><code>0.5</code></td><td>&gt; 0 (typ. (0,1])</td><td>Knowledge factor — step scale of the gained vectors.</td><td><code>gsk.py:93</code></td></tr><tr><td><code>kr</code></td><td>kr</td><td><code>0.9</code></td><td>[0, 1]</td><td>Knowledge ratio — per-dimension probability an update is applied.</td><td><code>gsk.py:94</code></td></tr><tr><td><code>k</code></td><td>k</td><td><code>10.0</code></td><td>&gt; 0</td><td>Junior-schedule exponent — larger = sharper junior→senior handover.</td><td><code>gsk.py:95</code></td></tr><tr><td><code>p</code></td><td>p</td><td><code>0.1</code></td><td>(0, 0.5)</td><td>Senior partition fraction (best/worst block sizes = round(NP·p)).</td><td><code>gsk.py:96</code></td></tr></tbody></table></div>
+<h2 id="worked-example">Worked example</h2>
+<p>One individual through one generation. Setup (hand-checkable):</p>
+<pre><code class="code-block language-text">D = 2,  NP = 6,  lb = [-5,-5],  ub = [5,5],  kf = 0.5,  kr = 0.9,  p = 0.1
+population, already sorted best -&gt; worst (fitness on the right):
+  rank 0 (best):  x0 = [ 1.0,  2.0]   f = 5
+  rank 1:         x1 = [-1.0,  0.5]   f = 8
+  rank 2:         x2 = [ 3.0, -1.0]   f = 10   &lt;- update this individual (i = 2)
+  rank 3:         x3 = [-2.0,  3.0]   f = 14
+  rank 4:         x4 = [ 4.0,  4.0]   f = 20
+  rank 5 (worst): x5 = [-3.0, -4.0]   f = 25</code></pre>
+<p><strong>Junior update.</strong> Neighbours of rank 2: <code>rg1 = x1</code> (better), <code>rg2 = x3</code> (worse). Say the RNG draws the random peer <code>rg3 = x5</code>. Since <code>f(x2)=10 &gt; f(x5)=25</code> is <strong>false</strong>, use the *otherwise* branch:</p>
+<pre><code class="code-block language-text">g_j = x2 + 0.5 * ( x1 - x3 + x2 - x5 )
+    = [3,-1] + 0.5 * ( [1,-2.5] + [6, 3] )
+    = [3,-1] + 0.5 * [7, 0.5]  =  [6.5, -0.75]
+dim 0: 6.5 &gt; ub=5  -&gt;  repair (x2,0 + 5)/2 = (3+5)/2 = 4.0
+g_j = [4.0, -0.75]</code></pre>
+<p><strong>Senior update.</strong> With NP=6, p=0.1: best block = {x0}, middle = {x1..x4}, worst = {x5}. Say the RNG draws <code>r1 = x0</code>, <code>r2 = x4</code>, <code>r3 = x5</code>. Since <code>f(x2)=10 &gt; f(x4)=20</code> is <strong>false</strong>, use the *otherwise* branch:</p>
+<pre><code class="code-block language-text">g_s = x2 + 0.5 * ( x0 - x4 + x2 - x5 )
+    = [3,-1] + 0.5 * ( [-3,-2] + [6, 3] )
+    = [3,-1] + 0.5 * [3, 1]  =  [4.5, -0.5]   (both in bounds)</code></pre>
+<p><strong>Mask.</strong> Suppose this generation has <code>D_junior = 1</code>, so <code>junior_prob = 0.5</code>, and the draws are <code>rand_split = [0.3, 0.8]</code>, <code>rand_kr_junior[0] = 0.2</code>, <code>rand_kr_senior[1] = 0.95</code>:</p>
+<pre><code class="code-block language-text">dim 0: 0.3 &lt;= 0.5 -&gt; junior; 0.2 &lt;= 0.9 -&gt; take g_j[0] = 4.0
+dim 1: 0.8 &gt;  0.5 -&gt; senior; 0.95 &gt; 0.9 -&gt; keep parent x2,1 = -1.0
+trial = [4.0, -1.0]</code></pre>
+<p>The child is evaluated; it replaces <code>x2</code> only if its fitness beats 10.</p>
+<h2 id="update-cycle">Update cycle</h2>
+<pre class="mermaid">flowchart TD
+  A[&quot;Sort population best to worst&quot;] --&gt; B[&quot;D_junior = ceil(D * (1 - g/G_max)^k)&quot;]
+  B --&gt; C[&quot;Junior donors: rank neighbours rg1, rg2 + random rg3&quot;]
+  B --&gt; D[&quot;Senior donors: r1 best block, r2 middle, r3 worst&quot;]
+  C --&gt; E[&quot;Junior gained vector (worse / otherwise branch)&quot;]
+  D --&gt; F[&quot;Senior gained vector (worse / otherwise branch)&quot;]
+  E --&gt; G[&quot;Midpoint bound repair&quot;]
+  F --&gt; G
+  G --&gt; H[&quot;Per-dim mask: split by junior_prob, gate by KR&quot;]
+  H --&gt; I[&quot;Evaluate trial population&quot;]
+  I --&gt; J[&quot;Greedy: child replaces parent if strictly better&quot;]
+  J --&gt; K{&quot;nfes &lt; max_nfes?&quot;}
+  K -- yes --&gt; A
+  K -- no --&gt; L[&quot;Return best-so-far and convergence trace&quot;]</pre>
+<h2 id="bounds-budget-and-determinism">Bounds, budget, and determinism</h2>
+<ul>
+<li><strong>Bound repair</strong> never reflects past the parent; it pulls a violating</li>
+<p>coordinate to the midpoint between the parent and the breached bound, so trials stay inside <code>[lb, ub]</code> and near their parent.</p>
+<li><strong>Budget.</strong> <code>G_max = fix(max_nfes / NP)</code> and the loop runs whole generations,</li>
+<p>so the final generation may be partially counted (<code>n_count = min(NP, max_nfes - nfes)</code>, <code>gsk.py:191</code>). The best-so-far is monotone non-increasing.</p>
+<li><strong>Determinism.</strong> The trial kernel is pure arithmetic; all randomness comes</li>
+<p>from the caller&#x27;s RNG in a fixed draw order (<code>gsk.py:159</code> draws one <code>(3, NP, D)</code> block), so serial and parallel runs produce identical results. See <a href="reference_seed_policy.html">Seed Policy</a>.</p>
+</ul>
+<h2 id="complexity">Complexity</h2>
+<p>Per generation: <code>O(NP log NP)</code> to sort, <code>O(NP·D)</code> to build and repair trials, <code>O(NP)</code> evaluations. Over a run of <code>G_max ≈ max_nfes/NP</code> generations the total is <code>O(max_nfes · D)</code> time and <code>O(NP·D)</code> memory.</p>
+<h2 id="when-to-use">When to use</h2>
+<p>GSK is the baseline: a strong, low-parameter starting point and the control in every comparison. If a run needs population reduction or self-tuned <code>kf</code>/<code>kr</code>, reach for a variant — <a href="algorithms_agsk.html">AGSK</a> (adaptive pools + LPSR), <a href="algorithms_apgsk.html">APGSK</a>, <a href="algorithms_fdb-agsk.html">FDB-AGSK</a>, or <a href="algorithms_atmals-gsk.html">ATMALS-GSK</a> — all of which reuse the junior/senior core above. For high-dimensional problems and the family&#x27;s headline method, see <a href="algorithms_dt-gsk.html">DT-GSK</a>, which keeps this same gaining-sharing scaffold and adds a dimension-tiered adaptive layer (adaptive operator control, a population-size schedule, restarts, and an eigenframe final polish).</p>
+<h2 id="in-the-7-algorithm-panel">In the 7-algorithm panel</h2>
+<p>GSK is one of the six <strong>reference comparators</strong> in the family&#x27;s headline comparison — the others are AGSK, APGSK, FDB-AGSK, eGSK, and ATMALS-GSK — against which the proposed <a href="algorithms_dt-gsk.html">DT-GSK</a> is benchmarked. Together they form the <strong>7-algorithm GSK-family panel</strong> built per dimension by the statistical suite (<code>gsk-stats</code>). For each suite/dimension the panel produces Friedman ranks + Nemenyi critical-difference diagrams, pairwise Wilcoxon with Holm correction, Vargha-Delaney A12 / Cliff&#x27;s delta effect sizes, win/tie/loss tallies, and 7-curve convergence grids; outputs land under <code>results/_run_all/_analysis/&lt;suite&gt;/</code>. As the un-tuned baseline, GSK is the control: it typically sits low on the family rank chart and is the reference every &quot;did the variant actually help?&quot; question is measured against. Full panel construction and the statistical machinery are documented in <a href="research_statistical_analysis.html">Statistical Analysis</a>.</p>
+<p>A note on coverage: vanilla <code>gsk</code> is intentionally <strong>skipped by the runner&#x27;s live <code>--stats</code> stream</strong>, so per-dimension Wilcoxon / Friedman output streamed during a run does not include the GSK row even though the offline <code>gsk-stats</code> panel does. (The <code>cec2011</code> suite *is* included in the live stream — it emits a single per-suite rollup panel now that its reference rollups are committed.) This is a deliberate fairness choice — the live stream focuses on the adaptive comparators — not a gap in the data.</p>
+<h2 id="parameter-interactions-and-tuning-notes">Parameter interactions and tuning notes</h2>
+<ul>
+<li><strong><code>kf</code> × <code>kr</code>.</strong> <code>kf</code> scales the gained step and <code>kr</code> is the per-coordinate</li>
+<p>probability that step reaches the trial. Raising <code>kf</code> without lowering <code>kr</code> makes large moves on many dimensions at once (aggressive, can overshoot); lowering <code>kr</code> keeps most coordinates at the parent value so each child differs in only a few dimensions (cautious). The defaults <code>kf=0.5, kr=0.9</code> favour broad but moderate updates.</p>
+<li><strong><code>k</code> (schedule exponent).</strong> With the default <code>k=10</code>, `D_junior =</li>
+<p>ceil(D·(1-g/G_max)^10)<code> keeps nearly every dimension junior until late in the run, then flips sharply to senior. Smaller </code>k<code> softens the handover (more senior dimensions earlier → earlier exploitation); larger </code>k<code> delays it. This is the one knob the adaptive variants replace with a learned or randomized schedule (per-individual </code>K` in <a href="algorithms_agsk.html">AGSK</a>, a coin-flipped exponent in <a href="algorithms_apgsk.html">APGSK</a>, a roulette grid in <a href="algorithms_atmals-gsk.html">ATMALS-GSK</a>).</p>
+<li><strong><code>p</code> and <code>NP</code> together.</strong> The senior partition needs all three blocks</li>
+<p>non-empty: <code>top_end = round(NP·p) ≥ 1</code> <strong>and</strong> <code>mid_end = round(NP·(1-p)) &lt; NP</code> (half-away rounding). At the default <code>p=0.1</code>, <code>NP=4</code> gives <code>top_end = round(0.4) = 0</code> and <code>NP=5</code> gives <code>mid_end = round(4.5) = 5 = NP</code> (an empty worst block) — both trip the empty-block guard (<code>common/donors.py:86-90</code>), so <code>NP ≥ 6</code> is the smallest valid size. The adaptive variants use the smaller <code>p=0.05</code>, which needs <code>NP ≥ 11</code> for the same reason — hence their <code>min_pop_size ≥ 11</code> floor.</p>
+</ul>
+<h2 id="source-and-validation">Source and validation</h2>
+<ul>
+<li>Kernel: <code>src/gsk_family/optimizers/gsk.py</code>; shared trial builder</li>
+<p><code>src/gsk_family/optimizers/_kernels.py</code> (midpoint bound repair is inlined in the compiled kernel); donors <code>src/gsk_family/common/donors.py</code>. The standalone reference port of the repair rule is <code>gsk_bound_repair</code> in <code>src/gsk_family/common/bounds.py</code>. Ported from the reference <code>gsk_optimize.m</code> with identical defaults and draw order.</p>
+<li>Tested for deterministic replay, fair-start reuse, convergence shape, budget</li>
+<p>crossing, and runner execution on smoke cells. See <a href="research_validation_report.html">Validation Report</a> and <a href="research_numerical_examples.html">Numerical Examples</a>.</p>
+</ul>
+      </article>
+    </main>
+    <aside class="page-toc" aria-label="On this page">
+<h2>On This Page</h2>
+<a class="toc-level-1" href="#gsk-gaining-sharing-knowledge">GSK — Gaining-Sharing Knowledge</a>
+<a class="toc-level-2" href="#intuition">Intuition</a>
+<a class="toc-level-2" href="#mathematical-formulation">Mathematical formulation</a>
+<a class="toc-level-2" href="#pseudocode">Pseudocode</a>
+<a class="toc-level-2" href="#parameters">Parameters</a>
+<a class="toc-level-2" href="#worked-example">Worked example</a>
+<a class="toc-level-2" href="#update-cycle">Update cycle</a>
+<a class="toc-level-2" href="#bounds-budget-and-determinism">Bounds, budget, and determinism</a>
+<a class="toc-level-2" href="#complexity">Complexity</a>
+<a class="toc-level-2" href="#when-to-use">When to use</a>
+<a class="toc-level-2" href="#in-the-7-algorithm-panel">In the 7-algorithm panel</a>
+<a class="toc-level-2" href="#parameter-interactions-and-tuning-notes">Parameter interactions and tuning notes</a>
+<a class="toc-level-2" href="#source-and-validation">Source and validation</a>
+</aside>
+  </div>
+  <script src="assets/search.js"></script>
+  <script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs'; mermaid.initialize({ startOnLoad: true, securityLevel: 'loose', theme: 'neutral' });</script>
+</body>
+</html>

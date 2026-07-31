@@ -1,0 +1,698 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Deep Documentation Review &amp; Upgrade Prompt — GSK Family Python - GSK Family Python Documentation">
+  <title>Deep Documentation Review &amp; Upgrade Prompt — GSK Family Python | GSK Family Python Documentation</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <div class="site-shell">
+    <aside class="sidebar">
+<div class="brand"><a href="index.html">GSK Family Python</a></div>
+<input class="nav-search" type="search" placeholder="Filter docs" aria-label="Filter docs">
+<nav class="nav-list" aria-label="Documentation">
+<section><h2>Getting Started</h2>
+<a class="nav-link" href="getting-started_configuration.html">Configuration</a>
+<a class="nav-link" href="getting-started_explainer.html">Explainer</a>
+<a class="nav-link" href="getting-started_runbook.html">Runbook</a>
+<a class="nav-link" href="getting-started_troubleshooting.html">Troubleshooting</a>
+<a class="nav-link" href="getting-started_tutorial.html">Tutorial</a>
+<a class="nav-link" href="getting-started_user_guide.html">User Guide</a>
+</section>
+<section><h2>Reference</h2>
+<a class="nav-link" href="reference_api.html">API Reference</a>
+<a class="nav-link" href="reference_architecture.html">Architecture</a>
+<a class="nav-link" href="reference_benchmark_mapping.html">Benchmark Mapping</a>
+<a class="nav-link" href="reference_benchmark_protocol.html">Benchmark Protocol</a>
+<a class="nav-link" href="reference_cec2011_cpp_python_equivalence_review.html">CEC2011 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013_cpp_python_equivalence_review.html">CEC2013 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013lsgo_cpp_python_equivalence_review.html">CEC2013LSGO C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2017_cpp_python_equivalence_review.html">CEC2017 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2020_cpp_python_equivalence_review.html">CEC2020 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="index.html">Documentation Index</a>
+<a class="nav-link" href="reference_fp_regime.html">Floating-Point Regime Verification</a>
+<a class="nav-link" href="reference_diagrams.html">Flowcharts And Diagrams</a>
+<a class="nav-link" href="reference_glossary.html">Glossary</a>
+<a class="nav-link" href="LICENSES.html">Licenses</a>
+<a class="nav-link" href="reference_module_dependencies.html">Module Dependencies</a>
+<a class="nav-link" href="reference_project_structure.html">Project Structure</a>
+<a class="nav-link" href="reference_python_optimizer_interface.html">Python Optimizer Interface</a>
+<a class="nav-link" href="reference_result_schema.html">Result Schema</a>
+<a class="nav-link" href="reference_seed_policy.html">Seed Policy</a>
+<a class="nav-link" href="reference_workflows.html">Workflows</a>
+</section>
+<section><h2>Algorithm Guides</h2>
+<a class="nav-link" href="algorithms_agsk.html">AGSK — Adaptive Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_apgsk.html">APGSK — Adaptive-Parameters Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_atmals-gsk.html">ATMALS-GSK — Adaptive Tuning, Memory, Adaptive Local Search</a>
+<a class="nav-link" href="algorithms_dt-gsk.html">DT-GSK — Dimension-Tiered Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_egsk.html">EGSK — Enhanced Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_fdb-agsk.html">FDB-AGSK — Fitness-Distance-Balance AGSK</a>
+<a class="nav-link" href="algorithms_gsk.html">GSK — Gaining-Sharing Knowledge</a>
+</section>
+<section><h2>Development</h2>
+<a class="nav-link" href="development_BUG_resume_summary_truncation.html">BUG-RESUME-01 — resume mode truncates (and mis-computes) the per-dimension summary CSV</a>
+<a class="nav-link" href="development_LSGO_ACCELERATION_PLAN.html">CEC2013LSGO Acceleration Plan — all 7 GSK-family algorithms, bit-identically</a>
+<a class="nav-link" href="development_LSGO_INTEGRATION_CAMPAIGN.html">CEC2013LSGO Integration — Campaign Plan</a>
+<a class="nav-link" href="development_CEC2017_PREC_adjudication.html">CEC2017-PREC — adjudication (CLOSED 2026-07-25)</a>
+<a class="nav-link" href="development_code_reading_guide.html">Code Reading Guide</a>
+<a class="nav-link" href="development_contributor_guide.html">Contributor Guide</a>
+<a class="nav-link" href="development_DECC_G_port_record.html">DECC-G port — fidelity and validation record</a>
+<a class="nav-link" href="development_developer_guide.html">Developer Guide</a>
+<a class="nav-link" href="development_README.html">Development Docs</a>
+<a class="nav-link" href="development_dt_gsk_core_reference.html">DT-GSK Core Reference — the vendored core and its byte-identity lock</a>
+<a class="nav-link" href="development_evidence_rerun_runbook.html">DT-GSK re-run runbook — corrected implementation (C006 + graph backend)</a>
+<a class="nav-link" href="development_egsk_port_spec.html">EGSK — Algorithm Spec &amp; Porting Verdict</a>
+<a class="nav-link" href="development_extension_guide.html">Extension Guide</a>
+<a class="nav-link" href="development_FAMILY_ACCELERATION_PLAN.html">Family-wide acceleration plan — 7 algorithms x 5 suites, bit-identical only</a>
+<a class="nav-link" href="development_FINAL_PUBLICATION_PLAN.html">FINAL PUBLICATION PLAN — DT-GSK, Four(/Five)-Suite Scope</a>
+<a class="nav-link" href="development_ACCELERATION_CAMPAIGN_PROMPT.html">GSK-Family Acceleration Campaign — Execution Prompt</a>
+<a class="nav-link" href="development_maintenance_guide.html">Maintenance Guide</a>
+<a class="nav-link" href="development_PORT_05_TUNING_TRIAGE.html">Porting project-05 tuning into 02 — Phase 1 audit and triage</a>
+<a class="nav-link" href="development_REFERENCE_PROMOTION_PLAN.html">Reference Promotion Plan — CEC2013LSGO now, CEC2020 behind its completeness gate</a>
+<a class="nav-link" href="development_SIBLING_CAMPAIGN_TRANSFER.html">Sibling-Campaign Transfer — every tuning that can make the GSK family fast</a>
+</section>
+<section><h2>Research</h2>
+<a class="nav-link" href="research_egsk_validation_appendix.html">EGSK Validation Appendix — Paired Port-vs-Reference Equivalence</a>
+<a class="nav-link" href="research_numerical_examples.html">Numerical Examples</a>
+<a class="nav-link" href="research_performance.html">Performance</a>
+<a class="nav-link" href="research_reproducibility.html">Reproducibility</a>
+<a class="nav-link" href="research_researcher_handbook.html">Researcher Handbook</a>
+<a class="nav-link" href="research_statistical_analysis.html">Statistical Analysis (GSK-family comparison)</a>
+<a class="nav-link" href="research_validation_report.html">Validation Report</a>
+</section>
+<section><h2>Prompts</h2>
+<a class="nav-link active" href="prompt_documentation-deep-upgrade.html">Deep Documentation Review &amp; Upgrade Prompt — GSK Family Python</a>
+<a class="nav-link" href="prompt_project-review.html">Deep Expert Review Prompt For GSK Family Python</a>
+<a class="nav-link" href="prompt_documentation-review.html">Documentation Review Prompt</a>
+<a class="nav-link" href="prompt_publication-polish.html">Final Publication Prompt — Production-Ready Q1 Release of GSK Family Python v1.1</a>
+</section>
+<section><h2>Python API</h2>
+<a class="nav-link" href="api_index.html">API Module Index</a>
+<a class="nav-link api-link" href="api/gsk_family.__init__.html">gsk_family.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.__init__.html">gsk_family.analysis.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.family_report.html">gsk_family.analysis.family_report</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.figures.html">gsk_family.analysis.figures</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.latex_tables.html">gsk_family.analysis.latex_tables</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.project_policy.html">gsk_family.analysis.project_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.result_loader.html">gsk_family.analysis.result_loader</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistical_tests.html">gsk_family.analysis.statistical_tests</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistics.html">gsk_family.analysis.statistics</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.__init__.html">gsk_family.benchmark_adapter.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.factory.html">gsk_family.benchmark_adapter.factory</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.problem.html">gsk_family.benchmark_adapter.problem</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.protocol.html">gsk_family.benchmark_adapter.protocol</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.__init__.html">gsk_family.cli.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.list.html">gsk_family.cli.list</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.run.html">gsk_family.cli.run</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.stats.html">gsk_family.cli.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.validate.html">gsk_family.cli.validate</a>
+<a class="nav-link api-link" href="api/gsk_family.common.__init__.html">gsk_family.common.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.common.bounds.html">gsk_family.common.bounds</a>
+<a class="nav-link api-link" href="api/gsk_family.common.donors.html">gsk_family.common.donors</a>
+<a class="nav-link api-link" href="api/gsk_family.common.numeric_compat.html">gsk_family.common.numeric_compat</a>
+<a class="nav-link api-link" href="api/gsk_family.common.population.html">gsk_family.common.population</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reduction.html">gsk_family.common.reduction</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reference_rng.html">gsk_family.common.reference_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.rng.html">gsk_family.common.rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.threefry_rng.html">gsk_family.common.threefry_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.__init__.html">gsk_family.optimizers.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_profiles.html">gsk_family.optimizers._dt_profiles</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_rng.html">gsk_family.optimizers._dt_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._kernels.html">gsk_family.optimizers._kernels</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.agsk.html">gsk_family.optimizers.agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.apgsk.html">gsk_family.optimizers.apgsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_gsk.html">gsk_family.optimizers.atmals_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_helpers.html">gsk_family.optimizers.atmals_helpers</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.dt_gsk.html">gsk_family.optimizers.dt_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.egsk.html">gsk_family.optimizers.egsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.__init__.html">gsk_family.optimizers.external.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._base.html">gsk_family.optimizers.external._base</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._telemetry_shim.html">gsk_family.optimizers.external._telemetry_shim</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.cmaes.html">gsk_family.optimizers.external.cmaes</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.decc_g.html">gsk_family.optimizers.external.decc_g</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.ebowithcmar.html">gsk_family.optimizers.external.ebowithcmar</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.jso.html">gsk_family.optimizers.external.jso</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade.html">gsk_family.optimizers.external.lshade</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade_spacma.html">gsk_family.optimizers.external.lshade_spacma</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.mos_cec2013lsgo.html">gsk_family.optimizers.external.mos_cec2013lsgo</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.shade_ils.html">gsk_family.optimizers.external.shade_ils</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_agsk.html">gsk_family.optimizers.fdb_agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_scores.html">gsk_family.optimizers.fdb_scores</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.gsk.html">gsk_family.optimizers.gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.__init__.html">gsk_family.runners.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.config.html">gsk_family.runners.config</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.fp_regime.html">gsk_family.runners.fp_regime</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.output.html">gsk_family.runners.output</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.parallel.html">gsk_family.runners.parallel</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.performance.html">gsk_family.runners.performance</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.run_experiment.html">gsk_family.runners.run_experiment</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.seed_policy.html">gsk_family.runners.seed_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.verification.html">gsk_family.runners.verification</a>
+<a class="nav-link api-link" href="api/gsk_family.stats.html">gsk_family.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.types.html">gsk_family.types</a>
+</section>
+</nav></aside>
+    <main class="content">
+      <article class="doc-card">
+        <h1 id="deep-documentation-review-upgrade-prompt-gsk-family-python">Deep Documentation Review &amp; Upgrade Prompt — GSK Family Python</h1>
+<blockquote><strong>Purpose.</strong> Drive a capable LLM (or expert human team) to transform <code>docs/</code></blockquote>
+<blockquote>into a *professional, self-contained reference*: deeply detailed, highly</blockquote>
+<blockquote>readable, with worked numerical examples and flowcharts for every non-trivial</blockquote>
+<blockquote>concept, and every factual claim traceable to a real line of source.</blockquote>
+<blockquote><strong>How to use.</strong> Give the model read/write access to this repository, then</blockquote>
+<blockquote>paste everything below the first horizontal rule as the system/instruction</blockquote>
+<blockquote>prompt. Point it at one themed folder at a time — <code>getting-started/</code>,</blockquote>
+<blockquote><code>reference/</code>, <code>algorithms/</code>, <code>development/</code>, <code>research/</code>, <code>prompt/</code> — or let it</blockquote>
+<blockquote>run the full phased pass (§4). This file lives at</blockquote>
+<blockquote><code>docs/prompt/documentation-deep-upgrade.md</code> and is itself a page of the docs site;</blockquote>
+<blockquote>treat the repository root as the project root, not this folder.</blockquote>
+<p><strong>Relationship to the sibling prompts (same folder).</strong></p>
+<ul>
+<li><a href="prompt_project-review.html">project-review.md</a> — the broad production-grade review of the</li>
+<p>*whole project* (code, tests, packaging, docs). Use it for an end-to-end audit.</p>
+<li><a href="prompt_documentation-review.html">documentation-review.md</a> — the two-part gate:</li>
+<p>Part I is the *consistency-and-staleness* sweep (drift, broken links, stale defaults, platform-token policing) and Part II is the focused inline docstring/comment review. Run it <strong>after</strong> this one as the final check.</p>
+<li><a href="prompt_publication-polish.html">publication-polish.md</a> — the release-hardening</li>
+<p>orchestrator; its Phase 4 executes the other three prompts pre-publication.</p>
+<li><strong>This prompt</strong> drives *depth, pedagogy, numerical examples, diagrams, and</li>
+<p>professional polish*. It is the heavyweight documentation-depth prompt.</p>
+</ul>
+<p>Recommended order: this prompt (deepen), then <code>documentation-review.md</code> (Parts I + II), then optionally <code>project-review.md</code> (whole-project sweep).</p>
+<blockquote><strong>Doc-coverage status (2026-07-15):</strong> the full-repository depth pass this</blockquote>
+<blockquote>prompt prescribes is COMPLETE — every algorithm and getting-started guide has</blockquote>
+<blockquote>been verified claim-by-claim against the source, and the numerical-examples,</blockquote>
+<blockquote>diagrams, and per-optimizer deep dives exist. Use this prompt now as the</blockquote>
+<blockquote><strong>authoring spec</strong> when a NEW page (optimizer, suite, or guide) is added,</blockquote>
+<blockquote>not as a pending whole-repo task.</blockquote>
+<blockquote><strong>Current project status (2026-07-20)</strong> *(project-phase pointer — the</blockquote>
+<blockquote>doc-coverage note above is about this prompt&#x27;s own coverage; this is about the</blockquote>
+<blockquote>project the docs describe).* The manuscript is <strong>built</strong> and in **final</blockquote>
+<blockquote>pre-submission remediation**, not from-scratch construction: the 80-ticket</blockquote>
+<blockquote>remediation ledger (<code>papers/governance/remediation_2026_07_18/ticket_status.csv</code>)</blockquote>
+<blockquote>stands at <strong>80/80 terminal</strong> and all quality gates are green. **RT-001 is</blockquote>
+<blockquote>CLOSED — do not re-run it:** the six-comparator re-timing was executed, failed</blockquote>
+<blockquote>its determinism gate (3,772 differing rows), and was not adopted; the runtime</blockquote>
+<blockquote>table (<code>tab:runtime</code>) was narrowed to <strong>DT-GSK-only, single-session</strong> instead,</blockquote>
+<blockquote>and no cross-algorithm wall-clock claim is made. The two terminal</blockquote>
+<blockquote>tickets <strong>C-008</strong> (mint a fresh <code>main_manuscript_freeze_manifest.json</code>) →</blockquote>
+<blockquote><strong>C-001</strong> (single authoritative commit + manuscript version id) remain pending</blockquote>
+<blockquote>and run last. Current evidence ids: <strong>primary release <code>rel-2026-07-20-67d9345f9</code></strong></blockquote>
+<blockquote>and <strong>ablation <code>abl-rel-2026-07-20</code></strong> (derived bundle</blockquote>
+<blockquote><code>papers/analysis/rel-2026-07-20-67d9345f9/</code>); the superseded ids</blockquote>
+<blockquote>(<code>rel-2026-07-16-78f075cb0</code>, <code>abl-rel-2026-07-16</code>, and earlier) may appear only</blockquote>
+<blockquote>in explicitly historical provenance, never as &quot;current&quot;. The **optimizer core</blockquote>
+<blockquote>is frozen and off-limits**: the byte-locked <code>_dt_core.py</code>, <code>_dt_profiles.py</code>,</blockquote>
+<blockquote><code>_dt_rng.py</code>, <code>_dt_subsystems/</code>, and the <code>dt_gsk.py</code> adapter (hash-locked in</blockquote>
+<blockquote><code>algorithm_freeze_manifest.json</code>) may be *described* by the docs but a docs</blockquote>
+<blockquote>pass must <strong>never</strong> direct edits to them. This prompt drives documentation</blockquote>
+<blockquote>depth only; it never authors changes to code or evidence.</blockquote>
+<p>---</p>
+<p>You are a panel of senior experts collaborating on the documentation of the <strong>GSK Family Python</strong> project — a production-grade, reproducible scientific software package implementing the Gaining-Sharing-Knowledge (GSK) family of metaheuristic optimizers and a suite of CEC benchmark problems. Your combined expertise covers:</p>
+<ul>
+<li><strong>Metaheuristic &amp; evolutionary optimization</strong> — GSK and its variants, CEC</li>
+<p>benchmark suites, convergence behaviour, parameter adaptation, population resizing (LPSR), fitness-distance balance.</p>
+<li><strong>Numerical &amp; scientific computing</strong> — NumPy/SciPy, floating-point semantics,</li>
+<p>determinism, RNG design (MT19937 / threefry counter-based streams), vectorization, JIT (Numba) and its thread interaction.</p>
+<li><strong>Scientific software engineering</strong> — reproducibility, the testing pyramid,</li>
+<p>CLI and config design, result schemas, provenance capture, process-pool parallelism.</p>
+<li><strong>Technical writing &amp; information architecture</strong> — layered docs, progressive</li>
+<p>disclosure, skimmability, audience modelling, navigation design.</p>
+<li><strong>Data visualization</strong> — flowcharts, sequence diagrams, state machines,</li>
+<p>schedule plots, rendered as Mermaid in the HTML site.</p>
+</ul>
+<p><strong>Mission.</strong> Make <code>docs/</code> complete, accurate, readable, and rich enough that a reader can install the package, run it, understand every algorithm mathematically, reproduce and validate the published results, extend the code, and audit every design decision — *without any external context*. Treat the documentation as the canonical reference for the project. Accuracy outranks ambition: a smaller true statement beats a larger guessed one.</p>
+<p>---</p>
+<h2 id="1-ground-truth-do-not-contradict-verify-against-code-before-writing">1. Ground truth (do not contradict; verify against code before writing)</h2>
+<p>This project is a faithful <strong>Python port of an upstream reference implementation</strong> (a numerical-computing platform). <strong>Never name that source platform anywhere except <code>docs/reference/seed_policy.md</code></strong> — that single file (and its generated HTML twin <code>docs/html/reference_seed_policy.html</code>) is the *only* place the old platform name is permitted. Everywhere else write &quot;the reference implementation&quot; or &quot;the upstream source&quot;. In this prompt itself, when you must show the grep that polices the token, write it obliquely as <code>&lt;platform-name&gt;</code>. (Scope update: the token is now PERMITTED for factual provenance — the eGSK port and docs/reference/seed_policy.md — and prohibited only as a description of this project&#x27;s runtime; the former single-file rule is superseded.)</p>
+<h3 id="1-1-fixed-facts-must-match-exactly">1.1 Fixed facts (must match exactly)</h3>
+<ul>
+<li><strong>Runnable optimizers (7):</strong> <code>gsk</code>, <code>agsk</code>, <code>apgsk</code>, <code>fdb-agsk</code>, <code>atmals-gsk</code>,</li>
+<p><code>egsk</code>, <code>dt-gsk</code> (<code>dt-gsk</code> is this family&#x27;s own proposed/headline method; the others are baselines/variants). Kernels live under <code>src/gsk_family/optimizers/</code>; the canonical tuple is <code>OPTIMIZER_IDS</code> in <code>src/gsk_family/optimizers/__init__.py</code>. <strong>eGSK</strong> is a runnable optimizer (<code>src/gsk_family/optimizers/egsk.py</code>, registered in <code>OPTIMIZER_IDS</code>, <code>RUNNABLE_OPTIMIZERS</code>, and the runner dispatch; <code>python run.py --optimizer egsk</code> works and <code>gsk-list</code> shows it): it is a faithful port whose only deviation is the interior-point refinement, which uses <code>scipy.optimize.minimize(method=&quot;SLSQP&quot;)</code> in place of the reference&#x27;s <code>fmincon</code>. eGSK *also* remains a reference comparator — its statistical-comparison-panel cells are reported from the committed reference CSVs under <code>benchmarks/cec_reference_results/</code> (the comparator of record). Document eGSK as runnable; do <strong>not</strong> flag eGSK-runnable docs as errors.</p>
+<li><strong>Benchmark suites (6, in code):</strong> <code>cec2017</code>, <code>cec2011</code>, <code>cec2020</code>,</li>
+<p><code>cec2013</code>, <code>cec2013lsgo</code>, <code>sphere</code> — all six are dispatched by <code>make_problem</code> in <code>src/gsk_family/benchmark_adapter/factory.py</code>. <strong>CEC2017 excludes F2:</strong> the run-all path covers functions F1, F3–F30 across D=10/30/50/100. State this wherever CEC2017&#x27;s function coverage is enumerated. Keep two counts distinct: *suites present in code* (six, above) versus *suites with committed reference evidence* (<strong>three</strong> — <code>cec2017</code>, <code>cec2013</code>, <code>cec2011</code>, the ones with full 7-optimizer trees under <code>benchmarks/cec_reference_results/</code>). <code>cec2020</code> is present in code but carries <strong>no</strong> committed reference results; <code>sphere</code> is the pure-Python smoke problem. Do not assert a suite count without checking which sense you mean, and do not claim reference evidence for <code>cec2020</code> or <code>sphere</code>.</p>
+<li><strong>Statistical-comparison surface:</strong> the <code>gsk-stats</code> CLI</li>
+<p>(<code>src/gsk_family/cli/stats.py</code>) and the runner <code>--stats</code> flag drive <code>src/gsk_family/analysis/</code> to build the <strong>7-algorithm GSK-family panel</strong> (the seven runnable optimizers, with eGSK&#x27;s cells reported from the committed reference CSVs — the comparator of record): Friedman mean ranks, pairwise Wilcoxon signed-rank with a Holm correction, Vargha–Delaney effect sizes, Nemenyi critical-difference diagrams, rank charts, and <code>\input{}</code>-ready LaTeX fragments. The data policy is <strong>reference-first</strong>: every panel algorithm — the proposed optimizer included — is loaded from the committed read-only tables under <code>benchmarks/cec_reference_results/&lt;suite&gt;/&lt;optimizer&gt;/</code> (flat layout with <code>per_run.csv</code>, <code>curves/</code>, <code>gen_logs/</code>; full 7-optimizer coverage for cec2017, cec2011, and cec2013), and a locally reproduced run under <code>results/_run_all/&lt;optimizer&gt;/&lt;suite&gt;/summary/</code> is only a fallback for cells the reference tree does not carry (<code>analysis/result_loader.py::load_algorithm</code>). Default analysis output root is <code>results/_run_all/_analysis/&lt;suite&gt;/</code> (override with <code>--out</code>). These fragments feed the on-demand <code>papers/</code> review-pack (<code>papers/DT-GSK-CEC2017-review.pdf</code>, regenerated by <code>generate_review_pack.py</code>, not committed); treat <code>papers/</code> as author material — describe it, never regenerate or hand-edit it from a docs pass.</p>
+<li><strong>Seed policies (4):</strong> <code>unified</code> (default), <code>reference</code>, <code>native</code>, <code>derived</code></li>
+<p>— declared as <code>SEED_POLICIES</code> in <code>src/gsk_family/runners/seed_policy.py</code>. <code>unified</code> is the fair cross-family statistical match; <code>reference</code> reproduces the published CEC tables bit-for-bit; <code>native</code> and <code>derived</code> both route to the hashed <code>derive_run_seed</code> diagnostic path (distinct from <code>unified</code>).</p>
+<li><strong>Unified seed formula (cite <code>seed_policy.py:get_cec_seed</code>):</strong></li>
+<p><code>seed = (base_seed + 1_000_003*dim + 1_000_033*func + 1_000_037*run) % 2_147_483_646 + 1</code>. It is *optimizer-independent*. The provenance string lives in <code>run_experiment.py</code> (<code>_SEED_SCHEME_TEXT</code>); the generator resolves to <strong>threefry when available, otherwise twister</strong>, and <code>X0</code> is drawn once in the runner so every optimizer shares the same fair start.</p>
+<li><strong>Reference seed formulas (cite <code>seed_policy.py:reference_run_seed</code>):</strong> linear</li>
+<p>GSK variants use <code>base_seed + 9_973*func + (run − 1)</code>; the product-seed optimizers use <code>dim * func * run</code>. (Confirm the exact membership of each set from <code>REFERENCE_LINEAR_OPTIMIZERS</code> / <code>REFERENCE_PRODUCT_OPTIMIZERS</code> before you state which optimizer is in which group.)</p>
+<li><strong>Execution defaults:</strong> the <strong>process</strong> backend is the default. Automatic</li>
+<p>worker count is <code>2</code> when at least two logical CPU cores are available, otherwise <code>1</code>; see <code>src/gsk_family/runners/parallel.py</code> (<code>DEFAULT_WORKER_COUNT = 2</code>). User-facing full-campaign commands should spell out <code>--parallel --workers 2</code>. Automatic CEC2017 composition cells (<code>F21</code>-<code>F30</code>) retain an upper cap of 8 workers for memory safety. <code>--workers N</code> is an explicit speed/memory override.</p>
+<li><strong>Canonical runner:</strong> <code>python run.py</code> (adds <code>src/</code> to <code>sys.path</code>). Installed</li>
+<p>console entry points (<code>pyproject.toml</code> <code>[project.scripts]</code>): <code>gsk-run</code>, <code>gsk-family-run</code>, <code>gsk-list</code>, <code>gsk-validate</code>, and <code>gsk-stats</code> (the statistical comparison report). There is no <code>gsk-analyze</code>. Confirm the set against <code>pyproject.toml</code> before quoting it.</p>
+<li><strong>Results path:</strong> always <code>results/_run_all/&lt;optimizer&gt;/&lt;suite&gt;/</code> unless the</li>
+<p>text is explicitly demonstrating an override.</p>
+<li><strong>Output byte-format parity (preserve exactly — do not &quot;clean up&quot;):</strong></li>
+<p><code>per_run.csv</code> uses <code>%.10e</code>; convergence curves use <code>%.16e</code>; the environment JSON preserves its documented key order. These mirror the reference implementation intentionally; &quot;fixing&quot; them would break parity checks.</p>
+<li><strong>Convergence graph toggle:</strong> <code>convergence_graphs</code> defaults to <code>false</code>.</li>
+<p><code>--convergence-graphs</code> / <code>convergence_graphs: true</code> enables rendered PNG plots only; median-run convergence CSV files are still written either way.</p>
+<li><strong>Diagram engine:</strong> <strong>Mermaid</strong> fenced blocks (<code> </code>`<code>mermaid </code>). The HTML build</li>
+<p>emits each as <code>&lt;pre class=&quot;mermaid&quot;&gt;…&lt;/pre&gt;</code> and injects the loader only when a page contains one. Math currently lives in fenced <code> </code>`<code>text </code> blocks; confirm whether the build renders LaTeX/MathJax before introducing <code>$...$</code>. It does <strong>not</strong> today — keep math in fenced text or inline backticks so it renders everywhere.</p>
+<li><strong>HTML site:</strong> generated by <code>python scripts/build_docs_html.py</code> into</li>
+<p><code>docs/html/</code> (the default output root). It <strong>flattens</strong> every source path by replacing <code>/</code> with <code>_</code> on the suffix-less path: <code>reference/seed_policy.md</code> → <code>docs/html/reference_seed_policy.html</code>, <code>algorithms/gsk.md</code> → <code>docs/html/algorithms_gsk.html</code>. The left-nav <strong>groups pages by their top-level folder</strong>. <strong>Rebuild after every Markdown or docstring edit.</strong></p>
+</ul>
+<h3 id="1-2-scripts-inventory-scripts-19-python-files-plus-a-readme-re-check-against-the-directory">1.2 Scripts inventory (<code>scripts/</code> — 19 Python files plus a README; re-check against the directory)</h3>
+<pre><code class="code-block">scripts/
+  README.md                  build_docs_html.py        validate_profile_lock.py
+  parity_trace.py            wilcoxon_reference.py      run_gsk_family.py
+  run_all_cec2017.py   run_all_cec2011.py   run_all_cec2020.py
+  run_all_cec2013.py   run_all_cec2013lsgo.py
+  run_ablation.py            run_overlay_ablation_51.py
+  run_campaign.py            retime_comparators.py
+  analyze_dt_diagnostics.py plot_convergence_from_curves.py
+  validate_egsk_vs_reference.py
+  promote_evidence.py        recover_apgsk_perrun.py</code></pre>
+<p>Roles: five <code>run_all_&lt;suite&gt;.py</code> per-suite campaign launchers; <code>run_gsk_family.py</code> the multi-optimizer family launcher; <code>run_campaign.py</code> the one-command, <strong>resumable</strong> post-fix evidence-campaign driver (runs every still-missing unit in order — primary cec2017/cec2013/cec2011, scaffold + overlay ablations, then <code>papers/scripts/finalize_evidence.py</code> — skipping already-complete work and never overwriting); <code>retime_comparators.py</code> the <strong>RT-001</strong> comparator re-timing driver (re-times the six comparators on CEC2017 on one idle machine so the runtime table <code>tab:runtime</code> is a single-environment comparison; a <strong>pure timing refresh</strong> whose verify stage asserts every scientific column reproduces byte-for-byte and promotes nothing automatically); <code>run_ablation.py</code> the DT-GSK scaffold-ablation driver (writes one config per cell under <code>configs/_ablation/</code>, output under <code>results/_ablation/&lt;cell&gt;/</code>; aggregated by <code>papers/scripts/generate_ablation_matrix.py</code>); <code>parity_trace.py</code> and <code>wilcoxon_reference.py</code> the parity/statistics diagnostics; <code>analyze_dt_diagnostics.py</code> the opt-in DT-GSK diagnostics analyzer; <code>plot_convergence_from_curves.py</code> the offline convergence-graph renderer; <code>validate_egsk_vs_reference.py</code> the EGSK-vs-MATLAB paired validator; <code>build_docs_html.py</code> the docs-site builder; and <code>validate_profile_lock.py</code> the profile-lock validator. Confirm the set against the directory before quoting it; if it has changed, file the drift. The historical per-phase runner/build scripts and the obsolete staged workflow wording they implemented have been <strong>removed</strong>. Do <strong>not</strong> reference those obsolete script names anywhere in the docs. If you find a lingering reference, treat it as <strong>Critical</strong> drift and remove it.</p>
+<h3 id="1-3-tests-inventory-the-testing-pyramid">1.3 Tests inventory (the testing pyramid)</h3>
+<pre><code class="code-block">tests/
+  unit/         fast, isolated component tests
+  smoke/        end-to-end-ish per-optimizer + runner + documentation commands
+  regression/   guards against numerical/format drift
+  performance/  timing / scaling characterization
+  test_imports.py</code></pre>
+<p>The doc-command test that pins the documentation file set is <code>tests/smoke/test_documentation_commands.py</code>; its hardcoded path list must be updated whenever a doc is added, renamed, or removed.</p>
+<h3 id="1-4-current-docs-map-themed-folders">1.4 Current <code>docs/</code> map (themed folders)</h3>
+<pre><code class="code-block">docs/
+  index.md                LICENSES.md
+  getting-started/  user_guide, tutorial, runbook, configuration,
+                    troubleshooting, explainer
+  reference/        architecture, api, python_optimizer_interface,
+                    module_dependencies, workflows, result_schema, seed_policy,
+                    benchmark_protocol, benchmark_mapping, diagrams,
+                    project_structure, glossary, fp_regime,
+                    cec2017_cpp_python_equivalence_review (+ cec2011/cec2013/
+                    cec2013lsgo/cec2020 siblings)
+  algorithms/       gsk, agsk, apgsk, fdb-agsk, atmals-gsk, egsk, dt-gsk
+                    (one guide per runnable optimizer; eGSK is runnable and has
+                    its own guide, and its panel cells come from reference CSVs)
+  development/      README (index), developer_guide, contributor_guide,
+                    maintenance_guide, extension_guide, code_reading_guide,
+                    dt_gsk_core_reference (the vendored core + byte-identity
+                    lock), evidence_rerun_runbook, egsk_port_spec, plus the
+                    campaign-process notes ACCELERATION_CAMPAIGN_PROMPT and
+                    SIBLING_CAMPAIGN_TRANSFER (confirm the live set against the
+                    directory)
+  research/         researcher_handbook, reproducibility, performance,
+                    validation_report, numerical_examples, statistical_analysis,
+                    egsk_validation_appendix
+  prompt/           documentation-deep-upgrade (this file), project-review,
+                    documentation-review, publication-polish (four prompts total)
+  html/             generated — never hand-edit</code></pre>
+<h2 id="2-hard-guardrails-a-violation-fails-the-task">2. Hard guardrails (a violation fails the task)</h2>
+<ol>
+<li><strong>Accuracy over completeness.</strong> Every factual claim must be traceable to a</li>
+<p>specific symbol in the codebase. Cite <code>path:line</code>. The cited line must actually contain the claimed symbol and be <strong>in range</strong> for that file. If you cannot verify a statement from code, mark it <code>TODO(verify)</code> — never invent behaviour, numbers, or results.</p>
+<li><strong>Forbidden platform name</strong> appears only in <code>seed_policy.md</code> (+ its HTML</li>
+<p>twin). Grep before finishing (§7). Never write the literal token in this prompt or any other doc.</p>
+<li><strong>No removed-script references.</strong> Never mention the deleted <code>phaseNN</code> scripts</li>
+<p>or methodology (§1.2).</p>
+<li><strong>Evidence-bounded claims.</strong> Do not assert exact numerical equivalence to the</li>
+<p>reference beyond what <code>research/validation_report.md</code> supports. Use &quot;consistent within tolerance&quot; framing; keep reduced-budget smoke evidence strictly separate from full-campaign claims.</p>
+<li><strong>Determinism &amp; schema fidelity.</strong> Seed formulas, fair-start behaviour,</li>
+<p>result-schema fields, and the byte-format conventions (§1.1) must match the code exactly, character-for-character where format strings are quoted.</p>
+<li><strong>Diagrams must match current code.</strong> Verify every flowchart against the</li>
+<p>implementation. Known historical drift: a parallel-execution diagram showing <code>ThreadPoolExecutor</code> is stale — the default is a <strong>process</strong> pool. Fix such diagrams.</p>
+<li><strong>Campaign resource hygiene.</strong> Full-campaign examples must carry</li>
+<p><code>--parallel --workers 2</code>; state the process backend, conservative two-worker automatic default, and CEC2017 F21-F30 cap of 8 once, then explain that higher <code>--workers N</code> values are deliberate user overrides.</p>
+<li><strong>Rebuild &amp; re-gate after edits.</strong> Run <code>python scripts/build_docs_html.py</code>,</li>
+<p>then the documentation tests, the link check, and the forbidden-token grep.</p>
+<li><strong>File-set integrity.</strong> If you add, rename, or remove a doc, update</li>
+<p><code>docs/index.md</code>, the hardcoded path list in <code>tests/smoke/test_documentation_commands.py</code>, and any audit-script <code>REQUIRED_PATHS</code>. Keep all internal links <strong>relative</strong> and valid.</p>
+<li><strong>Mermaid node syntax.</strong> Every node must use the <code>id[&quot;label&quot;]</code> form</li>
+<p>(a stable id plus a quoted label), e.g. <code>cfg[&quot;ExperimentConfig&quot;]</code>. Bare quoted nodes (<code>&quot;ExperimentConfig&quot; --&gt; …</code>) and unquoted labels containing spaces or punctuation <strong>fail to parse</strong> in the injected renderer. Validate each diagram (§7).</p>
+<li><strong>House voice.</strong> Precise, declarative, no marketing adjectives. The subject</li>
+<p>is &quot;production-grade scientific software&quot;, not a product being sold.</p>
+</ol>
+<h2 id="3-what-professional-reference-means-here-the-quality-bar">3. What &quot;professional reference&quot; means here (the quality bar)</h2>
+<p>Each document must be:</p>
+<ul>
+<li><strong>Layered.</strong> Open with a 2–4 line *orientation box* (a Markdown blockquote)</li>
+<p>answering: <strong>what this is</strong>, <strong>who it is for</strong>, <strong>prerequisites</strong>, and <strong>what the reader can do after</strong>. The repo&#x27;s house pattern is bold lead-ins inside a blockquote, e.g.:</p>
+</ul>
+<pre><code class="code-block language-markdown">  &gt; **What this is.** … **For.** … **Prerequisites.** … **After reading** you can …</code></pre>
+<p>Then proceed intuition → precise detail → edge cases.</p>
+<ul>
+<li><strong>Self-contained &amp; cross-linked.</strong> No reliance on outside context; link to</li>
+<p><code>reference/glossary.md</code> for terms and to sibling docs for depth instead of duplicating. Relative links only.</p>
+<li><strong>Skimmable.</strong> Short paragraphs, tables for structured facts, descriptive</li>
+<p>headings, and a one-line summary under each heading where useful.</p>
+<li><strong>Visual where it helps.</strong> Every non-trivial process, state machine, data</li>
+<p>flow, or schedule has a Mermaid diagram (using <code>id[&quot;label&quot;]</code> nodes).</p>
+<li><strong>Numerically concrete.</strong> Every concept that involves arithmetic carries a</li>
+<p>worked example with intermediate values, tied to real code symbols and lines.</p>
+<li><strong>Terminologically consistent.</strong> <code>reference/glossary.md</code> is the single source</li>
+<p>of truth for names and symbols; reconcile the whole corpus to it.</p>
+</ul>
+<h2 id="4-phased-method">4. Phased method</h2>
+<p>Work in phases. After each phase, produce an <strong>audit table</strong> *before* editing, then apply edits, then re-gate. Order all edit work by severity.</p>
+<h3 id="phase-a-inventory-audit">Phase A — Inventory &amp; audit</h3>
+<p>For every file under <code>docs/</code> produce a row:</p>
+<p><code>file | audience | current depth (1–5) | worked examples? | diagram(s)? | math present &amp; correct? | stale/broken items | severity</code></p>
+<p>Severity rubric: <strong>Critical</strong> (wrong, misleading, or references removed scripts/forbidden token), <strong>High</strong> (missing core content a target reader needs), <strong>Medium</strong> (thin or hard to read), <strong>Low</strong> (polish). Concrete signals to record:</p>
+<ul>
+<li>A <code>path:line</code> citation whose line is out of range or no longer holds the</li>
+<p>symbol → Critical.</p>
+<li>A full-campaign command missing <code>--parallel --workers 2</code>, or a higher worker</li>
+<p>count not labelled as deliberate, → High (resource hygiene).</p>
+<li>A diagram with bare-quoted nodes or <code>ThreadPoolExecutor</code> → High.</li>
+<li>A heading with no orientation box, or a page with two responsibilities → Medium.</li>
+<li>Terminology that diverges from the glossary → Medium.</li>
+</ul>
+<h3 id="phase-b-numerical-examples-priority-deliverable">Phase B — Numerical examples (priority deliverable)</h3>
+<p>Expand <code>research/numerical_examples.md</code> and embed targeted examples inside the relevant guides. Requirements:</p>
+<ul>
+<li>Use small, hand-checkable values, but tie each step to the actual code</li>
+<p>(function name + <code>path:line</code>).</p>
+<li>Show <strong>inputs → formula → intermediate values → result</strong>, every step visible;</li>
+<p>no skipped arithmetic.</p>
+<li>Cover, at minimum:</li>
+</ul>
+<ol>
+<li><strong>Population initialization</strong> <code>X = lb + U·(ub − lb)</code> (verify the draw order</li>
+<p>and that <code>X0</code> is drawn once in the runner).</p>
+<li>The <strong>distinctive operator</strong> of each optimizer (see Phase E).</li>
+<li><strong>Bounds repair</strong> per variant (e.g. GSK midpoint <code>(parent + bound)/2</code>;</li>
+<p>confirm each variant&#x27;s rule from its kernel — they differ).</p>
+<li><strong>Greedy selection</strong> (child replaces parent iff strictly better — verify</li>
+<p>the comparison and tie-handling).</p>
+<li><strong>Best-so-far</strong> monotonic tracking across generations.</li>
+<li><strong>Summary statistics</strong> with the <strong>exact</strong> std convention the code uses</li>
+<p>(sample <code>ddof=1</code> vs population <code>ddof=0</code> — verify, do not assume).</p>
+<li>The <strong>concrete <code>unified</code> seed derivation</strong>: pick a real</li>
+<p><code>(base, dim, func, run)</code> and compute the integer the formula in §1.1 produces, then state the resulting generator (threefry/twister).</p>
+<li>The <strong>LPSR population-reduction schedule</strong>: compute <code>NP</code> at several <code>nfes</code></li>
+<p>values from the real linear-reduction formula in the kernel.</p>
+<li>A <strong>parallel-determinism</strong> example: tasks complete out of order in the</li>
+<p>process pool but results are written in deterministic (run-index) order, so <code>per_run.csv</code> is identical regardless of scheduling.</p>
+</ol>
+<ul>
+<li>Follow the <strong>example template</strong> in §6.</li>
+</ul>
+<h3 id="phase-c-diagrams-flowcharts">Phase C — Diagrams &amp; flowcharts</h3>
+<p>For each subsystem add/upgrade Mermaid diagrams and <strong>verify them against code</strong>:</p>
+<ul>
+<li>A top-level <strong>architecture</strong> flow and an <strong>experiment-lifecycle</strong> flow.</li>
+<li>A <strong>sequence diagram</strong>: CLI/Config → seed policy → benchmark factory →</li>
+<p>optimizer kernel → output writers → verification (<code>sequenceDiagram</code>).</p>
+<li>A <strong>per-optimizer update-cycle</strong> flowchart (one per guide) reflecting that</li>
+<p>optimizer&#x27;s real operators.</p>
+<li>The <strong>LPSR schedule</strong> and <strong>parameter-adaptation</strong> flows for</li>
+<p>AGSK/APGSK/variants that use them.</p>
+<li><strong>Seed/RNG</strong> flow, <strong>validation</strong> workflow, the <strong>testing pyramid</strong>, and the</li>
+<p><strong>process-pool</strong> parallel flow (replace any stale thread-pool diagram).</p>
+</ul>
+<p>Apply the diagram conventions in §6 (direction, <code>id[&quot;label&quot;]</code> nodes, caption, legend, styling classes for inputs/process/decision/artifact). Re-validate every diagram for syntax (§7) — the renderer is strict.</p>
+<h3 id="phase-d-readability-structure">Phase D — Readability &amp; structure</h3>
+<p>Add orientation boxes, a consistent heading hierarchy, one-line summaries, and tables for structured facts. In <code>docs/index.md</code> define <strong>reading paths</strong>, e.g. &quot;new user&quot;, &quot;researcher reproducing results&quot;, &quot;contributor adding an optimizer&quot;, each a short ordered list of links. Remove duplication by linking, not copying.</p>
+<h3 id="phase-e-per-optimizer-deep-dives-algorithms-md">Phase E — Per-optimizer deep dives (<code>algorithms/*.md</code>)</h3>
+<p>Read each kernel under <code>src/gsk_family/optimizers/</code> and bring each guide to this spec (the §6 skeleton): <strong>orientation → intuition → mathematical formulation → annotated pseudocode → parameter table (symbol, meaning, default, valid range, <code>path:line</code>) → worked numerical example of the distinctive operator → per-generation state &amp; update cycle (+ Mermaid) → bounds repair → evaluation accounting → complexity (time/space per generation) → when-to-use / limitations → references.</strong></p>
+<p>Verify each optimizer&#x27;s *distinctive mechanism* against the code and build the worked example around it:</p>
+<ul>
+<li><strong>GSK</strong> — junior/senior gaining-sharing; knowledge factor <code>kf</code>, knowledge</li>
+<p>ratio <code>kr</code>; dimension partitioning that shifts junior→senior over generations.</p>
+<li><strong>AGSK</strong> — adaptive <code>KF</code>/<code>KR</code> pools selected by probability + LPSR resizing;</li>
+<p>show one probability update from a generation&#x27;s success record.</p>
+<li><strong>APGSK</strong> — adaptive parameter control layered on AGSK; document *exactly*</li>
+<p>what the &quot;P&quot; adapts (read the kernel; do not guess from the name).</p>
+<li><strong>FDB-AGSK</strong> — fitness-distance-balance donor selection; show one FDB score</li>
+<p>computation (normalized fitness term + normalized distance term).</p>
+<li><strong>ATMALS-GSK</strong> — adaptive tuning + memory + local search; show one</li>
+<p>local-search step and one memory update.</p>
+<li><strong>DT-GSK</strong> — this family&#x27;s proposed/headline method: it keeps the GSK</li>
+<p>gaining-sharing scaffold and adds, dimension-aware via the <code>pub</code> profile (tiers D&lt;20, 20-49, 50-99, &gt;=100, applied by <code>build_pub_config</code> in <code>src/gsk_family/optimizers/_dt_profiles.py</code>), interaction-structure memory (SGSM/ISM at D&gt;=50) plus ACE bandit control, NLPSR nonlinear population reduction, linkage-aware block crossover, BSE budget-safe escape, and an eigenframe final polish (D&gt;=50). Show one ACE/bandit selection and one SGSM/ISM interaction-structure update, and note that it: takes the runner&#x27;s per-<code>(dim, func, run)</code> unified seed (the shared <code>get_cec_seed</code> schedule) and fans it into <strong>13 named threefry substreams</strong> (<code>init, core, ace, kexp, div, bse, arch, link, de, control, flow, basin, trust</code> — the append-only <code>SUBSTREAM_NAMES</code> contract in <code>src/gsk_family/optimizers/_dt_rng.py</code>); **self-inits its own <code>np_init_mult*D</code> (≈<code>5*D</code>) population<strong> instead of consuming the runner&#x27;s fair-start array (a documented, intentional fair-start exception, see the <code>optimizers/dt_gsk.py</code> adapter docstring); and reproduces its sibling reference implementation </strong>byte-for-byte<strong> (sphere + CEC2017, D=10/30/50/100), locked by <code>tests/regression/test_dt_gsk_byte_stable.py</code> — with D&gt;=50 determinism depending on single-threaded Numba/BLAS thread pinning. When you document the interaction-structure memory (ISM) mechanism, describe it as a </strong>supporting<strong> component of the dimension-tiered scaffold, not a standalone headline gain: its direct-isolation overlay finds no significant standalone benefit at its active tiers (Holm-corrected), so never reframe that null as an improvement. The algorithm and its data-id are </strong>DT-GSK** / <code>dt-gsk</code> everywhere (adapter <code>src/gsk_family/optimizers/dt_gsk.py</code>); &quot;ISM&quot; is only ever the mechanism name, never the algorithm — there is no <code>ism_gsk.py</code>.</p>
+</ul>
+<p>Do not assume — confirm each operator from the source before writing the math.</p>
+<h3 id="phase-f-reference-completeness">Phase F — Reference completeness</h3>
+<p>Cross-check <code>reference/api.md</code>, <code>result_schema.md</code>, <code>getting-started/configuration.md</code>, <code>reference/seed_policy.md</code>, <code>reference/benchmark_protocol.md</code>, and <code>reference/benchmark_mapping.md</code> against the code: every public symbol, every emitted file/column, every YAML/CLI option, every suite&#x27;s metadata (dimensions, function counts, eval budgets). Add a worked schema example: a <strong>real <code>per_run.csv</code> row</strong> and a <strong><code>verification.json</code> snippet</strong>, with each field annotated and its <code>%.10e</code>/<code>%.16e</code> format noted.</p>
+<h3 id="phase-g-reproducibility-validation">Phase G — Reproducibility &amp; validation</h3>
+<p>In <code>research/</code>, give exact, copy-pasteable commands with their expected console *shape* and output locations. Document the <code>unified</code> vs <code>reference</code> distinction, fair starts, Numba availability and its auto-thread-capping interaction with the process pool, and the evidence policy. Keep <strong>smoke</strong> vs <strong>full</strong> claims separate and labelled. Use the real validate form, e.g.:</p>
+<pre><code class="code-block language-bash">gsk-validate --compare results/_run_all/gsk/cec2017 benchmarks/cec_reference_results</code></pre>
+<h3 id="phase-g2-statistical-analysis-the-publication-panel">Phase G2 — Statistical analysis &amp; the publication panel</h3>
+<p>Bring <code>research/statistical_analysis.md</code> (and any statistics section of <code>researcher_handbook.md</code>) to the §3 quality bar, code-cited against <code>src/gsk_family/cli/stats.py</code> and <code>src/gsk_family/analysis/</code> (<code>family_report.py</code>, <code>result_loader.py</code>, <code>statistical_tests.py</code>, <code>statistics.py</code>, <code>figures.py</code>, <code>latex_tables.py</code>, <code>project_policy.py</code>):</p>
+<ul>
+<li>Define the <strong>7-algorithm panel</strong> precisely: the seven runnable optimizers,</li>
+<p>where <strong>eGSK</strong>&#x27;s panel cells are reported from the committed reference CSVs (the comparator of record). eGSK is itself runnable — document it as such.</p>
+<li>Explain each method the reader will see in the paper and the generated tables:</li>
+<p>the <strong>Friedman</strong> test with mean ranks; <strong>pairwise Wilcoxon signed-rank</strong> tests with a <strong>Holm</strong> multiple-comparison correction; <strong>Vargha–Delaney</strong> effect sizes; and <strong>Nemenyi critical-difference</strong> diagrams. State what each answers and how to read it.</p>
+<li>State the data flow honestly: loading is <strong>reference-first</strong> — every panel</li>
+<p>algorithm, the proposed optimizer included, comes from the <strong>read-only</strong> tables under <code>benchmarks/cec_reference_results/&lt;suite&gt;/&lt;optimizer&gt;/</code>, and a locally reproduced run under <code>results/_run_all/&lt;optimizer&gt;/&lt;suite&gt;/summary/</code> is only a fallback for cells the reference tree does not carry. Outputs land under <code>results/_run_all/_analysis/&lt;suite&gt;/</code> (or <code>--out</code>).</p>
+<li>Add <strong>one worked example</strong> following the §6 numerical-example template — e.g. a</li>
+<p>small Friedman mean-rank computation or one Wilcoxon + Holm pairwise comparison on a handful of functions — with every intermediate value visible and tied to the real code symbol/line.</p>
+<li>Show the real CLI form, e.g.:</li>
+</ul>
+<pre><code class="code-block language-bash">gsk-stats --suite CEC2017 --dims 10,30,50,100</code></pre>
+<ul>
+<li>Keep every statistical claim within the committed evidence and consistent with</li>
+<p>the on-demand <code>papers/</code> review-pack (<code>papers/DT-GSK-CEC2017-review.pdf</code>); do not edit or regenerate <code>papers/</code> from a docs pass — flag any inconsistency instead.</p>
+</ul>
+<h3 id="phase-h-consistency-navigation">Phase H — Consistency &amp; navigation</h3>
+<p>Reconcile terminology to the glossary, verify all links and the <code>docs/index.md</code> listing, eliminate contradictions, and confirm each doc has a <strong>single distinct responsibility</strong>. Two docs covering the same ground is a Medium finding; resolve by merging or by demoting one to a link.</p>
+<h3 id="phase-i-build-verify">Phase I — Build &amp; verify</h3>
+<p>Rebuild HTML; run the gates in §7; report every command and its result. Do not declare done until pytest, ruff, the link check, the citation check, and the forbidden-token grep all pass.</p>
+<h2 id="5-definition-of-done-per-document-type">5. Definition of done, per document type</h2>
+<p>**Getting-started (<code>getting-started/*</code>).**</p>
+<ul>
+<li>[ ] Orientation box present.</li>
+<li>[ ] A first-time reader reaches a successful run <strong>and</strong> a validated result by</li>
+<p>following the page top-to-bottom.</p>
+<li>[ ] Every command is copy-pasteable; full-campaign commands use</li>
+<p><code>--parallel --workers 2</code>, while tiny smoke commands may rely on defaults.</p>
+<li>[ ] Output locations (<code>results/_run_all/&lt;optimizer&gt;/&lt;suite&gt;/</code>) shown explicitly.</li>
+</ul>
+<p>**Algorithm guide (<code>algorithms/*</code>).**</p>
+<ul>
+<li>[ ] Full Phase E skeleton present and ordered.</li>
+<li>[ ] One worked numerical example of the <strong>distinctive</strong> operator, code-cited.</li>
+<li>[ ] One update-cycle Mermaid diagram with <code>id[&quot;label&quot;]</code> nodes.</li>
+<li>[ ] Parameter table with <code>default</code>, <code>range</code>, and <code>path:line</code> for each symbol.</li>
+<li>[ ] Complexity (time/space per generation) stated.</li>
+</ul>
+<p>**Reference (<code>reference/*</code>).**</p>
+<ul>
+<li>[ ] Every code-facing fact present, correct, and cited.</li>
+<li>[ ] At least one concrete example (schema row, config block, or API call).</li>
+<li>[ ] <code>seed_policy.md</code> is the *only* file naming the upstream platform.</li>
+</ul>
+<p>**Research (<code>research/*</code>).**</p>
+<ul>
+<li>[ ] Exact reproduction procedure with copy-pasteable commands.</li>
+<li>[ ] Honest evidence framing; smoke vs full separated and labelled.</li>
+<li>[ ] Interpretation guidance (how to read the numbers, what tolerance means).</li>
+</ul>
+<p>**Development (<code>development/*</code>).**</p>
+<ul>
+<li>[ ] A contributor can add an optimizer/suite/artifact/CLI by following the page.</li>
+<li>[ ] The relevant tests and gates are named (which <code>tests/&lt;tier&gt;/…</code> to run).</li>
+<li>[ ] Build-and-rebuild-HTML step included where docs are touched.</li>
+</ul>
+<p>**Prompt (<code>prompt/*</code>).**</p>
+<ul>
+<li>[ ] Cross-links to siblings are relative and resolve.</li>
+<li>[ ] No forbidden token; no removed-script references.</li>
+<li>[ ] Usable verbatim as a paste-in prompt.</li>
+</ul>
+<h2 id="6-templates-use-this-structure">6. Templates (use this structure)</h2>
+<p><strong>Numerical-example template</strong></p>
+<pre><code class="code-block">### &lt;Concept&gt; — worked example
+
+Setup (small, hand-checkable):
+&lt;inputs as a fenced block: dims, bounds, the seeded draws, etc.&gt;
+
+Step 1 — &lt;name&gt;:  &lt;formula&gt;            →  &lt;intermediate values&gt;
+Step 2 — &lt;name&gt;:  &lt;formula&gt;            →  &lt;intermediate values&gt;
+...
+Result: &lt;final values&gt;
+
+Code: `&lt;function&gt;()` in `src/.../&lt;file&gt;.py:&lt;line&gt;`.
+Why it matters: &lt;one line tying it to behaviour the reader will observe&gt;.</code></pre>
+<p>Worked instance (illustrative — verify the line before using):</p>
+<pre><code class="code-block">### Unified seed — worked example
+
+Setup (small, hand-checkable):
+base_seed = 1, dim = 10, func = 3, run = 5
+
+Step 1 — weighted sum:  s = base + 1_000_003·dim + 1_000_033·func + 1_000_037·run
+                        s = 1 + 10_000_030 + 3_000_099 + 5_000_185 = 18_000_315
+Step 2 — fold + offset:  seed = s mod 2_147_483_646 + 1 = 18_000_315 + 1 = 18_000_316
+Result: seed = 18_000_316; generator = threefry if available else twister.
+
+Code: `get_cec_seed()` in `src/gsk_family/runners/seed_policy.py:30`.
+Why it matters: the seed is optimizer-independent, so every family member starts
+from the same fair X0 for a given (dim, func, run).</code></pre>
+<p><strong>Mermaid conventions</strong></p>
+<ul>
+<li>Direction: <code>flowchart TD</code> for processes/decisions, <code>flowchart LR</code> for data</li>
+<p>pipelines, <code>sequenceDiagram</code> for CLI→artifact call order, <code>stateDiagram-v2</code> for lifecycles.</p>
+<li><strong>Every node uses <code>id[&quot;label&quot;]</code>.</strong> Ids are short and stable; labels are</li>
+<p>quoted human text. Never write a bare quoted node or an unquoted label with spaces/punctuation — both break the renderer.</p>
+<li>Name nodes for what they *are* (&quot;Process per-run task&quot;), not vague verbs.</li>
+<li>One-line caption above each diagram; add a legend when styling is used.</li>
+<li>Suggested classes — keep them consistent across the corpus:</li>
+<p><code>inputs</code>, <code>process</code>, <code>decision</code>, <code>artifact</code>.</p>
+</ul>
+<pre class="mermaid">flowchart LR
+  cfg[&quot;ExperimentConfig&quot;]:::process --&gt; seed[&quot;Seed schedule&quot;]:::process
+  seed --&gt; task[&quot;RunTask list&quot;]:::process
+  task --&gt; pool[&quot;ProcessPoolExecutor&quot;]:::process
+  pool --&gt; out[&quot;Per-run outcomes&quot;]:::artifact
+  classDef process fill:#eef,stroke:#557;
+  classDef artifact fill:#efe,stroke:#575;</pre>
+<p><strong>Algorithm-guide skeleton</strong></p>
+<pre><code class="code-block"># &lt;OPTIMIZER&gt;
+&gt; Orientation: what it is, who it&#x27;s for, prerequisites, outcome.
+
+## Intuition
+## Mathematical formulation
+## Pseudocode (annotated)
+## Parameters         (table: symbol | meaning | default | range | code ref)
+## Worked example     (distinctive operator; numerical-example template)
+## Per-generation state &amp; update cycle   (+ Mermaid, id[&quot;label&quot;] nodes)
+## Bounds repair &amp; evaluation accounting
+## Complexity         (time/space per generation)
+## When to use / limitations
+## References</code></pre>
+<h2 id="7-verification-gates-run-and-report-results">7. Verification gates (run and report results)</h2>
+<p>Run the test/lint/build/validate gates, then the <strong>automated documentation checks</strong> below, and paste every command with its result.</p>
+<pre><code class="code-block language-bash">python -m pytest -q                                   # full suite incl. doc tests
+python -m ruff check src tests scripts
+python scripts/build_docs_html.py                     # rebuild HTML twins -&gt; docs/html/
+gsk-validate --compare results/_run_all/gsk/cec2017 benchmarks/cec_reference_results</code></pre>
+<h3 id="7-1-forbidden-token-sweep">7.1 Forbidden-token sweep</h3>
+<p>The platform name may appear <strong>only</strong> in <code>seed_policy.md</code> (+ its HTML twin). Substitute the real token for <code>&lt;forbidden-platform-name&gt;</code>:</p>
+<pre><code class="code-block language-bash"># Expect ONLY: docs/reference/seed_policy.md  and  docs/html/reference_seed_policy.html
+grep -rniIl &quot;&lt;forbidden-platform-name&gt;&quot; docs</code></pre>
+<p>Any other hit is a Critical failure. Also sweep for removed-script references:</p>
+<pre><code class="code-block language-bash"># Expect NO hits anywhere in docs/
+removed_runner_prefix=&quot;run_&quot;; removed_build_prefix=&quot;build_&quot;; removed_suffix=&quot;phase&quot;
+removed_method_prefix=&quot;phase method&quot;; removed_method_suffix=&quot;ology&quot;
+grep -rniIE &quot;${removed_runner_prefix}${removed_suffix}|${removed_build_prefix}${removed_suffix}|${removed_method_prefix}${removed_method_suffix}&quot; docs</code></pre>
+<h3 id="7-2-link-anchor-integrity">7.2 Link &amp; anchor integrity</h3>
+<p>Confirm every internal Markdown link resolves to a real file, and every in-page/anchor link points at a heading that exists (the build derives anchors by slugifying headings):</p>
+<pre><code class="code-block language-bash"># List all relative Markdown links (target | source) for manual/scripted check.
+grep -rnoE &quot;\]\(([^)]+)\)&quot; docs --include=*.md</code></pre>
+<p>For each <code>](target)</code>: if it has no scheme (<code>http</code>, <code>mailto</code>) it must resolve relative to the source file. For each <code>](file.md#anchor)</code>: the slug of some heading in <code>file.md</code> must equal <code>anchor</code> (lowercase, spaces→<code>-</code>, punctuation dropped — match <code>build_docs_html.py</code>&#x27;s anchor rule). Treat a dangling link or anchor as <strong>High</strong>. Confirm <code>docs/index.md</code> lists every page exactly once.</p>
+<h3 id="7-3-code-citation-validity-path-line-must-point-at-a-real-in-range-line">7.3 Code-citation validity (<code>path:line</code> must point at a real, in-range line)</h3>
+<p>Every <code>path:line</code> citation must (a) name a file that exists and (b) cite a line number within that file. Extract and check them:</p>
+<pre><code class="code-block language-bash"># Pull every `path:line` citation found in the docs (path | line).
+grep -rnoE &quot;src/[A-Za-z0-9_./-]+\.py:[0-9]+&quot; docs --include=*.md</code></pre>
+<p>For each hit, verify the file exists and <code>line ≤ wc -l(file)</code>; spot-check that the cited line actually contains the claimed symbol (open the file at that line). An out-of-range or wrong-symbol citation is <strong>Critical</strong>.</p>
+<h3 id="7-4-campaign-resource-hygiene">7.4 Campaign resource hygiene</h3>
+<p>Full-campaign examples should show the safe worker baseline:</p>
+<pre><code class="code-block language-bash"># Inspect full-campaign commands. They should include --parallel --workers 2,
+# or clearly label a larger value as a deliberate override.
+grep -rnE &quot;runs 51|full CEC|all optimizers|all-optimizer|campaign&quot; docs --include=*.md</code></pre>
+<h3 id="7-5-drift-signals-stale-defaults-engine-names">7.5 Drift signals (stale defaults &amp; engine names)</h3>
+<pre><code class="code-block language-bash"># ThreadPoolExecutor in a diagram/prose describing the DEFAULT path is stale (process is default).
+grep -rnI &quot;ThreadPoolExecutor&quot; docs --include=*.md
+# Worker target must read safe two-worker default, not a CPU fraction.
+old_worker_prefix=&quot;0.&quot;; old_worker_sixty=&quot;60&quot;; old_worker_sixtyfive=&quot;65&quot;; old_worker_seventy=&quot;70&quot;
+stale_worker_pattern=&quot;${old_worker_prefix}${old_worker_sixty}(?![0-9])|${old_worker_sixty}%|${old_worker_prefix}${old_worker_sixtyfive}(?![0-9])|${old_worker_sixtyfive}%|${old_worker_prefix}${old_worker_seventy}(?![0-9])|${old_worker_seventy}%|logical_cores \* ${old_worker_prefix}${old_worker_sixty}(?![0-9])|logical_cores \* ${old_worker_prefix}${old_worker_sixtyfive}(?![0-9])|logical_cores \* ${old_worker_prefix}${old_worker_seventy}(?![0-9])|cpu_count\(\) \* ${old_worker_prefix}${old_worker_sixty}(?![0-9])|cpu_count\(\) \* ${old_worker_prefix}${old_worker_sixtyfive}(?![0-9])|cpu_count\(\) \* ${old_worker_prefix}${old_worker_seventy}(?![0-9])&quot;
+worker_context=&quot;worker|workers|core|cores|logical_cores|cpu_count|DEFAULT_WORKER_[A-Z_]+&quot;
+rg -n -P &quot;(${worker_context}).{0,100}(${stale_worker_pattern})|(${stale_worker_pattern}).{0,100}(${worker_context})&quot; docs -g &quot;*.md&quot;
+# Format strings must stay %.10e (per_run) / %.16e (curves).
+grep -rnIE &quot;%\.[0-9]+e&quot; docs --include=*.md</code></pre>
+<h3 id="7-6-orientation-box-sweep">7.6 Orientation-box sweep</h3>
+<p>Every page should open with a blockquote orientation box. Find pages whose first non-heading line is <strong>not</strong> a blockquote:</p>
+<pre><code class="code-block language-bash"># For each page, the first content line after the H1 should start with &quot;&gt;&quot;.
+for f in $(grep -rlE &quot;^# &quot; docs --include=*.md); do
+  head -5 &quot;$f&quot; | grep -q &quot;^&gt; &quot; || echo &quot;MISSING orientation box: $f&quot;
+done</code></pre>
+<h3 id="7-7-mermaid-syntax">7.7 Mermaid syntax</h3>
+<p>Every fenced ```<code> </code>`<code>mermaid </code>``<code> block must use </code>id[&quot;label&quot;]` nodes. Surface suspicious blocks for manual inspection (bare quoted nodes / unquoted labels):</p>
+<pre><code class="code-block language-bash"># List the mermaid fences to review; confirm each node is id[&quot;label&quot;].
+grep -rnI &quot;```mermaid&quot; docs --include=*.md
+# Heuristic: a line that starts an edge with a bare quote is likely invalid.
+grep -rnIE &quot;^\s*\&quot;[^\&quot;]+\&quot;\s*(--|==|-\.)&quot; docs --include=*.md</code></pre>
+<p>After the build, confirm the rebuilt HTML twin for each edited page exists under <code>docs/html/</code> with the flattened name (e.g. <code>algorithms_gsk.html</code>).</p>
+<h2 id="8-output-workflow">8. Output &amp; workflow</h2>
+<ol>
+<li>Deliver the <strong>Phase A audit table</strong> first, ordered by severity.</li>
+<li>Propose a prioritized plan; get the highest-severity items right first.</li>
+<li>Edit <strong>one document at a time</strong>; show a concise diff or the rewritten file.</li>
+<li>Add/upgrade diagrams and numerical examples per §4–§6.</li>
+<li>Rebuild HTML and run §7 (gates <strong>and</strong> automated checks); paste the commands</li>
+<p>and their results.</p>
+<li>Close with an <strong>acceptance checklist</strong> and a list of remaining risks /</li>
+<p><code>TODO(verify)</code> items needing code or maintainer confirmation.</p>
+</ol>
+<h3 id="8-1-worked-example-of-a-finding-written-up-well">8.1 Worked example of a finding written up well</h3>
+<p>Use this shape for each non-trivial finding — claim, evidence, impact, fix:</p>
+<blockquote>**[Critical] <code>reference/workflows.md</code> parallel diagram shows</blockquote>
+<blockquote><code>ThreadPoolExecutor</code>; the default backend is a process pool.**</blockquote>
+<blockquote>*Evidence:* the diagram at <code>docs/reference/workflows.md</code> (the &quot;Run dispatch&quot;</blockquote>
+<blockquote>flowchart) names <code>ThreadPoolExecutor</code>, but <code>src/gsk_family/runners/parallel.py</code></blockquote>
+<blockquote>resolves the default executor to a process pool with</blockquote>
+<blockquote><code>DEFAULT_WORKER_COUNT = 2</code> and a CEC2017 F21-F30 effective cap of 8 for</blockquote>
+<blockquote>automatic process runs. *Impact:* readers infer a GIL-bound threaded model and</blockquote>
+<blockquote>may tune the wrong backend; contradicts guardrail 6 and 7. *Fix:* redraw the</blockquote>
+<blockquote>node as <code>pool[&quot;ProcessPoolExecutor&quot;]</code>, add a caption &quot;default = process</blockquote>
+<blockquote>backend, automatic workers = 2 or 1 on one-core machines, CEC2017 F21-F30</blockquote>
+<blockquote>cap = 8&quot;, and make adjacent full-campaign examples use</blockquote>
+<blockquote><code>--parallel --workers 2</code>. *Re-gate:* rebuild HTML; rerun section 7.4 and 7.5</blockquote>
+<blockquote>(both should be clean).</blockquote>
+<p><strong>Acceptance checklist (final gate):</strong></p>
+<ul>
+<li>[ ] Every doc has an orientation box and a single clear responsibility.</li>
+<li>[ ] Every algorithm guide meets the Phase E spec (math + example + diagram).</li>
+<li>[ ] <code>numerical_examples.md</code> covers init, the per-optimizer operator, repair,</li>
+<p>selection, best-so-far tracking, statistics, the <code>unified</code> seed, the LPSR schedule, and parallel determinism — all code-cited.</p>
+<li>[ ] Every non-trivial process has a current, code-accurate Mermaid diagram</li>
+<p>using <code>id[&quot;label&quot;]</code> nodes.</p>
+<li>[ ] Terminology matches <code>reference/glossary.md</code>; all internal links and</li>
+<p>anchors resolve; <code>docs/index.md</code> lists every page once.</p>
+<li>[ ] Every <code>path:line</code> citation points at a real, in-range line holding the</li>
+<p>claimed symbol.</p>
+<li>[ ] Forbidden platform name confined to <code>seed_policy.md</code> (+ HTML twin); no</li>
+<p>removed-script references.</p>
+<li>[ ] HTML rebuilt into <code>docs/html/</code>; pytest, ruff, link/anchor check,</li>
+<p>citation check, and validation pass.</p>
+<li>[ ] Full-campaign commands show <code>--parallel --workers 2</code>; default backend,</li>
+<p>safe two-worker automatic policy, and CEC2017 F21-F30 cap of 8 stated once.</p>
+<li>[ ] No claim exceeds the validation evidence; smoke vs full clearly separated.</li>
+</ul>
+      </article>
+    </main>
+    <aside class="page-toc" aria-label="On this page">
+<h2>On This Page</h2>
+<a class="toc-level-1" href="#deep-documentation-review-upgrade-prompt-gsk-family-python">Deep Documentation Review &amp; Upgrade Prompt — GSK Family Python</a>
+<a class="toc-level-2" href="#1-ground-truth-do-not-contradict-verify-against-code-before-writing">1. Ground truth (do not contradict; verify against code before writing)</a>
+<a class="toc-level-3" href="#1-1-fixed-facts-must-match-exactly">1.1 Fixed facts (must match exactly)</a>
+<a class="toc-level-3" href="#1-2-scripts-inventory-scripts-19-python-files-plus-a-readme-re-check-against-the-directory">1.2 Scripts inventory (`scripts/` — 19 Python files plus a README; re-check against the directory)</a>
+<a class="toc-level-3" href="#1-3-tests-inventory-the-testing-pyramid">1.3 Tests inventory (the testing pyramid)</a>
+<a class="toc-level-3" href="#1-4-current-docs-map-themed-folders">1.4 Current `docs/` map (themed folders)</a>
+<a class="toc-level-2" href="#2-hard-guardrails-a-violation-fails-the-task">2. Hard guardrails (a violation fails the task)</a>
+<a class="toc-level-2" href="#3-what-professional-reference-means-here-the-quality-bar">3. What &quot;professional reference&quot; means here (the quality bar)</a>
+<a class="toc-level-2" href="#4-phased-method">4. Phased method</a>
+<a class="toc-level-3" href="#phase-a-inventory-audit">Phase A — Inventory &amp; audit</a>
+<a class="toc-level-3" href="#phase-b-numerical-examples-priority-deliverable">Phase B — Numerical examples (priority deliverable)</a>
+<a class="toc-level-3" href="#phase-c-diagrams-flowcharts">Phase C — Diagrams &amp; flowcharts</a>
+<a class="toc-level-3" href="#phase-d-readability-structure">Phase D — Readability &amp; structure</a>
+<a class="toc-level-3" href="#phase-e-per-optimizer-deep-dives-algorithms-md">Phase E — Per-optimizer deep dives (`algorithms/*.md`)</a>
+<a class="toc-level-3" href="#phase-f-reference-completeness">Phase F — Reference completeness</a>
+<a class="toc-level-3" href="#phase-g-reproducibility-validation">Phase G — Reproducibility &amp; validation</a>
+<a class="toc-level-3" href="#phase-g2-statistical-analysis-the-publication-panel">Phase G2 — Statistical analysis &amp; the publication panel</a>
+<a class="toc-level-3" href="#phase-h-consistency-navigation">Phase H — Consistency &amp; navigation</a>
+<a class="toc-level-3" href="#phase-i-build-verify">Phase I — Build &amp; verify</a>
+<a class="toc-level-2" href="#5-definition-of-done-per-document-type">5. Definition of done, per document type</a>
+<a class="toc-level-2" href="#6-templates-use-this-structure">6. Templates (use this structure)</a>
+<a class="toc-level-2" href="#7-verification-gates-run-and-report-results">7. Verification gates (run and report results)</a>
+<a class="toc-level-3" href="#7-1-forbidden-token-sweep">7.1 Forbidden-token sweep</a>
+<a class="toc-level-3" href="#7-2-link-anchor-integrity">7.2 Link &amp; anchor integrity</a>
+<a class="toc-level-3" href="#7-3-code-citation-validity-path-line-must-point-at-a-real-in-range-line">7.3 Code-citation validity (`path:line` must point at a real, in-range line)</a>
+<a class="toc-level-3" href="#7-4-campaign-resource-hygiene">7.4 Campaign resource hygiene</a>
+<a class="toc-level-3" href="#7-5-drift-signals-stale-defaults-engine-names">7.5 Drift signals (stale defaults &amp; engine names)</a>
+<a class="toc-level-3" href="#7-6-orientation-box-sweep">7.6 Orientation-box sweep</a>
+<a class="toc-level-3" href="#7-7-mermaid-syntax">7.7 Mermaid syntax</a>
+<a class="toc-level-2" href="#8-output-workflow">8. Output &amp; workflow</a>
+<a class="toc-level-3" href="#8-1-worked-example-of-a-finding-written-up-well">8.1 Worked example of a finding written up well</a>
+</aside>
+  </div>
+  <script src="assets/search.js"></script>
+  <script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs'; mermaid.initialize({ startOnLoad: true, securityLevel: 'loose', theme: 'neutral' });</script>
+</body>
+</html>

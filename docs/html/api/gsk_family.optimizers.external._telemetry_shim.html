@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Python API documentation for gsk_family.optimizers.external._telemetry_shim">
+  <title>gsk_family.optimizers.external._telemetry_shim | GSK Family Python Documentation</title>
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+  <div class="site-shell">
+    <aside class="sidebar">
+<div class="brand"><a href="../index.html">GSK Family Python</a></div>
+<input class="nav-search" type="search" placeholder="Filter docs" aria-label="Filter docs">
+<nav class="nav-list" aria-label="Documentation">
+<section><h2>Getting Started</h2>
+<a class="nav-link" href="../getting-started_configuration.html">Configuration</a>
+<a class="nav-link" href="../getting-started_explainer.html">Explainer</a>
+<a class="nav-link" href="../getting-started_runbook.html">Runbook</a>
+<a class="nav-link" href="../getting-started_troubleshooting.html">Troubleshooting</a>
+<a class="nav-link" href="../getting-started_tutorial.html">Tutorial</a>
+<a class="nav-link" href="../getting-started_user_guide.html">User Guide</a>
+</section>
+<section><h2>Reference</h2>
+<a class="nav-link" href="../reference_api.html">API Reference</a>
+<a class="nav-link" href="../reference_architecture.html">Architecture</a>
+<a class="nav-link" href="../reference_benchmark_mapping.html">Benchmark Mapping</a>
+<a class="nav-link" href="../reference_benchmark_protocol.html">Benchmark Protocol</a>
+<a class="nav-link" href="../reference_cec2011_cpp_python_equivalence_review.html">CEC2011 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="../reference_cec2013_cpp_python_equivalence_review.html">CEC2013 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="../reference_cec2013lsgo_cpp_python_equivalence_review.html">CEC2013LSGO C++ to Python Equivalence Review</a>
+<a class="nav-link" href="../reference_cec2017_cpp_python_equivalence_review.html">CEC2017 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="../reference_cec2020_cpp_python_equivalence_review.html">CEC2020 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="../index.html">Documentation Index</a>
+<a class="nav-link" href="../reference_fp_regime.html">Floating-Point Regime Verification</a>
+<a class="nav-link" href="../reference_diagrams.html">Flowcharts And Diagrams</a>
+<a class="nav-link" href="../reference_glossary.html">Glossary</a>
+<a class="nav-link" href="../LICENSES.html">Licenses</a>
+<a class="nav-link" href="../reference_module_dependencies.html">Module Dependencies</a>
+<a class="nav-link" href="../reference_project_structure.html">Project Structure</a>
+<a class="nav-link" href="../reference_python_optimizer_interface.html">Python Optimizer Interface</a>
+<a class="nav-link" href="../reference_result_schema.html">Result Schema</a>
+<a class="nav-link" href="../reference_seed_policy.html">Seed Policy</a>
+<a class="nav-link" href="../reference_workflows.html">Workflows</a>
+</section>
+<section><h2>Algorithm Guides</h2>
+<a class="nav-link" href="../algorithms_agsk.html">AGSK — Adaptive Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="../algorithms_apgsk.html">APGSK — Adaptive-Parameters Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="../algorithms_atmals-gsk.html">ATMALS-GSK — Adaptive Tuning, Memory, Adaptive Local Search</a>
+<a class="nav-link" href="../algorithms_dt-gsk.html">DT-GSK — Dimension-Tiered Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="../algorithms_egsk.html">EGSK — Enhanced Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="../algorithms_fdb-agsk.html">FDB-AGSK — Fitness-Distance-Balance AGSK</a>
+<a class="nav-link" href="../algorithms_gsk.html">GSK — Gaining-Sharing Knowledge</a>
+</section>
+<section><h2>Development</h2>
+<a class="nav-link" href="../development_BUG_resume_summary_truncation.html">BUG-RESUME-01 — resume mode truncates (and mis-computes) the per-dimension summary CSV</a>
+<a class="nav-link" href="../development_LSGO_ACCELERATION_PLAN.html">CEC2013LSGO Acceleration Plan — all 7 GSK-family algorithms, bit-identically</a>
+<a class="nav-link" href="../development_LSGO_INTEGRATION_CAMPAIGN.html">CEC2013LSGO Integration — Campaign Plan</a>
+<a class="nav-link" href="../development_CEC2017_PREC_adjudication.html">CEC2017-PREC — adjudication (CLOSED 2026-07-25)</a>
+<a class="nav-link" href="../development_code_reading_guide.html">Code Reading Guide</a>
+<a class="nav-link" href="../development_contributor_guide.html">Contributor Guide</a>
+<a class="nav-link" href="../development_DECC_G_port_record.html">DECC-G port — fidelity and validation record</a>
+<a class="nav-link" href="../development_developer_guide.html">Developer Guide</a>
+<a class="nav-link" href="../development_README.html">Development Docs</a>
+<a class="nav-link" href="../development_dt_gsk_core_reference.html">DT-GSK Core Reference — the vendored core and its byte-identity lock</a>
+<a class="nav-link" href="../development_evidence_rerun_runbook.html">DT-GSK re-run runbook — corrected implementation (C006 + graph backend)</a>
+<a class="nav-link" href="../development_egsk_port_spec.html">EGSK — Algorithm Spec &amp; Porting Verdict</a>
+<a class="nav-link" href="../development_extension_guide.html">Extension Guide</a>
+<a class="nav-link" href="../development_FAMILY_ACCELERATION_PLAN.html">Family-wide acceleration plan — 7 algorithms x 5 suites, bit-identical only</a>
+<a class="nav-link" href="../development_FINAL_PUBLICATION_PLAN.html">FINAL PUBLICATION PLAN — DT-GSK, Four(/Five)-Suite Scope</a>
+<a class="nav-link" href="../development_ACCELERATION_CAMPAIGN_PROMPT.html">GSK-Family Acceleration Campaign — Execution Prompt</a>
+<a class="nav-link" href="../development_maintenance_guide.html">Maintenance Guide</a>
+<a class="nav-link" href="../development_PORT_05_TUNING_TRIAGE.html">Porting project-05 tuning into 02 — Phase 1 audit and triage</a>
+<a class="nav-link" href="../development_REFERENCE_PROMOTION_PLAN.html">Reference Promotion Plan — CEC2013LSGO now, CEC2020 behind its completeness gate</a>
+<a class="nav-link" href="../development_SIBLING_CAMPAIGN_TRANSFER.html">Sibling-Campaign Transfer — every tuning that can make the GSK family fast</a>
+</section>
+<section><h2>Research</h2>
+<a class="nav-link" href="../research_egsk_validation_appendix.html">EGSK Validation Appendix — Paired Port-vs-Reference Equivalence</a>
+<a class="nav-link" href="../research_numerical_examples.html">Numerical Examples</a>
+<a class="nav-link" href="../research_performance.html">Performance</a>
+<a class="nav-link" href="../research_reproducibility.html">Reproducibility</a>
+<a class="nav-link" href="../research_researcher_handbook.html">Researcher Handbook</a>
+<a class="nav-link" href="../research_statistical_analysis.html">Statistical Analysis (GSK-family comparison)</a>
+<a class="nav-link" href="../research_validation_report.html">Validation Report</a>
+</section>
+<section><h2>Prompts</h2>
+<a class="nav-link" href="../prompt_documentation-deep-upgrade.html">Deep Documentation Review &amp; Upgrade Prompt — GSK Family Python</a>
+<a class="nav-link" href="../prompt_project-review.html">Deep Expert Review Prompt For GSK Family Python</a>
+<a class="nav-link" href="../prompt_documentation-review.html">Documentation Review Prompt</a>
+<a class="nav-link" href="../prompt_publication-polish.html">Final Publication Prompt — Production-Ready Q1 Release of GSK Family Python v1.1</a>
+</section>
+<section><h2>Python API</h2>
+<a class="nav-link" href="../api_index.html">API Module Index</a>
+<a class="nav-link api-link" href="../api/gsk_family.__init__.html">gsk_family.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.__init__.html">gsk_family.analysis.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.family_report.html">gsk_family.analysis.family_report</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.figures.html">gsk_family.analysis.figures</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.latex_tables.html">gsk_family.analysis.latex_tables</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.project_policy.html">gsk_family.analysis.project_policy</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.result_loader.html">gsk_family.analysis.result_loader</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.statistical_tests.html">gsk_family.analysis.statistical_tests</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.statistics.html">gsk_family.analysis.statistics</a>
+<a class="nav-link api-link" href="../api/gsk_family.benchmark_adapter.__init__.html">gsk_family.benchmark_adapter.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.benchmark_adapter.factory.html">gsk_family.benchmark_adapter.factory</a>
+<a class="nav-link api-link" href="../api/gsk_family.benchmark_adapter.problem.html">gsk_family.benchmark_adapter.problem</a>
+<a class="nav-link api-link" href="../api/gsk_family.benchmark_adapter.protocol.html">gsk_family.benchmark_adapter.protocol</a>
+<a class="nav-link api-link" href="../api/gsk_family.cli.__init__.html">gsk_family.cli.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.cli.list.html">gsk_family.cli.list</a>
+<a class="nav-link api-link" href="../api/gsk_family.cli.run.html">gsk_family.cli.run</a>
+<a class="nav-link api-link" href="../api/gsk_family.cli.stats.html">gsk_family.cli.stats</a>
+<a class="nav-link api-link" href="../api/gsk_family.cli.validate.html">gsk_family.cli.validate</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.__init__.html">gsk_family.common.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.bounds.html">gsk_family.common.bounds</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.donors.html">gsk_family.common.donors</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.numeric_compat.html">gsk_family.common.numeric_compat</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.population.html">gsk_family.common.population</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.reduction.html">gsk_family.common.reduction</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.reference_rng.html">gsk_family.common.reference_rng</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.rng.html">gsk_family.common.rng</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.threefry_rng.html">gsk_family.common.threefry_rng</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.__init__.html">gsk_family.optimizers.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers._dt_profiles.html">gsk_family.optimizers._dt_profiles</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers._dt_rng.html">gsk_family.optimizers._dt_rng</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers._kernels.html">gsk_family.optimizers._kernels</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.agsk.html">gsk_family.optimizers.agsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.apgsk.html">gsk_family.optimizers.apgsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.atmals_gsk.html">gsk_family.optimizers.atmals_gsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.atmals_helpers.html">gsk_family.optimizers.atmals_helpers</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.dt_gsk.html">gsk_family.optimizers.dt_gsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.egsk.html">gsk_family.optimizers.egsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.__init__.html">gsk_family.optimizers.external.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external._base.html">gsk_family.optimizers.external._base</a>
+<a class="nav-link api-link active" href="../api/gsk_family.optimizers.external._telemetry_shim.html">gsk_family.optimizers.external._telemetry_shim</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.cmaes.html">gsk_family.optimizers.external.cmaes</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.decc_g.html">gsk_family.optimizers.external.decc_g</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.ebowithcmar.html">gsk_family.optimizers.external.ebowithcmar</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.jso.html">gsk_family.optimizers.external.jso</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.lshade.html">gsk_family.optimizers.external.lshade</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.lshade_spacma.html">gsk_family.optimizers.external.lshade_spacma</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.mos_cec2013lsgo.html">gsk_family.optimizers.external.mos_cec2013lsgo</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.shade_ils.html">gsk_family.optimizers.external.shade_ils</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.fdb_agsk.html">gsk_family.optimizers.fdb_agsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.fdb_scores.html">gsk_family.optimizers.fdb_scores</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.gsk.html">gsk_family.optimizers.gsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.__init__.html">gsk_family.runners.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.config.html">gsk_family.runners.config</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.fp_regime.html">gsk_family.runners.fp_regime</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.output.html">gsk_family.runners.output</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.parallel.html">gsk_family.runners.parallel</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.performance.html">gsk_family.runners.performance</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.run_experiment.html">gsk_family.runners.run_experiment</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.seed_policy.html">gsk_family.runners.seed_policy</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.verification.html">gsk_family.runners.verification</a>
+<a class="nav-link api-link" href="../api/gsk_family.stats.html">gsk_family.stats</a>
+<a class="nav-link api-link" href="../api/gsk_family.types.html">gsk_family.types</a>
+</section>
+</nav></aside>
+    <main class="content">
+      <article class="doc-card">
+        <h1>gsk_family.optimizers.external._telemetry_shim</h1>
+<p class="source-path">Source: <code>src/gsk_family/optimizers/external/_telemetry_shim.py</code></p>
+<p>No-op telemetry recorder for the vendored external baselines.</p>
+<p>Project 05 threads a full ``TelemetryRecorder`` (GISR / diversity / per-generation
+records) through these algorithms because its cross-optimizer analysis consumes
+those series. This project does not: the GSK-family optimizers expose
+per-generation state through ``generation_callback`` instead, and the LSGO
+comparison needs only the per-run ``best_fitness``.</p>
+<p>Rather than port a telemetry subsystem this project has no consumer for, the
+vendored algorithms keep their instrumentation call sites intact and feed them
+into this shim, which accepts every call and records nothing. That keeps the
+vendored bodies byte-faithful to their frozen, parity-verified originals — the
+alternative, deleting the call sites, would fork the code and void the
+line-mapped review those verdicts rest on.</p>
+<p>``finalize`` returns ``None``, and ``build_result`` drops it, because this
+project&#x27;s :class:`~gsk_family.types.OptimizerResult` has no ``telemetry`` field.</p>
+<p>If per-generation telemetry is ever wanted for these baselines, replace this
+module with a real recorder exposing the same three methods; no algorithm code
+needs to change.</p>
+<h2 id="members">Members</h2>
+<section class="api-member" id="class-telemetryrecorder-29">
+<div class="member-kind">class</div>
+<h2>TelemetryRecorder</h2>
+<pre><code>TelemetryRecorder</code></pre>
+<p>Accept the family telemetry protocol and discard it.</p>
+<p>Mirrors the constructor keywords ``_base.make_recorder`` supplies so the
+vendored call site needs no edit.</p>
+<div class="method-list"><h3>Methods</h3>
+<section class="api-member" id="method-init-36">
+<div class="member-kind">method</div>
+<h2>__init__</h2>
+<pre><code>__init__(self, max_nfes: int | None = None, lb: Any = None, ub: Any = None, counting_rule: str | None = None, diversity_points: int = 0, **_ignored: Any) -&gt; None</code></pre>
+<p>Store nothing; the arguments are accepted for signature parity only.</p>
+</section>
+<section class="api-member" id="method-record-initial-50">
+<div class="member-kind">method</div>
+<h2>record_initial</h2>
+<pre><code>record_initial(self, *_args: Any, **_kwargs: Any) -&gt; None</code></pre>
+<p>Discard the initial-population snapshot.</p>
+</section>
+<section class="api-member" id="method-record-generation-53">
+<div class="member-kind">method</div>
+<h2>record_generation</h2>
+<pre><code>record_generation(self, *_args: Any, **_kwargs: Any) -&gt; None</code></pre>
+<p>Discard a per-generation snapshot.</p>
+</section>
+<section class="api-member" id="method-finalize-56">
+<div class="member-kind">method</div>
+<h2>finalize</h2>
+<pre><code>finalize(self) -&gt; None</code></pre>
+<p>Return ``None`` -- this project&#x27;s OptimizerResult carries no telemetry.</p>
+</section>
+</div>
+</section>
+      </article>
+    </main>
+    <aside class="page-toc" aria-label="On this page">
+<h2>On This Page</h2>
+<a class="toc-level-1" href="#gsk-family-optimizers-external-telemetry-shim">gsk_family.optimizers.external._telemetry_shim</a>
+<a class="toc-level-2" href="#members">Members</a>
+<a class="toc-level-2" href="#class-telemetryrecorder-29">TelemetryRecorder</a>
+</aside>
+  </div>
+  <script src="../assets/search.js"></script>
+</body>
+</html>

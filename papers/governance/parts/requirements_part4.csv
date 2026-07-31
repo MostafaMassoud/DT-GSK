@@ -1,0 +1,408 @@
+requirement_id,line_no,summary,phase,artifact,validation,owner
+R-5051,5051,Any score below 4 creates a mandatory ticket.,10,revision_tickets.csv / revision_log.md,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P6
+R-5052,5052,A score of 5 requires explicit evidence.,10,revision_tickets.csv / revision_log.md,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P6
+R-5054,5054,Create revision tickets.,10,revision_tickets.csv / revision_log.md,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P6
+R-5055,5055,"critical, major, minor, or editorial.",10,revision_tickets.csv / revision_log.md,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P6
+R-5056,5056,"Include claim/evidence IDs, affected phases, fix, verification, and owner.",10,revision_tickets.csv / revision_log.md,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P6
+R-5058,5058,Resolve tickets in severity order.,10,revision_tickets.csv / revision_log.md,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P6
+R-5059,5059,Prose-only fix: preserve evidence and rebuild both formats.,10,revision_tickets.csv / revision_log.md,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P6
+R-5060,5060,"Analysis fix: reopen Phase 5/6 through change control, rerun, regenerate exhibits, update claims, rebuild both formats.",10,revision_tickets.csv / revision_log.md,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P6
+R-5062,5062,Method description fix: reconcile with frozen code; do not change code.,10,revision_tickets.csv / revision_log.md,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P6
+R-5063,5063,Missing primary evidence: narrow/remove claim; do not run early ablation.,10,revision_tickets.csv / revision_log.md,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P6
+R-5064,5064,Journal/Word fix: update template/generator and revalidate.,10,revision_tickets.csv / revision_log.md,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P6
+R-5066,5066,Maintain response log.,10,revision_tickets.csv / revision_log.md,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P6
+R-5067,5067,"Quote issue, action, exact section/artifact, evidence, and verification.",10,revision_tickets.csv / revision_log.md,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P6
+R-5068,5068,Declined suggestions need principled reason.,10,revision_tickets.csv / revision_log.md,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P6
+R-5070,5070,Rerun affected reviewers.,10,revision_tickets.csv / revision_log.md,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P6
+R-5071,5071,Review touched sections and dependent artifacts.,10,revision_tickets.csv / revision_log.md,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P6
+R-5072,5072,Repeat until no critical/major issue.,10,revision_tickets.csv / revision_log.md,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P6
+R-5074,5074,Run post-revision integrity checks.,10,revision_tickets.csv / revision_log.md,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P6
+R-5075,5075,Citation semantic check.,10,revision_tickets.csv / revision_log.md,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P6
+R-5076,5076,Number binding.,10,revision_tickets.csv / revision_log.md,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P6
+R-5077,5077,source-only audit.,10,revision_tickets.csv / revision_log.md,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P6
+R-5078,5078,cross-format consistency.,10,revision_tickets.csv / revision_log.md,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P6
+R-5079,5079,no-ablation scan.,10,revision_tickets.csv / revision_log.md,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P6
+R-5080,5080,engineering gates.,10,revision_tickets.csv / revision_log.md,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P6
+R-5082,5082,Perform style-only final edit.,10,revision_tickets.csv / revision_log.md,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P6
+R-5083,5083,Improve clarity and cadence.,10,revision_tickets.csv / revision_log.md,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P6
+R-5084,5084,"Verify diff changes no facts, numbers, citations, equations, or scope.",10,revision_tickets.csv / revision_log.md,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P6
+R-5086,5086,Prepare main-manuscript finalization candidate.,10,revision_tickets.csv / revision_log.md,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P6
+R-5087,5087,Resolve all primary scientific content.,10,revision_tickets.csv / revision_log.md,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P6
+R-5088,5088,Ensure final ablation cannot be used to justify existing main claims.,10,revision_tickets.csv / revision_log.md,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P6
+R-5089,5089,Identify claims that final ablation could contradict and define correction triggers for Phase 12.,10,revision_tickets.csv / revision_log.md,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P6
+R-5094,5094,review_R1_scientific.md,10,review_R1_scientific.md,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P6
+R-5095,5095,review_R2_statistics.md,10,review_R2_statistics.md,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P6
+R-5096,5096,review_R3_reproducibility.md,10,review_R3_reproducibility.md,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P6
+R-5097,5097,review_R4_editorial.md,10,review_R4_editorial.md,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P6
+R-5098,5098,review_R5_word.md,10,review_R5_word.md,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P6
+R-5099,5099,review_R6_domain.md,10,review_R6_domain.md,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P6
+R-5100,5100,revision_tickets.csv,10,revision_tickets.csv,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P6
+R-5101,5101,revision_log.md,10,revision_log.md,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P6
+R-5102,5102,response_to_reviewers_seed.md,10,response_to_reviewers_seed.md,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P6
+R-5103,5103,revised canonical/LaTeX/Word sources and builds;,10,revised canonical/LaTeX/Word sources and builds,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P6
+R-5104,5104,updated validation reports;,10,updated validation reports,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P6
+R-5105,5105,ablation_correction_triggers.md.,10,ablation_correction_triggers.md,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P6
+R-5109,5109,all reviewer scores recorded;,10,PHASE_10_gate_report.md,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P5
+R-5110,5110,all critical/major tickets closed with verification;,10,PHASE_10_gate_report.md,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P5
+R-5111,5111,dependent phases rerun when required;,10,PHASE_10_gate_report.md,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P5
+R-5112,5112,citation/number/source/cross-format/no-ablation checks repeated;,10,PHASE_10_gate_report.md,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P5
+R-5113,5113,style diff verified.,10,PHASE_10_gate_report.md,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P5
+R-5117,5117,P1 verifies scientific resolution.,10,PHASE_10_gate_report.md,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P1
+R-5118,5118,P3 verifies statistical fixes.,10,PHASE_10_gate_report.md,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P3
+R-5119,5119,P5 verifies reproducibility after changes.,10,PHASE_10_gate_report.md,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P5
+R-5120,5120,P6/P7/P8 verify editorial/PDF/Word output.,10,PHASE_10_gate_report.md,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P6
+R-5121,5121,P9 checks research integrity.,10,PHASE_10_gate_report.md,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P9
+R-5125,5125,no silent ticket closure;,10,PHASE_10_gate_report.md,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P9
+R-5126,5126,no algorithm change;,10,PHASE_10_gate_report.md,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P9
+R-5127,5127,no new unregistered analysis;,10,PHASE_10_gate_report.md,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P9
+R-5128,5128,no early ablation;,10,PHASE_10_gate_report.md,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P9
+R-5129,5129,no claim expansion after results;,10,PHASE_10_gate_report.md,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P9
+R-5130,5130,all formats synchronized.,10,PHASE_10_gate_report.md,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P9
+R-5134,5134,every reviewer category scores at least 4/5;,10,phase_gate_register.csv (Gate 10),Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P1
+R-5135,5135,zero open critical or major ticket;,10,phase_gate_register.csv (Gate 10),Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P1
+R-5136,5136,all fixes verified;,10,phase_gate_register.csv (Gate 10),Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P1
+R-5137,5137,primary claims remain evidence-bounded;,10,phase_gate_register.csv (Gate 10),Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P1
+R-5138,5138,both formats build and validate;,10,phase_gate_register.csv (Gate 10),Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P1
+R-5139,5139,no ablation content;,10,phase_gate_register.csv (Gate 10),Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P1
+R-5140,5140,correction triggers are explicit.,10,phase_gate_register.csv (Gate 10),Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P1
+R-5144,5144,"Phase 10 freezes after P1/P3/P5/P6/P7/P8/P9 sign-off. Minor/editorial tickets may remain only if non-material, documented, and scheduled...",10,phase_gate_register.csv (Gate 10),Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P1
+R-5165,5165,use change-control reruns;,10,risk_register.csv,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P1
+R-5166,5166,narrow claims;,10,risk_register.csv,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P1
+R-5167,5167,synchronize from canonical source;,10,risk_register.csv,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P1
+R-5168,5168,reject early-ablation request and explain supplement-final design;,10,risk_register.csv,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P1
+R-5169,5169,keep gate closed until major issues resolve.,10,risk_register.csv,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P1
+R-5173,5173,"All generated outputs plus PHASE_10_gate_report.md with reviewer scores, closed-ticket evidence, remaining minor issues, and finalization...",10,PHASE_10_gate_report.md,Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P1
+R-5178,5178,"Gate 10: P1 + P3 + P5 + P6 + P7 + P8 + P9 approve. Any open critical/major issue, algorithm change, analysis without change control, or a...",10,phase_gate_register.csv (Gate 10),Gate 10 sign-off (P1+P3+P5+P6+P7+P8+P9); Phase 10 validation procedures,P1
+R-5204,5204,Phases 0–10 are frozen;,11,Phases 0–10 are frozen,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P1
+R-5205,5205,zero critical/major review ticket;,11,zero critical/major review ticket,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P1
+R-5206,5206,all primary analyses and artifacts are stable;,11,all primary analyses and artifacts are stable,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P1
+R-5207,5207,both main formats and pre-ablation supplement formats validate;,11,both main formats and pre-ablation supplement formats valida,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P1
+R-5208,5208,algorithm remains frozen.,11,algorithm remains frozen,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P1
+R-5228,5228,All previous phases. Phase 12 cannot start without Phase 11 acceptance.,11,phase_gate_register.csv (Gate 11 entry),Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P1
+R-5232,5232,Reverify current journal instructions.,11,journal_compliance.md,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P10
+R-5233,5233,Record new access date and detect changes since Phase 4.,11,journal_compliance.md,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P10
+R-5234,5234,"Apply current structure, limits, artwork, Word/LaTeX, supplement, anonymization, declaration, and AI-disclosure rules.",11,journal_compliance.md,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P10
+R-5237,5237,Finalize all minor/editorial tickets.,11,revision_log.md,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P6
+R-5238,5238,Close or document non-material residuals.,11,revision_log.md,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P6
+R-5239,5239,Rebuild both formats after changes.,11,revision_log.md,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P6
+R-5241,5241,Run complete primary integrity audit.,11,final_primary_integrity_audit.md,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P9
+R-5252,5252,Run clean builds.,11,pre-ablation main/supplement builds,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P7
+R-5262,5262,Clean build directory first.,11,pre-ablation main/supplement builds,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P7
+R-5263,5263,Use the DOCX commands and output-filename mapping recorded in project_configuration.md (Phase 9 task 6 tooling) so the freeze manifests h...,11,pre-ablation main/supplement builds,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P7
+R-5267,5267,The review pack remains an internal advisor artifact (Phase 9 task 4); it is excluded from publication evidence and the submission package.,11,pre-ablation main/supplement builds,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P7
+R-5269,5269,Record page counts and warnings; verify the measured main-manuscript page count still satisfies the Section 1.5 hard page-limit rule agai...,11,pre-ablation main/supplement builds,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P7
+R-5275,5275,Run repository engineering gates.,11,engineering gate logs,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P5
+R-5284,5284,Finalize Word validation.,11,word_validation_report.md,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P8
+R-5285,5285,Open/update/save/reopen.,11,word_validation_report.md,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P8
+R-5286,5286,"Recheck OMML, native tables, fields, citations, bibliography, TOC/lists, bookmarks, relationships, and visual layout.",11,word_validation_report.md,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P8
+R-5289,5289,Freeze main manuscript scientifically.,11,main_manuscript_freeze_manifest.json,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P1
+R-5290,5290,"Record canonical, LaTeX, PDF, DOCX, claim matrix, citation map, and artifact hashes.",11,main_manuscript_freeze_manifest.json,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P1
+R-5292,5292,Mark main scientific content FROZEN_BEFORE_ABLATION.,11,main_manuscript_freeze_manifest.json,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P1
+R-5293,5293,No algorithm or primary experiment change is permitted after this point.,11,main_manuscript_freeze_manifest.json,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P1
+R-5295,5295,Freeze primary evidence and analysis.,11,primary_freeze_manifest.json,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P5
+R-5296,5296,"Record release ID, analysis bundle hashes, source-use audit, and artifact bindings.",11,primary_freeze_manifest.json,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P5
+R-5299,5299,Freeze pre-ablation supplementary core.,11,pre_ablation_supplement_freeze_manifest.json,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P6
+R-5300,5300,Hash all non-ablation content.,11,pre_ablation_supplement_freeze_manifest.json,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P6
+R-5301,5301,"Reserve final ablation insertion points in source only, not visible output.",11,pre_ablation_supplement_freeze_manifest.json,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P6
+R-5303,5303,Verify main-manuscript ablation prohibition.,11,no-ablation scan report,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P9
+R-5304,5304,"Scan text, captions, hidden fields, metadata, highlights, cover letter, and figures.",11,no-ablation scan report,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P9
+R-5306,5306,No ablation result or claim.,11,no-ablation scan report,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P9
+R-5308,5308,Verify final-phase prerequisites.,11,phase12_entry_certificate.md,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P5
+R-5309,5309,Algorithm freeze manifest intact.,11,phase12_entry_certificate.md,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P5
+R-5310,5310,Ablation preregistration complete.,11,phase12_entry_certificate.md,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P5
+R-5311,5311,Toggle audit complete.,11,phase12_entry_certificate.md,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P5
+R-5312,5312,Compute/environment available.,11,phase12_entry_certificate.md,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P5
+R-5313,5313,Staging paths ready and the promotion tool scripts/promote_evidence.py (built in Phase 2 task 10) verified operational.,11,phase12_entry_certificate.md,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P5
+R-5315,5315,No historical result leakage.,11,phase12_entry_certificate.md,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P5
+R-5317,5317,Create Phase 12 entry certificate.,11,phase12_entry_certificate.md,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P1
+R-5318,5318,List every required gate and checksum.,11,phase12_entry_certificate.md,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P1
+R-5319,5319,"State that algorithm development, primary benchmarking, statistical validation, manuscript preparation, dual-format production, and manus...",11,phase12_entry_certificate.md,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P1
+R-5323,5323,Create correction-exception protocol.,11,correction_exception_protocol.md,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P1
+R-5324,5324,Define material contradiction thresholds.,11,correction_exception_protocol.md,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P1
+R-5325,5325,Permit text-only narrowing/correction in Phase 12.,11,correction_exception_protocol.md,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P1
+R-5326,5326,"Prohibit algorithm redesign, new primary tuning, or main-text ablation results.",11,correction_exception_protocol.md,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P1
+R-5331,5331,finalized pre-ablation main PDF and DOCX;,11,finalized pre-ablation main PDF and DOCX,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P5
+R-5332,5332,finalized pre-ablation supplementary core PDF and DOCX;,11,finalized pre-ablation supplementary core PDF and DOCX,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P5
+R-5333,5333,primary_freeze_manifest.json;,11,primary_freeze_manifest.json,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P5
+R-5334,5334,main_manuscript_freeze_manifest.json;,11,main_manuscript_freeze_manifest.json,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P5
+R-5335,5335,pre_ablation_supplement_freeze_manifest.json;,11,pre_ablation_supplement_freeze_manifest.json,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P5
+R-5336,5336,journal_compliance.md;,11,journal_compliance.md,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P5
+R-5337,5337,final_primary_integrity_audit.md;,11,final_primary_integrity_audit.md,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P5
+R-5338,5338,phase12_entry_certificate.md;,11,phase12_entry_certificate.md,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P5
+R-5339,5339,correction_exception_protocol.md;,11,correction_exception_protocol.md,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P5
+R-5340,5340,final pre-ablation build/Word/engineering reports.,11,final pre-ablation build/Word/engineering reports,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P5
+R-5344,5344,complete acceptance checklist;,11,phase_gate_register.csv (Gate 11),Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P5
+R-5345,5345,clean build and OOXML validation;,11,phase_gate_register.csv (Gate 11),Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P5
+R-5346,5346,hash comparison with frozen registries;,11,phase_gate_register.csv (Gate 11),Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P5
+R-5347,5347,journal rule cross-check;,11,phase_gate_register.csv (Gate 11),Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P5
+R-5348,5348,no-ablation scan;,11,phase_gate_register.csv (Gate 11),Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P5
+R-5349,5349,Phase 12 prerequisite validation.,11,phase_gate_register.csv (Gate 11),Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P5
+R-5353,5353,P1 signs scientific finalization.,11,phase_gate_register.csv (Gate 11),Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P1
+R-5354,5354,P3 signs primary statistical validity.,11,phase_gate_register.csv (Gate 11),Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P3
+R-5355,5355,P5 signs evidence/reproducibility freeze.,11,phase_gate_register.csv (Gate 11),Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P5
+R-5356,5356,P6 signs editorial finalization (closure of the minor/editorial tickets deferred from Gate 10).,11,phase_gate_register.csv (Gate 11),Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P6
+R-5358,5358,P7 signs PDF.,11,phase_gate_register.csv (Gate 11),Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P7
+R-5359,5359,P8 signs Word.,11,phase_gate_register.csv (Gate 11),Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P8
+R-5360,5360,P9 signs integrity/no-ablation.,11,phase_gate_register.csv (Gate 11),Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P9
+R-5361,5361,P10 signs journal compliance.,11,phase_gate_register.csv (Gate 11),Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P10
+R-5365,5365,zero open material ticket;,11,phase_gate_register.csv (Gate 11),Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P9
+R-5366,5366,zero build error;,11,phase_gate_register.csv (Gate 11),Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P9
+R-5367,5367,zero broken Word field;,11,phase_gate_register.csv (Gate 11),Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P9
+R-5368,5368,zero source drift;,11,phase_gate_register.csv (Gate 11),Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P9
+R-5369,5369,zero main-text ablation content;,11,phase_gate_register.csv (Gate 11),Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P9
+R-5370,5370,all Phase 12 prerequisites green.,11,phase_gate_register.csv (Gate 11),Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P9
+R-5374,5374,all algorithm development is complete and frozen;,11,phase_gate_register.csv (Gate 11),Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P1
+R-5375,5375,all primary benchmarking and statistics are complete and validated;,11,phase_gate_register.csv (Gate 11),Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P1
+R-5376,5376,main manuscript is scientifically and editorially finalized;,11,phase_gate_register.csv (Gate 11),Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P1
+R-5377,5377,PDF and Word are publication-ready;,11,phase_gate_register.csv (Gate 11),Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P1
+R-5378,5378,non-ablation supplement core is finalized;,11,phase_gate_register.csv (Gate 11),Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P1
+R-5379,5379,current journal requirements are met;,11,phase_gate_register.csv (Gate 11),Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P1
+R-5380,5380,Phase 12 entry certificate is signed;,11,phase_gate_register.csv (Gate 11),Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P1
+R-5381,5381,no material unresolved issue remains.,11,phase_gate_register.csv (Gate 11),Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P1
+R-5385,5385,Phase 11 freezes only when every signatory approves. This is the mandatory entry gate for final ablation. No ablation objective evaluatio...,11,phase_gate_register.csv (Gate 11),Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P1
+R-5407,5407,repeat official-guidance check;,11,risk_register.csv,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P1
+R-5408,5408,automated deep scan including OOXML/metadata;,11,risk_register.csv,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P1
+R-5409,5409,isolate administrative gaps;,11,risk_register.csv,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P1
+R-5410,5410,revalidate hashes/profile lock;,11,risk_register.csv,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P1
+R-5411,5411,keep Phase 11 open until truly final.,11,risk_register.csv,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P1
+R-5415,5415,"All generated outputs, especially the signed phase12_entry_certificate.md.",11,phase12_entry_certificate.md,Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P1
+R-5419,5419,"Gate 11 — Pre-ablation hard gate: P1 + P3 + P5 + P6 + P7 + P8 + P9 + P10 must all approve. Any open material issue, missing signature, al...",11,phase_gate_register.csv (Gate 11),Gate 11 pre-ablation hard gate sign-off (P1+P3+P5+P6+P7+P8+P9+P10),P1
+R-5434,5434,Phase 12 is the final phase of the project; no later phase exists.,12,completion_report.md,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P1
+R-5454,5454,Every item in phase12_entry_certificate.md MUST be green:,12,phase12_entry_certificate.md,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P1
+R-5499,5499,Recompute and compare:,12,ablation_execution_manifest.json,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P5
+R-5507,5507,Abort if any material hash differs.,12,ablation_execution_manifest.json,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P5
+R-5508,5508,"Create ablation_execution_manifest.json with study ID, commit, environment, frozen toggles, cells, suites, dimensions, runs, seeds, funct...",12,ablation_execution_manifest.json,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P5
+R-5511,5511,Create a clean branch/worktree or immutable execution container.,12,ablation_execution_manifest.json,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P5
+R-5515,5515,The final ablation study MUST distinguish these questions:,12,ablation_preregistration.md,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P3
+R-5517,5517,"Conditional remove-one contribution: How does disabling one component from the full frozen scaffold change performance, conditional on al...",12,ablation_preregistration.md,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P3
+R-5520,5520,Isolated add-one contribution: How does enabling one component on a frozen minimal/base configuration change performance?,12,ablation_preregistration.md,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P3
+R-5522,5522,Order-conditional incremental contribution: How does adding each module in a pre-specified dependency-respecting cumulative chain change...,12,ablation_preregistration.md,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P3
+R-5525,5525,Direct SGSM overlay contribution: What changes when SGSM is disabled while the remaining frozen algorithm is held constant?,12,ablation_preregistration.md,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P3
+R-5527,5527,Targeted interaction effects: Do pre-specified dependent component pairs show non-additive behavior?,12,ablation_preregistration.md,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P3
+R-5529,5529,Cost contribution: What runtime and objective-accounting overhead does each configuration impose? Memory overhead is in scope only when t...,12,ablation_preregistration.md,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P3
+R-5534,5534,Convergence contribution: At what evaluation stages do differences emerge?,12,ablation_preregistration.md,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P3
+R-5536,5536,"Sensitivity: Are ablation conclusions stable under approved nearby configuration values, without modifying algorithm code?",12,ablation_preregistration.md,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P3
+R-5539,5539,Do not call a conditional or order-dependent delta an independent causal effect.,12,ablation_preregistration.md,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P3
+R-5540,5540,Do not average across dimensions when signs or magnitudes differ materially.,12,ablation_preregistration.md,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P3
+R-5544,5544,Verify the existing script and execute the approved remove-one matrix. The cell set is conditional on the Phase 3 frozen-profile toggle a...,12,remove-one ablation cells (staging) + ablation plan,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P4
+R-5547,5547,"A mechanism confirmed active MUST be included, or excluded with a preregistered justification recorded in the ablation plan. Expected cel...",12,remove-one ablation cells (staging) + ablation plan,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P4
+R-5578,5578,The last three mechanisms are active in the current frozen profile (Appendix D.7.6) and their remove-one configs already exist under conf...,12,remove-one ablation cells (staging) + ablation plan,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P4
+R-5588,5588,"For this scaffold design, SGSM/interaction graph is expected to be disabled in every cell. Verify this from generated configs. Every tabl...",12,remove-one ablation cells (staging) + ablation plan,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P4
+R-5592,5592,"Expected core protocol, subject to preregistered verification:",12,remove-one ablation cells (staging) + ablation plan,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P4
+R-5604,5604,Run a direct SGSM comparison with all other relevant components held constant. The design comprises cells equivalent to:,12,direct SGSM cells (staging) + ablation plan,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P4
+R-5613,5613,"These configuration names do not exist in the repository yet, and scripts/run_ablation.py cannot produce an SGSM-on cell: it merges inter...",12,direct SGSM cells (staging) + ablation plan,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P4
+R-5621,5621,Define no_adaptive toggle set in ablation plan before execution; name the suite; include a dimension >= 50 (SGSM gates at min_dim 50).,12,direct SGSM cells (staging) + ablation plan,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P4
+R-5625,5625,Verify whether CEC2013 was involved in development; do not call it a holdout or independent confirmation unless proven.,12,direct SGSM cells (staging) + ablation plan,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P4
+R-5627,5627,The direct SGSM comparison MUST report both performance and overhead.,12,direct SGSM cells (staging) + ablation plan,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P4
+R-5631,5631,Isolated add-one panel.,12,isolated/incremental cells (staging) + ablation plan,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P4
+R-5632,5632,Use a frozen base configuration and one only_<component> cell per approved component when scientifically meaningful.,12,isolated/incremental cells (staging) + ablation plan,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P4
+R-5634,5634,Components with dependencies that cannot operate in isolation are marked not identifiable and excluded with rationale.,12,isolated/incremental cells (staging) + ablation plan,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P4
+R-5637,5637,Cumulative incremental chain.,12,isolated/incremental cells (staging) + ablation plan,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P4
+R-5638,5638,"Define the order before running, based on code dependencies and scientific rationale, not expected performance.",12,isolated/incremental cells (staging) + ablation plan,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P4
+R-5653,5653,Each cell differs from the previous by exactly one approved module.,12,isolated/incremental cells (staging) + ablation plan,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P4
+R-5654,5654,Report each delta as order-conditional.,12,isolated/incremental cells (staging) + ablation plan,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P4
+R-5655,5655,"Preserve identical budgets, seeds, and implementation.",12,isolated/incremental cells (staging) + ablation plan,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P4
+R-5657,5657,"If the existing runner lacks cumulative mode, generate explicit frozen config files through the existing toggle system. Do not modify alg...",12,isolated/incremental cells (staging) + ablation plan,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P4
+R-5662,5662,"At minimum evaluate interactions required by the method dependency graph, when supported by the preregistration and compute budget. Expec...",12,targeted interaction cells + ablation plan,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P3
+R-5669,5669,Use a limited factorial or contrast design sufficient for the stated question.,12,targeted interaction cells + ablation plan,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P3
+R-5670,5670,Do not claim untested interactions are absent. A full 2^k factorial is not required unless pre-registered and computationally feasible.,12,targeted interaction cells + ablation plan,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P3
+R-5673,5673,Interaction cells that require SGSM enabled are subject to the same tooling constraint as Section 12.4: run_ablation.py merges interactio...,12,targeted interaction cells + ablation plan,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P3
+R-5682,5682,"Re-run and record the authoritative dry-run generation after the signed Gate 11 — the pre-ablation hard gate, evidenced by an all-green p...",12,config validation record / dry-run diff,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P4
+R-5692,5692,"Warning: both invocations rewrite the committed configs/_ablation/*.yml files in place. Diff the result, then deliberately commit or rest...",12,config validation record / dry-run diff,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P4
+R-5697,5697,"For every generated config, verify:",12,config validation record / dry-run diff,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P4
+R-5708,5708,Render and manually inspect a configuration-difference matrix. Any unexpected change blocks execution.,12,config validation record / dry-run diff,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P4
+R-5713,5713,"Execute core ablation runs via run_ablation.py --dimension 10,30,50,100 --runs 25 --workers 15 (expected core command).",12,staged ablation runs (results/_ablation),"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P4
+R-5721,5721,"output to staging only, expected under results/_ablation/<cell>/dt-gsk/<suite>/...;",12,staged ablation runs (results/_ablation),"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P4
+R-5723,5723,preserve seed 20240620 and exact run count;,12,staged ablation runs (results/_ablation),"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P4
+R-5724,5724,use --workers 2 or serial when memory constrained;,12,staged ablation runs (results/_ablation),"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P4
+R-5725,5725,resume incomplete cells without changing protocol;,12,staged ablation runs (results/_ablation),"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P4
+R-5726,5726,rerun only failed/corrupt cells using --only <cell>;,12,staged ablation runs (results/_ablation),"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P4
+R-5727,5727,"never reduce runs, dimensions, functions, or MaxFES;",12,staged ablation runs (results/_ablation),"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P4
+R-5728,5728,never change a parameter after observing outcomes;,12,staged ablation runs (results/_ablation),"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P4
+R-5729,5729,"record retries, worker failures, timeouts, and hardware events;",12,staged ablation runs (results/_ablation),"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P4
+R-5730,5730,verify no source/config file changed during execution.,12,staged ablation runs (results/_ablation),"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P4
+R-5732,5732,"Execute direct SGSM, isolated, cumulative, targeted interaction, overhead, convergence, and approved sensitivity cells using separate, pr...",12,staged ablation runs (results/_ablation),"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P4
+R-5738,5738,For each cell verify:,12,run validation report,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P4
+R-5748,5748,"wall-time instrumentation (runtime_seconds in per_run.csv), plus memory instrumentation only when the optional pre-freeze peak-memory har...",12,run validation report,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P4
+R-5758,5758,A partial matrix is not analyzed or reported as complete.,12,run validation report,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P4
+R-5762,5762,"Create a versioned release path, default:",12,promoted release + ablation_release_manifest.json,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P5
+R-5768,5768,"Include per-cell/per-suite raw/per-run outputs, convergence logs, configs, environment, seeds, verification, protocol, and checksums. The...",12,promoted release + ablation_release_manifest.json,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P5
+R-5775,5775,Use the scripted ingestion process scripts/promote_evidence.py (Phase 2 task 10; Section 2.4).,12,promoted release + ablation_release_manifest.json,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P5
+R-5777,5777,Verify promoted bytes equal accepted staging bytes.,12,promoted release + ablation_release_manifest.json,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P5
+R-5778,5778,Write ablation_release_manifest.json and supersession policy.,12,promoted release + ablation_release_manifest.json,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P5
+R-5779,5779,Set the promoted release read-only.,12,promoted release + ablation_release_manifest.json,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P5
+R-5780,5780,"From this point onward, all ablation analyses MUST read exclusively from the promoted path. Staging output is no longer an analytical input.",12,promoted release + ablation_release_manifest.json,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P5
+R-5785,5785,"Expected scaffold aggregation commands. --ablation-root defaults to the staging tree (results/_ablation), so after promotion the release-...",12,machine-readable ablation statistics,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P3
+R-5806,5806,"Extend or wrap the aggregator for direct SGSM, isolated, cumulative, targeted interaction, cost, convergence, and sensitivity analyses wi...",12,machine-readable ablation statistics,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P3
+R-5810,5810,"For each pre-registered family compute, as valid:",12,machine-readable ablation statistics,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P3
+R-5831,5831,Do not collapse a sign-changing effect into one overall average.,12,machine-readable ablation statistics,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P3
+R-5835,5835,Every component discussion MUST state:,12,supplementary ablation interpretation,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P3
+R-5848,5848,Prohibited inferences include:,12,supplementary ablation interpretation,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P3
+R-5859,5859,Use the validated promoted-release analyses to generate:,12,ablation tables/figures,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P7
+R-5882,5882,Ablation fragments may follow ablation_<tag>.tex. Bind every cell/point to a promoted evidence source. Generate native Word tables from t...,12,ablation tables/figures,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P7
+R-5888,5888,The supplementary document MUST include:,12,supplementary ablation section,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P6
+R-5912,5912,All scientific paragraphs follow the evidence rules. No result is invented or estimated.,12,supplementary ablation section,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P6
+R-5917,5917,Compare final ablation evidence against every component-related main-text claim and rationale.,12,Phase 12 correction tickets / re-frozen main,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P1
+R-5920,5920,A material contradiction includes:,12,Phase 12 correction tickets / re-frozen main,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P1
+R-5928,5928,When triggered:,12,Phase 12 correction tickets / re-frozen main,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P1
+R-5941,5941,A neutral pointer to Supplementary Materials may be added if allowed.,12,Phase 12 correction tickets / re-frozen main,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P1
+R-5945,5945,Integrate ablation with the frozen non-ablation supplement core.,12,final supplementary PDF/DOCX,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P8
+R-5946,5946,Compile standalone supplementary PDF:,12,final supplementary PDF/DOCX,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P8
+R-5952,5952,Generate supplementary DOCX with:,12,final supplementary PDF/DOCX,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P8
+R-5959,5959,"Validate OOXML, fields, citations, values, and visual layout.",12,final supplementary PDF/DOCX,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P8
+R-5960,5960,Verify every main-to-supplement pointer resolves.,12,final supplementary PDF/DOCX,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P8
+R-5964,5964,Rebuild from the re-frozen canonical source.,12,final main PDF/DOCX,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P7
+R-5965,5965,Confirm no ablation results appear.,12,final main PDF/DOCX,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P7
+R-5966,5966,Confirm any neutral supplement pointer is correct.,12,final main PDF/DOCX,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P7
+R-5967,5967,"Rerun citation, number, source, field, Word, and cross-format checks.",12,final main PDF/DOCX,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P7
+R-5971,5971,Include:,12,reproducibility package,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P5
+R-5994,5994,"Include, subject to the verified journal checklist:",12,submission package,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P10
+R-6012,6012,Author/administrative metadata must be verified. Missing human metadata blocks the upload-ready label but does not justify invention.,12,submission package,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P10
+R-6017,6017,Copy only packaged source into a clean location.,12,clean-room rebuild report,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P5
+R-6018,6018,Build main and supplement PDF.,12,clean-room rebuild report,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P5
+R-6019,6019,Generate main and supplement DOCX.,12,clean-room rebuild report,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P5
+R-6020,6020,Update Word fields and reopen.,12,clean-room rebuild report,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P5
+R-6021,6021,Verify all paths are package-relative.,12,clean-room rebuild report,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P5
+R-6022,6022,Verify nothing referenced is missing and nothing unnecessary is included.,12,clean-room rebuild report,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P5
+R-6023,6023,Recompute checksums.,12,clean-room rebuild report,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P5
+R-6027,6027,Repeat targeted R1–R6 review on:,12,final review reports,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",R1
+R-6037,6037,All categories must score at least 4/5; no critical/major issue may remain.,12,final review reports,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P1
+R-6041,6041,Record submission commit/SHA and evidence release IDs.,12,final_integrity_audit.md / completion_report.md,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P1
+R-6042,6042,Make final manifests immutable.,12,final_integrity_audit.md / completion_report.md,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P1
+R-6043,6043,Record PI/scientific sign-off and available author administrative sign-offs.,12,final_integrity_audit.md / completion_report.md,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P1
+R-6044,6044,"Create final_integrity_audit.md (Section 3.1) consolidating the complete acceptance evidence and residual caveats, extending the Phase 11...",12,final_integrity_audit.md / completion_report.md,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P1
+R-6047,6047,"Create completion_report.md with verified achievements, omitted claims, residual caveats, and any administrative blocker.",12,final_integrity_audit.md / completion_report.md,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P1
+R-6049,6049,Declare the project complete only if every final acceptance criterion passes.,12,final_integrity_audit.md / completion_report.md,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P1
+R-6054,6054,complete staged and promoted ablation data;,12,complete staged and promoted ablation data,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P5
+R-6055,6055,ablation_execution_manifest.json;,12,ablation_execution_manifest.json,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P5
+R-6056,6056,ablation_release_manifest.json;,12,ablation_release_manifest.json,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P5
+R-6057,6057,raw/per-run/config/environment/seed/checkpoint records under the immutable ablation release;,12,raw/per-run/config/environment/seed/checkpoint records under,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P5
+R-6059,6059,complete machine-readable ablation statistics;,12,complete machine-readable ablation statistics,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P5
+R-6060,6060,ablation tables and figures;,12,ablation tables and figures,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P5
+R-6061,6061,"complete supplementary source, PDF, and DOCX;",12,"complete supplementary source, PDF, and DOCX","Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P5
+R-6062,6062,"final main source, PDF, and DOCX;",12,"final main source, PDF, and DOCX","Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P5
+R-6063,6063,updated claims/citation/artifact/cross-format records;,12,updated claims/citation/artifact/cross-format records,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P5
+R-6064,6064,reproducibility package;,12,reproducibility package,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P5
+R-6065,6065,submission package;,12,submission package,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P5
+R-6066,6066,final review and compliance reports;,12,final review and compliance reports,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P5
+R-6067,6067,final_integrity_audit.md;,12,final_integrity_audit.md,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P5
+R-6068,6068,completion_report.md.,12,completion_report.md,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P5
+R-6072,6072,configuration-difference validation;,12,phase_gate_register.csv (Gate 12),"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P5
+R-6073,6073,run completeness and seed/MaxFES checks;,12,phase_gate_register.csv (Gate 12),"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P5
+R-6074,6074,code/config/evaluator hash checks;,12,phase_gate_register.csv (Gate 12),"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P5
+R-6075,6075,FP/environment consistency;,12,phase_gate_register.csv (Gate 12),"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P5
+R-6076,6076,staging-to-release byte equality;,12,phase_gate_register.csv (Gate 12),"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P5
+R-6077,6077,strict promoted-source analysis audit;,12,phase_gate_register.csv (Gate 12),"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P5
+R-6078,6078,"statistical schema, family, effect, interval, and determinism checks;",12,phase_gate_register.csv (Gate 12),"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P5
+R-6079,6079,table/figure value binding;,12,phase_gate_register.csv (Gate 12),"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P5
+R-6080,6080,supplement cross-reference and standalone build;,12,phase_gate_register.csv (Gate 12),"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P5
+R-6081,6081,main no-ablation scan;,12,phase_gate_register.csv (Gate 12),"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P5
+R-6082,6082,Word OMML/native table/field/citation checks;,12,phase_gate_register.csv (Gate 12),"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P5
+R-6083,6083,clean-room package rebuild;,12,phase_gate_register.csv (Gate 12),"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P5
+R-6084,6084,checksum and manifest validation.,12,phase_gate_register.csv (Gate 12),"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P5
+R-6088,6088,P2 verifies toggle semantics and component interpretation.,12,phase_gate_register.csv (Gate 12),"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P2
+R-6089,6089,"P3 verifies final ablation estimands, tests, effects, intervals, interactions, and causal wording.",12,phase_gate_register.csv (Gate 12),"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P3
+R-6091,6091,P4 verifies run protocol and evidence release.,12,phase_gate_register.csv (Gate 12),"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P4
+R-6092,6092,"P5 verifies promotion, commands, hashes, reproducibility, and clean-room build.",12,phase_gate_register.csv (Gate 12),"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P5
+R-6093,6093,P6 verifies supplementary writing and main correction scope.,12,phase_gate_register.csv (Gate 12),"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P6
+R-6094,6094,P7 verifies final PDFs/figures.,12,phase_gate_register.csv (Gate 12),"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P7
+R-6095,6095,P8 verifies final Word documents and editable sources.,12,phase_gate_register.csv (Gate 12),"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P8
+R-6096,6096,P9 verifies evidence/citation/integrity and no main ablation.,12,phase_gate_register.csv (Gate 12),"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P9
+R-6097,6097,P10 verifies journal and package compliance.,12,phase_gate_register.csv (Gate 12),"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P10
+R-6098,6098,R1–R6 independently review the final package.,12,phase_gate_register.csv (Gate 12),"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",R1
+R-6102,6102,no pre-freeze algorithm change;,12,phase_gate_register.csv (Gate 12),"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P9
+R-6103,6103,no partial ablation matrix;,12,phase_gate_register.csv (Gate 12),"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P9
+R-6104,6104,no mixed seed/run/budget design;,12,phase_gate_register.csv (Gate 12),"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P9
+R-6105,6105,no analysis from staging after promotion;,12,phase_gate_register.csv (Gate 12),"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P9
+R-6106,6106,no SGSM misattribution;,12,phase_gate_register.csv (Gate 12),"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P9
+R-6107,6107,no independent-causality claim from an inadequate design;,12,phase_gate_register.csv (Gate 12),"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P9
+R-6108,6108,all negative effects reported;,12,phase_gate_register.csv (Gate 12),"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P9
+R-6109,6109,all overhead/convergence/sensitivity evidence included;,12,phase_gate_register.csv (Gate 12),"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P9
+R-6110,6110,main manuscript contains no ablation result;,12,phase_gate_register.csv (Gate 12),"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P9
+R-6111,6111,supplementary Word is fully editable;,12,phase_gate_register.csv (Gate 12),"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P9
+R-6112,6112,final package rebuilds cleanly.,12,phase_gate_register.csv (Gate 12),"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P9
+R-6116,6116,ablation starts only after signed Phase 11 gate;,12,phase_gate_register.csv (Gate 12),"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P1
+R-6117,6117,all runs use the frozen finalized implementation;,12,phase_gate_register.csv (Gate 12),"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P1
+R-6118,6118,"core remove-one, direct SGSM, isolated/incremental, targeted interaction, significance/effect/CI, overhead, convergence, and sensitivity...",12,phase_gate_register.csv (Gate 12),"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P1
+R-6122,6122,every ablation value derives from promoted immutable evidence;,12,phase_gate_register.csv (Gate 12),"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P1
+R-6123,6123,complete raw and summarized evidence is available;,12,phase_gate_register.csv (Gate 12),"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P1
+R-6124,6124,"supplementary materials are comprehensive, transparent, reproducible, and independently compilable;",12,phase_gate_register.csv (Gate 12),"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P1
+R-6126,6126,main manuscript remains ablation-free except a neutral pointer;,12,phase_gate_register.csv (Gate 12),"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P1
+R-6127,6127,any material contradiction is corrected without algorithm redesign;,12,phase_gate_register.csv (Gate 12),"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P1
+R-6128,6128,final PDF and Word documents pass all native/editability checks;,12,phase_gate_register.csv (Gate 12),"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P1
+R-6129,6129,reproducibility and submission packages are complete;,12,phase_gate_register.csv (Gate 12),"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P1
+R-6130,6130,no critical/major review issue remains;,12,phase_gate_register.csv (Gate 12),"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P1
+R-6131,6131,all final manifests and checksums agree.,12,phase_gate_register.csv (Gate 12),"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P1
+R-6135,6135,Set Phase 12 to FROZEN and the project to COMPLETE only when every acceptance criterion is proven. If scientific work passes but author/a...,12,phase_gate_register.csv (Gate 12),"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P1
+R-6165,6165,validate config diffs before runs;,12,risk_register.csv,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P1
+R-6166,6166,use resume/retry without protocol changes;,12,risk_register.csv,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P1
+R-6167,6167,report conditional/order-dependent effects honestly;,12,risk_register.csv,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P1
+R-6168,6168,fail closed on incomplete matrices;,12,risk_register.csv,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P1
+R-6169,6169,promote and reanalyze from immutable evidence;,12,risk_register.csv,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P1
+R-6170,6170,apply text-only correction exception;,12,risk_register.csv,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P1
+R-6171,6171,regenerate Word from semantic sources;,12,risk_register.csv,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P1
+R-6172,6172,recheck official journal guidance immediately before packaging.,12,risk_register.csv,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P1
+R-6176,6176,"Every generated output in this phase, including the final main and supplementary PDF/DOCX files, ablation release, reproducibility packag...",12,submission package,"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P1
+R-6182,6182,"Gate 12 — Final project gate: P1–P10 and R1–R6 approve all applicable criteria. No critical/major issue, evidence-boundary violation, alg...",12,phase_gate_register.csv (Gate 12),"Gate 12 final gate sign-off (P1-P10, R1-R6) + Section 15 validators",P1
+R-6193,6193,Score each applicable item from 1 to 5:,cross,revision_tickets.csv / review reports,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,P1
+R-6201,6201,Any score ≤3 creates a ticket. A score ≤2 is a blocking major unless the item is formally not applicable with evidence.,cross,revision_tickets.csv / review reports,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,P1
+R-6204,6204,Rubric-to-role mapping follows the Section 11.2 role definitions: R1 scores 14.2–14.4; R2 (methodological/statistical) scores 14.5 and th...,cross,revision_tickets.csv / review reports,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R1
+R-6215,6215,Is the problem specific and important within the approved literature scope?,cross,review_R1_scientific.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R1
+R-6216,6216,Is the contribution boundary explicit?,cross,review_R1_scientific.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R1
+R-6217,6217,"Is SGSM distinguished accurately from differential grouping, eigenvector crossover, covariance adaptation, and direct search?",cross,review_R1_scientific.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R1
+R-6219,6219,"Are inherited, modified, combined, and original elements separated?",cross,review_R1_scientific.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R1
+R-6220,6220,Are novelty statements bounded to the closed corpus?,cross,review_R1_scientific.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R1
+R-6221,6221,Does the same-family panel support the exact claims made?,cross,review_R1_scientific.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R1
+R-6222,6222,Does the paper avoid field-wide superiority claims?,cross,review_R1_scientific.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R1
+R-6223,6223,Are negative and null results visible?,cross,review_R1_scientific.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R1
+R-6224,6224,Does the supplementary ablation test components at the correct level without causal overstatement?,cross,review_R1_scientific.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R1
+R-6229,6229,Can a competent reader reimplement the core?,cross,review_R1_scientific.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R1
+R-6230,6230,"Are all symbols, distributions, parameters, states, and update orders defined?",cross,review_R1_scientific.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R1
+R-6231,6231,"Do equations, pseudocode, code, and Word OMML agree?",cross,review_R1_scientific.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R1
+R-6232,6232,Are evaluation budgets and local-search calls fully counted?,cross,review_R1_scientific.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R1
+R-6233,6233,Are numerical safeguards and fallback behaviors specified?,cross,review_R1_scientific.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R1
+R-6234,6234,Are time and memory complexity derived from actual code?,cross,review_R1_scientific.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R1
+R-6235,6235,Is the final frozen implementation identical across primary and ablation experiments?,cross,review_R1_scientific.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R1
+R-6240,6240,"Are suite definitions, dimensions, functions, and run counts verified?",cross,review_R1_scientific.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R1
+R-6241,6241,Are seeds and pairing available?,cross,review_R1_scientific.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R1
+R-6242,6242,"Are comparator budgets, parameter tuning, boundary handling, and failure rules fair?",cross,review_R1_scientific.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R1
+R-6244,6244,Are imported and reproduced results distinguished?,cross,review_R1_scientific.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R1
+R-6245,6245,Is eGSK provenance handled correctly?,cross,review_R1_scientific.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R1
+R-6246,6246,Is CEC2013's role pre-specified rather than outcome-driven?,cross,review_R1_scientific.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R1
+R-6247,6247,Are convergence cases selected by a defensible rule?,cross,review_R1_scientific.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R1
+R-6248,6248,Are results generated exclusively from the approved evidence root?,cross,review_R1_scientific.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R1
+R-6252,6252,Is the estimand clear?,cross,review_R2_statistics.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R2
+R-6253,6253,Are observation and experimental units distinguished?,cross,review_R2_statistics.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R2
+R-6254,6254,Is pseudoreplication avoided?,cross,review_R2_statistics.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R2
+R-6255,6255,Are Friedman/Nemenyi assumptions and task counts valid?,cross,review_R2_statistics.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R2
+R-6256,6256,Is Wilcoxon pairing valid and zero handling reported?,cross,review_R2_statistics.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R2
+R-6257,6257,Are multiplicity families pre-defined and Holm applied correctly?,cross,review_R2_statistics.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R2
+R-6258,6258,Are effect measures compatible with design?,cross,review_R2_statistics.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R2
+R-6259,6259,Are BCa intervals resampled at the correct level?,cross,review_R2_statistics.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R2
+R-6260,6260,"Are p-values, effects, intervals, and direction consistent?",cross,review_R2_statistics.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R2
+R-6261,6261,Are robustness reversals disclosed?,cross,review_R2_statistics.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R2
+R-6265,6265,Can every headline number be regenerated from an immutable evidence release?,cross,review_R3_reproducibility.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R3
+R-6266,6266,"Are source paths, checksums, commit, evaluator, configuration, seeds, MaxFES, and environment recorded?",cross,review_R3_reproducibility.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R3
+R-6268,6268,Does strict publication mode fail rather than fall back?,cross,review_R3_reproducibility.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R3
+R-6269,6269,Are raw and derived releases immutable and versioned?,cross,review_R3_reproducibility.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R3
+R-6270,6270,Do table/figure generators use named commands and sources?,cross,review_R3_reproducibility.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R3
+R-6271,6271,Does the clean package rebuild without repository-only paths?,cross,review_R3_reproducibility.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R3
+R-6272,6272,"Do software tests, lint, profile lock, and documentation build pass?",cross,review_R3_reproducibility.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R3
+R-6276,6276,Does every scientific paragraph have appropriate support?,cross,review_R1_scientific.md (P9 support),Phase 10/12.21 adversarial review scoring; ticket on any score <=3,P9
+R-6277,6277,Does every citation support the nearby claim?,cross,review_R1_scientific.md (P9 support),Phase 10/12.21 adversarial review scoring; ticket on any score <=3,P9
+R-6278,6278,Are source locators available?,cross,review_R1_scientific.md (P9 support),Phase 10/12.21 adversarial review scoring; ticket on any score <=3,P9
+R-6279,6279,Are empirical claims bound to approved evidence?,cross,review_R1_scientific.md (P9 support),Phase 10/12.21 adversarial review scoring; ticket on any score <=3,P9
+R-6280,6280,Are unsupported claims omitted or narrowed?,cross,review_R1_scientific.md (P9 support),Phase 10/12.21 adversarial review scoring; ticket on any score <=3,P9
+R-6281,6281,Are all bibliography entries and citation fields consistent across formats?,cross,review_R1_scientific.md (P9 support),Phase 10/12.21 adversarial review scoring; ticket on any score <=3,P9
+R-6282,6282,Is decorative citation avoided even if fewer than 57 sources are ultimately used?,cross,review_R1_scientific.md (P9 support),Phase 10/12.21 adversarial review scoring; ticket on any score <=3,P9
+R-6284,6284,Are conclusions and cover-letter claims within the claims ceiling?,cross,review_R1_scientific.md (P9 support),Phase 10/12.21 adversarial review scoring; ticket on any score <=3,P9
+R-6288,6288,Is the narrative coherent and evidence-led?,cross,review_R4_editorial.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R4
+R-6289,6289,Are paragraphs focused and transitions logical?,cross,review_R4_editorial.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R4
+R-6290,6290,Is terminology stable?,cross,review_R4_editorial.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R4
+R-6291,6291,Are generic and promotional phrases absent?,cross,review_R4_editorial.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R4
+R-6292,6292,Are losses and limitations clear?,cross,review_R4_editorial.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R4
+R-6293,6293,Are sections within the verified journal budget?,cross,review_R4_editorial.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R4
+R-6294,6294,Are tables and captions self-contained?,cross,review_R4_editorial.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R4
+R-6295,6295,Are figures readable at final size and accessible?,cross,review_R4_editorial.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R4
+R-6296,6296,Is the main manuscript free of ablation results?,cross,review_R4_editorial.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R4
+R-6297,6297,Is the supplement complete but not a dumping ground?,cross,review_R4_editorial.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R4

@@ -1,0 +1,46 @@
+
+========================================================================
+DETAILED CONFIGURATION
+========================================================================
+optimizer       : fdb-agsk
+suite           : CEC2020
+funcs_to_run    : [7 8 9 10]
+excluded        : []
+dimensions      : 20
+runs            : 30
+base_seed       : 20240620
+seed_policy     : unified
+rand_generator  : threefry
+use_parallel    : true
+parallel_backend: process
+workers         : 14 (explicit)
+numba_threads   : 1
+generation_logs : true
+graphs          : false
+benchmark_fp    : default
+benchmark_backend: python (requested=auto)
+max_nfes        : suite default
+statistics      : error vs known optimum
+project_root    : 02-GSK_Family_Python_v1.1
+output_dir      : results\_run_all\fdb-agsk\cec2020
+========================================================================
+
++----------------------------------------------------------+
+| fdb-agsk - CEC2020 - D=20                           |
++----------------------------------------------------------+
+| 4 functions x 30 runs | Budget: 10,000,000 NFEs          |
+| NP_init=100  min_pop_size=12                             |
+| Bounds: (-100.0, 100.0)   Target error: 1e-08            |
++----------------------------------------------------------+
+
++--------+--------------+--------------+--------------+--------------+--------------+-------------+
+|  Func  |     Best     |    Median    |     Mean     |    Worst     |      SD      |   Time/s    |
++--------+--------------+--------------+--------------+--------------+--------------+-------------+
+|  F07   |    2.40E-01  |    5.79E-01  |    4.28E+00  |    2.98E+01  |    7.07E+00  |     963.3s  |
+|  F08   |    6.98E+01  |    1.00E+02  |    9.90E+01  |    1.00E+02  |    5.52E+00  |    1100.9s  |
+|  F09   |    1.00E+02  |    4.01E+02  |    2.72E+02  |    4.28E+02  |    1.58E+02  |     967.9s  |
+|  F10   |    3.99E+02  |    3.99E+02  |    4.04E+02  |    4.14E+02  |    6.26E+00  |    1012.6s  |
++--------+--------------+--------------+--------------+--------------+--------------+-------------+
+
+[OK] Updated 4 function(s); wrote 120 new run(s)
+

@@ -1,0 +1,221 @@
+{
+ "table_id": "SA02",
+ "manuscript_label": "Table A16",
+ "caption_stub": "Scaffold remove-one ablation on CEC2017: full-vs-cell paired Wilcoxon signed-rank with Holm correction within each dimension (alpha=0.05); ISM off; 51 runs; ordered by ascending raw p within each dimension.",
+ "headers": [
+  [
+   "Dim",
+   "Component removed",
+   "\u0394rank",
+   "Wilcoxon p",
+   "Holm p",
+   "Holm sig."
+  ]
+ ],
+ "rows": [
+  [
+   "D=10",
+   "-ACE",
+   "+2.84",
+   "1.84e-04",
+   "0.0011",
+   "yes"
+  ],
+  [
+   "D=10",
+   "-Local search",
+   "+0.28",
+   "0.044",
+   "0.219",
+   "no"
+  ],
+  [
+   "D=10",
+   "-BSE",
+   "+0.86",
+   "0.071",
+   "0.286",
+   "no"
+  ],
+  [
+   "D=10",
+   "-NLPSR",
+   "+1.05",
+   "0.226",
+   "0.678",
+   "no"
+  ],
+  [
+   "D=10",
+   "-Archive",
+   "+0.38",
+   "0.310",
+   "0.678",
+   "no"
+  ],
+  [
+   "D=10",
+   "-Linkage",
+   "+0.02",
+   "1.000",
+   "1.000",
+   "no"
+  ],
+  [
+   "D=30",
+   "-Local search",
+   "+2.03",
+   "2.41e-04",
+   "0.0014",
+   "yes"
+  ],
+  [
+   "D=30",
+   "-NLPSR",
+   "+2.90",
+   "8.77e-04",
+   "0.0044",
+   "yes"
+  ],
+  [
+   "D=30",
+   "-BSE",
+   "+1.31",
+   "0.0085",
+   "0.034",
+   "yes"
+  ],
+  [
+   "D=30",
+   "-Archive",
+   "+0.14",
+   "0.338",
+   "1.000",
+   "no"
+  ],
+  [
+   "D=30",
+   "-Linkage",
+   "+0.34",
+   "0.343",
+   "1.000",
+   "no"
+  ],
+  [
+   "D=30",
+   "-ACE",
+   "+0.28",
+   "0.648",
+   "1.000",
+   "no"
+  ],
+  [
+   "D=50",
+   "-BSE",
+   "+0.72",
+   "0.018",
+   "0.109",
+   "no"
+  ],
+  [
+   "D=50",
+   "-NLPSR",
+   "+1.40",
+   "0.025",
+   "0.123",
+   "no"
+  ],
+  [
+   "D=50",
+   "-Local search",
+   "+1.69",
+   "0.025",
+   "0.123",
+   "no"
+  ],
+  [
+   "D=50",
+   "-ACE",
+   "+1.19",
+   "0.054",
+   "0.163",
+   "no"
+  ],
+  [
+   "D=50",
+   "-Archive",
+   "+0.17",
+   "0.237",
+   "0.475",
+   "no"
+  ],
+  [
+   "D=50",
+   "-Linkage",
+   "+0.02",
+   "0.713",
+   "0.713",
+   "no"
+  ],
+  [
+   "D=100",
+   "-BSE",
+   "+0.48",
+   "0.061",
+   "0.368",
+   "no"
+  ],
+  [
+   "D=100",
+   "-Local search",
+   "+1.38",
+   "0.086",
+   "0.428",
+   "no"
+  ],
+  [
+   "D=100",
+   "-NLPSR",
+   "+0.95",
+   "0.125",
+   "0.499",
+   "no"
+  ],
+  [
+   "D=100",
+   "-Linkage",
+   "-0.22",
+   "0.697",
+   "1.000",
+   "no"
+  ],
+  [
+   "D=100",
+   "-ACE",
+   "-0.12",
+   "0.829",
+   "1.000",
+   "no"
+  ],
+  [
+   "D=100",
+   "-Archive",
+   "+0.07",
+   "0.856",
+   "1.000",
+   "no"
+  ]
+ ],
+ "notes": [
+  "values reproduced from the promoted ablation release abl-rel-2026-07-16 via generate_ablation_exhibits.py (release-bound; same values as tables/SA02.tex)",
+  "Holm family = the six disabled-cell comparisons within each dimension; the four significant contrasts are all favorable (removal degrades)"
+ ],
+ "number_format": "as-is",
+ "source": "papers/build_prompt_phases/phase_12/ablation_results/ablation_matrix_rank_summary_cec2017_D{10,30,50,100}.csv",
+ "source_sha256": {
+  "D10": "51160dfcca68789c48f91be3d85549260a74073706efc24bf9500a4be93a0e02",
+  "D30": "1b4018b239d18d52fcef590491c61643e9c898f81f7a2fb467902f374fcbe962",
+  "D50": "db229e7ad74f949516f0b08e5a0747e58f4dd8f95a4bd81bea8b904ced55c037",
+  "D100": "25632c5ef4ad26455f521dfc5dcac86ad575ebeb12d5164be3379fbdbde635d5"
+ }
+}

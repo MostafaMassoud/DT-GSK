@@ -1,0 +1,28 @@
+include CITATION.cff
+include pyproject.toml
+
+graft configs
+graft docs
+graft scripts
+graft tests
+graft benchmarks/cec_suite_python
+graft benchmarks/cec_suite_cpp
+recursive-include benchmarks/cec_reference_results *.csv *.md
+include benchmarks/README.md
+include benchmarks/__init__.py
+include benchmarks/cec_reference_results/README.md
+
+global-exclude *.py[cod]
+global-exclude *.nbc
+global-exclude *.nbi
+global-exclude .DS_Store
+prune __pycache__
+prune .pytest_cache
+prune .mypy_cache
+prune .ruff_cache
+prune build
+prune dist
+prune release
+prune results
+prune benchmarks/cec_suite_cpp/build
+prune gsk_family.egg-info

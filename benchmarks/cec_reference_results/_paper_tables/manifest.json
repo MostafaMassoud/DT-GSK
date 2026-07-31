@@ -1,0 +1,316 @@
+{
+ "schema": "paper_tables_promotion_manifest/v2-flat",
+ "release_id": "rel-2026-07-20-67d9345f9",
+ "anchor_commit": "67d9345f9502a9a584e645fa8948f60a61d70e29",
+ "study_id": "X-PT-01",
+ "restructured_utc": "2026-07-11T20:59:15+00:00",
+ "restructure_note": "Stage-1 restructure: T1-T16.csv + provenance.json relocated BYTE-IDENTICALLY up one level (the release-id directory 'rel-2026-07-10-262fc16c9/' was removed; tables now sit flat under _paper_tables/). No CSV/JSON content was altered. This manifest supersedes paper_tables_manifest.json; every SHA-256 was recomputed from the relocated file and re-verified against the prior committed manifest (0 mismatches). The release id is retained here as a logical identifier, not as a directory level.",
+ "path_convention": "Every 'path' is relative to this manifest's directory (benchmarks/cec_reference_results/_paper_tables/).",
+ "git_head_promotion": "c11fc86fe02fc616f0695630be99745601036274",
+ "tool": "papers/scripts/finalize_evidence.py (P7 promotion + manifest re-mint)",
+ "process": "PAPER_BUILD_PROMPT.md Section 2.4 controlled staging-to-evidence promotion (paper table inputs)",
+ "note": "These are the AUTHORITATIVE, machine-readable table-input CSVs (T1-T16) that the paper's rendered LaTeX/Word tables are generated from. They were exported EXCLUSIVELY from the controlled analysis bundle papers/analysis/rel-2026-07-20-67d9345f9/ by the Phase 6 exporter and promoted here byte-identically.",
+ "source_bundle": {
+  "path": "papers/analysis/rel-2026-07-20-67d9345f9",
+  "release_id": "rel-2026-07-20-67d9345f9",
+  "anchor_commit": "67d9345f9502a9a584e645fa8948f60a61d70e29",
+  "generator": "papers/scripts/phase6_run_analysis.py",
+  "command": "python papers/scripts/phase6_run_analysis.py"
+ },
+ "supersedes_release": "rel-2026-07-16-78f075cb0",
+ "supersession_note": "rel-2026-07-20-67d9345f9 tables supersede the rel-2026-07-16-78f075cb0 export: full re-export from the 51-run post-fix analysis bundle (C006 + M038 corrections). Prior manifest recoverable via git history.",
+ "verification": {
+  "byte_verified": true,
+  "files_verified": 17,
+  "sha256_recomputed_from_disk": true,
+  "mismatches": 0,
+  "provenance_release_id_verified": true
+ },
+ "totals": {
+  "files": 17,
+  "bytes": 65012
+ },
+ "table_provenance_chain": {
+  "T1.csv": {
+   "promoted_sha256": "dc0802c336c9f8bafd9637fc26864bada92338dae876d929be8fb4b1fb130f82",
+   "bundle_sources": [
+    "papers/analysis/rel-2026-07-20-67d9345f9/cec2011/descriptive_stats_cec2011.csv"
+   ],
+   "bundle_source_sha256": {
+    "descriptive_stats_cec2011.csv": "6166c0182d6bbe8d10b8f01949d688b633d300cb47e250db24e7fa87e19877a9"
+   },
+   "derivation": "GSK/DT-GSK columns of the descriptive_stats bundle (cec2011, best_fitness basis)"
+  },
+  "T2.csv": {
+   "promoted_sha256": "a0cb2b2a2ea99bb5f6256e5ec2eede55a38ed9402516b6e8b33fd2d141511a7f",
+   "bundle_sources": [
+    "papers/analysis/rel-2026-07-20-67d9345f9/cec2017/descriptive_stats_cec2017_D10.csv"
+   ],
+   "bundle_source_sha256": {
+    "descriptive_stats_cec2017_D10.csv": "db7e7c46973867f209dff582d587172f6700394a332c183ad41369cb6c03c5e2"
+   },
+   "derivation": "GSK/DT-GSK columns of the descriptive_stats bundle (cec2017 D10)"
+  },
+  "T3.csv": {
+   "promoted_sha256": "8d506899266cdf1aa911b3a222642aef5702cc5a8aba2a7d53ad58b12a175260",
+   "bundle_sources": [
+    "papers/analysis/rel-2026-07-20-67d9345f9/cec2017/descriptive_stats_cec2017_D30.csv"
+   ],
+   "bundle_source_sha256": {
+    "descriptive_stats_cec2017_D30.csv": "833d870ce50dd3e23f379fd59f18e3e87f238cb3fe5c5927262a37050e87a670"
+   },
+   "derivation": "GSK/DT-GSK columns of the descriptive_stats bundle (cec2017 D30)"
+  },
+  "T4.csv": {
+   "promoted_sha256": "1df650cbf6f4a21047b28ffe7e2000ecbefe63ca3d9f7a7740882a740798e5f2",
+   "bundle_sources": [
+    "papers/analysis/rel-2026-07-20-67d9345f9/cec2017/descriptive_stats_cec2017_D50.csv"
+   ],
+   "bundle_source_sha256": {
+    "descriptive_stats_cec2017_D50.csv": "d1e47ba789121466d2f420902e190b63ce2be561bbf9a075ac45744425b589b6"
+   },
+   "derivation": "GSK/DT-GSK columns of the descriptive_stats bundle (cec2017 D50)"
+  },
+  "T5.csv": {
+   "promoted_sha256": "9a2f59652a39dbc310e886673a7215e672e96e6e684eedddf6a35f75342e8075",
+   "bundle_sources": [
+    "papers/analysis/rel-2026-07-20-67d9345f9/cec2017/descriptive_stats_cec2017_D100.csv"
+   ],
+   "bundle_source_sha256": {
+    "descriptive_stats_cec2017_D100.csv": "b4a9c54f61ae6d6c3d00ee563300ab850b815542dcda8887f924747a4e10538b"
+   },
+   "derivation": "GSK/DT-GSK columns of the descriptive_stats bundle (cec2017 D100)"
+  },
+  "T6.csv": {
+   "promoted_sha256": "bacb11e539dbc9724ec359737a91bd6ba713a12c5ad4f91d4a47532c60bada52",
+   "bundle_sources": [
+    "papers/analysis/rel-2026-07-20-67d9345f9/cec2011/wilcoxon_holm_cec2011.csv",
+    "papers/analysis/rel-2026-07-20-67d9345f9/cec2011/descriptive_stats_cec2011.csv"
+   ],
+   "bundle_source_sha256": {
+    "wilcoxon_holm_cec2011.csv": "16276cf8c7f2bfc75e7050e496229c84bfc9ad3ba759d228d7ac7c34a3a72696",
+    "descriptive_stats_cec2011.csv": "6166c0182d6bbe8d10b8f01949d688b633d300cb47e250db24e7fa87e19877a9"
+   },
+   "derivation": "GSK row of wilcoxon_holm_cec2011 + R+/R- and W/T/L re-derived from the descriptive_stats means (R+ = rank sum favoring DT-GSK; ties |d|<1e-8 dropped)"
+  },
+  "T7.csv": {
+   "promoted_sha256": "7debdfd6c7d335a4112fb11a6050efa514feaa3045b49f784d12b68c63cc735d",
+   "bundle_sources": [
+    "papers/analysis/rel-2026-07-20-67d9345f9/cec2017/descriptive_stats_cec2017_D10.csv"
+   ],
+   "bundle_source_sha256": {
+    "descriptive_stats_cec2017_D10.csv": "db7e7c46973867f209dff582d587172f6700394a332c183ad41369cb6c03c5e2"
+   },
+   "derivation": "panel Mean/SD columns of descriptive_stats bundle (cec2017 D10, P1 order)"
+  },
+  "T8.csv": {
+   "promoted_sha256": "6fdaeaa79d0fc4941a277c89381acfce464253a7c1516354285fab5842a8cda3",
+   "bundle_sources": [
+    "papers/analysis/rel-2026-07-20-67d9345f9/cec2017/descriptive_stats_cec2017_D30.csv"
+   ],
+   "bundle_source_sha256": {
+    "descriptive_stats_cec2017_D30.csv": "833d870ce50dd3e23f379fd59f18e3e87f238cb3fe5c5927262a37050e87a670"
+   },
+   "derivation": "panel Mean/SD columns of descriptive_stats bundle (cec2017 D30, P1 order)"
+  },
+  "T9.csv": {
+   "promoted_sha256": "6582e050b43baebf1cdb32b6a5524ec836d9b8ded2b5d27418428e6830006aa8",
+   "bundle_sources": [
+    "papers/analysis/rel-2026-07-20-67d9345f9/cec2017/descriptive_stats_cec2017_D50.csv"
+   ],
+   "bundle_source_sha256": {
+    "descriptive_stats_cec2017_D50.csv": "d1e47ba789121466d2f420902e190b63ce2be561bbf9a075ac45744425b589b6"
+   },
+   "derivation": "panel Mean/SD columns of descriptive_stats bundle (cec2017 D50, P1 order)"
+  },
+  "T10.csv": {
+   "promoted_sha256": "4c249a637a1273ce3d51f6294d93afb3c0223cfe967b82b96dac499f3d5961dc",
+   "bundle_sources": [
+    "papers/analysis/rel-2026-07-20-67d9345f9/cec2017/descriptive_stats_cec2017_D100.csv"
+   ],
+   "bundle_source_sha256": {
+    "descriptive_stats_cec2017_D100.csv": "b4a9c54f61ae6d6c3d00ee563300ab850b815542dcda8887f924747a4e10538b"
+   },
+   "derivation": "panel Mean/SD columns of descriptive_stats bundle (cec2017 D100, P1 order)"
+  },
+  "T11.csv": {
+   "promoted_sha256": "813618525e3136295a5eef231c23846329799d61d84347edac6697c3d1187f1f",
+   "bundle_sources": [
+    "papers/analysis/rel-2026-07-20-67d9345f9/cec2013/descriptive_stats_cec2013_D10.csv"
+   ],
+   "bundle_source_sha256": {
+    "descriptive_stats_cec2013_D10.csv": "0d1ab3fe19ae0628dc47e6a4e804f2a331ebaa17e92003eb6b36553689f7dee6"
+   },
+   "derivation": "GSK/DT-GSK columns of the descriptive_stats bundle (cec2013 D10)"
+  },
+  "T12.csv": {
+   "promoted_sha256": "234c92d56b72b6612872f4810e7a527fabac06ceb1fc24bfc85760b32a47d54c",
+   "bundle_sources": [
+    "papers/analysis/rel-2026-07-20-67d9345f9/cec2013/descriptive_stats_cec2013_D30.csv"
+   ],
+   "bundle_source_sha256": {
+    "descriptive_stats_cec2013_D30.csv": "5b69389deec6661e9c0daef5dad6002c03634b734ea9715c3060bf4c6cbf2d97"
+   },
+   "derivation": "GSK/DT-GSK columns of the descriptive_stats bundle (cec2013 D30)"
+  },
+  "T13.csv": {
+   "promoted_sha256": "54bfa73495ed8f8c01f863d602144d61bd10381605b2b337300f5337316bf370",
+   "bundle_sources": [
+    "papers/analysis/rel-2026-07-20-67d9345f9/cec2013/descriptive_stats_cec2013_D50.csv"
+   ],
+   "bundle_source_sha256": {
+    "descriptive_stats_cec2013_D50.csv": "9531a34d9f21aa87e6110ab7b109764d8c1657ad5327474698755108ced58804"
+   },
+   "derivation": "GSK/DT-GSK columns of the descriptive_stats bundle (cec2013 D50)"
+  },
+  "T14.csv": {
+   "promoted_sha256": "49da04b0c2c5c235553f79a98551acbd2e3cb18d0f12789c305961a6aaead6a1",
+   "bundle_sources": [
+    "papers/analysis/rel-2026-07-20-67d9345f9/cec2013/wilcoxon_holm_cec2013_D10.csv",
+    "papers/analysis/rel-2026-07-20-67d9345f9/cec2013/descriptive_stats_cec2013_D10.csv",
+    "papers/analysis/rel-2026-07-20-67d9345f9/cec2013/wilcoxon_holm_cec2013_D30.csv",
+    "papers/analysis/rel-2026-07-20-67d9345f9/cec2013/descriptive_stats_cec2013_D30.csv",
+    "papers/analysis/rel-2026-07-20-67d9345f9/cec2013/wilcoxon_holm_cec2013_D50.csv",
+    "papers/analysis/rel-2026-07-20-67d9345f9/cec2013/descriptive_stats_cec2013_D50.csv"
+   ],
+   "bundle_source_sha256": {
+    "wilcoxon_holm_cec2013_D10.csv": "7420611265a1f3de9327a204dcf0715c65757626977b5469446d9e10e2bdc1e3",
+    "descriptive_stats_cec2013_D10.csv": "0d1ab3fe19ae0628dc47e6a4e804f2a331ebaa17e92003eb6b36553689f7dee6",
+    "wilcoxon_holm_cec2013_D30.csv": "6f255dae29ab46daa02909efeac344aa076ddfc30602900a4f56b010adcd044a",
+    "descriptive_stats_cec2013_D30.csv": "5b69389deec6661e9c0daef5dad6002c03634b734ea9715c3060bf4c6cbf2d97",
+    "wilcoxon_holm_cec2013_D50.csv": "4a91ac411d76cedd25fdf4585bc5326e09b7c76cbbad7b6fb061bb5ff694a8f0",
+    "descriptive_stats_cec2013_D50.csv": "9531a34d9f21aa87e6110ab7b109764d8c1657ad5327474698755108ced58804"
+   },
+   "derivation": "GSK rows of wilcoxon_holm_cec2013_D* + R+/R-/W-T-L re-derived from descriptive_stats means (R+ favors DT-GSK)"
+  },
+  "T15.csv": {
+   "promoted_sha256": "199abfa91443d3e28dc12ead8d100e160fcf8153699962259fdaf9a60e963331",
+   "bundle_sources": [
+    "papers/analysis/rel-2026-07-20-67d9345f9/cec2017/wilcoxon_holm_cec2017_D10.csv",
+    "papers/analysis/rel-2026-07-20-67d9345f9/cec2017/descriptive_stats_cec2017_D10.csv",
+    "papers/analysis/rel-2026-07-20-67d9345f9/cec2017/wilcoxon_holm_cec2017_D30.csv",
+    "papers/analysis/rel-2026-07-20-67d9345f9/cec2017/descriptive_stats_cec2017_D30.csv",
+    "papers/analysis/rel-2026-07-20-67d9345f9/cec2017/wilcoxon_holm_cec2017_D50.csv",
+    "papers/analysis/rel-2026-07-20-67d9345f9/cec2017/descriptive_stats_cec2017_D50.csv",
+    "papers/analysis/rel-2026-07-20-67d9345f9/cec2017/wilcoxon_holm_cec2017_D100.csv",
+    "papers/analysis/rel-2026-07-20-67d9345f9/cec2017/descriptive_stats_cec2017_D100.csv"
+   ],
+   "bundle_source_sha256": {
+    "wilcoxon_holm_cec2017_D10.csv": "f7b636d2a4dc99403f319c7af139216f9aecd09f6f32bebb76404f7788b8c8f7",
+    "descriptive_stats_cec2017_D10.csv": "db7e7c46973867f209dff582d587172f6700394a332c183ad41369cb6c03c5e2",
+    "wilcoxon_holm_cec2017_D30.csv": "6c7ba055760e6b6375fa96adc3b4f25165e1b0e2eb52340646983c73a3443c9b",
+    "descriptive_stats_cec2017_D30.csv": "833d870ce50dd3e23f379fd59f18e3e87f238cb3fe5c5927262a37050e87a670",
+    "wilcoxon_holm_cec2017_D50.csv": "39b85a4454e615265c7fdcf81000bb4b950b323c6e64fa87855d480bbc6cbb60",
+    "descriptive_stats_cec2017_D50.csv": "d1e47ba789121466d2f420902e190b63ce2be561bbf9a075ac45744425b589b6",
+    "wilcoxon_holm_cec2017_D100.csv": "d055a23c3f858efa7d71b4d1887dd898d584fedfbdb7a1daa065eddcbe079d3e",
+    "descriptive_stats_cec2017_D100.csv": "b4a9c54f61ae6d6c3d00ee563300ab850b815542dcda8887f924747a4e10538b"
+   },
+   "derivation": "function-level Wilcoxon+Holm rows of wilcoxon_holm_cec2017_D*; W/T/L and across-function A12 on per-function means re-derived from descriptive_stats (A12>0.5 favors DT-GSK; ties |d|<1e-8 half); r is the matched-pairs rank-biserial (R+ - R-)/(R+ + R-) carried through from the Wilcoxon rows, the effect size ALIGNED with that paired test, oriented so r>0 favors DT-GSK (the raw textbook form is negative for a DT-GSK win because the differences are errors)"
+  },
+  "T16.csv": {
+   "promoted_sha256": "e7283882d27cd624d0ed38f2b8e414ba83faf7726e968588970b0308138ff446",
+   "bundle_sources": [
+    "papers/analysis/rel-2026-07-20-67d9345f9/cec2017/friedman_ranks_cec2017_D10.csv",
+    "papers/analysis/rel-2026-07-20-67d9345f9/cec2017/friedman_ranks_cec2017_D30.csv",
+    "papers/analysis/rel-2026-07-20-67d9345f9/cec2017/friedman_ranks_cec2017_D50.csv",
+    "papers/analysis/rel-2026-07-20-67d9345f9/cec2017/friedman_ranks_cec2017_D100.csv",
+    "papers/analysis/rel-2026-07-20-67d9345f9/cec2017/friedman_ranks_cec2017_overall.csv"
+   ],
+   "bundle_source_sha256": {
+    "friedman_ranks_cec2017_D10.csv": "8722300fb474ce01881af6eff4ca906bdb899111a47e4fbba6c7bc07712a9dc4",
+    "friedman_ranks_cec2017_D30.csv": "b84a828a8e831118a9b1a57437c440ab1c7b193d6abfa494572b1b1e46c0b3ab",
+    "friedman_ranks_cec2017_D50.csv": "9eef8cce5807a88915904712c9afecd41b8557caa8798e1cc8d1e3bdb696118b",
+    "friedman_ranks_cec2017_D100.csv": "f4d740ce780f7c67874f02aadb1dee85c29812d4bf1005458132781dc4345524",
+    "friedman_ranks_cec2017_overall.csv": "9ea7a7ad707b82798c9bc44a146fd1ccf68a778eab6c7547ef312d49df601a89"
+   },
+   "derivation": "friedman_ranks bundle transcription (P1 row order; overall = descriptive mean of per-dimension ranks, no test attached)"
+  }
+ },
+ "files": [
+  {
+   "path": "T1.csv",
+   "size_bytes": 3067,
+   "sha256": "dc0802c336c9f8bafd9637fc26864bada92338dae876d929be8fb4b1fb130f82"
+  },
+  {
+   "path": "T10.csv",
+   "size_bytes": 5539,
+   "sha256": "4c249a637a1273ce3d51f6294d93afb3c0223cfe967b82b96dac499f3d5961dc"
+  },
+  {
+   "path": "T11.csv",
+   "size_bytes": 3840,
+   "sha256": "813618525e3136295a5eef231c23846329799d61d84347edac6697c3d1187f1f"
+  },
+  {
+   "path": "T12.csv",
+   "size_bytes": 3840,
+   "sha256": "234c92d56b72b6612872f4810e7a527fabac06ceb1fc24bfc85760b32a47d54c"
+  },
+  {
+   "path": "T13.csv",
+   "size_bytes": 3840,
+   "sha256": "54bfa73495ed8f8c01f863d602144d61bd10381605b2b337300f5337316bf370"
+  },
+  {
+   "path": "T14.csv",
+   "size_bytes": 195,
+   "sha256": "49da04b0c2c5c235553f79a98551acbd2e3cb18d0f12789c305961a6aaead6a1"
+  },
+  {
+   "path": "T15.csv",
+   "size_bytes": 1580,
+   "sha256": "199abfa91443d3e28dc12ead8d100e160fcf8153699962259fdaf9a60e963331"
+  },
+  {
+   "path": "T16.csv",
+   "size_bytes": 441,
+   "sha256": "e7283882d27cd624d0ed38f2b8e414ba83faf7726e968588970b0308138ff446"
+  },
+  {
+   "path": "T2.csv",
+   "size_bytes": 3975,
+   "sha256": "a0cb2b2a2ea99bb5f6256e5ec2eede55a38ed9402516b6e8b33fd2d141511a7f"
+  },
+  {
+   "path": "T3.csv",
+   "size_bytes": 3975,
+   "sha256": "8d506899266cdf1aa911b3a222642aef5702cc5a8aba2a7d53ad58b12a175260"
+  },
+  {
+   "path": "T4.csv",
+   "size_bytes": 3975,
+   "sha256": "1df650cbf6f4a21047b28ffe7e2000ecbefe63ca3d9f7a7740882a740798e5f2"
+  },
+  {
+   "path": "T5.csv",
+   "size_bytes": 3975,
+   "sha256": "9a2f59652a39dbc310e886673a7215e672e96e6e684eedddf6a35f75342e8075"
+  },
+  {
+   "path": "T6.csv",
+   "size_bytes": 105,
+   "sha256": "bacb11e539dbc9724ec359737a91bd6ba713a12c5ad4f91d4a47532c60bada52"
+  },
+  {
+   "path": "T7.csv",
+   "size_bytes": 5539,
+   "sha256": "7debdfd6c7d335a4112fb11a6050efa514feaa3045b49f784d12b68c63cc735d"
+  },
+  {
+   "path": "T8.csv",
+   "size_bytes": 5539,
+   "sha256": "6fdaeaa79d0fc4941a277c89381acfce464253a7c1516354285fab5842a8cda3"
+  },
+  {
+   "path": "T9.csv",
+   "size_bytes": 5539,
+   "sha256": "6582e050b43baebf1cdb32b6a5524ec836d9b8ded2b5d27418428e6830006aa8"
+  },
+  {
+   "path": "provenance.json",
+   "size_bytes": 10048,
+   "sha256": "4736504d0f74bf66405cb8e056f2342cc5255d4b7553c77030ccc74e7dbfc5ed"
+  }
+ ]
+}

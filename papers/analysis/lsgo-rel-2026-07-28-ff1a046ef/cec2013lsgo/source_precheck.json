@@ -1,0 +1,86 @@
+{
+ "release_id": "lsgo-rel-2026-07-28-ff1a046ef",
+ "anchor_commit": "ff1a046ef741db628c68c6f4fc0df3162c533b60",
+ "suite": "cec2013lsgo",
+ "negative_tests": {
+  "results/_run_all path via audit_source_open": "PASS (StrictSourceViolation raised)",
+  "results/_run_all cec2020 staging via audit_source_open": "PASS (StrictSourceViolation raised)",
+  "load_reproduced() staging resolver": "PASS (StrictSourceViolation raised)",
+  "write guard: papers/analysis/rel-2026-07-20-67d9345f9": "PASS (OutputGuardViolation raised)",
+  "write guard: benchmarks/cec_reference_results": "PASS (OutputGuardViolation raised)",
+  "write guard: results/ staging": "PASS (OutputGuardViolation raised)"
+ },
+ "bank_completeness": {
+  "gsk": {
+   "rows": 375,
+   "cells": 15,
+   "status": "ok"
+  },
+  "agsk": {
+   "rows": 375,
+   "cells": 15,
+   "status": "ok"
+  },
+  "apgsk": {
+   "rows": 375,
+   "cells": 15,
+   "status": "ok"
+  },
+  "fdb-agsk": {
+   "rows": 375,
+   "cells": 15,
+   "status": "ok"
+  },
+  "atmals-gsk": {
+   "rows": 375,
+   "cells": 15,
+   "status": "ok"
+  },
+  "egsk": {
+   "rows": 375,
+   "cells": 15,
+   "status": "ok"
+  },
+  "dt-gsk": {
+   "rows": 375,
+   "cells": 15,
+   "status": "ok"
+  }
+ },
+ "expected_rows_per_bank": 375,
+ "pairing_audit": {
+  "seed_mismatches_vs_dt-gsk": {
+   "gsk": 0,
+   "agsk": 0,
+   "apgsk": 0,
+   "fdb-agsk": 0,
+   "atmals-gsk": 0,
+   "egsk": 0,
+   "dt-gsk": 0
+  },
+  "seed_injective_within_bank": {
+   "gsk": true,
+   "agsk": true,
+   "apgsk": true,
+   "fdb-agsk": true,
+   "atmals-gsk": true,
+   "egsk": true,
+   "dt-gsk": true
+  },
+  "authority": "addendum Section 12; seed_and_pairing_audit.md Sections 1-4"
+ },
+ "summary_vs_per_run": {
+  "max_relative_deviation": 4.5531642619326495e-11,
+  "at": "dt-gsk/native/F6",
+  "basis_of_record": "per_run.csv (pinned by Amendment 1 A1.3 SHA-256)"
+ },
+ "per_run_sha256": {
+  "gsk": "8cc973e546f82bbe897d86172f0e76daf83c5eeeb26a8809af51208d62d8a723",
+  "agsk": "bf4ae39eeb619a51d366e067a1620175093d0244c73691dc965de18caf5c1c71",
+  "apgsk": "5b1e6fc6520c265031a79570be0dea6f2cce8bd49b41dd24adddd60ff7c45175",
+  "fdb-agsk": "8dcfb4b265ef65b335515e8c840566654018fb963b190298c5d076499e7810df",
+  "atmals-gsk": "422aedd640115743844bf6d386ec7eddf471045952bd5fdb020f8f232d8191e6",
+  "egsk": "b11ee3a564b5891d37f7224d56d0f06a2e5617b5b7ff06d299d7e6ed1ca07f97",
+  "dt-gsk": "091340735e0be7d3d0a48d5c5ed92fcb36de405e6e41e0d993ea7605d1fe7500"
+ }
+}

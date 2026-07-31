@@ -1,0 +1,59 @@
+{
+  "schema": "submission_package_manifest/v1",
+  "generated_utc": "2026-07-24T00:00:00Z",
+  "manuscript_version_id": "v1.0",
+  "manuscript_version_note": "Default first-submission id; author may set a preferred scheme before the authoritative commit.",
+  "target_journal": "Algorithms (MDPI)",
+  "evidence_release": "rel-2026-07-20-67d9345f9",
+  "authoritative_commit": "abd2fa2f25c8426247b43c85bcb3d82041d00976",
+  "pre_freeze_base_commit": "383d7896be4034d25e46bf24da51c31dca6476e1",
+  "hash_algorithm": "SHA-256",
+  "submission_files": [
+    {
+      "role": "main-manuscript-pdf",
+      "path": "papers/DT-GSK.pdf",
+      "pages": 41,
+      "build_epoch": 1783468800,
+      "sha256": "f1faa5e9ebacf5f605713b1aea9fe0095c06b8b2ffdb9b1938540a1f04baffc7",
+      "bytes": 761899
+    },
+    {
+      "role": "main-manuscript-docx",
+      "path": "papers/DT-GSK.docx",
+      "build": "deterministic docx render",
+      "sha256": "00176cff030ffe26cf81d99399e2ee5518f7556b1444f181a8bea5b0842b271f",
+      "bytes": 986577
+    },
+    {
+      "role": "supplement-pdf",
+      "path": "papers/supplementary.pdf",
+      "pages": 56,
+      "build_epoch": 1783468800,
+      "sha256": "76a0bbbd8e0c7b08c04aef70e579f33ccd8b6d11f092fad7c03f89bc08db9944",
+      "bytes": 1609418
+    },
+    {
+      "role": "supplement-docx",
+      "path": "papers/supplementary.docx",
+      "build": "deterministic docx render",
+      "sha256": "ba225735b78a501aec8ecd8de68834f916ac6a16d577acf5e0ab4dcc4747c318",
+      "bytes": 9572245
+    },
+    {
+      "role": "cover-letter-pdf",
+      "path": "papers/cover_letter.pdf",
+      "pages": 2,
+      "build_epoch": 1783468800,
+      "sha256": "a3ce6481ab4db70f387b341369c8f2d1115d223af2e5b170f5052197284ce374",
+      "bytes": 119864
+    }
+  ],
+  "excluded_from_package": [
+    {
+      "path": "papers/DT-GSK_visio.docx",
+      "bytes": 1641812,
+      "reason": "Visio flowchart working file, not a submission artifact (C-001 5.4); author to `git rm` before the authoritative commit."
+    }
+  ],
+  "notes": "Source .tex, references.bib, and governance CSVs are pinned in main_manuscript_freeze_manifest.json. authoritative_commit is stamped at the freeze commit."
+}

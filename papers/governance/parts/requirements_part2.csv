@@ -1,0 +1,495 @@
+requirement_id,line_no,summary,phase,artifact,validation,owner
+R-2591,2591,this master file is available in the working context;,0,phase_gate_register.csv (entry check),Section 12.2 ENTRY_CHECK before Phase 0,P1
+R-2592,2592,repository access is available; and,0,phase_gate_register.csv (entry check),Section 12.2 ENTRY_CHECK before Phase 0,P1
+R-2593,2593,the agent can read file metadata and execute non-destructive inspection commands.,0,phase_gate_register.csv (entry check),Section 12.2 ENTRY_CHECK before Phase 0,P1
+R-2598,2598,"None beyond repository access. Do not assume that any historical prompt, companion file, runbook, path, or expected count is correct.",0,instruction_precedence.md,instruction-precedence audit (Phase 0 task 2),P1
+R-2615,2615,Locate and fingerprint the repository.,0,project_configuration.md + Phase 0 registers,Phase 0 validation procedures + Gate 0 review,P1
+R-2616,2616,"Determine the project root. For this framework the ""repository root"" IS the project directory containing `pyproject.toml` and this master...",0,project_configuration.md,Phase 0 validation procedures + Gate 0 review,P5
+R-2623,2623,"Record branch, HEAD, remotes, submodules, tags, and dirty state.",0,project_configuration.md + Phase 0 registers,Phase 0 validation procedures + Gate 0 review,P5
+R-2624,2624,Run: [commands in fenced block below],0,project_configuration.md + Phase 0 registers,Phase 0 validation procedures + Gate 0 review,P1
+R-2633,2633,Store `anchor_commit=<sha>` and a dirty-path list.,0,project_configuration.md + Phase 0 registers,Phase 0 validation procedures + Gate 0 review,P5
+R-2634,2634,"A dirty path under the project root touching benchmark evidence, source code, configuration, tables, figures, or analysis blocks freezing...",0,project_configuration.md + Phase 0 registers,Phase 0 validation procedures + Gate 0 review,P5
+R-2639,2639,Resolve instruction precedence.,0,project_configuration.md + Phase 0 registers,Phase 0 validation procedures + Gate 0 review,P1
+R-2640,2640,"Inventory this master, prior prompts, `runbook.md`, companions, and addenda.",0,instruction_precedence.md,Phase 0 validation procedures + Gate 0 review,P1
+R-2642,2642,Create `instruction_precedence.md` with conflicts and disposition.,0,instruction_precedence.md,Phase 0 validation procedures + Gate 0 review,P1
+R-2643,2643,"Explicitly mark obsolete statements about incomplete panels, empirical fallback, early/main-text ablation, CEC2013 run count, or detector...",0,instruction_precedence.md,Phase 0 validation procedures + Gate 0 review,P1
+R-2646,2646,Initialize governance records.,0,project_configuration.md + Phase 0 registers,Phase 0 validation procedures + Gate 0 review,P1
+R-2647,2647,"Create `project_configuration.md`, `requirements_traceability_matrix.csv`, `source_line_traceability.csv`, `decision_log.md`, `assumption...",0,project_configuration.md,Phase 0 validation procedures + Gate 0 review,P5
+R-2654,2654,"Classify every nonblank line of the updated prompt using Section 3.2 and map each operative requirement to this master, a phase, an artif...",0,source_line_traceability.csv + requirements_traceability_matrix.csv,Phase 0 validation procedures + Gate 0 review,P9
+R-2659,2659,Record the provisional target journal from the repository template without claiming current quartile or page limits.,0,project_configuration.md + Phase 0 registers,Phase 0 validation procedures + Gate 0 review,P10
+R-2661,2661,Record the controlled analysis bundle root `papers/analysis/<release_id>/` (Section 7.13) in `project_configuration.md`; the `<release_id...,0,project_configuration.md,Phase 0 validation procedures + Gate 0 review,P1
+R-2666,2666,Locate source boundaries.,0,project_configuration.md + Phase 0 registers,Phase 0 validation procedures + Gate 0 review,P1
+R-2667,2667,"Confirm or mark missing: `reference_papers/`, `papers/references.bib`, `benchmarks/cec_reference_results/`, `benchmarks/cec_suite_python/...",0,reference_papers/,Phase 0 validation procedures + Gate 0 review,P4
+R-2672,2672,Mark `benchmarks/cec_reference_results/` read-only.,0,benchmarks/cec_reference_results/,Phase 0 validation procedures + Gate 0 review,P4
+R-2673,2673,Mark `results/` staging-only.,0,results/,Phase 0 validation procedures + Gate 0 review,P1
+R-2675,2675,Toolchain discovery.,0,project_configuration.md + Phase 0 registers,Phase 0 validation procedures + Gate 0 review,P5
+R-2676,2676,"Determine Python, package manager, LaTeX, Word/OOXML tooling, Pandoc or alternative converter, archive tools, and checksum utilities.",0,project_configuration.md + Phase 0 registers,Phase 0 validation procedures + Gate 0 review,P8
+R-2678,2678,Record versions without installing unapproved software that could modify evidence.,0,project_configuration.md + Phase 0 registers,Phase 0 validation procedures + Gate 0 review,P1
+R-2681,2681,Run non-destructive engineering preflight.,0,project_configuration.md + Phase 0 registers,Phase 0 validation procedures + Gate 0 review,P5
+R-2682,2682,Verify expected command forms: [commands in fenced block below],0,project_configuration.md + Phase 0 registers,Phase 0 validation procedures + Gate 0 review,P1
+R-2694,2694,"If installation changes lock files, revert or document before continuing.",0,project_configuration.md + Phase 0 registers,Phase 0 validation procedures + Gate 0 review,P1
+R-2695,2695,"Record command, working directory, timestamp, exit code, and output hash.",0,project_configuration.md + Phase 0 registers,Phase 0 validation procedures + Gate 0 review,P5
+R-2697,2697,Create the top-level asset inventory.,0,project_configuration.md + Phase 0 registers,Phase 0 validation procedures + Gate 0 review,P1
+R-2698,2698,Enumerate files by class and count.,0,project_configuration.md + Phase 0 registers,Phase 0 validation procedures + Gate 0 review,P1
+R-2699,2699,Do not yet decide scientific admissibility; only locate and classify.,0,project_configuration.md + Phase 0 registers,Phase 0 validation procedures + Gate 0 review,P1
+R-2701,2701,Create the phase schedule.,0,project_configuration.md + Phase 0 registers,Phase 0 validation procedures + Gate 0 review,P1
+R-2702,2702,Populate all Phase 0–12 rows in `phase_gate_register.csv`.,0,phase_gate_register.csv,Phase 0 validation procedures + Gate 0 review,P1
+R-2703,2703,Mark Phase 12 as the sole final implementation phase and ablation phase.,0,project_configuration.md + Phase 0 registers,Phase 0 validation procedures + Gate 0 review,P1
+R-2707,2707,`project_configuration.md`,0,project_configuration.md,Gate 0 artifact presence/schema check,P1
+R-2708,2708,`instruction_precedence.md`,0,instruction_precedence.md,Gate 0 artifact presence/schema check,P1
+R-2709,2709,`requirements_traceability_matrix.csv`,0,requirements_traceability_matrix.csv,Gate 0 artifact presence/schema check,P2
+R-2710,2710,`source_line_traceability.csv`,0,source_line_traceability.csv,Gate 0 artifact presence/schema check,P2
+R-2711,2711,`decision_log.md`,0,decision_log.md,Gate 0 artifact presence/schema check,P1
+R-2712,2712,`assumption_register.csv`,0,assumption_register.csv,Gate 0 artifact presence/schema check,P1
+R-2713,2713,`risk_register.csv`,0,risk_register.csv,Gate 0 artifact presence/schema check,P1
+R-2714,2714,`phase_gate_register.csv`,0,phase_gate_register.csv,Gate 0 artifact presence/schema check,P1
+R-2715,2715,`change_request_register.csv`,0,change_request_register.csv,Gate 0 artifact presence/schema check,P1
+R-2716,2716,`reproducibility_manifest.json`,0,reproducibility_manifest.json,Gate 0 artifact presence/schema check,P5
+R-2717,2717,`administrative_gap_register.md`,0,administrative_gap_register.md,Gate 0 artifact presence/schema check,P1
+R-2718,2718,`preflight_inventory.csv`,0,preflight_inventory.csv,Gate 0 artifact presence/schema check,P5
+R-2719,2719,`engineering_preflight.md`,0,engineering_preflight.md,Gate 0 artifact presence/schema check,P5
+R-2723,2723,Confirm every governance file parses and has required fields.,0,PHASE_0_gate_report.md,executed in Phase 0 VALIDATION state; evidence in gate report,P1
+R-2724,2724,Confirm every nonblank updated-prompt line has exactly one accepted classification and every operative requirement has an implementation ...,0,PHASE_0_gate_report.md,executed in Phase 0 VALIDATION state; evidence in gate report,P1
+R-2727,2727,"Confirm all expected path checks have explicit `present`, `missing`, or `not_applicable` status.",0,PHASE_0_gate_report.md,executed in Phase 0 VALIDATION state; evidence in gate report,P1
+R-2729,2729,Confirm the repository commit in every Phase 0 artifact is identical.,0,PHASE_0_gate_report.md,executed in Phase 0 VALIDATION state; evidence in gate report,P1
+R-2730,2730,Confirm no scientific source file changed during preflight.,0,PHASE_0_gate_report.md,executed in Phase 0 VALIDATION state; evidence in gate report,P5
+R-2734,2734,Re-run `git status --porcelain` and compare with the initial snapshot.,0,PHASE_0_gate_report.md,independent check recorded at Gate 0,P5
+R-2735,2735,Verify the anchor SHA independently with two Git commands where practical.,0,PHASE_0_gate_report.md,independent check recorded at Gate 0,P5
+R-2736,2736,Verify protected evidence permissions or document technical limitations.,0,PHASE_0_gate_report.md,independent check recorded at Gate 0,P1
+R-2737,2737,"Verify instruction conflicts are explicitly resolved, not merely listed.",0,PHASE_0_gate_report.md,independent check recorded at Gate 0,P1
+R-2741,2741,P1 checks authority and scope.,0,PHASE_0_gate_report.md (QA sign-off),role sign-off recorded at Gate 0,P1
+R-2742,2742,P5 checks audit reproducibility.,0,PHASE_0_gate_report.md (QA sign-off),role sign-off recorded at Gate 0,P5
+R-2743,2743,P9 checks source boundaries.,0,PHASE_0_gate_report.md (QA sign-off),role sign-off recorded at Gate 0,P9
+R-2744,2744,P10 checks administrative gaps and journal-template status.,0,PHASE_0_gate_report.md (QA sign-off),role sign-off recorded at Gate 0,P10
+R-2748,2748,repository root and anchor commit are recorded;,0,Gate 0 (phase_gate_register.csv),Gate 0 acceptance review,P5
+R-2749,2749,every expected source class is located or marked missing;,0,Gate 0 (phase_gate_register.csv),Gate 0 acceptance review,P1
+R-2750,2750,empirical evidence and staging paths are clearly separated;,0,Gate 0 (phase_gate_register.csv),Gate 0 acceptance review,P1
+R-2751,2751,no unresolved instruction conflict remains;,0,Gate 0 (phase_gate_register.csv),Gate 0 acceptance review,P1
+R-2752,2752,engineering preflight is recorded;,0,Gate 0 (phase_gate_register.csv),Gate 0 acceptance review,P5
+R-2753,2753,governance registers exist and are usable;,0,Gate 0 (phase_gate_register.csv),Gate 0 acceptance review,P1
+R-2754,2754,source-line and requirement traceability contain no unmapped or partial row; and,0,Gate 0 (phase_gate_register.csv),Gate 0 acceptance review,P2
+R-2756,2756,no scientific artifact was modified.,0,Gate 0 (phase_gate_register.csv),Gate 0 acceptance review,P1
+R-2760,2760,"Set Phase 0 to `FROZEN` only after P1, P5, and P9 sign-off. Missing repository paths may remain only when they are explicitly blocking an...",0,phase_gate_register.csv (FROZEN transition),phase-state transition audit (Section 12.2),P1
+R-2788,2788,"All generated outputs above plus a one-page `PHASE_0_readiness.md` summarizing anchor, source boundaries, toolchain, critical risks, and ...",0,PHASE_0_readiness.md,Gate 0 deliverable check,P5
+R-2793,2793,"Gate 0: P1 + P5 + P9 approve. Any unexplained dirty scientific path, unclear evidence boundary, or unresolved authority conflict is a har...",0,Gate 0 decision (phase_gate_register.csv),Gate 0 approval recording,P1
+R-2815,2815,Phase 0 is frozen;,1,phase_gate_register.csv (entry check),Section 12.2 ENTRY_CHECK before Phase 1,P9
+R-2816,2816,`reference_papers/` and `papers/references.bib` are located or the absence is formally blocking; and,1,reference_papers/,Section 12.2 ENTRY_CHECK before Phase 1,P9
+R-2818,2818,source files can be read.,1,phase_gate_register.csv (entry check),Section 12.2 ENTRY_CHECK before Phase 1,P9
+R-2839,2839,Parse the BibTeX registry.,1,literature_audit_report.md,Phase 1 validation procedures + Gate 1 review,P9
+R-2840,2840,Enumerate keys and required fields.,1,literature_audit_report.md,Phase 1 validation procedures + Gate 1 review,P9
+R-2841,2841,"Detect duplicate keys, malformed entries, non-ASCII issues, and missing required metadata.",1,literature_audit_report.md,Phase 1 validation procedures + Gate 1 review,P9
+R-2843,2843,Expected count is 57; report actual count without forcing it.,1,literature_audit_report.md,Phase 1 validation procedures + Gate 1 review,P9
+R-2845,2845,Inventory local literature files.,1,literature_audit_report.md,Phase 1 validation procedures + Gate 1 review,P9
+R-2846,2846,"Enumerate filenames, formats, readability, page count, and checksum.",1,literature_audit_report.md,Phase 1 validation procedures + Gate 1 review,P5
+R-2847,2847,"Prefer `<bibkey>.pdf` naming but match by verified identity, not filename alone.",1,literature_audit_report.md,Phase 1 validation procedures + Gate 1 review,P9
+R-2850,2850,Identity match.,1,literature_audit_report.md,Phase 1 validation procedures + Gate 1 review,P9
+R-2851,2851,"Compare title, authors, year, venue, DOI, and version.",1,literature_audit_report.md,Phase 1 validation procedures + Gate 1 review,P9
+R-2852,2852,Assign the identity status defined in Section 3.3.,1,literature_audit_report.md,Phase 1 validation procedures + Gate 1 review,P9
+R-2853,2853,Resolve minor mismatches using only the local source and BibTeX record.,1,literature_audit_report.md,Phase 1 validation procedures + Gate 1 review,P9
+R-2855,2855,Read every admissible source.,1,literature_audit_report.md,Phase 1 validation procedures + Gate 1 review,P9
+R-2856,2856,"Extract research question, method, scope, findings, limitations, and exact usable locators.",1,literature_audit_report.md,Phase 1 validation procedures + Gate 1 review,P9
+R-2858,2858,Inspect tables/figures when relevant.,1,literature_audit_report.md,Phase 1 validation procedures + Gate 1 review,P7
+R-2859,2859,Do not rely only on abstracts.,1,literature_audit_report.md,Phase 1 validation procedures + Gate 1 review,P9
+R-2861,2861,Create evidence cards.,1,literature_audit_report.md,Phase 1 validation procedures + Gate 1 review,P9
+R-2862,2862,Record supported and unsupported uses.,1,literature_audit_report.md,Phase 1 validation procedures + Gate 1 review,P9
+R-2863,2863,"Include the exact role in DT-GSK framing, method lineage, benchmark protocol, or statistical practice.",1,literature_audit_report.md,Phase 1 validation procedures + Gate 1 review,P3
+R-2866,2866,Build runtime admissible set.,1,literature_audit_report.md,Phase 1 validation procedures + Gate 1 review,P9
+R-2867,2867,Write `allowed_citation_keys.txt` from verified matches only.,1,allowed_citation_keys.txt,Phase 1 validation procedures + Gate 1 review,P9
+R-2868,2868,Compare with Appendix A.,1,literature_audit_report.md,Phase 1 validation procedures + Gate 1 review,P9
+R-2869,2869,Record missing expected keys and unexpected extras.,1,literature_audit_report.md,Phase 1 validation procedures + Gate 1 review,P9
+R-2871,2871,Build citation role map.,1,literature_audit_report.md,Phase 1 validation procedures + Gate 1 review,P9
+R-2872,2872,"For each admissible key, record sanctioned uses and prohibited overextensions.",1,literature_audit_report.md,Phase 1 validation procedures + Gate 1 review,P9
+R-2874,2874,Do not require every key to appear in final prose.,1,literature_audit_report.md,Phase 1 validation procedures + Gate 1 review,P6
+R-2876,2876,Seed evidence gaps.,1,literature_audit_report.md,Phase 1 validation procedures + Gate 1 review,P4
+R-2877,2877,Identify desired claims that the local corpus cannot support.,1,literature_audit_report.md,Phase 1 validation procedures + Gate 1 review,P9
+R-2878,2878,Apply omit/narrow/hypothesis/block dispositions.,1,literature_audit_report.md,Phase 1 validation procedures + Gate 1 review,P1
+R-2880,2880,Citation-system readiness.,1,literature_audit_report.md,Phase 1 validation procedures + Gate 1 review,P9
+R-2881,2881,Validate BibTeX parsing for LaTeX.,1,literature_audit_report.md,Phase 1 validation procedures + Gate 1 review,P9
+R-2882,2882,Prepare stable Word citation tags and a mapping to the Word source store.,1,literature_audit_report.md,Phase 1 validation procedures + Gate 1 review,P8
+R-2883,2883,Do not generate citations yet.,1,literature_audit_report.md,Phase 1 validation procedures + Gate 1 review,P9
+R-2887,2887,`reference_inventory.csv`,1,reference_inventory.csv,Gate 1 artifact presence/schema check,P9
+R-2888,2888,`allowed_citation_keys.txt`,1,allowed_citation_keys.txt,Gate 1 artifact presence/schema check,P9
+R-2889,2889,`evidence_cards/`,1,evidence_cards/,Gate 1 artifact presence/schema check,P9
+R-2890,2890,`citation_role_map.csv`,1,citation_role_map.csv,Gate 1 artifact presence/schema check,P9
+R-2891,2891,`evidence_gap_register.md`,1,evidence_gap_register.md,Gate 1 artifact presence/schema check,P9
+R-2892,2892,`word_citation_tag_map.csv`,1,word_citation_tag_map.csv,Gate 1 artifact presence/schema check,P8
+R-2893,2893,`literature_audit_report.md`,1,literature_audit_report.md,Gate 1 artifact presence/schema check,P9
+R-2897,2897,Schema validation for all CSVs.,1,PHASE_1_gate_report.md,executed in Phase 1 VALIDATION state; evidence in gate report,P9
+R-2898,2898,Count every BibTeX key exactly once.,1,PHASE_1_gate_report.md,executed in Phase 1 VALIDATION state; evidence in gate report,P9
+R-2899,2899,Confirm every admissible key has one readable source and one evidence card.,1,PHASE_1_gate_report.md,executed in Phase 1 VALIDATION state; evidence in gate report,P9
+R-2900,2900,Confirm every evidence-card locator resolves to the local source.,1,PHASE_1_gate_report.md,executed in Phase 1 VALIDATION state; evidence in gate report,P9
+R-2904,2904,P9 independently checks a stratified sample of source identities and locators.,1,PHASE_1_gate_report.md,independent check recorded at Gate 1,P9
+R-2905,2905,"Verify no external scientific URL, snippet, or unapproved source appears in evidence cards.",1,PHASE_1_gate_report.md,independent check recorded at Gate 1,P9
+R-2907,2907,Verify source checksums match inventory.,1,PHASE_1_gate_report.md,independent check recorded at Gate 1,P5
+R-2908,2908,Verify every expected key has an explicit status.,1,PHASE_1_gate_report.md,independent check recorded at Gate 1,P9
+R-2912,2912,P2 reviews algorithm/method lineage cards.,1,PHASE_1_gate_report.md (QA sign-off),role sign-off recorded at Gate 1,P2
+R-2913,2913,P3 reviews statistical-method cards.,1,PHASE_1_gate_report.md (QA sign-off),role sign-off recorded at Gate 1,P3
+R-2914,2914,P4 reviews benchmark-source cards.,1,PHASE_1_gate_report.md (QA sign-off),role sign-off recorded at Gate 1,P4
+R-2915,2915,P6 reviews citation roles and wording boundaries.,1,PHASE_1_gate_report.md (QA sign-off),role sign-off recorded at Gate 1,P6
+R-2916,2916,P8 verifies stable Word tags.,1,PHASE_1_gate_report.md (QA sign-off),role sign-off recorded at Gate 1,P8
+R-2920,2920,all BibTeX entries audited;,1,Gate 1 (phase_gate_register.csv),Gate 1 acceptance review,P9
+R-2921,2921,all literature files inventoried;,1,Gate 1 (phase_gate_register.csv),Gate 1 acceptance review,P9
+R-2922,2922,runtime citation set is explicit;,1,Gate 1 (phase_gate_register.csv),Gate 1 acceptance review,P9
+R-2923,2923,every admissible source has a complete evidence card;,1,Gate 1 (phase_gate_register.csv),Gate 1 acceptance review,P9
+R-2924,2924,every mismatch has a disposition;,1,Gate 1 (phase_gate_register.csv),Gate 1 acceptance review,P9
+R-2925,2925,unsupported claims are entered in the gap register; and,1,Gate 1 (phase_gate_register.csv),Gate 1 acceptance review,P9
+R-2926,2926,no fictional or externally completed metadata exists.,1,Gate 1 (phase_gate_register.csv),Gate 1 acceptance review,P9
+R-2930,2930,Phase 1 freezes when every source intended for use is verified and claim-ready. An expected but inadmissible source may remain excluded; ...,1,phase_gate_register.csv (FROZEN transition),phase-state transition audit (Section 12.2),P9
+R-2958,2958,"All generated outputs, plus `PHASE_1_gate_report.md` listing admissible count, missing expected keys, major evidence gaps, and approved s...",1,PHASE_1_gate_report.md,Gate 1 deliverable check,P9
+R-2963,2963,Gate 1: P2 + P3 + P4 + P9 approve. Any intended rendered citation without a verified local source is a hard failure.,1,Gate 1 decision (phase_gate_register.csv),Gate 1 approval recording,P2
+R-2988,2988,Phase 0 and Phase 1 are frozen;,2,phase_gate_register.csv (entry check),Section 12.2 ENTRY_CHECK before Phase 2,P4
+R-2989,2989,`benchmarks/cec_reference_results/` and evaluator code are available; and,2,benchmarks/cec_reference_results/,Section 12.2 ENTRY_CHECK before Phase 2,P4
+R-2990,2990,the selected release can be read without modification.,2,phase_gate_register.csv (entry check),Section 12.2 ENTRY_CHECK before Phase 2,P4
+R-3014,3014,Verify evidence-tree layout.,2,evidence_readiness_report.md,Phase 2 validation procedures + Gate 2 review,P4
+R-3015,3015,"For CEC2017, CEC2011, and CEC2013, verify all seven optimizer directories.",2,evidence_readiness_report.md,Phase 2 validation procedures + Gate 2 review,P4
+R-3016,3016,"Verify flat layout and required summary, per-run, environment, run-config, seed, verification, protocol, curve, and checkpoint files.",2,evidence_readiness_report.md,Phase 2 validation procedures + Gate 2 review,P4
+R-3018,3018,Confirm no doubled-suite directories.,2,evidence_readiness_report.md,Phase 2 validation procedures + Gate 2 review,P4
+R-3019,3019,Verify context-suite scope separately.,2,evidence_readiness_report.md,Phase 2 validation procedures + Gate 2 review,P4
+R-3021,3021,Run machine validation. [commands in fenced block below],2,evidence_readiness_report.md,Phase 2 validation procedures + Gate 2 review,P4
+R-3027,3027,Archive complete output.,2,evidence_readiness_report.md,Phase 2 validation procedures + Gate 2 review,P4
+R-3028,3028,Do not hand-edit a failing cell.,2,evidence_readiness_report.md,Phase 2 validation procedures + Gate 2 review,P4
+R-3030,3030,Verify expected coverage.,2,evidence_readiness_report.md,Phase 2 validation procedures + Gate 2 review,P4
+R-3031,3031,CEC2017: seven algorithms × D10/D30/D50/D100 × 51 runs × verified 29 functions.,2,evidence_readiness_report.md,Phase 2 validation procedures + Gate 2 review,P4
+R-3033,3033,CEC2011: seven algorithms × 25 runs × verified 22 native problems.,2,evidence_readiness_report.md,Phase 2 validation procedures + Gate 2 review,P4
+R-3034,3034,CEC2013: seven algorithms × D10/D30/D50 × 51 runs × 28 functions.,2,evidence_readiness_report.md,Phase 2 validation procedures + Gate 2 review,P4
+R-3035,3035,Calculate expected row counts and compare with actual per-run and seed schedules.,2,evidence_readiness_report.md,Phase 2 validation procedures + Gate 2 review,P4
+R-3038,3038,Verify seeds and pairing.,2,evidence_readiness_report.md,Phase 2 validation procedures + Gate 2 review,P3
+R-3039,3039,Test the expected seed formula against schedules.,2,evidence_readiness_report.md,Phase 2 validation procedures + Gate 2 review,P4
+R-3040,3040,Confirm uniqueness and deterministic mapping.,2,evidence_readiness_report.md,Phase 2 validation procedures + Gate 2 review,P5
+R-3041,3041,Determine whether pairing is valid for each comparator.,2,evidence_readiness_report.md,Phase 2 validation procedures + Gate 2 review,P3
+R-3043,3043,Verify FP and environment.,2,evidence_readiness_report.md,Phase 2 validation procedures + Gate 2 review,P4
+R-3044,3044,Read every `environment.json`.,2,environment.json,Phase 2 validation procedures + Gate 2 review,P4
+R-3045,3045,Check suite-internal sentinel consistency.,2,evidence_readiness_report.md,Phase 2 validation procedures + Gate 2 review,P4
+R-3046,3046,Confirm expected CEC2017 prefix only as an audit target.,2,evidence_readiness_report.md,Phase 2 validation procedures + Gate 2 review,P4
+R-3047,3047,"Record hardware, libraries, solver provenance, and known numerical variation.",2,evidence_readiness_report.md,Phase 2 validation procedures + Gate 2 review,P4
+R-3050,3050,Verify evaluator equivalence.,2,evidence_readiness_report.md,Phase 2 validation procedures + Gate 2 review,P4
+R-3051,3051,"Hash shifts, rotations, bounds, optima, and evaluator code.",2,evidence_readiness_report.md,Phase 2 validation procedures + Gate 2 review,P4
+R-3052,3052,Cross-check suite metadata with approved benchmark literature.,2,evidence_readiness_report.md,Phase 2 validation procedures + Gate 2 review,P4
+R-3053,3053,Confirm function exclusions and dimension rules.,2,evidence_readiness_report.md,Phase 2 validation procedures + Gate 2 review,P4
+R-3055,3055,Verify MaxFES and objective-call accounting.,2,evidence_readiness_report.md,Phase 2 validation procedures + Gate 2 review,P4
+R-3056,3056,Inspect run configs and code.,2,evidence_readiness_report.md,Phase 2 validation procedures + Gate 2 review,P4
+R-3057,3057,Confirm local search and polish evaluations are counted.,2,evidence_readiness_report.md,Phase 2 validation procedures + Gate 2 review,P4
+R-3058,3058,Identify any algorithm-specific budget difference.,2,evidence_readiness_report.md,Phase 2 validation procedures + Gate 2 review,P2
+R-3060,3060,Audit comparator provenance.,2,evidence_readiness_report.md,Phase 2 validation procedures + Gate 2 review,P4
+R-3061,3061,Classify each cell A–D.,2,evidence_readiness_report.md,Phase 2 validation procedures + Gate 2 review,P4
+R-3062,3062,Record imported versus locally produced origin.,2,evidence_readiness_report.md,Phase 2 validation procedures + Gate 2 review,P4
+R-3063,3063,Verify `egsk` solver provenance and prevent SciPy/MATLAB substitution inside one exhibit.,2,evidence_readiness_report.md,Phase 2 validation procedures + Gate 2 review,P4
+R-3066,3066,Build data ledger and experiment matrix.,2,evidence_readiness_report.md,Phase 2 validation procedures + Gate 2 review,P4
+R-3067,3067,One ledger row per algorithm × suite × dimension × function set.,2,evidence_readiness_report.md,Phase 2 validation procedures + Gate 2 review,P4
+R-3068,3068,One experiment row per run when feasible.,2,evidence_readiness_report.md,Phase 2 validation procedures + Gate 2 review,P4
+R-3069,3069,Include release ID and checksums.,2,evidence_readiness_report.md,Phase 2 validation procedures + Gate 2 review,P5
+R-3071,3071,Build strict-source guard and promotion tool.,2,evidence_readiness_report.md,Phase 2 validation procedures + Gate 2 review,P5
+R-3072,3072,Inspect `result_loader.py` and report loaders.,2,result_loader.py,Phase 2 validation procedures + Gate 2 review,P4
+R-3073,3073,Disable or block `results/_run_all/` fallback for publication analyses.,2,results/_run_all/,Phase 2 validation procedures + Gate 2 review,P4
+R-3074,3074,Add automated tests that fail when a resolved path is outside the selected evidence release.,2,evidence_readiness_report.md,Phase 2 validation procedures + Gate 2 review,P4
+R-3076,3076,Log every file opened by analysis.,2,evidence_readiness_report.md,Phase 2 validation procedures + Gate 2 review,P4
+R-3077,3077,Build the named promotion tool `scripts/promote_evidence.py` (tooling to build; it does not yet exist): it generates a release identifier...,2,scripts/promote_evidence.py,Phase 2 validation procedures + Gate 2 review,P4
+R-3083,3083,Test the promotion tool on a scratch bundle before Gate 2.,2,evidence_readiness_report.md,Phase 2 validation procedures + Gate 2 review,P5
+R-3085,3085,Audit manuscript assets.,2,evidence_readiness_report.md,Phase 2 validation procedures + Gate 2 review,P4
+R-3086,3086,"Enumerate `papers/`, tables, figures, scripts, section inputs, class files, and cover letter.",2,papers/,Phase 2 validation procedures + Gate 2 review,P7
+R-3088,3088,"Classify `keep`, `verify`, `regenerate`, `rewrite`, `move`, `archive`, or `remove`.",2,evidence_readiness_report.md,Phase 2 validation procedures + Gate 2 review,P4
+R-3090,3090,Map every existing table/figure to generator and empirical input.,2,evidence_readiness_report.md,Phase 2 validation procedures + Gate 2 review,P7
+R-3091,3091,"Mark the runbook's claim that the `results/paper_tables/` T-CSVs come ""from the stats pass"" as stale in `instruction_precedence.md` and `...",2,instruction_precedence.md,Phase 2 validation procedures + Gate 2 review,P4
+R-3095,3095,Record T17–T20 as an intentional gap unless verified otherwise.,2,evidence_readiness_report.md,Phase 2 validation procedures + Gate 2 review,P4
+R-3097,3097,Audit raw/derived separation.,2,evidence_readiness_report.md,Phase 2 validation procedures + Gate 2 review,P4
+R-3098,3098,Ensure no manuscript table or figure is the only source for a number.,2,evidence_readiness_report.md,Phase 2 validation procedures + Gate 2 review,P7
+R-3099,3099,Identify stale or orphan derivative files.,2,evidence_readiness_report.md,Phase 2 validation procedures + Gate 2 review,P4
+R-3100,3100,Verify read-only evidence permissions and checksums.,2,evidence_readiness_report.md,Phase 2 validation procedures + Gate 2 review,P5
+R-3102,3102,Audit staging data without admitting it.,2,evidence_readiness_report.md,Phase 2 validation procedures + Gate 2 review,P4
+R-3103,3103,Inventory `results/` for reproducibility and later final ablation staging.,2,results/,Phase 2 validation procedures + Gate 2 review,P5
+R-3104,3104,Mark every path non-admissible.,2,evidence_readiness_report.md,Phase 2 validation procedures + Gate 2 review,P9
+R-3105,3105,Quarantine historical ablation outputs from primary interpretation.,2,evidence_readiness_report.md,Phase 2 validation procedures + Gate 2 review,P4
+R-3107,3107,Run engineering gates at the anchor commit.,2,evidence_readiness_report.md,Phase 2 validation procedures + Gate 2 review,P5
+R-3108,3108,"Repeat tests, lint, profile lock, and docs build.",2,evidence_readiness_report.md,Phase 2 validation procedures + Gate 2 review,P4
+R-3109,3109,Record actual pass counts and failures.,2,evidence_readiness_report.md,Phase 2 validation procedures + Gate 2 review,P4
+R-3113,3113,`evidence_release_manifest.json`,2,evidence_release_manifest.json,Gate 2 artifact presence/schema check,P5
+R-3114,3114,`data_ledger.csv`,2,data_ledger.csv,Gate 2 artifact presence/schema check,P4
+R-3115,3115,`experiment_matrix.csv`,2,experiment_matrix.csv,Gate 2 artifact presence/schema check,P4
+R-3116,3116,`comparability_audit.md`,2,comparability_audit.md,Gate 2 artifact presence/schema check,P4
+R-3117,3117,`benchmark_protocol_audit.md`,2,benchmark_protocol_audit.md,Gate 2 artifact presence/schema check,P4
+R-3118,3118,`seed_and_pairing_audit.md`,2,seed_and_pairing_audit.md,Gate 2 artifact presence/schema check,P3
+R-3119,3119,`fp_environment_audit.md`,2,fp_environment_audit.md,Gate 2 artifact presence/schema check,P4
+R-3120,3120,`strict_source_guard_report.md`,2,strict_source_guard_report.md,Gate 2 artifact presence/schema check,P5
+R-3121,3121,`scripts/promote_evidence.py` and its scratch-bundle test evidence,2,scripts/promote_evidence.py,Gate 2 artifact presence/schema check,P4
+R-3122,3122,`asset_map.md`,2,asset_map.md,Gate 2 artifact presence/schema check,P4
+R-3123,3123,`table_figure_source_map.csv`,2,table_figure_source_map.csv,Gate 2 artifact presence/schema check,P4
+R-3124,3124,`engineering_gates.md`,2,engineering_gates.md,Gate 2 artifact presence/schema check,P4
+R-3125,3125,`evidence_readiness_report.md`,2,evidence_readiness_report.md,Gate 2 artifact presence/schema check,P4
+R-3129,3129,Run schema and row-count checks.,2,PHASE_2_gate_report.md,executed in Phase 2 VALIDATION state; evidence in gate report,P4
+R-3130,3130,Recompute checksums and compare with release manifest.,2,PHASE_2_gate_report.md,executed in Phase 2 VALIDATION state; evidence in gate report,P5
+R-3131,3131,Validate seed formula against a sample and full schedule when practical.,2,PHASE_2_gate_report.md,executed in Phase 2 VALIDATION state; evidence in gate report,P4
+R-3132,3132,Test strict-source guard with an intentional missing cell and forbidden fallback path.,2,PHASE_2_gate_report.md,executed in Phase 2 VALIDATION state; evidence in gate report,P5
+R-3134,3134,Verify every planned panel cell is present and comparable.,2,PHASE_2_gate_report.md,executed in Phase 2 VALIDATION state; evidence in gate report,P4
+R-3138,3138,Independently inspect at least one cell per suite and algorithm family.,2,PHASE_2_gate_report.md,independent check recorded at Gate 2,P4
+R-3139,3139,"Cross-check run counts from `run_config.json`, `seed_schedule.csv`, and `per_run.csv`.",2,run_config.json,independent check recorded at Gate 2,P4
+R-3141,3141,"Cross-check generator source maps against source code, not filenames.",2,PHASE_2_gate_report.md,independent check recorded at Gate 2,P4
+R-3142,3142,Confirm no evidence file changed during audit.,2,PHASE_2_gate_report.md,independent check recorded at Gate 2,P4
+R-3146,3146,P3 reviews inferential suitability.,2,PHASE_2_gate_report.md (QA sign-off),role sign-off recorded at Gate 2,P3
+R-3147,3147,P4 owns benchmark/provenance verification.,2,PHASE_2_gate_report.md (QA sign-off),role sign-off recorded at Gate 2,P4
+R-3148,3148,P5 reviews release immutability and strict-source guard.,2,PHASE_2_gate_report.md (QA sign-off),role sign-off recorded at Gate 2,P5
+R-3149,3149,P9 reviews evidence admissibility.,2,PHASE_2_gate_report.md (QA sign-off),role sign-off recorded at Gate 2,P9
+R-3153,3153,selected release is uniquely identified and checksummed;,2,Gate 2 (phase_gate_register.csv),Gate 2 acceptance review,P5
+R-3154,3154,every primary panel cell is present or the scope is reduced;,2,Gate 2 (phase_gate_register.csv),Gate 2 acceptance review,P4
+R-3155,3155,"protocols, seeds, FP, MaxFES, and failures are verified;",2,Gate 2 (phase_gate_register.csv),Gate 2 acceptance review,P4
+R-3156,3156,every comparison has A–D status;,2,Gate 2 (phase_gate_register.csv),Gate 2 acceptance review,P4
+R-3157,3157,strict publication analysis cannot use `results/` fallback;,2,results/,Gate 2 acceptance review,P4
+R-3158,3158,every existing exhibit has a source map or is marked conceptual/stale; and,2,Gate 2 (phase_gate_register.csv),Gate 2 acceptance review,P4
+R-3159,3159,no unexplained anomaly remains.,2,Gate 2 (phase_gate_register.csv),Gate 2 acceptance review,P4
+R-3163,3163,Phase 2 freezes when the empirical evidence required for the primary paper is complete and admissible. A broken or missing cell must be c...,2,phase_gate_register.csv (FROZEN transition),phase-state transition audit (Section 12.2),P5
+R-3194,3194,"All generated outputs plus `PHASE_2_gate_report.md` with a complete panel table, critical anomalies, strict-source test result, and P3/P4...",2,PHASE_2_gate_report.md,Gate 2 deliverable check,P3
+R-3199,3199,"Gate 2: P3 + P4 + P5 + P9 approve. Any source outside `cec_reference_results`, unexplained run mismatch, invalid budget, or unresolved co...",2,Gate 2 decision (phase_gate_register.csv),Gate 2 approval recording,P3
+R-3225,3225,Phases 0–2 are frozen;,3,phase_gate_register.csv (entry check),Section 12.2 ENTRY_CHECK before Phase 3,P2
+R-3226,3226,frozen evidence release and executed code/configuration hashes are known; and,3,phase_gate_register.csv (entry check),Section 12.2 ENTRY_CHECK before Phase 3,P4
+R-3227,3227,source code/tests are available.,3,phase_gate_register.csv (entry check),Section 12.2 ENTRY_CHECK before Phase 3,P2
+R-3250,3250,Trace the executed algorithm.,3,implementation_correspondence.md,Phase 3 validation procedures + Gate 3 review,P2
+R-3251,3251,"Locate entry point, configuration merge, initialization, generation loop, evaluation accounting, stopping, and return path.",3,implementation_correspondence.md,Phase 3 validation procedures + Gate 3 review,P2
+R-3253,3253,Trace every expected component and all hidden defaults.,3,implementation_correspondence.md,Phase 3 validation procedures + Gate 3 review,P2
+R-3255,3255,Classify each mechanism.,3,implementation_correspondence.md,Phase 3 validation procedures + Gate 3 review,P2
+R-3256,3256,"Inherited, modified, original, optional, dormant, or absent.",3,implementation_correspondence.md,Phase 3 validation procedures + Gate 3 review,P2
+R-3257,3257,Record closest approved literature and exact difference.,3,implementation_correspondence.md,Phase 3 validation procedures + Gate 3 review,P2
+R-3259,3259,Define the optimization problem and notation.,3,implementation_correspondence.md,Phase 3 validation procedures + Gate 3 review,P2
+R-3260,3260,"Objective, domain, bounds, population, evaluations, indices, states, archives, graph matrices, and random variables.",3,implementation_correspondence.md,Phase 3 validation procedures + Gate 3 review,P2
+R-3263,3263,Specify GSK inheritance.,3,implementation_correspondence.md,Phase 3 validation procedures + Gate 3 review,P2
+R-3264,3264,"Junior/senior phases, knowledge factor/ratio/rate, selection, and update order.",3,implementation_correspondence.md,Phase 3 validation procedures + Gate 3 review,P2
+R-3267,3267,Specify scaffold mechanisms.,3,implementation_correspondence.md,Phase 3 validation procedures + Gate 3 review,P2
+R-3268,3268,ACE selector and reward/update timing.,3,implementation_correspondence.md,Phase 3 validation procedures + Gate 3 review,P2
+R-3269,3269,NLPSR schedule and minimum population.,3,implementation_correspondence.md,Phase 3 validation procedures + Gate 3 review,P2
+R-3270,3270,"BSE trigger, Cauchy or other rescue distribution, budget safety.",3,implementation_correspondence.md,Phase 3 validation procedures + Gate 3 review,P2
+R-3271,3271,ARGP pool update and acceptance gating.,3,implementation_correspondence.md,Phase 3 validation procedures + Gate 3 review,P2
+R-3272,3272,Archive and local-search behavior.,3,implementation_correspondence.md,Phase 3 validation procedures + Gate 3 review,P2
+R-3274,3274,Specify SGSM.,3,implementation_correspondence.md,Phase 3 validation procedures + Gate 3 review,P2
+R-3275,3275,Graph representation and dimensionality.,3,implementation_correspondence.md,Phase 3 validation procedures + Gate 3 review,P2
+R-3276,3276,Observation source.,3,implementation_correspondence.md,Phase 3 validation procedures + Gate 3 review,P2
+R-3277,3277,"Support update, decay/EMA, confidence, threshold, and reset.",3,implementation_correspondence.md,Phase 3 validation procedures + Gate 3 review,P2
+R-3278,3278,How linkage blocks and eigenframe directions are obtained.,3,implementation_correspondence.md,Phase 3 validation procedures + Gate 3 review,P2
+R-3279,3279,Numerical safeguards and fallback.,3,implementation_correspondence.md,Phase 3 validation procedures + Gate 3 review,P5
+R-3280,3280,Objective-evaluation and computational cost.,3,implementation_correspondence.md,Phase 3 validation procedures + Gate 3 review,P2
+R-3282,3282,Specify endgame and polish.,3,implementation_correspondence.md,Phase 3 validation procedures + Gate 3 review,P2
+R-3283,3283,"Trigger, cadence, basis, direct-search behavior, Nelder–Mead behavior, acceptance, budget, and termination.",3,implementation_correspondence.md,Phase 3 validation procedures + Gate 3 review,P2
+R-3286,3286,Write pseudocode and equations.,3,implementation_correspondence.md,Phase 3 validation procedures + Gate 3 review,P2
+R-3287,3287,Top-level algorithm.,3,implementation_correspondence.md,Phase 3 validation procedures + Gate 3 review,P2
+R-3288,3288,Mechanism-level blocks where ambiguity remains.,3,implementation_correspondence.md,Phase 3 validation procedures + Gate 3 review,P2
+R-3289,3289,Equation registry and label plan for LaTeX and Word.,3,implementation_correspondence.md,Phase 3 validation procedures + Gate 3 review,P8
+R-3291,3291,Build implementation correspondence.,3,implementation_correspondence.md,Phase 3 validation procedures + Gate 3 review,P2
+R-3292,3292,Map each equation/pseudocode line to code files/functions/line ranges or stable symbols.,3,implementation_correspondence.md,Phase 3 validation procedures + Gate 3 review,P2
+R-3294,3294,"Identify dead code, undocumented behavior, and prose-only mechanisms.",3,implementation_correspondence.md,Phase 3 validation procedures + Gate 3 review,P2
+R-3296,3296,Verify objective-call accounting.,3,implementation_correspondence.md,Phase 3 validation procedures + Gate 3 review,P2
+R-3297,3297,Add or inspect tests proving all calls count toward MaxFES.,3,implementation_correspondence.md,Phase 3 validation procedures + Gate 3 review,P4
+R-3298,3298,Verify budget-safe exits and partial generations.,3,implementation_correspondence.md,Phase 3 validation procedures + Gate 3 review,P2
+R-3300,3300,Derive complexity.,3,implementation_correspondence.md,Phase 3 validation procedures + Gate 3 review,P2
+R-3301,3301,Time and memory by mechanism.,3,implementation_correspondence.md,Phase 3 validation procedures + Gate 3 review,P2
+R-3302,3302,Expected `O(D^2)`/`O(D^3)` terms only if code supports them.,3,implementation_correspondence.md,Phase 3 validation procedures + Gate 3 review,P2
+R-3303,3303,Amortize by cadence.,3,implementation_correspondence.md,Phase 3 validation procedures + Gate 3 review,P2
+R-3304,3304,Separate objective cost and overhead.,3,implementation_correspondence.md,Phase 3 validation procedures + Gate 3 review,P2
+R-3306,3306,Create deterministic traces.,3,implementation_correspondence.md,Phase 3 validation procedures + Gate 3 review,P5
+R-3307,3307,Use fixed small dimension and seed.,3,implementation_correspondence.md,Phase 3 validation procedures + Gate 3 review,P4
+R-3308,3308,Source traces from the existing generation-log telemetry (`ISMTrace_<suite>_F<f>_D<d>_R<r>_S<seed>.jsonl` emitted by `dt_gsk.py`) or fro...,3,dt_gsk.py,Phase 3 validation procedures + Gate 3 review,P4
+R-3312,3312,"Record state transitions, graph update, population change, and evaluation count.",3,implementation_correspondence.md,Phase 3 validation procedures + Gate 3 review,P2
+R-3314,3314,Compare trace against pseudocode.,3,implementation_correspondence.md,Phase 3 validation procedures + Gate 3 review,P2
+R-3316,3316,Define ablation toggles without running them.,3,implementation_correspondence.md,Phase 3 validation procedures + Gate 3 review,P2
+R-3317,3317,Audit `run_ablation.py` and config keys.,3,run_ablation.py,Phase 3 validation procedures + Gate 3 review,P2
+R-3318,3318,"Verify toggle semantics for `ace_enabled`, `psr_enabled`, `bse_enabled`, `linkage_blockwise_enabled`, `local_search_enabled`, `arch_enabl...",3,implementation_correspondence.md,Phase 3 validation procedures + Gate 3 review,P2
+R-3321,3321,Ensure toggles disable only the intended component.,3,implementation_correspondence.md,Phase 3 validation procedures + Gate 3 review,P2
+R-3322,3322,Do not inspect ablation outcomes.,3,implementation_correspondence.md,Phase 3 validation procedures + Gate 3 review,P2
+R-3324,3324,Freeze algorithm.,3,implementation_correspondence.md,Phase 3 validation procedures + Gate 3 review,P2
+R-3325,3325,Create `algorithm_freeze_manifest.json`.,3,algorithm_freeze_manifest.json,Phase 3 validation procedures + Gate 3 review,P5
+R-3326,3326,Tag or record the frozen commit/config.,3,implementation_correspondence.md,Phase 3 validation procedures + Gate 3 review,P2
+R-3327,3327,Set change-control rule.,3,implementation_correspondence.md,Phase 3 validation procedures + Gate 3 review,P2
+R-3331,3331,`notation_table.tex`,3,notation_table.tex,Gate 3 artifact presence/schema check,P2
+R-3332,3332,`notation_table_word.omml.xml` (the Word-ready notation source),3,notation_table_word.omml.xml,Gate 3 artifact presence/schema check,P8
+R-3333,3333,`algorithm_pseudocode.tex`,3,algorithm_pseudocode.tex,Gate 3 artifact presence/schema check,P2
+R-3334,3334,`algorithm_pseudocode.md` (the canonical pseudocode source),3,algorithm_pseudocode.md,Gate 3 artifact presence/schema check,P2
+R-3335,3335,`parameter_table.tex`,3,parameter_table.tex,Gate 3 artifact presence/schema check,P2
+R-3336,3336,`equation_registry.csv`,3,equation_registry.csv,Gate 3 artifact presence/schema check,P2
+R-3337,3337,`implementation_correspondence.md`,3,implementation_correspondence.md,Gate 3 artifact presence/schema check,P2
+R-3338,3338,`complexity_analysis.md`,3,complexity_analysis.md,Gate 3 artifact presence/schema check,P2
+R-3339,3339,`evaluation_accounting_report.md`,3,evaluation_accounting_report.md,Gate 3 artifact presence/schema check,P2
+R-3340,3340,`deterministic_trace/`,3,deterministic_trace/,Gate 3 artifact presence/schema check,P5
+R-3341,3341,`contribution_matrix.md`,3,contribution_matrix.md,Gate 3 artifact presence/schema check,P1
+R-3342,3342,`ablation_toggle_audit.md`,3,ablation_toggle_audit.md,Gate 3 artifact presence/schema check,P2
+R-3343,3343,`algorithm_freeze_manifest.json`,3,algorithm_freeze_manifest.json,Gate 3 artifact presence/schema check,P5
+R-3345,3345,"The Word-ready notation source and the canonical pseudocode source are files with deterministic paths (Section 0.6), not descriptions: wr...",3,papers/build_prompt_phases/phase_03/,Gate 3 artifact presence/schema check,P8
+R-3352,3352,Execute deterministic traces and unit tests.,3,PHASE_3_gate_report.md,executed in Phase 3 VALIDATION state; evidence in gate report,P5
+R-3353,3353,Validate every symbol and parameter appears in the registry.,3,PHASE_3_gate_report.md,executed in Phase 3 VALIDATION state; evidence in gate report,P2
+R-3354,3354,Compare pseudocode branches with code coverage.,3,PHASE_3_gate_report.md,executed in Phase 3 VALIDATION state; evidence in gate report,P5
+R-3355,3355,Confirm evaluation-count tests at exact budget boundaries.,3,PHASE_3_gate_report.md,executed in Phase 3 VALIDATION state; evidence in gate report,P2
+R-3356,3356,Recompute complexity formulas from dimensions of actual data structures.,3,PHASE_3_gate_report.md,executed in Phase 3 VALIDATION state; evidence in gate report,P2
+R-3360,3360,P2 independently follows one complete iteration from code to pseudocode.,3,PHASE_3_gate_report.md,independent check recorded at Gate 3,P2
+R-3361,3361,P4 verifies evaluator-call accounting.,3,PHASE_3_gate_report.md,independent check recorded at Gate 3,P4
+R-3362,3362,P5 verifies hashes and freeze manifest.,3,PHASE_3_gate_report.md,independent check recorded at Gate 3,P5
+R-3363,3363,P9 verifies inherited/modified/original claims against evidence cards.,3,PHASE_3_gate_report.md,independent check recorded at Gate 3,P9
+R-3367,3367,no undefined symbol;,3,PHASE_3_gate_report.md (QA sign-off),role sign-off recorded at Gate 3,P2
+R-3368,3368,"no mechanism without purpose, timing, cost, and fallback;",3,PHASE_3_gate_report.md (QA sign-off),role sign-off recorded at Gate 3,P2
+R-3369,3369,no prose-only mechanism;,3,PHASE_3_gate_report.md (QA sign-off),role sign-off recorded at Gate 3,P2
+R-3370,3370,no code behavior omitted when scientifically material;,3,PHASE_3_gate_report.md (QA sign-off),role sign-off recorded at Gate 3,P2
+R-3371,3371,no unsupported “free” or “negligible” wording.,3,PHASE_3_gate_report.md (QA sign-off),role sign-off recorded at Gate 3,P8
+R-3375,3375,a competent reader can reimplement the frozen core;,3,Gate 3 (phase_gate_register.csv),Gate 3 acceptance review,P2
+R-3376,3376,"code, configuration, equations, pseudocode, and trace agree;",3,Gate 3 (phase_gate_register.csv),Gate 3 acceptance review,P2
+R-3377,3377,all objective calls are accounted for;,3,Gate 3 (phase_gate_register.csv),Gate 3 acceptance review,P2
+R-3378,3378,complexity is derived and scoped;,3,Gate 3 (phase_gate_register.csv),Gate 3 acceptance review,P2
+R-3379,3379,contribution boundaries are evidence-based; and,3,Gate 3 (phase_gate_register.csv),Gate 3 acceptance review,P1
+R-3380,3380,algorithm and parameters are frozen.,3,Gate 3 (phase_gate_register.csv),Gate 3 acceptance review,P2
+R-3384,3384,Phase 3 freezes with P2/P4/P5/P9 sign-off and a clean profile-lock/test result. Any algorithm change after this point invalidates Phases ...,3,phase_gate_register.csv (FROZEN transition),phase-state transition audit (Section 12.2),P2
+R-3417,3417,All generated outputs plus `PHASE_3_gate_report.md` and the signed algorithm freeze manifest.,3,PHASE_3_gate_report.md,Gate 3 deliverable check,P5
+R-3422,3422,"Gate 3: P2 + P4 + P5 + P9 approve. Any material equation/code mismatch, unknown evaluation cost, or ambiguous ablation toggle is a hard f...",3,Gate 3 decision (phase_gate_register.csv),Gate 3 approval recording,P2
+R-3447,3447,Phases 0–3 are frozen;,4,phase_gate_register.csv (entry check),Section 12.2 ENTRY_CHECK before Phase 4,P1
+R-3448,3448,"literature, empirical release, and algorithm specification are verified; and",4,phase_gate_register.csv (entry check),Section 12.2 ENTRY_CHECK before Phase 4,P2
+R-3449,3449,no algorithm change is pending.,4,phase_gate_register.csv (entry check),Section 12.2 ENTRY_CHECK before Phase 4,P2
+R-3472,3472,Verify current target journal.,4,claims_evidence_matrix.csv + outline.md,Phase 4 validation procedures + Gate 4 review,P10
+R-3473,3473,Use the repository-wired target by default.,4,claims_evidence_matrix.csv + outline.md,Phase 4 validation procedures + Gate 4 review,P1
+R-3474,3474,Check current official instructions and article type.,4,claims_evidence_matrix.csv + outline.md,Phase 4 validation procedures + Gate 4 review,P1
+R-3475,3475,"Record source, access date, template version, limits, declarations, anonymization, Word/LaTeX rules, and supplement rules.",4,claims_evidence_matrix.csv + outline.md,Phase 4 validation procedures + Gate 4 review,P8
+R-3477,3477,Verify current quartile only when needed and from an appropriate current source; do not state it in the manuscript unless relevant.,4,claims_evidence_matrix.csv + outline.md,Phase 4 validation procedures + Gate 4 review,P1
+R-3480,3480,Draft contribution candidates.,4,claims_evidence_matrix.csv + outline.md,Phase 4 validation procedures + Gate 4 review,P1
+R-3481,3481,"Candidate mechanisms may include SGSM, linkage use, eigenframe polish, adaptive scaffold, controlled family evaluation, and reproducibility.",4,claims_evidence_matrix.csv + outline.md,Phase 4 validation procedures + Gate 4 review,P5
+R-3483,3483,"For each: category, exact difference, code location, primary evidence, final-phase ablation need, scope, and reviewer risk.",4,claims_evidence_matrix.csv + outline.md,Phase 4 validation procedures + Gate 4 review,P1
+R-3486,3486,Apply contribution acceptance test.,4,claims_evidence_matrix.csv + outline.md,Phase 4 validation procedures + Gate 4 review,P1
+R-3487,3487,Keep three to five load-bearing contributions.,4,claims_evidence_matrix.csv + outline.md,Phase 4 validation procedures + Gate 4 review,P1
+R-3488,3488,"Remove duplicates, implementation trivia, and unsupported novelty.",4,claims_evidence_matrix.csv + outline.md,Phase 4 validation procedures + Gate 4 review,P9
+R-3489,3489,Do not claim component contribution before final ablation; frame it as a proposed mechanism to be tested in the supplement.,4,claims_evidence_matrix.csv + outline.md,Phase 4 validation procedures + Gate 4 review,P1
+R-3492,3492,Write the primary thesis.,4,claims_evidence_matrix.csv + outline.md,Phase 4 validation procedures + Gate 4 review,P1
+R-3493,3493,Problem → bounded gap → central mechanism → primary evaluation design → strongest expected claim type → reproducibility.,4,claims_evidence_matrix.csv + outline.md,Phase 4 validation procedures + Gate 4 review,P5
+R-3495,3495,Do not insert an unverified number at this stage.,4,claims_evidence_matrix.csv + outline.md,Phase 4 validation procedures + Gate 4 review,P1
+R-3496,3496,Do not mention ablation results.,4,claims_evidence_matrix.csv + outline.md,Phase 4 validation procedures + Gate 4 review,P1
+R-3498,3498,Define evidence roles.,4,claims_evidence_matrix.csv + outline.md,Phase 4 validation procedures + Gate 4 review,P1
+R-3499,3499,"Primary, secondary, descriptive, exploratory, or context-only.",4,claims_evidence_matrix.csv + outline.md,Phase 4 validation procedures + Gate 4 review,P1
+R-3500,3500,Do not call CEC2013 independent or holdout without development-history evidence.,4,claims_evidence_matrix.csv + outline.md,Phase 4 validation procedures + Gate 4 review,P4
+R-3503,3503,Build complete claims matrix.,4,claims_evidence_matrix.csv + outline.md,Phase 4 validation procedures + Gate 4 review,P9
+R-3504,3504,"Seed all background, method, protocol, primary result, interpretation, limitation, conclusion, highlight, and cover-letter claim templates.",4,claims_evidence_matrix.csv + outline.md,Phase 4 validation procedures + Gate 4 review,P4
+R-3506,3506,"Assign evidence IDs, risk, permitted wording, and blocked wording.",4,claims_evidence_matrix.csv + outline.md,Phase 4 validation procedures + Gate 4 review,P8
+R-3507,3507,Mark future ablation claims `DEFERRED_TO_PHASE_12_SUPPLEMENT_ONLY`.,4,claims_evidence_matrix.csv + outline.md,Phase 4 validation procedures + Gate 4 review,P9
+R-3509,3509,Create manuscript outline.,4,claims_evidence_matrix.csv + outline.md,Phase 4 validation procedures + Gate 4 review,P6
+R-3510,3510,Use Section 8 architecture and current journal requirements.,4,claims_evidence_matrix.csv + outline.md,Phase 4 validation procedures + Gate 4 review,P10
+R-3511,3511,"Assign section/subsection objectives, evidence, citations, exhibits, page/word budget, and reviewer risks.",4,claims_evidence_matrix.csv + outline.md,Phase 4 validation procedures + Gate 4 review,P8
+R-3513,3513,Define the canonical manuscript source concretely (Section 9.1): `papers/main.tex` plus `papers/sections/*.tex` (and `papers/supplementar...,4,papers/main.tex,Phase 4 validation procedures + Gate 4 review,P1
+R-3519,3519,Explicitly exclude an ablation subsection from the main manuscript.,4,claims_evidence_matrix.csv + outline.md,Phase 4 validation procedures + Gate 4 review,P2
+R-3521,3521,Create exhibit plan.,4,claims_evidence_matrix.csv + outline.md,Phase 4 validation procedures + Gate 4 review,P1
+R-3522,3522,One row per table/figure/algorithm/equation.,4,claims_evidence_matrix.csv + outline.md,Phase 4 validation procedures + Gate 4 review,P2
+R-3523,3523,"Map to research question, source, generator, main/supplement destination, and claim IDs.",4,claims_evidence_matrix.csv + outline.md,Phase 4 validation procedures + Gate 4 review,P1
+R-3525,3525,Assign each planned exhibit its canonical cross-reference label; these labels initialize the Section 9.1 label tracking and seed `artifac...,4,artifact_binding.csv,Phase 4 validation procedures + Gate 4 review,P4
+R-3529,3529,"For every exhibit classified as authored conceptual art (Section 8.1), write an approval-level specification (message, required elements,...",4,conceptual_figure_specs.md,Phase 4 validation procedures + Gate 4 review,P1
+R-3535,3535,Reserve ablation exhibit IDs for Phase 12 supplement only.,4,claims_evidence_matrix.csv + outline.md,Phase 4 validation procedures + Gate 4 review,P1
+R-3537,3537,Create closest-work comparison.,4,claims_evidence_matrix.csv + outline.md,Phase 4 validation procedures + Gate 4 review,P1
+R-3538,3538,"Compare SGSM, differential grouping, eigenvector crossover, covariance adaptation, and direct search only along verified dimensions.",4,claims_evidence_matrix.csv + outline.md,Phase 4 validation procedures + Gate 4 review,P2
+R-3540,3540,Avoid exhaustive or universal novelty claims.,4,claims_evidence_matrix.csv + outline.md,Phase 4 validation procedures + Gate 4 review,P9
+R-3542,3542,Freeze terminology.,4,claims_evidence_matrix.csv + outline.md,Phase 4 validation procedures + Gate 4 review,P6
+R-3543,3543,"Method name, component names, acronyms, symbols, suite names, algorithm labels, and evidence terminology.",4,claims_evidence_matrix.csv + outline.md,Phase 4 validation procedures + Gate 4 review,P4
+R-3546,3546,Risk review.,4,claims_evidence_matrix.csv + outline.md,Phase 4 validation procedures + Gate 4 review,P1
+R-3547,3547,"Every high-risk claim needs a concrete mitigation: scope reduction, planned analysis, cost measurement, limitation, or removal.",4,claims_evidence_matrix.csv + outline.md,Phase 4 validation procedures + Gate 4 review,P1
+R-3552,3552,`journal_requirements.md`,4,journal_requirements.md,Gate 4 artifact presence/schema check,P10
+R-3553,3553,`journal_decision.md`,4,journal_decision.md,Gate 4 artifact presence/schema check,P10
+R-3554,3554,`thesis.md`,4,thesis.md,Gate 4 artifact presence/schema check,P1
+R-3555,3555,final `contribution_matrix.md`,4,contribution_matrix.md,Gate 4 artifact presence/schema check,P1
+R-3556,3556,`novelty_scope.md`,4,novelty_scope.md,Gate 4 artifact presence/schema check,P9
+R-3557,3557,initial `claims_evidence_matrix.csv`,4,claims_evidence_matrix.csv,Gate 4 artifact presence/schema check,P9
+R-3558,3558,`outline.md`,4,outline.md,Gate 4 artifact presence/schema check,P6
+R-3559,3559,`page_budget.md`,4,page_budget.md,Gate 4 artifact presence/schema check,P1
+R-3560,3560,`exhibit_plan.csv`,4,exhibit_plan.csv,Gate 4 artifact presence/schema check,P1
+R-3561,3561,`conceptual_figure_specs.md`,4,conceptual_figure_specs.md,Gate 4 artifact presence/schema check,P1
+R-3562,3562,`terminology_glossary.md`,4,terminology_glossary.md,Gate 4 artifact presence/schema check,P6
+R-3563,3563,updated risk/decision registers,4,updated risk/decision registers,Gate 4 artifact presence/schema check,P1
+R-3567,3567,Check every contribution against definition/distinction/implementation/ evidence/scope.,4,PHASE_4_gate_report.md,executed in Phase 4 VALIDATION state; evidence in gate report,P1
+R-3569,3569,"Check every outline subsection has objective, evidence, citations, and budget.",4,PHASE_4_gate_report.md,executed in Phase 4 VALIDATION state; evidence in gate report,P9
+R-3570,3570,Sum page/word budget.,4,PHASE_4_gate_report.md,executed in Phase 4 VALIDATION state; evidence in gate report,P8
+R-3571,3571,Check no ablation result is planned for main text.,4,PHASE_4_gate_report.md,executed in Phase 4 VALIDATION state; evidence in gate report,P1
+R-3572,3572,Check all citation shortlists are subsets of the runtime admissible set.,4,PHASE_4_gate_report.md,executed in Phase 4 VALIDATION state; evidence in gate report,P9
+R-3576,3576,P1 traces each contribution to evidence and code.,4,PHASE_4_gate_report.md,independent check recorded at Gate 4,P1
+R-3577,3577,P6 verifies narrative coherence and no overpromise.,4,PHASE_4_gate_report.md,independent check recorded at Gate 4,P6
+R-3578,3578,P10 verifies journal rules against current official instructions.,4,PHASE_4_gate_report.md,independent check recorded at Gate 4,P10
+R-3579,3579,P9 checks novelty wording and citation roles.,4,PHASE_4_gate_report.md,independent check recorded at Gate 4,P9
+R-3583,3583,no contribution without evidence;,4,PHASE_4_gate_report.md (QA sign-off),role sign-off recorded at Gate 4,P1
+R-3584,3584,no headline result invented before analysis;,4,PHASE_4_gate_report.md (QA sign-off),role sign-off recorded at Gate 4,P1
+R-3585,3585,no field-wide claim from same-family panel;,4,PHASE_4_gate_report.md (QA sign-off),role sign-off recorded at Gate 4,P4
+R-3586,3586,no hidden ablation promise in abstract/conclusion plan;,4,PHASE_4_gate_report.md (QA sign-off),role sign-off recorded at Gate 4,P1
+R-3587,3587,page budget closes without illegible exhibits.,4,PHASE_4_gate_report.md (QA sign-off),role sign-off recorded at Gate 4,P6
+R-3591,3591,target journal and current requirements are recorded;,4,Gate 4 (phase_gate_register.csv),Gate 4 acceptance review,P10
+R-3592,3592,thesis and contributions are evidence-bounded;,4,Gate 4 (phase_gate_register.csv),Gate 4 acceptance review,P1
+R-3593,3593,every planned claim has a matrix row;,4,Gate 4 (phase_gate_register.csv),Gate 4 acceptance review,P1
+R-3594,3594,every high-risk claim has mitigation;,4,Gate 4 (phase_gate_register.csv),Gate 4 acceptance review,P1
+R-3595,3595,outline and exhibit plan fit budget;,4,Gate 4 (phase_gate_register.csv),Gate 4 acceptance review,P6
+R-3596,3596,ablation is supplement-only and Phase-12-only; and,4,Gate 4 (phase_gate_register.csv),Gate 4 acceptance review,P1
+R-3597,3597,terminology is frozen.,4,Gate 4 (phase_gate_register.csv),Gate 4 acceptance review,P6
+R-3601,3601,Phase 4 freezes after P1/P6/P9/P10 sign-off. Later empirical results may narrow or remove claims but may not silently expand them.,4,phase_gate_register.csv (FROZEN transition),phase-state transition audit (Section 12.2),P1
+R-3628,3628,"All generated outputs plus `PHASE_4_gate_report.md` containing the signed thesis, contributions, target, scope, no-ablation rule, and cla...",4,PHASE_4_gate_report.md,Gate 4 deliverable check,P1
+R-3633,3633,"Gate 4: P1 + P6 + P9 + P10 approve. Unsupported novelty, unbounded superiority, unverified journal requirements, or planned main-text abl...",4,Gate 4 decision (phase_gate_register.csv),Gate 4 approval recording,P1
+R-3660,3660,Phases 0–4 are frozen;,5,phase_gate_register.csv (entry check),Section 12.2 ENTRY_CHECK before Phase 5,P3
+R-3661,3661,the empirical release and comparability statuses are accepted;,5,phase_gate_register.csv (entry check),Section 12.2 ENTRY_CHECK before Phase 5,P3
+R-3662,3662,the algorithm and primary claims are frozen; and,5,phase_gate_register.csv (entry check),Section 12.2 ENTRY_CHECK before Phase 5,P9
+R-3663,3663,no unresolved protocol defect affects the planned analyses.,5,phase_gate_register.csv (entry check),Section 12.2 ENTRY_CHECK before Phase 5,P3
+R-3686,3686,Finalize research questions.,5,statistical_analysis_plan.md,Phase 5 validation procedures + Gate 5 review,P3
+R-3687,3687,Adopt or refine RQ1–RQ8 from Section 7.,5,statistical_analysis_plan.md,Phase 5 validation procedures + Gate 5 review,P3
+R-3688,3688,"Separate primary, secondary, descriptive, and exploratory questions.",5,statistical_analysis_plan.md,Phase 5 validation procedures + Gate 5 review,P3
+R-3689,3689,Pre-register supplement-only ablation questions without running ablation.,5,statistical_analysis_plan.md,Phase 5 validation procedures + Gate 5 review,P3
+R-3691,3691,Define primary endpoint.,5,statistical_analysis_plan.md,Phase 5 validation procedures + Gate 5 review,P3
+R-3692,3692,"Specify optimum subtraction, error floor, transform, central tendency, dispersion, ranking direction, and failure encoding.",5,statistical_analysis_plan.md,Phase 5 validation procedures + Gate 5 review,P3
+R-3694,3694,Verify definitions against benchmark evidence and release schema.,5,statistical_analysis_plan.md,Phase 5 validation procedures + Gate 5 review,P4
+R-3696,3696,Define units and estimands.,5,statistical_analysis_plan.md,Phase 5 validation procedures + Gate 5 review,P3
+R-3697,3697,"For every claim, specify experimental unit, observation unit, task unit, aggregation, pairing key, and independence assumptions.",5,statistical_analysis_plan.md,Phase 5 validation procedures + Gate 5 review,P3
+R-3699,3699,Prohibit run-level pseudoreplication for across-function claims.,5,statistical_analysis_plan.md,Phase 5 validation procedures + Gate 5 review,P3
+R-3701,3701,Define descriptive outputs.,5,statistical_analysis_plan.md,Phase 5 validation procedures + Gate 5 review,P3
+R-3702,3702,"Exact summaries, precision, missingness, tie rules, win/tie/loss basis, and ordering.",5,statistical_analysis_plan.md,Phase 5 validation procedures + Gate 5 review,P3
+R-3705,3705,Define omnibus analyses.,5,statistical_analysis_plan.md,Phase 5 validation procedures + Gate 5 review,P3
+R-3706,3706,Friedman design per suite/dimension when valid.,5,statistical_analysis_plan.md,Phase 5 validation procedures + Gate 5 review,P3
+R-3707,3707,Nemenyi display conditions and task count.,5,statistical_analysis_plan.md,Phase 5 validation procedures + Gate 5 review,P3
+R-3708,3708,No cross-dimension pooling unless separately justified.,5,statistical_analysis_plan.md,Phase 5 validation procedures + Gate 5 review,P3
+R-3710,3710,Define pairwise families.,5,statistical_analysis_plan.md,Phase 5 validation procedures + Gate 5 review,P3
+R-3711,3711,DT-GSK versus six comparators per suite/dimension by default.,5,statistical_analysis_plan.md,Phase 5 validation procedures + Gate 5 review,P4
+R-3712,3712,Valid pairing requirement.,5,statistical_analysis_plan.md,Phase 5 validation procedures + Gate 5 review,P3
+R-3713,3713,Holm as primary correction when supported.,5,statistical_analysis_plan.md,Phase 5 validation procedures + Gate 5 review,P3
+R-3714,3714,"BH only as separately labeled exploratory analysis, if retained.",5,statistical_analysis_plan.md,Phase 5 validation procedures + Gate 5 review,P3
+R-3716,3716,Define effect and interval analyses.,5,statistical_analysis_plan.md,Phase 5 validation procedures + Gate 5 review,P3
+R-3717,3717,"A12 direction, data level, and reporting.",5,statistical_analysis_plan.md,Phase 5 validation procedures + Gate 5 review,P3
+R-3718,3718,"BCa statistic, resampling unit, hierarchy, seed, resample count, confidence level, and failure handling.",5,statistical_analysis_plan.md,Phase 5 validation procedures + Gate 5 review,P3
+R-3720,3720,Attach to every planned significance/headline claim.,5,statistical_analysis_plan.md,Phase 5 validation procedures + Gate 5 review,P3
+R-3722,3722,Define convergence analysis.,5,statistical_analysis_plan.md,Phase 5 validation procedures + Gate 5 review,P3
+R-3723,3723,"Checkpoint alignment, aggregation, uncertainty, failure rule.",5,statistical_analysis_plan.md,Phase 5 validation procedures + Gate 5 review,P3
+R-3724,3724,"Create selection rubric before rendering: primary performance representativeness, function-class coverage, one hard case, and no favorabl...",5,statistical_analysis_plan.md,Phase 5 validation procedures + Gate 5 review,P3
+R-3727,3727,Write `curve_selection_rule.md` and reserve `curve_selection.csv`.,5,curve_selection_rule.md,Phase 5 validation procedures + Gate 5 review,P3
+R-3729,3729,Define secondary-suite analysis.,5,statistical_analysis_plan.md,Phase 5 validation procedures + Gate 5 review,P4
+R-3730,3730,Role of CEC2013 and CEC2011.,5,statistical_analysis_plan.md,Phase 5 validation procedures + Gate 5 review,P4
+R-3731,3731,No “independent” or “holdout” language unless verified.,5,statistical_analysis_plan.md,Phase 5 validation procedures + Gate 5 review,P3
+R-3732,3732,Same tests only when design supports them.,5,statistical_analysis_plan.md,Phase 5 validation procedures + Gate 5 review,P3
+R-3734,3734,Define parameter-sensitivity treatment.,5,statistical_analysis_plan.md,Phase 5 validation procedures + Gate 5 review,P3
+R-3735,3735,"Exploratory status, n = 3 limitation, grid/range, tasks, and claims.",5,statistical_analysis_plan.md,Phase 5 validation procedures + Gate 5 review,P9
+R-3736,3736,Do not mix with ablation.,5,statistical_analysis_plan.md,Phase 5 validation procedures + Gate 5 review,P3
+R-3738,3738,Define cost analysis.,5,statistical_analysis_plan.md,Phase 5 validation procedures + Gate 5 review,P3
+R-3739,3739,"Metrics, environment, dimensions, repetitions, normalization, and confidence interval.",5,statistical_analysis_plan.md,Phase 5 validation procedures + Gate 5 review,P3
+R-3741,3741,Separate objective and algorithmic cost.,5,statistical_analysis_plan.md,Phase 5 validation procedures + Gate 5 review,P2
+R-3743,3743,Define robustness checks.,5,statistical_analysis_plan.md,Phase 5 validation procedures + Gate 5 review,P3
+R-3744,3744,"Error floor, summary statistic, disputed cells, influence, pairing, correction family, and dimension aggregation.",5,statistical_analysis_plan.md,Phase 5 validation procedures + Gate 5 review,P3
+R-3747,3747,Define source-resolution policy.,5,statistical_analysis_plan.md,Phase 5 validation procedures + Gate 5 review,P3
+R-3748,3748,Per-function versus per-run input for each exhibit.,5,statistical_analysis_plan.md,Phase 5 validation procedures + Gate 5 review,P3
+R-3749,3749,Record in `exhibit_plan.csv` and manuscript setup.,5,exhibit_plan.csv,Phase 5 validation procedures + Gate 5 review,P3
+R-3750,3750,Reject any analysis whose resolution is unavailable or invalid.,5,statistical_analysis_plan.md,Phase 5 validation procedures + Gate 5 review,P3
+R-3752,3752,Define strict-source execution.,5,statistical_analysis_plan.md,Phase 5 validation procedures + Gate 5 review,P5
+R-3753,3753,Configure source guard and release ID.,5,statistical_analysis_plan.md,Phase 5 validation procedures + Gate 5 review,P5
+R-3754,3754,Specify the output directory — the controlled analysis area `papers/analysis/<release_id>/<suite>/` (Section 7.13) — and the source-use log.,5,statistical_analysis_plan.md,Phase 5 validation procedures + Gate 5 review,P4
+R-3757,3757,Require failure if any empirical input is outside the release.,5,statistical_analysis_plan.md,Phase 5 validation procedures + Gate 5 review,P3
+R-3759,3759,Define deterministic outputs.,5,statistical_analysis_plan.md,Phase 5 validation procedures + Gate 5 review,P5
+R-3760,3760,"File names, schemas, sort order, floating-point formatting, RNG seeds, locale, and software versions.",5,statistical_analysis_plan.md,Phase 5 validation procedures + Gate 5 review,P4
+R-3763,3763,Write claim-to-analysis bindings.,5,statistical_analysis_plan.md,Phase 5 validation procedures + Gate 5 review,P3
+R-3764,3764,Every planned numerical/statistical claim receives an analysis ID.,5,statistical_analysis_plan.md,Phase 5 validation procedures + Gate 5 review,P3
+R-3765,3765,"Every analysis ID has a source, method, and output row.",5,statistical_analysis_plan.md,Phase 5 validation procedures + Gate 5 review,P3
+R-3767,3767,Pre-register final ablation plan at design level only.,5,statistical_analysis_plan.md,Phase 5 validation procedures + Gate 5 review,P3
+R-3768,3768,"Define component toggles, remove-one, direct SGSM, incremental/add-one or cumulative design, statistical family, overhead, convergence, a...",5,statistical_analysis_plan.md,Phase 5 validation procedures + Gate 5 review,P3
+R-3771,3771,Mark every output `PHASE_12_ONLY`.,5,statistical_analysis_plan.md,Phase 5 validation procedures + Gate 5 review,P3
+R-3772,3772,Do not execute objective evaluations or inspect historical results.,5,statistical_analysis_plan.md,Phase 5 validation procedures + Gate 5 review,P3
+R-3776,3776,`statistical_analysis_plan.md`,5,statistical_analysis_plan.md,Gate 5 artifact presence/schema check,P3
+R-3777,3777,`analysis_registry.csv`,5,analysis_registry.csv,Gate 5 artifact presence/schema check,P3
+R-3778,3778,updated `claims_evidence_matrix.csv`,5,claims_evidence_matrix.csv,Gate 5 artifact presence/schema check,P9
+R-3779,3779,updated `exhibit_plan.csv`,5,exhibit_plan.csv,Gate 5 artifact presence/schema check,P3
+R-3780,3780,`curve_selection_rule.md`,5,curve_selection_rule.md,Gate 5 artifact presence/schema check,P3
+R-3781,3781,`source_resolution_map.csv`,5,source_resolution_map.csv,Gate 5 artifact presence/schema check,P3
+R-3782,3782,`robustness_plan.md`,5,robustness_plan.md,Gate 5 artifact presence/schema check,P3
+R-3783,3783,`cost_analysis_plan.md`,5,cost_analysis_plan.md,Gate 5 artifact presence/schema check,P3
+R-3784,3784,`ablation_preregistration.md` marked Phase 12 only,5,ablation_preregistration.md,Gate 5 artifact presence/schema check,P3
+R-3785,3785,`analysis_output_schemas/`,5,analysis_output_schemas/,Gate 5 artifact presence/schema check,P3
+R-3789,3789,Validate each claim has a compatible analysis ID or non-empirical evidence.,5,PHASE_5_gate_report.md,executed in Phase 5 VALIDATION state; evidence in gate report,P3
+R-3790,3790,Check every paired test against comparability/pairing status.,5,PHASE_5_gate_report.md,executed in Phase 5 VALIDATION state; evidence in gate report,P3
+R-3791,3791,Check every correction family is explicitly enumerated.,5,PHASE_5_gate_report.md,executed in Phase 5 VALIDATION state; evidence in gate report,P3
+R-3792,3792,Check every headline result has effect-size and interval definitions.,5,PHASE_5_gate_report.md,executed in Phase 5 VALIDATION state; evidence in gate report,P3
+R-3793,3793,Check no analysis reads a forbidden source.,5,PHASE_5_gate_report.md,executed in Phase 5 VALIDATION state; evidence in gate report,P3
+R-3794,3794,Check final ablation design is registered but not executed.,5,PHASE_5_gate_report.md,executed in Phase 5 VALIDATION state; evidence in gate report,P3
+R-3798,3798,P3 independently re-derives units and hypothesis families.,5,PHASE_5_gate_report.md,independent check recorded at Gate 5,P3
+R-3799,3799,P4 verifies data resolution and pairing availability.,5,PHASE_5_gate_report.md,independent check recorded at Gate 5,P4
+R-3800,3800,P5 verifies deterministic source-guarded command design.,5,PHASE_5_gate_report.md,independent check recorded at Gate 5,P5

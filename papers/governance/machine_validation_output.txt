@@ -1,0 +1,15 @@
+# machine_validation_output.txt
+# Phase 2 task 2 archive — full verbatim output of the machine validation command.
+# command   : python -m gsk_family.cli.validate --references benchmarks/cec_reference_results
+# cwd       : D:/AI/PhD-Projects/00-GSK-Family/02-GSK_Family_Python_v1.1
+# date      : 2026-07-10
+# commit    : 262fc16c91fbe5608a1a0b0c5df3cbcd009edc21 (anchor)
+# exit code : 0
+# note      : --references mode checks root existence and CSV presence only (validate.py
+#             lines 14-29); the CR-0003 anomaly taxonomy was additionally executed via
+#             cr0003_anomaly_scan.py (full output in cr0003_anomaly_scan_output.txt).
+# ---- verbatim output below ----
+reference root: benchmarks\cec_reference_results
+csv files: 3324
+use --compare RUN_DIR REFERENCE_ROOT to compare generated summaries
+# ---- end verbatim output (exit code of this invocation: 0) ----

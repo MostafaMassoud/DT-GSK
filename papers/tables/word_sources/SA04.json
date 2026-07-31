@@ -1,0 +1,167 @@
+{
+ "table_id": "SA04",
+ "manuscript_label": "Table SA04",
+ "caption_stub": "CEC2017 scored-function inventory: class in the suite taxonomy and known optimal value f* for each of the 29 scored functions (F2 excluded by protocol).",
+ "headers": [
+  [
+   "Function",
+   "Class",
+   "f*"
+  ]
+ ],
+ "rows": [
+  [
+   "F1",
+   "Unimodal",
+   "100"
+  ],
+  [
+   "F3",
+   "Unimodal",
+   "300"
+  ],
+  [
+   "F4",
+   "Simple multimodal",
+   "400"
+  ],
+  [
+   "F5",
+   "Simple multimodal",
+   "500"
+  ],
+  [
+   "F6",
+   "Simple multimodal",
+   "600"
+  ],
+  [
+   "F7",
+   "Simple multimodal",
+   "700"
+  ],
+  [
+   "F8",
+   "Simple multimodal",
+   "800"
+  ],
+  [
+   "F9",
+   "Simple multimodal",
+   "900"
+  ],
+  [
+   "F10",
+   "Simple multimodal",
+   "1000"
+  ],
+  [
+   "F11",
+   "Hybrid",
+   "1100"
+  ],
+  [
+   "F12",
+   "Hybrid",
+   "1200"
+  ],
+  [
+   "F13",
+   "Hybrid",
+   "1300"
+  ],
+  [
+   "F14",
+   "Hybrid",
+   "1400"
+  ],
+  [
+   "F15",
+   "Hybrid",
+   "1500"
+  ],
+  [
+   "F16",
+   "Hybrid",
+   "1600"
+  ],
+  [
+   "F17",
+   "Hybrid",
+   "1700"
+  ],
+  [
+   "F18",
+   "Hybrid",
+   "1800"
+  ],
+  [
+   "F19",
+   "Hybrid",
+   "1900"
+  ],
+  [
+   "F20",
+   "Hybrid",
+   "2000"
+  ],
+  [
+   "F21",
+   "Composition",
+   "2100"
+  ],
+  [
+   "F22",
+   "Composition",
+   "2200"
+  ],
+  [
+   "F23",
+   "Composition",
+   "2300"
+  ],
+  [
+   "F24",
+   "Composition",
+   "2400"
+  ],
+  [
+   "F25",
+   "Composition",
+   "2500"
+  ],
+  [
+   "F26",
+   "Composition",
+   "2600"
+  ],
+  [
+   "F27",
+   "Composition",
+   "2700"
+  ],
+  [
+   "F28",
+   "Composition",
+   "2800"
+  ],
+  [
+   "F29",
+   "Composition",
+   "2900"
+  ],
+  [
+   "F30",
+   "Composition",
+   "3000"
+  ]
+ ],
+ "notes": [
+  "taxonomy and optimum rule read from the benchmark suite definition (benchmarks/cec_suite_python/cec2017/functions.py), not a secondary source",
+  "f*(F_i) = i x 100; cross-checked against the suite's cec2017_fopt entry point when importable",
+  "F2 is excluded under the adopted CEC2017 protocol (documented instability), uniformly in every panel cell"
+ ],
+ "number_format": "as-is",
+ "source": "benchmarks/cec_suite_python/cec2017/functions.py",
+ "source_sha256": "7cc5986c6541808b078a02affeb2a9e24ed5d6769b1226a4db88d46d425a57ac"
+}

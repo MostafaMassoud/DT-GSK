@@ -1,0 +1,1052 @@
+{
+ "release_id": "rel-2026-07-10-262fc16c9",
+ "anchor_commit": "262fc16c91fbe5608a1a0b0c5df3cbcd009edc21",
+ "generator": "papers/scripts/phase6_run_analysis.py",
+ "command": "python papers/scripts/phase6_run_analysis.py",
+ "git_head_at_run": "35d3ced368baf21597af8d2719bd488d9643ee2b",
+ "outputs": [
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/environment_record.json",
+   "sha256": "4d88702186d80eeb2ae95cbfcb19b5aec3edacf84ac5e8f062c54e580beca3fa",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "ENVIRONMENT"
+   ]
+  },
+  {
+   "path": "papers/build_prompt_phases/phase_05/curve_selection.csv",
+   "sha256": "3bcc379ee56bd0efc3f282c62f149c0fb40383fc0f47c4fec1a1aa13f3b1e72e",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-CONV-2017-D30",
+    "AN-CONV-2017-D100"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/curve_selection_cec2017_D30.csv",
+   "sha256": "6ce23e5a4728f6efcf5244c25a7cbc70b2ce26b888a62bc166e1ad739cb8ce84",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-CONV-2017-D30"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/curve_selection_cec2017_D100.csv",
+   "sha256": "d60cc068bd5f460c2ac8beffbd84fb488b45dd5e6a90a7c2f5480291f7eeab5b",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-CONV-2017-D100"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/source_precheck.json",
+   "sha256": "b676b74c2f83b59c2b97417eb832f4471d411247eeaaefd0b75a03cc34f21f32",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "PRECHECK"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/descriptive_stats_cec2017_D10.csv",
+   "sha256": "db7e7c46973867f209dff582d587172f6700394a332c183ad41369cb6c03c5e2",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-DESC-2017-D10"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/descriptive_stats_cec2017_D30.csv",
+   "sha256": "833d870ce50dd3e23f379fd59f18e3e87f238cb3fe5c5927262a37050e87a670",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-DESC-2017-D30"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/descriptive_stats_cec2017_D50.csv",
+   "sha256": "df45f1df270f6bd21a1684e040e7dce3b1e388d922b5cb174370d1147e195e39",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-DESC-2017-D50"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/descriptive_stats_cec2017_D100.csv",
+   "sha256": "9b7e0c1f90b204558595187fa43f4b24b779068c5b9aafff084be476a162a109",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-DESC-2017-D100"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/friedman_ranks_cec2017_D10.csv",
+   "sha256": "6e34631c796cd271d79ab16db79d9b7b20eff32a7ed02b67a01bc6959bf6a23c",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-OMNI-2017-D10"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/nemenyi_cd_cec2017_D10.csv",
+   "sha256": "8ff6d3912cf2783afc1d52a174b6b4598792237d4e7900a6a11892908a2973ed",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-OMNI-2017-D10"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/friedman_ranks_cec2017_D30.csv",
+   "sha256": "c21a194aaac75307d288ee3db79ed52bcaf186e60a477058ea81ecdb1b614928",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-OMNI-2017-D30"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/nemenyi_cd_cec2017_D30.csv",
+   "sha256": "013a580fdf4f0f1bc206d4c247ee92c67e36ebc2668f57b34654f7a2bd0d5d01",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-OMNI-2017-D30"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/friedman_ranks_cec2017_D50.csv",
+   "sha256": "c7915a9ced06087d7a6556514935818ed3b44fad5a52ce5196b5ca9e907ba06b",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-OMNI-2017-D50"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/nemenyi_cd_cec2017_D50.csv",
+   "sha256": "c91845e4144359911834dc23c845cb3c8871004c8cd7ff40d4658298c371268d",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-OMNI-2017-D50"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/friedman_ranks_cec2017_D100.csv",
+   "sha256": "8e98b10adcea3ff66452e197403c2d37adb2fc8d5f78d7937b20ce730e34340f",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-OMNI-2017-D100"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/nemenyi_cd_cec2017_D100.csv",
+   "sha256": "9bce124ff38245c4d0cf17ee7d238583989eeeaee5c201ad488556289d297272",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-OMNI-2017-D100"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/friedman_ranks_cec2017_overall.csv",
+   "sha256": "9ea7a7ad707b82798c9bc44a146fd1ccf68a778eab6c7547ef312d49df601a89",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-RANKAGG-2017-OVERALL"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/wilcoxon_holm_cec2017_D10.csv",
+   "sha256": "9a84210c6bf9190ee47f43193d060f5ffdc25de8f2b48b9619b0b9336f11cc13",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-PW-2017-D10"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/wilcoxon_holm_cec2017_D30.csv",
+   "sha256": "13314a9f1445b5c951c36868c1cd8ca937767e82618421956758277459faea18",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-PW-2017-D30"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/wilcoxon_holm_cec2017_D50.csv",
+   "sha256": "c9a326da5c51489c035b0d8f983704d9ff31a4d485b5023177b30f5446eaec10",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-PW-2017-D50"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/wilcoxon_holm_cec2017_D100.csv",
+   "sha256": "f2bb74e67080824bf4252842ef46343d9bdb0515b93f86f8a33d277881c5cf20",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-PW-2017-D100"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/wilcoxon_run_cec2017_D10.csv",
+   "sha256": "b18b1219b9863be0f4a98d791b464a7b5c1aafbd649732583a1b23a098885e85",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-PWRUN-2017-D10"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/wilcoxon_run_cec2017_D30.csv",
+   "sha256": "a508e98eb5bc740729996d07561de429ecf42a8842bda63162cb3438d367d7e2",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-PWRUN-2017-D30"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/wilcoxon_run_cec2017_D50.csv",
+   "sha256": "a4977eaae0bc2a6ba13d6b03ee1e0b2400bbd3214a6bfd3425814015875e05b1",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-PWRUN-2017-D50"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/wilcoxon_run_cec2017_D100.csv",
+   "sha256": "ff83f3179e36f0d5b15b02cb6f16b46f476717a3dc5497f652488766a57b660e",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-PWRUN-2017-D100"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/effect_sizes_cec2017_D10.csv",
+   "sha256": "a4d1cc4e4a016a8be5564e54f0e07a445b8b139d34ae4da89236fcdfa499fcc7",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-EFF-2017-D10"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/bca_ci_cec2017_D10.csv",
+   "sha256": "6a07d4b10db828db2aa184bbf495ccb87e7141e06ce37310b2d2b630a5505dcf",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-EFF-2017-D10"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/effect_sizes_cec2017_D30.csv",
+   "sha256": "e2ff51a5a16e862f01ae855907d92df9226647a4c597f170f2935ed6ee9aecee",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-EFF-2017-D30"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/bca_ci_cec2017_D30.csv",
+   "sha256": "795b27559fa79a8fe85219779210a4f89116ccac45ba1cd192a84ec3b4b6010f",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-EFF-2017-D30"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/effect_sizes_cec2017_D50.csv",
+   "sha256": "65dee8da820e6b4e66aa6a6758249f1005f0cc83014220cec96f38eab77ba33d",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-EFF-2017-D50"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/bca_ci_cec2017_D50.csv",
+   "sha256": "801e60da93e34c3acf301f05465ac71c7b7a878eb276984bde9e8ddd5ad48cda",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-EFF-2017-D50"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/effect_sizes_cec2017_D100.csv",
+   "sha256": "6b26d4616ccdbf30b698f71672c7ce07940b810c467395d24c6860eab44dcbb4",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-EFF-2017-D100"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/bca_ci_cec2017_D100.csv",
+   "sha256": "fc00945317977d09c3c922c9e65252db96c90eac88367b1a90b9728341538237",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-EFF-2017-D100"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/convergence_checkpoints_cec2017_D10.csv",
+   "sha256": "3857c1396ba6b5dee41347c13d6f5593a137cd0631f159cbd5bbec2f2f6767fd",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-CONV-2017-D10"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/convergence_checkpoints_cec2017_D30.csv",
+   "sha256": "01f5dfc54563f6547b3650d300cc7d665a9572038ffd98faacb52e1b9da0a037",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-CONV-2017-D30"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/convergence_checkpoints_cec2017_D50.csv",
+   "sha256": "dd19ef9b6527858531e6074cae5381d83dc985a8b36cf8ad52265c3ea4ecdd68",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-CONV-2017-D50"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/convergence_checkpoints_cec2017_D100.csv",
+   "sha256": "194bfc638bc71d872063df1c887c0d05699b1a3c21de300e7fd8cbdd44451cb4",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-CONV-2017-D100"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2013/descriptive_stats_cec2013_D10.csv",
+   "sha256": "0d1ab3fe19ae0628dc47e6a4e804f2a331ebaa17e92003eb6b36553689f7dee6",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "DESC-TRANSCRIPTION"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2013/descriptive_stats_cec2013_D30.csv",
+   "sha256": "5b69389deec6661e9c0daef5dad6002c03634b734ea9715c3060bf4c6cbf2d97",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "DESC-TRANSCRIPTION"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2013/descriptive_stats_cec2013_D50.csv",
+   "sha256": "44f86b7946e80fab61115f63dd97f91128074c686de45aae8d087d0fb72f4c79",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "DESC-TRANSCRIPTION"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2013/friedman_ranks_cec2013_D10.csv",
+   "sha256": "7bc6fd53e6fa2c3552d9702efb36d8e658ccd555693dc8f637e5cb7f87a03f60",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-OMNI-2013-D10"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2013/nemenyi_cd_cec2013_D10.csv",
+   "sha256": "1a2ce35dcb85ca89396bceb479df7b9b9fa61415ff4f8b644271da7c3c86eb2e",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-OMNI-2013-D10"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2013/friedman_ranks_cec2013_D30.csv",
+   "sha256": "04765039e06852d1ba39621938ee340c292862d9262f2667127f88625992c070",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-OMNI-2013-D30"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2013/nemenyi_cd_cec2013_D30.csv",
+   "sha256": "a76ff1e051e1312f6c83252173a8cde429aa2cefc312c4aa43a27d82634b245a",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-OMNI-2013-D30"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2013/friedman_ranks_cec2013_D50.csv",
+   "sha256": "a1b3fb47c47a634ee1bb7abb114f09d028be5c448a7000626489230bec4e6b82",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-OMNI-2013-D50"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2013/nemenyi_cd_cec2013_D50.csv",
+   "sha256": "b5ae5c21a3398dad2a7e97ff430a7627d782e69c9f66a60b932d189839a159b5",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-OMNI-2013-D50"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2013/friedman_ranks_cec2013_overall.csv",
+   "sha256": "23d409b56b318a7033128b20a2e875470de83b0e164a1ce89109c308353ff606",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-RANKAGG-2013-OVERALL"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2013/wilcoxon_holm_cec2013_D10.csv",
+   "sha256": "6c3448c7805039876a1d85048029409d6c6ac4d0480430c2ef2660d9e003607b",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-PW-2013-D10"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2013/wilcoxon_holm_cec2013_D30.csv",
+   "sha256": "127f3f8dcc0439cab1a4e10b2721d9f57f280700ee3e5517dc5cc909eb81dfb4",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-PW-2013-D30"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2013/wilcoxon_holm_cec2013_D50.csv",
+   "sha256": "2cd6edfe40fe44c3b1512de1880d608d507ebda8b57323b32d9368a61ab95464",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-PW-2013-D50"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2013/wilcoxon_run_cec2013_D10.csv",
+   "sha256": "b27557ab464ea299cc589a1def0a0c1ba9d4ccbd7f83c07cd365bf13ec02ff9d",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-PWRUN-2013-D10"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2013/wilcoxon_run_cec2013_D30.csv",
+   "sha256": "361c7fe5daeb762c3c5eb25a8fecf7d2cf831681b3e887bbb031ed6dda74672b",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-PWRUN-2013-D30"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2013/wilcoxon_run_cec2013_D50.csv",
+   "sha256": "b03a319dab1da7fdeff4fbcaa922e5a263fb7cf3b8fc20a74d576963ebb71053",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-PWRUN-2013-D50"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2013/effect_sizes_cec2013_D10.csv",
+   "sha256": "bbdc2766e4cc85605788386a1e5c368cefdc90e3329bbc7b18575d4a292f4f15",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-EFF-2013-D10"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2013/bca_ci_cec2013_D10.csv",
+   "sha256": "244f1b738084fd00c61f955aa446a35825c1a7a8bd737180cd72ee316df0a022",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-EFF-2013-D10"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2013/effect_sizes_cec2013_D30.csv",
+   "sha256": "0520d0444d7d7f5ef6a8b52aa384b4bb394b6039565a154a68935740cebaa35a",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-EFF-2013-D30"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2013/bca_ci_cec2013_D30.csv",
+   "sha256": "7bac6d509021067c9974aad397ef244e4227b1fce31c17cf92e78e96a29e92d6",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-EFF-2013-D30"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2013/effect_sizes_cec2013_D50.csv",
+   "sha256": "f2160ec4e6faf1e8e22beca41386176f0b257d571d1521431038c7a98b79d5e0",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-EFF-2013-D50"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2013/bca_ci_cec2013_D50.csv",
+   "sha256": "ad3645cc7d21e16c7107a3a045bca5e9f5f067bf75a93ddd4201e3f74a54e80e",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-EFF-2013-D50"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2013/convergence_checkpoints_cec2013_D30.csv",
+   "sha256": "19d16aed3ea18f867ac17d991553d9c1fc105a95b3aa5f63fa3ffb676c78b825",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-CONV-2013-D30"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2011/descriptive_stats_cec2011.csv",
+   "sha256": "36e57e0b193c031d31d378d5bc623e86807512c6053f69f5a3b293fd381c5b59",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "DESC-TRANSCRIPTION"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2011/friedman_ranks_cec2011.csv",
+   "sha256": "aed7e89943e7a7ef7cd9d61efe98a2625862c0fa177bff02b8342abbb21f9a55",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-OMNI-2011-NATIVE"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2011/nemenyi_cd_cec2011.csv",
+   "sha256": "1d98b889d1d71904d72f7d9fbbc81f69e20dc572bf8b03e845c74074ca000b3c",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-OMNI-2011-NATIVE"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2011/wilcoxon_holm_cec2011.csv",
+   "sha256": "d9a34af5f0a27fc40b2a01c76f2a2d244fdbf580b52d93978d8149905b87fcd1",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-PW-2011-NATIVE"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2011/wilcoxon_run_cec2011.csv",
+   "sha256": "5b2f15cb58177655e8339c806d80e5bfa2ec0ea4985e4a50227f2fb78bc38964",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-PWRUN-2011-NATIVE"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2011/effect_sizes_cec2011.csv",
+   "sha256": "2cbfa8e830fd9b05241a0d6ada09d62012161a0dd4db385901501de96d8b18a8",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-EFF-2011-NATIVE"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2011/bca_ci_cec2011.csv",
+   "sha256": "068ab42c0b35471a6f08a8d692d508120bd7ec9770f2e9767b8e133dc230291b",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-EFF-2011-NATIVE"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2011/convergence_checkpoints_cec2011.csv",
+   "sha256": "1a65cd9d7cc24c69dfe95a708afb5593284699108d13da3c04c66a1d8061ffb4",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-CONV-2011-NATIVE"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/rank_trend_cec2017.csv",
+   "sha256": "5892c767411b089f23d38d8613c985fb6e45e3181bd05f167c265fb0b6213d81",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-TREND-2017"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/class_ranks_cec2017.csv",
+   "sha256": "8d6987cf12059b0d13ce1dded7ba3b052ef929172ef551d6eff61784997785ec",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-CLASS-2017"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/cost_cec2017.csv",
+   "sha256": "a53a3cf8b5b127cdcdd62f0dfd93f58be7396d8335effa46a00af4c893952fc0",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-COST-2017"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/wilcoxon_run_cec2017_D10_exploratory_bh.csv",
+   "sha256": "48397d717aefc0f002680333fcc8b53ce6a6b990176b46bae719bc651c1d32f3",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-EXP-BH-2017"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/wilcoxon_run_cec2017_D30_exploratory_bh.csv",
+   "sha256": "7ce32b0f398aae9c207f78972c99aeea10f43db61124cb1a3a7505f4cc848725",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-EXP-BH-2017"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/wilcoxon_run_cec2017_D50_exploratory_bh.csv",
+   "sha256": "570181cab56737b66ee14a89a105e969b0b83c358591c2f936fe82dcd5104dc8",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-EXP-BH-2017"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/wilcoxon_run_cec2017_D100_exploratory_bh.csv",
+   "sha256": "ec1d8312ddd3f02c905cfd33374a8311b84e0e34d4ac2a27f6b3d1e24417fb8c",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-EXP-BH-2017"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/robustness/robustness_cec2017_r01_mean_vs_median.csv",
+   "sha256": "17b0f3631017442455b9a4043f08183ca4f4b35ff0c5411d7c66ef8e82bd7f1e",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-ROB-2017-01"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/robustness/robustness_cec2017_r01_mean_vs_median_digest.md",
+   "sha256": "e1fea26184667afe940a4de28ee326c3565f9a5291c7e277ad5b34aa6608b4e6",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-ROB-2017-01"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/robustness/robustness_cec2017_r01_mean_vs_median_source_audit.json",
+   "sha256": "dd36cab0f2faf08920af9eaf5cef1db2680b374a901a69bfb50b43cddf515e25",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-ROB-2017-01"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/robustness/robustness_cec2017_r02_floor_sensitivity.csv",
+   "sha256": "08b050f3f637faca8947f4e28b0f7d3f3d67b1e07637d2025a78b32a39ac3230",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-ROB-2017-02"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/robustness/robustness_cec2017_r02_floor_sensitivity_digest.md",
+   "sha256": "ac1bbf5bcc3e939cdc715d01007265e17a16bffea2ff948e6d7832b25cee4fb2",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-ROB-2017-02"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/robustness/robustness_cec2017_r02_floor_sensitivity_source_audit.json",
+   "sha256": "dd36cab0f2faf08920af9eaf5cef1db2680b374a901a69bfb50b43cddf515e25",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-ROB-2017-02"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/robustness/robustness_cec2017_r03_lofo_friedman.csv",
+   "sha256": "fe4ef1800822ac084844621f98a71dc16e05df9d02c8468c8081da0ea9c616c7",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-ROB-2017-03"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/robustness/robustness_cec2017_r03_lofo_friedman_digest.md",
+   "sha256": "6d217761e5ee8bac25ec08b428ce846c34307c9f494a545311b9b7c5fbcc9256",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-ROB-2017-03"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/robustness/robustness_cec2017_r03_lofo_friedman_source_audit.json",
+   "sha256": "dd36cab0f2faf08920af9eaf5cef1db2680b374a901a69bfb50b43cddf515e25",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-ROB-2017-03"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/robustness/robustness_cec2017_r04_disputed_cell_exclusion.csv",
+   "sha256": "dd0846af20f9c19fa0a88ef9aca2e3099daaad0e4794ac670e3d4e2e0f513bf2",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-ROB-2017-04"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/robustness/robustness_cec2017_r04_disputed_cell_exclusion_digest.md",
+   "sha256": "89959c559478d9ec058d964b7288475e73063491c40d20df32a1b42ec5be28cd",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-ROB-2017-04"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/robustness/robustness_cec2017_r04_disputed_cell_exclusion_source_audit.json",
+   "sha256": "dd36cab0f2faf08920af9eaf5cef1db2680b374a901a69bfb50b43cddf515e25",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-ROB-2017-04"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/robustness/robustness_cec2017_r05_unpaired_companion.csv",
+   "sha256": "722fb63d69627071f71e77f9e8fd519dd6bfb65cee31e7b914f3f1863cb08dac",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-ROB-2017-05"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/robustness/robustness_cec2017_r05_unpaired_companion_digest.md",
+   "sha256": "d1be2fafbc4eeedf059651e6ded7a07c1a718a5a904fc5e2315a618e95b268d8",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-ROB-2017-05"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/robustness/robustness_cec2017_r05_unpaired_companion_source_audit.json",
+   "sha256": "dd36cab0f2faf08920af9eaf5cef1db2680b374a901a69bfb50b43cddf515e25",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-ROB-2017-05"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/robustness/robustness_cec2017_r06_holm_vs_bh.csv",
+   "sha256": "b4cccb1cf7a464f2e1a88374b0ececb66fddf12c8b7f675bfe7567ebc7390fbf",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-ROB-2017-06"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/robustness/robustness_cec2017_r06_holm_vs_bh_digest.md",
+   "sha256": "5aaca357410070715e1357c9bdd89dfad74efa94add6128b4c61d91a4dbf76ce",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-ROB-2017-06"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/robustness/robustness_cec2017_r06_holm_vs_bh_source_audit.json",
+   "sha256": "dd36cab0f2faf08920af9eaf5cef1db2680b374a901a69bfb50b43cddf515e25",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-ROB-2017-06"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/robustness/robustness_cec2017_r07_secondary_suite_effect.csv",
+   "sha256": "ee69d5a8f2a1eea23dd03db70e44d2deb7d91f639cfa0b0b11719d94d52d218e",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-ROB-2017-07"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/robustness/robustness_cec2017_r07_secondary_suite_effect_digest.md",
+   "sha256": "74941a1e782473f3c3c243e53e6bedad1c0c61d6db556f5f96e4c29a92015477",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-ROB-2017-07"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/robustness/robustness_cec2017_r07_secondary_suite_effect_source_audit.json",
+   "sha256": "dd36cab0f2faf08920af9eaf5cef1db2680b374a901a69bfb50b43cddf515e25",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-ROB-2017-07"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/robustness/robustness_cec2017_r08_overall_aggregation_variants.csv",
+   "sha256": "199be0bfcdf33fea5107d7e5dd722f6bec1d7b5956ddc22b415968f0684eca38",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-ROB-2017-08"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/robustness/robustness_cec2017_r08_overall_aggregation_variants_digest.md",
+   "sha256": "5168a144de1d6413573b1891f898dfe1b9d458e1ddff66259b4308821c216137",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-ROB-2017-08"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/robustness/robustness_cec2017_r08_overall_aggregation_variants_source_audit.json",
+   "sha256": "dd36cab0f2faf08920af9eaf5cef1db2680b374a901a69bfb50b43cddf515e25",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-ROB-2017-08"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/robustness/robustness_summary_cec2017.md",
+   "sha256": "952dd3baa8a8350fe002eae0ec0c9034088e904c07172376fede331a37b5e272",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-ROB-2017-01",
+    "AN-ROB-2017-02",
+    "AN-ROB-2017-03",
+    "AN-ROB-2017-04",
+    "AN-ROB-2017-05",
+    "AN-ROB-2017-06",
+    "AN-ROB-2017-07",
+    "AN-ROB-2017-08"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/headline_bca.csv",
+   "sha256": "179fbaab3480806b08a4137ea82764aecf62549cdd6053b44437c0ffaf54f00d",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "AN-EFF-2017-D10",
+    "AN-EFF-2017-D30",
+    "AN-EFF-2017-D50",
+    "AN-EFF-2017-D100"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/primary_stats/statistical_results.csv",
+   "sha256": "0e75b091723f0155da65bfc72e5465b4e8d8240ae0c9acabd91a2f66348fbf4c",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "ALL-REGISTRY-FAMILIES"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cross_check.json",
+   "sha256": "df2603fc1a99ac98144b055c085a1df511d2432a974940aa1424438173af5b8c",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "CROSS-CHECK"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/source_use_log.json",
+   "sha256": "27cff5ac89ed00f77913c4c1217aa92aa9bd110286fd7d4da9a29a11315a52c4",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "SOURCE-LOG"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2013/source_use_log.json",
+   "sha256": "4819e77a4d404b0f3930f6e6e839f39c821ca846224944e979a741ed88f69c3d",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "SOURCE-LOG"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2011/source_use_log.json",
+   "sha256": "731ae2ed5c1ab4bc471210c9bcc0a99ddfbd3ff3d47c753b26570ea808559260",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "SOURCE-LOG"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/run_manifest.json",
+   "sha256": "5569d65e0a7dd99898a36e6de76c9cae960750d79a8ba47901944045a9f6945f",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "RUN-MANIFEST"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/run_manifest.json",
+   "sha256": "f972d9f64b3e60b9f930024a9a79dd31331434b57a52a5ec557c90c56c56d5fa",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "RUN-MANIFEST"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2013/run_manifest.json",
+   "sha256": "bc525989bd8786e0a760670e34a1a8ed33e173491766ccfefcd6e30d2291fd75",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "RUN-MANIFEST"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2011/run_manifest.json",
+   "sha256": "3f1ad74c54738ca6314cf74406ecf566278ab3988faf579eee88e9f5c25bc85c",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "RUN-MANIFEST"
+   ]
+  },
+  {
+   "path": "papers/analysis/rel-2026-07-10-262fc16c9/table_to_csv_map.md",
+   "sha256": "5019be35b41efe2027f234d064d6cdba636c76749a20a27ec097f8097126ab7c",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "TABLE-MAP"
+   ]
+  },
+  {
+   "path": "results/paper_tables/T1.csv",
+   "sha256": "e91dbce675df8d19d64ee00cebb814a0e20b3520b1aba926fc7ed94b70ddd9cf",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "EXPORT-T1"
+   ]
+  },
+  {
+   "path": "results/paper_tables/T2.csv",
+   "sha256": "a0cb2b2a2ea99bb5f6256e5ec2eede55a38ed9402516b6e8b33fd2d141511a7f",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "EXPORT-T2"
+   ]
+  },
+  {
+   "path": "results/paper_tables/T3.csv",
+   "sha256": "8d506899266cdf1aa911b3a222642aef5702cc5a8aba2a7d53ad58b12a175260",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "EXPORT-T3"
+   ]
+  },
+  {
+   "path": "results/paper_tables/T4.csv",
+   "sha256": "a8c9cd25aa680edd2e532f9be16de90efd552746ea940b9fc35a1caa3bfcb32f",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "EXPORT-T4"
+   ]
+  },
+  {
+   "path": "results/paper_tables/T5.csv",
+   "sha256": "ae0e11edcdad547129372fe9b206fbc3b7d5a45d9d5dc536a6497b35b1689ca1",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "EXPORT-T5"
+   ]
+  },
+  {
+   "path": "results/paper_tables/T6.csv",
+   "sha256": "bacb11e539dbc9724ec359737a91bd6ba713a12c5ad4f91d4a47532c60bada52",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "EXPORT-T6"
+   ]
+  },
+  {
+   "path": "results/paper_tables/T7.csv",
+   "sha256": "80279dce714a11d7b2deb886bb3eb8971d23d13257b802b2bc5678dbd48e4708",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "EXPORT-T7"
+   ]
+  },
+  {
+   "path": "results/paper_tables/T8.csv",
+   "sha256": "a607b3ddee458aa33e65edc9a2669bb0748b0e57ec4aa7ad7e4254b97d7ed399",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "EXPORT-T8"
+   ]
+  },
+  {
+   "path": "results/paper_tables/T9.csv",
+   "sha256": "87b6c701af139db7ffa3fa9512df00efda237c7b925b9ce3574c6ca774df6f4f",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "EXPORT-T9"
+   ]
+  },
+  {
+   "path": "results/paper_tables/T10.csv",
+   "sha256": "7dc8e7b70ed6de197fa14ee9e2202589074e3e56743a77a16ffe3721d7de3bb8",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "EXPORT-T10"
+   ]
+  },
+  {
+   "path": "results/paper_tables/T11.csv",
+   "sha256": "813618525e3136295a5eef231c23846329799d61d84347edac6697c3d1187f1f",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "EXPORT-T11"
+   ]
+  },
+  {
+   "path": "results/paper_tables/T12.csv",
+   "sha256": "234c92d56b72b6612872f4810e7a527fabac06ceb1fc24bfc85760b32a47d54c",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "EXPORT-T12"
+   ]
+  },
+  {
+   "path": "results/paper_tables/T13.csv",
+   "sha256": "c7a4cba541ebdf0d58b067f783e76b21ff1e3ce8b018833c1ed1fce02fc957e9",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "EXPORT-T13"
+   ]
+  },
+  {
+   "path": "results/paper_tables/T14.csv",
+   "sha256": "49da04b0c2c5c235553f79a98551acbd2e3cb18d0f12789c305961a6aaead6a1",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "EXPORT-T14"
+   ]
+  },
+  {
+   "path": "results/paper_tables/T15.csv",
+   "sha256": "04f4a32d55b8317fc6443b2a1eab0849943a9529481780ac682e5715574f83bd",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "EXPORT-T15"
+   ]
+  },
+  {
+   "path": "results/paper_tables/T16.csv",
+   "sha256": "31ad573752e6b6cca790ce293a51ca6bcf8cd12a0e9100498726d61478b30ba5",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "EXPORT-T16"
+   ]
+  },
+  {
+   "path": "results/paper_tables/provenance.json",
+   "sha256": "e8339e19c04e69af3d8b288421ac73b572a29aabbe183763a3cdacdde3ee074f",
+   "generator": "papers/scripts/phase6_run_analysis.py",
+   "analysis_ids": [
+    "EXPORT-PROVENANCE"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,175 @@
+suite,dimension,function,comparator,n_runs,mean_diff,ci_low,ci_high,B,seed_scheme,availability
+cec2017,10,1,gsk,51,0.000000e+00,n/a,n/a,n/a,n/a,no CI (degenerate cell)
+cec2017,10,1,agsk,51,0.000000e+00,n/a,n/a,n/a,n/a,no CI (degenerate cell)
+cec2017,10,1,apgsk,51,0.000000e+00,n/a,n/a,n/a,n/a,no CI (degenerate cell)
+cec2017,10,1,fdb-agsk,51,0.000000e+00,n/a,n/a,n/a,n/a,no CI (degenerate cell)
+cec2017,10,1,atmals-gsk,51,0.000000e+00,n/a,n/a,n/a,n/a,no CI (degenerate cell)
+cec2017,10,1,egsk,51,0.000000e+00,n/a,n/a,n/a,n/a,no CI (degenerate cell)
+cec2017,10,3,gsk,51,0.000000e+00,n/a,n/a,n/a,n/a,no CI (degenerate cell)
+cec2017,10,3,agsk,51,0.000000e+00,n/a,n/a,n/a,n/a,no CI (degenerate cell)
+cec2017,10,3,apgsk,51,0.000000e+00,n/a,n/a,n/a,n/a,no CI (degenerate cell)
+cec2017,10,3,fdb-agsk,51,0.000000e+00,n/a,n/a,n/a,n/a,no CI (degenerate cell)
+cec2017,10,3,atmals-gsk,51,0.000000e+00,n/a,n/a,n/a,n/a,no CI (degenerate cell)
+cec2017,10,3,egsk,51,0.000000e+00,n/a,n/a,n/a,n/a,no CI (degenerate cell)
+cec2017,10,4,gsk,51,0.000000e+00,n/a,n/a,n/a,n/a,no CI (degenerate cell)
+cec2017,10,4,agsk,51,0.000000e+00,n/a,n/a,n/a,n/a,no CI (degenerate cell)
+cec2017,10,4,apgsk,51,0.000000e+00,n/a,n/a,n/a,n/a,no CI (degenerate cell)
+cec2017,10,4,fdb-agsk,51,-1.204807e-06,-6.055402e-06,-2.475984e-07,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,4,atmals-gsk,51,0.000000e+00,n/a,n/a,n/a,n/a,no CI (degenerate cell)
+cec2017,10,4,egsk,51,0.000000e+00,n/a,n/a,n/a,n/a,no CI (degenerate cell)
+cec2017,10,5,gsk,51,-1.753114e+01,-1.845602e+01,-1.668603e+01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,5,agsk,51,-3.539663e+00,-4.118885e+00,-2.960798e+00,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,5,apgsk,51,-5.534335e+00,-6.437437e+00,-4.690791e+00,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,5,fdb-agsk,51,-3.173941e+00,-3.787904e+00,-2.541098e+00,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,5,atmals-gsk,51,-9.246653e+00,-1.069266e+01,-7.902334e+00,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,5,egsk,51,-1.986232e+00,-2.801847e+00,-1.284059e+00,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,6,gsk,51,1.602242e-07,7.662898e-08,3.204485e-07,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,6,agsk,51,-7.190810e-06,-1.659261e-05,-3.551109e-06,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,6,apgsk,51,-1.763900e-05,-4.934716e-05,-8.331751e-06,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,6,fdb-agsk,51,-2.122676e-05,-6.098837e-05,-4.683719e-06,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,6,atmals-gsk,51,1.602242e-07,6.966271e-08,3.204485e-07,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,6,egsk,51,1.602242e-07,7.662898e-08,3.274148e-07,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,7,gsk,51,-1.780753e+01,-1.872530e+01,-1.684768e+01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,7,agsk,51,-7.061585e+00,-7.841630e+00,-6.308426e+00,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,7,apgsk,51,-8.318780e+00,-9.406235e+00,-7.296654e+00,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,7,fdb-agsk,51,-6.437223e+00,-7.215752e+00,-5.697835e+00,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,7,atmals-gsk,51,-8.459162e+00,-9.746576e+00,-7.514090e+00,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,7,egsk,51,-2.372667e+00,-2.885130e+00,-1.936152e+00,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,8,gsk,51,-1.882609e+01,-1.989135e+01,-1.779438e+01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,8,agsk,51,-5.478084e+00,-6.126859e+00,-4.842437e+00,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,8,apgsk,51,-6.525128e+00,-7.499523e+00,-5.658361e+00,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,8,fdb-agsk,51,-4.909641e+00,-5.701938e+00,-4.105215e+00,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,8,atmals-gsk,51,-1.049969e+01,-1.191463e+01,-9.156671e+00,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,8,egsk,51,-1.934489e+00,-2.539485e+00,-1.260638e+00,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,9,gsk,51,0.000000e+00,n/a,n/a,n/a,n/a,no CI (degenerate cell)
+cec2017,10,9,agsk,51,-1.755456e-03,-1.228510e-02,0.000000e+00,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,9,apgsk,51,0.000000e+00,n/a,n/a,n/a,n/a,no CI (degenerate cell)
+cec2017,10,9,fdb-agsk,51,-1.755456e-03,-1.228506e-02,0.000000e+00,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,9,atmals-gsk,51,0.000000e+00,n/a,n/a,n/a,n/a,no CI (degenerate cell)
+cec2017,10,9,egsk,51,0.000000e+00,n/a,n/a,n/a,n/a,no CI (degenerate cell)
+cec2017,10,10,gsk,51,-9.006224e+02,-9.419309e+02,-8.567426e+02,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,10,agsk,51,-1.940484e+02,-2.255958e+02,-1.576499e+02,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,10,apgsk,51,-2.133959e+02,-2.494972e+02,-1.737037e+02,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,10,fdb-agsk,51,-1.754196e+02,-2.106427e+02,-1.387014e+02,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,10,atmals-gsk,51,-3.816045e+02,-4.634150e+02,-2.977123e+02,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,10,egsk,51,-4.918834e+02,-5.554010e+02,-4.296539e+02,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,11,gsk,51,3.901800e-02,-6.491673e-09,1.170540e-01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,11,agsk,51,-1.445039e-01,-2.732907e-01,-6.159095e-02,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,11,apgsk,51,-1.286988e+00,-1.675837e+00,-9.573758e-01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,11,fdb-agsk,51,-8.185005e-01,-1.222043e+00,-5.259202e-01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,11,atmals-gsk,51,-2.448405e+00,-2.661514e+00,-2.228736e+00,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,11,egsk,51,3.901800e-02,0.000000e+00,1.170540e-01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,12,gsk,51,1.560326e+01,-1.527165e+01,5.052653e+01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,12,agsk,51,7.583508e+01,5.004977e+01,1.036300e+02,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,12,apgsk,51,2.704882e+01,-6.969786e+00,6.401061e+01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,12,fdb-agsk,51,4.816326e+01,1.959454e+01,7.928098e+01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,12,atmals-gsk,51,-1.893743e+01,-5.723775e+01,2.009058e+01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,12,egsk,51,3.814154e+01,3.588603e+00,7.571569e+01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,13,gsk,51,-3.887761e+00,-4.615830e+00,-3.182881e+00,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,13,agsk,51,-2.432074e-01,-1.181360e+00,6.917416e-01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,13,apgsk,51,-9.452254e-01,-2.046100e+00,1.854273e-01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,13,fdb-agsk,51,-1.232501e+00,-2.203270e+00,-3.343357e-01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,13,atmals-gsk,51,-2.536571e+00,-3.508720e+00,-1.620512e+00,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,13,egsk,51,-2.136439e+00,-2.850387e+00,-1.363109e+00,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,14,gsk,51,-5.242886e+00,-6.154087e+00,-4.375293e+00,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,14,agsk,51,-2.651889e-02,-1.195296e-01,5.546458e-02,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,14,apgsk,51,-5.938332e-01,-8.031158e-01,-4.087840e-01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,14,fdb-agsk,51,-4.886715e-02,-1.285075e-01,1.579187e-02,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,14,atmals-gsk,51,-6.130104e+00,-7.784561e+00,-4.967879e+00,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,14,egsk,51,-1.457116e-01,-2.839325e-01,-6.102574e-02,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,15,gsk,51,-1.149770e-01,-1.965879e-01,-2.384913e-02,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,15,agsk,51,8.494848e-02,3.608561e-02,1.700570e-01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,15,apgsk,51,-2.985555e-02,-9.225713e-02,5.050545e-02,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,15,fdb-agsk,51,6.143361e-02,1.102176e-02,1.488375e-01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,15,atmals-gsk,51,-3.566261e-01,-4.657024e-01,-2.412804e-01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,15,egsk,51,-1.568165e-01,-2.317466e-01,-6.094961e-02,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,16,gsk,51,-3.253778e+00,-4.706594e+00,-2.103462e+00,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,16,agsk,51,-3.463910e-01,-5.699015e-01,-1.974652e-01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,16,apgsk,51,-2.826360e-01,-4.134355e-01,-1.633708e-01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,16,fdb-agsk,51,-9.068931e-01,-1.193569e+00,-6.978162e-01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,16,atmals-gsk,51,-3.139398e+00,-4.535526e+00,-2.117253e+00,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,16,egsk,51,-4.540138e+00,-6.052320e+00,-3.146834e+00,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,17,gsk,51,-9.540978e+00,-1.151890e+01,-7.791605e+00,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,17,agsk,51,-7.232125e-01,-9.754627e-01,-5.465162e-01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,17,apgsk,51,-1.093040e+00,-1.331826e+00,-8.610842e-01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,17,fdb-agsk,51,-9.536375e-01,-1.137736e+00,-7.919839e-01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,17,atmals-gsk,51,-2.050905e+01,-2.328733e+01,-1.758503e+01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,17,egsk,51,-7.297218e+00,-9.480932e+00,-5.498269e+00,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,18,gsk,51,-2.759937e-01,-1.825439e+00,1.582473e-01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,18,agsk,51,3.027682e-01,1.733402e-01,5.657966e-01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,18,apgsk,51,-1.249854e-01,-3.409027e-01,1.561162e-01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,18,fdb-agsk,51,3.320426e-01,2.105042e-01,6.088303e-01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,18,atmals-gsk,51,-3.012902e+00,-5.175771e+00,-1.547278e+00,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,18,egsk,51,-3.141150e-01,-1.934172e+00,1.439480e-01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,19,gsk,51,-7.066890e-02,-9.954774e-02,-5.142071e-02,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,19,agsk,51,-4.838221e-02,-6.681704e-02,-3.463928e-02,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,19,apgsk,51,-6.423320e-02,-8.331802e-02,-4.929063e-02,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,19,fdb-agsk,51,-7.431115e-02,-9.003704e-02,-6.121526e-02,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,19,atmals-gsk,51,-4.425592e-01,-5.663670e-01,-3.503392e-01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,19,egsk,51,-2.990080e-02,-4.803863e-02,-1.778694e-02,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,20,gsk,51,-6.626298e-01,-2.467475e+00,-2.398662e-01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,20,agsk,51,1.346633e-01,7.345293e-02,1.897527e-01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,20,apgsk,51,1.346633e-01,6.733182e-02,2.019945e-01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,20,fdb-agsk,51,8.569499e-02,1.836317e-02,1.530261e-01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,20,atmals-gsk,51,-1.394016e+01,-1.663746e+01,-1.128943e+01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,20,egsk,51,-1.436291e+00,-3.225351e+00,-6.425679e-01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,21,gsk,51,-3.609499e+01,-5.325964e+01,-1.677764e+01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,21,agsk,51,5.862674e+01,4.415589e+01,7.249073e+01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,21,apgsk,51,6.277769e+01,4.837068e+01,7.697783e+01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,21,fdb-agsk,51,6.085831e+01,4.660765e+01,7.480304e+01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,21,atmals-gsk,51,1.467639e+01,-3.732310e+00,3.311908e+01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,21,egsk,51,-1.368817e+01,-3.192601e+01,4.924061e+00,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,22,gsk,51,-5.389834e+00,-1.404642e+01,-1.860716e+00,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,22,agsk,51,1.151211e+01,7.186550e-01,2.282205e+01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,22,apgsk,51,4.614728e+01,3.176862e+01,5.883489e+01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,22,fdb-agsk,51,5.261841e+01,3.872566e+01,6.431317e+01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,22,atmals-gsk,51,1.627412e+01,3.714433e+00,2.953256e+01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,22,egsk,51,-5.005525e+00,-1.337796e+01,-1.485456e+00,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,23,gsk,51,-1.477376e+01,-1.587597e+01,-1.361696e+01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,23,agsk,51,1.208326e+01,-9.984718e-01,4.328482e+01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,23,apgsk,51,8.948180e+00,-3.528810e+00,3.866102e+01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,23,fdb-agsk,51,1.725115e+00,-4.884200e+00,1.746485e+01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,23,atmals-gsk,51,-8.053506e+00,-9.739568e+00,-6.687007e+00,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,23,egsk,51,-1.197318e+00,-1.961762e+00,-4.272711e-01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,24,gsk,51,-4.392229e+01,-7.123993e+01,-2.081095e+01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,24,agsk,51,1.956966e+02,1.679340e+02,2.141019e+02,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,24,apgsk,51,2.012151e+02,1.749283e+02,2.190425e+02,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,24,fdb-agsk,51,1.937099e+02,1.679465e+02,2.114555e+02,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,24,atmals-gsk,51,2.114043e+01,-1.928811e+01,6.281529e+01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,24,egsk,51,-1.171056e+01,-3.911059e+01,1.573566e+01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,25,gsk,51,-1.398146e+01,-2.099291e+01,-6.735364e+00,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,25,agsk,51,6.424231e+01,3.541679e+01,1.048490e+02,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,25,apgsk,51,6.989589e+01,3.985544e+01,1.094625e+02,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,25,fdb-agsk,51,2.335356e+01,9.199456e+00,5.437783e+01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,25,atmals-gsk,51,-1.060979e+01,-1.796729e+01,-3.251272e+00,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,25,egsk,51,-6.270250e+00,-1.247352e+01,-7.371182e-01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,26,gsk,51,-1.960784e+00,-1.372190e+01,0.000000e+00,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,26,agsk,51,3.921569e+01,1.372549e+01,7.058824e+01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,26,apgsk,51,1.771695e+02,1.503778e+02,2.046215e+02,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,26,fdb-agsk,51,1.000000e+02,6.470588e+01,1.372549e+02,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,26,atmals-gsk,51,-1.960784e+00,-1.176471e+01,0.000000e+00,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,26,egsk,51,-1.960784e+00,-1.372298e+01,0.000000e+00,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,27,gsk,51,-5.190003e-01,-7.520152e-01,-3.480383e-01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,27,agsk,51,1.801190e-01,-1.148712e-01,4.657637e-01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,27,apgsk,51,-2.312707e-01,-5.914112e-01,6.164500e-02,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,27,fdb-agsk,51,4.298247e-01,1.553681e-01,6.823092e-01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,27,atmals-gsk,51,-4.779043e-01,-7.142535e-01,-2.957102e-01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,27,egsk,51,-5.190003e-01,-7.434903e-01,-3.508334e-01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,28,gsk,51,-5.882335e+00,-3.529412e+01,1.814176e-05,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,28,agsk,51,7.058825e+01,3.529412e+01,1.117647e+02,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,28,apgsk,51,8.235296e+01,4.705884e+01,1.176471e+02,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,28,fdb-agsk,51,8.235296e+01,4.705884e+01,1.235294e+02,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,28,atmals-gsk,51,-1.578347e+01,-4.399716e+01,-3.786985e+00,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,28,egsk,51,-1.144575e+01,-4.021965e+01,1.814176e-05,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,29,gsk,51,-1.526574e+01,-1.669210e+01,-1.388901e+01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,29,agsk,51,-1.016839e+01,-1.207203e+01,-8.036349e+00,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,29,apgsk,51,-1.174690e+01,-1.575827e+01,-8.736126e+00,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,29,fdb-agsk,51,-1.155358e+01,-1.393603e+01,-5.897323e+00,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,29,atmals-gsk,51,-8.441829e+00,-1.023858e+01,-6.937039e+00,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,29,egsk,51,5.987025e-01,-4.699539e-01,1.832132e+00,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,30,gsk,51,-5.563636e+00,-2.134099e+01,1.487882e+01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,30,agsk,51,-3.365821e+01,-7.012912e+01,-9.759623e+00,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,30,apgsk,51,-6.940510e+01,-1.044172e+02,-3.702289e+01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,30,fdb-agsk,51,-5.291408e+01,-7.778457e+01,-2.891358e+01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,30,atmals-gsk,51,-4.495770e+00,-2.176370e+01,1.551571e+01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok
+cec2017,10,30,egsk,51,-1.688801e+00,-1.802615e+01,1.835373e+01,10000,"SS[20240620,suite,dim,func,cmpP1]",ok

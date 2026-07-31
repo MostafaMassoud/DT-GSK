@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Result Schema - GSK Family Python Documentation">
+  <title>Result Schema | GSK Family Python Documentation</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <div class="site-shell">
+    <aside class="sidebar">
+<div class="brand"><a href="index.html">GSK Family Python</a></div>
+<input class="nav-search" type="search" placeholder="Filter docs" aria-label="Filter docs">
+<nav class="nav-list" aria-label="Documentation">
+<section><h2>Getting Started</h2>
+<a class="nav-link" href="getting-started_configuration.html">Configuration</a>
+<a class="nav-link" href="getting-started_explainer.html">Explainer</a>
+<a class="nav-link" href="getting-started_runbook.html">Runbook</a>
+<a class="nav-link" href="getting-started_troubleshooting.html">Troubleshooting</a>
+<a class="nav-link" href="getting-started_tutorial.html">Tutorial</a>
+<a class="nav-link" href="getting-started_user_guide.html">User Guide</a>
+</section>
+<section><h2>Reference</h2>
+<a class="nav-link" href="reference_api.html">API Reference</a>
+<a class="nav-link" href="reference_architecture.html">Architecture</a>
+<a class="nav-link" href="reference_benchmark_mapping.html">Benchmark Mapping</a>
+<a class="nav-link" href="reference_benchmark_protocol.html">Benchmark Protocol</a>
+<a class="nav-link" href="reference_cec2011_cpp_python_equivalence_review.html">CEC2011 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013_cpp_python_equivalence_review.html">CEC2013 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013lsgo_cpp_python_equivalence_review.html">CEC2013LSGO C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2017_cpp_python_equivalence_review.html">CEC2017 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2020_cpp_python_equivalence_review.html">CEC2020 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="index.html">Documentation Index</a>
+<a class="nav-link" href="reference_fp_regime.html">Floating-Point Regime Verification</a>
+<a class="nav-link" href="reference_diagrams.html">Flowcharts And Diagrams</a>
+<a class="nav-link" href="reference_glossary.html">Glossary</a>
+<a class="nav-link" href="LICENSES.html">Licenses</a>
+<a class="nav-link" href="reference_module_dependencies.html">Module Dependencies</a>
+<a class="nav-link" href="reference_project_structure.html">Project Structure</a>
+<a class="nav-link" href="reference_python_optimizer_interface.html">Python Optimizer Interface</a>
+<a class="nav-link active" href="reference_result_schema.html">Result Schema</a>
+<a class="nav-link" href="reference_seed_policy.html">Seed Policy</a>
+<a class="nav-link" href="reference_workflows.html">Workflows</a>
+</section>
+<section><h2>Algorithm Guides</h2>
+<a class="nav-link" href="algorithms_agsk.html">AGSK — Adaptive Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_apgsk.html">APGSK — Adaptive-Parameters Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_atmals-gsk.html">ATMALS-GSK — Adaptive Tuning, Memory, Adaptive Local Search</a>
+<a class="nav-link" href="algorithms_dt-gsk.html">DT-GSK — Dimension-Tiered Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_egsk.html">EGSK — Enhanced Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_fdb-agsk.html">FDB-AGSK — Fitness-Distance-Balance AGSK</a>
+<a class="nav-link" href="algorithms_gsk.html">GSK — Gaining-Sharing Knowledge</a>
+</section>
+<section><h2>Development</h2>
+<a class="nav-link" href="development_BUG_resume_summary_truncation.html">BUG-RESUME-01 — resume mode truncates (and mis-computes) the per-dimension summary CSV</a>
+<a class="nav-link" href="development_LSGO_ACCELERATION_PLAN.html">CEC2013LSGO Acceleration Plan — all 7 GSK-family algorithms, bit-identically</a>
+<a class="nav-link" href="development_LSGO_INTEGRATION_CAMPAIGN.html">CEC2013LSGO Integration — Campaign Plan</a>
+<a class="nav-link" href="development_CEC2017_PREC_adjudication.html">CEC2017-PREC — adjudication (CLOSED 2026-07-25)</a>
+<a class="nav-link" href="development_code_reading_guide.html">Code Reading Guide</a>
+<a class="nav-link" href="development_contributor_guide.html">Contributor Guide</a>
+<a class="nav-link" href="development_DECC_G_port_record.html">DECC-G port — fidelity and validation record</a>
+<a class="nav-link" href="development_developer_guide.html">Developer Guide</a>
+<a class="nav-link" href="development_README.html">Development Docs</a>
+<a class="nav-link" href="development_dt_gsk_core_reference.html">DT-GSK Core Reference — the vendored core and its byte-identity lock</a>
+<a class="nav-link" href="development_evidence_rerun_runbook.html">DT-GSK re-run runbook — corrected implementation (C006 + graph backend)</a>
+<a class="nav-link" href="development_egsk_port_spec.html">EGSK — Algorithm Spec &amp; Porting Verdict</a>
+<a class="nav-link" href="development_extension_guide.html">Extension Guide</a>
+<a class="nav-link" href="development_FAMILY_ACCELERATION_PLAN.html">Family-wide acceleration plan — 7 algorithms x 5 suites, bit-identical only</a>
+<a class="nav-link" href="development_FINAL_PUBLICATION_PLAN.html">FINAL PUBLICATION PLAN — DT-GSK, Four(/Five)-Suite Scope</a>
+<a class="nav-link" href="development_ACCELERATION_CAMPAIGN_PROMPT.html">GSK-Family Acceleration Campaign — Execution Prompt</a>
+<a class="nav-link" href="development_maintenance_guide.html">Maintenance Guide</a>
+<a class="nav-link" href="development_PORT_05_TUNING_TRIAGE.html">Porting project-05 tuning into 02 — Phase 1 audit and triage</a>
+<a class="nav-link" href="development_REFERENCE_PROMOTION_PLAN.html">Reference Promotion Plan — CEC2013LSGO now, CEC2020 behind its completeness gate</a>
+<a class="nav-link" href="development_SIBLING_CAMPAIGN_TRANSFER.html">Sibling-Campaign Transfer — every tuning that can make the GSK family fast</a>
+</section>
+<section><h2>Research</h2>
+<a class="nav-link" href="research_egsk_validation_appendix.html">EGSK Validation Appendix — Paired Port-vs-Reference Equivalence</a>
+<a class="nav-link" href="research_numerical_examples.html">Numerical Examples</a>
+<a class="nav-link" href="research_performance.html">Performance</a>
+<a class="nav-link" href="research_reproducibility.html">Reproducibility</a>
+<a class="nav-link" href="research_researcher_handbook.html">Researcher Handbook</a>
+<a class="nav-link" href="research_statistical_analysis.html">Statistical Analysis (GSK-family comparison)</a>
+<a class="nav-link" href="research_validation_report.html">Validation Report</a>
+</section>
+<section><h2>Prompts</h2>
+<a class="nav-link" href="prompt_documentation-deep-upgrade.html">Deep Documentation Review &amp; Upgrade Prompt — GSK Family Python</a>
+<a class="nav-link" href="prompt_project-review.html">Deep Expert Review Prompt For GSK Family Python</a>
+<a class="nav-link" href="prompt_documentation-review.html">Documentation Review Prompt</a>
+<a class="nav-link" href="prompt_publication-polish.html">Final Publication Prompt — Production-Ready Q1 Release of GSK Family Python v1.1</a>
+</section>
+<section><h2>Python API</h2>
+<a class="nav-link" href="api_index.html">API Module Index</a>
+<a class="nav-link api-link" href="api/gsk_family.__init__.html">gsk_family.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.__init__.html">gsk_family.analysis.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.family_report.html">gsk_family.analysis.family_report</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.figures.html">gsk_family.analysis.figures</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.latex_tables.html">gsk_family.analysis.latex_tables</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.project_policy.html">gsk_family.analysis.project_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.result_loader.html">gsk_family.analysis.result_loader</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistical_tests.html">gsk_family.analysis.statistical_tests</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistics.html">gsk_family.analysis.statistics</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.__init__.html">gsk_family.benchmark_adapter.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.factory.html">gsk_family.benchmark_adapter.factory</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.problem.html">gsk_family.benchmark_adapter.problem</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.protocol.html">gsk_family.benchmark_adapter.protocol</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.__init__.html">gsk_family.cli.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.list.html">gsk_family.cli.list</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.run.html">gsk_family.cli.run</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.stats.html">gsk_family.cli.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.validate.html">gsk_family.cli.validate</a>
+<a class="nav-link api-link" href="api/gsk_family.common.__init__.html">gsk_family.common.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.common.bounds.html">gsk_family.common.bounds</a>
+<a class="nav-link api-link" href="api/gsk_family.common.donors.html">gsk_family.common.donors</a>
+<a class="nav-link api-link" href="api/gsk_family.common.numeric_compat.html">gsk_family.common.numeric_compat</a>
+<a class="nav-link api-link" href="api/gsk_family.common.population.html">gsk_family.common.population</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reduction.html">gsk_family.common.reduction</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reference_rng.html">gsk_family.common.reference_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.rng.html">gsk_family.common.rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.threefry_rng.html">gsk_family.common.threefry_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.__init__.html">gsk_family.optimizers.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_profiles.html">gsk_family.optimizers._dt_profiles</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_rng.html">gsk_family.optimizers._dt_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._kernels.html">gsk_family.optimizers._kernels</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.agsk.html">gsk_family.optimizers.agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.apgsk.html">gsk_family.optimizers.apgsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_gsk.html">gsk_family.optimizers.atmals_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_helpers.html">gsk_family.optimizers.atmals_helpers</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.dt_gsk.html">gsk_family.optimizers.dt_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.egsk.html">gsk_family.optimizers.egsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.__init__.html">gsk_family.optimizers.external.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._base.html">gsk_family.optimizers.external._base</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._telemetry_shim.html">gsk_family.optimizers.external._telemetry_shim</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.cmaes.html">gsk_family.optimizers.external.cmaes</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.decc_g.html">gsk_family.optimizers.external.decc_g</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.ebowithcmar.html">gsk_family.optimizers.external.ebowithcmar</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.jso.html">gsk_family.optimizers.external.jso</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade.html">gsk_family.optimizers.external.lshade</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade_spacma.html">gsk_family.optimizers.external.lshade_spacma</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.mos_cec2013lsgo.html">gsk_family.optimizers.external.mos_cec2013lsgo</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.shade_ils.html">gsk_family.optimizers.external.shade_ils</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_agsk.html">gsk_family.optimizers.fdb_agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_scores.html">gsk_family.optimizers.fdb_scores</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.gsk.html">gsk_family.optimizers.gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.__init__.html">gsk_family.runners.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.config.html">gsk_family.runners.config</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.fp_regime.html">gsk_family.runners.fp_regime</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.output.html">gsk_family.runners.output</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.parallel.html">gsk_family.runners.parallel</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.performance.html">gsk_family.runners.performance</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.run_experiment.html">gsk_family.runners.run_experiment</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.seed_policy.html">gsk_family.runners.seed_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.verification.html">gsk_family.runners.verification</a>
+<a class="nav-link api-link" href="api/gsk_family.stats.html">gsk_family.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.types.html">gsk_family.types</a>
+</section>
+</nav></aside>
+    <main class="content">
+      <article class="doc-card">
+        <h1 id="result-schema">Result Schema</h1>
+<blockquote><strong>What this is.</strong> Every file <code>gsk-run</code> writes, where it goes, and what each</blockquote>
+<blockquote>column or field means — with annotated samples from a real run. **Who it is</blockquote>
+<blockquote>for.<strong> Anyone reading, parsing, validating, or archiving results. </strong>Prerequisites.**</blockquote>
+<blockquote>Knowing roughly what a campaign is (see <a href="reference_workflows.html">workflows.md</a>) and the</blockquote>
+<blockquote>terms in <a href="reference_glossary.html">the glossary</a>. <strong>After reading</strong> you can locate any</blockquote>
+<blockquote>output, read its values, and reproduce its exact formatting. The runner that</blockquote>
+<blockquote>emits these files is described in <a href="reference_api.html">api.md</a>.</blockquote>
+<p><code>gsk-run</code> writes generated experiment output under one tree per optimizer and suite:</p>
+<pre><code class="code-block language-text">results/_run_all/&lt;optimizer&gt;/&lt;suite&gt;/
+  summary/
+    &lt;optimizer&gt;_&lt;suite&gt;_D&lt;dim&gt;.csv
+    per_run.csv
+    seed_schedule.csv
+    environment.json
+    run_config.json
+    phase0_protocol.json
+    &lt;optimizer&gt;_D&lt;dim&gt;_log_&lt;timestamp&gt;.txt
+    &lt;optimizer&gt;_D&lt;dim&gt;_runs_log_&lt;timestamp&gt;.txt
+    verification.json
+  curves/
+    Figure_F&lt;func&gt;_D&lt;dim&gt;_Run#&lt;run&gt;.csv
+    graphs/
+      Figure_F&lt;func&gt;_D&lt;dim&gt;.png
+  gen_logs/
+    CheckpointErrors_&lt;optimizer&gt;_F&lt;func&gt;_D&lt;dim&gt;.csv</code></pre>
+<p>Generated output must not be written into <code>benchmarks/cec_reference_results</code>. The runner enforces this guard (<code>ensure_output_root_allowed</code>) before creating any files.</p>
+<h3 id="the-committed-reference-layout-flat">The committed reference layout (flat)</h3>
+<p>The imported reference panel under <code>benchmarks/cec_reference_results/&lt;suite&gt;/&lt;optimizer&gt;/</code> carries the same artifact family in a <strong>flat</strong> layout — there is no <code>summary/</code> subdirectory:</p>
+<pre><code class="code-block language-text">benchmarks/cec_reference_results/&lt;suite&gt;/&lt;optimizer&gt;/
+  &lt;optimizer&gt;_&lt;suite&gt;_D&lt;dim&gt;.csv        per-dimension summary tables
+  &lt;optimizer&gt;_cec2011.csv               all-functions rollup (cec2011 only)
+  per_run.csv
+  environment.json
+  run_config.json
+  seed_schedule.csv
+  verification.json
+  phase0_protocol.json
+  curves/                               per-run convergence CSVs
+  gen_logs/                             CheckpointErrors_*.csv</code></pre>
+<p>Rendered <code>curves/graphs/</code> PNGs and the <code>*_log_*.txt</code> reports are not committed (both are regenerable). This tree is the paper&#x27;s single source of truth: the analysis loader (<code>analysis.result_loader.load_algorithm</code>) reads it first and treats <code>results/_run_all/</code> as a fallback.</p>
+<h3 id="a-note-on-number-formatting-preserved-exactly">A note on number formatting (preserved exactly)</h3>
+<p>These precisions mirror the upstream reference implementation byte-for-byte and are intentional; do not &quot;normalize&quot; them:</p>
+<div class="table-wrap"><table><thead><tr><th>File</th><th>Field(s)</th><th>Format</th></tr></thead><tbody><tr><td><code>per_run.csv</code></td><td><code>best_fitness</code>, <code>error</code></td><td><code>%.10e</code> (lowercase e)</td></tr><tr><td><code>per_run.csv</code></td><td><code>runtime_seconds</code></td><td><code>%.6f</code></td></tr><tr><td>summary <code>*_D&lt;dim&gt;.csv</code></td><td>all statistics</td><td><code>%.10E</code> (uppercase E, via <code>format_scientific</code>)</td></tr><tr><td><code>curves/*.csv</code></td><td><code>BestError</code>, <code>Log10Error</code></td><td><code>%.16e</code></td></tr><tr><td><code>gen_logs/*.csv</code></td><td><code>E&lt;checkpoint&gt;</code> values</td><td><code>%.16g</code></td></tr></tbody></table></div>
+<h2 id="summary-table">Summary Table</h2>
+<p>The headline result for one dimension: one row per function with the across-runs statistics.</p>
+<p><code>summary/&lt;optimizer&gt;_&lt;suite&gt;_D&lt;dim&gt;.csv</code></p>
+<pre><code class="code-block language-text">Function,Best,Median,Mean,Worst,SD</code></pre>
+<p><code>SD</code> is the <strong>sample</strong> standard deviation (<code>ddof=1</code>). Statistics summarize error values for suites with a known optimum and raw objective values for raw-objective suites (see <a href="reference_benchmark_protocol.html">benchmark_protocol.md</a>).</p>
+<p>Annotated real rows (<code>agsk_cec2017_D30.csv</code>):</p>
+<pre><code class="code-block language-text">Function,Best,Median,Mean,Worst,SD
+1,0.0000000000E+00,0.0000000000E+00,0.0000000000E+00,0.0000000000E+00,0.0000000000E+00
+3,0.0000000000E+00,1.9364414817E-04,1.2422655464E-02,2.5224968236E-01,4.6246973086E-02</code></pre>
+<ul>
+<li><code>Function</code> — the suite function id (note F2 is absent: it is excluded by default).</li>
+<li><code>Best</code>/<code>Worst</code> — smallest/largest error across the runs for that function.</li>
+<li><code>Median</code>/<code>Mean</code> — central tendency across runs.</li>
+<li><code>SD</code> — spread across runs. F1 here solved to error <code>0</code> on every run, so all</li>
+<p>five statistics are <code>0</code>.</p>
+</ul>
+<h2 id="per-run-table">Per-Run Table</h2>
+<p>The raw record: one row per individual run, before any aggregation.</p>
+<p><code>summary/per_run.csv</code></p>
+<pre><code class="code-block language-text">optimizer,suite,function,dimension,run,seed,best_fitness,error,nfes,termination,runtime_seconds</code></pre>
+<p>Annotated real row (<code>agsk/cec2017/summary/per_run.csv</code>):</p>
+<pre><code class="code-block language-text">agsk,cec2017,1,10,1,32240721,1.0000000001e+02,0.0000000000e+00,50484,target_error_reached,0.347855</code></pre>
+<div class="table-wrap"><table><thead><tr><th>Column</th><th>Value here</th><th>Meaning</th></tr></thead><tbody><tr><td><code>optimizer</code></td><td><code>agsk</code></td><td>Optimizer id.</td></tr><tr><td><code>suite</code></td><td><code>cec2017</code></td><td>Benchmark suite.</td></tr><tr><td><code>function</code></td><td><code>1</code></td><td>Function id.</td></tr><tr><td><code>dimension</code></td><td><code>10</code></td><td>Problem dimension D.</td></tr><tr><td><code>run</code></td><td><code>1</code></td><td>Run index (1-based).</td></tr><tr><td><code>seed</code></td><td><code>32240721</code></td><td>The deterministic seed used (a bare integer).</td></tr><tr><td><code>best_fitness</code></td><td><code>1.0000000001e+02</code></td><td>Raw objective of the best point.</td></tr><tr><td><code>error</code></td><td><code>0.0000000000e+00</code></td><td>Target-zeroed error vs the optimum; <code>NaN</code> for raw-objective suites.</td></tr><tr><td><code>nfes</code></td><td><code>50484</code></td><td>Evaluations spent. Optimizers stop at <code>max_nfes</code> unless the target error is reached earlier.</td></tr><tr><td><code>termination</code></td><td><code>target_error_reached</code></td><td>Stop reason: <code>target_error_reached</code> or <code>max_evaluations</code>.</td></tr><tr><td><code>runtime_seconds</code></td><td><code>0.347855</code></td><td>Wall-clock time for the run (the only session-specific column; all others reproduce bit-for-bit).</td></tr></tbody></table></div>
+<p>Every column except <code>runtime_seconds</code> is a deterministic function of the seed schedule and reproduces bit-for-bit, so a regenerated <code>per_run.csv</code> matches the committed reference in every field but that one. <code>runtime_seconds</code> is machine- and session-specific by nature.</p>
+<h2 id="seed-schedule">Seed Schedule</h2>
+<p>The reproducibility ledger: the seed assigned to every cell and run, before the run executes.</p>
+<p><code>summary/seed_schedule.csv</code></p>
+<pre><code class="code-block language-text">Dim,Function,Run,Seed</code></pre>
+<p>Unified-mode seeds are optimizer-independent for matching <code>(dimension, function, run)</code> cells — that is what makes a fair start fair. The exact seed formula is in <a href="reference_seed_policy.html">seed_policy.md</a>.</p>
+<h2 id="compatibility-metadata">Compatibility Metadata</h2>
+<p>Three JSON files record the resolved settings and the reproducibility contract: <code>run_config.json</code>, <code>phase0_protocol.json</code>, and <code>environment.json</code>. All three preserve their authored key order; only <code>verification.json</code> and <code>profile.json</code> are written with keys sorted alphabetically (see below).</p>
+<p><code>summary/run_config.json</code> captures the resolved campaign settings, including optimizer id (<code>alg_name</code>), suite id, base seed, seed policy, seed strides (<code>stride_run</code>/<code>dim_stride</code>/<code>func_stride</code>), requested functions (<code>funcs</code>), excluded functions (<code>exclude_funcs</code>), the functions actually run (<code>funcs_to_run</code>), dimensions, run count, statistics basis, the parallel flag (<code>use_parallel</code>), the benchmark floating-point mode (<code>benchmark_fp_mode</code>; see <a href="reference_fp_regime.html">fp_regime.md</a>), and the resolved optimizer options. It also records <code>benchmark_backend</code> (the actual backend used for that optimizer) and <code>benchmark_backend_requested</code> (the config selector, normally <code>auto</code>). The resolved optimizer parameters are appended per optimizer by <code>_run_config_optimizer_params</code>: for <code>gsk</code> that is <code>pop_size</code>/<code>KF</code>/<code>KR</code>/<code>K</code>/<code>P</code>, for <code>agsk</code>/<code>apgsk</code>/<code>fdb-agsk</code> it is <code>NP_init</code>/<code>min_pop_size</code>, and for <strong><code>dt-gsk</code> it is only <code>profile</code> (default <code>pub</code>)</strong> alongside the (usually empty) <code>optimizer_options</code> mapping. DT-GSK&#x27;s core hyperparameters (<code>np_init_mult = 5</code>, <code>n_min</code>, <code>KF = 0.5</code>, <code>KR = 0.9</code>, <code>Kexp = 10.0</code>) come from the frozen <code>pub</code> profile in <code>DTGSKConfig</code> (<code>_dt_core.py</code>) rather than being echoed into <code>run_config.json</code>; likewise the default-on <strong>deep-stall full restart</strong> (<code>deep_stall_restart_enabled = True</code>) and its other <code>deep_stall_*</code> fields stay internal to <code>DTGSKConfig</code> unless explicitly overridden through <code>optimizer_options</code>.</p>
+<p><code>summary/phase0_protocol.json</code> captures the protocol-level reproducibility contract: base seed, run/function/dimension strides, seed schedule policy block, generator label, initial-population policy, dimensions, functions run, and a <code>smoke</code> flag that is <code>true</code> for reduced-budget or small (<code>runs &lt; 25</code>) campaigns.</p>
+<p><code>summary/environment.json</code> additionally records an <code>fp_regime</code> block: the JIT-availability flag of every numba kernel module, the numba/llvmlite versions, and a numeric <strong>sentinel</strong> (SHA-256 over fixed, thread-invariant kernel-probe outputs). Every process in a campaign is verified against this sentinel before running (<code>gsk_family.runners.fp_regime</code>), so a campaign runs in one floating-point regime by construction; two campaigns are FP-comparable at run level exactly when their sentinels match. Background: <a href="reference_fp_regime.html">Floating-Point Regime Verification</a>.</p>
+<p><code>summary/&lt;optimizer&gt;_D&lt;dim&gt;_log_&lt;timestamp&gt;.txt</code> is the readable per-dimension summary report. It mirrors the console table with the detailed configuration block, the best/median/mean/worst/SD/time statistics, and any available imported reference-comparison table.</p>
+<p><code>summary/&lt;optimizer&gt;_D&lt;dim&gt;_runs_log_&lt;timestamp&gt;.txt</code> is the detailed per-run audit log. It lists every run for the dimension&#x27;s function cells with run id, seed, best fitness, error, NFEs, termination reason, and runtime.</p>
+<h2 id="curves">Curves</h2>
+<p>The convergence history of one representative run per function/dimension cell.</p>
+<p><code>curves/Figure_F&lt;func&gt;_D&lt;dim&gt;_Run#&lt;run&gt;.csv</code></p>
+<pre><code class="code-block language-text">Eval,BestError,Log10Error</code></pre>
+<ul>
+<li><code>Eval</code> — cumulative evaluation count at the checkpoint.</li>
+<li><code>BestError</code> — best-so-far value in the suite&#x27;s statistics basis (<code>%.16e</code>).</li>
+<li><code>Log10Error</code> — <code>log10(BestError)</code>, left blank when <code>BestError &lt;= 0</code> or is non-finite.</li>
+</ul>
+<p>The selected run is the run whose final value is nearest the <strong>median</strong> final value for that function/dimension cell. When <code>--convergence-graphs</code> or <code>convergence_graphs: true</code> is set, a best-effort PNG of the same curve is written to <code>curves/graphs/Figure_F&lt;func&gt;_D&lt;dim&gt;.png</code> (a headless backend; skipped silently if plotting is unavailable). Without that opt-in, the runner writes the median-run curve CSV files only.</p>
+<h2 id="generation-logs">Generation Logs</h2>
+<p>A coarse error-vs-budget table at fixed checkpoints, for every run in a cell.</p>
+<p><code>gen_logs/CheckpointErrors_&lt;optimizer&gt;_F&lt;func&gt;_D&lt;dim&gt;.csv</code></p>
+<p>Generation logs are written by default so a completed campaign includes the same checkpoint-log artifact family as the reference-style result package. Use <code>generation_logs: false</code> in YAML or <code>--no-generation-logs</code> on the CLI only for temporary runs where those checkpoint tables are not needed.</p>
+<pre><code class="code-block language-text">Run,Seed,E&lt;c1&gt;,E&lt;c2&gt;,...</code></pre>
+<p>Checkpoint columns correspond to evaluation checkpoints, each computed as <code>max(1, round(max_nfes * fraction))</code> over these fractions:</p>
+<pre><code class="code-block language-text">[0.01, 0.02, 0.03, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]</code></pre>
+<h2 id="verification">Verification</h2>
+<p>The validation verdict: how the generated means compared with the imported reference table.</p>
+<p><code>summary/verification.json</code> records the generated-vs-reference comparison when a matching reference summary table is available. It is written <strong>with keys sorted alphabetically</strong>. A real file (<code>agsk/cec2017/summary/verification.json</code>):</p>
+<pre><code class="code-block language-json">{
+  &quot;failures&quot;: [],
+  &quot;functions_checked&quot;: 116,
+  &quot;generated_dir&quot;: &quot;results\\_run_all\\agsk\\cec2017&quot;,
+  &quot;hard_failures&quot;: 0,
+  &quot;missing_reference&quot;: 0,
+  &quot;optimizer&quot;: &quot;agsk&quot;,
+  &quot;reduced_budget&quot;: false,
+  &quot;reference_root&quot;: &quot;benchmarks\\cec_reference_results&quot;,
+  &quot;suite&quot;: &quot;cec2017&quot;,
+  &quot;thresholds&quot;: {
+    &quot;gross_factor&quot;: 1000000.0,
+    &quot;negative_error_floor&quot;: -1e-06,
+    &quot;reference_trivial_floor&quot;: 1e-08
+  },
+  &quot;verdict&quot;: &quot;CONSISTENT&quot;,
+  &quot;win_tie_loss&quot;: [
+    0,
+    116,
+    0
+  ]
+}</code></pre>
+<p>Here every function is a tie (<code>[0, 116, 0]</code>) because the promoted <code>agsk</code> reference is verified against itself — the regenerated run reproduces the committed table exactly. An optimizer sensitive to the benchmark-arithmetic residual can instead record a few wins/losses (the committed <code>gsk</code> file, for example, shows <code>[2, 113, 1]</code>). The <code>116</code> is the 29 scored functions across the four dimensions (<code>29 * 4</code>).</p>
+<div class="table-wrap"><table><thead><tr><th>Field</th><th>Meaning</th></tr></thead><tbody><tr><td><code>verdict</code></td><td><code>DEVIATES</code> when there are hard failures; <code>NOT_VERIFIED</code> when no hard failure exists but not a single function could be compared because no reference rows exist (<code>functions_checked == 0</code> with <code>missing_reference &gt; 0</code>); otherwise <code>CONSISTENT</code>. A suite without a committed reference bank (<code>cec2020</code>, <code>cec2013lsgo</code>, <code>sphere</code>) therefore reports <code>NOT_VERIFIED</code>, never a vacuous <code>CONSISTENT</code>.</td></tr><tr><td><code>reason</code></td><td><code>&quot;NO_REFERENCE&quot;</code> accompanies a <code>NOT_VERIFIED</code> verdict; <code>null</code> otherwise.</td></tr><tr><td><code>reduced_budget</code></td><td><code>true</code> when the run used a reduced budget or <code>runs &lt; 25</code>.</td></tr><tr><td><code>functions_checked</code></td><td>Function rows with both a generated and a reference mean.</td></tr><tr><td><code>hard_failures</code></td><td>Count of hard failures (see below); drives the verdict.</td></tr><tr><td><code>win_tie_loss</code></td><td>Generated mean better / equal / worse than reference, as <code>[wins, ties, losses]</code>.</td></tr><tr><td><code>missing_reference</code></td><td>Generated rows with no matching reference mean (not a hard failure).</td></tr><tr><td><code>thresholds</code></td><td>The numeric thresholds applied.</td></tr><tr><td><code>failures</code></td><td>Per-finding detail records (empty when none).</td></tr><tr><td><code>generated_dir</code>, <code>reference_root</code></td><td>The two directories compared.</td></tr></tbody></table></div>
+<p>Missing reference rows are reported but are not hard failures. Hard-failure checks are: non-finite generated statistics, impossible negative errors for known-optimum suites, and gross full-budget deviation from non-trivial reference means (<code>generated mean &gt; 1e6 * |reference mean|</code>). Reduced-budget runs suppress the gross-deviation hard failure because short runs are expected to underperform published full-budget tables.</p>
+<p>Standalone comparison (re-writes this file beside the run):</p>
+<pre><code class="code-block language-powershell">gsk-validate --compare results/_run_all/gsk/cec2017 benchmarks/cec_reference_results</code></pre>
+<h2 id="profile">Profile</h2>
+<p>Optional diagnostic timing, written only when requested.</p>
+<p>When <code>gsk-run</code> is called with <code>--profile</code> or config <code>profile: true</code>, it writes <code>summary/profile.json</code> (keys sorted alphabetically). The file contains:</p>
+<ul>
+<li>parallel mode, backend, and worker count;</li>
+<li>benchmark backend requested/selected fields;</li>
+<li>tasks dispatched / completed / skipped or failed;</li>
+<li>benchmark warmup records when warmup is enabled;</li>
+<li>optimizer-reported runtime for each run.</li>
+</ul>
+<p>Profile timings are diagnostic, not exact-replay artifacts.</p>
+<h2 id="statistical-analysis-outputs">Statistical Analysis Outputs</h2>
+<p><code>gsk-stats</code> does not write into a per-optimizer tree; it writes the cross-optimizer comparison under a shared analysis root (suite lowercased):</p>
+<pre><code class="code-block language-text">results/_run_all/_analysis/&lt;suite&gt;/
+  &lt;suite&gt;_statistical_report.txt      concatenated per-dimension text report
+  &lt;suite&gt;_friedman_ranks.csv          Friedman mean ranks per dimension
+  &lt;suite&gt;_friedman_ranks.tex          Friedman mean-rank LaTeX table
+  &lt;suite&gt;_wilcoxon_summary.tex        pairwise Wilcoxon + A12 + Holm LaTeX table
+  figures/
+    nemenyi_cd_&lt;suite&gt;_D&lt;dim&gt;.png     Nemenyi critical-difference diagram
+    friedman_ranks_&lt;suite&gt;_D&lt;dim&gt;.png mean-rank bar chart</code></pre>
+<p>The panel compares the <strong>proposed</strong> <code>dt-gsk</code> against the six committed GSK-family comparators (<code>gsk</code>, <code>agsk</code>, <code>apgsk</code>, <code>fdb-agsk</code>, <code>egsk</code>, <code>atmals-gsk</code>). All seven columns — the proposed included — are loaded reference-first from <code>benchmarks/cec_reference_results/&lt;suite&gt;/</code>; a locally reproduced run under <code>results/_run_all/</code> is only a fallback for cells the reference tree does not carry. The <code>.tex</code> and figure artifacts are written only when a Friedman panel could be formed (enough comparators have data for that dimension); pass <code>--no-figures</code> to skip the PNGs. Override the destination with <code>--out</code>. The full method and a column-by-column reading of these files are in <a href="research_statistical_analysis.html">research/statistical_analysis.md</a>.</p>
+<p>When a campaign is run with <code>gsk-run --stats</code>, an equivalent per-dimension Wilcoxon + Friedman summary is streamed to the console live (and folded into the per-dimension <code>*_log_&lt;timestamp&gt;.txt</code> report); it covers the adaptive optimizers only and skips vanilla <code>gsk</code> and the native-dimension <code>cec2011</code> suite.</p>
+      </article>
+    </main>
+    <aside class="page-toc" aria-label="On this page">
+<h2>On This Page</h2>
+<a class="toc-level-1" href="#result-schema">Result Schema</a>
+<a class="toc-level-3" href="#the-committed-reference-layout-flat">The committed reference layout (flat)</a>
+<a class="toc-level-3" href="#a-note-on-number-formatting-preserved-exactly">A note on number formatting (preserved exactly)</a>
+<a class="toc-level-2" href="#summary-table">Summary Table</a>
+<a class="toc-level-2" href="#per-run-table">Per-Run Table</a>
+<a class="toc-level-2" href="#seed-schedule">Seed Schedule</a>
+<a class="toc-level-2" href="#compatibility-metadata">Compatibility Metadata</a>
+<a class="toc-level-2" href="#curves">Curves</a>
+<a class="toc-level-2" href="#generation-logs">Generation Logs</a>
+<a class="toc-level-2" href="#verification">Verification</a>
+<a class="toc-level-2" href="#profile">Profile</a>
+<a class="toc-level-2" href="#statistical-analysis-outputs">Statistical Analysis Outputs</a>
+</aside>
+  </div>
+  <script src="assets/search.js"></script>
+</body>
+</html>

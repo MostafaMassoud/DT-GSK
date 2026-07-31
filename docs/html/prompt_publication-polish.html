@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Final Publication Prompt — Production-Ready Q1 Release of GSK Family Python v1.1 - GSK Family Python Documentation">
+  <title>Final Publication Prompt — Production-Ready Q1 Release of GSK Family Python v1.1 | GSK Family Python Documentation</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <div class="site-shell">
+    <aside class="sidebar">
+<div class="brand"><a href="index.html">GSK Family Python</a></div>
+<input class="nav-search" type="search" placeholder="Filter docs" aria-label="Filter docs">
+<nav class="nav-list" aria-label="Documentation">
+<section><h2>Getting Started</h2>
+<a class="nav-link" href="getting-started_configuration.html">Configuration</a>
+<a class="nav-link" href="getting-started_explainer.html">Explainer</a>
+<a class="nav-link" href="getting-started_runbook.html">Runbook</a>
+<a class="nav-link" href="getting-started_troubleshooting.html">Troubleshooting</a>
+<a class="nav-link" href="getting-started_tutorial.html">Tutorial</a>
+<a class="nav-link" href="getting-started_user_guide.html">User Guide</a>
+</section>
+<section><h2>Reference</h2>
+<a class="nav-link" href="reference_api.html">API Reference</a>
+<a class="nav-link" href="reference_architecture.html">Architecture</a>
+<a class="nav-link" href="reference_benchmark_mapping.html">Benchmark Mapping</a>
+<a class="nav-link" href="reference_benchmark_protocol.html">Benchmark Protocol</a>
+<a class="nav-link" href="reference_cec2011_cpp_python_equivalence_review.html">CEC2011 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013_cpp_python_equivalence_review.html">CEC2013 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013lsgo_cpp_python_equivalence_review.html">CEC2013LSGO C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2017_cpp_python_equivalence_review.html">CEC2017 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2020_cpp_python_equivalence_review.html">CEC2020 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="index.html">Documentation Index</a>
+<a class="nav-link" href="reference_fp_regime.html">Floating-Point Regime Verification</a>
+<a class="nav-link" href="reference_diagrams.html">Flowcharts And Diagrams</a>
+<a class="nav-link" href="reference_glossary.html">Glossary</a>
+<a class="nav-link" href="LICENSES.html">Licenses</a>
+<a class="nav-link" href="reference_module_dependencies.html">Module Dependencies</a>
+<a class="nav-link" href="reference_project_structure.html">Project Structure</a>
+<a class="nav-link" href="reference_python_optimizer_interface.html">Python Optimizer Interface</a>
+<a class="nav-link" href="reference_result_schema.html">Result Schema</a>
+<a class="nav-link" href="reference_seed_policy.html">Seed Policy</a>
+<a class="nav-link" href="reference_workflows.html">Workflows</a>
+</section>
+<section><h2>Algorithm Guides</h2>
+<a class="nav-link" href="algorithms_agsk.html">AGSK — Adaptive Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_apgsk.html">APGSK — Adaptive-Parameters Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_atmals-gsk.html">ATMALS-GSK — Adaptive Tuning, Memory, Adaptive Local Search</a>
+<a class="nav-link" href="algorithms_dt-gsk.html">DT-GSK — Dimension-Tiered Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_egsk.html">EGSK — Enhanced Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_fdb-agsk.html">FDB-AGSK — Fitness-Distance-Balance AGSK</a>
+<a class="nav-link" href="algorithms_gsk.html">GSK — Gaining-Sharing Knowledge</a>
+</section>
+<section><h2>Development</h2>
+<a class="nav-link" href="development_BUG_resume_summary_truncation.html">BUG-RESUME-01 — resume mode truncates (and mis-computes) the per-dimension summary CSV</a>
+<a class="nav-link" href="development_LSGO_ACCELERATION_PLAN.html">CEC2013LSGO Acceleration Plan — all 7 GSK-family algorithms, bit-identically</a>
+<a class="nav-link" href="development_LSGO_INTEGRATION_CAMPAIGN.html">CEC2013LSGO Integration — Campaign Plan</a>
+<a class="nav-link" href="development_CEC2017_PREC_adjudication.html">CEC2017-PREC — adjudication (CLOSED 2026-07-25)</a>
+<a class="nav-link" href="development_code_reading_guide.html">Code Reading Guide</a>
+<a class="nav-link" href="development_contributor_guide.html">Contributor Guide</a>
+<a class="nav-link" href="development_DECC_G_port_record.html">DECC-G port — fidelity and validation record</a>
+<a class="nav-link" href="development_developer_guide.html">Developer Guide</a>
+<a class="nav-link" href="development_README.html">Development Docs</a>
+<a class="nav-link" href="development_dt_gsk_core_reference.html">DT-GSK Core Reference — the vendored core and its byte-identity lock</a>
+<a class="nav-link" href="development_evidence_rerun_runbook.html">DT-GSK re-run runbook — corrected implementation (C006 + graph backend)</a>
+<a class="nav-link" href="development_egsk_port_spec.html">EGSK — Algorithm Spec &amp; Porting Verdict</a>
+<a class="nav-link" href="development_extension_guide.html">Extension Guide</a>
+<a class="nav-link" href="development_FAMILY_ACCELERATION_PLAN.html">Family-wide acceleration plan — 7 algorithms x 5 suites, bit-identical only</a>
+<a class="nav-link" href="development_FINAL_PUBLICATION_PLAN.html">FINAL PUBLICATION PLAN — DT-GSK, Four(/Five)-Suite Scope</a>
+<a class="nav-link" href="development_ACCELERATION_CAMPAIGN_PROMPT.html">GSK-Family Acceleration Campaign — Execution Prompt</a>
+<a class="nav-link" href="development_maintenance_guide.html">Maintenance Guide</a>
+<a class="nav-link" href="development_PORT_05_TUNING_TRIAGE.html">Porting project-05 tuning into 02 — Phase 1 audit and triage</a>
+<a class="nav-link" href="development_REFERENCE_PROMOTION_PLAN.html">Reference Promotion Plan — CEC2013LSGO now, CEC2020 behind its completeness gate</a>
+<a class="nav-link" href="development_SIBLING_CAMPAIGN_TRANSFER.html">Sibling-Campaign Transfer — every tuning that can make the GSK family fast</a>
+</section>
+<section><h2>Research</h2>
+<a class="nav-link" href="research_egsk_validation_appendix.html">EGSK Validation Appendix — Paired Port-vs-Reference Equivalence</a>
+<a class="nav-link" href="research_numerical_examples.html">Numerical Examples</a>
+<a class="nav-link" href="research_performance.html">Performance</a>
+<a class="nav-link" href="research_reproducibility.html">Reproducibility</a>
+<a class="nav-link" href="research_researcher_handbook.html">Researcher Handbook</a>
+<a class="nav-link" href="research_statistical_analysis.html">Statistical Analysis (GSK-family comparison)</a>
+<a class="nav-link" href="research_validation_report.html">Validation Report</a>
+</section>
+<section><h2>Prompts</h2>
+<a class="nav-link" href="prompt_documentation-deep-upgrade.html">Deep Documentation Review &amp; Upgrade Prompt — GSK Family Python</a>
+<a class="nav-link" href="prompt_project-review.html">Deep Expert Review Prompt For GSK Family Python</a>
+<a class="nav-link" href="prompt_documentation-review.html">Documentation Review Prompt</a>
+<a class="nav-link active" href="prompt_publication-polish.html">Final Publication Prompt — Production-Ready Q1 Release of GSK Family Python v1.1</a>
+</section>
+<section><h2>Python API</h2>
+<a class="nav-link" href="api_index.html">API Module Index</a>
+<a class="nav-link api-link" href="api/gsk_family.__init__.html">gsk_family.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.__init__.html">gsk_family.analysis.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.family_report.html">gsk_family.analysis.family_report</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.figures.html">gsk_family.analysis.figures</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.latex_tables.html">gsk_family.analysis.latex_tables</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.project_policy.html">gsk_family.analysis.project_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.result_loader.html">gsk_family.analysis.result_loader</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistical_tests.html">gsk_family.analysis.statistical_tests</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistics.html">gsk_family.analysis.statistics</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.__init__.html">gsk_family.benchmark_adapter.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.factory.html">gsk_family.benchmark_adapter.factory</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.problem.html">gsk_family.benchmark_adapter.problem</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.protocol.html">gsk_family.benchmark_adapter.protocol</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.__init__.html">gsk_family.cli.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.list.html">gsk_family.cli.list</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.run.html">gsk_family.cli.run</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.stats.html">gsk_family.cli.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.validate.html">gsk_family.cli.validate</a>
+<a class="nav-link api-link" href="api/gsk_family.common.__init__.html">gsk_family.common.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.common.bounds.html">gsk_family.common.bounds</a>
+<a class="nav-link api-link" href="api/gsk_family.common.donors.html">gsk_family.common.donors</a>
+<a class="nav-link api-link" href="api/gsk_family.common.numeric_compat.html">gsk_family.common.numeric_compat</a>
+<a class="nav-link api-link" href="api/gsk_family.common.population.html">gsk_family.common.population</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reduction.html">gsk_family.common.reduction</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reference_rng.html">gsk_family.common.reference_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.rng.html">gsk_family.common.rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.threefry_rng.html">gsk_family.common.threefry_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.__init__.html">gsk_family.optimizers.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_profiles.html">gsk_family.optimizers._dt_profiles</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_rng.html">gsk_family.optimizers._dt_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._kernels.html">gsk_family.optimizers._kernels</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.agsk.html">gsk_family.optimizers.agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.apgsk.html">gsk_family.optimizers.apgsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_gsk.html">gsk_family.optimizers.atmals_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_helpers.html">gsk_family.optimizers.atmals_helpers</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.dt_gsk.html">gsk_family.optimizers.dt_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.egsk.html">gsk_family.optimizers.egsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.__init__.html">gsk_family.optimizers.external.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._base.html">gsk_family.optimizers.external._base</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._telemetry_shim.html">gsk_family.optimizers.external._telemetry_shim</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.cmaes.html">gsk_family.optimizers.external.cmaes</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.decc_g.html">gsk_family.optimizers.external.decc_g</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.ebowithcmar.html">gsk_family.optimizers.external.ebowithcmar</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.jso.html">gsk_family.optimizers.external.jso</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade.html">gsk_family.optimizers.external.lshade</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade_spacma.html">gsk_family.optimizers.external.lshade_spacma</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.mos_cec2013lsgo.html">gsk_family.optimizers.external.mos_cec2013lsgo</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.shade_ils.html">gsk_family.optimizers.external.shade_ils</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_agsk.html">gsk_family.optimizers.fdb_agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_scores.html">gsk_family.optimizers.fdb_scores</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.gsk.html">gsk_family.optimizers.gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.__init__.html">gsk_family.runners.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.config.html">gsk_family.runners.config</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.fp_regime.html">gsk_family.runners.fp_regime</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.output.html">gsk_family.runners.output</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.parallel.html">gsk_family.runners.parallel</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.performance.html">gsk_family.runners.performance</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.run_experiment.html">gsk_family.runners.run_experiment</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.seed_policy.html">gsk_family.runners.seed_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.verification.html">gsk_family.runners.verification</a>
+<a class="nav-link api-link" href="api/gsk_family.stats.html">gsk_family.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.types.html">gsk_family.types</a>
+</section>
+</nav></aside>
+    <main class="content">
+      <article class="doc-card">
+        <h1 id="final-publication-prompt-production-ready-q1-release-of-gsk-family-python-v1-1">Final Publication Prompt — Production-Ready Q1 Release of GSK Family Python v1.1</h1>
+<blockquote><strong>When to use this prompt:</strong> for the final pre-publication hardening pass — after all</blockquote>
+<blockquote>algorithm work, tuning, and campaign runs are complete. It drives repository-wide</blockquote>
+<blockquote>cleanup, documentation modernization, and release preparation. It does <strong>not</strong></blockquote>
+<blockquote>authorize algorithm changes, new experiments, or another development iteration.</blockquote>
+<blockquote><strong>Current project status (2026-07-20) — read before executing.</strong> This prompt is</blockquote>
+<blockquote>reusable and process-generic; the dated snapshot below fixes the phase you are</blockquote>
+<blockquote>polishing *into*, so an executor does not re-open settled work. The manuscript is</blockquote>
+<blockquote><strong>built</strong> and in <strong>final pre-submission remediation</strong> (not from-scratch</blockquote>
+<blockquote>construction): the 80-ticket remediation ledger</blockquote>
+<blockquote>(<code>papers/governance/remediation_2026_07_18/ticket_status.csv</code>) stands at **73/80</blockquote>
+<blockquote>closed<strong>, and every quality gate is </strong>green** as of 2026-07-20 (build hygiene,</blockquote>
+<blockquote>cross-format PDF/DOCX/JSON parity, provenance-claims, citation-usage map, and</blockquote>
+<blockquote>environment attestation). <strong>Do not</strong> re-open algorithm work, re-tune, or regenerate</blockquote>
+<blockquote>the frozen runtime table. <strong>RT-001 is CLOSED — do not re-run it or request a re-timing:</strong></blockquote>
+<blockquote>the six-comparator re-timing was executed, failed its determinism gate (3,772 differing</blockquote>
+<blockquote>rows), and was not adopted; <code>tab:runtime</code> was instead narrowed to DT-GSK-only,</blockquote>
+<blockquote>single-session, and no cross-algorithm wall-clock claim is made. One item remains live:</blockquote>
+<blockquote>the terminal pair <strong>C-008</strong> (mint a fresh</blockquote>
+<blockquote><code>papers/governance/main_manuscript_freeze_manifest.json</code>, CRLF + 2-space, edited in</blockquote>
+<blockquote>place) → <strong>C-001</strong> (one authoritative commit + manuscript version id) is pending and</blockquote>
+<blockquote>must run last, after any author edits land. Current evidence ids: primary</blockquote>
+<blockquote>release <strong><code>rel-2026-07-20-67d9345f9</code></strong>, ablation release <strong><code>abl-rel-2026-07-20</code></strong></blockquote>
+<blockquote>(derived bundle <code>papers/analysis/rel-2026-07-20-67d9345f9/</code>). Suggested reviewer</blockquote>
+<blockquote>names and JCR/quartile figures are <strong>author-supplied</strong> — never auto-generate them.</blockquote>
+<p>You are acting as a multidisciplinary team of world-class experts in evolutionary computation, numerical optimization, CEC benchmarking, scientific software engineering, Python architecture, research reproducibility, documentation engineering, technical writing, release engineering, performance engineering, quality assurance, open-source maintenance, and Q1 journal publication standards.</p>
+<p>Your objective is <strong>not</strong> to add features, tune algorithms, or open another development iteration. Your objective is to transform this repository — <code>02-GSK_Family_Python_v1.1</code>, the Python implementation of the GSK optimizer family (seven runnable optimizers: <code>gsk</code>, <code>agsk</code>, <code>apgsk</code>, <code>fdb-agsk</code>, <code>atmals-gsk</code>, <code>egsk</code>, and the proposed <code>dt-gsk</code>) spanning five CEC benchmark suites in code (<code>cec2011</code>, <code>cec2013</code>, <code>cec2013lsgo</code>, <code>cec2017</code>, <code>cec2020</code>) — three of which (<code>cec2011</code>, <code>cec2013</code>, <code>cec2017</code>) carry committed reference evidence under <code>benchmarks/cec_reference_results/</code> — plus a pure-Python <code>sphere</code> smoke test, the <code>gsk-stats</code> statistical panel, and the <code>papers/</code> manuscript pipeline — into the <strong>final production-quality release</strong>, ready for:</p>
+<ul>
+<li>Q1 journal publication (supplementary software for the DT-GSK paper)</li>
+<li>Public GitHub release</li>
+<li>Zenodo archival (<code>CITATION.cff</code> already present)</li>
+<li>Long-term maintenance</li>
+<li>Fully reproducible research by external users with zero internal knowledge</li>
+</ul>
+<p>Assume this is the final release before publication.</p>
+<p>---</p>
+<h2 id="non-negotiable-invariants-apply-to-every-phase">Non-Negotiable Invariants (apply to every phase)</h2>
+<p>These are the project&#x27;s standing rules from <code>PROJECT_RULES.md</code> and its sibling governance docs. No phase may violate them:</p>
+<ol>
+<li><strong>Byte-identity lock.</strong> <code>src/gsk_family/optimizers/_dt_core.py</code>,</li>
+<p><code>_dt_subsystems/</code>, <code>_dt_profiles.py</code>, and <code>_dt_rng.py</code> are vendored and locked. Never edit them for behavior; never &quot;improve&quot; their style or docstrings (they are exempt from the docstring gate). The same exemption covers the vendored <code>analysis/statistics.py</code> and <code>analysis/statistical_tests.py</code>.</p>
+<li><strong>No behavior changes.</strong> Optimizer logic, seed schedules (<code>get_cec_seed</code>, the</li>
+<p>unified policy, <code>UNIFIED_ONLY_OPTIMIZERS</code>), RNG draw order, evaluation counts, bounds repair, the CEC2017 F2 exclusion, result byte formats (<code>runners/output.py</code>), and file naming must be preserved exactly. All cleanup is behavior-preserving.</p>
+<li><strong>Evidence integrity.</strong> The evidence flows through three tiers:</li>
+<p><code>benchmarks/cec_reference_results/</code> (promoted, read-only imported reference evidence — never edit, regenerate, or delete it) → <code>papers/analysis/&lt;rel-id&gt;/</code> (the derived analysis bundle for a release) → <code>results/</code> (transient staging). Paper statistics are generated in strict-source mode (<code>gsk-stats --strict-source</code> / <code>GSK_STRICT_SOURCE</code>), which pins the promoted evidence as the citation source. Canonical reproduced results under <code>results/_run_all/</code> (including <code>_analysis/</code>) are kept for reproduction. Never fabricate numbers; missing data is logged, not invented.</p>
+<li><strong>Generated HTML is generated.</strong> Never hand-edit <code>docs/html/</code>; change the</li>
+<p>Markdown/docstrings and rebuild with <code>python scripts/build_docs_html.py</code>, committing source and HTML twins together.</p>
+<li><strong>Green gates after every phase:</strong></li>
+</ol>
+<pre><code class="code-block language-powershell">   python -m pytest -q
+   python -m ruff check .
+   python scripts/validate_profile_lock.py --root .
+   python scripts/build_docs_html.py</code></pre>
+<p>The DT-GSK KATs (<code>tests/unit/test_dt_profiles.py</code>, <code>tests/unit/test_dt_rng.py</code>, <code>tests/regression/test_dt_gsk_byte_stable.py</code>) must stay green untouched — never weaken them.</p>
+<ol>
+<li><strong>Version control.</strong> Work on the current tree; commit only when the user asks;</li>
+<p>never push without asking.</p>
+<li><strong>Forbidden-token rule.</strong> The upstream numeric-platform product name may appear</li>
+<p>only in <code>docs/reference/seed_policy.md</code> and its HTML twin.</p>
+</ol>
+<p>---</p>
+<h2 id="phase-1-repository-audit">Phase 1 — Repository Audit</h2>
+<p>Audit every folder, source file, script, config, doc page, HTML page, test, benchmark asset, and root report. Build a single findings ledger (path, verdict KEEP/ARCHIVE/DELETE/REWRITE, reason). The earlier one-time <code>cleanup_candidates.csv</code> inventory has already been fully actioned and removed — do <strong>not</strong> expect it as a live file; treat this phase as a fresh re-audit that must reach the same clean end state. Known audit targets to confirm or close:</p>
+<ul>
+<li>Stale experiment output (<code>results/_experimental</code>, <code>results/_staging_*</code>,</li>
+<p><code>results/_tmp_baseline_analysis</code>) and any rejected/superseded configs under <code>configs/experimental/</code> (keep the diagnostic configs actually referenced by tests/tooling, e.g. <code>dt_diag.yml</code>).</p>
+<li>Dead analysis modules: any empty stub or uncalled thin wrapper under</li>
+<p><code>src/gsk_family/analysis/</code>.</p>
+<li>Duplicated optimizer helpers: <code>_option_value</code> (multiple copies), <code>_scan_best</code>,</li>
+<p><code>_append_convergence</code>, the <code>_MISSING</code> sentinel — consolidate only if provably draw-order-neutral and the byte-stable regression stays green; otherwise document the duplication as accepted.</p>
+<li>Unused <code>parent_pop</code> copy in <code>atmals_gsk.py</code>; APGSK&#x27;s RNG-fidelity-only K draw</li>
+<p>(keep, but ensure the inline comment explains it).</p>
+<li>Historical root/development reports: keep the ones that are part of the official</li>
+<p>record (e.g. <code>FINAL_RELEASE_REPORT.md</code>); archive or delete superseded one-off investigation notes.</p>
+<li>Possible overlap between <code>papers/scripts/generate_rank_charts.py</code> /</li>
+<p><code>generate_nemenyi_cd.py</code> and the figures <code>gsk-stats</code> already renders — keep one canonical path per figure.</p>
+<li><code>.pytest_cache/</code>, <code>.ruff_cache/</code>, and <code>__pycache__/</code> — keep off the release</li>
+<p>surface (caches are already gitignored).</p>
+</ul>
+<p>---</p>
+<h2 id="phase-2-update-every-prompt">Phase 2 — Update Every Prompt</h2>
+<p>Review every prompt in <code>docs/prompt/</code> — <code>project-review.md</code>, <code>documentation-deep-upgrade.md</code>, <code>documentation-review.md</code>, and this file — plus the agent contract in <code>SKILL.md</code>. (The <code>docs/prompt/</code> suite is now exactly these four files; the one-time DT-GSK migration/publish/doc-polish prompts were completed and removed.)</p>
+<p>Update each to describe only the current production implementation: seven runnable optimizers (<code>egsk</code> runnable *and* reference comparator); the completed DT-GSK migration (drop any &quot;phase N pending&quot; language — the migration and the statistical suite are done); DT-GSK shipping a <strong>single <code>pub</code> profile</strong> (the earlier <code>strong_candidate_a/b/c</code> tuning experiment was completed, rejected by full validation, and fully removed — no prompt may reference strong-candidate configs, scripts, tests, or docs as if they exist); the fail-closed FP-regime sentinel (<code>runners/fp_regime.py</code> + <code>docs/reference/fp_regime.md</code> + <code>tests/regression/test_fp_regime.py</code>); the current test count (~344 tests — always re-collect before citing) and gate list; and the current directory layout. Remove references to finished phases, removed modules, the old PCG64/base-123456 seed era, superseded workflows, and any removed prompt/report (there is no <code>EGSK_IMPLEMENTATION_PROMPT.md</code> or <code>EGSK_IMPLEMENTATION_REPORT.md</code>; the <code>docs/prompt/</code> suite is now exactly the four files listed above). Prompts that documented one-time completed work (for example the migration prompt) should either be rewritten as maintenance prompts or archived as historical records — not left implying open work. Keep every prompt technically accurate, concise, deterministic, and consistent with the governance docs. Remember: adding, renaming, or removing any doc file requires updating the required-doc list in <code>tests/smoke/test_documentation_commands.py</code> and rebuilding HTML.</p>
+<p>---</p>
+<h2 id="phase-3-simplify-all-runbooks">Phase 3 — Simplify All Runbooks</h2>
+<p>Review the execution documentation: <code>README.md</code>, the root <code>runbook.md</code>, <code>docs/getting-started/</code> (runbook, tutorial, user_guide, configuration, troubleshooting, explainer), and the benchmark/developer guides. The root <code>runbook.md</code> and <code>docs/getting-started/runbook.md</code> must stay synchronized.</p>
+<p>Rewrite run instructions to be minimal, beginner-friendly, copy-paste ready, and deterministic, with PowerShell (primary) and Linux shell variants where syntax differs. The single canonical path is: install (<code>pip install -e &quot;.[dev]&quot;</code>) → smoke run (<code>python run.py --root . --optimizer gsk --suite sphere ...</code>) → full campaign (<code>python run.py ... --parallel --workers 2 --convergence-graphs --overwrite</code>, or the <code>configs/*.yml</code> launchers; the panel suites are CEC2017, CEC2011, and CEC2013) → ablation (<code>python scripts/run_ablation.py ...</code> → <code>python papers/scripts/generate_ablation_matrix.py</code>) → validation (<code>gsk-validate</code>) → statistics (<code>gsk-stats --suite CEC2017 --dims 10,30,50,100</code>, plus <code>--suite CEC2013 --dims 10,30,50</code>) → review pack (<code>python papers/scripts/generate_review_pack.py</code>). Keep it consistent with the root <code>runbook.md</code> &quot;Full Paper Pipeline (in order)&quot; section (eight stages) — the runbook is current; do not contradict it. Remove duplicated, historical, and experimental command paths; keep the documented safe defaults (<code>--parallel --workers 2</code>, process backend, never the thread backend) and the slow/crashing-machine recovery commands.</p>
+<p>---</p>
+<h2 id="phase-4-execute-every-updated-prompt">Phase 4 — Execute Every Updated Prompt</h2>
+<p>After updating the prompts, execute each applicable maintenance prompt against the repository: the full-project review (<code>project-review.md</code>), the deep docs upgrade (<code>documentation-deep-upgrade.md</code>), and the two-part docs gate (<code>documentation-review.md</code>, Part I consistency + Part II inline documentation). The repository must reflect the output of its own updated prompts. Log any prompt intentionally not executed and why.</p>
+<p>---</p>
+<h2 id="phase-5-update-inline-documentation">Phase 5 — Update Inline Documentation</h2>
+<p>Review every <strong>non-vendored</strong> source file under <code>src/gsk_family/</code>, <code>scripts/</code>, <code>benchmarks/cec_suite_python/</code>, and <code>papers/scripts/</code>. Rewrite module, class, function, and method docstrings to be accurate, concise, scientifically rigorous, and synchronized with the implementation — parameters, returns, exceptions, algorithm and mathematical notes included. The docstring gate (<code>tests/unit/test_docstrings.py</code>) already requires full coverage; this phase raises quality, not just presence. Remove obsolete comments, fix misleading ones, and make sure the load-bearing quirks stay documented in place: the DT-GSK fair-start exception, the C++-fidelity emulations in the CEC kernels, the composition-kernel <code>fastmath</code> exception, the reference seed-formula rationale in <code>seed_policy.py</code>, and the F2 exclusion. Do not touch vendored modules.</p>
+<p>---</p>
+<h2 id="phase-6-regenerate-and-verify-html-documentation">Phase 6 — Regenerate and Verify HTML Documentation</h2>
+<p>Never hand-edit <code>docs/html/</code>. Instead: fix the Markdown sources and docstrings, improve <code>scripts/build_docs_html.py</code> templates/styling/navigation only if needed, rebuild, and commit the twins. Then verify via the existing gates that every page renders, every relative link resolves (<code>test_generated_html_local_links_resolve</code>), the API pages match current docstrings, version/date references are current, and no stale pages remain for deleted docs (removals require pruning both the source and the required-doc list).</p>
+<p>---</p>
+<h2 id="phase-7-repository-cleanup">Phase 7 — Repository Cleanup</h2>
+<p>Execute the Phase 1 ledger. Delete or archive: stale staging/experimental results, rejected experimental configs, dead modules, orphaned assets, duplicate reports, temporary outputs, and debug utilities. Keep only what development, testing, reproduction, publication, and user documentation require. Hard protections: <code>benchmarks/cec_reference_results/</code> (read-only evidence), <code>results/_run_all/</code> canonical results and <code>_analysis/</code>, all tests, all governance docs, <code>papers/</code> sources, and the committed reference-parity fixtures under <code>tests/</code>. Every deletion must leave the green gates passing; update <code>MANIFEST.in</code>, <code>.gitignore</code>, and the required-doc list wherever cleanup changes the file set. (The one-time <code>cleanup_candidates.csv</code> ledger from the original cleanup pass has already been actioned and removed — do not re-create it as a shipped artifact; if you keep a fresh ledger, keep it out of the release surface.)</p>
+<p>---</p>
+<h2 id="phase-8-documentation-consistency-review">Phase 8 — Documentation Consistency Review</h2>
+<p>Verify identical terminology, naming, and facts across README, the six governance docs, all <code>docs/</code> themes, HTML, prompts, runbooks, inline docs, and <code>papers/</code>. Specific consistency anchors for this project: optimizer IDs and their hyphenation (<code>dt-gsk</code>, <code>fdb-agsk</code>, <code>atmals-gsk</code>), suite IDs and protocols (F2 excluded from CEC2017 scoring; CEC2011 and CEC2013LSGO are raw-objective, native-dimension suites), the seed formula and the three RNG labels (<code>threefry</code>, <code>twister</code>, <code>seed</code> — no others), the seven-runnable / six-comparator panel wording (the <code>egsk</code> dual role stated identically everywhere), the reference-first data policy (all paper statistics — the proposed <code>dt-gsk</code> included — read from the committed panel under <code>benchmarks/cec_reference_results/&lt;suite&gt;/&lt;optimizer&gt;/</code>, with <code>results/_run_all/</code> as fallback only), test and doc counts, version numbers (<code>pyproject.toml</code> ↔ <code>CITATION.cff</code> ↔ docs), and the two-runbook sync.</p>
+<p>---</p>
+<h2 id="phase-9-publication-quality-audit">Phase 9 — Publication Quality Audit</h2>
+<p>Review the project against Q1 journal and archival expectations: reproducibility (unified seeds, bit-exact RNG streams, environment metadata, deterministic parallel execution), organization, architecture (the downward-only layering), documentation quality, coding standards (ruff clean, scoped mypy), maintainability, portability (the Python 3.10–3.13 CI matrix), scientific transparency (evidence provenance, no-fabrication rules, missing-data logs), and release readiness. Close every fixable weakness within the invariants; for the known accepted trade-offs (scoped mypy, the <code>slow</code>-marked performance tier, D≤30-only byte-identity golden cells, the silent Numba fallback if left unchanged), either fix behavior-neutrally or document them explicitly as limitations — nothing may remain both known and undocumented.</p>
+<p>---</p>
+<h2 id="phase-10-final-release-preparation">Phase 10 — Final Release Preparation</h2>
+<p>Prepare the official release: confirm <code>pyproject.toml</code> metadata, version, classifiers, and console scripts; validate <code>CITATION.cff</code>; verify a clean source distribution builds from <code>MANIFEST.in</code>; confirm the CI workflow passes on all supported Python versions; refresh <code>FINAL_RELEASE_REPORT.md</code> (or a successor release notes file) to describe the shipped state; and run the complete gate sequence one final time from a clean checkout. The end state: zero stale files, zero obsolete documentation, zero dead code, zero duplicated assets, zero unfinished TODOs, zero placeholder docs — suitable for GitHub release, Zenodo archive, Q1 supplementary material, and long-term maintenance.</p>
+<p>---</p>
+<h2 id="expected-final-deliverables">Expected Final Deliverables</h2>
+<p>A single publication-ready repository containing only the final production version:</p>
+<ul>
+<li>All <code>docs/prompt/</code> prompts and <code>SKILL.md</code> updated to the current implementation,</li>
+<p>with completed-work prompts rewritten or archived.</p>
+<li>Simplified, verified, synchronized runbooks with one canonical execution path</li>
+<p>(install → smoke → campaign → validate → stats → paper pack).</p>
+<li>Publication-quality inline documentation across all non-vendored code; vendored</li>
+<p>modules untouched.</p>
+<li>Regenerated, link-clean HTML documentation matching the sources.</li>
+<li>The Phase 1 cleanup ledger fully executed; reference evidence and canonical</li>
+<p>results preserved intact.</p>
+<li>Consistent naming, terminology, versions, and counts across every artifact.</li>
+<li>All gates green from a clean checkout: pytest (all tiers), ruff, profile lock,</li>
+<p>docs build + link resolution, and the untouched DT-GSK byte-identity KATs.</p>
+<li>A refreshed release report documenting the shipped state.</li>
+</ul>
+<p>No experimental, deprecated, temporary, duplicated, historical, or obsolete artifacts remain — and every published number stays byte-identical to the evidence that produced it.</p>
+      </article>
+    </main>
+    <aside class="page-toc" aria-label="On this page">
+<h2>On This Page</h2>
+<a class="toc-level-1" href="#final-publication-prompt-production-ready-q1-release-of-gsk-family-python-v1-1">Final Publication Prompt — Production-Ready Q1 Release of GSK Family Python v1.1</a>
+<a class="toc-level-2" href="#non-negotiable-invariants-apply-to-every-phase">Non-Negotiable Invariants (apply to every phase)</a>
+<a class="toc-level-2" href="#phase-1-repository-audit">Phase 1 — Repository Audit</a>
+<a class="toc-level-2" href="#phase-2-update-every-prompt">Phase 2 — Update Every Prompt</a>
+<a class="toc-level-2" href="#phase-3-simplify-all-runbooks">Phase 3 — Simplify All Runbooks</a>
+<a class="toc-level-2" href="#phase-4-execute-every-updated-prompt">Phase 4 — Execute Every Updated Prompt</a>
+<a class="toc-level-2" href="#phase-5-update-inline-documentation">Phase 5 — Update Inline Documentation</a>
+<a class="toc-level-2" href="#phase-6-regenerate-and-verify-html-documentation">Phase 6 — Regenerate and Verify HTML Documentation</a>
+<a class="toc-level-2" href="#phase-7-repository-cleanup">Phase 7 — Repository Cleanup</a>
+<a class="toc-level-2" href="#phase-8-documentation-consistency-review">Phase 8 — Documentation Consistency Review</a>
+<a class="toc-level-2" href="#phase-9-publication-quality-audit">Phase 9 — Publication Quality Audit</a>
+<a class="toc-level-2" href="#phase-10-final-release-preparation">Phase 10 — Final Release Preparation</a>
+<a class="toc-level-2" href="#expected-final-deliverables">Expected Final Deliverables</a>
+</aside>
+  </div>
+  <script src="assets/search.js"></script>
+</body>
+</html>

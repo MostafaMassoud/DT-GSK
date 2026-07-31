@@ -1,0 +1,89 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gsk-family"
+version = "0.1.0"
+description = "Python implementation of the GSK optimizer family with Python CEC benchmarks."
+readme = "README.md"
+requires-python = ">=3.10,<3.14"
+license = "MIT"
+license-files = ["LICENSE", "docs/LICENSES.md"]
+authors = [
+  { name = "Mostafa Masoud", email = "moustafa.masoud@gmail.com" }
+]
+dependencies = [
+  "numpy>=1.24,<2.4",
+  "scipy>=1.10,<1.16",
+  "pandas>=2.0,<2.4",
+  "matplotlib>=3.7,<3.11",
+  "PyYAML>=6.0,<7",
+  "numba>=0.64,<0.66",
+]
+
+[project.optional-dependencies]
+dev = [
+  "build>=1.0",
+  "mypy>=1.10,<2",
+  "pytest>=7.4,<10",
+  "ruff>=0.6,<1",
+  "types-PyYAML>=6.0",
+]
+
+[project.scripts]
+gsk-list = "gsk_family.cli.list:main"
+gsk-run = "gsk_family.cli.run:main"
+gsk-family-run = "gsk_family.cli.run:main"
+gsk-validate = "gsk_family.cli.validate:main"
+gsk-stats = "gsk_family.cli.stats:main"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src", "."]
+include = ["gsk_family*", "benchmarks*"]
+namespaces = true
+
+[tool.setuptools.package-data]
+"benchmarks" = ["cec_reference_results/**/*.csv", "cec_reference_results/**/*.md"]
+"benchmarks.cec_suite_python" = ["cec_suite_readme.md", "cec_suite_readme.html"]
+"benchmarks.cec_suite_python.cec2011" = ["README.md"]
+"benchmarks.cec_suite_python.cec2013" = ["data.pkl", "README.md"]
+"benchmarks.cec_suite_python.cec2013lsgo" = ["data.pkl"]
+"benchmarks.cec_suite_python.cec2017" = ["data.pkl", "README.md"]
+"benchmarks.cec_suite_python.cec2020" = ["data.pkl", "README.md"]
+"benchmarks.cec_suite_cpp" = [
+  "README.md",
+  "PROVENANCE.md",
+  "cec_tools/**/*",
+  "cec2011/**/*",
+  "cec2013/**/*",
+  "cec2013lsgo/**/*",
+  "cec2017/**/*",
+  "cec2020/**/*",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src", "."]
+addopts = "-ra"
+markers = [
+  "slow: optional slower performance or scalability checks",
+]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E9", "F"]
+
+[tool.mypy]
+python_version = "3.10"
+ignore_missing_imports = true
+# Selected-gate scope: check the listed package's own files only, matching the
+# CI mypy gate. This keeps the documented broad command green despite NumPy 2.x
+# shape-typing churn in imported benchmark/optimizer kernels.
+follow_imports = "skip"

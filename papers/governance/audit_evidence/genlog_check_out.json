@@ -1,0 +1,222 @@
+{
+ "apgsk_cec2017_full": {
+  "files": 116,
+  "rows": 5916,
+  "bad": 0,
+  "files_per_dim": {
+   "10": 29,
+   "100": 29,
+   "30": 29,
+   "50": 29
+  }
+ },
+ "spot_checks": {
+  "cec2017/agsk": {
+   "genlog_files_total": 116,
+   "checked": 8,
+   "rows": 408,
+   "bad": 0
+  },
+  "cec2017/apgsk": {
+   "genlog_files_total": 116,
+   "checked": 8,
+   "rows": 408,
+   "bad": 0
+  },
+  "cec2017/atmals-gsk": {
+   "genlog_files_total": 116,
+   "checked": 8,
+   "rows": 408,
+   "bad": 0
+  },
+  "cec2017/egsk": {
+   "genlog_files_total": 116,
+   "checked": 8,
+   "rows": 408,
+   "bad": 0
+  },
+  "cec2017/fdb-agsk": {
+   "genlog_files_total": 116,
+   "checked": 8,
+   "rows": 408,
+   "bad": 0
+  },
+  "cec2017/gsk": {
+   "genlog_files_total": 116,
+   "checked": 8,
+   "rows": 408,
+   "bad": 0
+  },
+  "cec2017/dt-gsk": {
+   "genlog_files_total": 116,
+   "checked": 8,
+   "rows": 408,
+   "bad": 0
+  },
+  "cec2011/agsk": {
+   "genlog_files_total": 22,
+   "checked": 32,
+   "rows": 800,
+   "bad": 0
+  },
+  "cec2011/apgsk": {
+   "genlog_files_total": 22,
+   "checked": 32,
+   "rows": 800,
+   "bad": 0
+  },
+  "cec2011/atmals-gsk": {
+   "genlog_files_total": 22,
+   "checked": 32,
+   "rows": 800,
+   "bad": 0
+  },
+  "cec2011/egsk": {
+   "genlog_files_total": 22,
+   "checked": 32,
+   "rows": 800,
+   "bad": 0
+  },
+  "cec2011/fdb-agsk": {
+   "genlog_files_total": 22,
+   "checked": 32,
+   "rows": 800,
+   "bad": 0
+  },
+  "cec2011/gsk": {
+   "genlog_files_total": 22,
+   "checked": 32,
+   "rows": 800,
+   "bad": 0
+  },
+  "cec2011/dt-gsk": {
+   "genlog_files_total": 22,
+   "checked": 32,
+   "rows": 800,
+   "bad": 0
+  },
+  "cec2013/agsk": {
+   "genlog_files_total": 84,
+   "checked": 6,
+   "rows": 306,
+   "bad": 0
+  },
+  "cec2013/apgsk": {
+   "genlog_files_total": 84,
+   "checked": 6,
+   "rows": 306,
+   "bad": 0
+  },
+  "cec2013/atmals-gsk": {
+   "genlog_files_total": 84,
+   "checked": 6,
+   "rows": 306,
+   "bad": 0
+  },
+  "cec2013/egsk": {
+   "genlog_files_total": 84,
+   "checked": 6,
+   "rows": 306,
+   "bad": 0
+  },
+  "cec2013/fdb-agsk": {
+   "genlog_files_total": 84,
+   "checked": 6,
+   "rows": 306,
+   "bad": 0
+  },
+  "cec2013/gsk": {
+   "genlog_files_total": 84,
+   "checked": 6,
+   "rows": 306,
+   "bad": 0
+  },
+  "cec2013/dt-gsk": {
+   "genlog_files_total": 84,
+   "checked": 6,
+   "rows": 306,
+   "bad": 0
+  }
+ },
+ "probe_values": {
+  "threefry": {
+   "be8ec1bb394ec405763bb8102829fe8fe40bd91fa29ecb4c4f1ef5763b115f0a": [
+    "cec2017/agsk",
+    "cec2017/apgsk",
+    "cec2017/atmals-gsk",
+    "cec2017/egsk",
+    "cec2017/fdb-agsk",
+    "cec2017/gsk",
+    "cec2017/dt-gsk",
+    "cec2011/agsk",
+    "cec2011/apgsk",
+    "cec2011/atmals-gsk",
+    "cec2011/egsk",
+    "cec2011/fdb-agsk",
+    "cec2011/gsk",
+    "cec2011/dt-gsk",
+    "cec2013/agsk",
+    "cec2013/apgsk",
+    "cec2013/atmals-gsk",
+    "cec2013/egsk",
+    "cec2013/fdb-agsk",
+    "cec2013/gsk",
+    "cec2013/dt-gsk"
+   ]
+  },
+  "ism_kernels": {
+   "b468e920990d8fab5f0de771cd7c268a7350e090402d8222691fecd54680bd2e": [
+    "cec2017/agsk",
+    "cec2017/apgsk",
+    "cec2017/atmals-gsk",
+    "cec2017/egsk",
+    "cec2017/fdb-agsk",
+    "cec2017/gsk",
+    "cec2017/dt-gsk",
+    "cec2011/agsk",
+    "cec2011/apgsk",
+    "cec2011/atmals-gsk",
+    "cec2011/egsk",
+    "cec2011/fdb-agsk",
+    "cec2011/gsk",
+    "cec2011/dt-gsk",
+    "cec2013/agsk",
+    "cec2013/apgsk",
+    "cec2013/atmals-gsk",
+    "cec2013/egsk",
+    "cec2013/fdb-agsk",
+    "cec2013/gsk",
+    "cec2013/dt-gsk"
+   ]
+  },
+  "suite": {
+   "9d0adb66ea456ff26045cd6c031db5ae4aec45643e469ac86528b214c357c755": [
+    "cec2017/agsk",
+    "cec2017/apgsk",
+    "cec2017/atmals-gsk",
+    "cec2017/egsk",
+    "cec2017/fdb-agsk",
+    "cec2017/gsk",
+    "cec2017/dt-gsk"
+   ],
+   "f1d8c8a7422a90dfef67472df1ceab31eb6ddaa03f2c5d6d7af7b028f27793e1": [
+    "cec2011/agsk",
+    "cec2011/apgsk",
+    "cec2011/atmals-gsk",
+    "cec2011/egsk",
+    "cec2011/fdb-agsk",
+    "cec2011/gsk",
+    "cec2011/dt-gsk"
+   ],
+   "d2d9b94da8a6cad4fb15e3ddb0b08a7d0e8e02f6a8eb259202689539ac2b301a": [
+    "cec2013/agsk",
+    "cec2013/apgsk",
+    "cec2013/atmals-gsk",
+    "cec2013/egsk",
+    "cec2013/fdb-agsk",
+    "cec2013/gsk",
+    "cec2013/dt-gsk"
+   ]
+  }
+ }
+}

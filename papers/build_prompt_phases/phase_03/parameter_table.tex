@@ -1,0 +1,49 @@
+% ============================================================================
+% DT-GSK frozen parameter table -- LaTeX rendering (Phase 7,
+% task C.1). Canonical source:
+% papers/build_prompt_phases/phase_03/parameter_table.md
+% (tier-resolved settings; freeze recorded in
+% algorithm_freeze_manifest.json). MDPI-compatible: booktabs.
+% Label: tab:parameters (exhibit T-PARAMS, phase_04/exhibit_plan.csv).
+% Configuration constants only -- zero empirical values.
+% ============================================================================
+\begin{table}[t]
+\caption{Frozen run parameters of the shipped configuration (core).
+Where a value varies by
+dimension tier, the four tiers $D{<}20$ / $20$--$49$ / $50$--$99$ / ${\ge}100$
+are shown. No tuning is required or permitted at run time. Hash-frozen in
+algorithm\_freeze\_manifest.json.}
+\label{tab:parameters}
+\centering
+\small
+\begin{tabular}{lll}
+\toprule
+\textbf{Parameter} & \textbf{Value} & \textbf{Notes}\\
+\midrule
+\multicolumn{3}{l}{\emph{Run-level (reserved; from problem/options)}}\\
+\midrule
+generator & threefry, unified shared seed & seed policy\\
+MaxFES & $10^4 D$ & \\
+bounds & uniform scalar $(\ell,u)$ & per-coordinate on CEC2011\\
+$NP_{\text{init}}$ & $5D$ & np\_init\_mult=5\\
+\midrule
+\multicolumn{3}{l}{\emph{Core GSK operator}}\\
+\midrule
+$KF$ & 0.5 (ACE arm-controlled) & default 0.5\\
+$KR$ & 0.9 (ACE arm-controlled) & block mask when linkage on\\
+$K_{\exp}$ & 10 (ACE arm-controlled) & junior-dimension schedule\\
+$p$ (senior) & 0.05 ($0.15$ at $20$--$49$; split-bottom $0.10$ at $D\ge50$) & \\
+\midrule
+\multicolumn{3}{l}{\emph{NLPSR}}\\
+\midrule
+schedule & nonlinear $x^{(1-x)}$ & \\
+$N_{\min}$ & 25 at $D\ge50$ (12 bare) & tier floor\\
+$\alpha_{\text{psr}}$ & 1.0 & power-schedule exponent; inert (nlpsr shipped)\\
+\bottomrule
+\end{tabular}
+
+\vspace{2pt}
+{\footnotesize Per-subsystem constants (ACE/ARGP, linkage crossover,
+BSE/archive/deep-stall, ISM and the eigenframe polish, and the upper-tier
+controllers) are listed in the Supplementary Materials, Section~S5.}
+\end{table}

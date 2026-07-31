@@ -1,0 +1,241 @@
+{
+  "schema": "pre_ablation_supplement_freeze_manifest/v1",
+  "phase": "Phase 11 - Primary manuscript finalization and pre-ablation freeze",
+  "generated_utc": "2026-07-11T08:35:12Z",
+  "anchor_commit": "cffcbb48153fd6395c67bb35ece0107269c15694",
+  "evidence_release": "rel-2026-07-10-262fc16c9",
+  "scientific_content_status": "FROZEN_BEFORE_ABLATION",
+  "hash_algorithm": "SHA-256",
+  "core_documents": [
+    {
+      "path": "papers/supplementary.tex",
+      "sha256": "f04852c1216160b482415cc0597d0ca5312011eae3a2dba2f290b02878b129ba",
+      "bytes": 48143
+    },
+    {
+      "path": "papers/supplementary.pdf",
+      "sha256": "e63d3480ada03ae8e4da38281819da09e0de2d42a2d503e4d6e1e33b9eb26b5c",
+      "bytes": 889540
+    },
+    {
+      "path": "papers/supplementary.docx",
+      "sha256": "86b20ebda315bbae6e5c8512b0f30966058145a98b04087c9eadb75c62984b24",
+      "bytes": 12837665
+    }
+  ],
+  "bound_table_figure_assets": [
+    {
+      "path": "papers/figures/convergence/all_funcs_D10_a.pdf",
+      "sha256": "499ead76faf5e227c1293e1a2312f7e8e2b5019c132092dfbf5bc2847ec177ac",
+      "bytes": 29713
+    },
+    {
+      "path": "papers/figures/convergence/all_funcs_D10_a.png",
+      "sha256": "00da44fd0cedd26e1088e14922e6db63637a58cd1d9056f0dbf87a994c89bc5a",
+      "bytes": 811845
+    },
+    {
+      "path": "papers/figures/convergence/all_funcs_D10_b.pdf",
+      "sha256": "f41cdb9c510b3960951b525d03951f3c48643162618c9a918302fdc9d7fa502a",
+      "bytes": 35670
+    },
+    {
+      "path": "papers/figures/convergence/all_funcs_D10_b.png",
+      "sha256": "9663d5fdb0cd8cf9133b7b975cdb1184798476a5855086e105c5f3a69c5b01c6",
+      "bytes": 882207
+    },
+    {
+      "path": "papers/figures/convergence/all_funcs_D10_c.pdf",
+      "sha256": "f496ae74b1047b697379f91008846789029322cd602f1dfa055b38ecf5491494",
+      "bytes": 30732
+    },
+    {
+      "path": "papers/figures/convergence/all_funcs_D10_c.png",
+      "sha256": "49e33695a868a4c045302733e4f5afc5785669ca73ffa7169d43c1ac17c651c7",
+      "bytes": 732708
+    },
+    {
+      "path": "papers/figures/convergence/all_funcs_D30_a.pdf",
+      "sha256": "d84869abbaadca60e2a4cd17851cb15b1175df3d558b417d8338eb4a60f3fdfe",
+      "bytes": 30849
+    },
+    {
+      "path": "papers/figures/convergence/all_funcs_D30_a.png",
+      "sha256": "c41940c61f2d724c468b474ff42ac6e7119d514c4734f630753c83ac5e2982ad",
+      "bytes": 766336
+    },
+    {
+      "path": "papers/figures/convergence/all_funcs_D30_b.pdf",
+      "sha256": "caddf7adf2eb5520b31d07c9f53eac4f9fa1c3ff7715e87a11a7b7e7459e303d",
+      "bytes": 33731
+    },
+    {
+      "path": "papers/figures/convergence/all_funcs_D30_b.png",
+      "sha256": "24d61f79ea1f8cb6e707cc781d36c64968f49827da3a102351fc5b1a378299a1",
+      "bytes": 864746
+    },
+    {
+      "path": "papers/figures/convergence/all_funcs_D30_c.pdf",
+      "sha256": "0faa6fdca0c2504041685b6d2635a2a449f3c03a3f1828b468205591b2b4d25a",
+      "bytes": 31835
+    },
+    {
+      "path": "papers/figures/convergence/all_funcs_D30_c.png",
+      "sha256": "f4fd324b59c2ed330d3d49ad26240d8fc8a7a4c1af9c3f6ad89b755294b1493e",
+      "bytes": 744294
+    },
+    {
+      "path": "papers/figures/convergence/all_funcs_D50_a.pdf",
+      "sha256": "3f8d09864e7b55edd4cb6badaa12fd41c803512fc577b7027a0be3cbf4267cb2",
+      "bytes": 32178
+    },
+    {
+      "path": "papers/figures/convergence/all_funcs_D50_a.png",
+      "sha256": "beec8caba73f9bbc5bcc96f53a449d17e76867e6a2538f263eb81a54d35998b9",
+      "bytes": 739358
+    },
+    {
+      "path": "papers/figures/convergence/all_funcs_D50_b.pdf",
+      "sha256": "06aaaf16879e3ea6b5f5b9c64271a24a8826c4231ed52e3320c67e42e19428ea",
+      "bytes": 33738
+    },
+    {
+      "path": "papers/figures/convergence/all_funcs_D50_b.png",
+      "sha256": "37cb34cd24d64af7e4ba56c49b7fc1d8511ea55a7e873acf38ab25c3d223cbae",
+      "bytes": 846578
+    },
+    {
+      "path": "papers/figures/convergence/all_funcs_D50_c.pdf",
+      "sha256": "c56324d4f78e9cdf50651363ef0fe75bd669bdb9f72f06d33fc459c4690de550",
+      "bytes": 31580
+    },
+    {
+      "path": "papers/figures/convergence/all_funcs_D50_c.png",
+      "sha256": "4c13843fdb30d2e563d0453b0d08e7915b9b49a4a1d1071ce6ab0598e5a1e231",
+      "bytes": 772588
+    },
+    {
+      "path": "papers/figures/convergence/all_funcs_D100_a.pdf",
+      "sha256": "245db590a11465bc231e244a970dceaa8ec836b5091e7d28573269f2ddda3819",
+      "bytes": 31552
+    },
+    {
+      "path": "papers/figures/convergence/all_funcs_D100_a.png",
+      "sha256": "ace89d2cc1535473ac9bdaea940ae5781895c220ea630137684a1f2643b79d5f",
+      "bytes": 721768
+    },
+    {
+      "path": "papers/figures/convergence/all_funcs_D100_b.pdf",
+      "sha256": "ef7695e10632694e11aa982c45f62652a641ca561892857d95da269864be884e",
+      "bytes": 33746
+    },
+    {
+      "path": "papers/figures/convergence/all_funcs_D100_b.png",
+      "sha256": "23cae3f3e0a36f54f90181e5f90e64cc1ba58906d8a3cea10ef6f4885ebe7502",
+      "bytes": 851623
+    },
+    {
+      "path": "papers/figures/convergence/all_funcs_D100_c.pdf",
+      "sha256": "209500615cb431d9ba26f7436d950f78d4431f70ef3292ade5d4345fcc6d5577",
+      "bytes": 32216
+    },
+    {
+      "path": "papers/figures/convergence/all_funcs_D100_c.png",
+      "sha256": "40f7d599a183e11339952ce44a6794785e376c4e4bd64b21594ef87554ab3167",
+      "bytes": 772526
+    },
+    {
+      "path": "papers/figures/convergence/cec2011_a.pdf",
+      "sha256": "001d7f9e7d7fb882c7bc859082b28fdba61dc04959ecfd59ae6e7867086b0941",
+      "bytes": 31693
+    },
+    {
+      "path": "papers/figures/convergence/cec2011_a.png",
+      "sha256": "430e9f104d0f57beb321c86e3602b62926d0c457c566a728815beadbd1f894b3",
+      "bytes": 645198
+    },
+    {
+      "path": "papers/figures/convergence/cec2011_b.pdf",
+      "sha256": "8405f814912e851d800a96125c0a54cfa7c449f8d350535332066bf18722977e",
+      "bytes": 32071
+    },
+    {
+      "path": "papers/figures/convergence/cec2011_b.png",
+      "sha256": "3acb05e0133859bed1055ca7fea963844cb571b7652ae3ea26cd459ed979e894",
+      "bytes": 563552
+    },
+    {
+      "path": "papers/figures/convergence/cec2011_c.pdf",
+      "sha256": "82dc24fc672754b5c6d393f24b625b966c9efb717eba8e60140edb13aaac51b0",
+      "bytes": 27209
+    },
+    {
+      "path": "papers/figures/convergence/cec2011_c.png",
+      "sha256": "1b6d063699d35477a60dcf46b44b71f371c79e2f4906d9b59c04926a87c8ea49",
+      "bytes": 548819
+    },
+    {
+      "path": "papers/figures/convergence/cec2013_a.pdf",
+      "sha256": "7328d01d066ed37408a0c809dcaf4cb46b599d906afb3ad910788346ed042e30",
+      "bytes": 30592
+    },
+    {
+      "path": "papers/figures/convergence/cec2013_a.png",
+      "sha256": "a4099788254171a407cfeb061e739f82b3d9fa816fa20fcdca45b57d291c0240",
+      "bytes": 655942
+    },
+    {
+      "path": "papers/figures/convergence/cec2013_b.pdf",
+      "sha256": "64f94bd7e05abea2956ceea070086c1af7b86e4babb7cc8071577e2f4f021653",
+      "bytes": 30091
+    },
+    {
+      "path": "papers/figures/convergence/cec2013_b.png",
+      "sha256": "9d243178d0967ec3732b0d7582e66189281108097eb7987b421e5750cf4d9511",
+      "bytes": 639391
+    },
+    {
+      "path": "papers/figures/convergence/cec2013_c.pdf",
+      "sha256": "9eae93fa98b90a2aca2ccd53d9d8dd0e3f6ba5e5be42497a4bc51cf30e9b685d",
+      "bytes": 29301
+    },
+    {
+      "path": "papers/figures/convergence/cec2013_c.png",
+      "sha256": "79adf3b67f34168d4580680eb07065993a0acbbf6403ce8405a12c83d1e703f0",
+      "bytes": 645211
+    },
+    {
+      "path": "papers/figures/convergence/cec2013_d.pdf",
+      "sha256": "dbc4a716c3aaa341a11731635d4af760b90543610c5378294d22740c25b20dca",
+      "bytes": 22929
+    },
+    {
+      "path": "papers/figures/convergence/cec2013_d.png",
+      "sha256": "1b1ea4ceb9a7be2dc72e650f596a7eb83c01513d879fbe4104c446fe0853df32",
+      "bytes": 302752
+    },
+    {
+      "path": "papers/figures/concept/fig_nlpsr_schedule.pdf",
+      "sha256": "54049a90699c860331fe4e2540e051cef08a3e1b86c9bc84f8251ed41b84e7a4",
+      "bytes": 21880
+    },
+    {
+      "path": "papers/figures/concept/fig_nlpsr_schedule.png",
+      "sha256": "0799a73604c599d8384fc944ca7e579211c0d2b4b7d114e0edbaed553c859385",
+      "bytes": 147080
+    }
+  ],
+  "s6_reserved_slot": {
+    "location": "papers/supplementary.tex line 947-954",
+    "status": "RESERVED (comment-only) Phase-12 insertion point",
+    "renders_nothing": true,
+    "verification": "Block is pure LaTeX comment (% prefixed); no heading, text, or exhibit; BIND AB-01/AB-02/AB-03 all DEFERRED_TO_PHASE_12_SUPPLEMENT_ONLY. Confirmed by no-ablation rendered-content scan (no_ablation_scan.md)."
+  },
+  "cr_0006_refreeze": {
+    "date_utc": "2026-07-11",
+    "change_request": "CR-0006 (A2-004 apgsk CEC2017 D10/D30/D50 per-run data-loss correction; decision_log D-0011; APPROVED P1)",
+    "supplement_documents_changed_by_cr_0006": false,
+    "hashes_preserved": true,
+    "statement": "CR-0006 does NOT reopen or modify the supplement documents. papers/supplementary.tex, papers/supplementary.pdf and papers/supplementary.docx are byte-identical to their pre-CR committed state after a clean deterministic rebuild (SOURCE_DATE_EPOCH=1783468800 PDF / 1783641600 DOCX); the run-level apgsk d.u.->real correction propagates to no .tex and no built supplement exhibit (all papers/tables/*.tex byte-identical). The core_documents sha256 values recorded above are the historical PRE-ABLATION snapshot and are DELIBERATELY LEFT UNCHANGED; their divergence from the current working-tree supplement is the separate Phase-12 ablation-appendix delta (Tables A15/A16 etc.), which is outside CR-0006 scope and is tracked by the Phase-12 manifests. The CR-0006 supplement-side data (the apgsk run-level FULL per-function tables, released-data form) lives entirely in the analysis bundle re-frozen in primary_freeze_manifest.json, not in these compiled documents."
+  }
+}

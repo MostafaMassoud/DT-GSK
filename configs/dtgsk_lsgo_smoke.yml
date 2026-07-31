@@ -1,0 +1,58 @@
+# DT-GSK CEC2013LSGO SMOKE -- health check only, NOT a benchmark.
+#
+# Same optimizer_options as configs/dtgsk_cec2013lsgo.yml (linkage block size
+# matched to the group structure + strict_profile_dims), but a tiny budget and a
+# throwaway output root so it finishes in well under a minute and never touches
+# the real results/_run_all tree.
+#
+# max_evaluations = 30000 is ~1% of the CEC2013LSGO standard (3e6); results are
+# NOT comparable to any published LSGO number -- this run only proves the wiring,
+# the CR-0009 kernel, and the linkage config execute cleanly end to end.
+#
+# Usage:
+#   python run.py --config configs/dtgsk_lsgo_smoke.yml --root .
+optimizers:
+  - dt-gsk
+suite: cec2013lsgo
+functions: [1]            # one separable function is enough for a wiring check
+dimensions: [1000]
+runs: 1
+max_evaluations: 30000
+seed: 20240620
+seed_policy: unified
+rand_generator: threefry
+overwrite: true
+parallel: false           # single run; no worker pool needed
+numba_threads: 1
+generation_logs: false
+convergence_graphs: false
+benchmark_fp_mode: default
+benchmark_backend: auto
+data_root: benchmarks/cec_suite_python
+reference_root: benchmarks/cec_reference_results
+output_root: results/_smoke30k
+optimizer_options:
+  linkage_block_size_by_dim:
+    1: 1
+    5: 5
+    6: 5
+    7: 5
+    10: 5
+    12: 5
+    13: 5
+    15: 5
+    20: 5
+    22: 5
+    26: 5
+    30: 5
+    40: 5
+    50: 10
+    96: 10
+    100: 10
+    120: 10
+    126: 10
+    140: 10
+    240: 10
+    905: 50
+    1000: 50
+  strict_profile_dims: true

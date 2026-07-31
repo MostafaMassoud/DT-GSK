@@ -1,0 +1,86 @@
+AUDIT of 9 tex files (+19 table files in token scans)
+in-build: ['main.tex', 'sections/conclusions.tex', 'sections/introduction.tex', 'sections/performance.tex', 'sections/proposed_algorithm.tex', 'sections/related_work.tex', 'supplementary.tex']
+STALE (not input by main.tex or supplementary.tex): ['sections/literature_review.tex', 'sections/supplementary_content.tex']
+
+==============================================================================
+1. CITATION AUDIT
+==============================================================================
+citation_usage_map.csv rows: 153 -> D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\papers\governance\citation_usage_map.csv
+  occurrences in released build: 110
+  distinct keys used in build: 40 of 57 allowed
+  keys outside allowed 57 (FAIL): 0
+  mechanism-discussion-only keys needing semantic review: 10 occurrences
+
+==============================================================================
+2. PARAGRAPH / NUMBER BINDING AUDIT
+==============================================================================
+paragraph_evidence_audit.csv rows: 274 -> D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\papers\build_prompt_phases\phase_08\paragraph_evidence_audit.csv
+  stale    NO_NUMBERS: 17
+  stale    PROTOCOL_OR_STRUCTURAL: 28
+  stale    UNBOUND_NUMBER: 34
+  in-build ADMIN_PLACEHOLDER (AG-0002/front-matter, not scientific): 4
+  in-build BOUND: 134
+  in-build NO_NUMBERS: 43
+  in-build PROTOCOL_OR_STRUCTURAL: 14
+
+UNBOUND-NUMBER violation candidates (in-build): 0
+
+BIND tokens referencing FORBIDDEN claims: 0
+
+unrecognized BIND tokens: 0
+
+==============================================================================
+3a. NO-ABLATION SCAN (released text)
+==============================================================================
+released-text ablation hits (must be 0): 0
+comment-level hits: 8 (1 in permitted S6 block; 7 other comments - informational)
+  [comment] main.tex:97 :: % Abstract (Phase 8; ~200 words; no citations; no ablation; one bound result
+  [comment] sections/conclusions.tex:9 :: % verbatim). No ablation content; one neutral supplement pointer with NO
+  [comment] sections/introduction.tex:10 :: % and suites and carries no numbers. No ablation content. Suite names match
+  [comment] sections/performance.tex:6 :: % "% BIND:" comment. No ablation or component-contribution content appears in
+  [comment] sections/proposed_algorithm.tex:8 :: % NO ablation content; component causality deferred to the Supplementary Materials.
+  [comment] sections/related_work.tex:11 :: % this paper's experiments appears in this section. No ablation content.
+  [comment] supplementary.tex:2 :: %% Phase 8 (drafting order step 12): non-ablation supplement, written from the
+
+==============================================================================
+3b. BLOCKED-WORDING SCAN (released text; must be 0)
+==============================================================================
+hits: 0
+
+==============================================================================
+3c. TERMINOLOGY SCAN (must be 0)
+==============================================================================
+hits: 0
+
+==============================================================================
+3d. REVIEW-CLASS WORDING HITS (manual adjudication)
+==============================================================================
+hits: 12
+  [bare 'free' (MT-08/HL-01: needs objective-evaluations qualifier or RNG-free)] main.tex:99 :: \abstract{ The published descendants of the gaining-sharing knowledge (GSK) algorithm adapt scalar control parameters an
+  [bare 'free' (MT-08/HL-01: needs objective-evaluations qualifier or RNG-free)] sections/conclusions.tex:15 :: This paper introduced \ismgsk{}, a GSK-family algorithm that leaves the gaining-sharing operator core unchanged and laye
+  ['independent'+suite words in same paragraph (PR-03/RS-11)] sections/introduction.tex:85 :: \begin{itemize}[leftmargin=*,labelsep=4.9mm] \item \textbf{C1 --- an interaction-structure memory (ISM).} ISM records, o
+  [bare 'free' (MT-08/HL-01: needs objective-evaluations qualifier or RNG-free)] sections/introduction.tex:85 :: \begin{itemize}[leftmargin=*,labelsep=4.9mm] \item \textbf{C1 --- an interaction-structure memory (ISM).} ISM records, o
+  ['independent'+suite words in same paragraph (PR-03/RS-11)] sections/performance.tex:68 :: \begin{table}[H] \caption{Frozen evaluation protocol (evidence release rel-2026-07-10-262fc16c9). The seed schedule is o
+  ['independent'+suite words in same paragraph (PR-03/RS-11)] sections/performance.tex:129 :: \paragraph{Environment and determinism.} All runs were executed on a 22-logical-core Windows workstation (Windows 10, bu
+  [bare 'free' (MT-08/HL-01: needs objective-evaluations qualifier or RNG-free)] sections/performance.tex:780 :: Consistent with no-free-lunch considerations, none of these findings is offered as evidence of field-wide superiority: e
+  [bare 'free' (MT-08/HL-01: needs objective-evaluations qualifier or RNG-free)] sections/proposed_algorithm.tex:343 :: The interaction-structure memory (ISM; code alias SGSM) accumulates this evidence in a signed $D\times D$ interaction gr
+  [bare 'free' (MT-08/HL-01: needs objective-evaluations qualifier or RNG-free)] sections/proposed_algorithm.tex:410 :: At the end of a budget-limited run, the incumbent typically sits near a local minimizer that the population operators re
+  [bare 'free' (MT-08/HL-01: needs objective-evaluations qualifier or RNG-free)] sections/proposed_algorithm.tex:422 :: The eigenframe final polish is a one-shot deterministic compass search executed on the eigenbasis $V$ of the ISM signed 
+  [bare 'free' (MT-08/HL-01: needs objective-evaluations qualifier or RNG-free)] sections/related_work.tex:238 :: \begin{figure}[H] \centering \includegraphics[width=0.95\textwidth]{figures/concept/fig_taxonomy.pdf} \caption{Structure
+  [bare 'free' (MT-08/HL-01: needs objective-evaluations qualifier or RNG-free)] sections/related_work.tex:267 :: Second, \emph{endgame refinement without determinism or budget safety}. The family's two late-refinement mechanisms are 
+
+==============================================================================
+SUMMARY
+==============================================================================
+{
+  "citation_usage_map_rows": 153,
+  "paragraph_evidence_audit_rows": 274,
+  "cite_key_failures_in_build": 0,
+  "unbound_number_candidates_in_build": 0,
+  "forbidden_claim_binds_in_build": 0,
+  "unrecognized_bind_tokens_in_build": 0,
+  "ablation_hits_released_text": 0,
+  "blocked_wording_hits": 0,
+  "terminology_hits": 0,
+  "review_class_hits": 12
+}

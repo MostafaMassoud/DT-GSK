@@ -1,0 +1,48 @@
+{
+ "release_id": "rel-2026-07-20-67d9345f9",
+ "anchor_commit": "67d9345f9502a9a584e645fa8948f60a61d70e29",
+ "git_head_at_run": "c11fc86fe02fc616f0695630be99745601036274",
+ "python": "3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]",
+ "python_executable": "C:\\AI\\Python\\Python310\\python.exe",
+ "platform": "Windows-10-10.0.26200-SP0",
+ "machine": "AMD64",
+ "packages": {
+  "numpy": "2.2.6",
+  "scipy": "1.15.3",
+  "pandas": "2.3.3",
+  "matplotlib": "3.10.8"
+ },
+ "locale": {
+  "LC_ALL": "C",
+  "LANG": "C",
+  "python_locale": [
+   "English_United States",
+   "1252"
+  ]
+ },
+ "thread_env": {
+  "OMP_NUM_THREADS": "1",
+  "MKL_NUM_THREADS": "1",
+  "OPENBLAS_NUM_THREADS": "1",
+  "NUMEXPR_NUM_THREADS": "1",
+  "VECLIB_MAXIMUM_THREADS": "1"
+ },
+ "pythonioencoding": "utf-8",
+ "strict_source": {
+  "env_GSK_STRICT_SOURCE": "1",
+  "programmatic_set_strict_source": true
+ },
+ "algorithm_freeze_hashes": {
+  "note": "SHA-256 (first 16 hex) at anchor; full byte-identity enforced by scripts/validate_profile_lock.py and tests/regression/test_ism_gsk_byte_stable.py",
+  "ism_gsk.py": "a274e0f83b4efd3c",
+  "_ism_core.py": "1ef815cee5d4c9c3",
+  "_ism_profiles.py": "c3dcdce3a3477dca",
+  "_ism_rng.py": "db1cc028b3ebc145",
+  "_ism_subsystems_merkle32": "e532fc4435fd407cf585c5ee57ba3de8"
+ },
+ "rng_policy": "BCa: default_rng(SeedSequence([20240620, suite_ordinal, dimension, function, comparator_P1_index])), B=10000; no other stochastic step",
+ "cwd": "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1",
+ "argv": [
+  "D:\\AI\\PhD-Projects\\00-GSK-Family\\02-GSK_Family_Python_v1.1\\papers\\scripts\\phase6_run_analysis.py"
+ ]
+}

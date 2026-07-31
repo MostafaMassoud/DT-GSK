@@ -1,0 +1,4665 @@
+{
+ "n_hashed_files": 103,
+ "suite_metadata": {
+  "cec2017": {
+   "dims_checked": {
+    "10": {
+     "lb_uniform": -100.0,
+     "ub_uniform": 100.0
+    },
+    "30": {
+     "lb_uniform": -100.0,
+     "ub_uniform": 100.0
+    },
+    "50": {
+     "lb_uniform": -100.0,
+     "ub_uniform": 100.0
+    },
+    "100": {
+     "lb_uniform": -100.0,
+     "ub_uniform": 100.0
+    }
+   },
+   "fopt_rule_100i": true,
+   "fopt": {
+    "1": 100.0,
+    "2": 200.0,
+    "3": 300.0,
+    "4": 400.0,
+    "5": 500.0,
+    "6": 600.0,
+    "7": 700.0,
+    "8": 800.0,
+    "9": 900.0,
+    "10": 1000.0,
+    "11": 1100.0,
+    "12": 1200.0,
+    "13": 1300.0,
+    "14": 1400.0,
+    "15": 1500.0,
+    "16": 1600.0,
+    "17": 1700.0,
+    "18": 1800.0,
+    "19": 1900.0,
+    "20": 2000.0,
+    "21": 2100.0,
+    "22": 2200.0,
+    "23": 2300.0,
+    "24": 2400.0,
+    "25": 2500.0,
+    "26": 2600.0,
+    "27": 2700.0,
+    "28": 2800.0,
+    "29": 2900.0,
+    "30": 3000.0
+   },
+   "data_pkl_keys": [
+    "rotations",
+    "rotations_cf",
+    "shifts",
+    "shifts_cf",
+    "shuffles",
+    "shuffles_cf"
+   ],
+   "data_pkl_n_keys": 6
+  },
+  "cec2013": {
+   "valid_dims": [
+    2,
+    5,
+    10,
+    20,
+    30,
+    40,
+    50,
+    60,
+    70,
+    80,
+    90,
+    100
+   ],
+   "fopt": {
+    "1": -1400.0,
+    "2": -1300.0,
+    "3": -1200.0,
+    "4": -1100.0,
+    "5": -1000.0,
+    "6": -900.0,
+    "7": -800.0,
+    "8": -700.0,
+    "9": -600.0,
+    "10": -500.0,
+    "11": -400.0,
+    "12": -300.0,
+    "13": -200.0,
+    "14": -100.0,
+    "15": 100.0,
+    "16": 200.0,
+    "17": 300.0,
+    "18": 400.0,
+    "19": 500.0,
+    "20": 600.0,
+    "21": 700.0,
+    "22": 800.0,
+    "23": 900.0,
+    "24": 1000.0,
+    "25": 1100.0,
+    "26": 1200.0,
+    "27": 1300.0,
+    "28": 1400.0
+   },
+   "fopt_rule": true,
+   "bounds_D30": [
+    -100.0,
+    100.0
+   ],
+   "data_pkl_n_keys": 2,
+   "data_pkl_keys_sample": [
+    "rotations",
+    "shift_flat"
+   ]
+  },
+  "cec2011": {
+   "functions": {
+    "1": {
+     "name": "Parameter Estimation for FM Sound Waves",
+     "dim": 6,
+     "lb_min": -6.4,
+     "ub_max": 6.35
+    },
+    "2": {
+     "name": "Lennard-Jones Potential",
+     "dim": 30,
+     "lb_min": -6.0,
+     "ub_max": 6.0
+    },
+    "3": {
+     "name": "Bifunctional Catalyst Blend Control",
+     "dim": 1,
+     "lb_min": 0.6,
+     "ub_max": 0.9
+    },
+    "4": {
+     "name": "Stirred Tank Reactor Control",
+     "dim": 1,
+     "lb_min": 0.0,
+     "ub_max": 5.0
+    },
+    "5": {
+     "name": "Tersoff Potential Si(B)",
+     "dim": 30,
+     "lb_min": -6.0,
+     "ub_max": 6.0
+    },
+    "6": {
+     "name": "Tersoff Potential Si(C)",
+     "dim": 30,
+     "lb_min": -6.0,
+     "ub_max": 6.0
+    },
+    "7": {
+     "name": "Spread Spectrum Radar Polyphase",
+     "dim": 20,
+     "lb_min": 0.0,
+     "ub_max": 6.283185307179586
+    },
+    "8": {
+     "name": "Transmission Network Expansion Planning",
+     "dim": 7,
+     "lb_min": 0.0,
+     "ub_max": 15.0
+    },
+    "9": {
+     "name": "Large Scale Energy Brokerage",
+     "dim": 126,
+     "lb_min": 0.0,
+     "ub_max": 0.892
+    },
+    "10": {
+     "name": "Circular Antenna Array Design",
+     "dim": 12,
+     "lb_min": -180.0,
+     "ub_max": 180.0
+    },
+    "11": {
+     "name": "Dynamic ELD 5-Unit 24h",
+     "dim": 120,
+     "lb_min": 10.0,
+     "ub_max": 300.0
+    },
+    "12": {
+     "name": "Dynamic ELD 10-Unit 24h",
+     "dim": 240,
+     "lb_min": 20.0,
+     "ub_max": 470.0
+    },
+    "13": {
+     "name": "Static ELD 6-Unit",
+     "dim": 6,
+     "lb_min": 50.0,
+     "ub_max": 500.0
+    },
+    "14": {
+     "name": "Static ELD 13-Unit",
+     "dim": 13,
+     "lb_min": 0.0,
+     "ub_max": 680.0
+    },
+    "15": {
+     "name": "Static ELD 15-Unit",
+     "dim": 15,
+     "lb_min": 15.0,
+     "ub_max": 470.0
+    },
+    "16": {
+     "name": "Static ELD 40-Unit",
+     "dim": 40,
+     "lb_min": 10.0,
+     "ub_max": 550.0
+    },
+    "17": {
+     "name": "Static ELD 140-Unit",
+     "dim": 140,
+     "lb_min": 2.0,
+     "ub_max": 1021.0
+    },
+    "18": {
+     "name": "Hydrothermal Scheduling Case 1",
+     "dim": 96,
+     "lb_min": 5.0,
+     "ub_max": 30.0
+    },
+    "19": {
+     "name": "Hydrothermal Scheduling Case 2",
+     "dim": 96,
+     "lb_min": 5.0,
+     "ub_max": 30.0
+    },
+    "20": {
+     "name": "Hydrothermal Scheduling Case 3",
+     "dim": 96,
+     "lb_min": 5.0,
+     "ub_max": 30.0
+    },
+    "21": {
+     "name": "Messenger Spacecraft Trajectory",
+     "dim": 26,
+     "lb_min": -3.141592653589793,
+     "ub_max": 2300.0
+    },
+    "22": {
+     "name": "Cassini-Huygens Spacecraft Trajectory",
+     "dim": 22,
+     "lb_min": -1000.0,
+     "ub_max": 2200.0
+    }
+   },
+   "dim_mismatches_vs_das2011_table1": [
+    {
+     "func": 12,
+     "code_dim": 240,
+     "das2011_table1_dim": 216
+    }
+   ]
+  }
+ },
+ "panel_cells": [
+  {
+   "suite": "cec2017",
+   "optimizer": "gsk",
+   "max_nfes_override_runconfig": 0,
+   "max_nfes_override_env": 0,
+   "profile": null,
+   "pop_size": 100,
+   "optimizer_options": {},
+   "exclude_funcs": 2,
+   "statistics_basis": "error_vs_optimum",
+   "env_git_commit": "31c5a04c4dc15ffff0f644b1e744741fedf7d463",
+   "env_timestamp": "2026-07-08T12:24:02",
+   "env_command": "python run.py --root . --optimizer gsk --suite cec2017 --runs 51 --seed 20240620 --seed-policy unified --rand-generator threefry --benchmark-fp-mode default --benchmark-backend auto --convergence-graphs",
+   "env_output_dir": "results\\_run_all\\gsk\\cec2017",
+   "env_computer": "HUAWEI-MMASOUD",
+   "env_fp_sentinel": "8bda40d80d1671fe6571a56195b1d0679208c20f8cb2ae14c24b56f469c15bdb",
+   "ver_verdict": "CONSISTENT",
+   "ver_generated_dir": "results\\_run_all\\gsk\\cec2017",
+   "ver_functions_checked": 116,
+   "ver_wtl": [
+    2,
+    113,
+    1
+   ],
+   "ver_reduced_budget": false,
+   "per_run_rows": 5916,
+   "per_run_dims": [
+    10,
+    30,
+    50,
+    100
+   ],
+   "per_run_funcs_n": 29,
+   "per_run_has_F2": false,
+   "nfes_audit": {
+    "10": {
+     "expected": 100000,
+     "min": 100000,
+     "max": 100000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 1479,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 1479
+    },
+    "30": {
+     "expected": 300000,
+     "min": 300000,
+     "max": 300000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 1479,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 1479
+    },
+    "50": {
+     "expected": 500000,
+     "min": 500000,
+     "max": 500000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 1479,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 1479
+    },
+    "100": {
+     "expected": 1000000,
+     "min": 1000000,
+     "max": 1000000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 1479,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 1479
+    }
+   },
+   "error_nan_count": 0,
+   "summary_vs_per_run": {
+    "D10": {
+     "n_compared": 145,
+     "n_mismatch": 1,
+     "n_funcs_no_per_run": 0,
+     "mismatches": [
+      {
+       "func": 27,
+       "stat": "SD",
+       "summary": 0.20570953943,
+       "recomputed": 0.20570953907476883
+      }
+     ]
+    },
+    "D30": {
+     "n_compared": 145,
+     "n_mismatch": 1,
+     "n_funcs_no_per_run": 0,
+     "mismatches": [
+      {
+       "func": 25,
+       "stat": "SD",
+       "summary": 0.19512870443,
+       "recomputed": 0.1951287048457497
+      }
+     ]
+    },
+    "D50": {
+     "n_compared": 145,
+     "n_mismatch": 0,
+     "n_funcs_no_per_run": 0,
+     "mismatches": []
+    },
+    "D100": {
+     "n_compared": 145,
+     "n_mismatch": 0,
+     "n_funcs_no_per_run": 0,
+     "mismatches": []
+    }
+   },
+   "seed_schedule_sha256": "77122f46c87d573704912d27a46d6eade75b61917a7d81591d44fdef0ab773e9"
+  },
+  {
+   "suite": "cec2017",
+   "optimizer": "agsk",
+   "max_nfes_override_runconfig": 0,
+   "max_nfes_override_env": 0,
+   "profile": null,
+   "pop_size": null,
+   "optimizer_options": {},
+   "exclude_funcs": 2,
+   "statistics_basis": "error_vs_optimum",
+   "env_git_commit": "f94817cc4df2b9a94a727b467fe0a877c3520ae5",
+   "env_timestamp": "2026-07-08T16:44:22",
+   "env_command": "python run.py --root . --optimizer agsk --suite cec2017 --runs 51 --seed 20240620 --seed-policy unified --rand-generator threefry --benchmark-fp-mode default --benchmark-backend auto --convergence-graphs",
+   "env_output_dir": "results\\_run_all\\agsk\\cec2017",
+   "env_computer": "HUAWEI-MMASOUD",
+   "env_fp_sentinel": "8bda40d80d1671fe6571a56195b1d0679208c20f8cb2ae14c24b56f469c15bdb",
+   "ver_verdict": "CONSISTENT",
+   "ver_generated_dir": "results\\_run_all\\agsk\\cec2017",
+   "ver_functions_checked": 116,
+   "ver_wtl": [
+    0,
+    116,
+    0
+   ],
+   "ver_reduced_budget": false,
+   "per_run_rows": 5916,
+   "per_run_dims": [
+    10,
+    30,
+    50,
+    100
+   ],
+   "per_run_funcs_n": 29,
+   "per_run_has_F2": false,
+   "nfes_audit": {
+    "10": {
+     "expected": 100000,
+     "min": 44497,
+     "max": 100000,
+     "n_over": 0,
+     "n_under": 351,
+     "n_exact": 1128,
+     "terminations": [
+      "max_evaluations",
+      "target_error_reached"
+     ],
+     "n_runs_rows": 1479
+    },
+    "30": {
+     "expected": 300000,
+     "min": 123991,
+     "max": 300000,
+     "n_over": 0,
+     "n_under": 53,
+     "n_exact": 1426,
+     "terminations": [
+      "max_evaluations",
+      "target_error_reached"
+     ],
+     "n_runs_rows": 1479
+    },
+    "50": {
+     "expected": 500000,
+     "min": 500000,
+     "max": 500000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 1479,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 1479
+    },
+    "100": {
+     "expected": 1000000,
+     "min": 1000000,
+     "max": 1000000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 1479,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 1479
+    }
+   },
+   "error_nan_count": 0,
+   "summary_vs_per_run": {
+    "D10": {
+     "n_compared": 145,
+     "n_mismatch": 1,
+     "n_funcs_no_per_run": 0,
+     "mismatches": [
+      {
+       "func": 27,
+       "stat": "SD",
+       "summary": 0.65614665597,
+       "recomputed": 0.656146655626649
+      }
+     ]
+    },
+    "D30": {
+     "n_compared": 145,
+     "n_mismatch": 2,
+     "n_funcs_no_per_run": 0,
+     "mismatches": [
+      {
+       "func": 22,
+       "stat": "SD",
+       "summary": 0.47189671365,
+       "recomputed": 0.47189671418265794
+      },
+      {
+       "func": 25,
+       "stat": "SD",
+       "summary": 0.68657468686,
+       "recomputed": 0.6865746876289993
+      }
+     ]
+    },
+    "D50": {
+     "n_compared": 145,
+     "n_mismatch": 0,
+     "n_funcs_no_per_run": 0,
+     "mismatches": []
+    },
+    "D100": {
+     "n_compared": 145,
+     "n_mismatch": 0,
+     "n_funcs_no_per_run": 0,
+     "mismatches": []
+    }
+   },
+   "seed_schedule_sha256": "77122f46c87d573704912d27a46d6eade75b61917a7d81591d44fdef0ab773e9"
+  },
+  {
+   "suite": "cec2017",
+   "optimizer": "apgsk",
+   "max_nfes_override_runconfig": 0,
+   "max_nfes_override_env": 0,
+   "profile": null,
+   "pop_size": null,
+   "optimizer_options": {},
+   "exclude_funcs": 2,
+   "statistics_basis": "error_vs_optimum",
+   "env_git_commit": "20cfed0acb5bb005cb563edfb60ae6c2168bc2cf",
+   "env_timestamp": "2026-07-08T21:53:10",
+   "env_command": "python run.py --root . --optimizer apgsk --suite cec2017 --runs 51 --seed 20240620 --seed-policy unified --rand-generator threefry --benchmark-fp-mode default --benchmark-backend auto --convergence-graphs",
+   "env_output_dir": "results\\_run_all\\apgsk\\cec2017",
+   "env_computer": "HUAWEI-MMASOUD",
+   "env_fp_sentinel": "8bda40d80d1671fe6571a56195b1d0679208c20f8cb2ae14c24b56f469c15bdb",
+   "ver_verdict": "CONSISTENT",
+   "ver_generated_dir": "results\\_run_all\\apgsk\\cec2017",
+   "ver_functions_checked": 116,
+   "ver_wtl": [
+    0,
+    116,
+    0
+   ],
+   "ver_reduced_budget": false,
+   "per_run_rows": 1479,
+   "per_run_dims": [
+    100
+   ],
+   "per_run_funcs_n": 29,
+   "per_run_has_F2": false,
+   "nfes_audit": {
+    "100": {
+     "expected": 1000000,
+     "min": 1000000,
+     "max": 1000000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 1479,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 1479
+    }
+   },
+   "error_nan_count": 0,
+   "summary_vs_per_run": {
+    "D10": {
+     "n_compared": 0,
+     "n_mismatch": 0,
+     "n_funcs_no_per_run": 29,
+     "mismatches": []
+    },
+    "D30": {
+     "n_compared": 0,
+     "n_mismatch": 0,
+     "n_funcs_no_per_run": 29,
+     "mismatches": []
+    },
+    "D50": {
+     "n_compared": 0,
+     "n_mismatch": 0,
+     "n_funcs_no_per_run": 29,
+     "mismatches": []
+    },
+    "D100": {
+     "n_compared": 145,
+     "n_mismatch": 0,
+     "n_funcs_no_per_run": 0,
+     "mismatches": []
+    }
+   },
+   "seed_schedule_sha256": "c1d752a824f0fe459dbd36c00c8b102dd4bbcd96480dc7e384de0c76a9c5060c"
+  },
+  {
+   "suite": "cec2017",
+   "optimizer": "fdb-agsk",
+   "max_nfes_override_runconfig": 0,
+   "max_nfes_override_env": 0,
+   "profile": null,
+   "pop_size": null,
+   "optimizer_options": {},
+   "exclude_funcs": 2,
+   "statistics_basis": "error_vs_optimum",
+   "env_git_commit": "19f32fb83ec1bd1333f760080af90bd946b1d862",
+   "env_timestamp": "2026-07-09T02:36:00",
+   "env_command": "python run.py --root . --optimizer fdb-agsk --suite cec2017 --runs 51 --seed 20240620 --seed-policy unified --rand-generator threefry --benchmark-fp-mode default --benchmark-backend auto --convergence-graphs",
+   "env_output_dir": "results\\_run_all\\fdb-agsk\\cec2017",
+   "env_computer": "HUAWEI-MMASOUD",
+   "env_fp_sentinel": "8bda40d80d1671fe6571a56195b1d0679208c20f8cb2ae14c24b56f469c15bdb",
+   "ver_verdict": "CONSISTENT",
+   "ver_generated_dir": "results\\_run_all\\fdb-agsk\\cec2017",
+   "ver_functions_checked": 116,
+   "ver_wtl": [
+    0,
+    116,
+    0
+   ],
+   "ver_reduced_budget": false,
+   "per_run_rows": 5916,
+   "per_run_dims": [
+    10,
+    30,
+    50,
+    100
+   ],
+   "per_run_funcs_n": 29,
+   "per_run_has_F2": false,
+   "nfes_audit": {
+    "10": {
+     "expected": 100000,
+     "min": 100000,
+     "max": 100000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 1479,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 1479
+    },
+    "30": {
+     "expected": 300000,
+     "min": 300000,
+     "max": 300000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 1479,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 1479
+    },
+    "50": {
+     "expected": 500000,
+     "min": 500000,
+     "max": 500000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 1479,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 1479
+    },
+    "100": {
+     "expected": 1000000,
+     "min": 1000000,
+     "max": 1000000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 1479,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 1479
+    }
+   },
+   "error_nan_count": 0,
+   "summary_vs_per_run": {
+    "D10": {
+     "n_compared": 145,
+     "n_mismatch": 1,
+     "n_funcs_no_per_run": 0,
+     "mismatches": [
+      {
+       "func": 27,
+       "stat": "SD",
+       "summary": 0.84117273906,
+       "recomputed": 0.8411727381062477
+      }
+     ]
+    },
+    "D30": {
+     "n_compared": 145,
+     "n_mismatch": 0,
+     "n_funcs_no_per_run": 0,
+     "mismatches": []
+    },
+    "D50": {
+     "n_compared": 145,
+     "n_mismatch": 0,
+     "n_funcs_no_per_run": 0,
+     "mismatches": []
+    },
+    "D100": {
+     "n_compared": 145,
+     "n_mismatch": 0,
+     "n_funcs_no_per_run": 0,
+     "mismatches": []
+    }
+   },
+   "seed_schedule_sha256": "77122f46c87d573704912d27a46d6eade75b61917a7d81591d44fdef0ab773e9"
+  },
+  {
+   "suite": "cec2017",
+   "optimizer": "atmals-gsk",
+   "max_nfes_override_runconfig": 0,
+   "max_nfes_override_env": 0,
+   "profile": null,
+   "pop_size": 100,
+   "optimizer_options": {},
+   "exclude_funcs": 2,
+   "statistics_basis": "error_vs_optimum",
+   "env_git_commit": "7483cac2ebe67d4c7c496fe7f08e48ef29b75807",
+   "env_timestamp": "2026-07-09T06:20:39",
+   "env_command": "python run.py --root . --optimizer atmals-gsk --suite cec2017 --runs 51 --seed 20240620 --seed-policy unified --rand-generator threefry --benchmark-fp-mode default --benchmark-backend auto --convergence-graphs",
+   "env_output_dir": "results\\_run_all\\atmals-gsk\\cec2017",
+   "env_computer": "HUAWEI-MMASOUD",
+   "env_fp_sentinel": "8bda40d80d1671fe6571a56195b1d0679208c20f8cb2ae14c24b56f469c15bdb",
+   "ver_verdict": "CONSISTENT",
+   "ver_generated_dir": "results\\_run_all\\atmals-gsk\\cec2017",
+   "ver_functions_checked": 116,
+   "ver_wtl": [
+    0,
+    116,
+    0
+   ],
+   "ver_reduced_budget": false,
+   "per_run_rows": 5916,
+   "per_run_dims": [
+    10,
+    30,
+    50,
+    100
+   ],
+   "per_run_funcs_n": 29,
+   "per_run_has_F2": false,
+   "nfes_audit": {
+    "10": {
+     "expected": 100000,
+     "min": 100000,
+     "max": 100000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 1479,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 1479
+    },
+    "30": {
+     "expected": 300000,
+     "min": 300000,
+     "max": 300000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 1479,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 1479
+    },
+    "50": {
+     "expected": 500000,
+     "min": 500000,
+     "max": 500000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 1479,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 1479
+    },
+    "100": {
+     "expected": 1000000,
+     "min": 1000000,
+     "max": 1000000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 1479,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 1479
+    }
+   },
+   "error_nan_count": 0,
+   "summary_vs_per_run": {
+    "D10": {
+     "n_compared": 145,
+     "n_mismatch": 1,
+     "n_funcs_no_per_run": 0,
+     "mismatches": [
+      {
+       "func": 27,
+       "stat": "SD",
+       "summary": 0.25020150254,
+       "recomputed": 0.2502015019537511
+      }
+     ]
+    },
+    "D30": {
+     "n_compared": 145,
+     "n_mismatch": 0,
+     "n_funcs_no_per_run": 0,
+     "mismatches": []
+    },
+    "D50": {
+     "n_compared": 145,
+     "n_mismatch": 0,
+     "n_funcs_no_per_run": 0,
+     "mismatches": []
+    },
+    "D100": {
+     "n_compared": 145,
+     "n_mismatch": 0,
+     "n_funcs_no_per_run": 0,
+     "mismatches": []
+    }
+   },
+   "seed_schedule_sha256": "77122f46c87d573704912d27a46d6eade75b61917a7d81591d44fdef0ab773e9"
+  },
+  {
+   "suite": "cec2017",
+   "optimizer": "egsk",
+   "max_nfes_override_runconfig": 0,
+   "max_nfes_override_env": 0,
+   "profile": null,
+   "pop_size": 100,
+   "optimizer_options": {},
+   "exclude_funcs": 2,
+   "statistics_basis": "error_vs_optimum",
+   "env_git_commit": "c35c26de742d8417184aab9ec533f4e3bcb5f091",
+   "env_timestamp": "2026-07-09T09:56:08",
+   "env_command": "python run.py --root . --optimizer egsk --suite cec2017 --runs 51 --seed 20240620 --seed-policy unified --rand-generator threefry --benchmark-fp-mode default --benchmark-backend auto --convergence-graphs",
+   "env_output_dir": "results\\_run_all\\egsk\\cec2017",
+   "env_computer": "HUAWEI-MMASOUD",
+   "env_fp_sentinel": "8bda40d80d1671fe6571a56195b1d0679208c20f8cb2ae14c24b56f469c15bdb",
+   "ver_verdict": "CONSISTENT",
+   "ver_generated_dir": "results\\_run_all\\egsk\\cec2017",
+   "ver_functions_checked": 116,
+   "ver_wtl": [
+    4,
+    107,
+    5
+   ],
+   "ver_reduced_budget": false,
+   "per_run_rows": 5916,
+   "per_run_dims": [
+    10,
+    30,
+    50,
+    100
+   ],
+   "per_run_funcs_n": 29,
+   "per_run_has_F2": false,
+   "nfes_audit": {
+    "10": {
+     "expected": 100000,
+     "min": 100000,
+     "max": 100000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 1479,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 1479
+    },
+    "30": {
+     "expected": 300000,
+     "min": 300000,
+     "max": 300000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 1479,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 1479
+    },
+    "50": {
+     "expected": 500000,
+     "min": 500000,
+     "max": 500000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 1479,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 1479
+    },
+    "100": {
+     "expected": 1000000,
+     "min": 1000000,
+     "max": 1000000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 1479,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 1479
+    }
+   },
+   "error_nan_count": 0,
+   "summary_vs_per_run": {
+    "D10": {
+     "n_compared": 145,
+     "n_mismatch": 2,
+     "n_funcs_no_per_run": 0,
+     "mismatches": [
+      {
+       "func": 22,
+       "stat": "SD",
+       "summary": 0.15567395541,
+       "recomputed": 0.15567395480400786
+      },
+      {
+       "func": 27,
+       "stat": "SD",
+       "summary": 0.20570953943,
+       "recomputed": 0.20570953907476885
+      }
+     ]
+    },
+    "D30": {
+     "n_compared": 145,
+     "n_mismatch": 0,
+     "n_funcs_no_per_run": 0,
+     "mismatches": []
+    },
+    "D50": {
+     "n_compared": 145,
+     "n_mismatch": 0,
+     "n_funcs_no_per_run": 0,
+     "mismatches": []
+    },
+    "D100": {
+     "n_compared": 145,
+     "n_mismatch": 0,
+     "n_funcs_no_per_run": 0,
+     "mismatches": []
+    }
+   },
+   "seed_schedule_sha256": "77122f46c87d573704912d27a46d6eade75b61917a7d81591d44fdef0ab773e9"
+  },
+  {
+   "suite": "cec2017",
+   "optimizer": "dt-gsk",
+   "max_nfes_override_runconfig": 0,
+   "max_nfes_override_env": 0,
+   "profile": "pub",
+   "pop_size": null,
+   "optimizer_options": {},
+   "exclude_funcs": 2,
+   "statistics_basis": "error_vs_optimum",
+   "env_git_commit": "c35c26de742d8417184aab9ec533f4e3bcb5f091",
+   "env_timestamp": "2026-07-09T14:45:09",
+   "env_command": "python run.py --root . --optimizer dt-gsk --suite cec2017 --runs 51 --seed 20240620 --seed-policy unified --rand-generator threefry --benchmark-fp-mode default --benchmark-backend auto --convergence-graphs",
+   "env_output_dir": "results\\_run_all\\dt-gsk\\cec2017",
+   "env_computer": "HUAWEI-MMASOUD",
+   "env_fp_sentinel": "8bda40d80d1671fe6571a56195b1d0679208c20f8cb2ae14c24b56f469c15bdb",
+   "ver_verdict": "CONSISTENT",
+   "ver_generated_dir": "results\\_run_all\\dt-gsk\\cec2017",
+   "ver_functions_checked": 116,
+   "ver_wtl": [
+    4,
+    112,
+    0
+   ],
+   "ver_reduced_budget": false,
+   "per_run_rows": 5916,
+   "per_run_dims": [
+    10,
+    30,
+    50,
+    100
+   ],
+   "per_run_funcs_n": 29,
+   "per_run_has_F2": false,
+   "nfes_audit": {
+    "10": {
+     "expected": 100000,
+     "min": 100000,
+     "max": 100000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 1479,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 1479
+    },
+    "30": {
+     "expected": 300000,
+     "min": 300000,
+     "max": 300000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 1479,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 1479
+    },
+    "50": {
+     "expected": 500000,
+     "min": 500000,
+     "max": 500000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 1479,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 1479
+    },
+    "100": {
+     "expected": 1000000,
+     "min": 1000000,
+     "max": 1000000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 1479,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 1479
+    }
+   },
+   "error_nan_count": 0,
+   "summary_vs_per_run": {
+    "D10": {
+     "n_compared": 145,
+     "n_mismatch": 1,
+     "n_funcs_no_per_run": 0,
+     "mismatches": [
+      {
+       "func": 27,
+       "stat": "SD",
+       "summary": 0.72374023311,
+       "recomputed": 0.723740232568899
+      }
+     ]
+    },
+    "D30": {
+     "n_compared": 145,
+     "n_mismatch": 0,
+     "n_funcs_no_per_run": 0,
+     "mismatches": []
+    },
+    "D50": {
+     "n_compared": 145,
+     "n_mismatch": 0,
+     "n_funcs_no_per_run": 0,
+     "mismatches": []
+    },
+    "D100": {
+     "n_compared": 145,
+     "n_mismatch": 0,
+     "n_funcs_no_per_run": 0,
+     "mismatches": []
+    }
+   },
+   "seed_schedule_sha256": "77122f46c87d573704912d27a46d6eade75b61917a7d81591d44fdef0ab773e9"
+  },
+  {
+   "suite": "cec2013",
+   "optimizer": "gsk",
+   "max_nfes_override_runconfig": 0,
+   "max_nfes_override_env": 0,
+   "profile": null,
+   "pop_size": 100,
+   "optimizer_options": {},
+   "exclude_funcs": [],
+   "statistics_basis": "error_vs_optimum",
+   "env_git_commit": "c35c26de742d8417184aab9ec533f4e3bcb5f091",
+   "env_timestamp": "2026-07-09T21:14:03",
+   "env_command": "python run.py --root . --optimizer gsk --suite cec2013 --runs 51 --seed 20240620 --seed-policy unified --rand-generator threefry --benchmark-fp-mode default --benchmark-backend auto --convergence-graphs",
+   "env_output_dir": "results\\_run_all\\gsk\\cec2013",
+   "env_computer": "HUAWEI-MMASOUD",
+   "env_fp_sentinel": "16a3e3095b606c5bab5f56fe52e6849ccde461a71f37929366d059ae7d72309e",
+   "ver_verdict": "CONSISTENT",
+   "ver_generated_dir": "results\\_run_all\\gsk\\cec2013",
+   "ver_functions_checked": 0,
+   "ver_wtl": [
+    0,
+    0,
+    0
+   ],
+   "ver_reduced_budget": false,
+   "per_run_rows": 4284,
+   "per_run_dims": [
+    10,
+    30,
+    50
+   ],
+   "per_run_funcs_n": 28,
+   "per_run_has_F2": null,
+   "nfes_audit": {
+    "10": {
+     "expected": 100000,
+     "min": 100000,
+     "max": 100000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 1428,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 1428
+    },
+    "30": {
+     "expected": 300000,
+     "min": 300000,
+     "max": 300000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 1428,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 1428
+    },
+    "50": {
+     "expected": 500000,
+     "min": 500000,
+     "max": 500000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 1428,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 1428
+    }
+   },
+   "error_nan_count": 0,
+   "summary_vs_per_run": {
+    "D10": {
+     "n_compared": 140,
+     "n_mismatch": 1,
+     "n_funcs_no_per_run": 0,
+     "mismatches": [
+      {
+       "func": 8,
+       "stat": "SD",
+       "summary": 0.075334955744,
+       "recomputed": 0.07533495579099661
+      }
+     ]
+    },
+    "D30": {
+     "n_compared": 140,
+     "n_mismatch": 3,
+     "n_funcs_no_per_run": 0,
+     "mismatches": [
+      {
+       "func": 8,
+       "stat": "SD",
+       "summary": 0.035464672942,
+       "recomputed": 0.03546467290236661
+      },
+      {
+       "func": 24,
+       "stat": "SD",
+       "summary": 0.089780935858,
+       "recomputed": 0.0897809359749163
+      },
+      {
+       "func": 26,
+       "stat": "SD",
+       "summary": 0.0074358167206,
+       "recomputed": 0.007435816967412113
+      }
+     ]
+    },
+    "D50": {
+     "n_compared": 140,
+     "n_mismatch": 0,
+     "n_funcs_no_per_run": 0,
+     "mismatches": []
+    }
+   },
+   "seed_schedule_sha256": "8a8989dad8957c3290617c6553caa819a6bdf91fa615fcaba818717edb60e58f"
+  },
+  {
+   "suite": "cec2013",
+   "optimizer": "agsk",
+   "max_nfes_override_runconfig": 0,
+   "max_nfes_override_env": 0,
+   "profile": null,
+   "pop_size": null,
+   "optimizer_options": {},
+   "exclude_funcs": [],
+   "statistics_basis": "error_vs_optimum",
+   "env_git_commit": "c35c26de742d8417184aab9ec533f4e3bcb5f091",
+   "env_timestamp": "2026-07-09T22:52:04",
+   "env_command": "python run.py --root . --optimizer agsk --suite cec2013 --runs 51 --seed 20240620 --seed-policy unified --rand-generator threefry --benchmark-fp-mode default --benchmark-backend auto --convergence-graphs",
+   "env_output_dir": "results\\_run_all\\agsk\\cec2013",
+   "env_computer": "HUAWEI-MMASOUD",
+   "env_fp_sentinel": "16a3e3095b606c5bab5f56fe52e6849ccde461a71f37929366d059ae7d72309e",
+   "ver_verdict": "CONSISTENT",
+   "ver_generated_dir": "results\\_run_all\\agsk\\cec2013",
+   "ver_functions_checked": 0,
+   "ver_wtl": [
+    0,
+    0,
+    0
+   ],
+   "ver_reduced_budget": false,
+   "per_run_rows": 4284,
+   "per_run_dims": [
+    10,
+    30,
+    50
+   ],
+   "per_run_funcs_n": 28,
+   "per_run_has_F2": null,
+   "nfes_audit": {
+    "10": {
+     "expected": 100000,
+     "min": 28186,
+     "max": 100000,
+     "n_over": 0,
+     "n_under": 240,
+     "n_exact": 1188,
+     "terminations": [
+      "max_evaluations",
+      "target_error_reached"
+     ],
+     "n_runs_rows": 1428
+    },
+    "30": {
+     "expected": 300000,
+     "min": 64730,
+     "max": 300000,
+     "n_over": 0,
+     "n_under": 163,
+     "n_exact": 1265,
+     "terminations": [
+      "max_evaluations",
+      "target_error_reached"
+     ],
+     "n_runs_rows": 1428
+    },
+    "50": {
+     "expected": 500000,
+     "min": 98464,
+     "max": 500000,
+     "n_over": 0,
+     "n_under": 155,
+     "n_exact": 1273,
+     "terminations": [
+      "max_evaluations",
+      "target_error_reached"
+     ],
+     "n_runs_rows": 1428
+    }
+   },
+   "error_nan_count": 0,
+   "summary_vs_per_run": {
+    "D10": {
+     "n_compared": 140,
+     "n_mismatch": 1,
+     "n_funcs_no_per_run": 0,
+     "mismatches": [
+      {
+       "func": 8,
+       "stat": "SD",
+       "summary": 0.074153718835,
+       "recomputed": 0.07415371870268024
+      }
+     ]
+    },
+    "D30": {
+     "n_compared": 140,
+     "n_mismatch": 3,
+     "n_funcs_no_per_run": 0,
+     "mismatches": [
+      {
+       "func": 8,
+       "stat": "SD",
+       "summary": 0.048973835945,
+       "recomputed": 0.0489738359977374
+      },
+      {
+       "func": 17,
+       "stat": "SD",
+       "summary": 3.3842590634e-06,
+       "recomputed": 3.384624107810706e-06
+      },
+      {
+       "func": 26,
+       "stat": "SD",
+       "summary": 0.0081579965805,
+       "recomputed": 0.008157996293610269
+      }
+     ]
+    },
+    "D50": {
+     "n_compared": 140,
+     "n_mismatch": 1,
+     "n_funcs_no_per_run": 0,
+     "mismatches": [
+      {
+       "func": 26,
+       "stat": "SD",
+       "summary": 0.08232392559,
+       "recomputed": 0.08232392567667417
+      }
+     ]
+    }
+   },
+   "seed_schedule_sha256": "8a8989dad8957c3290617c6553caa819a6bdf91fa615fcaba818717edb60e58f"
+  },
+  {
+   "suite": "cec2013",
+   "optimizer": "apgsk",
+   "max_nfes_override_runconfig": 0,
+   "max_nfes_override_env": 0,
+   "profile": null,
+   "pop_size": null,
+   "optimizer_options": {},
+   "exclude_funcs": [],
+   "statistics_basis": "error_vs_optimum",
+   "env_git_commit": "c35c26de742d8417184aab9ec533f4e3bcb5f091",
+   "env_timestamp": "2026-07-10T01:02:01",
+   "env_command": "python run.py --root . --optimizer apgsk --suite cec2013 --runs 51 --seed 20240620 --seed-policy unified --rand-generator threefry --benchmark-fp-mode default --benchmark-backend auto --convergence-graphs",
+   "env_output_dir": "results\\_run_all\\apgsk\\cec2013",
+   "env_computer": "HUAWEI-MMASOUD",
+   "env_fp_sentinel": "16a3e3095b606c5bab5f56fe52e6849ccde461a71f37929366d059ae7d72309e",
+   "ver_verdict": "CONSISTENT",
+   "ver_generated_dir": "results\\_run_all\\apgsk\\cec2013",
+   "ver_functions_checked": 0,
+   "ver_wtl": [
+    0,
+    0,
+    0
+   ],
+   "ver_reduced_budget": false,
+   "per_run_rows": 4284,
+   "per_run_dims": [
+    10,
+    30,
+    50
+   ],
+   "per_run_funcs_n": 28,
+   "per_run_has_F2": null,
+   "nfes_audit": {
+    "10": {
+     "expected": 100000,
+     "min": 57490,
+     "max": 100000,
+     "n_over": 0,
+     "n_under": 239,
+     "n_exact": 1189,
+     "terminations": [
+      "max_evaluations",
+      "target_error_reached"
+     ],
+     "n_runs_rows": 1428
+    },
+    "30": {
+     "expected": 300000,
+     "min": 168062,
+     "max": 300000,
+     "n_over": 0,
+     "n_under": 153,
+     "n_exact": 1275,
+     "terminations": [
+      "max_evaluations",
+      "target_error_reached"
+     ],
+     "n_runs_rows": 1428
+    },
+    "50": {
+     "expected": 500000,
+     "min": 283714,
+     "max": 500000,
+     "n_over": 0,
+     "n_under": 153,
+     "n_exact": 1275,
+     "terminations": [
+      "max_evaluations",
+      "target_error_reached"
+     ],
+     "n_runs_rows": 1428
+    }
+   },
+   "error_nan_count": 0,
+   "summary_vs_per_run": {
+    "D10": {
+     "n_compared": 140,
+     "n_mismatch": 0,
+     "n_funcs_no_per_run": 0,
+     "mismatches": []
+    },
+    "D30": {
+     "n_compared": 140,
+     "n_mismatch": 3,
+     "n_funcs_no_per_run": 0,
+     "mismatches": [
+      {
+       "func": 8,
+       "stat": "SD",
+       "summary": 0.062240604435,
+       "recomputed": 0.062240604492920716
+      },
+      {
+       "func": 26,
+       "stat": "SD",
+       "summary": 0.0053944922092,
+       "recomputed": 0.005394492240985349
+      },
+      {
+       "func": 28,
+       "stat": "SD",
+       "summary": 1.7718012506e-12,
+       "recomputed": 0.0
+      }
+     ]
+    },
+    "D50": {
+     "n_compared": 140,
+     "n_mismatch": 3,
+     "n_funcs_no_per_run": 0,
+     "mismatches": [
+      {
+       "func": 8,
+       "stat": "SD",
+       "summary": 0.036711525713,
+       "recomputed": 0.03671152573743486
+      },
+      {
+       "func": 26,
+       "stat": "SD",
+       "summary": 0.069530313235,
+       "recomputed": 0.06953031377768147
+      },
+      {
+       "func": 28,
+       "stat": "SD",
+       "summary": 8.8417046486e-12,
+       "recomputed": 0.0
+      }
+     ]
+    }
+   },
+   "seed_schedule_sha256": "8a8989dad8957c3290617c6553caa819a6bdf91fa615fcaba818717edb60e58f"
+  },
+  {
+   "suite": "cec2013",
+   "optimizer": "fdb-agsk",
+   "max_nfes_override_runconfig": 0,
+   "max_nfes_override_env": 0,
+   "profile": null,
+   "pop_size": null,
+   "optimizer_options": {},
+   "exclude_funcs": [],
+   "statistics_basis": "error_vs_optimum",
+   "env_git_commit": "2d72f64970608a7f3b14407dc230f929dacc28d5",
+   "env_timestamp": "2026-07-10T03:04:05",
+   "env_command": "python run.py --root . --optimizer fdb-agsk --suite cec2013 --runs 51 --seed 20240620 --seed-policy unified --rand-generator threefry --benchmark-fp-mode default --benchmark-backend auto --convergence-graphs",
+   "env_output_dir": "results\\_run_all\\fdb-agsk\\cec2013",
+   "env_computer": "HUAWEI-MMASOUD",
+   "env_fp_sentinel": "16a3e3095b606c5bab5f56fe52e6849ccde461a71f37929366d059ae7d72309e",
+   "ver_verdict": "CONSISTENT",
+   "ver_generated_dir": "results\\_run_all\\fdb-agsk\\cec2013",
+   "ver_functions_checked": 0,
+   "ver_wtl": [
+    0,
+    0,
+    0
+   ],
+   "ver_reduced_budget": false,
+   "per_run_rows": 4284,
+   "per_run_dims": [
+    10,
+    30,
+    50
+   ],
+   "per_run_funcs_n": 28,
+   "per_run_has_F2": null,
+   "nfes_audit": {
+    "10": {
+     "expected": 100000,
+     "min": 100000,
+     "max": 100000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 1428,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 1428
+    },
+    "30": {
+     "expected": 300000,
+     "min": 300000,
+     "max": 300000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 1428,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 1428
+    },
+    "50": {
+     "expected": 500000,
+     "min": 500000,
+     "max": 500000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 1428,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 1428
+    }
+   },
+   "error_nan_count": 0,
+   "summary_vs_per_run": {
+    "D10": {
+     "n_compared": 140,
+     "n_mismatch": 1,
+     "n_funcs_no_per_run": 0,
+     "mismatches": [
+      {
+       "func": 8,
+       "stat": "SD",
+       "summary": 0.076588566324,
+       "recomputed": 0.07658856640045901
+      }
+     ]
+    },
+    "D30": {
+     "n_compared": 140,
+     "n_mismatch": 2,
+     "n_funcs_no_per_run": 0,
+     "mismatches": [
+      {
+       "func": 17,
+       "stat": "SD",
+       "summary": 0.00087509546734,
+       "recomputed": 0.0008750955259603005
+      },
+      {
+       "func": 26,
+       "stat": "SD",
+       "summary": 0.010084261091,
+       "recomputed": 0.010084260870850698
+      }
+     ]
+    },
+    "D50": {
+     "n_compared": 140,
+     "n_mismatch": 2,
+     "n_funcs_no_per_run": 0,
+     "mismatches": [
+      {
+       "func": 17,
+       "stat": "SD",
+       "summary": 0.012226825518,
+       "recomputed": 0.012226825544913049
+      },
+      {
+       "func": 26,
+       "stat": "SD",
+       "summary": 0.092865974739,
+       "recomputed": 0.09286597502718884
+      }
+     ]
+    }
+   },
+   "seed_schedule_sha256": "8a8989dad8957c3290617c6553caa819a6bdf91fa615fcaba818717edb60e58f"
+  },
+  {
+   "suite": "cec2013",
+   "optimizer": "atmals-gsk",
+   "max_nfes_override_runconfig": 0,
+   "max_nfes_override_env": 0,
+   "profile": null,
+   "pop_size": 100,
+   "optimizer_options": {},
+   "exclude_funcs": [],
+   "statistics_basis": "error_vs_optimum",
+   "env_git_commit": "2d72f64970608a7f3b14407dc230f929dacc28d5",
+   "env_timestamp": "2026-07-10T04:27:18",
+   "env_command": "python run.py --root . --optimizer atmals-gsk --suite cec2013 --runs 51 --seed 20240620 --seed-policy unified --rand-generator threefry --benchmark-fp-mode default --benchmark-backend auto --convergence-graphs",
+   "env_output_dir": "results\\_run_all\\atmals-gsk\\cec2013",
+   "env_computer": "HUAWEI-MMASOUD",
+   "env_fp_sentinel": "16a3e3095b606c5bab5f56fe52e6849ccde461a71f37929366d059ae7d72309e",
+   "ver_verdict": "CONSISTENT",
+   "ver_generated_dir": "results\\_run_all\\atmals-gsk\\cec2013",
+   "ver_functions_checked": 0,
+   "ver_wtl": [
+    0,
+    0,
+    0
+   ],
+   "ver_reduced_budget": false,
+   "per_run_rows": 4284,
+   "per_run_dims": [
+    10,
+    30,
+    50
+   ],
+   "per_run_funcs_n": 28,
+   "per_run_has_F2": null,
+   "nfes_audit": {
+    "10": {
+     "expected": 100000,
+     "min": 100000,
+     "max": 100000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 1428,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 1428
+    },
+    "30": {
+     "expected": 300000,
+     "min": 300000,
+     "max": 300000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 1428,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 1428
+    },
+    "50": {
+     "expected": 500000,
+     "min": 500000,
+     "max": 500000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 1428,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 1428
+    }
+   },
+   "error_nan_count": 0,
+   "summary_vs_per_run": {
+    "D10": {
+     "n_compared": 140,
+     "n_mismatch": 1,
+     "n_funcs_no_per_run": 0,
+     "mismatches": [
+      {
+       "func": 8,
+       "stat": "SD",
+       "summary": 0.049836481475,
+       "recomputed": 0.049836481527736606
+      }
+     ]
+    },
+    "D30": {
+     "n_compared": 140,
+     "n_mismatch": 1,
+     "n_funcs_no_per_run": 0,
+     "mismatches": [
+      {
+       "func": 8,
+       "stat": "SD",
+       "summary": 0.051699448147,
+       "recomputed": 0.05169944822196945
+      }
+     ]
+    },
+    "D50": {
+     "n_compared": 140,
+     "n_mismatch": 0,
+     "n_funcs_no_per_run": 0,
+     "mismatches": []
+    }
+   },
+   "seed_schedule_sha256": "8a8989dad8957c3290617c6553caa819a6bdf91fa615fcaba818717edb60e58f"
+  },
+  {
+   "suite": "cec2013",
+   "optimizer": "egsk",
+   "max_nfes_override_runconfig": 0,
+   "max_nfes_override_env": 0,
+   "profile": null,
+   "pop_size": 100,
+   "optimizer_options": {},
+   "exclude_funcs": [],
+   "statistics_basis": "error_vs_optimum",
+   "env_git_commit": "2d72f64970608a7f3b14407dc230f929dacc28d5",
+   "env_timestamp": "2026-07-10T05:48:19",
+   "env_command": "python run.py --root . --optimizer egsk --suite cec2013 --runs 51 --seed 20240620 --seed-policy unified --rand-generator threefry --benchmark-fp-mode default --benchmark-backend auto --convergence-graphs",
+   "env_output_dir": "results\\_run_all\\egsk\\cec2013",
+   "env_computer": "HUAWEI-MMASOUD",
+   "env_fp_sentinel": "16a3e3095b606c5bab5f56fe52e6849ccde461a71f37929366d059ae7d72309e",
+   "ver_verdict": "CONSISTENT",
+   "ver_generated_dir": "results\\_run_all\\egsk\\cec2013",
+   "ver_functions_checked": 0,
+   "ver_wtl": [
+    0,
+    0,
+    0
+   ],
+   "ver_reduced_budget": false,
+   "per_run_rows": 4284,
+   "per_run_dims": [
+    10,
+    30,
+    50
+   ],
+   "per_run_funcs_n": 28,
+   "per_run_has_F2": null,
+   "nfes_audit": {
+    "10": {
+     "expected": 100000,
+     "min": 100000,
+     "max": 100000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 1428,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 1428
+    },
+    "30": {
+     "expected": 300000,
+     "min": 300000,
+     "max": 300000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 1428,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 1428
+    },
+    "50": {
+     "expected": 500000,
+     "min": 500000,
+     "max": 500000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 1428,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 1428
+    }
+   },
+   "error_nan_count": 0,
+   "summary_vs_per_run": {
+    "D10": {
+     "n_compared": 140,
+     "n_mismatch": 0,
+     "n_funcs_no_per_run": 0,
+     "mismatches": []
+    },
+    "D30": {
+     "n_compared": 140,
+     "n_mismatch": 1,
+     "n_funcs_no_per_run": 0,
+     "mismatches": [
+      {
+       "func": 26,
+       "stat": "SD",
+       "summary": 0.0012239416565,
+       "recomputed": 0.0012239416984868867
+      }
+     ]
+    },
+    "D50": {
+     "n_compared": 140,
+     "n_mismatch": 2,
+     "n_funcs_no_per_run": 0,
+     "mismatches": [
+      {
+       "func": 8,
+       "stat": "SD",
+       "summary": 0.034517554251,
+       "recomputed": 0.03451755422095098
+      },
+      {
+       "func": 28,
+       "stat": "SD",
+       "summary": 3.0488647858e-08,
+       "recomputed": 3.0402530117432377e-08
+      }
+     ]
+    }
+   },
+   "seed_schedule_sha256": "8a8989dad8957c3290617c6553caa819a6bdf91fa615fcaba818717edb60e58f"
+  },
+  {
+   "suite": "cec2013",
+   "optimizer": "dt-gsk",
+   "max_nfes_override_runconfig": 0,
+   "max_nfes_override_env": 0,
+   "profile": "pub",
+   "pop_size": null,
+   "optimizer_options": {},
+   "exclude_funcs": [],
+   "statistics_basis": "error_vs_optimum",
+   "env_git_commit": "2d72f64970608a7f3b14407dc230f929dacc28d5",
+   "env_timestamp": "2026-07-10T08:20:31",
+   "env_command": "python run.py --root . --optimizer dt-gsk --suite cec2013 --runs 51 --seed 20240620 --seed-policy unified --rand-generator threefry --benchmark-fp-mode default --benchmark-backend auto --convergence-graphs",
+   "env_output_dir": "results\\_run_all\\dt-gsk\\cec2013",
+   "env_computer": "HUAWEI-MMASOUD",
+   "env_fp_sentinel": "16a3e3095b606c5bab5f56fe52e6849ccde461a71f37929366d059ae7d72309e",
+   "ver_verdict": "CONSISTENT",
+   "ver_generated_dir": "results\\_run_all\\dt-gsk\\cec2013",
+   "ver_functions_checked": 0,
+   "ver_wtl": [
+    0,
+    0,
+    0
+   ],
+   "ver_reduced_budget": false,
+   "per_run_rows": 4284,
+   "per_run_dims": [
+    10,
+    30,
+    50
+   ],
+   "per_run_funcs_n": 28,
+   "per_run_has_F2": null,
+   "nfes_audit": {
+    "10": {
+     "expected": 100000,
+     "min": 100000,
+     "max": 100000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 1428,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 1428
+    },
+    "30": {
+     "expected": 300000,
+     "min": 300000,
+     "max": 300000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 1428,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 1428
+    },
+    "50": {
+     "expected": 500000,
+     "min": 500000,
+     "max": 500000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 1428,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 1428
+    }
+   },
+   "error_nan_count": 0,
+   "summary_vs_per_run": {
+    "D10": {
+     "n_compared": 140,
+     "n_mismatch": 0,
+     "n_funcs_no_per_run": 0,
+     "mismatches": []
+    },
+    "D30": {
+     "n_compared": 140,
+     "n_mismatch": 2,
+     "n_funcs_no_per_run": 0,
+     "mismatches": [
+      {
+       "func": 8,
+       "stat": "SD",
+       "summary": 0.047938694266,
+       "recomputed": 0.04793869434613875
+      },
+      {
+       "func": 26,
+       "stat": "SD",
+       "summary": 0.0015378347327,
+       "recomputed": 0.0015378347975869432
+      }
+     ]
+    },
+    "D50": {
+     "n_compared": 140,
+     "n_mismatch": 2,
+     "n_funcs_no_per_run": 0,
+     "mismatches": [
+      {
+       "func": 6,
+       "stat": "SD",
+       "summary": 0.014933073536,
+       "recomputed": 0.014933073499602755
+      },
+      {
+       "func": 8,
+       "stat": "SD",
+       "summary": 0.042288466715,
+       "recomputed": 0.04228846676838142
+      }
+     ]
+    }
+   },
+   "seed_schedule_sha256": "8a8989dad8957c3290617c6553caa819a6bdf91fa615fcaba818717edb60e58f"
+  },
+  {
+   "suite": "cec2011",
+   "optimizer": "gsk",
+   "max_nfes_override_runconfig": 0,
+   "max_nfes_override_env": 0,
+   "profile": null,
+   "pop_size": 100,
+   "optimizer_options": {},
+   "exclude_funcs": [],
+   "statistics_basis": "raw_objective",
+   "env_git_commit": "c35c26de742d8417184aab9ec533f4e3bcb5f091",
+   "env_timestamp": "2026-07-09T15:27:34",
+   "env_command": "python run.py --root . --optimizer gsk --suite cec2011 --runs 25 --seed 20240620 --seed-policy unified --rand-generator threefry --benchmark-fp-mode default --benchmark-backend auto --convergence-graphs",
+   "env_output_dir": "results\\_run_all\\gsk\\cec2011",
+   "env_computer": "HUAWEI-MMASOUD",
+   "env_fp_sentinel": "10fef05901ee77631e8f6bbaf838b9836db88bf2669f2cbbcafb00fd82e41822",
+   "ver_verdict": "CONSISTENT",
+   "ver_generated_dir": "results\\_run_all\\gsk\\cec2011",
+   "ver_functions_checked": 22,
+   "ver_wtl": [
+    0,
+    22,
+    0
+   ],
+   "ver_reduced_budget": false,
+   "per_run_rows": 550,
+   "per_run_dims": [
+    1,
+    6,
+    7,
+    12,
+    13,
+    15,
+    20,
+    22,
+    26,
+    30,
+    40,
+    96,
+    120,
+    126,
+    140,
+    240
+   ],
+   "per_run_funcs_n": 22,
+   "per_run_has_F2": null,
+   "nfes_audit": {
+    "1": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 50,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 50
+    },
+    "6": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 50,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 50
+    },
+    "7": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "12": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "13": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "15": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "20": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "22": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "26": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "30": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 75,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 75
+    },
+    "40": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "96": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 75,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 75
+    },
+    "120": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "126": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "140": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "240": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    }
+   },
+   "error_all_nan": true,
+   "summary_vs_per_run": {
+    "rollup": {
+     "n_compared": 110,
+     "n_mismatch": 3,
+     "mismatches": [
+      {
+       "func": 12,
+       "stat": "SD",
+       "summary": 1526.0043297,
+       "recomputed": 1526.0043269802318
+      },
+      {
+       "func": 13,
+       "stat": "SD",
+       "summary": 8.6343282973,
+       "recomputed": 8.634328202116114
+      },
+      {
+       "func": 15,
+       "stat": "SD",
+       "summary": 27.861270434,
+       "recomputed": 27.861270373927177
+      }
+     ]
+    },
+    "D1": {
+     "n_compared": 10,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D6": {
+     "n_compared": 10,
+     "n_mismatch": 1,
+     "mismatches": [
+      {
+       "func": 13,
+       "stat": "SD",
+       "summary": 8.6343282973,
+       "recomputed": 8.634328202116114
+      }
+     ]
+    },
+    "D7": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D12": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D13": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D15": {
+     "n_compared": 5,
+     "n_mismatch": 1,
+     "mismatches": [
+      {
+       "func": 15,
+       "stat": "SD",
+       "summary": 27.861270434,
+       "recomputed": 27.861270373927177
+      }
+     ]
+    },
+    "D20": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D22": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D26": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D30": {
+     "n_compared": 15,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D40": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D96": {
+     "n_compared": 15,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D120": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D126": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D140": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D240": {
+     "n_compared": 5,
+     "n_mismatch": 1,
+     "mismatches": [
+      {
+       "func": 12,
+       "stat": "SD",
+       "summary": 1526.0043297,
+       "recomputed": 1526.0043269802318
+      }
+     ]
+    }
+   },
+   "seed_schedule_sha256": "7ba40fbf14b584af3d0ef386b56aed66253447406428015b6e587a8fb6777caa"
+  },
+  {
+   "suite": "cec2011",
+   "optimizer": "agsk",
+   "max_nfes_override_runconfig": 0,
+   "max_nfes_override_env": 0,
+   "profile": null,
+   "pop_size": null,
+   "optimizer_options": {},
+   "exclude_funcs": [],
+   "statistics_basis": "raw_objective",
+   "env_git_commit": "c35c26de742d8417184aab9ec533f4e3bcb5f091",
+   "env_timestamp": "2026-07-09T16:07:38",
+   "env_command": "python run.py --root . --optimizer agsk --suite cec2011 --runs 25 --seed 20240620 --seed-policy unified --rand-generator threefry --benchmark-fp-mode default --benchmark-backend auto --convergence-graphs",
+   "env_output_dir": "results\\_run_all\\agsk\\cec2011",
+   "env_computer": "HUAWEI-MMASOUD",
+   "env_fp_sentinel": "10fef05901ee77631e8f6bbaf838b9836db88bf2669f2cbbcafb00fd82e41822",
+   "ver_verdict": "CONSISTENT",
+   "ver_generated_dir": "results\\_run_all\\agsk\\cec2011",
+   "ver_functions_checked": 22,
+   "ver_wtl": [
+    0,
+    22,
+    0
+   ],
+   "ver_reduced_budget": false,
+   "per_run_rows": 550,
+   "per_run_dims": [
+    1,
+    6,
+    7,
+    12,
+    13,
+    15,
+    20,
+    22,
+    26,
+    30,
+    40,
+    96,
+    120,
+    126,
+    140,
+    240
+   ],
+   "per_run_funcs_n": 22,
+   "per_run_has_F2": null,
+   "nfes_audit": {
+    "1": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 50,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 50
+    },
+    "6": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 50,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 50
+    },
+    "7": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "12": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "13": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "15": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "20": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "22": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "26": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "30": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 75,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 75
+    },
+    "40": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "96": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 75,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 75
+    },
+    "120": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "126": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "140": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "240": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    }
+   },
+   "error_all_nan": true,
+   "summary_vs_per_run": {
+    "rollup": {
+     "n_compared": 110,
+     "n_mismatch": 1,
+     "mismatches": [
+      {
+       "func": 13,
+       "stat": "SD",
+       "summary": 0.22758412647,
+       "recomputed": 0.22758402355360832
+      }
+     ]
+    },
+    "D1": {
+     "n_compared": 10,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D6": {
+     "n_compared": 10,
+     "n_mismatch": 1,
+     "mismatches": [
+      {
+       "func": 13,
+       "stat": "SD",
+       "summary": 0.22758412647,
+       "recomputed": 0.22758402355360832
+      }
+     ]
+    },
+    "D7": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D12": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D13": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D15": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D20": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D22": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D26": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D30": {
+     "n_compared": 15,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D40": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D96": {
+     "n_compared": 15,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D120": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D126": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D140": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D240": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    }
+   },
+   "seed_schedule_sha256": "7ba40fbf14b584af3d0ef386b56aed66253447406428015b6e587a8fb6777caa"
+  },
+  {
+   "suite": "cec2011",
+   "optimizer": "apgsk",
+   "max_nfes_override_runconfig": 0,
+   "max_nfes_override_env": 0,
+   "profile": null,
+   "pop_size": null,
+   "optimizer_options": {},
+   "exclude_funcs": [],
+   "statistics_basis": "raw_objective",
+   "env_git_commit": "c35c26de742d8417184aab9ec533f4e3bcb5f091",
+   "env_timestamp": "2026-07-09T16:53:15",
+   "env_command": "python run.py --root . --optimizer apgsk --suite cec2011 --runs 25 --seed 20240620 --seed-policy unified --rand-generator threefry --benchmark-fp-mode default --benchmark-backend auto --convergence-graphs",
+   "env_output_dir": "results\\_run_all\\apgsk\\cec2011",
+   "env_computer": "HUAWEI-MMASOUD",
+   "env_fp_sentinel": "10fef05901ee77631e8f6bbaf838b9836db88bf2669f2cbbcafb00fd82e41822",
+   "ver_verdict": "CONSISTENT",
+   "ver_generated_dir": "results\\_run_all\\apgsk\\cec2011",
+   "ver_functions_checked": 22,
+   "ver_wtl": [
+    0,
+    22,
+    0
+   ],
+   "ver_reduced_budget": false,
+   "per_run_rows": 550,
+   "per_run_dims": [
+    1,
+    6,
+    7,
+    12,
+    13,
+    15,
+    20,
+    22,
+    26,
+    30,
+    40,
+    96,
+    120,
+    126,
+    140,
+    240
+   ],
+   "per_run_funcs_n": 22,
+   "per_run_has_F2": null,
+   "nfes_audit": {
+    "1": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 50,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 50
+    },
+    "6": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 50,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 50
+    },
+    "7": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "12": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "13": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "15": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "20": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "22": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "26": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "30": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 75,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 75
+    },
+    "40": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "96": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 75,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 75
+    },
+    "120": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "126": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "140": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "240": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    }
+   },
+   "error_all_nan": true,
+   "summary_vs_per_run": {
+    "rollup": {
+     "n_compared": 110,
+     "n_mismatch": 1,
+     "mismatches": [
+      {
+       "func": 13,
+       "stat": "SD",
+       "summary": 1.2745290447,
+       "recomputed": 1.2745290031186718
+      }
+     ]
+    },
+    "D1": {
+     "n_compared": 10,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D6": {
+     "n_compared": 10,
+     "n_mismatch": 1,
+     "mismatches": [
+      {
+       "func": 13,
+       "stat": "SD",
+       "summary": 1.2745290447,
+       "recomputed": 1.2745290031186718
+      }
+     ]
+    },
+    "D7": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D12": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D13": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D15": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D20": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D22": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D26": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D30": {
+     "n_compared": 15,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D40": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D96": {
+     "n_compared": 15,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D120": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D126": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D140": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D240": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    }
+   },
+   "seed_schedule_sha256": "7ba40fbf14b584af3d0ef386b56aed66253447406428015b6e587a8fb6777caa"
+  },
+  {
+   "suite": "cec2011",
+   "optimizer": "fdb-agsk",
+   "max_nfes_override_runconfig": 0,
+   "max_nfes_override_env": 0,
+   "profile": null,
+   "pop_size": null,
+   "optimizer_options": {},
+   "exclude_funcs": [],
+   "statistics_basis": "raw_objective",
+   "env_git_commit": "c35c26de742d8417184aab9ec533f4e3bcb5f091",
+   "env_timestamp": "2026-07-09T17:37:07",
+   "env_command": "python run.py --root . --optimizer fdb-agsk --suite cec2011 --runs 25 --seed 20240620 --seed-policy unified --rand-generator threefry --benchmark-fp-mode default --benchmark-backend auto --convergence-graphs",
+   "env_output_dir": "results\\_run_all\\fdb-agsk\\cec2011",
+   "env_computer": "HUAWEI-MMASOUD",
+   "env_fp_sentinel": "10fef05901ee77631e8f6bbaf838b9836db88bf2669f2cbbcafb00fd82e41822",
+   "ver_verdict": "CONSISTENT",
+   "ver_generated_dir": "results\\_run_all\\fdb-agsk\\cec2011",
+   "ver_functions_checked": 22,
+   "ver_wtl": [
+    0,
+    22,
+    0
+   ],
+   "ver_reduced_budget": false,
+   "per_run_rows": 550,
+   "per_run_dims": [
+    1,
+    6,
+    7,
+    12,
+    13,
+    15,
+    20,
+    22,
+    26,
+    30,
+    40,
+    96,
+    120,
+    126,
+    140,
+    240
+   ],
+   "per_run_funcs_n": 22,
+   "per_run_has_F2": null,
+   "nfes_audit": {
+    "1": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 50,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 50
+    },
+    "6": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 50,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 50
+    },
+    "7": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "12": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "13": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "15": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "20": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "22": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "26": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "30": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 75,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 75
+    },
+    "40": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "96": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 75,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 75
+    },
+    "120": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "126": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "140": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "240": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    }
+   },
+   "error_all_nan": true,
+   "summary_vs_per_run": {
+    "rollup": {
+     "n_compared": 110,
+     "n_mismatch": 3,
+     "mismatches": [
+      {
+       "func": 12,
+       "stat": "SD",
+       "summary": 3825.0105955,
+       "recomputed": 3825.0105974390863
+      },
+      {
+       "func": 13,
+       "stat": "SD",
+       "summary": 0.63904851775,
+       "recomputed": 0.6390486735769151
+      },
+      {
+       "func": 15,
+       "stat": "SD",
+       "summary": 61.333357414,
+       "recomputed": 61.33335744974552
+      }
+     ]
+    },
+    "D1": {
+     "n_compared": 10,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D6": {
+     "n_compared": 10,
+     "n_mismatch": 1,
+     "mismatches": [
+      {
+       "func": 13,
+       "stat": "SD",
+       "summary": 0.63904851775,
+       "recomputed": 0.6390486735769151
+      }
+     ]
+    },
+    "D7": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D12": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D13": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D15": {
+     "n_compared": 5,
+     "n_mismatch": 1,
+     "mismatches": [
+      {
+       "func": 15,
+       "stat": "SD",
+       "summary": 61.333357414,
+       "recomputed": 61.33335744974552
+      }
+     ]
+    },
+    "D20": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D22": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D26": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D30": {
+     "n_compared": 15,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D40": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D96": {
+     "n_compared": 15,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D120": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D126": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D140": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D240": {
+     "n_compared": 5,
+     "n_mismatch": 1,
+     "mismatches": [
+      {
+       "func": 12,
+       "stat": "SD",
+       "summary": 3825.0105955,
+       "recomputed": 3825.0105974390863
+      }
+     ]
+    }
+   },
+   "seed_schedule_sha256": "7ba40fbf14b584af3d0ef386b56aed66253447406428015b6e587a8fb6777caa"
+  },
+  {
+   "suite": "cec2011",
+   "optimizer": "atmals-gsk",
+   "max_nfes_override_runconfig": 0,
+   "max_nfes_override_env": 0,
+   "profile": null,
+   "pop_size": 100,
+   "optimizer_options": {},
+   "exclude_funcs": [],
+   "statistics_basis": "raw_objective",
+   "env_git_commit": "c35c26de742d8417184aab9ec533f4e3bcb5f091",
+   "env_timestamp": "2026-07-09T18:19:39",
+   "env_command": "python run.py --root . --optimizer atmals-gsk --suite cec2011 --runs 25 --seed 20240620 --seed-policy unified --rand-generator threefry --benchmark-fp-mode default --benchmark-backend auto --convergence-graphs",
+   "env_output_dir": "results\\_run_all\\atmals-gsk\\cec2011",
+   "env_computer": "HUAWEI-MMASOUD",
+   "env_fp_sentinel": "10fef05901ee77631e8f6bbaf838b9836db88bf2669f2cbbcafb00fd82e41822",
+   "ver_verdict": "CONSISTENT",
+   "ver_generated_dir": "results\\_run_all\\atmals-gsk\\cec2011",
+   "ver_functions_checked": 22,
+   "ver_wtl": [
+    0,
+    22,
+    0
+   ],
+   "ver_reduced_budget": false,
+   "per_run_rows": 550,
+   "per_run_dims": [
+    1,
+    6,
+    7,
+    12,
+    13,
+    15,
+    20,
+    22,
+    26,
+    30,
+    40,
+    96,
+    120,
+    126,
+    140,
+    240
+   ],
+   "per_run_funcs_n": 22,
+   "per_run_has_F2": null,
+   "nfes_audit": {
+    "1": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 50,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 50
+    },
+    "6": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 50,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 50
+    },
+    "7": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "12": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "13": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "15": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "20": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "22": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "26": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "30": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 75,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 75
+    },
+    "40": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "96": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 75,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 75
+    },
+    "120": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "126": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "140": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "240": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    }
+   },
+   "error_all_nan": true,
+   "summary_vs_per_run": {
+    "rollup": {
+     "n_compared": 110,
+     "n_mismatch": 4,
+     "mismatches": [
+      {
+       "func": 12,
+       "stat": "SD",
+       "summary": 1773.3326994,
+       "recomputed": 1773.3326966549043
+      },
+      {
+       "func": 13,
+       "stat": "SD",
+       "summary": 6.0125904818e-05,
+       "recomputed": 6.0023412141914066e-05
+      },
+      {
+       "func": 14,
+       "stat": "SD",
+       "summary": 114.42638893,
+       "recomputed": 114.42638898755938
+      },
+      {
+       "func": 15,
+       "stat": "SD",
+       "summary": 20.148452698,
+       "recomputed": 20.148452781262204
+      }
+     ]
+    },
+    "D1": {
+     "n_compared": 10,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D6": {
+     "n_compared": 10,
+     "n_mismatch": 1,
+     "mismatches": [
+      {
+       "func": 13,
+       "stat": "SD",
+       "summary": 6.0125904818e-05,
+       "recomputed": 6.0023412141914066e-05
+      }
+     ]
+    },
+    "D7": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D12": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D13": {
+     "n_compared": 5,
+     "n_mismatch": 1,
+     "mismatches": [
+      {
+       "func": 14,
+       "stat": "SD",
+       "summary": 114.42638893,
+       "recomputed": 114.42638898755938
+      }
+     ]
+    },
+    "D15": {
+     "n_compared": 5,
+     "n_mismatch": 1,
+     "mismatches": [
+      {
+       "func": 15,
+       "stat": "SD",
+       "summary": 20.148452698,
+       "recomputed": 20.148452781262204
+      }
+     ]
+    },
+    "D20": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D22": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D26": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D30": {
+     "n_compared": 15,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D40": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D96": {
+     "n_compared": 15,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D120": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D126": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D140": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D240": {
+     "n_compared": 5,
+     "n_mismatch": 1,
+     "mismatches": [
+      {
+       "func": 12,
+       "stat": "SD",
+       "summary": 1773.3326994,
+       "recomputed": 1773.3326966549043
+      }
+     ]
+    }
+   },
+   "seed_schedule_sha256": "7ba40fbf14b584af3d0ef386b56aed66253447406428015b6e587a8fb6777caa"
+  },
+  {
+   "suite": "cec2011",
+   "optimizer": "egsk",
+   "max_nfes_override_runconfig": 0,
+   "max_nfes_override_env": 0,
+   "profile": null,
+   "pop_size": 100,
+   "optimizer_options": {},
+   "exclude_funcs": [],
+   "statistics_basis": "raw_objective",
+   "env_git_commit": "c35c26de742d8417184aab9ec533f4e3bcb5f091",
+   "env_timestamp": "2026-07-09T20:36:48",
+   "env_command": "python run.py --root . --optimizer egsk --suite cec2011 --runs 25 --seed 20240620 --seed-policy unified --rand-generator threefry --benchmark-fp-mode default --benchmark-backend auto --convergence-graphs",
+   "env_output_dir": "results\\_run_all\\egsk\\cec2011",
+   "env_computer": "HUAWEI-MMASOUD",
+   "env_fp_sentinel": "10fef05901ee77631e8f6bbaf838b9836db88bf2669f2cbbcafb00fd82e41822",
+   "ver_verdict": "CONSISTENT",
+   "ver_generated_dir": "results\\_run_all\\egsk\\cec2011",
+   "ver_functions_checked": 22,
+   "ver_wtl": [
+    0,
+    22,
+    0
+   ],
+   "ver_reduced_budget": false,
+   "per_run_rows": 550,
+   "per_run_dims": [
+    1,
+    6,
+    7,
+    12,
+    13,
+    15,
+    20,
+    22,
+    26,
+    30,
+    40,
+    96,
+    120,
+    126,
+    140,
+    240
+   ],
+   "per_run_funcs_n": 22,
+   "per_run_has_F2": null,
+   "nfes_audit": {
+    "1": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 50,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 50
+    },
+    "6": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 50,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 50
+    },
+    "7": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "12": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "13": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "15": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "20": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "22": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "26": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "30": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 75,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 75
+    },
+    "40": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "96": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 75,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 75
+    },
+    "120": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "126": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "140": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "240": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    }
+   },
+   "error_all_nan": true,
+   "summary_vs_per_run": {
+    "rollup": {
+     "n_compared": 110,
+     "n_mismatch": 4,
+     "mismatches": [
+      {
+       "func": 12,
+       "stat": "SD",
+       "summary": 2370.4977983,
+       "recomputed": 2370.4977932683437
+      },
+      {
+       "func": 13,
+       "stat": "SD",
+       "summary": 6.7604692944,
+       "recomputed": 6.760469400907307
+      },
+      {
+       "func": 15,
+       "stat": "SD",
+       "summary": 9.6168278205,
+       "recomputed": 9.616827839781473
+      },
+      {
+       "func": 18,
+       "stat": "SD",
+       "summary": 1972.7893529,
+       "recomputed": 1972.7893539391214
+      }
+     ]
+    },
+    "D1": {
+     "n_compared": 10,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D6": {
+     "n_compared": 10,
+     "n_mismatch": 1,
+     "mismatches": [
+      {
+       "func": 13,
+       "stat": "SD",
+       "summary": 6.7604692944,
+       "recomputed": 6.760469400907307
+      }
+     ]
+    },
+    "D7": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D12": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D13": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D15": {
+     "n_compared": 5,
+     "n_mismatch": 1,
+     "mismatches": [
+      {
+       "func": 15,
+       "stat": "SD",
+       "summary": 9.6168278205,
+       "recomputed": 9.616827839781473
+      }
+     ]
+    },
+    "D20": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D22": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D26": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D30": {
+     "n_compared": 15,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D40": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D96": {
+     "n_compared": 15,
+     "n_mismatch": 1,
+     "mismatches": [
+      {
+       "func": 18,
+       "stat": "SD",
+       "summary": 1972.7893529,
+       "recomputed": 1972.7893539391214
+      }
+     ]
+    },
+    "D120": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D126": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D140": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D240": {
+     "n_compared": 5,
+     "n_mismatch": 1,
+     "mismatches": [
+      {
+       "func": 12,
+       "stat": "SD",
+       "summary": 2370.4977983,
+       "recomputed": 2370.4977932683437
+      }
+     ]
+    }
+   },
+   "seed_schedule_sha256": "7ba40fbf14b584af3d0ef386b56aed66253447406428015b6e587a8fb6777caa"
+  },
+  {
+   "suite": "cec2011",
+   "optimizer": "dt-gsk",
+   "max_nfes_override_runconfig": 0,
+   "max_nfes_override_env": 0,
+   "profile": "pub",
+   "pop_size": null,
+   "optimizer_options": {},
+   "exclude_funcs": [],
+   "statistics_basis": "raw_objective",
+   "env_git_commit": "c35c26de742d8417184aab9ec533f4e3bcb5f091",
+   "env_timestamp": "2026-07-09T19:07:44",
+   "env_command": "python run.py --root . --optimizer dt-gsk --suite cec2011 --runs 25 --seed 20240620 --seed-policy unified --rand-generator threefry --benchmark-fp-mode default --benchmark-backend auto --convergence-graphs",
+   "env_output_dir": "results\\_run_all\\dt-gsk\\cec2011",
+   "env_computer": "HUAWEI-MMASOUD",
+   "env_fp_sentinel": "10fef05901ee77631e8f6bbaf838b9836db88bf2669f2cbbcafb00fd82e41822",
+   "ver_verdict": "CONSISTENT",
+   "ver_generated_dir": "results\\_run_all\\dt-gsk\\cec2011",
+   "ver_functions_checked": 22,
+   "ver_wtl": [
+    0,
+    22,
+    0
+   ],
+   "ver_reduced_budget": false,
+   "per_run_rows": 550,
+   "per_run_dims": [
+    1,
+    6,
+    7,
+    12,
+    13,
+    15,
+    20,
+    22,
+    26,
+    30,
+    40,
+    96,
+    120,
+    126,
+    140,
+    240
+   ],
+   "per_run_funcs_n": 22,
+   "per_run_has_F2": null,
+   "nfes_audit": {
+    "1": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 50,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 50
+    },
+    "6": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 50,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 50
+    },
+    "7": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "12": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "13": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "15": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "20": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "22": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "26": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "30": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 75,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 75
+    },
+    "40": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "96": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 75,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 75
+    },
+    "120": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "126": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "140": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    },
+    "240": {
+     "expected": 150000,
+     "min": 150000,
+     "max": 150000,
+     "n_over": 0,
+     "n_under": 0,
+     "n_exact": 25,
+     "terminations": [
+      "max_evaluations"
+     ],
+     "n_runs_rows": 25
+    }
+   },
+   "error_all_nan": true,
+   "summary_vs_per_run": {
+    "rollup": {
+     "n_compared": 110,
+     "n_mismatch": 6,
+     "mismatches": [
+      {
+       "func": 10,
+       "stat": "SD",
+       "summary": 0.15347907133,
+       "recomputed": 0.153479071206366
+      },
+      {
+       "func": 12,
+       "stat": "SD",
+       "summary": 2225.2760895,
+       "recomputed": 2225.276080661483
+      },
+      {
+       "func": 13,
+       "stat": "SD",
+       "summary": 1.9966767498,
+       "recomputed": 1.9966768112916444
+      },
+      {
+       "func": 15,
+       "stat": "SD",
+       "summary": 22.663968336,
+       "recomputed": 22.663968406837782
+      },
+      {
+       "func": 16,
+       "stat": "SD",
+       "summary": 1389.3511186,
+       "recomputed": 1389.3511177486782
+      },
+      {
+       "func": 18,
+       "stat": "SD",
+       "summary": 2089.1187734,
+       "recomputed": 2089.118774611981
+      }
+     ]
+    },
+    "D1": {
+     "n_compared": 10,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D6": {
+     "n_compared": 10,
+     "n_mismatch": 1,
+     "mismatches": [
+      {
+       "func": 13,
+       "stat": "SD",
+       "summary": 1.9966767498,
+       "recomputed": 1.9966768112916444
+      }
+     ]
+    },
+    "D7": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D12": {
+     "n_compared": 5,
+     "n_mismatch": 1,
+     "mismatches": [
+      {
+       "func": 10,
+       "stat": "SD",
+       "summary": 0.15347907133,
+       "recomputed": 0.153479071206366
+      }
+     ]
+    },
+    "D13": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D15": {
+     "n_compared": 5,
+     "n_mismatch": 1,
+     "mismatches": [
+      {
+       "func": 15,
+       "stat": "SD",
+       "summary": 22.663968336,
+       "recomputed": 22.663968406837782
+      }
+     ]
+    },
+    "D20": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D22": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D26": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D30": {
+     "n_compared": 15,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D40": {
+     "n_compared": 5,
+     "n_mismatch": 1,
+     "mismatches": [
+      {
+       "func": 16,
+       "stat": "SD",
+       "summary": 1389.3511186,
+       "recomputed": 1389.3511177486782
+      }
+     ]
+    },
+    "D96": {
+     "n_compared": 15,
+     "n_mismatch": 1,
+     "mismatches": [
+      {
+       "func": 18,
+       "stat": "SD",
+       "summary": 2089.1187734,
+       "recomputed": 2089.118774611981
+      }
+     ]
+    },
+    "D120": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D126": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D140": {
+     "n_compared": 5,
+     "n_mismatch": 0,
+     "mismatches": []
+    },
+    "D240": {
+     "n_compared": 5,
+     "n_mismatch": 1,
+     "mismatches": [
+      {
+       "func": 12,
+       "stat": "SD",
+       "summary": 2225.2760895,
+       "recomputed": 2225.276080661483
+      }
+     ]
+    }
+   },
+   "seed_schedule_sha256": "7ba40fbf14b584af3d0ef386b56aed66253447406428015b6e587a8fb6777caa"
+  }
+ ],
+ "apgsk_cec2017_genlog_check": {
+  "D10": {
+   "n_compared": 145,
+   "n_mismatch": 0,
+   "mismatches": []
+  },
+  "D30": {
+   "n_compared": 145,
+   "n_mismatch": 0,
+   "mismatches": []
+  },
+  "D50": {
+   "n_compared": 145,
+   "n_mismatch": 0,
+   "mismatches": []
+  }
+ },
+ "seed_schedule_identity": [
+  {
+   "suite": "cec2017",
+   "schedule_hashes": {
+    "gsk": "77122f46c87d573704912d27a46d6eade75b61917a7d81591d44fdef0ab773e9",
+    "agsk": "77122f46c87d573704912d27a46d6eade75b61917a7d81591d44fdef0ab773e9",
+    "apgsk": "c1d752a824f0fe459dbd36c00c8b102dd4bbcd96480dc7e384de0c76a9c5060c",
+    "fdb-agsk": "77122f46c87d573704912d27a46d6eade75b61917a7d81591d44fdef0ab773e9",
+    "atmals-gsk": "77122f46c87d573704912d27a46d6eade75b61917a7d81591d44fdef0ab773e9",
+    "egsk": "77122f46c87d573704912d27a46d6eade75b61917a7d81591d44fdef0ab773e9",
+    "dt-gsk": "77122f46c87d573704912d27a46d6eade75b61917a7d81591d44fdef0ab773e9"
+   },
+   "all_identical": false
+  },
+  {
+   "suite": "cec2013",
+   "schedule_hashes": {
+    "gsk": "8a8989dad8957c3290617c6553caa819a6bdf91fa615fcaba818717edb60e58f",
+    "agsk": "8a8989dad8957c3290617c6553caa819a6bdf91fa615fcaba818717edb60e58f",
+    "apgsk": "8a8989dad8957c3290617c6553caa819a6bdf91fa615fcaba818717edb60e58f",
+    "fdb-agsk": "8a8989dad8957c3290617c6553caa819a6bdf91fa615fcaba818717edb60e58f",
+    "atmals-gsk": "8a8989dad8957c3290617c6553caa819a6bdf91fa615fcaba818717edb60e58f",
+    "egsk": "8a8989dad8957c3290617c6553caa819a6bdf91fa615fcaba818717edb60e58f",
+    "dt-gsk": "8a8989dad8957c3290617c6553caa819a6bdf91fa615fcaba818717edb60e58f"
+   },
+   "all_identical": true
+  },
+  {
+   "suite": "cec2011",
+   "schedule_hashes": {
+    "gsk": "7ba40fbf14b584af3d0ef386b56aed66253447406428015b6e587a8fb6777caa",
+    "agsk": "7ba40fbf14b584af3d0ef386b56aed66253447406428015b6e587a8fb6777caa",
+    "apgsk": "7ba40fbf14b584af3d0ef386b56aed66253447406428015b6e587a8fb6777caa",
+    "fdb-agsk": "7ba40fbf14b584af3d0ef386b56aed66253447406428015b6e587a8fb6777caa",
+    "atmals-gsk": "7ba40fbf14b584af3d0ef386b56aed66253447406428015b6e587a8fb6777caa",
+    "egsk": "7ba40fbf14b584af3d0ef386b56aed66253447406428015b6e587a8fb6777caa",
+    "dt-gsk": "7ba40fbf14b584af3d0ef386b56aed66253447406428015b6e587a8fb6777caa"
+   },
+   "all_identical": true
+  }
+ ],
+ "seed_formula_spot_checks": [
+  {
+   "suite": "cec2017",
+   "sampled": 26,
+   "all_match": true
+  },
+  {
+   "suite": "cec2013",
+   "sampled": 26,
+   "all_match": true
+  },
+  {
+   "suite": "cec2011",
+   "sampled": 25,
+   "all_match": true
+  }
+ ],
+ "context_cells": [
+  {
+   "suite": "cec2020",
+   "optimizer": "agsk",
+   "files": [
+    "agsk_cec2020_D05.csv",
+    "agsk_cec2020_D10.csv",
+    "agsk_cec2020_D15.csv",
+    "agsk_cec2020_D20.csv"
+   ],
+   "has_per_run": false,
+   "has_environment": false,
+   "has_run_config": false,
+   "has_seed_schedule": false
+  },
+  {
+   "suite": "cec2013lsgo",
+   "optimizer": "decc-g",
+   "files": [
+    "decc-g_cec2013lsgo.csv"
+   ],
+   "has_per_run": false,
+   "has_environment": false,
+   "has_run_config": false,
+   "has_seed_schedule": false
+  },
+  {
+   "suite": "cec2013lsgo",
+   "optimizer": "mos",
+   "files": [
+    "mos_cec2013lsgo.csv"
+   ],
+   "has_per_run": false,
+   "has_environment": false,
+   "has_run_config": false,
+   "has_seed_schedule": false
+  }
+ ],
+ "egsk_solver_markers": {
+  "uses_scipy_slsqp": true,
+  "mentions_fmincon_reference": true,
+  "egsk_py_sha256": "9d6a597eaaaccfc09e4707025f04d43576846e42aed612647dd6a8cacd0207d6"
+ }
+}

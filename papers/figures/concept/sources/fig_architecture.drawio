@@ -1,0 +1,135 @@
+<mxfile host="app.diagrams.net" type="device">
+  <!--
+    DT-GSK architecture / pipeline diagram (fig:architecture) - editable
+    draw.io source matching papers/figures/concept/fig_architecture.pdf
+    (Phase 7, task C.5). AUTHORED CONCEPTUAL ART ONLY: transcribed from
+    phase_03/algorithm_pseudocode.md, phase_03/equation_registry.csv and
+    phase_03/parameter_table.md per phase_04/conceptual_figure_specs.md
+    spec (a). No empirical value appears.
+  -->
+  <diagram id="dt-gsk-architecture" name="fig_architecture">
+    <mxGraphModel dx="1200" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="920" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- cross-cutting rails -->
+        <mxCell id="railRng" value="13 append-only RNG substreams (E12) — every stochastic block draws only from its named substream (init / ace / bse / link / ...)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dcdcdc;strokeColor=#2c3e50;horizontal=0;fontSize=11;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="10" y="60" width="42" height="710" as="geometry" />
+        </mxCell>
+        <mxCell id="railBudget" value="BudgetController rail — ALL objective evaluations are charged here: initialisation, trials, BSE rescues, subspace-LS probes, polish probes, restart resamples (last batch truncates to the remaining budget)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dcdcdc;strokeColor=#2c3e50;fontSize=11;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="10" y="850" width="1150" height="44" as="geometry" />
+        </mxCell>
+
+        <!-- outer generation loop frame -->
+        <mxCell id="loopFrame" value="outer generation loop  (while t &lt; MaxFES;  x = t/MaxFES)  —  pseudocode steps 1–11" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;dashPattern=6 4;fillColor=#fbf6ec;strokeColor=#2c3e50;verticalAlign=top;fontSize=13;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="70" y="60" width="1090" height="720" as="geometry" />
+        </mxCell>
+
+        <!-- scaffold subsystems (all tiers) -->
+        <mxCell id="nlpsr" value="1  NLPSR population-size schedule (E5) — tier-floored N_min" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#cfe1ee;strokeColor=#2c3e50;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="100" y="110" width="230" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="ace" value="2  ACE bandit operator-pool control + ARGP arm pruning (E6)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#cfe1ee;strokeColor=#2c3e50;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="390" y="110" width="270" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- inherited [GSK] core -->
+        <mxCell id="core" value="inherited [GSK] core — operator numerics unchanged" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8e8e8;strokeColor=#2c3e50;verticalAlign=top;fontStyle=1;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="380" y="220" width="330" height="400" as="geometry" />
+        </mxCell>
+        <mxCell id="coreTrial" value="junior / senior gaining–sharing trial construction (E1a, E1b, E2, E3)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2c3e50" vertex="1" parent="1">
+          <mxGeometry x="400" y="255" width="290" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="coreMask" value="crossover mask (E4): per-coordinate KR or linkage block mask" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2c3e50" vertex="1" parent="1">
+          <mxGeometry x="400" y="320" width="290" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="coreRepair" value="midpoint bound repair (E7)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2c3e50" vertex="1" parent="1">
+          <mxGeometry x="400" y="385" width="290" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="coreEval" value="evaluate f(V) — charged" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2c3e50" vertex="1" parent="1">
+          <mxGeometry x="400" y="440" width="290" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="coreSelect" value="strictly-greedy selection (E8): accept iff f(v_i) &lt; f(x_i)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2c3e50" vertex="1" parent="1">
+          <mxGeometry x="400" y="495" width="290" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- right column: linkage + SGSM family -->
+        <mxCell id="linkage" value="3  linkage-aware block crossover mask (E4) — SGSM-fed blocks at D ≥ 50" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#cfe1ee;strokeColor=#2c3e50;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="870" y="150" width="260" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="badgeLink" value="D ≥ 30/50 tier" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#7a4a00;fontColor=#7a4a00;fontStyle=1;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="1050" y="138" width="95" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="sgsm" value="4  SGSM interaction-structure memory (E10) — accepted-move EMA graph, λ = 0.95, gate κ_min" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5dcc4;strokeColor=#2c3e50;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="870" y="280" width="260" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="badgeSgsm" value="D ≥ 50" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#7a4a00;fontColor=#7a4a00;fontStyle=1;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="1075" y="268" width="70" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="subls" value="5  SGSM top-k-block subspace local search (charged evaluations)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5dcc4;strokeColor=#2c3e50;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="870" y="420" width="260" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="badgeSubls" value="D ≥ 50" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#7a4a00;fontColor=#7a4a00;fontStyle=1;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="1075" y="408" width="70" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="polish" value="8  eigenframe final polish (E11) — one-shot, RNG-free, final budget slice" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5dcc4;strokeColor=#2c3e50;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="870" y="540" width="260" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="badgePolish" value="D ≥ 50" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#7a4a00;fontColor=#7a4a00;fontStyle=1;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="1075" y="528" width="70" height="24" as="geometry" />
+        </mxCell>
+
+        <!-- left column: BSE + archive, upper-tier controllers -->
+        <mxCell id="bse" value="6  BSE budget-safe escape (E9) — hard-capped (R_max, stop fraction)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#cfe1ee;strokeColor=#2c3e50;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="100" y="300" width="230" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="archive" value="elite archive A (distance-thresholded)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2c3e50" vertex="1" parent="1">
+          <mxGeometry x="115" y="430" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="hidctrl" value="7  D ≥ 100 controllers — TERRA budget policy, basin memory, SP-NLPSR floor, A1 / A2 / FC4 (method-level protections)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3d1e8;strokeColor=#2c3e50;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="100" y="520" width="240" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="badgeHid" value="D ≥ 100" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#7a4a00;fontColor=#7a4a00;fontStyle=1;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="285" y="508" width="70" height="24" as="geometry" />
+        </mxCell>
+
+        <!-- global-best / deep-stall row -->
+        <mxCell id="gbest" value="update global-best shadow (x_gb, f_gb) — every generation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2c3e50;fontColor=#1b5e20;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="340" y="670" width="260" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="deepstall" value="deep-stall full restart (ρ_ds = 0.25): resample P, preserve (x_gb, f_gb) — restart never loses ground" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2c3e50;fontColor=#1b5e20;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="680" y="670" width="340" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="return" value="return (x_gb, f_gb) — returns global best" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2c3e50;fontColor=#1b5e20;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="340" y="795" width="260" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- control-flow edges -->
+        <mxCell id="eNlpsrAce" style="endArrow=block;html=1;strokeColor=#34495e" edge="1" parent="1" source="nlpsr" target="ace"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="eNlpsrBse" style="endArrow=block;html=1;strokeColor=#34495e;exitX=0.5;exitY=1;entryX=0.5;entryY=0" edge="1" parent="1" source="nlpsr" target="bse"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="eAceCore" style="endArrow=block;html=1;strokeColor=#34495e;exitX=0.5;exitY=1;entryX=0.5;entryY=0" edge="1" parent="1" source="ace" target="core"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="eBseCore" style="endArrow=block;html=1;strokeColor=#34495e" edge="1" parent="1" source="bse" target="core"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="eCoreGb" style="endArrow=block;html=1;strokeColor=#34495e;exitX=0.5;exitY=1;entryX=0.5;entryY=0" edge="1" parent="1" source="coreSelect" target="gbest"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="eGbDs" style="endArrow=block;html=1;strokeColor=#34495e" edge="1" parent="1" source="gbest" target="deepstall"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="eDsLoop" value="restart branch: resample P from rngs.bse — re-enter loop (charged)" style="endArrow=block;html=1;strokeColor=#34495e;dashed=1;exitX=1;exitY=0.5;entryX=1;entryY=0.5;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="deepstall" target="ace">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="1145" y="700" /><mxPoint x="1145" y="90" /><mxPoint x="700" y="90" /></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="eGbReturn" style="endArrow=block;html=1;strokeColor=#1b5e20;strokeWidth=2;exitX=0.5;exitY=1;entryX=0.5;entryY=0" edge="1" parent="1" source="gbest" target="return"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <!-- data-flow edges (orange) -->
+        <mxCell id="eDeltaSgsm" value="accepted-move deltas (zero extra evaluations)" style="endArrow=block;html=1;strokeColor=#a04000;fontColor=#a04000;fontStyle=2;exitX=1;exitY=0.5;entryX=0;entryY=1" edge="1" parent="1" source="coreSelect" target="sgsm"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="eAcceptAce" value="acceptance signal → ACE credit / ARGP" style="endArrow=block;html=1;strokeColor=#a04000;fontColor=#a04000;fontStyle=2;exitX=0;exitY=0.5;entryX=0;entryY=1;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="coreSelect" target="ace">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="360" y="522" /><mxPoint x="360" y="195" /></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="eSgsmLink" value="linkage blocks" style="endArrow=block;html=1;strokeColor=#a04000;fontColor=#a04000;fontStyle=2;exitX=0.5;exitY=0;entryX=0.5;entryY=1" edge="1" parent="1" source="sgsm" target="linkage"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="eLinkMask" value="block mask (E4)" style="endArrow=block;html=1;strokeColor=#a04000;fontColor=#a04000;fontStyle=2;exitX=0;exitY=0.5;entryX=1;entryY=0.5" edge="1" parent="1" source="linkage" target="coreMask"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="eSgsmLs" value="top-k blocks" style="endArrow=block;html=1;strokeColor=#a04000;fontColor=#a04000;fontStyle=2;exitX=0.5;exitY=1;entryX=0.5;entryY=0" edge="1" parent="1" source="sgsm" target="subls"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="eSgsmPolish" value="signed matrix → eigenbasis" style="endArrow=block;html=1;strokeColor=#a04000;fontColor=#a04000;fontStyle=2;exitX=1;exitY=1;entryX=1;entryY=0;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="sgsm" target="polish">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="1152" y="405" /><mxPoint x="1152" y="505" /></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="eArchBse" value="archive seeding" style="endArrow=block;html=1;strokeColor=#a04000;fontColor=#a04000;fontStyle=2;exitX=0.5;exitY=0;entryX=0.5;entryY=1" edge="1" parent="1" source="archive" target="bse"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

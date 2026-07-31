@@ -1,0 +1,826 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Python API documentation for gsk_family.analysis.statistics">
+  <title>gsk_family.analysis.statistics | GSK Family Python Documentation</title>
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+  <div class="site-shell">
+    <aside class="sidebar">
+<div class="brand"><a href="../index.html">GSK Family Python</a></div>
+<input class="nav-search" type="search" placeholder="Filter docs" aria-label="Filter docs">
+<nav class="nav-list" aria-label="Documentation">
+<section><h2>Getting Started</h2>
+<a class="nav-link" href="../getting-started_configuration.html">Configuration</a>
+<a class="nav-link" href="../getting-started_explainer.html">Explainer</a>
+<a class="nav-link" href="../getting-started_runbook.html">Runbook</a>
+<a class="nav-link" href="../getting-started_troubleshooting.html">Troubleshooting</a>
+<a class="nav-link" href="../getting-started_tutorial.html">Tutorial</a>
+<a class="nav-link" href="../getting-started_user_guide.html">User Guide</a>
+</section>
+<section><h2>Reference</h2>
+<a class="nav-link" href="../reference_api.html">API Reference</a>
+<a class="nav-link" href="../reference_architecture.html">Architecture</a>
+<a class="nav-link" href="../reference_benchmark_mapping.html">Benchmark Mapping</a>
+<a class="nav-link" href="../reference_benchmark_protocol.html">Benchmark Protocol</a>
+<a class="nav-link" href="../reference_cec2011_cpp_python_equivalence_review.html">CEC2011 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="../reference_cec2013_cpp_python_equivalence_review.html">CEC2013 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="../reference_cec2013lsgo_cpp_python_equivalence_review.html">CEC2013LSGO C++ to Python Equivalence Review</a>
+<a class="nav-link" href="../reference_cec2017_cpp_python_equivalence_review.html">CEC2017 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="../reference_cec2020_cpp_python_equivalence_review.html">CEC2020 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="../index.html">Documentation Index</a>
+<a class="nav-link" href="../reference_fp_regime.html">Floating-Point Regime Verification</a>
+<a class="nav-link" href="../reference_diagrams.html">Flowcharts And Diagrams</a>
+<a class="nav-link" href="../reference_glossary.html">Glossary</a>
+<a class="nav-link" href="../LICENSES.html">Licenses</a>
+<a class="nav-link" href="../reference_module_dependencies.html">Module Dependencies</a>
+<a class="nav-link" href="../reference_project_structure.html">Project Structure</a>
+<a class="nav-link" href="../reference_python_optimizer_interface.html">Python Optimizer Interface</a>
+<a class="nav-link" href="../reference_result_schema.html">Result Schema</a>
+<a class="nav-link" href="../reference_seed_policy.html">Seed Policy</a>
+<a class="nav-link" href="../reference_workflows.html">Workflows</a>
+</section>
+<section><h2>Algorithm Guides</h2>
+<a class="nav-link" href="../algorithms_agsk.html">AGSK — Adaptive Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="../algorithms_apgsk.html">APGSK — Adaptive-Parameters Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="../algorithms_atmals-gsk.html">ATMALS-GSK — Adaptive Tuning, Memory, Adaptive Local Search</a>
+<a class="nav-link" href="../algorithms_dt-gsk.html">DT-GSK — Dimension-Tiered Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="../algorithms_egsk.html">EGSK — Enhanced Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="../algorithms_fdb-agsk.html">FDB-AGSK — Fitness-Distance-Balance AGSK</a>
+<a class="nav-link" href="../algorithms_gsk.html">GSK — Gaining-Sharing Knowledge</a>
+</section>
+<section><h2>Development</h2>
+<a class="nav-link" href="../development_BUG_resume_summary_truncation.html">BUG-RESUME-01 — resume mode truncates (and mis-computes) the per-dimension summary CSV</a>
+<a class="nav-link" href="../development_LSGO_ACCELERATION_PLAN.html">CEC2013LSGO Acceleration Plan — all 7 GSK-family algorithms, bit-identically</a>
+<a class="nav-link" href="../development_LSGO_INTEGRATION_CAMPAIGN.html">CEC2013LSGO Integration — Campaign Plan</a>
+<a class="nav-link" href="../development_CEC2017_PREC_adjudication.html">CEC2017-PREC — adjudication (CLOSED 2026-07-25)</a>
+<a class="nav-link" href="../development_code_reading_guide.html">Code Reading Guide</a>
+<a class="nav-link" href="../development_contributor_guide.html">Contributor Guide</a>
+<a class="nav-link" href="../development_DECC_G_port_record.html">DECC-G port — fidelity and validation record</a>
+<a class="nav-link" href="../development_developer_guide.html">Developer Guide</a>
+<a class="nav-link" href="../development_README.html">Development Docs</a>
+<a class="nav-link" href="../development_dt_gsk_core_reference.html">DT-GSK Core Reference — the vendored core and its byte-identity lock</a>
+<a class="nav-link" href="../development_evidence_rerun_runbook.html">DT-GSK re-run runbook — corrected implementation (C006 + graph backend)</a>
+<a class="nav-link" href="../development_egsk_port_spec.html">EGSK — Algorithm Spec &amp; Porting Verdict</a>
+<a class="nav-link" href="../development_extension_guide.html">Extension Guide</a>
+<a class="nav-link" href="../development_FAMILY_ACCELERATION_PLAN.html">Family-wide acceleration plan — 7 algorithms x 5 suites, bit-identical only</a>
+<a class="nav-link" href="../development_FINAL_PUBLICATION_PLAN.html">FINAL PUBLICATION PLAN — DT-GSK, Four(/Five)-Suite Scope</a>
+<a class="nav-link" href="../development_ACCELERATION_CAMPAIGN_PROMPT.html">GSK-Family Acceleration Campaign — Execution Prompt</a>
+<a class="nav-link" href="../development_maintenance_guide.html">Maintenance Guide</a>
+<a class="nav-link" href="../development_PORT_05_TUNING_TRIAGE.html">Porting project-05 tuning into 02 — Phase 1 audit and triage</a>
+<a class="nav-link" href="../development_REFERENCE_PROMOTION_PLAN.html">Reference Promotion Plan — CEC2013LSGO now, CEC2020 behind its completeness gate</a>
+<a class="nav-link" href="../development_SIBLING_CAMPAIGN_TRANSFER.html">Sibling-Campaign Transfer — every tuning that can make the GSK family fast</a>
+</section>
+<section><h2>Research</h2>
+<a class="nav-link" href="../research_egsk_validation_appendix.html">EGSK Validation Appendix — Paired Port-vs-Reference Equivalence</a>
+<a class="nav-link" href="../research_numerical_examples.html">Numerical Examples</a>
+<a class="nav-link" href="../research_performance.html">Performance</a>
+<a class="nav-link" href="../research_reproducibility.html">Reproducibility</a>
+<a class="nav-link" href="../research_researcher_handbook.html">Researcher Handbook</a>
+<a class="nav-link" href="../research_statistical_analysis.html">Statistical Analysis (GSK-family comparison)</a>
+<a class="nav-link" href="../research_validation_report.html">Validation Report</a>
+</section>
+<section><h2>Prompts</h2>
+<a class="nav-link" href="../prompt_documentation-deep-upgrade.html">Deep Documentation Review &amp; Upgrade Prompt — GSK Family Python</a>
+<a class="nav-link" href="../prompt_project-review.html">Deep Expert Review Prompt For GSK Family Python</a>
+<a class="nav-link" href="../prompt_documentation-review.html">Documentation Review Prompt</a>
+<a class="nav-link" href="../prompt_publication-polish.html">Final Publication Prompt — Production-Ready Q1 Release of GSK Family Python v1.1</a>
+</section>
+<section><h2>Python API</h2>
+<a class="nav-link" href="../api_index.html">API Module Index</a>
+<a class="nav-link api-link" href="../api/gsk_family.__init__.html">gsk_family.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.__init__.html">gsk_family.analysis.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.family_report.html">gsk_family.analysis.family_report</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.figures.html">gsk_family.analysis.figures</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.latex_tables.html">gsk_family.analysis.latex_tables</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.project_policy.html">gsk_family.analysis.project_policy</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.result_loader.html">gsk_family.analysis.result_loader</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.statistical_tests.html">gsk_family.analysis.statistical_tests</a>
+<a class="nav-link api-link active" href="../api/gsk_family.analysis.statistics.html">gsk_family.analysis.statistics</a>
+<a class="nav-link api-link" href="../api/gsk_family.benchmark_adapter.__init__.html">gsk_family.benchmark_adapter.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.benchmark_adapter.factory.html">gsk_family.benchmark_adapter.factory</a>
+<a class="nav-link api-link" href="../api/gsk_family.benchmark_adapter.problem.html">gsk_family.benchmark_adapter.problem</a>
+<a class="nav-link api-link" href="../api/gsk_family.benchmark_adapter.protocol.html">gsk_family.benchmark_adapter.protocol</a>
+<a class="nav-link api-link" href="../api/gsk_family.cli.__init__.html">gsk_family.cli.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.cli.list.html">gsk_family.cli.list</a>
+<a class="nav-link api-link" href="../api/gsk_family.cli.run.html">gsk_family.cli.run</a>
+<a class="nav-link api-link" href="../api/gsk_family.cli.stats.html">gsk_family.cli.stats</a>
+<a class="nav-link api-link" href="../api/gsk_family.cli.validate.html">gsk_family.cli.validate</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.__init__.html">gsk_family.common.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.bounds.html">gsk_family.common.bounds</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.donors.html">gsk_family.common.donors</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.numeric_compat.html">gsk_family.common.numeric_compat</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.population.html">gsk_family.common.population</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.reduction.html">gsk_family.common.reduction</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.reference_rng.html">gsk_family.common.reference_rng</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.rng.html">gsk_family.common.rng</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.threefry_rng.html">gsk_family.common.threefry_rng</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.__init__.html">gsk_family.optimizers.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers._dt_profiles.html">gsk_family.optimizers._dt_profiles</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers._dt_rng.html">gsk_family.optimizers._dt_rng</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers._kernels.html">gsk_family.optimizers._kernels</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.agsk.html">gsk_family.optimizers.agsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.apgsk.html">gsk_family.optimizers.apgsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.atmals_gsk.html">gsk_family.optimizers.atmals_gsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.atmals_helpers.html">gsk_family.optimizers.atmals_helpers</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.dt_gsk.html">gsk_family.optimizers.dt_gsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.egsk.html">gsk_family.optimizers.egsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.__init__.html">gsk_family.optimizers.external.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external._base.html">gsk_family.optimizers.external._base</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external._telemetry_shim.html">gsk_family.optimizers.external._telemetry_shim</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.cmaes.html">gsk_family.optimizers.external.cmaes</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.decc_g.html">gsk_family.optimizers.external.decc_g</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.ebowithcmar.html">gsk_family.optimizers.external.ebowithcmar</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.jso.html">gsk_family.optimizers.external.jso</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.lshade.html">gsk_family.optimizers.external.lshade</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.lshade_spacma.html">gsk_family.optimizers.external.lshade_spacma</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.mos_cec2013lsgo.html">gsk_family.optimizers.external.mos_cec2013lsgo</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.shade_ils.html">gsk_family.optimizers.external.shade_ils</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.fdb_agsk.html">gsk_family.optimizers.fdb_agsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.fdb_scores.html">gsk_family.optimizers.fdb_scores</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.gsk.html">gsk_family.optimizers.gsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.__init__.html">gsk_family.runners.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.config.html">gsk_family.runners.config</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.fp_regime.html">gsk_family.runners.fp_regime</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.output.html">gsk_family.runners.output</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.parallel.html">gsk_family.runners.parallel</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.performance.html">gsk_family.runners.performance</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.run_experiment.html">gsk_family.runners.run_experiment</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.seed_policy.html">gsk_family.runners.seed_policy</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.verification.html">gsk_family.runners.verification</a>
+<a class="nav-link api-link" href="../api/gsk_family.stats.html">gsk_family.stats</a>
+<a class="nav-link api-link" href="../api/gsk_family.types.html">gsk_family.types</a>
+</section>
+</nav></aside>
+    <main class="content">
+      <article class="doc-card">
+        <h1>gsk_family.analysis.statistics</h1>
+<p class="source-path">Source: <code>src/gsk_family/analysis/statistics.py</code></p>
+<p>gsk.statistics — Statistical Analysis
+======================================</p>
+<p>Publication-grade statistical analysis for CEC benchmark comparisons.</p>
+<p>Implements:
+- Wilcoxon signed-rank test (pairwise, per-function)
+- Friedman test with Holm post-hoc (multi-algorithm ranking)
+- Vargha-Delaney A12 effect size
+- Win/Tie/Loss summary tables
+- Mean error comparison tables with percentage improvement</p>
+<p>All tests follow CEC competition reporting standards.</p>
+<h2 id="members">Members</h2>
+<section class="api-member" id="function-result-leaf-dir-66">
+<div class="member-kind">function</div>
+<h2>_result_leaf_dir</h2>
+<pre><code>_result_leaf_dir(alg_dir: Path, suite: str = &#x27;cec2017&#x27;) -&gt; Path</code></pre>
+<p>Resolve an algorithm directory to the suite leaf that contains outputs.</p>
+</section>
+<section class="api-member" id="function-alg-prefix-from-leaf-81">
+<div class="member-kind">function</div>
+<h2>_alg_prefix_from_leaf</h2>
+<pre><code>_alg_prefix_from_leaf(alg_dir: Path, leaf_dir: Path) -&gt; str</code></pre>
+<p>Infer the filename prefix used by experiment.py for this output leaf.</p>
+</section>
+<section class="api-member" id="function-discover-dims-88">
+<div class="member-kind">function</div>
+<h2>discover_dims</h2>
+<pre><code>discover_dims(alg_dir: Path) -&gt; list[int]</code></pre>
+<p>Discover available problem dimensions from summary CSVs.</p>
+<p>Scans ``&lt;alg_dir&gt;/summary/`` for files matching the naming convention
+``{alg}_{suite}_D{dim}.csv`` (or legacy ``Summary_All_Results_D*.csv``)
+and extracts the dimension integer.</p>
+<p>Parameters
+----------
+alg_dir : Path
+    Root directory of an algorithm&#x27;s results (e.g. ``results/dt-gsk/``).
+    Canonical suite leaves such as ``results/dt-gsk/dt-gsk/cec2017/``
+    are resolved automatically.</p>
+<p>Returns
+-------
+list of int
+    Sorted list of dimension values found (e.g. ``[10, 30, 50, 100]``).
+    Returns an empty list if the summary sub-directory does not exist.</p>
+</section>
+<section class="api-member" id="function-summary-path-124">
+<div class="member-kind">function</div>
+<h2>summary_path</h2>
+<pre><code>summary_path(alg_dir: Path, dim: int) -&gt; Path</code></pre>
+<p>Return the path to the summary CSV for a given dimension.</p>
+<p>Prefers the new naming convention ``{alg}_{suite}_D{dim}.csv``.
+Falls back to legacy ``Summary_All_Results_D{dim}.csv`` if found.</p>
+<p>Parameters
+----------
+alg_dir : Path
+    Root directory of an algorithm&#x27;s results.
+dim : int
+    Problem dimensionality (e.g. 10, 30, 50, 100).</p>
+<p>Returns
+-------
+Path
+    Resolved path to the summary CSV.</p>
+</section>
+<section class="api-member" id="function-run-errors-path-167">
+<div class="member-kind">function</div>
+<h2>run_errors_path</h2>
+<pre><code>run_errors_path(alg_dir: Path, func_id: int, dim: int) -&gt; Path</code></pre>
+<p>Return the path to the per-run errors CSV for a function/dimension.</p>
+<p>The algorithm name is inferred from either the directory name or the
+canonical suite leaf&#x27;s parent directory.</p>
+<p>Parameters
+----------
+alg_dir : Path
+    Root directory of an algorithm&#x27;s results.
+func_id : int
+    CEC benchmark function identifier (e.g. 1, 3, 4, ..., 30).
+dim : int
+    Problem dimensionality.</p>
+<p>Returns
+-------
+Path
+    ``&lt;alg_dir&gt;/gen_logs/RunErrors_&lt;alg&gt;_F{func_id}_D{dim}.csv``.</p>
+</section>
+<section class="api-member" id="function-load-summary-196">
+<div class="member-kind">function</div>
+<h2>load_summary</h2>
+<pre><code>load_summary(path: Path) -&gt; dict[int, dict[str, float]]</code></pre>
+<p>Load a summary CSV into {func_id: {Best, Median, Mean, Worst, SD}}.</p>
+<p>Parameters
+----------
+path : Path
+    Path to a summary CSV (e.g. ``dt-gsk_cec2017_D30.csv``) produced by
+    :func:`gsk.experiment.run_experiments`.</p>
+<p>Returns
+-------
+dict mapping function ID to a dict of summary statistics.</p>
+</section>
+<section class="api-member" id="function-load-run-errors-235">
+<div class="member-kind">function</div>
+<h2>load_run_errors</h2>
+<pre><code>load_run_errors(path: Path) -&gt; list[float]</code></pre>
+<p>Load per-run errors from a ``RunErrors`` CSV.</p>
+<p>Parameters
+----------
+path : Path
+    Path to a ``RunErrors_&lt;alg&gt;_F{id}_D{dim}.csv`` file.</p>
+<p>Returns
+-------
+list of float
+    Error values, one per independent run.</p>
+</section>
+<section class="api-member" id="function-load-all-run-errors-256">
+<div class="member-kind">function</div>
+<h2>load_all_run_errors</h2>
+<pre><code>load_all_run_errors(alg_dir: Path, dim: int, funcs: list[int] | None = None) -&gt; dict[int, list[float]]</code></pre>
+<p>Load per-run errors for all functions at a given dimension.</p>
+<p>Parameters
+----------
+alg_dir : Path
+    Algorithm results directory (e.g., ``results/dt-gsk/``).
+dim : int
+    Dimension (10, 30, 50, 100).
+funcs : list of int, optional
+    Functions to load.  Defaults to all 29 CEC2017 functions.</p>
+<p>Returns
+-------
+dict mapping function ID to list of per-run errors.</p>
+</section>
+<section class="api-member" id="class-pairedwilcoxonresult-291">
+<div class="member-kind">class</div>
+<h2>PairedWilcoxonResult</h2>
+<pre><code>PairedWilcoxonResult</code></pre>
+<p>Result of a paired Wilcoxon signed-rank test (atomic, single pair).</p>
+<p>Disambiguated from :class:`gsk.statistical_tests.WilcoxonResult`,
+which carries the paper-table aggregate (per-function decisions,
+effect sizes) rather than this atomic test-statistic output.</p>
+</section>
+<section class="api-member" id="function-wilcoxon-paired-304">
+<div class="member-kind">function</div>
+<h2>wilcoxon_paired</h2>
+<pre><code>wilcoxon_paired(x: np.ndarray, y: np.ndarray, *, alternative: str = &#x27;two-sided&#x27;) -&gt; PairedWilcoxonResult</code></pre>
+<p>Paired Wilcoxon signed-rank test (pure NumPy, no scipy required).</p>
+<p>This is a custom pure-NumPy implementation using normal approximation
+with continuity correction, avoiding the scipy dependency. Results
+are equivalent to ``scipy.stats.wilcoxon`` for n &gt;= 10.</p>
+<p>Tests whether the paired differences x - y are symmetrically distributed
+around zero.</p>
+<p>Parameters
+----------
+x, y : array-like
+    Paired observations (e.g., per-function mean errors for two algorithms).
+alternative : str
+    &#x27;two-sided&#x27;, &#x27;less&#x27;, or &#x27;greater&#x27;.</p>
+<p>Returns
+-------
+PairedWilcoxonResult with statistic W and p-value.</p>
+<p>Notes
+-----
+Uses the exact distribution for n ≤ 25 and normal approximation for n &gt; 25.
+Ties in differences are handled by the midrank method.
+Zero differences are excluded (standard convention).</p>
+</section>
+<section class="api-member" id="function-norm-cdf-401">
+<div class="member-kind">function</div>
+<h2>_norm_cdf</h2>
+<pre><code>_norm_cdf(z: float) -&gt; float</code></pre>
+<p>Cumulative distribution function of the standard normal distribution.</p>
+<p>Computes Phi(*z*) = (1 + erf(*z* / sqrt(2))) / 2 via :func:`_erf`.</p>
+<p>Parameters
+----------
+z : float
+    Quantile of the standard normal distribution.</p>
+<p>Returns
+-------
+float
+    Probability P(Z &lt;= *z*) for Z ~ N(0, 1).</p>
+</section>
+<section class="api-member" id="function-erf-419">
+<div class="member-kind">function</div>
+<h2>_erf</h2>
+<pre><code>_erf(x: float) -&gt; float</code></pre>
+<p>Approximation to the error function using a rational polynomial.</p>
+<p>Parameters
+----------
+x : float
+    Input value at which to evaluate erf(*x*).</p>
+<p>Returns
+-------
+float
+    Approximation of erf(*x*) with maximum error |epsilon| &lt; 1.5 x 10^-7.</p>
+<p>References
+----------
+Abramowitz, M. and Stegun, I. A. (1964). *Handbook of Mathematical
+Functions with Formulas, Graphs, and Mathematical Tables*, National
+Bureau of Standards Applied Mathematics Series 55, formula 7.1.26.</p>
+</section>
+<section class="api-member" id="class-holmresult-455">
+<div class="member-kind">class</div>
+<h2>HolmResult</h2>
+<pre><code>HolmResult</code></pre>
+<p>Result of Holm-corrected multiple comparisons.</p>
+</section>
+<section class="api-member" id="function-holm-correction-462">
+<div class="member-kind">function</div>
+<h2>holm_correction</h2>
+<pre><code>holm_correction(p_values: list[float], labels: list[str], *, alpha: float = 0.05, statistics: list[float] | None = None) -&gt; HolmResult</code></pre>
+<p>Apply Holm&#x27;s sequentially rejective procedure.</p>
+<p>Parameters
+----------
+p_values : list of float
+    Raw p-values from multiple tests.
+labels : list of str
+    Names for each comparison.
+alpha : float
+    Family-wise error rate.
+statistics : list of float, optional
+    Test statistics for each comparison.</p>
+<p>Returns
+-------
+HolmResult with adjusted p-values and significance flags.</p>
+</section>
+<section class="api-member" id="function-benjamini-hochberg-513">
+<div class="member-kind">function</div>
+<h2>benjamini_hochberg</h2>
+<pre><code>benjamini_hochberg(p_values: list[float], labels: list[str], *, alpha: float = 0.05) -&gt; HolmResult</code></pre>
+<p>Apply the Benjamini--Hochberg step-up FDR procedure.</p>
+<p>Controls the false-discovery rate at level ``alpha``.  Less
+conservative than Holm--Bonferroni: where Holm controls the
+family-wise error rate (probability of *any* false positive), BH
+controls the *expected proportion* of false positives among
+rejected hypotheses.  Use BH when the test family is large
+(e.g., the 24-test cross-dimension pool in §sec:exp:stats_protocol)
+and a small number of false positives is acceptable.</p>
+<p>Parameters
+----------
+p_values : list of float
+    Raw p-values from multiple tests.
+labels : list of str
+    Names for each comparison.
+alpha : float
+    Target FDR (default 0.05).</p>
+<p>Returns
+-------
+HolmResult
+    Same dataclass as :func:`holm_correction`.  ``p_adjusted`` is
+    the BH-adjusted p-value (min over i..m of (m/i) * p_(i) with
+    monotonicity enforcement); ``significant`` is
+    ``p_adjusted &lt; alpha``.</p>
+<p>References
+----------
+Benjamini, Y. and Hochberg, Y. (1995). Controlling the false
+discovery rate: a practical and powerful approach to multiple
+testing. *Journal of the Royal Statistical Society: Series B*,
+57(1), 289-300.</p>
+</section>
+<section class="api-member" id="function-bonferroni-cross-dimension-580">
+<div class="member-kind">function</div>
+<h2>bonferroni_cross_dimension</h2>
+<pre><code>bonferroni_cross_dimension(p_values_by_dim: dict[int, list[float]], alpha: float = 0.05) -&gt; dict[int, list[float]]</code></pre>
+<p>Apply Bonferroni correction across dimensions.</p>
+<p>When the same pairwise test is repeated across K dimensions
+(e.g., D=10, 30, 50, 100), the family-wise error rate inflates.
+This function multiplies each raw p-value by the number of
+dimensions to control FWER.</p>
+<p>Parameters
+----------
+p_values_by_dim : dict[int, list[float]]
+    Mapping from dimension to list of raw p-values for that dimension.
+alpha : float
+    Significance level (default 0.05).</p>
+<p>Returns
+-------
+dict[int, list[float]]
+    Mapping from dimension to Bonferroni-adjusted p-values.
+    Each adjusted p = min(raw_p * n_dims, 1.0).</p>
+<p>Notes
+-----
+Bonferroni is conservative but simple.  For a less conservative
+alternative, use Holm&#x27;s method on the pooled p-value list from all
+dimensions via :func:`holm_correction`.</p>
+</section>
+<section class="api-member" id="class-friedmansummary-624">
+<div class="member-kind">class</div>
+<h2>FriedmanSummary</h2>
+<pre><code>FriedmanSummary</code></pre>
+<p>Summary of the Friedman rank test (compact, no per-problem ranks).</p>
+<p>Disambiguated from :class:`gsk.statistical_tests.FriedmanResult`,
+which additionally carries the per-problem ranks matrix and
+function-id list needed for paper tables.</p>
+<p>``statistic`` / ``p_value`` are the tie-UNcorrected forms, retained
+unchanged so that historical results reproduce exactly and the
+correction remains auditable.  ``statistic_tie_corrected`` /
+``p_value_tie_corrected`` are the reporting values (ticket M-026).</p>
+</section>
+<section class="api-member" id="function-friedman-rank-650">
+<div class="member-kind">function</div>
+<h2>friedman_rank</h2>
+<pre><code>friedman_rank(data: dict[str, list[float]]) -&gt; FriedmanSummary</code></pre>
+<p>Friedman test on per-function summary statistics.</p>
+<p>Parameters
+----------
+data : dict
+    {algorithm_name: [per-function metric for each function]}.
+    All lists must have the same length (one entry per function).</p>
+<p>Returns
+-------
+FriedmanSummary with chi-squared statistic, p-value, and average ranks.</p>
+<p>Notes
+-----
+Uses the chi-squared approximation:
+    χ² = (12N / (k(k+1))) * Σ(R̄_j - (k+1)/2)²
+where N = number of problems, k = number of algorithms, R̄_j = average
+rank of algorithm j.</p>
+<p>Ties receive midranks, and the returned summary additionally carries the
+tie-corrected statistic (ticket M-026).  Midranks alone do not correct the
+statistic: tied rows shrink the rank variance, which biases χ² *downwards*
+and makes the uncorrected test conservative.  The standard correction
+divides by</p>
+<p>C = 1 - Σ_i Σ_g (t_ig³ - t_ig) / (N (k³ - k))</p>
+<p>where t_ig is the size of the g-th tie group in problem i.  C ≤ 1, so the
+corrected statistic is always ≥ the uncorrected one and the correction can
+only *increase* significance.  Average ranks are untouched by the
+correction, so no ranking can change as a result of it.</p>
+<p>Ties are material here because the 1e-8 success floor maps many distinct
+solver outcomes onto exactly 0.0, creating genuine exact ties.</p>
+</section>
+<section class="api-member" id="function-chi2-sf-770">
+<div class="member-kind">function</div>
+<h2>_chi2_sf</h2>
+<pre><code>_chi2_sf(x: float, df: int) -&gt; float</code></pre>
+<p>Survival function (1 - CDF) of the chi-squared distribution.</p>
+<p>Computes P(X &gt; *x*) for X ~ chi2(*df*) via the regularized lower
+incomplete gamma function.</p>
+<p>Parameters
+----------
+x : float
+    Observed chi-squared statistic.
+df : int
+    Degrees of freedom.</p>
+<p>Returns
+-------
+float
+    Upper-tail probability (p-value).</p>
+</section>
+<section class="api-member" id="function-regularized-gamma-793">
+<div class="member-kind">function</div>
+<h2>_regularized_gamma</h2>
+<pre><code>_regularized_gamma(a: float, x: float, max_iter: int = 200) -&gt; float</code></pre>
+<p>Regularized lower incomplete gamma function P(*a*, *x*).</p>
+<p>Uses the series expansion when *x* &lt; *a* + 1 and the Legendre
+continued-fraction representation (evaluated via Lentz&#x27;s method)
+otherwise.</p>
+<p>Parameters
+----------
+a : float
+    Shape parameter (must be positive).
+x : float
+    Upper limit of integration (must be non-negative).
+max_iter : int, optional
+    Maximum number of iterations for convergence (default 200).</p>
+<p>Returns
+-------
+float
+    Value of the regularized lower incomplete gamma function
+    P(*a*, *x*) = gamma(*a*, *x*) / Gamma(*a*), in [0, 1].</p>
+<p>References
+----------
+Press, W. H., Teukolsky, S. A., Vetterling, W. T. and Flannery, B. P.
+(2007). *Numerical Recipes: The Art of Scientific Computing*, 3rd ed.,
+Cambridge University Press, Sec. 6.2.</p>
+</section>
+<section class="api-member" id="function-log-gamma-861">
+<div class="member-kind">function</div>
+<h2>_log_gamma</h2>
+<pre><code>_log_gamma(x: float) -&gt; float</code></pre>
+<p>Logarithm of the Gamma function via the Lanczos approximation.</p>
+<p>Parameters
+----------
+x : float
+    Argument (must be positive for direct evaluation; the reflection
+    formula is used for *x* &lt; 0.5).</p>
+<p>Returns
+-------
+float
+    ln(Gamma(*x*)).  Returns ``inf`` when *x* &lt;= 0.</p>
+<p>References
+----------
+Lanczos, C. (1964). A precision approximation of the gamma function.
+*SIAM Journal on Numerical Analysis*, 1, 86--96.</p>
+<p>Coefficients taken from Press, W. H., Teukolsky, S. A., Vetterling,
+W. T. and Flannery, B. P. (2007). *Numerical Recipes: The Art of
+Scientific Computing*, 3rd ed., Cambridge University Press, Sec. 6.1.</p>
+</section>
+<section class="api-member" id="class-effectsizeresult-915">
+<div class="member-kind">class</div>
+<h2>EffectSizeResult</h2>
+<pre><code>EffectSizeResult</code></pre>
+<p>Vargha–Delaney A₁₂ effect size.</p>
+</section>
+<section class="api-member" id="function-vargha-delaney-923">
+<div class="member-kind">function</div>
+<h2>vargha_delaney</h2>
+<pre><code>vargha_delaney(x: list[float], y: list[float]) -&gt; EffectSizeResult</code></pre>
+<p>Compute the Vargha--Delaney A12 non-parametric effect size.</p>
+<p>A12 estimates the probability that a randomly chosen observation from
+*x* is smaller (better) than a randomly chosen observation from *y*.
+Values above 0.5 indicate that *x* stochastically dominates *y*.</p>
+<p>Parameters
+----------
+x : list of float
+    Per-run error values for algorithm A.
+y : list of float
+    Per-run error values for algorithm B (same benchmark function).</p>
+<p>Returns
+-------
+EffectSizeResult
+    Dataclass containing the A12 statistic, its qualitative magnitude
+    (``&quot;negligible&quot;``, ``&quot;small&quot;``, ``&quot;medium&quot;``, or ``&quot;large&quot;``),
+    and the sample sizes *n1*, *n2*.</p>
+<p>Notes
+-----
+Magnitude thresholds follow the original scale proposed by
+Vargha and Delaney (2000):</p>
+<p>- negligible : 0.44 &lt;= A12 &lt;= 0.56
+- small      : 0.56 &lt; A12 &lt;= 0.64  or  0.36 &lt;= A12 &lt; 0.44
+- medium     : 0.64 &lt; A12 &lt;= 0.71  or  0.29 &lt;= A12 &lt; 0.36
+- large      : A12 &gt; 0.71          or  A12 &lt; 0.29</p>
+<p>References
+----------
+Vargha, A. and Delaney, H. D. (2000). A critique and improvement of
+the CL common language effect size statistics of McGraw and Wong.
+*Journal of Educational and Behavioral Statistics*, 25(2), 101--132.</p>
+</section>
+<section class="api-member" id="class-wtlresult-995">
+<div class="member-kind">class</div>
+<h2>WTLResult</h2>
+<pre><code>WTLResult</code></pre>
+<p>Win/Tie/Loss summary.</p>
+<div class="method-list"><h3>Methods</h3>
+<section class="api-member" id="method-total-1003">
+<div class="member-kind">method</div>
+<h2>total</h2>
+<pre><code>total(self) -&gt; int</code></pre>
+<p class="muted">No docstring provided.</p>
+</section>
+<section class="api-member" id="method-str-1006">
+<div class="member-kind">method</div>
+<h2>__str__</h2>
+<pre><code>__str__(self) -&gt; str</code></pre>
+<p class="muted">No docstring provided.</p>
+</section>
+</div>
+</section>
+<section class="api-member" id="function-win-tie-loss-1010">
+<div class="member-kind">function</div>
+<h2>win_tie_loss</h2>
+<pre><code>win_tie_loss(a_means: dict[int, float], b_means: dict[int, float], *, tol: float = 1e-08) -&gt; WTLResult</code></pre>
+<p>Count wins/ties/losses of algorithm A vs B on per-function means.</p>
+<p>A &#x27;win&#x27; means A has lower mean error than B.</p>
+<p>Parameters
+----------
+a_means, b_means : dict
+    {func_id: mean_error} for algorithms A and B.
+tol : float
+    Tolerance for ties (default 1e-8).</p>
+<p>Returns
+-------
+WTLResult</p>
+<p>Notes
+-----
+Ties are defined by numerical tolerance, not statistical significance.
+For statistical tie detection, use Wilcoxon p &gt; 0.05 separately.</p>
+</section>
+<section class="api-member" id="class-comparisonreport-1068">
+<div class="member-kind">class</div>
+<h2>ComparisonReport</h2>
+<pre><code>ComparisonReport</code></pre>
+<p>Full statistical comparison report for one dimension.</p>
+</section>
+<section class="api-member" id="function-generate-comparison-report-1079">
+<div class="member-kind">function</div>
+<h2>generate_comparison_report</h2>
+<pre><code>generate_comparison_report(results_dir_a: Path, results_dir_b: Path, dim: int, *, alg_a_name: str = &#x27;DT-GSK&#x27;, alg_b_name: str = &#x27;GSK&#x27;, funcs: list[int] | None = None) -&gt; ComparisonReport</code></pre>
+<p>Generate a full statistical comparison for one dimension.</p>
+<p>Parameters
+----------
+results_dir_a, results_dir_b : Path
+    Directories containing summary.csv and F{id}_errors.csv.
+dim : int
+    Dimension to compare.
+alg_a_name, alg_b_name : str
+    Algorithm labels.
+funcs : list of int, optional
+    Functions to compare (default: all 29 CEC2017).</p>
+<p>Returns
+-------
+ComparisonReport with Wilcoxon, W/T/L, effect sizes, and group summaries.</p>
+</section>
+<section class="api-member" id="function-format-comparison-report-1158">
+<div class="member-kind">function</div>
+<h2>format_comparison_report</h2>
+<pre><code>format_comparison_report(report: ComparisonReport) -&gt; str</code></pre>
+<p>Format a :class:`ComparisonReport` as a human-readable text block.</p>
+<p>Parameters
+----------
+report : ComparisonReport
+    A completed pairwise comparison (Wilcoxon, W/T/L, effect sizes).</p>
+<p>Returns
+-------
+str
+    Multi-line string suitable for console output or log files.</p>
+</section>
+<section class="api-member" id="function-format-full-table-1205">
+<div class="member-kind">function</div>
+<h2>format_full_table</h2>
+<pre><code>format_full_table(results_dirs: dict[str, Path], dim: int, *, funcs: list[int] | None = None) -&gt; str</code></pre>
+<p>Generate a publication-style mean ± std table for multiple algorithms.</p>
+<p>Parameters
+----------
+results_dirs : dict
+    {algorithm_name: results_directory}.
+dim : int
+    Dimension.
+funcs : list of int, optional
+    Functions to include.</p>
+<p>Returns
+-------
+Formatted text table.</p>
+</section>
+<section class="api-member" id="function-generate-full-statistical-report-1277">
+<div class="member-kind">function</div>
+<h2>generate_full_statistical_report</h2>
+<pre><code>generate_full_statistical_report(results_dirs: dict[str, Path], dims: list[int] | None = None, *, reference_alg: str = &#x27;GSK&#x27;) -&gt; str</code></pre>
+<p>Generate a comprehensive statistical report across all dimensions.</p>
+<p>Parameters
+----------
+results_dirs : dict
+    {algorithm_name: results_directory}.
+dims : list of int, optional
+    Dimensions to analyze (default: [10, 30, 50, 100]).
+reference_alg : str
+    Name of the reference/baseline algorithm.</p>
+<p>Returns
+-------
+Complete publication-ready statistical report as text.</p>
+</section>
+<section class="api-member" id="function-norm-ppf-1385">
+<div class="member-kind">function</div>
+<h2>_norm_ppf</h2>
+<pre><code>_norm_ppf(p: float) -&gt; float</code></pre>
+<p>Inverse CDF (quantile function) of the standard normal.</p>
+<p>Uses the Beasley--Springer / Moro approximation, accurate to
+roughly 1e-9 across the entire [0, 1] range.  Avoids a scipy
+dependency for the BCa interval routine below.</p>
+<p>Parameters
+----------
+p : float
+    Probability in the open interval (0, 1).  Values at or beyond
+    the endpoints are clamped to a small epsilon so the routine
+    returns a finite quantile.</p>
+<p>Returns
+-------
+float
+    z such that P(Z &lt;= z) = p for Z ~ N(0, 1).</p>
+<p>References
+----------
+Beasley, J. D. and Springer, S. G. (1977).  Algorithm AS 111: The
+percentage points of the normal distribution.  *Applied
+Statistics*, 26, 118-121.
+Moro, B. (1995).  The full Monte.  *Risk*, 8(2), 57-58.</p>
+</section>
+<section class="api-member" id="function-bootstrap-bca-ci-1451">
+<div class="member-kind">function</div>
+<h2>bootstrap_bca_ci</h2>
+<pre><code>bootstrap_bca_ci(rank_samples, *, n_boot: int = 10000, alpha: float = 0.05, rng: np.random.Generator | None = None, statistic = None) -&gt; tuple[float, float, float]</code></pre>
+<p>Bias-corrected-and-accelerated bootstrap CI for a sample mean.</p>
+<p>Computes a ``(1 - alpha)`` BCa confidence interval on the mean of
+``rank_samples`` by resampling with replacement ``n_boot`` times.
+This is the standard two-sided BCa bootstrap of Efron (1987).</p>
+<p>Parameters
+----------
+rank_samples : array-like of float
+    Observed sample (e.g. per-function ranks for one algorithm on
+    one dimension).  Must contain at least two distinct values for
+    the BCa acceleration term to be finite.
+n_boot : int, optional
+    Number of bootstrap resamples (default 10 000).  The Efron and
+    Tibshirani (1993) rule of thumb is ``n_boot &gt;= 2000`` for a
+    two-sided 95 % interval.
+alpha : float, optional
+    Significance level; the returned interval covers the
+    ``(1 - alpha)`` two-sided probability region (default 0.05
+    for a 95 % interval).
+rng : numpy.random.Generator, required
+    Seeded PRNG for reproducibility.  An explicit seeded generator
+    must be passed; passing ``None`` raises ``ValueError`` so that
+    callers cannot silently produce non-reproducible intervals by
+    relying on implicit ``default_rng()`` entropy.
+statistic : callable, optional
+    Summary statistic to apply on each resample.  Must accept a
+    1-D ``np.ndarray`` and return a scalar.  Defaults to
+    ``np.mean``.</p>
+<p>Returns
+-------
+tuple of (lo, hi, point)
+    Lower and upper BCa endpoints together with the point estimate
+    (``statistic`` applied to the original sample).</p>
+<p>Notes
+-----
+The accelerated percentile uses the jackknife formula
+``a_hat = sum(u^3) / (6 * sum(u^2)^(3/2))`` where
+``u_i = mean(x_{-i}) - mean(x_{-})``.  When the sample is fully
+degenerate (all values equal), ``a_hat`` is undefined and this
+function falls back to the standard percentile interval
+``[theta_hat, theta_hat]``.</p>
+<p>References
+----------
+Efron, B. (1987).  Better bootstrap confidence intervals.
+*Journal of the American Statistical Association*, 82(397),
+171-185.
+Efron, B. and Tibshirani, R. J. (1993).  *An Introduction to the
+Bootstrap*, Chapman and Hall / CRC Monographs on Statistics and
+Applied Probability 57.</p>
+</section>
+      </article>
+    </main>
+    <aside class="page-toc" aria-label="On this page">
+<h2>On This Page</h2>
+<a class="toc-level-1" href="#gsk-family-analysis-statistics">gsk_family.analysis.statistics</a>
+<a class="toc-level-2" href="#members">Members</a>
+<a class="toc-level-2" href="#function-result-leaf-dir-66">_result_leaf_dir</a>
+<a class="toc-level-2" href="#function-alg-prefix-from-leaf-81">_alg_prefix_from_leaf</a>
+<a class="toc-level-2" href="#function-discover-dims-88">discover_dims</a>
+<a class="toc-level-2" href="#function-summary-path-124">summary_path</a>
+<a class="toc-level-2" href="#function-run-errors-path-167">run_errors_path</a>
+<a class="toc-level-2" href="#function-load-summary-196">load_summary</a>
+<a class="toc-level-2" href="#function-load-run-errors-235">load_run_errors</a>
+<a class="toc-level-2" href="#function-load-all-run-errors-256">load_all_run_errors</a>
+<a class="toc-level-2" href="#class-pairedwilcoxonresult-291">PairedWilcoxonResult</a>
+<a class="toc-level-2" href="#function-wilcoxon-paired-304">wilcoxon_paired</a>
+<a class="toc-level-2" href="#function-norm-cdf-401">_norm_cdf</a>
+<a class="toc-level-2" href="#function-erf-419">_erf</a>
+<a class="toc-level-2" href="#class-holmresult-455">HolmResult</a>
+<a class="toc-level-2" href="#function-holm-correction-462">holm_correction</a>
+<a class="toc-level-2" href="#function-benjamini-hochberg-513">benjamini_hochberg</a>
+<a class="toc-level-2" href="#function-bonferroni-cross-dimension-580">bonferroni_cross_dimension</a>
+<a class="toc-level-2" href="#class-friedmansummary-624">FriedmanSummary</a>
+<a class="toc-level-2" href="#function-friedman-rank-650">friedman_rank</a>
+<a class="toc-level-2" href="#function-chi2-sf-770">_chi2_sf</a>
+<a class="toc-level-2" href="#function-regularized-gamma-793">_regularized_gamma</a>
+<a class="toc-level-2" href="#function-log-gamma-861">_log_gamma</a>
+<a class="toc-level-2" href="#class-effectsizeresult-915">EffectSizeResult</a>
+<a class="toc-level-2" href="#function-vargha-delaney-923">vargha_delaney</a>
+<a class="toc-level-2" href="#class-wtlresult-995">WTLResult</a>
+<a class="toc-level-2" href="#function-win-tie-loss-1010">win_tie_loss</a>
+<a class="toc-level-2" href="#class-comparisonreport-1068">ComparisonReport</a>
+<a class="toc-level-2" href="#function-generate-comparison-report-1079">generate_comparison_report</a>
+<a class="toc-level-2" href="#function-format-comparison-report-1158">format_comparison_report</a>
+<a class="toc-level-2" href="#function-format-full-table-1205">format_full_table</a>
+<a class="toc-level-2" href="#function-generate-full-statistical-report-1277">generate_full_statistical_report</a>
+<a class="toc-level-2" href="#function-norm-ppf-1385">_norm_ppf</a>
+<a class="toc-level-2" href="#function-bootstrap-bca-ci-1451">bootstrap_bca_ci</a>
+</aside>
+  </div>
+  <script src="../assets/search.js"></script>
+</body>
+</html>

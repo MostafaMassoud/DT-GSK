@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="FDB-AGSK — Fitness-Distance-Balance AGSK - GSK Family Python Documentation">
+  <title>FDB-AGSK — Fitness-Distance-Balance AGSK | GSK Family Python Documentation</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <div class="site-shell">
+    <aside class="sidebar">
+<div class="brand"><a href="index.html">GSK Family Python</a></div>
+<input class="nav-search" type="search" placeholder="Filter docs" aria-label="Filter docs">
+<nav class="nav-list" aria-label="Documentation">
+<section><h2>Getting Started</h2>
+<a class="nav-link" href="getting-started_configuration.html">Configuration</a>
+<a class="nav-link" href="getting-started_explainer.html">Explainer</a>
+<a class="nav-link" href="getting-started_runbook.html">Runbook</a>
+<a class="nav-link" href="getting-started_troubleshooting.html">Troubleshooting</a>
+<a class="nav-link" href="getting-started_tutorial.html">Tutorial</a>
+<a class="nav-link" href="getting-started_user_guide.html">User Guide</a>
+</section>
+<section><h2>Reference</h2>
+<a class="nav-link" href="reference_api.html">API Reference</a>
+<a class="nav-link" href="reference_architecture.html">Architecture</a>
+<a class="nav-link" href="reference_benchmark_mapping.html">Benchmark Mapping</a>
+<a class="nav-link" href="reference_benchmark_protocol.html">Benchmark Protocol</a>
+<a class="nav-link" href="reference_cec2011_cpp_python_equivalence_review.html">CEC2011 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013_cpp_python_equivalence_review.html">CEC2013 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013lsgo_cpp_python_equivalence_review.html">CEC2013LSGO C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2017_cpp_python_equivalence_review.html">CEC2017 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2020_cpp_python_equivalence_review.html">CEC2020 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="index.html">Documentation Index</a>
+<a class="nav-link" href="reference_fp_regime.html">Floating-Point Regime Verification</a>
+<a class="nav-link" href="reference_diagrams.html">Flowcharts And Diagrams</a>
+<a class="nav-link" href="reference_glossary.html">Glossary</a>
+<a class="nav-link" href="LICENSES.html">Licenses</a>
+<a class="nav-link" href="reference_module_dependencies.html">Module Dependencies</a>
+<a class="nav-link" href="reference_project_structure.html">Project Structure</a>
+<a class="nav-link" href="reference_python_optimizer_interface.html">Python Optimizer Interface</a>
+<a class="nav-link" href="reference_result_schema.html">Result Schema</a>
+<a class="nav-link" href="reference_seed_policy.html">Seed Policy</a>
+<a class="nav-link" href="reference_workflows.html">Workflows</a>
+</section>
+<section><h2>Algorithm Guides</h2>
+<a class="nav-link" href="algorithms_agsk.html">AGSK — Adaptive Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_apgsk.html">APGSK — Adaptive-Parameters Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_atmals-gsk.html">ATMALS-GSK — Adaptive Tuning, Memory, Adaptive Local Search</a>
+<a class="nav-link" href="algorithms_dt-gsk.html">DT-GSK — Dimension-Tiered Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_egsk.html">EGSK — Enhanced Gaining-Sharing Knowledge</a>
+<a class="nav-link active" href="algorithms_fdb-agsk.html">FDB-AGSK — Fitness-Distance-Balance AGSK</a>
+<a class="nav-link" href="algorithms_gsk.html">GSK — Gaining-Sharing Knowledge</a>
+</section>
+<section><h2>Development</h2>
+<a class="nav-link" href="development_BUG_resume_summary_truncation.html">BUG-RESUME-01 — resume mode truncates (and mis-computes) the per-dimension summary CSV</a>
+<a class="nav-link" href="development_LSGO_ACCELERATION_PLAN.html">CEC2013LSGO Acceleration Plan — all 7 GSK-family algorithms, bit-identically</a>
+<a class="nav-link" href="development_LSGO_INTEGRATION_CAMPAIGN.html">CEC2013LSGO Integration — Campaign Plan</a>
+<a class="nav-link" href="development_CEC2017_PREC_adjudication.html">CEC2017-PREC — adjudication (CLOSED 2026-07-25)</a>
+<a class="nav-link" href="development_code_reading_guide.html">Code Reading Guide</a>
+<a class="nav-link" href="development_contributor_guide.html">Contributor Guide</a>
+<a class="nav-link" href="development_DECC_G_port_record.html">DECC-G port — fidelity and validation record</a>
+<a class="nav-link" href="development_developer_guide.html">Developer Guide</a>
+<a class="nav-link" href="development_README.html">Development Docs</a>
+<a class="nav-link" href="development_dt_gsk_core_reference.html">DT-GSK Core Reference — the vendored core and its byte-identity lock</a>
+<a class="nav-link" href="development_evidence_rerun_runbook.html">DT-GSK re-run runbook — corrected implementation (C006 + graph backend)</a>
+<a class="nav-link" href="development_egsk_port_spec.html">EGSK — Algorithm Spec &amp; Porting Verdict</a>
+<a class="nav-link" href="development_extension_guide.html">Extension Guide</a>
+<a class="nav-link" href="development_FAMILY_ACCELERATION_PLAN.html">Family-wide acceleration plan — 7 algorithms x 5 suites, bit-identical only</a>
+<a class="nav-link" href="development_FINAL_PUBLICATION_PLAN.html">FINAL PUBLICATION PLAN — DT-GSK, Four(/Five)-Suite Scope</a>
+<a class="nav-link" href="development_ACCELERATION_CAMPAIGN_PROMPT.html">GSK-Family Acceleration Campaign — Execution Prompt</a>
+<a class="nav-link" href="development_maintenance_guide.html">Maintenance Guide</a>
+<a class="nav-link" href="development_PORT_05_TUNING_TRIAGE.html">Porting project-05 tuning into 02 — Phase 1 audit and triage</a>
+<a class="nav-link" href="development_REFERENCE_PROMOTION_PLAN.html">Reference Promotion Plan — CEC2013LSGO now, CEC2020 behind its completeness gate</a>
+<a class="nav-link" href="development_SIBLING_CAMPAIGN_TRANSFER.html">Sibling-Campaign Transfer — every tuning that can make the GSK family fast</a>
+</section>
+<section><h2>Research</h2>
+<a class="nav-link" href="research_egsk_validation_appendix.html">EGSK Validation Appendix — Paired Port-vs-Reference Equivalence</a>
+<a class="nav-link" href="research_numerical_examples.html">Numerical Examples</a>
+<a class="nav-link" href="research_performance.html">Performance</a>
+<a class="nav-link" href="research_reproducibility.html">Reproducibility</a>
+<a class="nav-link" href="research_researcher_handbook.html">Researcher Handbook</a>
+<a class="nav-link" href="research_statistical_analysis.html">Statistical Analysis (GSK-family comparison)</a>
+<a class="nav-link" href="research_validation_report.html">Validation Report</a>
+</section>
+<section><h2>Prompts</h2>
+<a class="nav-link" href="prompt_documentation-deep-upgrade.html">Deep Documentation Review &amp; Upgrade Prompt — GSK Family Python</a>
+<a class="nav-link" href="prompt_project-review.html">Deep Expert Review Prompt For GSK Family Python</a>
+<a class="nav-link" href="prompt_documentation-review.html">Documentation Review Prompt</a>
+<a class="nav-link" href="prompt_publication-polish.html">Final Publication Prompt — Production-Ready Q1 Release of GSK Family Python v1.1</a>
+</section>
+<section><h2>Python API</h2>
+<a class="nav-link" href="api_index.html">API Module Index</a>
+<a class="nav-link api-link" href="api/gsk_family.__init__.html">gsk_family.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.__init__.html">gsk_family.analysis.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.family_report.html">gsk_family.analysis.family_report</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.figures.html">gsk_family.analysis.figures</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.latex_tables.html">gsk_family.analysis.latex_tables</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.project_policy.html">gsk_family.analysis.project_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.result_loader.html">gsk_family.analysis.result_loader</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistical_tests.html">gsk_family.analysis.statistical_tests</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistics.html">gsk_family.analysis.statistics</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.__init__.html">gsk_family.benchmark_adapter.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.factory.html">gsk_family.benchmark_adapter.factory</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.problem.html">gsk_family.benchmark_adapter.problem</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.protocol.html">gsk_family.benchmark_adapter.protocol</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.__init__.html">gsk_family.cli.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.list.html">gsk_family.cli.list</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.run.html">gsk_family.cli.run</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.stats.html">gsk_family.cli.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.validate.html">gsk_family.cli.validate</a>
+<a class="nav-link api-link" href="api/gsk_family.common.__init__.html">gsk_family.common.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.common.bounds.html">gsk_family.common.bounds</a>
+<a class="nav-link api-link" href="api/gsk_family.common.donors.html">gsk_family.common.donors</a>
+<a class="nav-link api-link" href="api/gsk_family.common.numeric_compat.html">gsk_family.common.numeric_compat</a>
+<a class="nav-link api-link" href="api/gsk_family.common.population.html">gsk_family.common.population</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reduction.html">gsk_family.common.reduction</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reference_rng.html">gsk_family.common.reference_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.rng.html">gsk_family.common.rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.threefry_rng.html">gsk_family.common.threefry_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.__init__.html">gsk_family.optimizers.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_profiles.html">gsk_family.optimizers._dt_profiles</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_rng.html">gsk_family.optimizers._dt_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._kernels.html">gsk_family.optimizers._kernels</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.agsk.html">gsk_family.optimizers.agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.apgsk.html">gsk_family.optimizers.apgsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_gsk.html">gsk_family.optimizers.atmals_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_helpers.html">gsk_family.optimizers.atmals_helpers</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.dt_gsk.html">gsk_family.optimizers.dt_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.egsk.html">gsk_family.optimizers.egsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.__init__.html">gsk_family.optimizers.external.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._base.html">gsk_family.optimizers.external._base</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._telemetry_shim.html">gsk_family.optimizers.external._telemetry_shim</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.cmaes.html">gsk_family.optimizers.external.cmaes</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.decc_g.html">gsk_family.optimizers.external.decc_g</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.ebowithcmar.html">gsk_family.optimizers.external.ebowithcmar</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.jso.html">gsk_family.optimizers.external.jso</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade.html">gsk_family.optimizers.external.lshade</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade_spacma.html">gsk_family.optimizers.external.lshade_spacma</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.mos_cec2013lsgo.html">gsk_family.optimizers.external.mos_cec2013lsgo</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.shade_ils.html">gsk_family.optimizers.external.shade_ils</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_agsk.html">gsk_family.optimizers.fdb_agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_scores.html">gsk_family.optimizers.fdb_scores</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.gsk.html">gsk_family.optimizers.gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.__init__.html">gsk_family.runners.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.config.html">gsk_family.runners.config</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.fp_regime.html">gsk_family.runners.fp_regime</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.output.html">gsk_family.runners.output</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.parallel.html">gsk_family.runners.parallel</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.performance.html">gsk_family.runners.performance</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.run_experiment.html">gsk_family.runners.run_experiment</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.seed_policy.html">gsk_family.runners.seed_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.verification.html">gsk_family.runners.verification</a>
+<a class="nav-link api-link" href="api/gsk_family.stats.html">gsk_family.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.types.html">gsk_family.types</a>
+</section>
+</nav></aside>
+    <main class="content">
+      <article class="doc-card">
+        <h1 id="fdb-agsk-fitness-distance-balance-agsk">FDB-AGSK — Fitness-Distance-Balance AGSK</h1>
+<blockquote><strong>What this is:</strong> <a href="algorithms_agsk.html">AGSK</a> with one change — some random donor picks are</blockquote>
+<blockquote>replaced by <strong>fitness-distance-balance (FDB)</strong> selected individuals. <strong>For:</strong></blockquote>
+<blockquote>readers who already know the gaining-sharing core and want the FDB donor twist.</blockquote>
+<blockquote><strong>Prerequisites:</strong> <a href="algorithms_gsk.html">GSK</a> (junior/senior core, midpoint repair, KR mask)</blockquote>
+<blockquote>and <a href="algorithms_agsk.html">AGSK</a> (adaptive <code>kf</code>/<code>kr</code> pools, LPSR population reduction).</blockquote>
+<blockquote><strong>After reading</strong> you can compute an FDB score by hand and say exactly which</blockquote>
+<blockquote>donor each of the five <code>fdb_case</code> values replaces.</blockquote>
+<h2 id="intuition">Intuition</h2>
+<p>FDB-AGSK keeps the entire AGSK machine intact: the same junior/senior gained vectors, the same midpoint bound repair, the same per-dimension split + KR mask, the same adaptive <code>(kf, kr)</code> pools, and the same linear population-size reduction. Only the <strong>donor indices</strong> change.</p>
+<p>Plain AGSK fills its donor slots from rank neighbours (junior) and from best/middle/worst blocks (senior), choosing within each block <strong>uniformly at random</strong>. FDB-AGSK argues that purely random donors waste guidance: a good donor should be both <strong>fit</strong> (low objective value) and <strong>diverse</strong> (far from the current best, so it pulls the search somewhere new). The <strong>fitness-distance balance</strong> score rewards exactly that combination — it is large for individuals that are simultaneously near the top of the ranking and far from the best point in space. FDB-AGSK computes that score each generation and splices the chosen individual(s) into specific donor slots. The <code>fdb_case</code> option (1–5) picks *which* slots get overwritten and *which* flavour of FDB pick goes there.</p>
+<p>Everything else — the schedules, the credit accounting, the reduction — is inherited unchanged, so this guide spends its budget on the FDB score and the five injection cases.</p>
+<h2 id="mathematical-formulation">Mathematical formulation</h2>
+<h3 id="the-fdb-score">The FDB score</h3>
+<p>Let the population be <code>x_0 … x_{NP-1}</code> with fitness <code>f_0 … f_{NP-1}</code>. Let <code>b = argmin f</code> be the <strong>best</strong> individual and <code>x_b</code> its position. The score combines a *normalized fitness* term and a *normalized distance-to-best* term (<code>fdb_scores.py:33-41</code>):</p>
+<pre><code class="code-block language-text">d_i      = sum_j | x_b,j - x_i,j |                         # L1 distance to best  (fdb_scores.py:33)
+
+norm_fit_i  = 1 - ( f_i - min_f ) / ( max_f - min_f )      # fdb_scores.py:39
+norm_dist_i = ( d_i - min_d ) / ( max_d - min_d )          # fdb_scores.py:40
+
+FDB_i = norm_fit_i + norm_dist_i                           # fdb_scores.py:41</code></pre>
+<p>where <code>min_f, max_f</code> are the min/max fitness, and <code>min_d, max_d</code> the min/max of the distance vector <code>d</code>. Two consequences fall straight out of the algebra:</p>
+<ul>
+<li><strong>Fitness is inverted</strong> (the <code>1 - …</code>), so the *best* individual gets</li>
+<p><code>norm_fit = 1</code> and the *worst* gets <code>0</code>. Higher FDB = better.</p>
+<li>The best individual <code>x_b</code> has <code>d_b = min_d</code> (it is closest to itself), so its</li>
+<p><code>norm_dist = 0</code>. Its score is therefore exactly <code>1.0</code>, and any individual that is reasonably fit <strong>and</strong> reasonably far from <code>x_b</code> can beat it. That tension is the whole point: FDB never just returns the fitness-best.</p>
+</ul>
+<p><strong>Degeneracy guards</strong> (<code>fdb_scores.py:28-31, 47-48, 63-65</code>). If the fitness is flat (<code>min_f == max_f</code>) the scores are all zero and the selectors fall back to a uniform <code>randi</code> draw (a 1-based inclusive integer, converted to 0-based). <code>fdb_score_roulette</code> additionally falls back when the fitness sum or <code>sum(x_b)</code> is non-finite (<code>fdb_scores.py:29</code>, <code>np.sum(fit)</code> — the fitness sum, computed before the FDB scores).</p>
+<h3 id="the-three-selectors">The three selectors</h3>
+<p>The score feeds three selection routines (<code>fdb_scores.py:44-71</code>):</p>
+<pre><code class="code-block language-text">fdb_score_best(pop, f)      -&gt; argmax_i FDB_i                       # single index   (:49)
+fdb_score_ranking(pop, f)   -&gt; argsort(FDB) descending             # full ordering  (:58)
+fdb_score_roulette(pop, f)  -&gt; roulette-wheel pick, P_i ∝ FDB_i     # single index   (:67-71)</code></pre>
+<p><code>fdb_score_best</code> returns the single highest-FDB individual. <code>fdb_score_ranking</code> returns *all* indices sorted best-FDB→worst (an array, used to re-rank the senior worst block). <code>fdb_score_roulette</code> draws one index with probability proportional to its FDB score (<code>threshold = rand()·sum(FDB)</code>, then <code>searchsorted</code> on the cumulative sum, <code>fdb_scores.py:67-71</code>).</p>
+<h3 id="which-donor-slots-get-the-fdb-pick">Which donor slots get the FDB pick</h3>
+<p>The shared kernel builds each gained vector from three donor indices (<code>_kernels.py:128-139</code>). Junior donors <code>(rg1, rg2, rg3)</code>: <code>rg1</code>/<code>rg2</code> are the better/worse <strong>rank neighbours</strong>, <code>rg3</code> is the third term in the gained vector. Senior donors <code>(r1, r2, r3)</code>: <code>r1</code> from the <strong>best</strong> block, <code>r2</code> from the <strong>middle</strong> block (and also the worse/other pivot, <code>_kernels.py:64</code>), <code>r3</code> from the <strong>worst</strong> block. The senior partition uses <code>SENIOR_P = 0.05</code> (<code>agsk.py:29</code>; <strong>note</strong> this is half of GSK&#x27;s <code>p = 0.1</code>), with block boundaries <code>top_end = round(NP·0.05)</code>, <code>mid_end = round(NP·0.95)</code> (<code>fdb_agsk.py:149-150</code>).</p>
+<p>Each <code>fdb_case</code> replaces a different subset of those six indices. The payloads come from <code>_fdb_indices</code> (<code>fdb_agsk.py:186-197</code>): <code>B = fdb_score_best</code>, <code>K = fdb_score_ranking</code>, <code>U = fdb_score_roulette</code>. The junior overrides live in <code>_fdb_junior_r1r2r3</code> (<code>fdb_agsk.py:95-112</code>), the senior overrides in <code>_fdb_senior_r1r2r3</code> (<code>fdb_agsk.py:159-170</code>):</p>
+<pre><code class="code-block language-text">case  payload(s)              junior donors                         senior donors
+                              (rg1,  rg2,  rg3)                     (r1,    r2,   r3)
+----  --------------------    ---------------------------------     -----------------------------
+ 1    B (scalar)              neigh, neigh, RANDOM                  best,   = B,  worst
+ 2    K (full ranking)        neigh, neigh, RANDOM                  best,   mid,  worst from K[mid_end:]
+ 3    B and U                 neigh, = U,   = B                     best,   mid,  worst
+ 4    B and U                 = U,   neigh, = B                     best,   mid,  worst
+ 5    B (scalar)              neigh, neigh, = B                     best,   mid,  worst</code></pre>
+<p>Reading the table case by case (each &quot;RANDOM&quot; is the usual collision-free uniform junior <code>rg3</code> draw, <code>fdb_agsk.py:96</code>):</p>
+<ul>
+<li><strong>Case 1</strong> (<code>fdb_agsk.py:159-163</code>). Junior is untouched (standard random</li>
+<p><code>rg3</code>). <strong>Senior <code>r2</code> is forced to the FDB-best index <code>B</code>.</strong> Because <code>r2</code> is also the senior worse/other pivot (<code>_kernels.py:64</code>), case 1 changes both the donor *and* the branch comparison <code>f_i &gt; f_B</code>.</p>
+<li><strong>Case 2</strong> (<code>fdb_agsk.py:164-167</code>). Junior untouched. Senior <code>r1</code>/<code>r2</code> are</li>
+<p>normal best/middle picks, but <strong><code>r3</code> is sampled from the FDB ranking&#x27;s tail <code>K[mid_end:]</code></strong> — i.e. the worst block is re-defined by FDB score instead of by raw fitness.</p>
+<li><strong>Case 3</strong> (<code>fdb_agsk.py:97-101</code>). **Junior <code>rg2 = U</code> (roulette FDB) and</li>
+<p><code>rg3 = B</code> (best FDB)**; senior is fully standard. Two of the three junior donors become FDB picks.</p>
+<li><strong>Case 4</strong> (<code>fdb_agsk.py:102-106</code>). **Junior <code>rg1 = U</code> (roulette FDB) and</li>
+<p><code>rg3 = B</code> (best FDB)**; senior standard. Like case 3 but the roulette pick replaces the *better* neighbour <code>rg1</code> instead of the worse neighbour <code>rg2</code>.</p>
+<li><strong>Case 5</strong> (<code>fdb_agsk.py:107-110</code>). <strong>Junior <code>rg3 = B</code> (best FDB)</strong> only;</li>
+<p>senior standard. The lightest touch — a single FDB injection into the junior third term.</p>
+</ul>
+<p>After any junior override, <code>rg3</code> (and in cases 3/4 the forced indices) still pass through the same collision-free repair loop that rejects <code>rg3 ∈ {rg1, rg2, i}</code> (<code>fdb_agsk.py:114-121</code>).</p>
+<h2 id="pseudocode">Pseudocode</h2>
+<pre><code class="code-block language-text">pop_size = np_init;  max_pop = np_init                       # fdb_agsk.py:220-221
+initialize / accept fair-start population, evaluate, record best
+k_vec = draw_initial_k(pop_size)                             # AGSK schedule (agsk.py:87)
+while nfes &lt; max_nfes:                                       # fdb_agsk.py:259
+    kw_ind = INITIAL_KW  (first 10% of budget)  else  0.95*kw_ind + 0.05*all_imp, renormalize
+    slots  = select_parameter_slots(kw_ind);  kf,kr = KF_POOL[slots], KR_POOL[slots]
+    junior_dims = ceil(D * (1 - nfes/max_nfes)^k_vec)        # per-individual schedule
+    fdb_index, rfdb_index = fdb_indices(fdb_case, pop, fitness)   # B / K / U  (fdb_agsk.py:277)
+    order = argsort(fitness)                                 # best -&gt; worst
+    rg1,rg2,rg3 = fdb_junior_r1r2r3(order, fdb_case, fdb_index, rfdb_index)   # case overrides
+    r1,r2,r3    = fdb_senior_r1r2r3(order, fdb_case, fdb_index)               # case overrides
+    trial = gsk_build_trial(...)            # junior/senior gained + repair + split/KR mask
+    evaluate trial; nfes += n_count
+    all_imp = improvement_credit(fitness, children_fitness, slots)
+    greedy replace: parent &lt;- child where f(child) &lt; f(parent)
+    LPSR: reduce pop_size toward target(nfes), drop worst rows   # agsk.py:160
+    append (nfes, best_so_far) to the convergence trace</code></pre>
+<p>The only lines that differ from <a href="algorithms_agsk.html">AGSK</a> are the <code>_fdb_indices</code> call and the two <code>_fdb_*_r1r2r3</code> donor builders. Everything else — the shared <code>gsk_build_trial</code> kernel, the improvement-credit update, the greedy selection, and the LPSR reduction — is identical to AGSK; the AGSK helpers and the kernel are imported directly (<code>fdb_agsk.py:17-31</code>).</p>
+<h2 id="parameters">Parameters</h2>
+<div class="table-wrap"><table><thead><tr><th>Option</th><th>Symbol</th><th>Default</th><th>Valid range</th><th>Meaning</th><th>Code</th></tr></thead><tbody><tr><td><code>np</code></td><td>NP</td><td><code>100</code></td><td>integer ≥ <code>min_pop_size</code></td><td>Fallback initial population size when <code>np_init</code> is absent.</td><td><code>fdb_agsk.py:204</code></td></tr><tr><td><code>np_init</code></td><td>NP₀</td><td><code>np</code></td><td>integer ≥ <code>min_pop_size</code></td><td>Initial population size before LPSR reduction.</td><td><code>fdb_agsk.py:205</code></td></tr><tr><td><code>min_pop_size</code></td><td>NP_min</td><td><code>12</code></td><td>integer ≥ 11</td><td>Floor the population reduces to (must be ≥ 11 so the senior blocks stay non-empty).</td><td><code>fdb_agsk.py:206</code></td></tr><tr><td><code>fdb_case</code></td><td>—</td><td><code>1</code></td><td>integer in <code>{1,2,3,4,5}</code></td><td>Donor-injection case (see table below).</td><td><code>fdb_agsk.py:207</code>, validated <code>fdb_agsk.py:41-46</code></td></tr></tbody></table></div>
+<p><code>fdb_case</code> value meanings (overrides applied each generation):</p>
+<div class="table-wrap"><table><thead><tr><th><code>fdb_case</code></th><th>FDB payload</th><th>What it overrides</th></tr></thead><tbody><tr><td><code>1</code></td><td><code>fdb_score_best</code> (scalar)</td><td>Senior <code>r2</code> ← FDB-best (also the senior branch pivot).</td></tr><tr><td><code>2</code></td><td><code>fdb_score_ranking</code> (array)</td><td>Senior worst block re-sampled from the FDB-ranking tail <code>K[mid_end:]</code>.</td></tr><tr><td><code>3</code></td><td><code>fdb_score_best</code> + <code>fdb_score_roulette</code></td><td>Junior <code>rg2</code> ← FDB-roulette, <code>rg3</code> ← FDB-best.</td></tr><tr><td><code>4</code></td><td><code>fdb_score_best</code> + <code>fdb_score_roulette</code></td><td>Junior <code>rg1</code> ← FDB-roulette, <code>rg3</code> ← FDB-best.</td></tr><tr><td><code>5</code></td><td><code>fdb_score_best</code> (scalar)</td><td>Junior <code>rg3</code> ← FDB-best.</td></tr></tbody></table></div>
+<p>Shared AGSK constants (fixed, not options): <code>KF_POOL = [0.1, 1.0, 0.5, 1.0]</code>, <code>KR_POOL = [0.2, 0.1, 0.9, 0.9]</code>, <code>INITIAL_KW = [0.85, 0.05, 0.05, 0.05]</code>, <code>SENIOR_P = 0.05</code> (<code>agsk.py:26-29</code>). See <a href="algorithms_agsk.html">AGSK</a> for how the pools adapt.</p>
+<h2 id="worked-example">Worked example</h2>
+<p>Compute one FDB score table by hand for a tiny population, then read off the donor for each case. Setup <code>NP = 4</code>, <code>D = 2</code>:</p>
+<pre><code class="code-block language-text">i0: x = [ 1.0,  2.0]   f = 5
+i1: x = [ 2.0,  0.0]   f = 8
+i2: x = [-1.0, -1.0]   f = 3    &lt;- best (min fitness)
+i3: x = [ 4.0,  3.0]   f = 20   &lt;- worst</code></pre>
+<p><strong>Step 1 — distances to the best (<code>x_b = i2 = [-1,-1]</code>), L1.</strong></p>
+<pre><code class="code-block language-text">d_0 = |−1−1| + |−1−2| = 2 + 3 = 5
+d_1 = |−1−2| + |−1−0| = 3 + 1 = 4
+d_2 = 0                          (best vs itself)
+d_3 = |−1−4| + |−1−3| = 5 + 4 = 9
+min_d = 0,  max_d = 9</code></pre>
+<p><strong>Step 2 — normalize.</strong> <code>min_f = 3</code>, <code>max_f = 20</code> so <code>max_f − min_f = 17</code>; <code>max_d − min_d = 9</code>.</p>
+<pre><code class="code-block language-text">       norm_fit = 1 − (f−3)/17        norm_dist = (d−0)/9        FDB = sum
+i0:    1 − 2/17  = 0.8824             5/9 = 0.5556              1.4379
+i1:    1 − 5/17  = 0.7059             4/9 = 0.4444              1.1503
+i2:    1 − 0/17  = 1.0000             0/9 = 0.0000              1.0000
+i3:    1 − 17/17 = 0.0000            9/9 = 1.0000              1.0000</code></pre>
+<p><strong>Step 3 — read off the selectors.</strong></p>
+<pre><code class="code-block language-text">fdb_score_best     = argmax FDB                 = i0   (1.4379)
+fdb_score_ranking  = argsort desc               = [i0, i1, i2, i3]
+fdb_score_roulette = pick with P_i ∝ FDB_i      = i0 with prob 1.4379/4.5882 ≈ 0.313, etc.</code></pre>
+<p>The instructive part: the fitness-best is <strong>i2</strong>, the farthest is <strong>i3</strong>, but FDB chooses <strong>i0</strong> — a fit *and* spread-out point. It refuses both the greedy fitness pick and the pure-diversity pick. With <code>fdb_case = 5</code>, every junior gained vector that generation uses <code>rg3 = i0</code> as its third donor; with <code>fdb_case = 1</code>, every senior gained vector uses <code>r2 = i0</code> as both its middle donor and its branch pivot.</p>
+<p>(For a senior-block worked example, note <code>SENIOR_P = 0.05</code> needs <code>NP ≥ 11</code> for a valid senior partition — <code>round(NP·0.05) ≥ 1</code> gives a non-empty top block at <code>NP ≥ 10</code>, but the worst block stays non-empty only at <code>NP ≥ 11</code>, which is why the family floors <code>min_pop_size</code> at 11 — so the four-row population above only exercises the junior cases by hand; the senior cases follow the identical score table at <code>NP ≥ 11</code>.)</p>
+<h2 id="update-cycle">Update cycle</h2>
+<pre class="mermaid">flowchart TD
+  A[&quot;Sort population best to worst&quot;] --&gt; B[&quot;Compute FDB scores: norm_fitness + norm_distance to best&quot;]
+  B --&gt; C{&quot;fdb_case?&quot;}
+  C -- &quot;1&quot; --&gt; D1[&quot;payload B = fdb_score_best&quot;]
+  C -- &quot;2&quot; --&gt; D2[&quot;payload K = fdb_score_ranking&quot;]
+  C -- &quot;3 or 4&quot; --&gt; D3[&quot;payloads B + U = best + roulette&quot;]
+  C -- &quot;5&quot; --&gt; D5[&quot;payload B = fdb_score_best&quot;]
+  D1 --&gt; E[&quot;Senior r2 = B (donor + branch pivot)&quot;]
+  D2 --&gt; F[&quot;Senior worst block from FDB ranking tail K[mid_end:]&quot;]
+  D3 --&gt; G[&quot;Junior rg ledger: rg3 = B; rg2 (case 3) or rg1 (case 4) = U&quot;]
+  D5 --&gt; H[&quot;Junior rg3 = B&quot;]
+  E --&gt; I[&quot;Build remaining donors: best / middle / worst blocks + random rg3&quot;]
+  F --&gt; I
+  G --&gt; I
+  H --&gt; I
+  I --&gt; J[&quot;gsk_build_trial: junior/senior gained + midpoint repair + split/KR mask&quot;]
+  J --&gt; K[&quot;Evaluate trials; greedy replace if strictly better&quot;]
+  K --&gt; L[&quot;Improvement credit -&gt; adapt kw_ind; LPSR reduce population&quot;]
+  L --&gt; M{&quot;nfes &lt; max_nfes?&quot;}
+  M -- yes --&gt; A
+  M -- no --&gt; N[&quot;Return best-so-far and convergence trace&quot;]</pre>
+<h2 id="bounds-budget-and-determinism">Bounds, budget, and determinism</h2>
+<ul>
+<li><strong>Bounds and repair</strong> are unchanged from <a href="algorithms_gsk.html">GSK</a>: each gained coordinate</li>
+<p>that violates a bound is pulled to the midpoint between the *parent* value and the breached bound (<code>_kernels.py:132-135, 140-143</code>).</p>
+<li><strong>Budget.</strong> <code>nfes</code> advances by <code>n_count = min(pop_size, max_nfes − nfes)</code> per</li>
+<p>generation (<code>fdb_agsk.py:319</code>); the population shrinks under LPSR toward a target size each generation (<code>agsk.py:148-157</code>). Unlike <a href="algorithms_agsk.html">AGSK</a>, FDB-AGSK has <strong>no target-error early stop</strong> — the loop always runs to <code>max_nfes</code> and reports <code>termination=&quot;max_evaluations&quot;</code> (<code>fdb_agsk.py:362</code>).</p>
+<li><strong>Determinism.</strong> All randomness flows from the caller&#x27;s <code>RandomContext</code> in a</li>
+<p>fixed order: the FDB selectors draw first (only on their fallback paths, or for roulette), then junior <code>rg3</code>, then the senior block samples, then one <code>(3, NP, D)</code> mask block (<code>fdb_agsk.py:277-290</code>). Serial and parallel runs match bit-for-bit. See <a href="reference_seed_policy.html">Seed Policy</a>.</p>
+</ul>
+<h2 id="complexity">Complexity</h2>
+<p>Per generation, on top of AGSK&#x27;s <code>O(NP log NP)</code> sort and <code>O(NP·D)</code> trial build, the FDB score adds <code>O(NP·D)</code> for the distance vector and <code>O(NP)</code> (or <code>O(NP log NP)</code> for <code>fdb_score_ranking</code>) for selection — so the asymptotics are unchanged: <code>O(max_nfes·D)</code> time, <code>O(NP·D)</code> memory over the run.</p>
+<h2 id="when-to-use">When to use</h2>
+<p>Reach for FDB-AGSK when plain <a href="algorithms_agsk.html">AGSK</a> stalls because its random donors keep re-using nearby points and you want donor *diversity* steered by a principled fitness-distance trade-off. Start with <code>fdb_case = 1</code> (the default, lightest senior injection); cases 3–4 are more aggressive (two junior donors replaced) and worth trying when exploration is the bottleneck. If you do not need FDB donor steering, the plain <a href="algorithms_agsk.html">AGSK</a>, <a href="algorithms_apgsk.html">APGSK</a>, or <a href="algorithms_gsk.html">GSK</a> baselines are simpler. For comparison this optimizer sits alongside <a href="algorithms_atmals-gsk.html">ATMALS-GSK</a> in the family; for the family&#x27;s headline, high-dimensional method, see <a href="algorithms_dt-gsk.html">DT-GSK</a> (a dimension-tiered adaptive layer on the same gaining-sharing scaffold).</p>
+<p>Example run (writes under <code>results/_run_all/fdb-agsk/cec2017/</code>):</p>
+<pre><code class="code-block language-bash">python -m gsk_family.cli.run \
+  --optimizer fdb-agsk \
+  --suite cec2017 \
+  --dimension 30 \
+  --function 1 \
+  --runs 1 \
+  --seed 20240620 \
+  --max-evaluations 300000 \
+  --output-root results/_run_all</code></pre>
+<h2 id="in-the-7-algorithm-panel">In the 7-algorithm panel</h2>
+<p>FDB-AGSK is one of the six <strong>reference comparators</strong> in the family&#x27;s headline comparison (with GSK, AGSK, APGSK, eGSK, and ATMALS-GSK), against which the proposed <a href="algorithms_dt-gsk.html">DT-GSK</a> is benchmarked. In the <strong>7-algorithm GSK-family panel</strong> built per dimension by <code>gsk-stats</code>, FDB-AGSK is the &quot;smarter donors on the AGSK machine&quot; entry: identical adaptive pools and LPSR, with only the donor indices steered by the fitness-distance-balance score. Comparing it to plain <a href="algorithms_agsk.html">AGSK</a> on the panel&#x27;s per-function tables and convergence grids isolates the contribution of FDB donor selection alone. The panel reports Friedman ranks, Nemenyi critical-difference diagrams, Holm-corrected Wilcoxon, A12 / Cliff&#x27;s delta effect sizes, win/tie/loss, and 7-curve convergence grids under <code>results/_run_all/_analysis/&lt;suite&gt;/</code>; FDB-AGSK is included in the runner&#x27;s live <code>--stats</code> stream. Because FDB-AGSK has <strong>no target-error early stop</strong> (it always runs to <code>max_nfes</code>, <code>fdb_agsk.py:362</code>), every run contributes a full-budget convergence curve to the grids. See <a href="research_statistical_analysis.html">Statistical Analysis</a>.</p>
+<h2 id="source-and-validation">Source and validation</h2>
+<ul>
+<li>Kernel: <code>src/gsk_family/optimizers/fdb_agsk.py</code>; FDB scores</li>
+<p><code>src/gsk_family/optimizers/fdb_scores.py</code>; shared trial builder <code>src/gsk_family/optimizers/_kernels.py</code>; adaptive pools / LPSR reused from <code>src/gsk_family/optimizers/agsk.py</code>. Ported from the reference <code>fdb_agsk_optimize.m</code> plus <code>fdb_score_best.m</code>, <code>fdb_score_ranking.m</code>, and <code>fdb_score_roulette.m</code>, with identical defaults and draw order.</p>
+<li>Tests cover all three FDB score modes, the degeneracy fallbacks, all five</li>
+<p>injection cases, deterministic replay, fair-start reuse, budget handling, and runner execution on smoke cells (<code>tests/unit/test_fdb_scores.py</code>, <code>tests/smoke/test_fdb_agsk_smoke.py</code>). See <a href="research_validation_report.html">Validation Report</a> and <a href="research_numerical_examples.html">Numerical Examples</a>.</p>
+</ul>
+      </article>
+    </main>
+    <aside class="page-toc" aria-label="On this page">
+<h2>On This Page</h2>
+<a class="toc-level-1" href="#fdb-agsk-fitness-distance-balance-agsk">FDB-AGSK — Fitness-Distance-Balance AGSK</a>
+<a class="toc-level-2" href="#intuition">Intuition</a>
+<a class="toc-level-2" href="#mathematical-formulation">Mathematical formulation</a>
+<a class="toc-level-3" href="#the-fdb-score">The FDB score</a>
+<a class="toc-level-3" href="#the-three-selectors">The three selectors</a>
+<a class="toc-level-3" href="#which-donor-slots-get-the-fdb-pick">Which donor slots get the FDB pick</a>
+<a class="toc-level-2" href="#pseudocode">Pseudocode</a>
+<a class="toc-level-2" href="#parameters">Parameters</a>
+<a class="toc-level-2" href="#worked-example">Worked example</a>
+<a class="toc-level-2" href="#update-cycle">Update cycle</a>
+<a class="toc-level-2" href="#bounds-budget-and-determinism">Bounds, budget, and determinism</a>
+<a class="toc-level-2" href="#complexity">Complexity</a>
+<a class="toc-level-2" href="#when-to-use">When to use</a>
+<a class="toc-level-2" href="#in-the-7-algorithm-panel">In the 7-algorithm panel</a>
+<a class="toc-level-2" href="#source-and-validation">Source and validation</a>
+</aside>
+  </div>
+  <script src="assets/search.js"></script>
+  <script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs'; mermaid.initialize({ startOnLoad: true, securityLevel: 'loose', theme: 'neutral' });</script>
+</body>
+</html>

@@ -1,0 +1,231 @@
+requirement_id,line_no,summary,phase,artifact,validation,owner
+R-21,21,"Act as a coordinated multidisciplinary research team with expert competence in continuous optimization, metaheuristics, evolutionary comp...",cross,working-notes role passes (Sec 11),Section 15 validators + every phase gate,P1
+R-28,28,"Your objective is to autonomously produce a scientifically defensible, publication-ready DT-GSK article and its complete publication pac...",cross,complete publication package,Section 15 validators + every phase gate,P1
+R-36,36,"The target is Q1-level rigor and presentation, not an unsupported guarantee of acceptance and not an unverified claim about a journal's c...",cross,claims_evidence_matrix.csv wording bounds,Section 15 validators + every phase gate,P1
+R-43,43,"The terms MUST, MUST NOT, SHALL, SHALL NOT, REQUIRED, SHOULD, SHOULD NOT, and MAY are normative:",cross,framework gate semantics,Section 15 validators + every phase gate,P1
+R-53,53,"This file is the only project-wide implementation guide. Earlier prompts, phase companions, addenda, notes, draft prose, and remembered p...",0,instruction_precedence.md,Phase 0 validation (governance parse + traceability completeness) and Gate 0,P1
+R-57,57,Use the following precedence hierarchy:,0,instruction_precedence.md,Phase 0 validation (governance parse + traceability completeness) and Gate 0,P1
+R-68,68,"A conflict between this framework and immutable evidence metadata is not solved by silently choosing one. Record the conflict, stop the a...",cross,decision_log.md + change_request_register.csv,Section 15 validators + every phase gate,P9
+R-75,75,"Supersedes earlier instructions (staging fallback, main-text/early ablation, post-ablation phases, detector evasion, cite-all rule)",0,instruction_precedence.md,Phase 0 validation (governance parse + traceability completeness) and Gate 0,P1
+R-77,77,results/_run_all/ is not a publication-evidence fallback. It is a staging or independent-reproduction area only.,cross,strict-source guard (Sec 2.3),Section 15 validators + every phase gate,P4
+R-79,79,"All publishable empirical analyses, tables, plots, comparisons, discussions, conclusions, and numerical claims MUST read exclusively from...",cross,analysis loaders + source-use audit,Section 15 validators + every phase gate,P4
+R-82,82,The ablation study MUST NOT appear in the main manuscript.,8,main-manuscript ablation scan,Phase 8 draft gate + claim/citation audit (Gate 8),P9
+R-83,83,"The ablation study MUST be executed only in the final implementation phase, after algorithm freeze, primary benchmarking, primary statist...",12,Phase 12 entry gate,Phase 12 final gate + final_integrity_audit.md (Gate 12),P1
+R-87,87,"No phase after the final ablation phase is permitted. Supplementary integration, final reproducibility verification, and submission packa...",12,phase_gate_register.csv (Phase 12 final),Phase 12 final gate + final_integrity_audit.md (Gate 12),P1
+R-90,90,"Wording intended to evade AI-text detectors is prohibited. The writing goal is genuine academic clarity, specificity, and integrity.",8,manuscript prose style,Phase 8 draft gate + claim/citation audit (Gate 8),P6
+R-92,92,A requirement to cite all bibliography entries never overrides semantic correctness. Decorative citations and \\nocite{*} are prohibited.,8,citation_usage_map.csv semantic review,Phase 8 draft gate + claim/citation audit (Gate 8),P9
+R-97,97,No claim may outrun its evidence.,cross,claims_evidence_matrix.csv,Section 15 validators + every phase gate,P9
+R-99,99,"When evidence is absent, incomplete, non-comparable, contradictory, or outside the permitted sources, the agent MUST do one of the follow...",cross,evidence_gap_register.md dispositions,Section 15 validators + every phase gate,P9
+R-109,109,"The agent MUST NOT replace missing evidence with plausible wording, estimated numbers, remembered findings, invented metadata, or an unsu...",cross,claims_evidence_matrix.csv,Section 15 validators + every phase gate,P9
+R-115,115,The agent SHALL operate autonomously and shall not require routine user instructions between phases. It MUST:,cross,decision_log.md,Section 15 validators + every phase gate,P1
+R-130,130,"The agent MUST NOT invent author names, affiliations, ORCIDs, funding, conflicts, ethics approvals, reviewer identities, data-availabilit...",cross,administrative_gap_register.md,Section 15 validators + every phase gate,P10
+R-138,138,Every phase MUST be safe to rerun.,cross,phase rerun safety,Section 15 validators + every phase gate,P5
+R-139,139,Every generated artifact MUST have a deterministic path and provenance.,cross,reproducibility_manifest.json,Section 15 validators + every phase gate,P5
+R-140,140,Every phase MUST leave the repository buildable or restore the prior state.,cross,phase exit checks,Section 15 validators + every phase gate,P5
+R-141,141,Raw and immutable evidence MUST never be edited in place.,cross,evidence write-protection,Section 15 validators + every phase gate,P9
+R-142,142,"Changes to algorithm code, benchmark evaluators, seed policy, stopping rules, or analysis definitions after their freeze gate require a f...",cross,change_request_register.csv,Section 15 validators + every phase gate,P5
+R-146,146,The final ablation phase may toggle only pre-approved frozen components. It MUST NOT introduce algorithm modifications.,12,ablation toggle configs,Phase 12 final gate + final_integrity_audit.md (Gate 12),P4
+R-151,151,"The project is complete only when every acceptance criterion in this framework has a linked artifact, command output, checksum, or review...",12,final_integrity_audit.md,Phase 12 final gate + final_integrity_audit.md (Gate 12),P1
+R-162,162,The final phase MUST produce all of the following:,12,submission_package/,Phase 12 final gate + final_integrity_audit.md (Gate 12),P10
+R-189,189,Use the existing repository layout where compatible. Otherwise create this logical package without duplicating authoritative data:,0,papers/ layout + project_configuration.md,Phase 0 validation (governance parse + traceability completeness) and Gate 0,P5
+R-223,223,"If existing paths differ, record the mapping in project_configuration.md.",0,project_configuration.md path mapping,Phase 0 validation (governance parse + traceability completeness) and Gate 0,P1
+R-224,224,Do not create two competing sources of truth.,cross,single-source layout governance,Section 15 validators + every phase gate,P1
+R-228,228,"The main manuscript, abstract, highlights, graphical abstract, conclusion, and cover letter MUST NOT contain:",8,main-manuscript ablation scan,Phase 8 draft gate + claim/citation audit (Gate 8),P9
+R-238,238,"During the final phase, after ablation evidence is promoted and analyzed and under the Phase 12 correction-exception workflow (task 12.15...",12,main.tex pointer sentence (task 12.15),Phase 12 final gate + final_integrity_audit.md (Gate 12),P6
+R-249,249,"Do not assume current quartile, page limits, article structure, or file requirements from historical notes.",4,journal verification record,Phase 4 thesis/claims/journal freeze gate (Gate 4),P10
+R-252,252,"At runtime, verify current official author instructions and record:",4,journal record in project_configuration.md,Phase 4 thesis/claims/journal freeze gate (Gate 4),P10
+R-264,264,Official journal guidance is administrative evidence only; it cannot support scientific claims.,cross,claims classing (J evidence),Section 15 validators + every phase gate,P9
+R-269,269,"Until current journal guidance is verified, use these internal ceilings:",8,provisional page budget,Phase 8 draft gate + claim/citation audit (Gate 8),P6
+R-285,285,"Hard page-limit rule. The main manuscript MUST NOT exceed the page limit (or the typical accepted article length, when no hard limit is p...",11,page-count rows in phase_gate_register.csv,Phase 11 finalization gate (Gate 11),P10
+R-288,288,Page overflow MUST be resolved only by migrating non-essential material to the Supplementary Materials (Section 8.6),8,supplement migration (Sec 8.6),Phase 8 draft gate + claim/citation audit (Gate 8),P6
+R-292,292,"Overflow MUST NOT be resolved by shrinking exhibits below legibility, deleting required declarations, or over-compressing prose",8,manuscript formatting,Phase 8 draft gate + claim/citation audit (Gate 8),P6
+R-296,296,"Compliance is measured, not estimated - the typeset page count is read from the compiled PDF at the Phase 8 draft gate, the Phase 9 build...",9,phase_gate_register.csv page-count rows,Phase 9 dual-format build validation (Gate 9),P10
+R-307,307,Use evidence according to its class. One class cannot silently substitute for another.,cross,evidence classing,Section 15 validators + every phase gate,P9
+R-312,312,"Only a readable source inside reference_papers/ with a matching, valid entry in papers/references.bib may support external scientific sta...",1,reference_inventory.csv + evidence_cards/,Phase 1 corpus-audit gate (Gate 1),P9
+R-319,319,The sole admissible empirical source for publishable numbers and empirical claims is a validated release inside:,2,data_ledger.csv,Phase 2 evidence/provenance audit gate (Gate 2),P4
+R-326,326,"This includes raw/per-run finals, convergence records, provenance files, and derived outputs only when their derivation is recorded and r...",2,data_ledger.csv derivations,Phase 2 evidence/provenance audit gate (Gate 2),P4
+R-329,329,"Files under results/, temporary analysis directories, notebooks, manuscript tables, and plots are working artifacts, not publication evid...",2,promotion process (Sec 2.4),Phase 2 evidence/provenance audit gate (Gate 2),P4
+R-336,336,"Source code, configurations, tests, benchmark evaluator code, pseudocode, version history, and execution logs may support statements abou...",3,implementation_correspondence.md,Phase 3 correspondence + algorithm-freeze gate (Gate 3),P2
+R-338,338,Code comments and filenames are not sufficient method evidence; executed behavior must be verified,3,executed-behavior verification,Phase 3 correspondence + algorithm-freeze gate (Gate 3),P2
+R-348,348,"Verified author metadata, funding, conflicts, ethics statements, and reviewer suggestions may populate submission forms. They MUST NOT be...",12,administrative submission files,Phase 12 final gate + final_integrity_audit.md (Gate 12),P10
+R-354,354,The scientific citation universe is the runtime intersection of:,1,allowed_citation_keys.txt,Phase 1 corpus-audit gate (Gate 1),P9
+R-359,359,"Appendix A lists the expected 57 keys, but expected does not mean admissible.",1,reference_inventory.csv,Phase 1 corpus-audit gate (Gate 1),P9
+R-360,360,For every expected key:,1,reference_inventory.csv,Phase 1 corpus-audit gate (Gate 1),P9
+R-370,370,"When the corpus lacks support, enter the gap and omit or narrow the claim.",cross,evidence_gap_register.md,Section 15 validators + every phase gate,P9
+R-374,374,"Analyses MUST enforce strict-source guard: paths under cec_reference_results/, release id + checksum recorded, no fallback, no results/ read",6,strict-source guard + source-use audit,Phase 6 primary-computation validation (Gate 6),P4
+R-384,384,"If the current loader automatically falls back to results/_run_all/, create or activate a strict reference-only mode that fails loudly wh...",6,strict reference-only loader mode,Phase 6 primary-computation validation (Gate 6),P4
+R-388,388,A publication analysis MUST emit a source-use audit listing every opened data file. The gate fails if any empirical input lies outside th...,6,source-use audit,Phase 6 primary-computation validation (Gate 6),P4
+R-394,394,New or independently reproduced runs MAY be created in results/ as staging. They MUST NOT enter the paper until promoted through this pro...,2,scripts/promote_evidence.py + promotion manifest,Phase 2 evidence/provenance audit gate (Gate 2),P4
+R-411,411,Existing immutable evidence is never overwritten. Corrections create a new release and an explicit supersession record.,cross,release supersession records,Section 15 validators + every phase gate,P4
+R-416,416,"When sources disagree, use this evidentiary order and document the discrepancy:",cross,decision_log.md discrepancy records,Section 15 validators + every phase gate,P9
+R-426,426,Never change evidence to match the manuscript. Regenerate derivatives or correct the claim.,cross,derivative regeneration workflow,Section 15 validators + every phase gate,P9
+R-431,431,Every substantive statement MUST have a row in claims_evidence_matrix.csv before final prose is accepted. The row MUST contain:,8,claims_evidence_matrix.csv,Phase 8 draft gate + claim/citation audit (Gate 8),P9
+R-443,443,claims_evidence_matrix claim_type MUST use the Section 2.6 allowed vocabulary (BACKGROUND..ADMINISTRATIVE),8,claims_evidence_matrix.csv claim_type,Phase 8 draft gate + claim/citation audit (Gate 8),P9
+R-452,452,"Support strength is direct, partial, indirect, or unavailable. Unavailable claims are omitted or explicitly blocked.",8,claims_evidence_matrix.csv support_strength,Phase 8 draft gate + claim/citation audit (Gate 8),P9
+R-457,457,Every scientific paragraph MUST contain an appropriate evidence anchor.,8,manuscript paragraphs + citation_usage_map.csv,Phase 8 draft gate + claim/citation audit (Gate 8),P6
+R-459,459,"Literature, definition, comparison, motivation, and prior-work paragraphs MUST cite one or more semantically relevant approved sources.",8,citation_usage_map.csv,Phase 8 draft gate + claim/citation audit (Gate 8),P9
+R-461,461,"Original-method paragraphs MUST identify the original contribution and refer to its defining equation, algorithm, parameter specification...",8,original-method paragraph anchors,Phase 8 draft gate + claim/citation audit (Gate 8),P6
+R-465,465,"Empirical paragraphs MUST cite the relevant table, figure, or supplementary artifact and map to immutable data provenance. They MUST also...",8,empirical paragraph anchors,Phase 8 draft gate + claim/citation audit (Gate 8),P6
+R-468,468,Interpretive paragraphs MUST separate observation from interpretation and cite literature when an external mechanism or prior finding is ...,8,interpretive paragraphs,Phase 8 draft gate + claim/citation audit (Gate 8),P6
+R-470,470,"Limitation paragraphs MUST anchor each limitation to tested scope, observed evidence, protocol, or a verified method property.",8,limitation paragraphs,Phase 8 draft gate + claim/citation audit (Gate 8),P6
+R-473,473,The requirement for paragraph evidence MUST NOT cause decorative citations. If a paragraph cannot satisfy both evidence coverage and sema...,8,citation semantic review,Phase 8 draft gate + claim/citation audit (Gate 8),P9
+R-480,480,"The abstract may omit rendered citations when required by the journal, but every sentence still requires a claim-matrix entry.",8,abstract claim rows,Phase 8 draft gate + claim/citation audit (Gate 8),P9
+R-485,485,Original content is not exempt from scientific support. Every proposed contribution MUST have:,3,contribution_matrix.md,Phase 3 correspondence + algorithm-freeze gate (Gate 3),P2
+R-496,496,"Mark original content [ORIGINAL] in working notes, not in final prose.",cross,working notes,Section 15 validators + every phase gate,P6
+R-497,497,Novelty claims MUST be bounded to the reviewed closed corpus unless stronger evidence exists inside that corpus.,4,novelty wording bounds,Phase 4 thesis/claims/journal freeze gate (Gate 4),P1
+R-502,502,"Every number in prose, equations, tables, figures, captions, highlights, cover letter, Word fields, supplementary material, and response ...",cross,artifact_binding.csv number rebinding,Section 15 validators + every phase gate,P5
+R-506,506,"Prohibits plot-read values, unrebound copies, invented/rounded values, bad pooling/exclusions, best-run, zero-fill, unstable pct, manual edi",cross,quantitative integrity checks,Section 15 validators + every phase gate,P3
+R-523,523,Cite only verified admissible keys.,8,citation_usage_map.csv,Phase 8 draft gate + claim/citation audit (Gate 8),P9
+R-524,524,Keep citations adjacent to the claims they support.,8,citation_usage_map.csv,Phase 8 draft gate + claim/citation audit (Gate 8),P9
+R-525,525,Prefer direct primary sources when available in the corpus.,8,citation_usage_map.csv,Phase 8 draft gate + claim/citation audit (Gate 8),P9
+R-526,526,Do not cite a source for a stronger statement than it makes.,8,citation_usage_map.csv,Phase 8 draft gate + claim/citation audit (Gate 8),P9
+R-527,527,Do not use one citation as blanket support for unrelated claims.,8,citation_usage_map.csv,Phase 8 draft gate + claim/citation audit (Gate 8),P9
+R-528,528,Do not infer non-existence from absence in the corpus.,8,citation_usage_map.csv,Phase 8 draft gate + claim/citation audit (Gate 8),P9
+R-529,529,"Do not fabricate authors, years, venues, DOIs, titles, or keys.",8,citation_usage_map.csv,Phase 8 draft gate + claim/citation audit (Gate 8),P9
+R-530,530,Do not use \\nocite{*} or irrelevant text to force all 57 entries into the rendered bibliography.,8,citation_usage_map.csv,Phase 8 draft gate + claim/citation audit (Gate 8),P9
+R-532,532,The locked BibTeX file may contain admissible but unused entries. The rendered bibliography MUST contain no undefined or illegitimate entry.,8,citation_usage_map.csv,Phase 8 draft gate + claim/citation audit (Gate 8),P9
+R-534,534,"If a project policy insists that all 57 entries be used, each occurrence MUST pass semantic review; otherwise the policy is rejected as i...",8,citation_usage_map.csv,Phase 8 draft gate + claim/citation audit (Gate 8),P9
+R-540,540,"Report wins, ties, losses, regressions, failures, and uncertainty.",8,results prose + exhibits,Phase 8 draft gate + claim/citation audit (Gate 8),P3
+R-541,541,"Define suite, function set, dimension, run count, seed design, MaxFES, metric, algorithm panel, parameter settings, and evidence release ...",8,results prose + exhibits,Phase 8 draft gate + claim/citation audit (Gate 8),P3
+R-544,544,"Use ""statistically significant"" only when the named test, valid unit, hypothesis family, correction, adjusted result, and direction suppo...",8,results prose + exhibits,Phase 8 draft gate + claim/citation audit (Gate 8),P3
+R-546,546,Report effect size and uncertainty alongside significance.,8,results prose + exhibits,Phase 8 draft gate + claim/citation audit (Gate 8),P3
+R-547,547,"Do not call imported evidence ""reproduced.""",8,results prose + exhibits,Phase 8 draft gate + claim/citation audit (Gate 8),P3
+R-548,548,Do not use paired inference without valid pairing.,8,results prose + exhibits,Phase 8 draft gate + claim/citation audit (Gate 8),P3
+R-549,549,Do not imply general superiority from a same-family panel.,8,results prose + exhibits,Phase 8 draft gate + claim/citation audit (Gate 8),P3
+R-550,550,Do not call an algorithm state-of-the-art without direct evidence against an adequate contemporary panel inside the admissible evidence.,8,results prose + exhibits,Phase 8 draft gate + claim/citation audit (Gate 8),P3
+R-552,552,"Distinguish measurement, interpretation, mechanism hypothesis, and causal claim.",8,results prose + exhibits,Phase 8 draft gate + claim/citation audit (Gate 8),P3
+R-557,557,"Preserve full provenance for every headline result (release id, commit, checksums, seeds, MaxFES, params, environment, analysis, bindings)",cross,reproducibility_manifest.json,Section 15 validators + every phase gate,P5
+R-571,571,"Any assumption that can affect a conclusion MUST be verified, explicitly stated, subjected to sensitivity analysis, or used to narrow the...",cross,assumption_register.csv,Section 15 validators + every phase gate,P3
+R-579,579,Create each artifact no later than the phase that first populates it; pre-drafting phases MUST create every artifact their gates consume....,cross,governance artifact set,Section 15 validators + every phase gate,P5
+R-581,581,"first populated during or after drafting (for example citation_usage_map.csv in Phase 8, cross_format_consistency.csv and word_validation...",cross,governance artifact set,Section 15 validators + every phase gate,P5
+R-585,585,The full governance artifact set is mandatory by the final gate,12,governance artifact set,Phase 12 final gate + final_integrity_audit.md (Gate 12),P5
+R-586,586,Use machine-readable formats for validation and Markdown for reviewer-facing explanation.,cross,governance artifact formats,Section 15 validators + every phase gate,P5
+R-589,589,papers/governance/ is the canonical home of every governance artifact named in this framework - the Section 3.1 table and governance arti...,cross,papers/governance/ canonical root,Section 15 validators + every phase gate,P5
+R-594,594,"Per-phase snapshots written under papers/build_prompt_phases/phase_<NN>/ (Section 12.4) are copies for gate evidence, never the master.",cross,papers/build_prompt_phases/phase_<NN>/ snapshots,Section 15 validators + every phase gate,P5
+R-596,596,word_validation_report.md lives in papers/governance/ and is only referenced from papers/word/.,9,word_validation_report.md location,Phase 9 dual-format build validation (Gate 9),P8
+R-603,603,"Mandatory governance artifact project_configuration.md: paths, target journal, release ID, phase state, defaults",0,project_configuration.md,Phase 0 validation (governance parse + traceability completeness) and Gate 0,P1
+R-604,604,"Mandatory governance artifact requirements_traceability_matrix.csv: every mandatory source requirement mapped to implementation, validati...",0,requirements_traceability_matrix.csv,Phase 0 validation (governance parse + traceability completeness) and Gate 0,P5
+R-605,605,"Mandatory governance artifact source_line_traceability.csv: every nonblank line of the updated prompt classified as integrated, supersede...",0,source_line_traceability.csv,Phase 0 validation (governance parse + traceability completeness) and Gate 0,P5
+R-606,606,"Mandatory governance artifact decision_log.md: every autonomous decision, rationale, evidence, impact",0,decision_log.md,Phase 0 validation (governance parse + traceability completeness) and Gate 0,P1
+R-607,607,"Mandatory governance artifact assumption_register.csv: assumption, verification, sensitivity, status",0,assumption_register.csv,Phase 0 validation (governance parse + traceability completeness) and Gate 0,P3
+R-608,608,"Mandatory governance artifact risk_register.csv: risk, probability, impact, owner, mitigation, residual risk",0,risk_register.csv,Phase 0 validation (governance parse + traceability completeness) and Gate 0,P1
+R-609,609,"Mandatory governance artifact phase_gate_register.csv: entry, validation, acceptance, exit evidence per phase",0,phase_gate_register.csv,Phase 0 validation (governance parse + traceability completeness) and Gate 0,P5
+R-610,610,"Mandatory governance artifact change_request_register.csv: formal post-freeze change requests, one row per request (Section 12.2 schema)",0,change_request_register.csv,Phase 0 validation (governance parse + traceability completeness) and Gate 0,P5
+R-611,611,Mandatory governance artifact administrative_gap_register.md: missing non-scientific metadata,0,administrative_gap_register.md,Phase 0 validation (governance parse + traceability completeness) and Gate 0,P10
+R-612,612,Mandatory governance artifact reference_inventory.csv: BibTeX-to-local-source identity audit,1,reference_inventory.csv,Phase 1 corpus-audit gate (Gate 1),P9
+R-613,613,Mandatory governance artifact evidence_cards/: claim-ready source summaries with exact locators,1,evidence_cards/,Phase 1 corpus-audit gate (Gate 1),P9
+R-614,614,Mandatory governance artifact allowed_citation_keys.txt: verified runtime citation set,1,allowed_citation_keys.txt,Phase 1 corpus-audit gate (Gate 1),P9
+R-615,615,Mandatory governance artifact claims_evidence_matrix.csv: claim-level literature/data/code traceability,4,claims_evidence_matrix.csv,Phase 4 thesis/claims/journal freeze gate (Gate 4),P9
+R-616,616,Mandatory governance artifact evidence_gap_register.md: unsupported or partial claims and disposition,1,evidence_gap_register.md,Phase 1 corpus-audit gate (Gate 1),P9
+R-617,617,Mandatory governance artifact citation_usage_map.csv: every rendered citation occurrence and role,8,citation_usage_map.csv,Phase 8 draft gate + claim/citation audit (Gate 8),P9
+R-618,618,Mandatory governance artifact asset_map.md: every manuscript/data/code/table/figure artifact and action,2,asset_map.md,Phase 2 evidence/provenance audit gate (Gate 2),P5
+R-619,619,Mandatory governance artifact data_ledger.csv: immutable evidence coverage and provenance,2,data_ledger.csv,Phase 2 evidence/provenance audit gate (Gate 2),P4
+R-620,620,Mandatory governance artifact experiment_matrix.csv: run-level design and status,2,experiment_matrix.csv,Phase 2 evidence/provenance audit gate (Gate 2),P4
+R-621,621,Mandatory governance artifact comparability_audit.md: comparator fairness and admissible inference level,2,comparability_audit.md,Phase 2 evidence/provenance audit gate (Gate 2),P4
+R-622,622,"Mandatory governance artifact reproducibility_manifest.json: environment, seeds, hashes, commands, outputs",0,reproducibility_manifest.json,Phase 0 validation (governance parse + traceability completeness) and Gate 0,P5
+R-623,623,"Mandatory governance artifact statistical_analysis_plan.md: frozen estimands, endpoints, tests, corrections",5,statistical_analysis_plan.md,Phase 5 analysis-plan freeze gate (Gate 5),P3
+R-624,624,Mandatory governance artifact primary_stats/statistical_results.csv: one machine-readable row per reported statistic (Section 7.14 schema...,6,primary_stats/statistical_results.csv,Phase 6 primary-computation validation (Gate 6),P3
+R-625,625,Mandatory governance artifact exhibit_plan.csv: question-to-exhibit-to-source mapping,5,exhibit_plan.csv,Phase 5 analysis-plan freeze gate (Gate 5),P3
+R-626,626,Mandatory governance artifact artifact_binding.csv: table/figure/equation/Word binding and checksums,7,artifact_binding.csv,Phase 7 exhibit-binding validation (Gate 7),P5
+R-627,627,Mandatory governance artifact implementation_correspondence.md: equations/pseudocode/code mapping,3,implementation_correspondence.md,Phase 3 correspondence + algorithm-freeze gate (Gate 3),P2
+R-628,628,Mandatory governance artifact complexity_analysis.md: derived and measured resource costs,3,complexity_analysis.md,Phase 3 correspondence + algorithm-freeze gate (Gate 3),P2
+R-629,629,Mandatory governance artifact cross_format_consistency.csv: LaTeX/PDF/Word equality checks,9,cross_format_consistency.csv,Phase 9 dual-format build validation (Gate 9),P8
+R-630,630,"Mandatory governance artifact word_validation_report.md: OOXML, OMML, fields, native tables, references",9,word_validation_report.md,Phase 9 dual-format build validation (Gate 9),P8
+R-631,631,"Mandatory governance artifact revision_log.md: review tickets, changes, and verification",10,revision_log.md,Phase 10 adversarial-review gate (Gate 10),P6
+R-632,632,Mandatory governance artifact final_integrity_audit.md: complete acceptance evidence and residual caveats,12,final_integrity_audit.md,Phase 12 final gate + final_integrity_audit.md (Gate 12),P1
+R-636,636,"Wherever this framework says ""the updated prompt"" or ""the updated construction brief"", the referent IS this master file, papers/PAPER_BUI...",0,project_configuration.md + source_line_traceability.csv,Phase 0 validation (governance parse + traceability completeness) and Gate 0,P5
+R-642,642,requirements_traceability_matrix.csv MUST use the Section 3.2 schema,0,requirements_traceability_matrix.csv,Phase 0 validation (governance parse + traceability completeness) and Gate 0,P5
+R-650,650,source_line_traceability.csv MUST use the Section 3.2 schema,0,source_line_traceability.csv,Phase 0 validation (governance parse + traceability completeness) and Gate 0,P5
+R-657,657,"Allowed line classifications are integrated, superseded_by_later_requirement, structural_heading, example_or_comment, duplicate, and nono...",0,source_line_traceability.csv,Phase 0 validation (governance parse + traceability completeness) and Gate 0,P5
+R-659,659,Every nonblank source line MUST receive exactly one classification; superseded lines MUST name the conflicting later requirement,0,source_line_traceability.csv,Phase 0 validation (governance parse + traceability completeness) and Gate 0,P5
+R-661,661,A line classified as duplicate MUST point to the retained requirement,0,source_line_traceability.csv,Phase 0 validation (governance parse + traceability completeness) and Gate 0,P5
+R-662,662,"No source line may remain unmapped, partial, or unknown at the final gate",12,source_line_traceability.csv,Phase 12 final gate + final_integrity_audit.md (Gate 12),P5
+R-667,667,reference_inventory.csv MUST use the Section 3.3 schema,1,reference_inventory.csv,Phase 1 corpus-audit gate (Gate 1),P9
+R-676,676,"Identity status is one of verified, minor_metadata_mismatch, major_mismatch, missing_source, unreadable, or duplicate.",1,reference_inventory.csv identity_status,Phase 1 corpus-audit gate (Gate 1),P9
+R-678,678,"format, page_count, and source_checksum carry the Phase 1 file inventory (Phase 1 task 2) so that checksum verification runs against this...",1,reference_inventory.csv inventory columns,Phase 1 corpus-audit gate (Gate 1),P9
+R-684,684,"Each evidence card MUST record identity, question, method, findings, limits, exact locators, non-supported readings, DT-GSK relevance",1,evidence_cards/,Phase 1 corpus-audit gate (Gate 1),P9
+R-696,696,Do not rely on an abstract when full text is available.,1,evidence_cards/,Phase 1 corpus-audit gate (Gate 1),P9
+R-700,700,"In addition to Section 2.6, every contribution bullet, abstract statement, headline result, novelty statement, design rationale, method d...",4,claims_evidence_matrix.csv coverage,Phase 4 thesis/claims/journal freeze gate (Gate 4),P9
+R-707,707,"evidence_gap_register.md rows MUST record claim, why it matters, sources/artifacts checked, insufficiency, disposition, sections, phase",1,evidence_gap_register.md,Phase 1 corpus-audit gate (Gate 1),P9
+R-719,719,"Do not clutter the manuscript with repeated ""evidence unavailable"" sentences. Usually omit or narrow; disclose the gap when it changes in...",8,manuscript gap disposition,Phase 8 draft gate + claim/citation audit (Gate 8),P6
+R-724,724,citation_usage_map.csv MUST use the Section 3.7 schema,8,citation_usage_map.csv,Phase 8 draft gate + claim/citation audit (Gate 8),P9
+R-736,736,data_ledger.csv MUST use the Section 3.8 data-ledger schema,2,data_ledger.csv,Phase 2 evidence/provenance audit gate (Gate 2),P4
+R-746,746,experiment_matrix.csv MUST use the Section 3.8 experiment-matrix schema,2,experiment_matrix.csv,Phase 2 evidence/provenance audit gate (Gate 2),P4
+R-754,754,artifact_binding.csv MUST use the Section 3.8 artifact-binding schema,7,artifact_binding.csv,Phase 7 exhibit-binding validation (Gate 7),P5
+R-763,763,Revision tickets MUST use the Section 3.8 revision-ticket schema,10,revision_log.md tickets,Phase 10 adversarial-review gate (Gate 10),P6
+R-770,770,exhibit_plan.csv MUST use the Section 3.8 exhibit-plan schema,5,exhibit_plan.csv,Phase 5 analysis-plan freeze gate (Gate 5),P3
+R-778,778,assumption_register.csv MUST use the Section 3.8 assumption-register schema,0,assumption_register.csv,Phase 0 validation (governance parse + traceability completeness) and Gate 0,P3
+R-786,786,risk_register.csv MUST use the Section 3.8 risk-register schema,0,risk_register.csv,Phase 0 validation (governance parse + traceability completeness) and Gate 0,P1
+R-793,793,phase_gate_register.csv MUST use the Section 3.8 phase-gate schema,0,phase_gate_register.csv,Phase 0 validation (governance parse + traceability completeness) and Gate 0,P5
+R-797,797,The state column uses the Section 12.2 state values.,cross,phase_gate_register.csv state column,Section 15 validators + every phase gate,P5
+R-802,802,cross_format_consistency.csv MUST use the Section 3.8 cross-format schema,9,cross_format_consistency.csv,Phase 9 dual-format build validation (Gate 9),P8
+R-808,808,Every phase MUST append to:,cross,audit-trail appends (Sec 3.9),Section 15 validators + every phase gate,P5
+R-819,819,No acceptance gate may rely on an undocumented manual judgment.,cross,gate evidence records,Section 15 validators + every phase gate,P5
+R-825,825,"The following paths and values are expected from the updated project brief. They are audit targets, not permission to assume that the cur...",0,preflight_inventory.csv,Phase 0 validation (governance parse + traceability completeness) and Gate 0,P5
+R-831,831,"Audit expected papers/ assets: main.tex, supplementary, references.bib (57), macros, tables T01-T16/T16_bca/T21/T22, figures, class files",0,preflight_inventory.csv + asset_map.md,Phase 0 validation (governance parse + traceability completeness) and Gate 0,P5
+R-843,843,"no T17.tex through T20.tex unless a future, documented numbering decision deliberately creates them; do not invent or renumber them merel...",7,papers/tables/ numbering policy,Phase 7 exhibit-binding validation (Gate 7),P7
+R-854,854,Expected generator/build scripts include:,0,script asset inventory,Phase 0 validation (governance parse + traceability completeness) and Gate 0,P5
+R-877,877,Map emitted filenames by inspecting code. Never infer a generator solely from a,0,asset_map.md generator mapping,Phase 0 validation (governance parse + traceability completeness) and Gate 0,P5
+R-878,878,Phase 0/2 audit MUST map build_docx.py's current interface (main() parses no CLI args; no --supplementary) before Phase 9 depends on it,0,engineering_preflight.md + asset_map.md,Phase 0 validation (governance parse + traceability completeness) and Gate 0,P5
+R-885,885,Expected evaluator/data roots:,0,preflight_inventory.csv,Phase 0 validation (governance parse + traceability completeness) and Gate 0,P4
+R-895,895,Evaluator code supports protocol verification and controlled reproduction. It is not a substitute for immutable empirical evidence.,cross,evidence classing (M vs E),Section 15 validators + every phase gate,P4
+R-900,900,The expected flat layout per optimizer is:,2,data_ledger.csv layout audit,Phase 2 evidence/provenance audit gate (Gate 2),P4
+R-919,919,"Expected seven-optimizer panel: gsk, agsk, apgsk, fdb-agsk, atmals-gsk, egsk, dt-gsk",2,data_ledger.csv panel audit,Phase 2 evidence/provenance audit gate (Gate 2),P4
+R-925,925,Expected coverage: CEC2017 7 algos x D10/30/50/100 x 51 runs (29F); CEC2011 7x25 (22P); CEC2013 7x D10/30/50 x51 (28F); others contextual,2,comparability_audit.md,Phase 2 evidence/provenance audit gate (Gate 2),P4
+R-935,935,"Expected context-only optimizers may include agsk for CEC2020 and decc-g,",2,comparability_audit.md,Phase 2 evidence/provenance audit gate (Gate 2),P4
+R-936,936,"Do not promote a context suite (CEC2020, CEC2013-LSGO) to a formal panel without complete comparable evidence",2,comparability_audit.md,Phase 2 evidence/provenance audit gate (Gate 2),P4
+R-939,939,Confirm there are no accidental nested paths such as:,2,evidence layout audit,Phase 2 evidence/provenance audit gate (Gate 2),P4
+R-947,947,Working outputs may exist at:,0,project_configuration.md staging map,Phase 0 validation (governance parse + traceability completeness) and Gate 0,P4
+R-959,959,"These paths are not publication evidence. Use them only for staging, independent reproduction, generator intermediates, or candidate abla...",cross,staging boundary enforcement,Section 15 validators + every phase gate,P4
+R-963,963,"results/paper_tables/ is rendered-input staging for the table generators (generate_latex_tables.py, generate_parametric_tables.py,",6,results/paper_tables/ exporter,Phase 6 primary-computation validation (Gate 6),P5
+R-965,965,results/paper_tables/ is materialized by the named Phase 6 exporter task from the controlled analysis bundle (Section 7.13),6,Phase 6 exporter task,Phase 6 primary-computation validation (Gate 6),P5
+R-968,968,"Every exported paper_tables CSV MUST carry bundle provenance (release ID, source paths, checksums)",6,exported CSV provenance headers,Phase 6 primary-computation validation (Gate 6),P5
+R-970,970,results/paper_tables/ may be absent before Phase 6; Phase 0/2 audit records it as missing without failing,0,preflight path status,Phase 0 validation (governance parse + traceability completeness) and Gate 0,P5
+R-973,973,"The parameter study is expected to have n = 3; it is sensitivity evidence, not ablation evidence and not definitive performance evidence.",2,assumption_register.csv (parametric study),Phase 2 evidence/provenance audit gate (Gate 2),P4
+R-975,975,"results/dt-gsk/sweeps/parametric-study/ may be absent from the current checkout, and no sweep-runner tooling exists in scripts/; Phase 0...",2,assumption_register.csv sweep provenance,Phase 2 evidence/provenance audit gate (Gate 2),P4
+R-980,980,T21/T22 may carry parametric numbers only after sweep-bundle promotion into cec_reference_results/parametric/<release_id>/ before Phase 7,7,parametric release under cec_reference_results/parametric/,Phase 7 exhibit-binding validation (Gate 7),P4
+R-984,984,"If no validated parametric release exists, mark T21/T22 unavailable and record the gap; results/ staging is never read",7,T21/T22 availability + evidence_gap_register.md,Phase 7 exhibit-binding validation (Gate 7),P4
+R-990,990,"Verify protocol anchors: seed formula/policy, FP sentinels, MaxFES accounting, egsk provenance, per_run integrity, no PNG/log as evidence",2,protocol verification matrix (Sec 6.2),Phase 2 evidence/provenance audit gate (Gate 2),P4
+R-1008,1008,Locate and run the actual project commands. Expected forms are:,0,engineering_preflight.md,Phase 0 validation (governance parse + traceability completeness) and Gate 0,P5
+R-1022,1022,"The updated project note expects 324 tests, but a hard-coded count is not a scientific truth. Record the actual count and investigate any...",0,engineering_preflight.md test count,Phase 0 validation (governance parse + traceability completeness) and Gate 0,P5
+R-1024,1024,A missing command is not a pass.,0,engineering_preflight.md,Phase 0 validation (governance parse + traceability completeness) and Gate 0,P5
+R-1028,1028,The following commands are preserved as expected runbook forms for independent reproduction or candidate evidence generation. They MUST N...,2,reproduction command governance,Phase 2 evidence/provenance audit gate (Gate 2),P4
+R-1038,1038,"Use fewer workers or serial execution when required by memory; never reduce run count, MaxFES, or function scope to save time. Resume wit...",2,reproduction run records,Phase 2 evidence/provenance audit gate (Gate 2),P4
+R-1042,1042,Expected comparison command:,2,comparison command record,Phase 2 evidence/provenance audit gate (Gate 2),P4
+R-1048,1048,A local egsk implementation using SciPy must not silently replace committed MATLAB/fmincon evidence in the publication panel.,2,egsk provenance record,Phase 2 evidence/provenance audit gate (Gate 2),P4
+R-1053,1053,"runbook.md, when present, is the copy-paste command source only after its commands pass consistency review against this framework. A runb...",0,instruction_precedence.md runbook review,Phase 0 validation (governance parse + traceability completeness) and Gate 0,P1
+R-1055,1055,"A runbook command using empirical fallback, early ablation, or writes over immutable evidence MUST be corrected or wrapped before use",0,corrected/wrapped runbook commands,Phase 0 validation (governance parse + traceability completeness) and Gate 0,P1
+R-1064,1064,Verify the evaluated code for each expected component:,3,implementation_correspondence.md,Phase 3 correspondence + algorithm-freeze gate (Gate 3),P2
+R-1077,1077,For each component determine:,3,implementation_correspondence.md,Phase 3 correspondence + algorithm-freeze gate (Gate 3),P2
+R-1087,1087,"If code and prose disagree, the frozen executed code is authoritative for the reported experiments. Correct the prose and record the disc...",3,prose correction + decision_log.md,Phase 3 correspondence + algorithm-freeze gate (Gate 3),P2
+R-1092,1092,Create contribution_matrix.md:,3,contribution_matrix.md,Phase 3 correspondence + algorithm-freeze gate (Gate 3),P1
+R-1097,1097,contribution_matrix categories restricted to Inherited / Modified / Original-in-this-work (novelty bounded to reviewed corpus),3,contribution_matrix.md categories,Phase 3 correspondence + algorithm-freeze gate (Gate 3),P1
+R-1104,1104,A new acronym is not a contribution.,4,contribution wording,Phase 4 thesis/claims/journal freeze gate (Gate 4),P1
+R-1108,1108,Position DT-GSK relative to the verified original GSK source.,4,positioning prose boundaries,Phase 4 thesis/claims/journal freeze gate (Gate 4),P1
+R-1109,1109,"Compare SGSM with differential grouping only on supported dimensions: information source, objective-evaluation cost, update timing, granu...",4,positioning prose boundaries,Phase 4 thesis/claims/journal freeze gate (Gate 4),P1
+R-1112,1112,Compare linkage-aware crossover with eigenvector crossover only after mechanism-level verification.,4,positioning prose boundaries,Phase 4 thesis/claims/journal freeze gate (Gate 4),P1
+R-1114,1114,Compare eigenframe polish with covariance adaptation or direct search only at the conceptual level supported by approved sources.,4,positioning prose boundaries,Phase 4 thesis/claims/journal freeze gate (Gate 4),P1
+R-1116,1116,"Do not imply equivalence among a support graph, covariance matrix, decomposition, and eigenbasis.",4,positioning prose boundaries,Phase 4 thesis/claims/journal freeze gate (Gate 4),P1
+R-1118,1118,"Replace ""learned for free"" with the narrower verified statement ""requires no additional objective evaluations"" unless measured overhead s...",4,positioning prose boundaries,Phase 4 thesis/claims/journal freeze gate (Gate 4),P1
+R-1121,1121,Do not call overhead negligible without measured evidence.,4,positioning prose boundaries,Phase 4 thesis/claims/journal freeze gate (Gate 4),P1
+R-1122,1122,"Use exact dimensions instead of ""high-dimensional"" or ""large-scale"" when the literature and tested scope do not support those labels.",4,positioning prose boundaries,Phase 4 thesis/claims/journal freeze gate (Gate 4),P1
+R-1124,1124,A seven-method GSK-family panel supports family-scoped conclusions only.,4,positioning prose boundaries,Phase 4 thesis/claims/journal freeze gate (Gate 4),P1
+R-1125,1125,NFL may motivate adaptive bias but does not prove that DT-GSK should win.,4,positioning prose boundaries,Phase 4 thesis/claims/journal freeze gate (Gate 4),P1
+R-1129,1129,Every contribution MUST pass:,4,contribution acceptance test,Phase 4 thesis/claims/journal freeze gate (Gate 4),P1
+R-1141,1141,A contribution that fails after the final ablation is removed or narrowed. The algorithm is not modified to rescue the claim.,12,contribution narrowing after ablation,Phase 12 final gate + final_integrity_audit.md (Gate 12),P1
+R-1146,1146,"Create notation table, pseudocode, parameter table, equation registry, correspondence map, complexity, accounting proof, trace, freeze manif",3,method artifacts (notation/pseudocode/registry),Phase 3 correspondence + algorithm-freeze gate (Gate 3),P2
+R-1159,1159,"Define all method elements unambiguously (objective, phases, memories, SGSM, blocks, eigenframe, LS, rescue, accounting, stopping, determini",3,method definitions,Phase 3 correspondence + algorithm-freeze gate (Gate 3),P2
+R-1180,1180,Define every symbol before or at first use.,7,equation discipline (LaTeX/OMML/pseudocode),Phase 7 exhibit-binding validation (Gate 7),P2
+R-1181,1181,Use one symbol per concept and state vector/matrix dimensions.,7,equation discipline (LaTeX/OMML/pseudocode),Phase 7 exhibit-binding validation (Gate 7),P2
+R-1182,1182,"State index ranges, counters, and random distributions.",7,equation discipline (LaTeX/OMML/pseudocode),Phase 7 exhibit-binding validation (Gate 7),P2
+R-1183,1183,"Distinguish equality, assignment, approximation, and sampling.",7,equation discipline (LaTeX/OMML/pseudocode),Phase 7 exhibit-binding validation (Gate 7),P2
+R-1184,1184,"State safeguards for division, normalization, graph degeneracy, and eigendecomposition.",7,equation discipline (LaTeX/OMML/pseudocode),Phase 7 exhibit-binding validation (Gate 7),P2
+R-1186,1186,"Ensure LaTeX equations, OMML equations, pseudocode, and code express the same update order.",7,equation discipline (LaTeX/OMML/pseudocode),Phase 7 exhibit-binding validation (Gate 7),P2
+R-1188,1188,Do not add equations merely to appear formal.,7,equation discipline (LaTeX/OMML/pseudocode),Phase 7 exhibit-binding validation (Gate 7),P2
+R-1192,1192,Expected claims such as O(D^2) memory and O(D^3) eigendecomposition are hypotheses until derived from code. Report:,3,complexity_analysis.md,Phase 3 correspondence + algorithm-freeze gate (Gate 3),P2
+R-1211,1211,All local-search and polish evaluations count toward MaxFES unless the verified benchmark protocol explicitly states otherwise.,3,MaxFES accounting,Phase 3 correspondence + algorithm-freeze gate (Gate 3),P2
+R-1216,1216,"Before primary analysis, create algorithm_freeze_manifest.json containing:",3,algorithm_freeze_manifest.json,Phase 3 correspondence + algorithm-freeze gate (Gate 3),P2
+R-1227,1227,"After freeze, algorithm changes are permitted only through the Section 0.6 change-control process (formal change request in change_reques...",cross,change_request_register.csv,Section 15 validators + every phase gate,P5
+R-1239,1239,"Suite roles: CEC2017 primary, CEC2011 real-world, CEC2013 secondary, CEC2020/CEC2013-LSGO contextual unless complete comparable panel",2,comparability_audit.md suite roles,Phase 2 evidence/provenance audit gate (Gate 2),P4
+R-1247,1247,"These roles MUST be confirmed before analysis. A suite is not ""independent confirmation"" or a ""holdout"" when it influenced algorithm desi...",2,comparability_audit.md,Phase 2 evidence/provenance audit gate (Gate 2),P4
+R-1249,1249,Use 'secondary evidence' labeling when suite independence cannot be demonstrated,2,secondary-evidence labeling,Phase 2 evidence/provenance audit gate (Gate 2),P4

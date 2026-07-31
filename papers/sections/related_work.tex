@@ -1,0 +1,325 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Section 2 — Related Work (Phase 8 rewrite, drafting-order step 6)
+% Outline: phase_04/outline.md Section 2 (2.1 ~850 w; 2.2 ~250 w; 2.3 ~400 w).
+% Claims asserted: BG-01, BG-02, BG-03, BG-04 (all READY); frozen wording from
+% MT-01/MT-03/MT-08/MT-09 permitted-wording fields where subsystems are named.
+% Exhibits: tab:family-review (plan T-FAMREV, authored from evidence cards, no
+% empirical values); fig:taxonomy (plan F-TAXONOMY, papers/figures/concept/,
+% caption per phase_07/captions_registry.md).
+% All literature numbers are card-verified (papers/governance/evidence_cards/);
+% all DT-GSK parameter values are phase_03 frozen parameters. No result from
+% this paper's experiments appears in this section. No ablation content.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Related Work}\label{sec:related}\label{sec:literature}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Adaptation within the GSK family has been almost entirely scalar: each
+published variant adapts \emph{how strongly} to move --- rates,
+probabilities, population size --- while the question of \emph{which
+coordinates} to move together is left to a fixed, dimension-blind rule.
+The structure-learning literature outside the family answers that question,
+but pays for it with dedicated objective evaluations or a full sampling
+covariance. That gap --- scalar control inside the family, evaluation-hungry
+structure learning outside it --- is what the following comparison
+establishes, variant by variant (Table~\ref{tab:family-review}) and against
+the closest structure-learning lines on four dimensions
+(Table~\ref{tab:taxonomy}).
+
+%------------------------------------------------------------------
+\subsection{The GSK Family: From Fixed Parameters to Adaptive Control}\label{sec:rel:family}
+%------------------------------------------------------------------
+
+The gaining-sharing knowledge algorithm (GSK) is a human-inspired
+metaheuristic whose junior and senior knowledge-transfer phases define
+the base operator family studied in this
+paper~\cite{mohamed2020gaining}. % BIND: EC:mohamed2020gaining (BG-01)
+Each individual learns from its fitness-ranked neighbors in the junior
+phase and from the elite, middle, and bottom strata in the senior phase;
+a knowledge-rate exponent shifts the per-dimension balance between the
+two over the run. Its original evaluation ranked it first on the CEC2017
+score metric against ten classical and recent metaheuristics, and third
+by Friedman rank on the 22 CEC2011 real-world
+problems~\cite{mohamed2020gaining}. % BIND: EC:mohamed2020gaining
+Every control parameter is fixed for the whole run
+($KF = 0.5$, $KR = 0.9$, $K = 10$) --- the limitation that later
+family papers identify as its central
+weakness. % BIND: EC:mohamed2020gaining (Table 6 setting; limitation noted by AGSK/APGSK/ATMALS-GSK cards)
+
+The descendants attack that weakness at three levels: parameter
+adaptation, donor policy, and composite designs that add memory or a
+local search. \agsk{} introduced the family's first adaptive parameter
+control: each individual draws its $(KF, KR)$ pair from a
+four-setting pool whose probabilities are updated from realized fitness
+improvements, combined with a dual-regime knowledge rate and linear
+population-size reduction in the L-SHADE
+lineage~\cite{mohamed2020agsk,tanabe2014improving}. % BIND: EC:mohamed2020agsk (four-pair pool)
+The adaptation, however, selects among four predefined scalar settings,
+and the evidence is confined to the ten CEC2020 functions at
+$D \leq 20$ under budgets far larger, relative to dimension, than the
+CEC2017 protocol~\cite{mohamed2020agsk}. % BIND: EC:mohamed2020agsk (CEC2020, D<=20)
+\apgsk{} extended the same machinery with a second,
+negative-knowledge-factor pool activated after half the budget to
+re-diversify the population, a nonlinear population-size reduction
+schedule, an adaptive knowledge rate, and a much larger initial
+population~\cite{apgsk2021}. % BIND: EC:apgsk2021 (mechanism list)
+Its evidence base remains CEC2020 at $D \leq 20$, where its comparisons
+against the CEC2020 winners show no statistically significant pairwise
+differences; what is adapted is still scalar parameter values, not where
+in the coordinate space the operators
+act~\cite{apgsk2021}. % BIND: EC:apgsk2021 (Table 17 no-significance)
+
+\fdbagsk{} redesigned \agsk{}'s donor policy instead of its parameters:
+the senior-phase guide is replaced by fitness--distance-balance
+selection, motivated by an explicit diagnosis of \agsk{}'s premature
+convergence on multimodal, hybrid, and composition
+functions~\cite{fdbagsk2023}. % BIND: EC:fdbagsk2023 (Case-1 mechanism + diagnosis)
+The change concerns which individuals knowledge flows \emph{from}, not
+which coordinates move \emph{together}; and its benchmark evaluation
+used a $1000 \times D$ budget --- one tenth of the standard protocol ---
+at $D \in \{30, 50, 100\}$, against \agsk{} variants only, with $D = 10$
+untested~\cite{fdbagsk2023}. % BIND: EC:fdbagsk2023 (1000xD budget, dims, comparator scope)
+
+The two composite variants add memory and local refinement. \atmals{}
+auto-tunes five control parameters ($K$, $KF$, $KR$, $P$, and a
+local-search probability) through Gaussian-weighted enhancement rates
+accumulated in an exponentially weighted moving-average (EWMA) memory and
+sampled by powered roulette-wheel selection, plus a shrinking-range
+local search on a small population
+fraction~\cite{alfadli2025atmals}. % BIND: EC:alfadli2025atmals (mechanism; five parameters)
+Within the GSK family as measured in that study, it ranks first on
+CEC2017 with \egsk{} second, its advantage growing with dimension while
+$D = 10$ remains only competitive; its authors acknowledge the
+computational overhead of the memory machinery and local
+search~\cite{alfadli2025atmals}. % BIND: EC:alfadli2025atmals (Table 18 ordering as measured there; p. 61 overhead admission)
+Yet what that memory stores is which \emph{parameter values} recently
+produced improvement --- a hyperparameter memory; it carries no
+information about which coordinate pairs co-improve. \egsk{} layers
+three mechanisms on the base operator: a population-sum selection
+criterion, phase-specific self-adaptive knowledge factors activated
+after 75\% of the budget, and a sequential-quadratic-programming (SQP)
+escape triggered in the same late
+window~\cite{jawad2024egsk}. % BIND: EC:jawad2024egsk (three mechanisms; 75% triggers)
+In its own CEC2017 study it leads the compared family variants at
+$D \in \{30, 50, 100\}$ but is competitive-only at $D = 10$, where it is
+significantly worse than
+\agsk{}~\cite{jawad2024egsk}. % BIND: EC:jawad2024egsk (Tables 8-9)
+Its late refinement depends on a gradient-based solver, and its
+adaptation remains scalar: no record of the run's accepted-move
+structure informs the crossover or the escape.
+
+The wider variant literature groups its own improvements into
+population, hybrid, strategy, and composite
+categories~\cite{hpe_agsk2025}. Population-side devices include
+Sobol-sequence initialization with Cauchy junior mutation and senior
+reverse learning~\cite{epd_gsk2024}, opposition-based learning with
+Cauchy mutation~\cite{jalali2021opposition}, and multi-population
+parallelism with Taguchi-orthogonal communication~\cite{pogsk2023}.
+Strategy refinements range from historical-probability expansion of
+\agsk{}'s adaptation~\cite{hpe_agsk2025} to a reinforcement-learned
+controller for $KF$/$KR$. That controller's authors report win/tie/loss tallies
+against basic GSK of 14/5/10 at $D = 10$ and 16/4/9 at $D = 30$; the instability
+they report is localized to a single function outside the training set rather than
+to the $D = 30$ panel, whose tally is in fact stronger than the $D = 10$
+one~\cite{nomer2021gskrl}. % BIND: EC:nomer2021gskrl (Sec. 5 tallies 14/5/10 and 16/4/9; F26 instability)
+Hybrid and operator-export lines transplant the junior/senior operators
+into DE~\cite{zhong2021gskhho}, and the junior-phase operator into a
+whale-optimization host~\cite{liang2024gskwoa}; composite designs extend the family to
+multiobjective search~\cite{chalabi2023mogsk} and to dual-population,
+multi-operator control with SHADE-style success
+histories~\cite{ma2023mgskdpmo,tanabe2013shade}. Across all of these
+lines the adapted quantity is a scalar control parameter, a donor or
+selection policy, the population's composition, or a grafted foreign
+operator. Within the cited GSK family, none of these variants learns ---
+or exploits --- the interaction structure of the moves the run has
+already accepted; Table~\ref{tab:family-review} summarizes the six of these
+lines that form this paper's comparison panel. % BIND: BG-03 (gap scoped to the GSK-family variants cited in this section; Table 1 is the panel subset)
+
+\begin{table}[H]
+\caption{GSK-family review summary for the six published algorithms of
+the comparison panel: core mechanism, suites tested in the cited source,
+and key limitation. All entries are facts drawn from the cited
+publications; the table contains no results from this paper's
+experiments.}\label{tab:family-review}
+\centering
+\tablesize{\footnotesize}
+\begin{tabular}{p{1.95cm}p{4.15cm}p{2.6cm}p{4.4cm}}
+\toprule
+\textbf{Variant} & \textbf{Core mechanism} & \textbf{Suites tested} &
+\textbf{Key limitation} \\
+\midrule
+GSK~\cite{mohamed2020gaining} & Junior/senior gaining-sharing operator
+with fixed $KF$, $KR$, $K$ & CEC2017 ($D \leq 100$); CEC2011 & Fixed
+control parameters; no in-run adaptation \\ % BIND: EC:mohamed2020gaining
+\agsk{}~\cite{mohamed2020agsk} & Four-setting $(KF, KR)$ probability
+pool; dual-regime $K$; linear population reduction & CEC2020
+($D \leq 20$) & Scalar-pool adaptation; evidence limited to the
+low-dimension, large-budget CEC2020 regime \\ % BIND: EC:mohamed2020agsk
+\apgsk{}~\cite{apgsk2021} & Negative-$KF$ pool after half budget;
+nonlinear population reduction; adaptive $K$; enlarged population &
+CEC2020 ($D \leq 20$) & Same regime limits; no significant pairwise
+difference vs.\ CEC2020 winners \\ % BIND: EC:apgsk2021
+\fdbagsk{}~\cite{fdbagsk2023} & Fitness--distance-balance replacement of
+the senior-phase guide & CEC2017 + CEC2020 subsets ($D = 30/50/100$,
+$1000 \times D$ budget) & Donor policy only; reduced budget; $D = 10$
+untested; compared against \agsk{} variants only \\ % BIND: EC:fdbagsk2023
+\atmals{} \cite{alfadli2025atmals} & Gaussian/EWMA memory auto-tuning of
+five parameters via powered roulette-wheel selection; shrinking local
+search & CEC2017 ($D \leq 100$); CEC2011 & Hyperparameter memory only
+(stores parameter values, not coordinate structure); acknowledged
+computational overhead; $D = 10$ competitive-only \\ % BIND: EC:alfadli2025atmals
+\egsk{}~\cite{jawad2024egsk} & Population-sum selection; self-adaptive
+phase-specific $KF$ after 75\% budget; SQP escape at 75\% budget &
+CEC2017 ($D \leq 100$) & Significantly worse than \agsk{} at $D = 10$;
+gradient-solver dependency; scalar adaptation only \\ % BIND: EC:jawad2024egsk
+\bottomrule
+\end{tabular}
+\end{table}
+
+%------------------------------------------------------------------
+\subsection{Structure Learning Outside the GSK Family}\label{sec:rel:structure}
+%------------------------------------------------------------------
+
+Learning structure from the search itself is well established outside
+the GSK family. The approaches separate on four axes --- update trigger,
+evaluation cost, what is learned, and how it is exploited --- on which
+Table~\ref{tab:taxonomy} places each method and the interaction-structure
+memory. Three contrasts matter here. Differential grouping learns a hard
+variable partition in a dedicated offline stage, spending $O(n^2/m)$ objective
+evaluations on pairwise probes and exploiting the result by decomposition into
+cooperative-coevolution subcomponents; its evidence lies at $n = 1000$, with
+stated failure modes on overlapping interactions and region-dependent
+separability~\cite{omidvar2014dg}. % BIND: EC:omidvar2014dg (novelty_scope.md §1.1)
+CMA-ES instead learns during the run at no additional objective evaluations,
+accumulating a full sampling covariance that reshapes every mutation, though a
+significant shape change takes on the order of $n^2$ evaluations of adaptation
+time~\cite{hansen2001cmaes}. % BIND: EC:hansen2001cmaes (novelty_scope.md §1.2)
+Eigenvector-based crossover recomputes the eigenbasis of the \emph{current}
+population covariance each generation --- an instantaneous statistic, not a
+cumulative memory --- at $O(D^3)$ per generation~\cite{guo2015eig}. % BIND: EC:guo2015eig (novelty_scope.md §1.3)
+Two further lines are adjacent rather than comparable. Adaptive operator
+selection adapts the choice of operator rather than the search geometry, and
+grounds the framing of \dtgsk{}'s ACE controller
+only~\cite{fialho2010adaptive,auer2002finite}: ACE is not claimed to
+instantiate any specific bandit policy, and no regret guarantee transfers to
+the drifting rewards of an evolutionary run. Direct-search methods, in turn,
+refine a single solution without derivatives and carry no learned
+structure~\cite{kolda2003directsearch,nelder1965simplex}.
+
+The interaction-structure memory occupies a point none of these covers. It
+updates online from \emph{accepted} moves only, into a decaying
+($\lambda = 0.95$), confidence- and evidence-gated pair
+graph. % BIND: phase_03/parameter_table.md (lambda=0.95, frozen)
+It spends no additional objective evaluations --- it learns from evaluations the
+run already made --- at a compute-only cost of a per-generation $O(D^2)$ decay
+plus an $O(\mathit{NP} \cdot D^{2})$ worst-case accumulation at $D = 50$--$99$
+(thinned to every tenth generation at $D \ge 100$) and one terminal $O(D^3)$
+eigendecomposition. % BIND: phase_03/complexity_analysis.md
+What it learns is soft, signed pairwise evidence rather than a hard partition, a
+full sampling covariance, or an instantaneous eigenbasis; the distinction is not
+the type of object but the accepted-move-only, signed, decaying accumulation and
+a discrete exploitation that leaves the GSK operator numerics unchanged. Two
+boundaries are explicit. The component-isolation evidence for this memory stops
+at $D = 100$: it is isolated only on the bound-constrained suites, so the
+family's $D = 1000$ standing is not attributed to it --- in either direction ---
+and the large-scale suite is a whole-algorithm family comparison, not a
+component contrast. % BIND: LM-05 (revised, CR-0019); RS-13 claim ceiling
+And ISM is not claimed to recover the objective's true interaction structure
+or to confer rotational invariance; it accumulates heuristic evidence from
+strictly improving accepted moves.
+
+\begin{table}[H]
+\caption{Structure-learning taxonomy positioning ISM against
+differential-grouping and covariance/eigenbasis methods on four
+dimensions: update trigger, evaluation cost, what is learned, and how it
+is exploited. ISM updates from strictly improving accepted moves at no extra objective
+evaluations (not ``free'': a per-generation $O(D^{2})$ decay plus an
+$O(\mathit{NP} \cdot D^{2})$ worst-case accumulation, with linkage blocks
+re-extracted every fifth generation). Authored from literature facts drawn from the cited sources
+only.}
+\label{tab:taxonomy}
+\centering
+\scriptsize
+\zebra
+\begin{tabular}{p{1.45cm}p{2.85cm}p{2.85cm}p{2.85cm}p{2.85cm}}
+\toprule
+& \textbf{Differential grouping (DG)} & \textbf{CMA-ES} & \textbf{Eigenvector DE} & \textbf{ISM (this work)} \\
+\midrule
+\textbf{Update trigger} & offline grouping stage before optimization (pairwise probes) & every generation, from selected steps + evolution-path cumulation & every generation: covariance of the current population (no cumulative memory) & online, on every strictly improving accepted move (ties excluded); decaying memory ($\lambda{=}0.95$), confidence- and evidence-gated \\
+\textbf{Evaluation cost} & dedicated objective evaluations for the probing stage & no extra evaluations; full-covariance compute/storage; amortized eigendecomposition & no extra evaluations; per-generation eigendecomposition compute & no extra evaluations --- learns from evaluations already made; sparse updates, one terminal eigendecomposition \\
+\textbf{What is learned} & pairwise non-separability decisions --- a hard variable partition & full mutation covariance --- a complete sampling-distribution shape & eigenbasis of the population covariance --- instantaneous geometry & weighted, signed coordinate-pair graph --- soft, decaying evidence (not a hard partition) \\
+\textbf{How exploited} & problem decomposition into cooperative-\allowbreak{}coevolution subcomponents & reshapes every mutation the strategy samples (rotation + scaling) & rotate $\to$ crossover $\to$ rotate-back, with fixed probability & GSK numerics unchanged: linkage blocks and eigenframe polish (coordinate local search) \\
+\bottomrule
+\end{tabular}
+ % BIND: phase_07/captions_registry.md (fig:taxonomy frozen caption)
+\end{table}
+
+%------------------------------------------------------------------
+\subsection{Positioning of \dtgsk{} Against the GSK Family}\label{sec:rel:positioning}
+%------------------------------------------------------------------
+
+Three technical deficiencies, each traceable to the variants reviewed
+above, define the gap \dtgsk{} addresses. This subsection argues need
+only; effect is assessed in Section~\ref{sec:experiments}.
+
+First, \emph{structure blindness}. Every variant in
+Table~\ref{tab:family-review} adapts scalar control parameters, donor or
+selection policy, or population composition. Within the GSK-family variants
+cited in this paper --- a bounded review of the GSK lineage rather than an
+exhaustive systematic search of the wider metaheuristic literature --- none
+learns or exploits the interaction
+structure of the moves the run has already accepted. The survey scope is explicit and reproducible. It covers the original GSK
+and the published GSK-family variants of Table~\ref{tab:family-review}. For
+each, we inspected the stated adaptation target --- control parameters,
+donor/selection policy, or population sizing --- for any online,
+evaluation-free learning of coordinate-pair interaction structure. The
+resulting claim is bounded to this lineage; it is not a state-of-the-art
+priority claim over the wider literature. % BIND: BG-03
+\dtgsk{}'s interaction-structure memory and its two active consumers ---
+the linkage-aware block crossover and the signed-graph eigenframe polish
+(an ISM-block subspace local search is implemented but not enabled
+in the frozen configuration) --- are designed for exactly this quantity.
+
+Second, \emph{endgame refinement without determinism or budget safety}.
+The family's two late-refinement mechanisms are \egsk{}'s SQP escape,
+which depends on a gradient-based solver~\cite{jawad2024egsk}, and
+\atmals{}'s randomized shrinking local search, whose computational
+overhead its authors acknowledge~\cite{alfadli2025atmals}. \dtgsk{}'s
+eigenframe final polish is instead one-shot, RNG-free, hard-capped by
+the final budget slice, and runs on the eigenbasis the ISM has already
+learned; no convergence guarantee is claimed for it.
+
+Third, \emph{regime-limited adaptation evidence}. \agsk{}'s and
+\apgsk{}'s adaptive machinery was evaluated on CEC2020 at
+$D \leq 20$~\cite{mohamed2020agsk,apgsk2021}, and \fdbagsk{} at a
+$1000 \times D$ budget without $D = 10$~\cite{fdbagsk2023}. The two
+strongest variants also share a low-dimension weakness on CEC2017: \egsk{} is
+significantly worse than \agsk{} at $D = 10$~\cite{jawad2024egsk}, and
+\atmals{} is competitive-only there~\cite{alfadli2025atmals}. % BIND: EC:mohamed2020agsk; EC:apgsk2021; EC:fdbagsk2023; EC:jawad2024egsk; EC:alfadli2025atmals
+Across these variants the axis of adaptation is the parameter \emph{value}:
+\atmals{}, for instance, drives five scalar parameters from a Gaussian and
+weighted-moving-average memory of their past effect on fitness, but resolves
+them within one control regime that is not itself a function of problem
+dimension~\cite{alfadli2025atmals}. This paper meets that regime head-on:
+CEC2020 at $D \leq 20$ serves as the pre-registered confirmatory suite
+(Section~\ref{sec:exp:cec2020}). \dtgsk{} responds on an orthogonal axis,
+resolving the control regime \emph{by dimension} rather than only the values
+inside it: a dimension-tiered adaptive scaffold, resolved from a
+single frozen configuration per dimension tier. Its parts are the ACE
+credit-based selector with ARGP pruning, the tier-floored NLPSR schedule (a
+variant of the APGSK NLPSR schedule, not claimed as
+new~\cite{apgsk2021}), the budget-safe escape
+in the JADE/SHADE archive lineage~\cite{zhang2009jade,tanabe2013shade},
+and a deep-stall restart that preserves the global best. % BIND: MT-03 (NLPSR non-novelty wording); MT-06 (lineage)
+
+The bounded gap is therefore: \emph{within the GSK operator style,
+exploit the interaction structure of the moves the run has already
+accepted, at the upper tested tiers ($D = 50$ and $D = 100$), without spending any additional objective
+evaluations and without replacing the base operator}. % BIND: phase_04/thesis.md §2 (bounded gap statement)
+The junior and senior gaining-sharing vector-update equations are inherited
+unchanged~\cite{mohamed2020gaining}, while the surrounding generation mechanics
+are modified; \dtgsk{}'s contribution is an
+adaptive control-and-budget scaffold, a deterministic final polish, and a controlled
+family evaluation layered on those inherited equations, with an interaction-structure memory
+as a supporting mechanism. % BIND: MT-01 (frozen contribution wording)
+Whether this closes the gap is an empirical question, answered within
+the seven-algorithm GSK-family panel in Section~\ref{sec:experiments}.

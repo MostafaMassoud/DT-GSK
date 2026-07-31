@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="APGSK — Adaptive-Parameters Gaining-Sharing Knowledge - GSK Family Python Documentation">
+  <title>APGSK — Adaptive-Parameters Gaining-Sharing Knowledge | GSK Family Python Documentation</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <div class="site-shell">
+    <aside class="sidebar">
+<div class="brand"><a href="index.html">GSK Family Python</a></div>
+<input class="nav-search" type="search" placeholder="Filter docs" aria-label="Filter docs">
+<nav class="nav-list" aria-label="Documentation">
+<section><h2>Getting Started</h2>
+<a class="nav-link" href="getting-started_configuration.html">Configuration</a>
+<a class="nav-link" href="getting-started_explainer.html">Explainer</a>
+<a class="nav-link" href="getting-started_runbook.html">Runbook</a>
+<a class="nav-link" href="getting-started_troubleshooting.html">Troubleshooting</a>
+<a class="nav-link" href="getting-started_tutorial.html">Tutorial</a>
+<a class="nav-link" href="getting-started_user_guide.html">User Guide</a>
+</section>
+<section><h2>Reference</h2>
+<a class="nav-link" href="reference_api.html">API Reference</a>
+<a class="nav-link" href="reference_architecture.html">Architecture</a>
+<a class="nav-link" href="reference_benchmark_mapping.html">Benchmark Mapping</a>
+<a class="nav-link" href="reference_benchmark_protocol.html">Benchmark Protocol</a>
+<a class="nav-link" href="reference_cec2011_cpp_python_equivalence_review.html">CEC2011 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013_cpp_python_equivalence_review.html">CEC2013 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013lsgo_cpp_python_equivalence_review.html">CEC2013LSGO C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2017_cpp_python_equivalence_review.html">CEC2017 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2020_cpp_python_equivalence_review.html">CEC2020 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="index.html">Documentation Index</a>
+<a class="nav-link" href="reference_fp_regime.html">Floating-Point Regime Verification</a>
+<a class="nav-link" href="reference_diagrams.html">Flowcharts And Diagrams</a>
+<a class="nav-link" href="reference_glossary.html">Glossary</a>
+<a class="nav-link" href="LICENSES.html">Licenses</a>
+<a class="nav-link" href="reference_module_dependencies.html">Module Dependencies</a>
+<a class="nav-link" href="reference_project_structure.html">Project Structure</a>
+<a class="nav-link" href="reference_python_optimizer_interface.html">Python Optimizer Interface</a>
+<a class="nav-link" href="reference_result_schema.html">Result Schema</a>
+<a class="nav-link" href="reference_seed_policy.html">Seed Policy</a>
+<a class="nav-link" href="reference_workflows.html">Workflows</a>
+</section>
+<section><h2>Algorithm Guides</h2>
+<a class="nav-link" href="algorithms_agsk.html">AGSK — Adaptive Gaining-Sharing Knowledge</a>
+<a class="nav-link active" href="algorithms_apgsk.html">APGSK — Adaptive-Parameters Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_atmals-gsk.html">ATMALS-GSK — Adaptive Tuning, Memory, Adaptive Local Search</a>
+<a class="nav-link" href="algorithms_dt-gsk.html">DT-GSK — Dimension-Tiered Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_egsk.html">EGSK — Enhanced Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_fdb-agsk.html">FDB-AGSK — Fitness-Distance-Balance AGSK</a>
+<a class="nav-link" href="algorithms_gsk.html">GSK — Gaining-Sharing Knowledge</a>
+</section>
+<section><h2>Development</h2>
+<a class="nav-link" href="development_BUG_resume_summary_truncation.html">BUG-RESUME-01 — resume mode truncates (and mis-computes) the per-dimension summary CSV</a>
+<a class="nav-link" href="development_LSGO_ACCELERATION_PLAN.html">CEC2013LSGO Acceleration Plan — all 7 GSK-family algorithms, bit-identically</a>
+<a class="nav-link" href="development_LSGO_INTEGRATION_CAMPAIGN.html">CEC2013LSGO Integration — Campaign Plan</a>
+<a class="nav-link" href="development_CEC2017_PREC_adjudication.html">CEC2017-PREC — adjudication (CLOSED 2026-07-25)</a>
+<a class="nav-link" href="development_code_reading_guide.html">Code Reading Guide</a>
+<a class="nav-link" href="development_contributor_guide.html">Contributor Guide</a>
+<a class="nav-link" href="development_DECC_G_port_record.html">DECC-G port — fidelity and validation record</a>
+<a class="nav-link" href="development_developer_guide.html">Developer Guide</a>
+<a class="nav-link" href="development_README.html">Development Docs</a>
+<a class="nav-link" href="development_dt_gsk_core_reference.html">DT-GSK Core Reference — the vendored core and its byte-identity lock</a>
+<a class="nav-link" href="development_evidence_rerun_runbook.html">DT-GSK re-run runbook — corrected implementation (C006 + graph backend)</a>
+<a class="nav-link" href="development_egsk_port_spec.html">EGSK — Algorithm Spec &amp; Porting Verdict</a>
+<a class="nav-link" href="development_extension_guide.html">Extension Guide</a>
+<a class="nav-link" href="development_FAMILY_ACCELERATION_PLAN.html">Family-wide acceleration plan — 7 algorithms x 5 suites, bit-identical only</a>
+<a class="nav-link" href="development_FINAL_PUBLICATION_PLAN.html">FINAL PUBLICATION PLAN — DT-GSK, Four(/Five)-Suite Scope</a>
+<a class="nav-link" href="development_ACCELERATION_CAMPAIGN_PROMPT.html">GSK-Family Acceleration Campaign — Execution Prompt</a>
+<a class="nav-link" href="development_maintenance_guide.html">Maintenance Guide</a>
+<a class="nav-link" href="development_PORT_05_TUNING_TRIAGE.html">Porting project-05 tuning into 02 — Phase 1 audit and triage</a>
+<a class="nav-link" href="development_REFERENCE_PROMOTION_PLAN.html">Reference Promotion Plan — CEC2013LSGO now, CEC2020 behind its completeness gate</a>
+<a class="nav-link" href="development_SIBLING_CAMPAIGN_TRANSFER.html">Sibling-Campaign Transfer — every tuning that can make the GSK family fast</a>
+</section>
+<section><h2>Research</h2>
+<a class="nav-link" href="research_egsk_validation_appendix.html">EGSK Validation Appendix — Paired Port-vs-Reference Equivalence</a>
+<a class="nav-link" href="research_numerical_examples.html">Numerical Examples</a>
+<a class="nav-link" href="research_performance.html">Performance</a>
+<a class="nav-link" href="research_reproducibility.html">Reproducibility</a>
+<a class="nav-link" href="research_researcher_handbook.html">Researcher Handbook</a>
+<a class="nav-link" href="research_statistical_analysis.html">Statistical Analysis (GSK-family comparison)</a>
+<a class="nav-link" href="research_validation_report.html">Validation Report</a>
+</section>
+<section><h2>Prompts</h2>
+<a class="nav-link" href="prompt_documentation-deep-upgrade.html">Deep Documentation Review &amp; Upgrade Prompt — GSK Family Python</a>
+<a class="nav-link" href="prompt_project-review.html">Deep Expert Review Prompt For GSK Family Python</a>
+<a class="nav-link" href="prompt_documentation-review.html">Documentation Review Prompt</a>
+<a class="nav-link" href="prompt_publication-polish.html">Final Publication Prompt — Production-Ready Q1 Release of GSK Family Python v1.1</a>
+</section>
+<section><h2>Python API</h2>
+<a class="nav-link" href="api_index.html">API Module Index</a>
+<a class="nav-link api-link" href="api/gsk_family.__init__.html">gsk_family.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.__init__.html">gsk_family.analysis.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.family_report.html">gsk_family.analysis.family_report</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.figures.html">gsk_family.analysis.figures</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.latex_tables.html">gsk_family.analysis.latex_tables</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.project_policy.html">gsk_family.analysis.project_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.result_loader.html">gsk_family.analysis.result_loader</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistical_tests.html">gsk_family.analysis.statistical_tests</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistics.html">gsk_family.analysis.statistics</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.__init__.html">gsk_family.benchmark_adapter.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.factory.html">gsk_family.benchmark_adapter.factory</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.problem.html">gsk_family.benchmark_adapter.problem</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.protocol.html">gsk_family.benchmark_adapter.protocol</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.__init__.html">gsk_family.cli.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.list.html">gsk_family.cli.list</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.run.html">gsk_family.cli.run</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.stats.html">gsk_family.cli.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.validate.html">gsk_family.cli.validate</a>
+<a class="nav-link api-link" href="api/gsk_family.common.__init__.html">gsk_family.common.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.common.bounds.html">gsk_family.common.bounds</a>
+<a class="nav-link api-link" href="api/gsk_family.common.donors.html">gsk_family.common.donors</a>
+<a class="nav-link api-link" href="api/gsk_family.common.numeric_compat.html">gsk_family.common.numeric_compat</a>
+<a class="nav-link api-link" href="api/gsk_family.common.population.html">gsk_family.common.population</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reduction.html">gsk_family.common.reduction</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reference_rng.html">gsk_family.common.reference_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.rng.html">gsk_family.common.rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.threefry_rng.html">gsk_family.common.threefry_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.__init__.html">gsk_family.optimizers.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_profiles.html">gsk_family.optimizers._dt_profiles</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_rng.html">gsk_family.optimizers._dt_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._kernels.html">gsk_family.optimizers._kernels</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.agsk.html">gsk_family.optimizers.agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.apgsk.html">gsk_family.optimizers.apgsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_gsk.html">gsk_family.optimizers.atmals_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_helpers.html">gsk_family.optimizers.atmals_helpers</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.dt_gsk.html">gsk_family.optimizers.dt_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.egsk.html">gsk_family.optimizers.egsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.__init__.html">gsk_family.optimizers.external.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._base.html">gsk_family.optimizers.external._base</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._telemetry_shim.html">gsk_family.optimizers.external._telemetry_shim</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.cmaes.html">gsk_family.optimizers.external.cmaes</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.decc_g.html">gsk_family.optimizers.external.decc_g</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.ebowithcmar.html">gsk_family.optimizers.external.ebowithcmar</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.jso.html">gsk_family.optimizers.external.jso</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade.html">gsk_family.optimizers.external.lshade</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade_spacma.html">gsk_family.optimizers.external.lshade_spacma</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.mos_cec2013lsgo.html">gsk_family.optimizers.external.mos_cec2013lsgo</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.shade_ils.html">gsk_family.optimizers.external.shade_ils</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_agsk.html">gsk_family.optimizers.fdb_agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_scores.html">gsk_family.optimizers.fdb_scores</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.gsk.html">gsk_family.optimizers.gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.__init__.html">gsk_family.runners.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.config.html">gsk_family.runners.config</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.fp_regime.html">gsk_family.runners.fp_regime</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.output.html">gsk_family.runners.output</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.parallel.html">gsk_family.runners.parallel</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.performance.html">gsk_family.runners.performance</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.run_experiment.html">gsk_family.runners.run_experiment</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.seed_policy.html">gsk_family.runners.seed_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.verification.html">gsk_family.runners.verification</a>
+<a class="nav-link api-link" href="api/gsk_family.stats.html">gsk_family.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.types.html">gsk_family.types</a>
+</section>
+</nav></aside>
+    <main class="content">
+      <article class="doc-card">
+        <h1 id="apgsk-adaptive-parameters-gaining-sharing-knowledge">APGSK — Adaptive-Parameters Gaining-Sharing Knowledge</h1>
+<blockquote><strong>What this is:</strong> AGSK with two extra adaptive twists — a *negative knowledge</blockquote>
+<blockquote>factor* pool that can be switched on probabilistically, and a *stochastic*</blockquote>
+<blockquote>junior-dimension schedule. <strong>For:</strong> readers who already know the</blockquote>
+<blockquote>gaining-sharing core and want to see what &quot;APGSK&quot; adds on top. <strong>Prerequisites:</strong></blockquote>
+<blockquote><a href="algorithms_gsk.html">GSK</a> (junior/senior core, midpoint repair, KR mask) and</blockquote>
+<blockquote><a href="algorithms_agsk.html">AGSK</a> (adaptive KF/KR pools, improvement-credit weights, LPSR</blockquote>
+<blockquote>population reduction). <strong>After reading</strong> you can evaluate the positive/negative-KF</blockquote>
+<blockquote>gate and the stochastic junior schedule by hand and map every line of</blockquote>
+<blockquote><code>src/gsk_family/optimizers/apgsk.py</code> to its math.</blockquote>
+<h2 id="intuition">Intuition</h2>
+<p>APGSK reuses everything in AGSK and changes two adaptive decisions:</p>
+<ul>
+<li><strong>Sign-switchable knowledge factor.</strong> AGSK always draws its step scale from a</li>
+<p>*positive* pool <code>KF_POOL</code>. APGSK keeps that pool but adds a *negative* pool <code>KF_POOL_NEGATIVE</code>. Once the run is past its early phase, a gate decides, per generation, whether the whole population uses positive or negative <code>kf</code>. A <strong>negative</strong> knowledge factor flips the sign of the gained step: instead of moving *toward* the donor difference it moves *away* from it. Late in a run, when the population has clustered, that anti-step is a cheap diversification pulse that can escape a basin without a full restart.</p>
+<li><strong>Stochastic junior schedule.</strong> GSK and AGSK shrink the junior-dimension count</li>
+<p>with a *deterministic* power law. APGSK randomizes the <strong>exponent</strong> each generation — sometimes <code>0.5</code> (a slow, exploration-leaning decay), sometimes <code>2.0</code> (a fast, exploitation-leaning decay) — so the junior/senior balance jitters around the schedule instead of following one fixed curve.</p>
+</ul>
+<p>Both knobs share the rest of the AGSK machinery unchanged: the same four-slot <code>KF_POOL</code>/<code>KR_POOL</code>, the same <code>INITIAL_KW</code> weights updated from improvement credit, the same Linear Population Size Reduction (LPSR), and the same junior / senior gained-sharing kernel with midpoint repair — the shared <code>gsk_build_trial</code> (<code>_kernels.py</code>), invoked at <code>apgsk.py:173</code>.</p>
+<h2 id="mathematical-formulation">Mathematical formulation</h2>
+<p>The junior/senior gained vectors, midpoint repair, and the per-dimension KR mask are <strong>identical to GSK</strong> — see <a href="algorithms_gsk.html#mathematical-formulation">GSK § Mathematical formulation</a>. The adaptive slot selection, improvement-credit weight update, and LPSR are <strong>identical to AGSK</strong> — see <a href="algorithms_agsk.html">AGSK</a>. Only the two APGSK-specific pieces are derived here.</p>
+<p><strong>Negative knowledge-factor pools</strong> (<code>apgsk.py:38-39</code>). Both pools are indexed by the AGSK slot <code>s ∈ {0,1,2,3}</code> chosen for each individual:</p>
+<pre><code class="code-block language-text">KF_POOL          = [ 0.10,  1.00,  0.50,  1.00 ]   # positive (same as AGSK)
+KF_POOL_NEGATIVE = [-0.15, -0.05, -0.05, -0.15 ]   # negative (APGSK only)</code></pre>
+<p><strong>Positive-vs-negative gate</strong> (<code>_apgsk_kf_values</code>, <code>apgsk.py:42-58</code>). The pool is chosen *once per generation* for the whole population. Outside the adaptive phase the positive pool is always used; inside it a single uniform draw <code>u = adaptive_pool_draw ∈ [0,1)</code> (<code>apgsk.py:146</code>) and the budget ratio decide (<code>apgsk.py:53-57</code>):</p>
+<pre><code class="code-block language-text">adaptive_phase is true  iff  nfes &gt;= 0.1 * max_nfes        # apgsk.py:136
+
+if not adaptive_phase:
+    use_negative = false                                   # always positive
+
+else:
+    use_negative = NOT ( u &gt;= 0.3  AND  nfes &gt; 0.5*max_nfes )
+                 = ( u &lt; 0.3 )  OR  ( nfes &lt;= 0.5*max_nfes )   # De Morgan
+
+kf_pool = KF_POOL_NEGATIVE  if use_negative  else  KF_POOL
+kf[i]   = kf_pool[ slot[i] ]</code></pre>
+<p>Read the gate as two regimes:</p>
+<ul>
+<li><strong>First half of the adaptive phase</strong> (<code>0.1*max_nfes &lt;= nfes &lt;= 0.5*max_nfes</code>):</li>
+<p>the right conjunct <code>nfes &gt; 0.5*max_nfes</code> is false, so <code>use_negative</code> is always <code>true</code> — the negative pool fires every generation regardless of <code>u</code>.</p>
+<li><strong>Second half</strong> (<code>nfes &gt; 0.5*max_nfes</code>): the gate reduces to <code>u &lt; 0.3</code>, so the</li>
+<p>negative pool fires on roughly 30 % of generations and the positive pool on the other 70 %. This is the late-stage anti-step pulse: most generations keep converging with positive <code>kf</code>, but ~30 % inject a negative-<code>kf</code> diversification burst.</p>
+</ul>
+<p>Because the negative magnitudes are small (<code>|kf| ≤ 0.15</code>), the anti-step is a gentle nudge away from the donor difference, not a large jump.</p>
+<p><strong>Effect of a negative <code>kf</code> on the gained vector.</strong> Substituting a negative <code>kf</code> into the GSK junior update (<code>_kernels.py:128-131</code>) simply negates the bracketed donor term. For the *other* branch (<code>worse = f(x_i) &gt; f(x_rg3)</code> is false):</p>
+<pre><code class="code-block language-text">g_j = x_i + kf * ( x_rg1 - x_rg2 + x_i - x_rg3 )
+kf &gt; 0:  step points along  ( x_rg1 - x_rg2 + x_i - x_rg3 )   (toward donors)
+kf &lt; 0:  step points against that vector                      (away from donors)</code></pre>
+<p>The senior update behaves the same way; midpoint repair (<code>_kernels.py:132-135, 140-143</code>) still pulls any out-of-bounds coordinate back to the parent–bound midpoint, so a negative step can never leave <code>[lb, ub]</code>.</p>
+<p><strong>Stochastic junior-dimension schedule</strong> (<code>_stochastic_junior_dimension</code>, <code>apgsk.py:61-66</code>). One uniform draw <code>d = rng.random() ∈ [0,1)</code> (<code>apgsk.py:163</code>) per generation randomizes the exponent; <code>ratio = nfes / max_nfes</code>:</p>
+<pre><code class="code-block language-text">ratio    = nfes / max_nfes
+exponent = 0.5  if d &gt; ratio   else  2.0                       # apgsk.py:64
+D_junior = ceil( round_half_away( D * (1 - ratio)^exponent ) ) # apgsk.py:65-66
+junior_prob = D_junior / D                                     # apgsk.py:171</code></pre>
+<p><code>round_half_away</code> is <code>compat_round_int</code> (<code>numeric_compat.py:31-36</code>, half-away-from-zero); the outer <code>ceil</code> of an already-integer value leaves it unchanged but matches the reference expression. Contrast with the <strong>deterministic</strong> schedules:</p>
+<pre><code class="code-block language-text">GSK   (gsk.py:147-148):  D_junior = ceil( D * (1 - g/G_max)^k ),   k = 10  (fixed)
+AGSK  (agsk.py:278-280): D_junior = ceil( D * (1 - nfes/max_nfes)^k_i )    (per-row k_i, fixed for the run)
+APGSK (apgsk.py:61-66):  exponent flips between 0.5 and 2.0 each generation by a coin vs. ratio</code></pre>
+<p>Two things follow. First, the exponent is a <strong>scalar</strong> for the whole population each generation (GSK/AGSK use a fixed <code>k</code>; AGSK&#x27;s is even per-individual), so APGSK&#x27;s junior count is the same for every individual in a generation but *varies generation to generation*. Second, the gate <code>d &gt; ratio</code> makes the slow exponent <code>0.5</code> more likely <strong>early</strong> (small <code>ratio</code>) and the fast exponent <code>2.0</code> more likely <strong>late</strong> (large <code>ratio</code>) — a soft bias toward exploration early and exploitation late, layered on top of the <code>(1 - ratio)</code> decay.</p>
+<blockquote><strong>RNG note.</strong> APGSK still draws AGSK&#x27;s initial per-individual <code>k</code> vector</blockquote>
+<blockquote>(<code>apgsk.py:120</code>, <code>_draw_initial_k</code>) purely to keep the random stream</blockquote>
+<blockquote>bit-identical to AGSK, but the stochastic schedule above <strong>never uses it</strong></blockquote>
+<blockquote>(<code>apgsk.py:118-119</code>). The draw order per generation is: slots →</blockquote>
+<blockquote><code>adaptive_pool_draw</code> (adaptive phase only) → junior-schedule <code>d</code> → the junior</blockquote>
+<blockquote><code>rg3</code> draw and the three senior block draws (<code>apgsk.py:168-169</code>) → the</blockquote>
+<blockquote><code>(3, NP, D)</code> mask block.</blockquote>
+<h2 id="pseudocode">Pseudocode</h2>
+<pre><code class="code-block language-text">np_init, min_pop_size = options                                  # apgsk.py:74-75
+max_pop_size = np_init
+initialize / accept fair-start population, evaluate, record best
+k_vec = draw_initial_k(NP)        # RNG-fidelity only, unused      # apgsk.py:120
+kw_ind = None;  all_imp = zeros(4)
+for generation = 1, 2, ... until nfes &gt;= max_nfes:               # apgsk.py:133
+    if kw_ind is None or nfes &lt; 0.1*max_nfes:                    # apgsk.py:136
+        kw_ind = INITIAL_KW;            adaptive_phase = False
+    else:
+        kw_ind = normalize(0.95*kw_ind + 0.05*all_imp); adaptive_phase = True
+    slots = select_parameter_slots(kw_ind)                       # apgsk.py:144 (AGSK)
+    kr    = KR_POOL[slots]
+    u     = rng.random()  if adaptive_phase else None            # apgsk.py:146
+    kf, used_negative = apgsk_kf_values(slots, adaptive_phase, u, nfes, max_nfes)  # gate
+    D_junior = stochastic_junior_dimension(D, nfes, max_nfes, rng.random())        # apgsk.py:159
+    order   = argsort(fitness)                                    # best -&gt; worst
+    rg1,rg2,rg3 = junior_donors(order)                           # apgsk.py:168
+    r1,r2,r3    = senior_donors(order, SENIOR_P=0.05)            # apgsk.py:169
+    junior_prob = D_junior / D
+    trial = gsk_build_trial(..., kf_junior=kf, kf_senior=kf, kr=kr, junior_prob=...)  # apgsk.py:173
+    evaluate trial; nfes += n_count
+    all_imp = improvement_credit(fitness, children_fitness, slots)   # AGSK
+    greedy replace: parent &lt;- child where f(child) &lt; f(parent)   # apgsk.py:213-216
+    LPSR: reduce population toward target size                    # apgsk.py:218 (AGSK)
+    append (nfes, best_so_far) to the convergence trace
+    if best - optimum &lt; target_error: stop                       # apgsk.py:232-235</code></pre>
+<h2 id="parameters">Parameters</h2>
+<p>APGSK exposes only the AGSK population options; the pools and gate constants are fixed in code (not user options) and listed below the table.</p>
+<div class="table-wrap"><table><thead><tr><th>Option</th><th>Symbol</th><th>Default</th><th>Valid range</th><th>Meaning</th><th>Code</th></tr></thead><tbody><tr><td><code>np</code></td><td>NP</td><td><code>100</code></td><td>integer ≥ <code>min_pop_size</code> (≥ 11 with defaults)</td><td>Fallback initial population size when <code>np_init</code> is absent.</td><td><code>apgsk.py:73</code></td></tr><tr><td><code>np_init</code></td><td>NP_init</td><td><code>np</code> (<code>100</code>)</td><td>integer ≥ <code>min_pop_size</code></td><td>Initial population size before LPSR.</td><td><code>apgsk.py:74</code></td></tr><tr><td><code>min_pop_size</code></td><td>NP_min</td><td><code>12</code></td><td>integer ≥ 11</td><td>Floor for LPSR (validated <code>≥ 11</code>, <code>agsk.py:199-200</code>).</td><td><code>apgsk.py:75</code></td></tr><tr><td><code>seed</code></td><td>—</td><td>required</td><td>integer</td><td>RNG seed (passed to <code>RandomContext</code>).</td><td><code>apgsk.py:71</code></td></tr><tr><td><code>rand_generator</code></td><td>—</td><td><code>&quot;twister&quot;</code></td><td>RNG name</td><td>Backend for <code>RandomContext</code>.</td><td><code>apgsk.py:72</code></td></tr></tbody></table></div>
+<p>Fixed constants (not options):</p>
+<div class="table-wrap"><table><thead><tr><th>Constant</th><th>Value</th><th>Valid range</th><th>Meaning</th><th>Code</th></tr></thead><tbody><tr><td><code>KF_POOL</code></td><td><code>[0.1, 1.0, 0.5, 1.0]</code></td><td>positive reals</td><td>Positive knowledge-factor pool (shared with AGSK).</td><td><code>apgsk.py:38</code></td></tr><tr><td><code>KF_POOL_NEGATIVE</code></td><td><code>[-0.15, -0.05, -0.05, -0.15]</code></td><td>negative reals</td><td>Negative knowledge-factor pool (APGSK only).</td><td><code>apgsk.py:39</code></td></tr><tr><td><code>KR_POOL</code></td><td><code>[0.2, 0.1, 0.9, 0.9]</code></td><td>each in [0,1]</td><td>Knowledge-ratio pool (imported from AGSK).</td><td><code>apgsk.py:22-34</code>, <code>agsk.py:27</code></td></tr><tr><td><code>INITIAL_KW</code></td><td><code>[0.85, 0.05, 0.05, 0.05]</code></td><td>sums to 1</td><td>Initial slot-selection weights (imported from AGSK).</td><td><code>agsk.py:28</code></td></tr><tr><td><code>SENIOR_P</code></td><td><code>0.05</code></td><td>(0, 0.5)</td><td>Senior best/worst block fraction (imported from AGSK).</td><td><code>agsk.py:29</code></td></tr><tr><td>adaptive-phase threshold</td><td><code>0.1 * max_nfes</code></td><td>—</td><td><code>nfes</code> at which weights start adapting and the gate turns on.</td><td><code>apgsk.py:136</code></td></tr><tr><td>negative-gate draw cutoff</td><td><code>0.3</code></td><td>(0,1)</td><td><code>u &lt; 0.3</code> keeps the negative pool in the second half.</td><td><code>apgsk.py:56</code></td></tr><tr><td>negative-gate stage cutoff</td><td><code>0.5 * max_nfes</code></td><td>—</td><td>Boundary between the always-negative and probabilistic halves.</td><td><code>apgsk.py:56</code></td></tr><tr><td>junior-schedule exponents</td><td><code>0.5</code> / <code>2.0</code></td><td>—</td><td>Slow vs. fast junior-decay exponents chosen by <code>d &gt; ratio</code>.</td><td><code>apgsk.py:64</code></td></tr></tbody></table></div>
+<h2 id="worked-example">Worked example</h2>
+<p>Two hand-checkable decisions in one generation. Take a run with <code>max_nfes = 100000</code>, <code>D = 10</code>.</p>
+<p><strong>(A) Negative-KF gate — first-half generation.</strong> Suppose <code>nfes = 30000</code> (<code>ratio = 0.3</code>, so <code>nfes &gt;= 0.1*max_nfes</code> → adaptive phase is on) and the gate draw is <code>u = 0.82</code>. Evaluate <code>apgsk.py:56</code>:</p>
+<pre><code class="code-block language-text">right conjunct: nfes &gt; 0.5*max_nfes  -&gt;  30000 &gt; 50000  = False
+use_negative = not ( 0.82 &gt;= 0.3  AND  False ) = not ( False ) = True
+=&gt; kf_pool = KF_POOL_NEGATIVE   (negative, regardless of u)</code></pre>
+<p>Say individual <code>i</code> was assigned slot <code>s = 0</code>, so <code>kf[i] = KF_POOL_NEGATIVE[0] = -0.15</code>. Take a 1-D slice with parent <code>x_i = 2.0</code>, donors <code>x_rg1 = 5.0</code>, <code>x_rg2 = 1.0</code>, <code>x_rg3 = 4.0</code>, and the *other* junior branch (<code>f(x_i) &gt; f(x_rg3)</code> is false):</p>
+<pre><code class="code-block language-text">bracket = x_rg1 - x_rg2 + x_i - x_rg3 = 5 - 1 + 2 - 4 = 2.0
+g_j = x_i + kf*bracket = 2.0 + (-0.15)*(2.0) = 2.0 - 0.30 = 1.70</code></pre>
+<p>The same bracket with a positive <code>kf</code> would have pushed <code>g_j</code> *up* to <code>2.0 + 0.15*2.0 = 2.30</code>; the negative factor instead pulls it *down* to <code>1.70</code> — an anti-step away from the donor pull, the diversification nudge.</p>
+<p><strong>(B) Negative-KF gate — second-half generation.</strong> Now <code>nfes = 70000</code> (<code>ratio = 0.7</code>). The right conjunct <code>70000 &gt; 50000</code> is <code>True</code>, so the gate is exactly <code>u &lt; 0.3</code>:</p>
+<pre><code class="code-block language-text">u = 0.55  -&gt;  use_negative = not ( 0.55 &gt;= 0.3 AND True ) = not True  = False  -&gt; POSITIVE pool
+u = 0.10  -&gt;  use_negative = not ( 0.10 &gt;= 0.3 AND True ) = not False = True   -&gt; NEGATIVE pool</code></pre>
+<p>So past the halfway mark only ~30 % of generations (<code>u &lt; 0.3</code>) take the negative pulse; the rest converge with the positive pool.</p>
+<p><strong>(C) Stochastic junior schedule.</strong> Same generation as (A), <code>ratio = 0.3</code>, <code>D = 10</code>, schedule draw <code>d</code>:</p>
+<pre><code class="code-block language-text">d = 0.80 &gt; ratio=0.3  -&gt;  exponent = 0.5
+  value    = round_half_away( 10 * (1-0.3)^0.5 ) = round( 10 * 0.836660 ) = round(8.3666) = 8
+  D_junior = ceil(8) = 8     -&gt;  junior_prob = 8/10 = 0.8   (exploration-leaning)
+
+d = 0.20 &lt;= ratio=0.3 -&gt;  exponent = 2.0
+  value    = round_half_away( 10 * (1-0.3)^2 )   = round( 10 * 0.49 )     = round(4.9)   = 5
+  D_junior = ceil(5) = 5     -&gt;  junior_prob = 5/10 = 0.5   (exploitation-leaning)</code></pre>
+<p>The two draws yield different junior/senior splits (<code>0.8</code> vs <code>0.5</code>) in the *same* generation state — that is the stochastic jitter a deterministic schedule cannot produce. With <code>junior_prob = 0.8</code>, dimension <code>j</code> from (A) is treated as junior when its <code>rand_split[i,j] &lt;= 0.8</code>, and the negative <code>g_j = 1.70</code> reaches the trial only if the KR gate <code>rand_kr_junior[i,j] &lt;= kr[i]</code> also passes; otherwise the parent <code>2.0</code> is kept (<code>_kernels.py:144-149</code>).</p>
+<h2 id="update-cycle">Update cycle</h2>
+<pre class="mermaid">flowchart TD
+  A[&quot;Sort population best to worst&quot;] --&gt; B[&quot;adaptive_phase = nfes &gt;= 0.1*max_nfes ?&quot;]
+  B -- &quot;early (no)&quot; --&gt; C[&quot;kw_ind = INITIAL_KW; positive KF pool&quot;]
+  B -- &quot;adaptive (yes)&quot; --&gt; D[&quot;kw_ind = normalize(0.95*kw + 0.05*all_imp)&quot;]
+  D --&gt; E[&quot;draw u; gate use_negative = NOT (u&gt;=0.3 AND nfes&gt;0.5*max_nfes)&quot;]
+  C --&gt; F[&quot;slots from kw_ind; kr = KR_POOL[slots]&quot;]
+  E --&gt; F
+  F --&gt; G[&quot;kf = (KF_POOL_NEGATIVE if use_negative else KF_POOL)[slots]&quot;]
+  G --&gt; H[&quot;draw d; exponent = 0.5 if d&gt;ratio else 2.0; D_junior = ceil(round(D*(1-ratio)^exponent))&quot;]
+  H --&gt; I[&quot;Junior donors rg1,rg2,rg3 + Senior donors r1,r2,r3 (p=0.05)&quot;]
+  I --&gt; J[&quot;gsk_build_trial: junior/senior gained vectors with signed kf&quot;]
+  J --&gt; K[&quot;Midpoint bound repair&quot;]
+  K --&gt; L[&quot;Per-dim mask: split by junior_prob, gate by KR&quot;]
+  L --&gt; M[&quot;Evaluate trials; greedy replace if strictly better&quot;]
+  M --&gt; N[&quot;all_imp = improvement credit per slot&quot;]
+  N --&gt; O[&quot;LPSR: reduce population toward target size&quot;]
+  O --&gt; P{&quot;nfes &lt; max_nfes and target not hit?&quot;}
+  P -- yes --&gt; A
+  P -- no --&gt; Q[&quot;Return best-so-far and convergence trace&quot;]</pre>
+<h2 id="bounds-budget-and-determinism">Bounds, budget, and determinism</h2>
+<ul>
+<li><strong>Bound repair</strong> is the shared GSK midpoint rule (`_kernels.py:132-135,</li>
+<p>140-143<code>): a violating coordinate is pulled to the midpoint of the parent and the breached bound. This holds for *negative*-</code>kf<code> steps too, so anti-steps never leave </code>[lb, ub]`.</p>
+<li><strong>Budget.</strong> The loop runs whole generations until <code>nfes &gt;= max_nfes</code>; the final</li>
+<p>generation is partially counted via <code>n_count = min(pop_size, max_nfes - nfes)</code> (<code>apgsk.py:201</code>). With LPSR active the population shrinks toward <code>min_pop_size</code>, so later generations spend fewer evaluations each. Best-so-far is monotone non-increasing.</p>
+<li><strong>Determinism.</strong> The trial kernel is pure arithmetic; all randomness is drawn by</li>
+<p>the caller in a fixed order — slots, then the adaptive-pool draw <code>u</code> (only in the adaptive phase), then the junior-schedule draw <code>d</code>, then the junior <code>rg3</code> draw and the three senior block draws (<code>apgsk.py:168-169</code>), then one <code>(3, NP, D)</code> mask block (<code>apgsk.py:144-172</code>). The unused <code>k_vec</code> draw (<code>apgsk.py:120</code>) is kept to preserve byte-for-byte stream parity with AGSK. Serial and parallel runs produce identical results. See <a href="reference_seed_policy.html">Seed Policy</a>.</p>
+<li><strong>Diagnostics.</strong> <code>params</code> records <code>kf_pool</code>, <code>kf_pool_negative</code>, and the per-run</li>
+<p>counts <code>negative_kf_generations</code> / <code>positive_kf_generations</code> (<code>apgsk.py:154-157, 271-272</code>) so you can audit how often the negative pulse fired.</p>
+</ul>
+<h2 id="complexity">Complexity</h2>
+<p>Same order as GSK/AGSK. Per generation: <code>O(NP log NP)</code> to sort, <code>O(NP·D)</code> to build and repair trials, <code>O(NP)</code> evaluations; the gate and stochastic-exponent draws are <code>O(1)</code> scalars. Over a run the total is <code>O(max_nfes · D)</code> time and <code>O(NP·D)</code> memory; LPSR only lowers <code>NP</code> over time, so it never increases this bound.</p>
+<h2 id="when-to-use">When to use</h2>
+<p>Reach for APGSK when an AGSK run stalls in late-stage exploitation and you want a built-in escape mechanism cheaper than a full restart: the negative-<code>kf</code> pulse periodically diversifies after the halfway mark, and the stochastic junior schedule keeps the exploration/exploitation balance from locking onto a single curve. If you do not need the sign-switch or the schedule jitter, prefer plain <a href="algorithms_agsk.html">AGSK</a> (deterministic, one fewer source of variance) or baseline <a href="algorithms_gsk.html">GSK</a>. Other siblings: <a href="algorithms_fdb-agsk.html">FDB-AGSK</a>, <a href="algorithms_atmals-gsk.html">ATMALS-GSK</a>, and the family&#x27;s headline, high-dimensional method <a href="algorithms_dt-gsk.html">DT-GSK</a>.</p>
+<h2 id="in-the-7-algorithm-panel">In the 7-algorithm panel</h2>
+<p>APGSK is one of the six <strong>reference comparators</strong> in the family&#x27;s headline comparison (with GSK, AGSK, FDB-AGSK, eGSK, and ATMALS-GSK), against which the proposed <a href="algorithms_dt-gsk.html">DT-GSK</a> is benchmarked. In the <strong>7-algorithm GSK-family panel</strong> built per dimension by <code>gsk-stats</code>, APGSK reads as a two-change delta on <a href="algorithms_agsk.html">AGSK</a>: the negative-<code>kf</code> diversification pulse and the stochastic junior schedule. Reading APGSK and AGSK side by side on the per-function mean tables and convergence grids isolates exactly what those two twists buy on each suite. The panel emits Friedman ranks, Nemenyi critical-difference diagrams, Holm-corrected pairwise Wilcoxon, Vargha-Delaney A12 / Cliff&#x27;s delta effect sizes, win/tie/loss, and 7-curve convergence grids under <code>results/_run_all/_analysis/&lt;suite&gt;/</code>; APGSK is included in the runner&#x27;s live <code>--stats</code> stream. The per-run diagnostics <code>negative_kf_generations</code> / <code>positive_kf_generations</code> (see below) let you confirm the negative pulse actually fired as often as the gate predicts. See <a href="research_statistical_analysis.html">Statistical Analysis</a>.</p>
+<h2 id="source-and-validation">Source and validation</h2>
+<ul>
+<li>Kernel: <code>src/gsk_family/optimizers/apgsk.py</code>. It imports the adaptive</li>
+<p>machinery (<code>INITIAL_KW</code>, <code>KR_POOL</code>, <code>SENIOR_P</code>, slot selection, improvement credit, LPSR, option parsing) from <code>src/gsk_family/optimizers/agsk.py</code>; the shared trial builder is <code>src/gsk_family/optimizers/_kernels.py</code>; donors are in <code>src/gsk_family/common/donors.py</code>; population reduction in <code>src/gsk_family/common/reduction.py</code>; half-away rounding in <code>src/gsk_family/common/numeric_compat.py</code>. Ported from the reference implementation&#x27;s APGSK driver (<code>apgsk_optimize.m</code>) with identical pools, gate, schedule, and draw order.</p>
+<li>Canonical results land under <code>results/_run_all/apgsk/&lt;suite&gt;/</code>.</li>
+<li>Tests cover the positive/negative KF gate, the stochastic junior schedule,</li>
+<p>shared adaptive slot selection, improvement credit, population reduction, target stopping, fair starts, deterministic replay, and runner integration. See <a href="research_validation_report.html">Validation Report</a> and <a href="research_numerical_examples.html">Numerical Examples</a>.</p>
+</ul>
+      </article>
+    </main>
+    <aside class="page-toc" aria-label="On this page">
+<h2>On This Page</h2>
+<a class="toc-level-1" href="#apgsk-adaptive-parameters-gaining-sharing-knowledge">APGSK — Adaptive-Parameters Gaining-Sharing Knowledge</a>
+<a class="toc-level-2" href="#intuition">Intuition</a>
+<a class="toc-level-2" href="#mathematical-formulation">Mathematical formulation</a>
+<a class="toc-level-2" href="#pseudocode">Pseudocode</a>
+<a class="toc-level-2" href="#parameters">Parameters</a>
+<a class="toc-level-2" href="#worked-example">Worked example</a>
+<a class="toc-level-2" href="#update-cycle">Update cycle</a>
+<a class="toc-level-2" href="#bounds-budget-and-determinism">Bounds, budget, and determinism</a>
+<a class="toc-level-2" href="#complexity">Complexity</a>
+<a class="toc-level-2" href="#when-to-use">When to use</a>
+<a class="toc-level-2" href="#in-the-7-algorithm-panel">In the 7-algorithm panel</a>
+<a class="toc-level-2" href="#source-and-validation">Source and validation</a>
+</aside>
+  </div>
+  <script src="assets/search.js"></script>
+  <script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs'; mermaid.initialize({ startOnLoad: true, securityLevel: 'loose', theme: 'neutral' });</script>
+</body>
+</html>

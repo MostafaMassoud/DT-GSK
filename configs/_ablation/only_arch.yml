@@ -1,0 +1,26 @@
+optimizers:
+- dt-gsk
+suite: cec2017
+functions: default
+dimensions:
+- 30
+runs: 25
+seed: 20240620
+seed_policy: unified
+rand_generator: threefry
+parallel: true
+workers: 2
+convergence_graphs: false
+overwrite: true
+output_root: results/_ablation/only_arch
+optimizer_options:
+  interaction_graph_enabled: false
+  ace_enabled: false
+  psr_enabled: false
+  bse_enabled: false
+  argp_enabled: false
+  linkage_blockwise_enabled: false
+  arch_enabled: true
+  local_search_enabled: false
+  final_polish_enabled: false
+  deep_stall_restart_enabled: false

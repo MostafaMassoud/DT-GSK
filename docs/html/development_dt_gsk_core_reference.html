@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="DT-GSK Core Reference — the vendored core and its byte-identity lock - GSK Family Python Documentation">
+  <title>DT-GSK Core Reference — the vendored core and its byte-identity lock | GSK Family Python Documentation</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <div class="site-shell">
+    <aside class="sidebar">
+<div class="brand"><a href="index.html">GSK Family Python</a></div>
+<input class="nav-search" type="search" placeholder="Filter docs" aria-label="Filter docs">
+<nav class="nav-list" aria-label="Documentation">
+<section><h2>Getting Started</h2>
+<a class="nav-link" href="getting-started_configuration.html">Configuration</a>
+<a class="nav-link" href="getting-started_explainer.html">Explainer</a>
+<a class="nav-link" href="getting-started_runbook.html">Runbook</a>
+<a class="nav-link" href="getting-started_troubleshooting.html">Troubleshooting</a>
+<a class="nav-link" href="getting-started_tutorial.html">Tutorial</a>
+<a class="nav-link" href="getting-started_user_guide.html">User Guide</a>
+</section>
+<section><h2>Reference</h2>
+<a class="nav-link" href="reference_api.html">API Reference</a>
+<a class="nav-link" href="reference_architecture.html">Architecture</a>
+<a class="nav-link" href="reference_benchmark_mapping.html">Benchmark Mapping</a>
+<a class="nav-link" href="reference_benchmark_protocol.html">Benchmark Protocol</a>
+<a class="nav-link" href="reference_cec2011_cpp_python_equivalence_review.html">CEC2011 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013_cpp_python_equivalence_review.html">CEC2013 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013lsgo_cpp_python_equivalence_review.html">CEC2013LSGO C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2017_cpp_python_equivalence_review.html">CEC2017 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2020_cpp_python_equivalence_review.html">CEC2020 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="index.html">Documentation Index</a>
+<a class="nav-link" href="reference_fp_regime.html">Floating-Point Regime Verification</a>
+<a class="nav-link" href="reference_diagrams.html">Flowcharts And Diagrams</a>
+<a class="nav-link" href="reference_glossary.html">Glossary</a>
+<a class="nav-link" href="LICENSES.html">Licenses</a>
+<a class="nav-link" href="reference_module_dependencies.html">Module Dependencies</a>
+<a class="nav-link" href="reference_project_structure.html">Project Structure</a>
+<a class="nav-link" href="reference_python_optimizer_interface.html">Python Optimizer Interface</a>
+<a class="nav-link" href="reference_result_schema.html">Result Schema</a>
+<a class="nav-link" href="reference_seed_policy.html">Seed Policy</a>
+<a class="nav-link" href="reference_workflows.html">Workflows</a>
+</section>
+<section><h2>Algorithm Guides</h2>
+<a class="nav-link" href="algorithms_agsk.html">AGSK — Adaptive Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_apgsk.html">APGSK — Adaptive-Parameters Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_atmals-gsk.html">ATMALS-GSK — Adaptive Tuning, Memory, Adaptive Local Search</a>
+<a class="nav-link" href="algorithms_dt-gsk.html">DT-GSK — Dimension-Tiered Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_egsk.html">EGSK — Enhanced Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_fdb-agsk.html">FDB-AGSK — Fitness-Distance-Balance AGSK</a>
+<a class="nav-link" href="algorithms_gsk.html">GSK — Gaining-Sharing Knowledge</a>
+</section>
+<section><h2>Development</h2>
+<a class="nav-link" href="development_BUG_resume_summary_truncation.html">BUG-RESUME-01 — resume mode truncates (and mis-computes) the per-dimension summary CSV</a>
+<a class="nav-link" href="development_LSGO_ACCELERATION_PLAN.html">CEC2013LSGO Acceleration Plan — all 7 GSK-family algorithms, bit-identically</a>
+<a class="nav-link" href="development_LSGO_INTEGRATION_CAMPAIGN.html">CEC2013LSGO Integration — Campaign Plan</a>
+<a class="nav-link" href="development_CEC2017_PREC_adjudication.html">CEC2017-PREC — adjudication (CLOSED 2026-07-25)</a>
+<a class="nav-link" href="development_code_reading_guide.html">Code Reading Guide</a>
+<a class="nav-link" href="development_contributor_guide.html">Contributor Guide</a>
+<a class="nav-link" href="development_DECC_G_port_record.html">DECC-G port — fidelity and validation record</a>
+<a class="nav-link" href="development_developer_guide.html">Developer Guide</a>
+<a class="nav-link" href="development_README.html">Development Docs</a>
+<a class="nav-link active" href="development_dt_gsk_core_reference.html">DT-GSK Core Reference — the vendored core and its byte-identity lock</a>
+<a class="nav-link" href="development_evidence_rerun_runbook.html">DT-GSK re-run runbook — corrected implementation (C006 + graph backend)</a>
+<a class="nav-link" href="development_egsk_port_spec.html">EGSK — Algorithm Spec &amp; Porting Verdict</a>
+<a class="nav-link" href="development_extension_guide.html">Extension Guide</a>
+<a class="nav-link" href="development_FAMILY_ACCELERATION_PLAN.html">Family-wide acceleration plan — 7 algorithms x 5 suites, bit-identical only</a>
+<a class="nav-link" href="development_FINAL_PUBLICATION_PLAN.html">FINAL PUBLICATION PLAN — DT-GSK, Four(/Five)-Suite Scope</a>
+<a class="nav-link" href="development_ACCELERATION_CAMPAIGN_PROMPT.html">GSK-Family Acceleration Campaign — Execution Prompt</a>
+<a class="nav-link" href="development_maintenance_guide.html">Maintenance Guide</a>
+<a class="nav-link" href="development_PORT_05_TUNING_TRIAGE.html">Porting project-05 tuning into 02 — Phase 1 audit and triage</a>
+<a class="nav-link" href="development_REFERENCE_PROMOTION_PLAN.html">Reference Promotion Plan — CEC2013LSGO now, CEC2020 behind its completeness gate</a>
+<a class="nav-link" href="development_SIBLING_CAMPAIGN_TRANSFER.html">Sibling-Campaign Transfer — every tuning that can make the GSK family fast</a>
+</section>
+<section><h2>Research</h2>
+<a class="nav-link" href="research_egsk_validation_appendix.html">EGSK Validation Appendix — Paired Port-vs-Reference Equivalence</a>
+<a class="nav-link" href="research_numerical_examples.html">Numerical Examples</a>
+<a class="nav-link" href="research_performance.html">Performance</a>
+<a class="nav-link" href="research_reproducibility.html">Reproducibility</a>
+<a class="nav-link" href="research_researcher_handbook.html">Researcher Handbook</a>
+<a class="nav-link" href="research_statistical_analysis.html">Statistical Analysis (GSK-family comparison)</a>
+<a class="nav-link" href="research_validation_report.html">Validation Report</a>
+</section>
+<section><h2>Prompts</h2>
+<a class="nav-link" href="prompt_documentation-deep-upgrade.html">Deep Documentation Review &amp; Upgrade Prompt — GSK Family Python</a>
+<a class="nav-link" href="prompt_project-review.html">Deep Expert Review Prompt For GSK Family Python</a>
+<a class="nav-link" href="prompt_documentation-review.html">Documentation Review Prompt</a>
+<a class="nav-link" href="prompt_publication-polish.html">Final Publication Prompt — Production-Ready Q1 Release of GSK Family Python v1.1</a>
+</section>
+<section><h2>Python API</h2>
+<a class="nav-link" href="api_index.html">API Module Index</a>
+<a class="nav-link api-link" href="api/gsk_family.__init__.html">gsk_family.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.__init__.html">gsk_family.analysis.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.family_report.html">gsk_family.analysis.family_report</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.figures.html">gsk_family.analysis.figures</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.latex_tables.html">gsk_family.analysis.latex_tables</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.project_policy.html">gsk_family.analysis.project_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.result_loader.html">gsk_family.analysis.result_loader</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistical_tests.html">gsk_family.analysis.statistical_tests</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistics.html">gsk_family.analysis.statistics</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.__init__.html">gsk_family.benchmark_adapter.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.factory.html">gsk_family.benchmark_adapter.factory</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.problem.html">gsk_family.benchmark_adapter.problem</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.protocol.html">gsk_family.benchmark_adapter.protocol</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.__init__.html">gsk_family.cli.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.list.html">gsk_family.cli.list</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.run.html">gsk_family.cli.run</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.stats.html">gsk_family.cli.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.validate.html">gsk_family.cli.validate</a>
+<a class="nav-link api-link" href="api/gsk_family.common.__init__.html">gsk_family.common.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.common.bounds.html">gsk_family.common.bounds</a>
+<a class="nav-link api-link" href="api/gsk_family.common.donors.html">gsk_family.common.donors</a>
+<a class="nav-link api-link" href="api/gsk_family.common.numeric_compat.html">gsk_family.common.numeric_compat</a>
+<a class="nav-link api-link" href="api/gsk_family.common.population.html">gsk_family.common.population</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reduction.html">gsk_family.common.reduction</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reference_rng.html">gsk_family.common.reference_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.rng.html">gsk_family.common.rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.threefry_rng.html">gsk_family.common.threefry_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.__init__.html">gsk_family.optimizers.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_profiles.html">gsk_family.optimizers._dt_profiles</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_rng.html">gsk_family.optimizers._dt_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._kernels.html">gsk_family.optimizers._kernels</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.agsk.html">gsk_family.optimizers.agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.apgsk.html">gsk_family.optimizers.apgsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_gsk.html">gsk_family.optimizers.atmals_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_helpers.html">gsk_family.optimizers.atmals_helpers</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.dt_gsk.html">gsk_family.optimizers.dt_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.egsk.html">gsk_family.optimizers.egsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.__init__.html">gsk_family.optimizers.external.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._base.html">gsk_family.optimizers.external._base</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._telemetry_shim.html">gsk_family.optimizers.external._telemetry_shim</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.cmaes.html">gsk_family.optimizers.external.cmaes</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.decc_g.html">gsk_family.optimizers.external.decc_g</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.ebowithcmar.html">gsk_family.optimizers.external.ebowithcmar</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.jso.html">gsk_family.optimizers.external.jso</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade.html">gsk_family.optimizers.external.lshade</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade_spacma.html">gsk_family.optimizers.external.lshade_spacma</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.mos_cec2013lsgo.html">gsk_family.optimizers.external.mos_cec2013lsgo</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.shade_ils.html">gsk_family.optimizers.external.shade_ils</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_agsk.html">gsk_family.optimizers.fdb_agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_scores.html">gsk_family.optimizers.fdb_scores</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.gsk.html">gsk_family.optimizers.gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.__init__.html">gsk_family.runners.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.config.html">gsk_family.runners.config</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.fp_regime.html">gsk_family.runners.fp_regime</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.output.html">gsk_family.runners.output</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.parallel.html">gsk_family.runners.parallel</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.performance.html">gsk_family.runners.performance</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.run_experiment.html">gsk_family.runners.run_experiment</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.seed_policy.html">gsk_family.runners.seed_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.verification.html">gsk_family.runners.verification</a>
+<a class="nav-link api-link" href="api/gsk_family.stats.html">gsk_family.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.types.html">gsk_family.types</a>
+</section>
+</nav></aside>
+    <main class="content">
+      <article class="doc-card">
+        <h1 id="dt-gsk-core-reference-the-vendored-core-and-its-byte-identity-lock">DT-GSK Core Reference — the vendored core and its byte-identity lock</h1>
+<blockquote>The single authoritative description of DT-GSK&#x27;s vendored core: what is locked, why,</blockquote>
+<blockquote>which tests hold the line, and the facts most often got wrong. The</blockquote>
+<blockquote><a href="development_developer_guide.html">Developer Guide</a>, <a href="development_contributor_guide.html">Contributor Guide</a>,</blockquote>
+<blockquote><a href="development_extension_guide.html">Extension Guide</a> and <a href="development_maintenance_guide.html">Maintenance Guide</a></blockquote>
+<blockquote>all link here rather than restating it.</blockquote>
+<blockquote></blockquote>
+<blockquote>The <strong>rules</strong> live in <a href="../../PROJECT_RULES.md">PROJECT_RULES.md</a> §4–§5 and</blockquote>
+<blockquote><a href="../../CODING_STANDARD.md">CODING_STANDARD.md</a> §5. This page explains them.</blockquote>
+<h2 id="what-dt-gsk-is-and-what-the-letters-mean">What DT-GSK is (and what the letters mean)</h2>
+<p><strong>DT-GSK = Dimension-Tiered Gaining-Sharing Knowledge.</strong> The mechanisms it activates are gated by problem dimension, and that tiering is the method&#x27;s defining property.</p>
+<p><strong>ISM = Interaction-Structure Memory.</strong> This is the name of *one subsystem inside* DT-GSK — the accepted-move coordinate-pair graph — <strong>not</strong> an expansion of DT-GSK, and not the algorithm&#x27;s name. The project was renamed <code>ISM-GSK</code> → <code>DT-GSK</code> and only the component name survives. Glossing the algorithm as &quot;DT-GSK (Interaction-Structure Memory GSK)&quot; --- as several pages of this documentation once did --- is wrong: the <strong>D</strong> and the <strong>T</strong> stand for *Dimension-Tiered*.</p>
+<p>ISM is a <strong>supporting</strong> mechanism, not a headline contribution. The paper&#x27;s three contributions are the eigenframe final polish (C1), the dimension-tiered adaptive scaffold (C2), and the controlled seven-algorithm family evaluation (C3). The interaction graph&#x27;s direct-isolation overlay — the <code>no_sgsm</code> ablation cell that toggles the graph off at its active tiers — finds <strong>no statistically significant standalone benefit</strong> under Holm correction. Never describe that null as an improvement or a gain.</p>
+<h2 id="the-locked-surface">The locked surface</h2>
+<p>These files are <strong>vendored</strong>: they were migrated byte-identically from the source DT-GSK v2.1 project and <strong>must not be edited for behavior</strong> — no refactors, no renames, no reformatting, no &quot;improvements&quot;.</p>
+<div class="table-wrap"><table><thead><tr><th>Path</th><th>Role</th></tr></thead><tbody><tr><td><code>optimizers/_dt_core.py</code></td><td>the algorithm (~5,000 lines)</td></tr><tr><td><code>optimizers/_dt_subsystems/</code></td><td><code>bound_constraint.py</code>, <code>budget.py</code>, <code>budget_policy.py</code>, <code>basin_memory.py</code>, <code>gained_shared_junior.py</code>, <code>gained_shared_senior.py</code>, <code>interaction_graph.py</code>, <code>_numba_accel.py</code>, <code>_dt_provenance.py</code></td></tr><tr><td><code>optimizers/_dt_rng.py</code></td><td>the 13-substream RNG layer</td></tr><tr><td><code>optimizers/_dt_profiles.py</code></td><td><code>build_pub_config</code> — <strong>data, not logic; never hand-edit a value</strong></td></tr><tr><td><code>optimizers/dt_gsk.py</code></td><td>the adapter onto the runner&#x27;s optimizer contract</td></tr></tbody></table></div>
+<p>New DT-GSK functionality is added <strong>around</strong> the core, never inside it. The adapter is the correct place for anything the runner needs.</p>
+<p>**The docstring gate deliberately exempts <code>_dt_core.py</code> and <code>_dt_subsystems/*</code><strong> (<code>tests/unit/test_docstrings.py</code>). Do </strong>not** add docstrings to vendored code to satisfy the gate — that perturbs the vendored bytes, which is the very thing the lock exists to prevent.</p>
+<h2 id="what-holds-the-line">What holds the line</h2>
+<div class="table-wrap"><table><thead><tr><th>Gate</th><th>Test</th><th>What it locks</th></tr></thead><tbody><tr><td>Config KAT</td><td><code>tests/unit/test_dt_profiles.py</code></td><td><code>build_pub_config</code> output, per tier</td></tr><tr><td>RNG KAT</td><td><code>tests/unit/test_dt_rng.py</code></td><td>the 13 substreams and their seeds</td></tr><tr><td>Byte-stable golden</td><td><code>tests/regression/test_dt_gsk_byte_stable.py</code></td><td>the trajectory itself</td></tr><tr><td>Curve monotonicity</td><td><code>tests/regression/test_dt_gsk_curve_monotone.py</code></td><td>the best-so-far convergence contract</td></tr><tr><td>Graph backend parity</td><td><code>tests/regression/test_dt_graph_backend_parity.py</code></td><td>compiled kernels are bound, and bit-identical to the NumPy path</td></tr><tr><td>Polish incumbent</td><td><code>tests/regression/test_dt_polish_incumbent_consistent.py</code></td><td>the polish receives a self-consistent incumbent</td></tr></tbody></table></div>
+<p>The golden values were validated <strong>byte-identical against the source project</strong> at <code>seed=12345</code>, <code>max_nfes=3000</code>, <code>pub</code> profile.</p>
+<p><strong>If a golden goes red, investigate the drift — never edit the golden to silence it.</strong></p>
+<blockquote>### The byte-stable KAT does not cover everything</blockquote>
+<blockquote>Its cells are <strong>D ≤ 30</strong>, which is *below* the tier where the interaction graph and the</blockquote>
+<blockquote>final polish activate. It therefore cannot see a defect in either. This is not</blockquote>
+<blockquote>hypothetical: an interaction-graph import typo silently selected the NumPy fallback for</blockquote>
+<blockquote>the entire released campaign, and the KAT stayed green throughout. The two D≥50</blockquote>
+<blockquote>regression tests above exist to close that gap. **When you touch a D≥50 mechanism, the</blockquote>
+<blockquote>byte-stable KAT passing tells you nothing.**</blockquote>
+<h2 id="dimension-tiers">Dimension tiers</h2>
+<p>The <code>pub</code> profile switches mechanisms on by dimension. Know which tier your change lives in:</p>
+<div class="table-wrap"><table><thead><tr><th>Tier</th><th>Adds</th></tr></thead><tbody><tr><td><code>D &lt; 20</code></td><td>base scaffold (+ escape overrides)</td></tr><tr><td><code>20 &lt;= D &lt; 50</code></td><td>D30 best-status handling</td></tr><tr><td><strong><code>D &gt;= 50</code></strong></td><td><strong>SGSM interaction graph, adaptive confidence gate, eigenframe final polish</strong></td></tr><tr><td><strong><code>D &gt;= 100</code></strong></td><td><strong>TERRA, budget policy, basin memory, SP-NLPSR, late-accept clipping</strong></td></tr></tbody></table></div>
+<p>Consequence: a change to the interaction graph or the polish <strong>cannot</strong> affect D10/D30, and a D≤30 test <strong>cannot</strong> exercise them.</p>
+<h2 id="facts-that-are-routinely-got-wrong">Facts that are routinely got wrong</h2>
+<p>**Initial population is always <code>5*D</code>.** <code>np_init_mult = 5</code> and is *never overridden* at any dimension. DT-GSK self-initializes and <strong>ignores any injected <code>X0</code></strong> — a documented fair-start exception (PROJECT_RULES §4.5). Do not &quot;fix&quot; it.</p>
+<blockquote>Earlier revisions of these guides claimed <code>5*D</code> below D=40 and <code>10*D</code> above. **That was</blockquote>
+<blockquote>false.** The 5-below/10-above split belongs to <code>_DEFAULT_BLOCK_SIZES</code>, the linkage</blockquote>
+<blockquote><strong>block-size</strong> schedule in <code>_dt_profiles.py</code> — a different parameter entirely.</blockquote>
+<p><strong>Deep-stall restart ships default-ON</strong> (<code>deep_stall_restart_enabled=True</code>, <code>deep_stall_frac=0.25</code>, <code>deep_stall_min_budget=20000</code>). It draws RNG <strong>only when it fires</strong>, and the min-budget guard keeps it inert at the golden&#x27;s <code>max_nfes=3000</code>, which is why it is byte-safe. Every real CEC run (<code>&gt;= 10000*D</code>) clears the guard.</p>
+<p><strong>Seeding is unified and non-negotiable.</strong> <code>dt-gsk</code> is the sole member of <code>UNIFIED_ONLY_OPTIMIZERS</code>: it is forced onto <code>threefry</code> + <code>get_cec_seed</code> under *every* seed policy. The 13 substreams (<code>init, core, ace, kexp, div, bse, arch, link, de, control, flow, basin, trust</code>) are <strong>append-only</strong> and the first nine are prefix-locked.</p>
+<p><strong>Supplying a callback does not change results.</strong> The FC4 lift-EMA is the only fitness-affecting quantity in the per-generation telemetry block, and it is updated *above* the callback guard on purpose. A run with no callback, a curve callback, or a full generation callback produces bit-identical results — verified at D=100, where FC4 is actually live (it is disabled at D=50). If you relocate that update, you break this property.</p>
+<p><strong>The local search that runs is coordinate descent, not the ISM subspace search.</strong> <code>local_search_method</code> defaults to <code>&quot;coordinate&quot;</code>, and the <code>pub</code> profile keeps it there at every tier — defaulted at <code>50 &lt;= D &lt; 100</code>, and set *explicitly* to <code>&quot;coordinate&quot;</code> at <code>D &gt;= 100</code>. The ISM top-k <strong>subspace</strong> local search (<code>subspace_nm</code>, which would restrict the polish to the interaction graph&#x27;s strongest blocks) is <strong>implemented but not enabled</strong> in the frozen configuration — the core states this at its own definition site. The interaction graph still *informs* linkage and block selection at <code>D &gt;= 50</code> (<code>interaction_use_for_local_search=True</code>), but the search that executes is coordinate-wise. Do not claim DT-GSK runs a graph-guided subspace polish; it does not.</p>
+<h2 id="determinism-at-d-50">Determinism at D &gt;= 50</h2>
+<p>SGSM uses <code>prange</code>, so thread count changes floating-point reduction order. For any byte-identity work, export all six variables <strong>before Python imports numpy/numba</strong> — setting them inside Python has no effect — and run <code>--serial</code> or <code>--workers 1</code>:</p>
+<pre><code class="code-block language-powershell">$env:OMP_NUM_THREADS=1; $env:MKL_NUM_THREADS=1; $env:OPENBLAS_NUM_THREADS=1
+$env:VECLIB_MAXIMUM_THREADS=1; $env:NUMEXPR_NUM_THREADS=1; $env:NUMBA_NUM_THREADS=1</code></pre>
+<p>For a *campaign* (rather than a parity check), process-level parallelism is still safe with <code>--numba-threads 1</code>: each cell&#x27;s seed is a pure function of <code>(base_seed, dim, func, run)</code>, independent of worker count or execution order.</p>
+<h2 id="if-you-must-change-core-behavior">If you must change core behavior</h2>
+<p>You cannot do it silently. A behavior change at <code>D &gt;= 50</code> invalidates the evidence produced by the old binary, so it forces a regeneration campaign. The procedure — the affected-cell inventory, the determinism setup, and the manuscript edits that follow — is in the <a href="development_evidence_rerun_runbook.html">Evidence Re-run Runbook</a>.</p>
+      </article>
+    </main>
+    <aside class="page-toc" aria-label="On this page">
+<h2>On This Page</h2>
+<a class="toc-level-1" href="#dt-gsk-core-reference-the-vendored-core-and-its-byte-identity-lock">DT-GSK Core Reference — the vendored core and its byte-identity lock</a>
+<a class="toc-level-2" href="#what-dt-gsk-is-and-what-the-letters-mean">What DT-GSK is (and what the letters mean)</a>
+<a class="toc-level-2" href="#the-locked-surface">The locked surface</a>
+<a class="toc-level-2" href="#what-holds-the-line">What holds the line</a>
+<a class="toc-level-2" href="#dimension-tiers">Dimension tiers</a>
+<a class="toc-level-2" href="#facts-that-are-routinely-got-wrong">Facts that are routinely got wrong</a>
+<a class="toc-level-2" href="#determinism-at-d-50">Determinism at D &gt;= 50</a>
+<a class="toc-level-2" href="#if-you-must-change-core-behavior">If you must change core behavior</a>
+</aside>
+  </div>
+  <script src="assets/search.js"></script>
+</body>
+</html>

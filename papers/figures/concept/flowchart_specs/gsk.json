@@ -1,0 +1,56 @@
+{
+  "name": "gsk",
+  "title": "GSK (base) algorithm flowchart",
+  "source": "papers/figures/concept/fig_gsk_flowchart_src.tex",
+  "note": "Single source of truth for the base GSK process flowchart. Clean vertical flow with a junior/senior parallel fork-and-join and a left-placed End; loop-back 'No' returns to the compute-dimensions step. Coordinates are Visio inches, origin bottom-left; 'dx' offsets a node horizontally from the spine.",
+  "layout": {
+    "page_w": 6.8,
+    "page_h": 10.2,
+    "spine_cx": 3.3,
+    "rail_x": 6.0,
+    "top_y": 9.4,
+    "pitch": 0.95
+  },
+  "style": {
+    "line_weight_pt": 0.75,
+    "ism_added_line_weight_pt": 1.75,
+    "font_pt": 9,
+    "decision_font_pt": 8,
+    "line_color": "#000000",
+    "fill_color": "#FFFFFF",
+    "text_color": "#000000"
+  },
+  "sizes": {
+    "terminal": {"w": 1.6, "h": 0.55},
+    "process":  {"w": 3.2, "h": 0.6},
+    "half":     {"w": 1.55, "h": 1.0},
+    "decision": {"w": 2.3, "h": 0.95}
+  },
+  "nodes": [
+    {"id": "begin",  "type": "terminal", "level": 0, "dx": 0.0,  "text": "Begin"},
+    {"id": "init",   "type": "process",  "level": 1, "dx": 0.0,  "text": "Initialize population size NP, knowledge factor KF, knowledge ratio KR, top/bottom percentage 100p%, dimension-schedule exponent Kexp"},
+    {"id": "fit",    "type": "process",  "level": 2, "dx": 0.0,  "text": "Calculate the fitness of each person of the population"},
+    {"id": "best",   "type": "process",  "level": 3, "dx": 0.0,  "text": "Identify the global best solution in the population"},
+    {"id": "dims",   "type": "process",  "level": 4, "dx": 0.0,  "text": "For each person, compute the number of gained and shared dimensions of both phases using the experience equation"},
+    {"id": "junior", "type": "half",     "level": 5, "dx": -1.6, "text": "For each person, apply the junior gaining-sharing knowledge phase for the desired Djun dimensions"},
+    {"id": "senior", "type": "half",     "level": 5, "dx": 1.6,  "text": "For each person, apply the senior gaining-sharing knowledge phase for the desired (D - Djun) dimensions"},
+    {"id": "upd",    "type": "process",  "level": 6, "dx": 0.0,  "text": "Update each person of the population"},
+    {"id": "gbest",  "type": "process",  "level": 7, "dx": 0.0,  "text": "Update the global best solution"},
+    {"id": "dec",    "type": "decision", "level": 8, "dx": 0.0,  "text": "Is the termination criterion satisfied?"},
+    {"id": "end",    "type": "terminal", "level": 8, "dx": -2.3, "text": "End"}
+  ],
+  "edges": [
+    {"from": "begin",  "to": "init"},
+    {"from": "init",   "to": "fit"},
+    {"from": "fit",    "to": "best"},
+    {"from": "best",   "to": "dims"},
+    {"from": "dims",   "to": "junior"},
+    {"from": "dims",   "to": "senior"},
+    {"from": "junior", "to": "upd"},
+    {"from": "senior", "to": "upd"},
+    {"from": "upd",    "to": "gbest"},
+    {"from": "gbest",  "to": "dec"},
+    {"from": "dec",    "to": "end",  "label": "Yes", "route": "horizontal_left"},
+    {"from": "dec",    "to": "dims", "label": "No",  "route": "right_rail"}
+  ]
+}

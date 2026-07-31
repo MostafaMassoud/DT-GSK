@@ -1,0 +1,44 @@
+
+========================================================================
+DETAILED CONFIGURATION
+========================================================================
+optimizer       : apgsk
+suite           : CEC2013LSGO
+funcs_to_run    : [1 2 3 4 5 6 7 8 9 10 11 12 13 14 15]
+excluded        : []
+dimensions      : [905 1000]
+runs            : 25
+base_seed       : 20240620
+seed_policy     : unified
+rand_generator  : threefry
+use_parallel    : true
+parallel_backend: process
+workers         : 13 (explicit)
+numba_threads   : 1
+generation_logs : true
+graphs          : true
+benchmark_fp    : default
+benchmark_backend: python (requested=auto)
+max_nfes        : suite default
+statistics      : raw objective
+project_root    : 02-GSK_Family_Python_v1.1
+output_dir      : results\_run_all\apgsk\cec2013lsgo
+========================================================================
+
++----------------------------------------------------------+
+| apgsk - CEC2013LSGO - D=905                          |
++----------------------------------------------------------+
+| 2 functions x 25 runs | Budget: 3,000,000 NFEs           |
+| NP_init=100  min_pop_size=12                             |
+| Bounds: (-100.0, 100.0)   Target error: nan              |
++----------------------------------------------------------+
+
++--------+--------------+--------------+--------------+--------------+--------------+-------------+
+|  Func  |     Best     |    Median    |     Mean     |    Worst     |      SD      |   Time/s    |
++--------+--------------+--------------+--------------+--------------+--------------+-------------+
+|  F13   |    1.39E+09  |    1.97E+09  |    2.02E+09  |    3.13E+09  |    4.16E+08  |    2672.8s  |
+|  F14   |    1.00E+10  |    2.14E+10  |    2.33E+10  |    4.35E+10  |    8.34E+09  |    2405.8s  |
++--------+--------------+--------------+--------------+--------------+--------------+-------------+
+
+[OK] Updated 2 function(s); wrote 50 new run(s)
+

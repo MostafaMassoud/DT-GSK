@@ -1,0 +1,113 @@
+# DT-GSK on CEC2013LSGO -- linkage block size matched to the suite's group size.
+#
+# WHY THIS CONFIG EXISTS
+# ---------------------
+# _DEFAULT_BLOCK_SIZES (_dt_profiles.py) tops out at dim=240 -> block_size=10.
+# CEC2013LSGO runs at D=1000 (F1-F12, F15) and D=905 (F13-F14), so both fall off
+# the end of the table. _resolve_linkage_block_size then applies its documented
+# step-function fallback -- largest configured key <= D -- yielding block_size=10
+# and a UserWarning per worker process.
+#
+# That fallback is deterministic and not a bug, but it is a poor fit here:
+#   * block_size stays 10 while D grows 4x, so per-block coverage collapses from
+#     4.2% of coordinates at D=240 to 1.0% at D=1000;
+#   * CEC2013LSGO's DESIGNED group size is 50 -- F8-F11 are 20 groups x 50 = 1000,
+#     F4-F7 are 7 groups x 50 plus a separable remainder, and F13-F14 are
+#     20 groups x 50 with overlap 5 (20*50 - 19*5 = 905).
+# Running the linkage crossover at block_size=10 therefore operates at one fifth
+# of the problem's real variable-interaction granularity -- the very structure the
+# mechanism exists to exploit.
+#
+# block_size=50 is chosen to MATCH THE BENCHMARK'S DECLARED GROUP STRUCTURE, not
+# fitted to any observed result. No parameter search was run.
+#
+# SCOPE / ISOLATION
+# -----------------
+# This is opt-in via `--config` and applies to nothing else. It cannot affect
+# CEC2017/CEC2011/CEC2013/CEC2020: every dimension in the frozen evidence
+# (CEC2011 1..240, CEC2013 10/30/50, CEC2017 10/30/50/100) is already an EXACT
+# key in the shipped table, so no released number ever used the fallback, and no
+# byte-locked file is modified here. The table below is the shipped default plus
+# the two LSGO dims, so behaviour at every pre-existing dim is unchanged.
+#
+# Only dt-gsk is affected: gsk / agsk / apgsk / fdb-agsk / atmals-gsk / egsk never
+# read linkage_block_size_by_dim, so their CEC2013LSGO legs need no rerun.
+#
+# strict_profile_dims: true makes any FUTURE off-profile dimension raise instead
+# of silently interpolating (fail-closed, per the B.8 contract in _dt_core.py).
+#
+# Usage:
+#   python run.py --config configs/dtgsk_cec2013lsgo.yml
+optimizers:
+  - dt-gsk
+suite: cec2013lsgo
+functions: all
+dimensions: [905, 1000]
+runs: 25
+seed: 20240620
+seed_policy: unified
+rand_generator: threefry
+max_evaluations: 0
+# overwrite MUST stay false: the 2026-07-25 continuation resumes into an
+# existing per_run.csv (F1-F4 complete); true would discard those 100 runs.
+overwrite: false
+parallel: true
+parallel_backend: process
+workers: 13
+numba_threads: 1
+generation_logs: true
+convergence_graphs: true
+benchmark_fp_mode: default
+benchmark_backend: auto
+data_root: benchmarks/cec_suite_python
+reference_root: benchmarks/cec_reference_results
+output_root: results/_run_all
+optimizer_options:
+  # Shipped _DEFAULT_BLOCK_SIZES, verbatim, plus the two CEC2013LSGO dims.
+  # Stated in full so run_config.json records the complete table actually used
+  # (the resolved size is not otherwise written to any output).
+  linkage_block_size_by_dim:
+    1: 1
+    5: 5
+    6: 5
+    7: 5
+    10: 5
+    12: 5
+    13: 5
+    15: 5
+    20: 5
+    22: 5
+    26: 5
+    30: 5
+    40: 5
+    50: 10
+    96: 10
+    100: 10
+    120: 10
+    126: 10
+    140: 10
+    240: 10
+    905: 50    # CEC2013LSGO F13-F14: 20 groups x 50, overlap 5
+    1000: 50   # CEC2013LSGO F1-F12/F15: 20 groups x 50
+  strict_profile_dims: true
+
+  # --- OPTIONAL SPEED/FIDELITY TRADE (disabled by default) -----------------
+  # Profiling (2026-07-25, post-CR-0009) found the BSE archive distance scan
+  # (_archive_consider_batch_nb) is the #1 steady-state cost at D=1000
+  # (~14 ms/gen, a naive O(K x |A| x D) scan over the 200-member archive).
+  # Shrinking the archive cap speeds it up roughly linearly:
+  #   arch_max_size 200 -> 50 : ~1.09x at 30k evals (F1); likely ~1.3x at the
+  #                             full 3e6 budget where the archive dominates.
+  #   arch_enabled: false     : ~1.17x, but removes the BSE escape entirely.
+  # UNLIKE the CR-0009 kernel, this CHANGES RESULTS. It looks free on short runs
+  # only because BSE escape does not TRIGGER in the first ~30k evals for F1 --
+  # the archive is maintained but not yet consumed. On a full run it fires on
+  # stalls, so a smaller/absent archive alters the trajectory. The fidelity cost
+  # is UNMEASURED at full budget and would need a multi-seed full-budget check
+  # (idle machine) before adoption. LSGO-only; never enable for a frozen paper
+  # cell. To use, uncomment one:
+  # arch_max_size: 50
+  #
+  # REJECTED lever (do not use): interaction_update_period > 1 measured SLOWER
+  # (0.66x at period 4) AND worse fitness (-5.8%) -- thinning the SGSM update
+  # pushes the run onto a costlier trajectory. Left here as a documented dead end.

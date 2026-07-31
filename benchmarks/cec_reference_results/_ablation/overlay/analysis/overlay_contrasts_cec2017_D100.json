@@ -1,0 +1,281 @@
+{
+  "study": "X-ABL-02 SGSM-overlay ablation",
+  "suite": "cec2017",
+  "dimension": 100,
+  "runs": 51,
+  "n_funcs": 29,
+  "reference_cell": "full",
+  "base_seed": 20240620,
+  "seed_policy": "unified",
+  "sgsm_active_dim_note": "CEC2017 interaction_graph_min_dim=50; D50 and D100 are the SGSM-active tiers for CEC2017 (D100 additionally runs the high-dimension controllers).",
+  "per_function_mean_source": "per_run.csv error column (authoritative).",
+  "friedman_omnibus": {
+    "chi2": 12.755172413793105,
+    "p_value": 0.0051971146099820675,
+    "n_problems": 29,
+    "n_algorithms": 4,
+    "avg_ranks": {
+      "full": 2.0,
+      "no_sgsm": 2.1551724137931036,
+      "no_adaptive": 2.8620689655172415,
+      "no_finalpolish": 2.9827586206896552
+    },
+    "mean_rank_ordering_best_to_worst": [
+      "full",
+      "no_sgsm",
+      "no_adaptive",
+      "no_finalpolish"
+    ]
+  },
+  "cell_labels": {
+    "full": "SGSM ON (full algorithm; interaction_graph_enabled=true)",
+    "no_sgsm": "SGSM OFF (interaction_graph_enabled=false)",
+    "no_adaptive": "adaptive confidence gate OFF (interaction_confidence_adaptive=false)",
+    "no_finalpolish": "eigenframe final polish OFF (final_polish_enabled=false)"
+  },
+  "contrasts": {
+    "no_sgsm": {
+      "contrast": "full vs no_sgsm",
+      "meaning": "DIRECT SGSM contribution (the R1/R6 question)",
+      "cell_label": "SGSM OFF (interaction_graph_enabled=false)",
+      "n_funcs": 29,
+      "n_pairs_nonzero_diff": 29,
+      "wilcoxon_repo": {
+        "statistic": 211.0,
+        "p_value": 0.8967726922812066,
+        "n_pairs": 29,
+        "method": "gsk_family.analysis.statistics.wilcoxon_paired (normal approx + continuity correction, zeros dropped; frozen method used by generate_ablation_matrix.py)"
+      },
+      "wilcoxon_scipy_wilcox": {
+        "statistic": 211.0,
+        "p_value": 0.8983406014740467,
+        "zero_method": "wilcox (drops zeros; matches repo)"
+      },
+      "wilcoxon_scipy_zsplit": {
+        "statistic": 211.0,
+        "p_value": 0.8983406014740467,
+        "zero_method": "zsplit (preregistration text)"
+      },
+      "wtl_full_vs_cell": {
+        "wins_full_better": 14,
+        "ties": 0,
+        "losses_full_worse": 15,
+        "note": "win = full (component ON) has lower mean error than cell"
+      },
+      "direction": {
+        "mean_diff_full_minus_cell": 234.2709776363318,
+        "median_diff_full_minus_cell": 0.00014867886122,
+        "sign_convention": "negative => full better (component helps); positive => removing component helps",
+        "full_mean_rank": 2.0,
+        "cell_mean_rank": 2.1551724137931036,
+        "delta_rank_vs_full": 0.15517241379310365,
+        "component_helps_directionally": true
+      },
+      "vargha_delaney_a12_full_vs_cell": {
+        "mean_a12": 0.5031022551008233,
+        "median_a12": 0.5046136101499423,
+        "n_funcs_favor_full_gt_0.5": 15,
+        "n_funcs_favor_cell_lt_0.5": 14,
+        "per_function": {
+          "1": 0.4898,
+          "3": 0.5671,
+          "4": 0.4752,
+          "5": 0.5286,
+          "6": 0.0,
+          "7": 0.5236,
+          "8": 0.5786,
+          "9": 0.4587,
+          "10": 0.5344,
+          "11": 0.6832,
+          "12": 0.4421,
+          "13": 0.4694,
+          "14": 0.8843,
+          "15": 0.7343,
+          "16": 0.3925,
+          "17": 0.4983,
+          "18": 0.5379,
+          "19": 0.5213,
+          "20": 0.4917,
+          "21": 0.544,
+          "22": 0.4994,
+          "23": 0.4706,
+          "24": 0.5229,
+          "25": 0.5046,
+          "26": 0.4517,
+          "27": 0.4983,
+          "28": 0.506,
+          "29": 0.2699,
+          "30": 0.5113
+        }
+      },
+      "holm": {
+        "p_raw": 0.8967726922812066,
+        "p_holm": 0.8967726922812066,
+        "significant_at_0.05": false,
+        "family": "X-ABL-02 = {full vs no_sgsm, full vs no_adaptive, full vs no_finalpolish}"
+      }
+    },
+    "no_adaptive": {
+      "contrast": "full vs no_adaptive",
+      "meaning": "adaptive confidence-gate contribution",
+      "cell_label": "adaptive confidence gate OFF (interaction_confidence_adaptive=false)",
+      "n_funcs": 29,
+      "n_pairs_nonzero_diff": 28,
+      "wilcoxon_repo": {
+        "statistic": 112.0,
+        "p_value": 0.03932067351702806,
+        "n_pairs": 28,
+        "method": "gsk_family.analysis.statistics.wilcoxon_paired (normal approx + continuity correction, zeros dropped; frozen method used by generate_ablation_matrix.py)"
+      },
+      "wilcoxon_scipy_wilcox": {
+        "statistic": 112.0,
+        "p_value": 0.038246837297851846,
+        "zero_method": "wilcox (drops zeros; matches repo)"
+      },
+      "wilcoxon_scipy_zsplit": {
+        "statistic": 120.5,
+        "p_value": 0.03595371350543371,
+        "zero_method": "zsplit (preregistration text)"
+      },
+      "wtl_full_vs_cell": {
+        "wins_full_better": 20,
+        "ties": 1,
+        "losses_full_worse": 8,
+        "note": "win = full (component ON) has lower mean error than cell"
+      },
+      "direction": {
+        "mean_diff_full_minus_cell": 180.1105779019262,
+        "median_diff_full_minus_cell": -1.3776337299999568,
+        "sign_convention": "negative => full better (component helps); positive => removing component helps",
+        "full_mean_rank": 2.0,
+        "cell_mean_rank": 2.8620689655172415,
+        "delta_rank_vs_full": 0.8620689655172415,
+        "component_helps_directionally": true
+      },
+      "vargha_delaney_a12_full_vs_cell": {
+        "mean_a12": 0.542331198875764,
+        "median_a12": 0.5169165705497886,
+        "n_funcs_favor_full_gt_0.5": 21,
+        "n_funcs_favor_cell_lt_0.5": 7,
+        "per_function": {
+          "1": 0.5529,
+          "3": 0.5609,
+          "4": 0.4983,
+          "5": 0.519,
+          "6": 0.5,
+          "7": 0.5169,
+          "8": 0.5663,
+          "9": 0.4587,
+          "10": 0.5586,
+          "11": 0.7136,
+          "12": 0.4471,
+          "13": 0.491,
+          "14": 0.8881,
+          "15": 0.7674,
+          "16": 0.4983,
+          "17": 0.5056,
+          "18": 0.5067,
+          "19": 0.5252,
+          "20": 0.5323,
+          "21": 0.5369,
+          "22": 0.5202,
+          "23": 0.4988,
+          "24": 0.5117,
+          "25": 0.5131,
+          "26": 0.4715,
+          "27": 0.5019,
+          "28": 0.5225,
+          "29": 0.5142,
+          "30": 0.5298
+        }
+      },
+      "holm": {
+        "p_raw": 0.03932067351702806,
+        "p_holm": 0.07864134703405612,
+        "significant_at_0.05": false,
+        "family": "X-ABL-02 = {full vs no_sgsm, full vs no_adaptive, full vs no_finalpolish}"
+      }
+    },
+    "no_finalpolish": {
+      "contrast": "full vs no_finalpolish",
+      "meaning": "eigenframe final-polish contribution (AN-ABL-POLISH; bears on C2/MT-09)",
+      "cell_label": "eigenframe final polish OFF (final_polish_enabled=false)",
+      "n_funcs": 29,
+      "n_pairs_nonzero_diff": 28,
+      "wilcoxon_repo": {
+        "statistic": 65.0,
+        "p_value": 0.0017418363578405316,
+        "n_pairs": 28,
+        "method": "gsk_family.analysis.statistics.wilcoxon_paired (normal approx + continuity correction, zeros dropped; frozen method used by generate_ablation_matrix.py)"
+      },
+      "wilcoxon_scipy_wilcox": {
+        "statistic": 65.0,
+        "p_value": 0.0016753664597188398,
+        "zero_method": "wilcox (drops zeros; matches repo)"
+      },
+      "wilcoxon_scipy_zsplit": {
+        "statistic": 70.5,
+        "p_value": 0.0014798276355048132,
+        "zero_method": "zsplit (preregistration text)"
+      },
+      "wtl_full_vs_cell": {
+        "wins_full_better": 23,
+        "ties": 1,
+        "losses_full_worse": 5,
+        "note": "win = full (component ON) has lower mean error than cell"
+      },
+      "direction": {
+        "mean_diff_full_minus_cell": -11.276610003387745,
+        "median_diff_full_minus_cell": -2.323105039999973,
+        "sign_convention": "negative => full better (component helps); positive => removing component helps",
+        "full_mean_rank": 2.0,
+        "cell_mean_rank": 2.9827586206896552,
+        "delta_rank_vs_full": 0.9827586206896552,
+        "component_helps_directionally": true
+      },
+      "vargha_delaney_a12_full_vs_cell": {
+        "mean_a12": 0.5344230998687507,
+        "median_a12": 0.5297962322183776,
+        "n_funcs_favor_full_gt_0.5": 22,
+        "n_funcs_favor_cell_lt_0.5": 7,
+        "per_function": {
+          "1": 0.5071,
+          "3": 0.4383,
+          "4": 0.5298,
+          "5": 0.5329,
+          "6": 0.6344,
+          "7": 0.574,
+          "8": 0.5492,
+          "9": 0.5012,
+          "10": 0.6517,
+          "11": 0.4921,
+          "12": 0.486,
+          "13": 0.5098,
+          "14": 0.499,
+          "15": 0.4948,
+          "16": 0.5705,
+          "17": 0.5598,
+          "18": 0.5087,
+          "19": 0.4952,
+          "20": 0.5663,
+          "21": 0.5406,
+          "22": 0.6494,
+          "23": 0.5479,
+          "24": 0.5463,
+          "25": 0.5017,
+          "26": 0.5302,
+          "27": 0.494,
+          "28": 0.5071,
+          "29": 0.569,
+          "30": 0.5113
+        }
+      },
+      "holm": {
+        "p_raw": 0.0017418363578405316,
+        "p_holm": 0.005225509073521595,
+        "significant_at_0.05": true,
+        "family": "X-ABL-02 = {full vs no_sgsm, full vs no_adaptive, full vs no_finalpolish}"
+      }
+    }
+  }
+}

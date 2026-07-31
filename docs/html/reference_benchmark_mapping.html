@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Benchmark Mapping - GSK Family Python Documentation">
+  <title>Benchmark Mapping | GSK Family Python Documentation</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <div class="site-shell">
+    <aside class="sidebar">
+<div class="brand"><a href="index.html">GSK Family Python</a></div>
+<input class="nav-search" type="search" placeholder="Filter docs" aria-label="Filter docs">
+<nav class="nav-list" aria-label="Documentation">
+<section><h2>Getting Started</h2>
+<a class="nav-link" href="getting-started_configuration.html">Configuration</a>
+<a class="nav-link" href="getting-started_explainer.html">Explainer</a>
+<a class="nav-link" href="getting-started_runbook.html">Runbook</a>
+<a class="nav-link" href="getting-started_troubleshooting.html">Troubleshooting</a>
+<a class="nav-link" href="getting-started_tutorial.html">Tutorial</a>
+<a class="nav-link" href="getting-started_user_guide.html">User Guide</a>
+</section>
+<section><h2>Reference</h2>
+<a class="nav-link" href="reference_api.html">API Reference</a>
+<a class="nav-link" href="reference_architecture.html">Architecture</a>
+<a class="nav-link active" href="reference_benchmark_mapping.html">Benchmark Mapping</a>
+<a class="nav-link" href="reference_benchmark_protocol.html">Benchmark Protocol</a>
+<a class="nav-link" href="reference_cec2011_cpp_python_equivalence_review.html">CEC2011 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013_cpp_python_equivalence_review.html">CEC2013 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013lsgo_cpp_python_equivalence_review.html">CEC2013LSGO C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2017_cpp_python_equivalence_review.html">CEC2017 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2020_cpp_python_equivalence_review.html">CEC2020 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="index.html">Documentation Index</a>
+<a class="nav-link" href="reference_fp_regime.html">Floating-Point Regime Verification</a>
+<a class="nav-link" href="reference_diagrams.html">Flowcharts And Diagrams</a>
+<a class="nav-link" href="reference_glossary.html">Glossary</a>
+<a class="nav-link" href="LICENSES.html">Licenses</a>
+<a class="nav-link" href="reference_module_dependencies.html">Module Dependencies</a>
+<a class="nav-link" href="reference_project_structure.html">Project Structure</a>
+<a class="nav-link" href="reference_python_optimizer_interface.html">Python Optimizer Interface</a>
+<a class="nav-link" href="reference_result_schema.html">Result Schema</a>
+<a class="nav-link" href="reference_seed_policy.html">Seed Policy</a>
+<a class="nav-link" href="reference_workflows.html">Workflows</a>
+</section>
+<section><h2>Algorithm Guides</h2>
+<a class="nav-link" href="algorithms_agsk.html">AGSK — Adaptive Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_apgsk.html">APGSK — Adaptive-Parameters Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_atmals-gsk.html">ATMALS-GSK — Adaptive Tuning, Memory, Adaptive Local Search</a>
+<a class="nav-link" href="algorithms_dt-gsk.html">DT-GSK — Dimension-Tiered Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_egsk.html">EGSK — Enhanced Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_fdb-agsk.html">FDB-AGSK — Fitness-Distance-Balance AGSK</a>
+<a class="nav-link" href="algorithms_gsk.html">GSK — Gaining-Sharing Knowledge</a>
+</section>
+<section><h2>Development</h2>
+<a class="nav-link" href="development_BUG_resume_summary_truncation.html">BUG-RESUME-01 — resume mode truncates (and mis-computes) the per-dimension summary CSV</a>
+<a class="nav-link" href="development_LSGO_ACCELERATION_PLAN.html">CEC2013LSGO Acceleration Plan — all 7 GSK-family algorithms, bit-identically</a>
+<a class="nav-link" href="development_LSGO_INTEGRATION_CAMPAIGN.html">CEC2013LSGO Integration — Campaign Plan</a>
+<a class="nav-link" href="development_CEC2017_PREC_adjudication.html">CEC2017-PREC — adjudication (CLOSED 2026-07-25)</a>
+<a class="nav-link" href="development_code_reading_guide.html">Code Reading Guide</a>
+<a class="nav-link" href="development_contributor_guide.html">Contributor Guide</a>
+<a class="nav-link" href="development_DECC_G_port_record.html">DECC-G port — fidelity and validation record</a>
+<a class="nav-link" href="development_developer_guide.html">Developer Guide</a>
+<a class="nav-link" href="development_README.html">Development Docs</a>
+<a class="nav-link" href="development_dt_gsk_core_reference.html">DT-GSK Core Reference — the vendored core and its byte-identity lock</a>
+<a class="nav-link" href="development_evidence_rerun_runbook.html">DT-GSK re-run runbook — corrected implementation (C006 + graph backend)</a>
+<a class="nav-link" href="development_egsk_port_spec.html">EGSK — Algorithm Spec &amp; Porting Verdict</a>
+<a class="nav-link" href="development_extension_guide.html">Extension Guide</a>
+<a class="nav-link" href="development_FAMILY_ACCELERATION_PLAN.html">Family-wide acceleration plan — 7 algorithms x 5 suites, bit-identical only</a>
+<a class="nav-link" href="development_FINAL_PUBLICATION_PLAN.html">FINAL PUBLICATION PLAN — DT-GSK, Four(/Five)-Suite Scope</a>
+<a class="nav-link" href="development_ACCELERATION_CAMPAIGN_PROMPT.html">GSK-Family Acceleration Campaign — Execution Prompt</a>
+<a class="nav-link" href="development_maintenance_guide.html">Maintenance Guide</a>
+<a class="nav-link" href="development_PORT_05_TUNING_TRIAGE.html">Porting project-05 tuning into 02 — Phase 1 audit and triage</a>
+<a class="nav-link" href="development_REFERENCE_PROMOTION_PLAN.html">Reference Promotion Plan — CEC2013LSGO now, CEC2020 behind its completeness gate</a>
+<a class="nav-link" href="development_SIBLING_CAMPAIGN_TRANSFER.html">Sibling-Campaign Transfer — every tuning that can make the GSK family fast</a>
+</section>
+<section><h2>Research</h2>
+<a class="nav-link" href="research_egsk_validation_appendix.html">EGSK Validation Appendix — Paired Port-vs-Reference Equivalence</a>
+<a class="nav-link" href="research_numerical_examples.html">Numerical Examples</a>
+<a class="nav-link" href="research_performance.html">Performance</a>
+<a class="nav-link" href="research_reproducibility.html">Reproducibility</a>
+<a class="nav-link" href="research_researcher_handbook.html">Researcher Handbook</a>
+<a class="nav-link" href="research_statistical_analysis.html">Statistical Analysis (GSK-family comparison)</a>
+<a class="nav-link" href="research_validation_report.html">Validation Report</a>
+</section>
+<section><h2>Prompts</h2>
+<a class="nav-link" href="prompt_documentation-deep-upgrade.html">Deep Documentation Review &amp; Upgrade Prompt — GSK Family Python</a>
+<a class="nav-link" href="prompt_project-review.html">Deep Expert Review Prompt For GSK Family Python</a>
+<a class="nav-link" href="prompt_documentation-review.html">Documentation Review Prompt</a>
+<a class="nav-link" href="prompt_publication-polish.html">Final Publication Prompt — Production-Ready Q1 Release of GSK Family Python v1.1</a>
+</section>
+<section><h2>Python API</h2>
+<a class="nav-link" href="api_index.html">API Module Index</a>
+<a class="nav-link api-link" href="api/gsk_family.__init__.html">gsk_family.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.__init__.html">gsk_family.analysis.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.family_report.html">gsk_family.analysis.family_report</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.figures.html">gsk_family.analysis.figures</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.latex_tables.html">gsk_family.analysis.latex_tables</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.project_policy.html">gsk_family.analysis.project_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.result_loader.html">gsk_family.analysis.result_loader</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistical_tests.html">gsk_family.analysis.statistical_tests</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistics.html">gsk_family.analysis.statistics</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.__init__.html">gsk_family.benchmark_adapter.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.factory.html">gsk_family.benchmark_adapter.factory</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.problem.html">gsk_family.benchmark_adapter.problem</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.protocol.html">gsk_family.benchmark_adapter.protocol</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.__init__.html">gsk_family.cli.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.list.html">gsk_family.cli.list</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.run.html">gsk_family.cli.run</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.stats.html">gsk_family.cli.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.validate.html">gsk_family.cli.validate</a>
+<a class="nav-link api-link" href="api/gsk_family.common.__init__.html">gsk_family.common.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.common.bounds.html">gsk_family.common.bounds</a>
+<a class="nav-link api-link" href="api/gsk_family.common.donors.html">gsk_family.common.donors</a>
+<a class="nav-link api-link" href="api/gsk_family.common.numeric_compat.html">gsk_family.common.numeric_compat</a>
+<a class="nav-link api-link" href="api/gsk_family.common.population.html">gsk_family.common.population</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reduction.html">gsk_family.common.reduction</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reference_rng.html">gsk_family.common.reference_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.rng.html">gsk_family.common.rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.threefry_rng.html">gsk_family.common.threefry_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.__init__.html">gsk_family.optimizers.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_profiles.html">gsk_family.optimizers._dt_profiles</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_rng.html">gsk_family.optimizers._dt_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._kernels.html">gsk_family.optimizers._kernels</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.agsk.html">gsk_family.optimizers.agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.apgsk.html">gsk_family.optimizers.apgsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_gsk.html">gsk_family.optimizers.atmals_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_helpers.html">gsk_family.optimizers.atmals_helpers</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.dt_gsk.html">gsk_family.optimizers.dt_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.egsk.html">gsk_family.optimizers.egsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.__init__.html">gsk_family.optimizers.external.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._base.html">gsk_family.optimizers.external._base</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._telemetry_shim.html">gsk_family.optimizers.external._telemetry_shim</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.cmaes.html">gsk_family.optimizers.external.cmaes</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.decc_g.html">gsk_family.optimizers.external.decc_g</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.ebowithcmar.html">gsk_family.optimizers.external.ebowithcmar</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.jso.html">gsk_family.optimizers.external.jso</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade.html">gsk_family.optimizers.external.lshade</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade_spacma.html">gsk_family.optimizers.external.lshade_spacma</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.mos_cec2013lsgo.html">gsk_family.optimizers.external.mos_cec2013lsgo</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.shade_ils.html">gsk_family.optimizers.external.shade_ils</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_agsk.html">gsk_family.optimizers.fdb_agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_scores.html">gsk_family.optimizers.fdb_scores</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.gsk.html">gsk_family.optimizers.gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.__init__.html">gsk_family.runners.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.config.html">gsk_family.runners.config</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.fp_regime.html">gsk_family.runners.fp_regime</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.output.html">gsk_family.runners.output</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.parallel.html">gsk_family.runners.parallel</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.performance.html">gsk_family.runners.performance</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.run_experiment.html">gsk_family.runners.run_experiment</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.seed_policy.html">gsk_family.runners.seed_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.verification.html">gsk_family.runners.verification</a>
+<a class="nav-link api-link" href="api/gsk_family.stats.html">gsk_family.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.types.html">gsk_family.types</a>
+</section>
+</nav></aside>
+    <main class="content">
+      <article class="doc-card">
+        <h1 id="benchmark-mapping">Benchmark Mapping</h1>
+<blockquote><strong>What this is.</strong> A translation table from the upstream reference benchmark</blockquote>
+<blockquote>framework to its Python equivalents in this project. <strong>Who it is for.</strong> Readers</blockquote>
+<blockquote>familiar with the original source who want to find &quot;where did X go?&quot;, and</blockquote>
+<blockquote>maintainers tracing provenance. <strong>Prerequisites.</strong> None beyond the</blockquote>
+<blockquote><a href="reference_glossary.html">glossary</a>. <strong>After reading</strong> you can map any reference-source</blockquote>
+<blockquote>concept (problem construction, bounds, budget, optimum, comparison) to the</blockquote>
+<blockquote>Python symbol or path that replaces it. For the rules those symbols enforce see</blockquote>
+<blockquote><a href="reference_benchmark_protocol.html">benchmark_protocol.md</a>; for the function-by-function</blockquote>
+<blockquote>numerical equivalence of the Python evaluators against the C++ reference, see</blockquote>
+<blockquote>the per-suite <code>cec*_cpp_python_equivalence_review.md</code> pages in this folder.</blockquote>
+<p>This document maps the Python benchmark framework to the reference benchmark implementation that was used as reference-source evidence. Bare <code>.m</code> filenames below name original source files; the Python column is what you call now.</p>
+<h2 id="source-evidence">Source Evidence</h2>
+<p>The source archive supplied:</p>
+<ul>
+<li>reference runners and optimizer implementations;</li>
+<li>compiled reference-bridge benchmark code;</li>
+<li>CEC input data;</li>
+<li>reference result tables, convergence curves, and logs;</li>
+<li>benchmark README files and protocol notes.</li>
+</ul>
+<p>The Python project keeps imported benchmark evidence and live evaluator assets under two directories:</p>
+<pre><code class="code-block language-text">benchmarks/cec_reference_results/     (reference tables, used for validation)
+benchmarks/cec_suite_python/          (Python/Numba benchmark evaluator/data)</code></pre>
+<h2 id="python-runtime-mapping">Python Runtime Mapping</h2>
+<p>Each reference concept on the left is replaced by the Python symbol or path on the right.</p>
+<div class="table-wrap"><table><thead><tr><th>Reference-source concept</th><th>Python equivalent</th></tr></thead><tbody><tr><td>Python benchmark evaluator</td><td><code>benchmarks/cec_suite_python</code> Python/Numba benchmark package</td></tr><tr><td>Reference problem builder</td><td><code>gsk_family.benchmark_adapter.factory.make_problem</code></td></tr><tr><td>CEC suite metadata</td><td><code>gsk_family.benchmark_adapter.protocol</code> (<code>suite_protocol</code>, function/dimension rules)</td></tr><tr><td>Bounds structures</td><td><code>BenchmarkProblem.lb</code> and <code>BenchmarkProblem.ub</code></td></tr><tr><td>Function-evaluation budget</td><td><code>BenchmarkProblem.max_nfes</code></td></tr><tr><td>Known optimum</td><td><code>BenchmarkProblem.optimum</code></td></tr><tr><td>Objective calls</td><td><code>BenchmarkProblem.evaluate(population)</code></td></tr><tr><td>Summary tables</td><td><code>results/_run_all/&lt;optimizer&gt;/&lt;suite&gt;/summary/*.csv</code></td></tr><tr><td>Reference comparisons (validation)</td><td><code>gsk_family.runners.verification</code></td></tr><tr><td>Reference comparisons (statistics)</td><td><code>gsk_family.analysis.family_report</code> (<code>gsk-stats</code>)</td></tr></tbody></table></div>
+<h2 id="suite-coverage">Suite Coverage</h2>
+<div class="table-wrap"><table><thead><tr><th>Suite</th><th>Python status</th><th>Notes</th></tr></thead><tbody><tr><td><code>sphere</code></td><td>Implemented</td><td>Smoke-only deterministic minimization problem.</td></tr><tr><td><code>cec2011</code></td><td>Implemented</td><td>Native-dimension constrained / engineering-style problems through the Python adapter.</td></tr><tr><td><code>cec2013</code></td><td>Implemented</td><td>Packaged benchmark data and suite metadata.</td></tr><tr><td><code>cec2013lsgo</code></td><td>Implemented</td><td>Native-dimension large-scale global optimization suite.</td></tr><tr><td><code>cec2017</code></td><td>Implemented</td><td>Excludes F2 by default, as in common CEC2017 practice.</td></tr><tr><td><code>cec2020</code></td><td>Implemented</td><td>Uses packaged data and protocol metadata.</td></tr></tbody></table></div>
+<h2 id="shape-contract">Shape Contract</h2>
+<p>The reference source passed loosely typed matrices; the Python adapter pins the shapes down and validates them. Optimizers pass a two-dimensional population:</p>
+<pre><code class="code-block language-text">(n_candidates, dimension)</code></pre>
+<p>The adapter returns a one-dimensional fitness vector:</p>
+<pre><code class="code-block language-text">(n_candidates,)</code></pre>
+<p>This contract replaces the looser reference-source matrix conventions with explicit validation (<code>as_population</code> / <code>as_fitness_vector</code>) while preserving the same candidate-row semantics.</p>
+<h2 id="worked-mapping-one-objective-call">Worked Mapping — one objective call</h2>
+<p>To evaluate one candidate for <code>cec2017</code> F1 at D=10:</p>
+<ul>
+<li>Reference source: call the suite&#x27;s objective with a candidate matrix and the</li>
+<p>function number, via the compiled bridge.</p>
+<li>Python default path: build the problem with <code>make_problem(&quot;cec2017&quot;, 1, dim=10)</code>, then call</li>
+<p><code>problem.evaluate(x)</code> where <code>x</code> has shape <code>(1, 10)</code>. The adapter validates the shape, dispatches to the bundled <code>cec_suite_python</code> data, and returns a <code>(1,)</code> vector. The budget (<code>problem.max_nfes</code>), bounds (<code>problem.lb</code>/<code>problem.ub</code>), and optimum (<code>problem.optimum</code>) that the reference source carried in separate structures are all attributes of the single <code>BenchmarkProblem</code> object.</p>
+</ul>
+<h2 id="reference-table-use">Reference Table Use</h2>
+<p>Reference tables are used for validation, not as active runtime input. The Python benchmark runtime evaluates objectives directly; validation compares generated summary statistics to imported reference statistics after a run (see <a href="reference_result_schema.html">result_schema.md</a> for the verdict format).</p>
+<p>Committed reference tables currently exist for three suites only — <code>cec2017</code>, <code>cec2013</code>, and <code>cec2011</code>, each carrying the full 7-optimizer GSK-family panel. <code>cec2020</code>, <code>cec2013lsgo</code>, and <code>sphere</code> are implemented in code (the &quot;Implemented&quot; rows above are code coverage, not reference coverage) but ship no reference tables, so validation has nothing to compare against for them.</p>
+<p>The same imported reference tables under <code>benchmarks/cec_reference_results/</code> serve a second consumer: the statistical-analysis layer (<code>gsk_family.analysis</code>, driven by <code>gsk-stats</code>) reads them as the family comparison panel — every column, the proposed optimizer included, is loaded reference-first, with locally reproduced runs as the fallback. So a reference CSV can play two roles — a validation baseline for <code>gsk-validate</code> and a panel column for the family Friedman/Wilcoxon report — without ever being fed to an optimizer at runtime.</p>
+      </article>
+    </main>
+    <aside class="page-toc" aria-label="On this page">
+<h2>On This Page</h2>
+<a class="toc-level-1" href="#benchmark-mapping">Benchmark Mapping</a>
+<a class="toc-level-2" href="#source-evidence">Source Evidence</a>
+<a class="toc-level-2" href="#python-runtime-mapping">Python Runtime Mapping</a>
+<a class="toc-level-2" href="#suite-coverage">Suite Coverage</a>
+<a class="toc-level-2" href="#shape-contract">Shape Contract</a>
+<a class="toc-level-2" href="#worked-mapping-one-objective-call">Worked Mapping — one objective call</a>
+<a class="toc-level-2" href="#reference-table-use">Reference Table Use</a>
+</aside>
+  </div>
+  <script src="assets/search.js"></script>
+</body>
+</html>

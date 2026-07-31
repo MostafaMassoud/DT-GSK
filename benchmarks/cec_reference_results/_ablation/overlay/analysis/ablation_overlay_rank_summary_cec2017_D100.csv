@@ -1,0 +1,5 @@
+cell,mean_rank,delta_rank_vs_full,best_count,n_funcs,wilcoxon_p,holm_p,significant
+full,2.0000,0.0000,11,29,,,
+no_sgsm,2.1552,+0.1552,14,29,0.8968,0.8968,no
+no_adaptive,2.8621,+0.8621,1,29,0.03932,0.07864,no
+no_finalpolish,2.9828,+0.9828,3,29,0.001742,0.005226,yes

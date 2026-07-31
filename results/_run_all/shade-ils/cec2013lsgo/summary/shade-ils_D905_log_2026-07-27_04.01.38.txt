@@ -1,0 +1,58 @@
+
+========================================================================
+DETAILED CONFIGURATION
+========================================================================
+optimizer       : shade-ils
+suite           : CEC2013LSGO
+funcs_to_run    : [2 3 4 5 6 7 8 9 10 11 12 13 14 15]
+excluded        : []
+dimensions      : [905 1000]
+runs            : 25
+base_seed       : 20240620
+seed_policy     : unified
+rand_generator  : threefry
+use_parallel    : true
+parallel_backend: process
+workers         : 13 (explicit)
+numba_threads   : auto
+generation_logs : true
+graphs          : false
+benchmark_fp    : default
+benchmark_backend: python (requested=auto)
+max_nfes        : suite default
+statistics      : raw objective
+project_root    : 02-GSK_Family_Python_v1.1
+output_dir      : results\_run_all\shade-ils\cec2013lsgo
+========================================================================
+
++----------------------------------------------------------+
+| shade-ils - CEC2013LSGO - D=905                          |
++----------------------------------------------------------+
+| 2 functions x 25 runs | Budget: 3,000,000 NFEs           |
+| Pop=100                                                  |
+| Bounds: (-100.0, 100.0)   Target error: nan              |
++----------------------------------------------------------+
+
++--------+--------------+--------------+--------------+--------------+--------------+-------------+
+|  Func  |     Best     |    Median    |     Mean     |    Worst     |      SD      |   Time/s    |
++--------+--------------+--------------+--------------+--------------+--------------+-------------+
+|  F13   |    3.12E+04  |    6.45E+04  |    7.55E+04  |    1.45E+05  |    3.59E+04  |    1938.0s  |
+|  F14   |    5.97E+06  |    6.90E+06  |    7.09E+06  |    9.86E+06  |    8.04E+05  |    2005.4s  |
++--------+--------------+--------------+--------------+--------------+--------------+-------------+
+
+[OK] Updated 2 function(s); wrote 50 new run(s)
+
++==============================================================================+
+|         Mean Comparison: SHADE-ILS vs shade-ils_cec2013lsgo (D=905)          |
++==============================================================================+
+  Zero threshold: 1e-08;  near-solved (both < 1) shown as ~ and counted =
+
++--------+--------------------+--------------+--------------+--------------+----------+
+|  Func  |Reference SHADE-ILS Mean|shade-ils Mean|Delta(New-Old)|  % Improve   |  Status  |
++--------+--------------------+--------------+--------------+--------------+----------+
+|  F13   |      1.00E+05      |   7.55E+04   |  -2.45E+04   |    24.5%     |    ^     |
+|  F14   |      5.76E+06      |   7.09E+06   |   1.33E+06   |    -23.1%    |    v     |
++--------+--------------------+--------------+--------------+--------------+----------+
+
+  Summary: ^ Improved: 1  = Same: 0  v Worse: 1
+

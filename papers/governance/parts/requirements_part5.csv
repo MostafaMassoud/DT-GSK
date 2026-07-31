@@ -1,0 +1,258 @@
+requirement_id,line_no,summary,phase,artifact,validation,owner
+R-6301,6301,"Natural-prose audit is a quality audit only, never authorship-detector evasion; check the 14.9 criteria.",cross,review_R4_editorial.md / natural-prose audit,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R4
+R-6304,6304,Rubric check (14.9): varied but controlled sentence rhythm;,cross,review_R4_editorial.md / natural-prose audit,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R4
+R-6305,6305,Rubric check (14.9): no repeated hollow transitions;,cross,review_R4_editorial.md / natural-prose audit,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R4
+R-6306,6306,Rubric check (14.9): no compulsive tricolons;,cross,review_R4_editorial.md / natural-prose audit,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R4
+R-6307,6307,Rubric check (14.9): no more than one First/Second/Third ladder per section;,cross,review_R4_editorial.md / natural-prose audit,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R4
+R-6308,6308,Rubric check (14.9): concrete paper-specific detail;,cross,review_R4_editorial.md / natural-prose audit,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R4
+R-6309,6309,"Rubric check (14.9): local, earned hedging;",cross,review_R4_editorial.md / natural-prose audit,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R4
+R-6310,6310,Rubric check (14.9): irregular but coherent paragraph lengths;,cross,review_R4_editorial.md / natural-prose audit,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R4
+R-6311,6311,Rubric check (14.9): no three consecutive generic sentences;,cross,review_R4_editorial.md / natural-prose audit,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R4
+R-6312,6312,Rubric check (14.9): no banned stock vocabulary except literal technical uses;,cross,review_R4_editorial.md / natural-prose audit,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R4
+R-6313,6313,"Rubric check (14.9): style-only revisions do not change facts, numbers, citations, labels, or claim scope.",cross,review_R4_editorial.md / natural-prose audit,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R4
+R-6318,6318,Rubric check (14.10): Are all equations native OMML and editable?,cross,review_R5_word.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R5
+R-6319,6319,Rubric check (14.10): Are all tables native Word tables?,cross,review_R5_word.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R5
+R-6320,6320,Rubric check (14.10): Are captions field-numbered and editable?,cross,review_R5_word.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R5
+R-6321,6321,Rubric check (14.10): Are cross-references functional after field update?,cross,review_R5_word.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R5
+R-6322,6322,"Rubric check (14.10): Are section, figure, table, algorithm, and equation numbers automatic?",cross,review_R5_word.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R5
+R-6323,6323,"Rubric check (14.10): Are TOC, list of figures, and list of tables updateable?",cross,review_R5_word.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R5
+R-6324,6324,Rubric check (14.10): Are citations and bibliography live/updateable?,cross,review_R5_word.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R5
+R-6325,6325,Rubric check (14.10): Are styles used consistently?,cross,review_R5_word.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R5
+R-6326,6326,Rubric check (14.10): Are diagrams vector/editable with native sources included?,cross,review_R5_word.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R5
+R-6327,6327,"Rubric check (14.10): Are tracked changes, comments, hidden text, and placeholders absent?",cross,review_R5_word.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R5
+R-6328,6328,Rubric check (14.10): Does content match LaTeX/PDF exactly?,cross,review_R5_word.md,Phase 10/12.21 adversarial review scoring; ticket on any score <=3,R5
+R-6332,6332,"Rubric check (14.11): Did ablation begin only after final algorithm, primary benchmark, statistics, and main manuscript freezes?",12,review_final_ablation.md,Phase 12 adversarial review scoring (Section 14.11); ticket on any score <=3,R2
+R-6334,6334,Rubric check (14.11): Was the frozen implementation unchanged?,12,review_final_ablation.md,Phase 12 adversarial review scoring (Section 14.11); ticket on any score <=3,R2
+R-6335,6335,Rubric check (14.11): Are all audited scaffold cells complete at all four dimensions and n=25 (baseline plus one remove-one cell per mech...,12,review_final_ablation.md,Phase 12 adversarial review scoring (Section 14.11); ticket on any score <=3,R2
+R-6339,6339,Rubric check (14.11): Is SGSM-off scope explicit for the scaffold matrix?,12,review_final_ablation.md,Phase 12 adversarial review scoring (Section 14.11); ticket on any score <=3,R2
+R-6340,6340,Rubric check (14.11): Is the direct SGSM/adaptive overlay design separate and controlled?,12,review_final_ablation.md,Phase 12 adversarial review scoring (Section 14.11); ticket on any score <=3,R2
+R-6341,6341,"Rubric check (14.11): Are marginal, incremental, and interaction claims distinguished?",12,review_final_ablation.md,Phase 12 adversarial review scoring (Section 14.11); ticket on any score <=3,R2
+R-6342,6342,Rubric check (14.11): Are effects reported per dimension without hiding sign reversals?,12,review_final_ablation.md,Phase 12 adversarial review scoring (Section 14.11); ticket on any score <=3,R2
+R-6343,6343,"Rubric check (14.11): Are statistical tests, effects, intervals, runtime, convergence, and sensitivity reported (memory when the optional...",12,review_final_ablation.md,Phase 12 adversarial review scoring (Section 14.11); ticket on any score <=3,R2
+R-6347,6347,Rubric check (14.11): Are negative/null component results retained?,12,review_final_ablation.md,Phase 12 adversarial review scoring (Section 14.11); ticket on any score <=3,R2
+R-6348,6348,Rubric check (14.11): Is every ablation result supplementary only and generated from promoted evidence-root data?,12,review_final_ablation.md,Phase 12 adversarial review scoring (Section 14.11); ticket on any score <=3,R2
+R-6357,6357,Citation-set validation system shall run the eight enumerated 15.1 checks.,cross,citation validator (Appendix E.2),15.1 automated run at Phase 9-12 gates,P9
+R-6359,6359,Citation check: parse papers/references.bib;,cross,citation validator (Appendix E.2),15.1 automated run at Phase 9-12 gates,P9
+R-6360,6360,"Citation check: compare it with papers/governance/reference_inventory.csv (the canonical governance root, Sections 3 and 12.4);",cross,citation validator (Appendix E.2),15.1 automated run at Phase 9-12 gates,P9
+R-6362,6362,"Citation check: scan LaTeX, canonical source, and Word citation fields;",cross,citation validator (Appendix E.2),15.1 automated run at Phase 9-12 gates,P9
+R-6363,6363,Citation check: verify every used key is admissible;,cross,citation validator (Appendix E.2),15.1 automated run at Phase 9-12 gates,P9
+R-6364,6364,Citation check: verify no undefined citation;,cross,citation validator (Appendix E.2),15.1 automated run at Phase 9-12 gates,P9
+R-6365,6365,Citation check: verify every rendered bibliography entry has a legitimate role;,cross,citation validator (Appendix E.2),15.1 automated run at Phase 9-12 gates,P9
+R-6366,6366,Citation check: verify main and supplement bibliographies are consistent;,cross,citation validator (Appendix E.2),15.1 automated run at Phase 9-12 gates,P9
+R-6367,6367,Citation check: reject decorative all-key forcing.,cross,citation validator (Appendix E.2),15.1 automated run at Phase 9-12 gates,P9
+R-6371,6371,Claim coverage: Every substantive sentence or paragraph shall map to one or more claim IDs.,cross,claims_evidence_matrix.csv / claim validator (E.3),15.2 claim-coverage validation at Gates 8-12,P9
+R-6372,6372,Claim coverage: Every accepted claim shall have direct or appropriately bounded support.,cross,claims_evidence_matrix.csv / claim validator (E.3),15.2 claim-coverage validation at Gates 8-12,P9
+R-6373,6373,"Claim coverage: Every abstract, conclusion, highlight, and cover-letter claim shall exist in the claims matrix.",cross,claims_evidence_matrix.csv / claim validator (E.3),15.2 claim-coverage validation at Gates 8-12,P9
+R-6375,6375,Claim coverage: Every blocked/omitted claim shall be absent from final outputs.,cross,claims_evidence_matrix.csv / claim validator (E.3),15.2 claim-coverage validation at Gates 8-12,P9
+R-6379,6379,"Number-binding validation applies to every number in main, supplement, PDF, Word, captions, highlights, cover letter.",cross,number-binding validator (E.4),15.3 assertion vs declared rounding at Gates 9-12,P5
+R-6387,6387,"Validator also checks units, directions, ties, significance marks, effect values, intervals, ranks.",cross,number-binding validator (E.4),15.3 assertion vs declared rounding at Gates 9-12,P5
+R-6392,6392,Every table/figure undergoes the eight 15.4 exhibit-binding checks.,cross,exhibit-binding validator (E.5) / artifact_binding.csv,15.4 automated exhibit checks at Gates 7-12,P5
+R-6394,6394,Exhibit binding: source evidence release exists and is immutable;,cross,exhibit-binding validator (E.5) / artifact_binding.csv,15.4 automated exhibit checks at Gates 7-12,P5
+R-6395,6395,Exhibit binding: source files and generator exist;,cross,exhibit-binding validator (E.5) / artifact_binding.csv,15.4 automated exhibit checks at Gates 7-12,P5
+R-6396,6396,Exhibit binding: command is recorded;,cross,exhibit-binding validator (E.5) / artifact_binding.csv,15.4 automated exhibit checks at Gates 7-12,P5
+R-6397,6397,Exhibit binding: checksum matches;,cross,exhibit-binding validator (E.5) / artifact_binding.csv,15.4 automated exhibit checks at Gates 7-12,P5
+R-6398,6398,Exhibit binding: caption claim IDs exist;,cross,exhibit-binding validator (E.5) / artifact_binding.csv,15.4 automated exhibit checks at Gates 7-12,P5
+R-6399,6399,Exhibit binding: artifact is referenced in the correct document;,cross,exhibit-binding validator (E.5) / artifact_binding.csv,15.4 automated exhibit checks at Gates 7-12,P5
+R-6400,6400,Exhibit binding: no unexplained output is orphaned;,cross,exhibit-binding validator (E.5) / artifact_binding.csv,15.4 automated exhibit checks at Gates 7-12,P5
+R-6401,6401,Exhibit binding: no ablation artifact appears in main.,cross,exhibit-binding validator (E.5) / artifact_binding.csv,15.4 automated exhibit checks at Gates 7-12,P5
+R-6405,6405,"Compare main and supplement across LaTeX, PDF, Word on the seven 15.5 consistency dimensions.",cross,cross_format_consistency.csv / validator (E.9),15.5 cross-document comparison at Gates 9-12,P5
+R-6420,6420,Build validation runs build_pdf.py and build_supplementary.py.,cross,papers/scripts/build_pdf.py / build_supplementary.py,15.6.1 build execution at Gates 9-12,P7
+R-6424,6424,Inspect LaTeX build logs for undefined/overfull/missing patterns.,cross,LaTeX build logs,15.6.1 log inspection at Gates 9-12,P7
+R-6435,6435,Resolve every scientifically or visually material build issue.,cross,LaTeX build logs,15.6.1 log inspection at Gates 9-12,P7
+R-6437,6437,Read measured main-manuscript page count from build log; assert Section 1.5 hard limit; only fix is 8.6 supplement migration.,cross,build log page-count gate,15.6.1 page-limit assertion,P7
+R-6445,6445,Word/OOXML build validation covers the ten 15.6.2 items.,cross,validate_docx.py (E.6-E.8),15.6.2 Word validation at Gates 9-12,P8
+R-6460,6460,Evidence release: Every reportable empirical source resides under the selected evidence release root recorded in project_configuration.md...,cross,evidence-release validator (E.1) / release manifests,15.7 evidence-release checks at Gates 6-12,P4
+R-6463,6463,Evidence release: No publication generator reads results/.,cross,evidence-release validator (E.1) / release manifests,15.7 evidence-release checks at Gates 6-12,P4
+R-6464,6464,Evidence release: Release manifests and checksums match.,cross,evidence-release validator (E.1) / release manifests,15.7 evidence-release checks at Gates 6-12,P4
+R-6465,6465,Evidence release: Previous releases remain unchanged.,cross,evidence-release validator (E.1) / release manifests,15.7 evidence-release checks at Gates 6-12,P4
+R-6466,6466,Evidence release: Promotion source and destination hashes match.,cross,evidence-release validator (E.1) / release manifests,15.7 evidence-release checks at Gates 6-12,P4
+R-6467,6467,Evidence release: Primary and ablation release IDs are explicit.,cross,evidence-release validator (E.1) / release manifests,15.7 evidence-release checks at Gates 6-12,P4
+R-6471,6471,"At final submission commit run pytest, ruff, validate_profile_lock, build_docs_html.",12,engineering gate commands,15.8 command exit codes recorded,P5
+R-6480,6480,Any unexplained engineering-gate failure blocks submission.,12,engineering gate commands,15.8 gate decision,P5
+R-6484,6484,Project is done only when every 15.9 checkbox has recorded evidence.,12,final_integrity_audit.md,Gate 12 definition-of-done review,P1
+R-6488,6488,DoD: Closed corpus identity audit complete.,12,final_integrity_audit.md,15.9.1 DoD evidence at Gate 12,P9
+R-6489,6489,DoD: Every used citation is verified and semantically correct.,12,final_integrity_audit.md,15.9.1 DoD evidence at Gate 12,P9
+R-6490,6490,DoD: No fictional or external scientific reference.,12,final_integrity_audit.md,15.9.1 DoD evidence at Gate 12,P9
+R-6491,6491,DoD: Every scientific paragraph is appropriately supported.,12,final_integrity_audit.md,15.9.1 DoD evidence at Gate 12,P9
+R-6492,6492,DoD: Claims matrix covers all manuscript and submission claims.,12,final_integrity_audit.md,15.9.1 DoD evidence at Gate 12,P9
+R-6493,6493,"DoD: Evidence gaps are omitted, narrowed, or explicitly managed.",12,final_integrity_audit.md,15.9.1 DoD evidence at Gate 12,P9
+R-6494,6494,DoD: Novelty wording is bounded to the reviewed corpus.,12,final_integrity_audit.md,15.9.1 DoD evidence at Gate 12,P9
+R-6498,6498,DoD: Inherited/modified/original decomposition complete.,12,final_integrity_audit.md,15.9.2 DoD evidence at Gate 12,P2
+R-6499,6499,"DoD: Equations, pseudocode, code, and configuration agree.",12,final_integrity_audit.md,15.9.2 DoD evidence at Gate 12,P2
+R-6500,6500,DoD: All objective evaluations count toward MaxFES.,12,final_integrity_audit.md,15.9.2 DoD evidence at Gate 12,P2
+R-6501,6501,DoD: Complexity and overhead are verified.,12,final_integrity_audit.md,15.9.2 DoD evidence at Gate 12,P2
+R-6502,6502,DoD: Final algorithm freeze manifest is complete.,12,final_integrity_audit.md,15.9.2 DoD evidence at Gate 12,P2
+R-6503,6503,DoD: No post-freeze implementation drift.,12,final_integrity_audit.md,15.9.2 DoD evidence at Gate 12,P2
+R-6507,6507,"DoD: CEC2017, CEC2011, and CEC2013 protocols verified.",12,final_integrity_audit.md,15.9.3 DoD evidence at Gate 12,P3
+R-6508,6508,DoD: Seven-algorithm panel provenance complete.,12,final_integrity_audit.md,15.9.3 DoD evidence at Gate 12,P4
+R-6509,6509,"DoD: Seeds, run counts, functions, dimensions, and sentinels verified.",12,final_integrity_audit.md,15.9.3 DoD evidence at Gate 12,P4
+R-6510,6510,DoD: Comparator fairness matrix complete.,12,final_integrity_audit.md,15.9.3 DoD evidence at Gate 12,P3
+R-6511,6511,DoD: Statistical plan frozen before final analysis.,12,final_integrity_audit.md,15.9.3 DoD evidence at Gate 12,P3
+R-6512,6512,"DoD: Tests, corrections, effects, and intervals valid.",12,final_integrity_audit.md,15.9.3 DoD evidence at Gate 12,P3
+R-6513,6513,DoD: Convergence selection pre-specified.,12,final_integrity_audit.md,15.9.3 DoD evidence at Gate 12,P3
+R-6514,6514,DoD: Every primary result resides in an immutable evidence release.,12,final_integrity_audit.md,15.9.3 DoD evidence at Gate 12,P4
+R-6515,6515,DoD: No publication fallback to results/.,12,final_integrity_audit.md,15.9.3 DoD evidence at Gate 12,P4
+R-6519,6519,DoD: All sections satisfy Part IX.,12,final_integrity_audit.md,15.9.4 DoD evidence at Gate 12,P6
+R-6520,6520,DoD: Every number/citation/exhibit is bound.,12,final_integrity_audit.md,15.9.4 DoD evidence at Gate 12,P6
+R-6521,6521,DoD: Losses and limitations are candid.,12,final_integrity_audit.md,15.9.4 DoD evidence at Gate 12,P6
+R-6522,6522,"DoD: No ablation result, table, figure, or component-effect claim appears.",12,final_integrity_audit.md,15.9.4 DoD evidence at Gate 12,P6
+R-6523,6523,DoD: Journal scope and page/word requirements are verified.,12,final_integrity_audit.md,15.9.4 DoD evidence at Gate 12,P10
+R-6524,6524,"DoD: Measured main-manuscript page count satisfies the Section 1.5 hard page-limit rule; all non-essential material (extended tables, add...",12,final_integrity_audit.md,15.9.4 DoD evidence at Gate 12,P6
+R-6528,6528,DoD: Main PDF builds cleanly.,12,final_integrity_audit.md,15.9.4 DoD evidence at Gate 12,P7
+R-6529,6529,DoD: Main Word document is fully editable and updateable.,12,final_integrity_audit.md,15.9.4 DoD evidence at Gate 12,P8
+R-6533,6533,DoD: Non-ablation supplement is complete and independent.,12,final_integrity_audit.md,15.9.5 DoD evidence at Gate 12,P6
+R-6534,6534,DoD: Ablation began only after all required freezes.,12,final_integrity_audit.md,15.9.5 DoD evidence at Gate 12,P1
+R-6535,6535,"DoD: Audited-cell CEC2017 scaffold design complete at D10/D30/D50/D100, n=25 (baseline plus one remove-one cell per mechanism active in t...",12,final_integrity_audit.md,15.9.5 DoD evidence at Gate 12,P4
+R-6539,6539,DoD: Direct SGSM/adaptive overlay analysis complete.,12,final_integrity_audit.md,15.9.5 DoD evidence at Gate 12,P3
+R-6540,6540,"DoD: Statistical, effect, interval, runtime, convergence, and sensitivity analyses complete (memory analyses when the optional pre-freeze...",12,final_integrity_audit.md,15.9.5 DoD evidence at Gate 12,P3
+R-6544,6544,DoD: Negative/null effects retained.,12,final_integrity_audit.md,15.9.5 DoD evidence at Gate 12,P3
+R-6545,6545,DoD: Raw and derived ablation evidence promoted immutably.,12,final_integrity_audit.md,15.9.5 DoD evidence at Gate 12,P4
+R-6546,6546,DoD: All ablation content is supplementary only.,12,final_integrity_audit.md,15.9.5 DoD evidence at Gate 12,P9
+R-6547,6547,DoD: Supplement PDF and Word build cleanly and independently.,12,final_integrity_audit.md,15.9.5 DoD evidence at Gate 12,P7
+R-6551,6551,DoD: Every equation is native OMML.,12,final_integrity_audit.md,15.9.6 DoD evidence at Gate 12,P8
+R-6552,6552,DoD: Every table is a native Word table.,12,final_integrity_audit.md,15.9.6 DoD evidence at Gate 12,P8
+R-6553,6553,DoD: Captions and numbering use live fields.,12,final_integrity_audit.md,15.9.6 DoD evidence at Gate 12,P8
+R-6554,6554,DoD: Cross-references remain functional.,12,final_integrity_audit.md,15.9.6 DoD evidence at Gate 12,P8
+R-6555,6555,"DoD: TOC, lists, citations, and bibliography update.",12,final_integrity_audit.md,15.9.6 DoD evidence at Gate 12,P8
+R-6556,6556,DoD: Diagrams have editable native sources.,12,final_integrity_audit.md,15.9.6 DoD evidence at Gate 12,P8
+R-6557,6557,DoD: Cross-format parity passes.,12,final_integrity_audit.md,15.9.6 DoD evidence at Gate 12,P8
+R-6558,6558,"DoD: No tracked changes, comments, hidden text, or placeholders.",12,final_integrity_audit.md,15.9.6 DoD evidence at Gate 12,P8
+R-6562,6562,"DoD: Evidence, algorithm, evaluator, environment, seeds, commands, and hashes are recorded.",12,final_integrity_audit.md,15.9.7 DoD evidence at Gate 12,P5
+R-6564,6564,DoD: Every exhibit regenerates from packaged materials.,12,final_integrity_audit.md,15.9.7 DoD evidence at Gate 12,P5
+R-6565,6565,DoD: Clean-location package rebuild succeeds.,12,final_integrity_audit.md,15.9.7 DoD evidence at Gate 12,P5
+R-6566,6566,DoD: Repository gates are green.,12,final_integrity_audit.md,15.9.7 DoD evidence at Gate 12,P5
+R-6567,6567,DoD: Package contains every referenced file and no unexplained artifact.,12,final_integrity_audit.md,15.9.7 DoD evidence at Gate 12,P5
+R-6568,6568,DoD: Cover letter and highlights stay within accepted claims.,12,final_integrity_audit.md,15.9.7 DoD evidence at Gate 12,P9
+R-6569,6569,DoD: Submission SHA and PI sign-off are recorded.,12,final_integrity_audit.md,15.9.7 DoD evidence at Gate 12,P10
+R-6575,6575,Only verified keys in the runtime intersection may be cited; expected 57-key set follows.,cross,allowed_citation_keys.txt,15.1/E.2 admissible-key check; Phase 1 audit,P9
+R-6617,6617,"Expected admissible-key count is 57 (6+13+8+5+8+4+2+8+3); audit target, not assumption.",1,reference_inventory.csv,Phase 1 identity audit; D.7.3 zero-undefined-keys check,P9
+R-6625,6625,"Citation role: mohamed2020gaining — GSK origin, inherited mechanics, thematic comparison.",cross,citation_usage_map.csv,15.1 item 6 / E.2 semantic-usage check; Phase 10 P9 audit,P9
+R-6626,6626,Citation role: mohamed2020agsk — AGSK method and family baseline.,cross,citation_usage_map.csv,15.1 item 6 / E.2 semantic-usage check; Phase 10 P9 audit,P9
+R-6627,6627,Citation role: apgsk2021 — APGSK/adaptive-parameter family baseline.,cross,citation_usage_map.csv,15.1 item 6 / E.2 semantic-usage check; Phase 10 P9 audit,P9
+R-6628,6628,Citation role: fdbagsk2023 — FDB-AGSK and fitness-distance-balance family baseline.,cross,citation_usage_map.csv,15.1 item 6 / E.2 semantic-usage check; Phase 10 P9 audit,P9
+R-6629,6629,Citation role: alfadli2025atmals — ATMALS-GSK and memory/local-search family baseline.,cross,citation_usage_map.csv,15.1 item 6 / E.2 semantic-usage check; Phase 10 P9 audit,P9
+R-6630,6630,Citation role: jawad2024egsk — eGSK family baseline and verified mechanism scope.,cross,citation_usage_map.csv,15.1 item 6 / E.2 semantic-usage check; Phase 10 P9 audit,P9
+R-6648,6648,Use each B.2 key only where its verified mechanism is discussed; never one sentence per source to force bibliography use.,cross,citation_usage_map.csv,15.1 item 6 / E.2 semantic-usage check; Phase 10 P9 audit,P9
+R-6653,6653,Citation role: storn1997differential — DE origin.,cross,citation_usage_map.csv,15.1 item 6 / E.2 semantic-usage check; Phase 10 P9 audit,P9
+R-6654,6654,Citation role: zhang2009jade — adaptive DE and external-archive lineage.,cross,citation_usage_map.csv,15.1 item 6 / E.2 semantic-usage check; Phase 10 P9 audit,P9
+R-6655,6655,"Citation role: tanabe2013shade, tanabe2014improving — SHADE/L-SHADE and population-size reduction lineage.",cross,citation_usage_map.csv,15.1 item 6 / E.2 semantic-usage check; Phase 10 P9 audit,P9
+R-6657,6657,Citation role: mohamed2017lshadespacma — hybrid competitive context.,cross,citation_usage_map.csv,15.1 item 6 / E.2 semantic-usage check; Phase 10 P9 audit,P9
+R-6658,6658,Citation role: hansen2001cmaes — covariance-adaptation conceptual comparison.,cross,citation_usage_map.csv,15.1 item 6 / E.2 semantic-usage check; Phase 10 P9 audit,P9
+R-6659,6659,Citation role: omidvar2014dg — differential grouping and decomposition comparison/future work.,cross,citation_usage_map.csv,15.1 item 6 / E.2 semantic-usage check; Phase 10 P9 audit,P9
+R-6661,6661,Citation role: guo2015eig — eigenvector crossover comparison.,cross,citation_usage_map.csv,15.1 item 6 / E.2 semantic-usage check; Phase 10 P9 audit,P9
+R-6665,6665,Citation role: awad2016problem — verified CEC2017 definition role.,cross,citation_usage_map.csv,15.1 item 6 / E.2 semantic-usage check; Phase 10 P9 audit,P9
+R-6666,6666,Citation role: das2011cec2011 — verified CEC2011 definition role.,cross,citation_usage_map.csv,15.1 item 6 / E.2 semantic-usage check; Phase 10 P9 audit,P9
+R-6667,6667,Citation role: liang2013cec2013 — verified CEC2013 definition role.,cross,citation_usage_map.csv,15.1 item 6 / E.2 semantic-usage check; Phase 10 P9 audit,P9
+R-6668,6668,"Citation role: awad2017ensemble, brest2017single — competition context only where the source supports the stated claim.",cross,citation_usage_map.csv,15.1 item 6 / E.2 semantic-usage check; Phase 10 P9 audit,P9
+R-6673,6673,"Citation role: chen2020cbo, kaveh2021pgo, arini2022gjojos, hu2022qcsca, khalfi2023csm, tang2024fowfo, zhou2021iade — taxonomy/positioning...",cross,citation_usage_map.csv,15.1 item 6 / E.2 semantic-usage check; Phase 10 P9 audit,P9
+R-6675,6675,Citation role: yao1999evolutionary — Cauchy-mutation basis when relevant to BSE.,cross,citation_usage_map.csv,15.1 item 6 / E.2 semantic-usage check; Phase 10 P9 audit,P9
+R-6679,6679,"Citation role: nelder1965simplex, gao2012implementing — Nelder–Mead.",cross,citation_usage_map.csv,15.1 item 6 / E.2 semantic-usage check; Phase 10 P9 audit,P9
+R-6680,6680,Citation role: kolda2003directsearch — compass/direct-search basis.,cross,citation_usage_map.csv,15.1 item 6 / E.2 semantic-usage check; Phase 10 P9 audit,P9
+R-6681,6681,Citation role: jones1995fitness — fitness-distance basis only where verified.,cross,citation_usage_map.csv,15.1 item 6 / E.2 semantic-usage check; Phase 10 P9 audit,P9
+R-6685,6685,"Citation role: auer2002finite, fialho2010adaptive — bandit/adaptive operator-selection grounding, not proof that the exact ACE mechanism ...",cross,citation_usage_map.csv,15.1 item 6 / E.2 semantic-usage check; Phase 10 P9 audit,P9
+R-6690,6690,"Citation role: friedman1937use, demsar2006statistical — Friedman/rank/post-hoc practice.",cross,citation_usage_map.csv,15.1 item 6 / E.2 semantic-usage check; Phase 10 P9 audit,P9
+R-6691,6691,Citation role: wilcoxon1945individual — signed-rank test.,cross,citation_usage_map.csv,15.1 item 6 / E.2 semantic-usage check; Phase 10 P9 audit,P9
+R-6692,6692,Citation role: holm1979simple — family-wise multiplicity control.,cross,citation_usage_map.csv,15.1 item 6 / E.2 semantic-usage check; Phase 10 P9 audit,P9
+R-6693,6693,Citation role: benjamini1995controlling — exploratory FDR only when used.,cross,citation_usage_map.csv,15.1 item 6 / E.2 semantic-usage check; Phase 10 P9 audit,P9
+R-6694,6694,Citation role: vargha2000critique — A12.,cross,citation_usage_map.csv,15.1 item 6 / E.2 semantic-usage check; Phase 10 P9 audit,P9
+R-6695,6695,Citation role: efron1993introduction — BCa bootstrap.,cross,citation_usage_map.csv,15.1 item 6 / E.2 semantic-usage check; Phase 10 P9 audit,P9
+R-6696,6696,Citation role: david_order_statistics — order-statistics argument only if actually used.,cross,citation_usage_map.csv,15.1 item 6 / E.2 semantic-usage check; Phase 10 P9 audit,P9
+R-6700,6700,"Citation role: wolpert1997nfl — bounded NFL premise, never proof of expected superiority.",cross,citation_usage_map.csv,15.1 item 6 / E.2 semantic-usage check; Phase 10 P9 audit,P9
+R-6701,6701,"Citation role: del2019bio, hussain2019metaheuristic — field framing and taxonomy only as supported.",cross,citation_usage_map.csv,15.1 item 6 / E.2 semantic-usage check; Phase 10 P9 audit,P9
+R-6710,6710,The agent MUST NOT perform any C.1 prohibited action.,cross,C.1 prohibition list; decision_log.md enforcement,P9 integrity audit at every gate; Section 15 validators,P9
+R-6712,6712,Prohibited: cite scientific material outside reference_papers/;,cross,C.1 prohibition list; decision_log.md enforcement,P9 integrity audit at every gate; Section 15 validators,P9
+R-6713,6713,"Prohibited: complete references, DOIs, authors, venues, or years from memory;",cross,C.1 prohibition list; decision_log.md enforcement,P9 integrity audit at every gate; Section 15 validators,P9
+R-6714,6714,Prohibited: cite a source that has not passed identity/readability audit;,cross,C.1 prohibition list; decision_log.md enforcement,P9 integrity audit at every gate; Section 15 validators,P9
+R-6715,6715,Prohibited: add decorative citations to satisfy a paragraph or bibliography quota;,cross,C.1 prohibition list; decision_log.md enforcement,P9 integrity audit at every gate; Section 15 validators,P9
+R-6716,6716,Prohibited: use \\nocite{*} to force bibliography entries;,cross,C.1 prohibition list; decision_log.md enforcement,P9 integrity audit at every gate; Section 15 validators,P9
+R-6717,6717,"Prohibited: use results/, manuscript tables, figures, or old prose as publication data;",cross,C.1 prohibition list; decision_log.md enforcement,P9 integrity audit at every gate; Section 15 validators,P9
+R-6718,6718,Prohibited: allow an empirical loader to fall back outside cec_reference_results;,cross,C.1 prohibition list; decision_log.md enforcement,P9 integrity audit at every gate; Section 15 validators,P9
+R-6719,6719,Prohibited: edit an immutable evidence release;,cross,C.1 prohibition list; decision_log.md enforcement,P9 integrity audit at every gate; Section 15 validators,P9
+R-6720,6720,"Prohibited: promote candidate evidence without validation, manifest, and checksum proof;",cross,C.1 prohibition list; decision_log.md enforcement,P9 integrity audit at every gate; Section 15 validators,P9
+R-6721,6721,"Prohibited: fabricate, estimate, interpolate, or visually read a numerical result;",cross,C.1 prohibition list; decision_log.md enforcement,P9 integrity audit at every gate; Section 15 validators,P9
+R-6722,6722,"Prohibited: select favorable functions, runs, dimensions, or curves after viewing results;",cross,C.1 prohibition list; decision_log.md enforcement,P9 integrity audit at every gate; Section 15 validators,P3
+R-6723,6723,"Prohibited: change tests, endpoints, correction families, or effect definitions after outcomes without labeling the change exploratory;",cross,C.1 prohibition list; decision_log.md enforcement,P9 integrity audit at every gate; Section 15 validators,P3
+R-6725,6725,Prohibited: claim paired inference without valid pairing;,cross,C.1 prohibition list; decision_log.md enforcement,P9 integrity audit at every gate; Section 15 validators,P3
+R-6726,6726,Prohibited: treat repeated runs as independent benchmark functions;,cross,C.1 prohibition list; decision_log.md enforcement,P9 integrity audit at every gate; Section 15 validators,P3
+R-6727,6727,"Prohibited: use rounded values to determine ranks, ties, or significance;",cross,C.1 prohibition list; decision_log.md enforcement,P9 integrity audit at every gate; Section 15 validators,P3
+R-6728,6728,Prohibited: exclude local-search/polish evaluations from MaxFES;,cross,C.1 prohibition list; decision_log.md enforcement,P9 integrity audit at every gate; Section 15 validators,P4
+R-6729,6729,Prohibited: claim general superiority from a same-family panel;,cross,C.1 prohibition list; decision_log.md enforcement,P9 integrity audit at every gate; Section 15 validators,P1
+R-6730,6730,Prohibited: claim universal novelty from a closed corpus;,cross,C.1 prohibition list; decision_log.md enforcement,P9 integrity audit at every gate; Section 15 validators,P1
+R-6731,6731,Prohibited: call CEC2013 a holdout or independent confirmation without documented development independence;,cross,C.1 prohibition list; decision_log.md enforcement,P9 integrity audit at every gate; Section 15 validators,P1
+R-6733,6733,Prohibited: execute ablation before the Phase 11 gate;,cross,C.1 prohibition list; decision_log.md enforcement,P9 integrity audit at every gate; Section 15 validators,P1
+R-6734,6734,"Prohibited: include ablation results in the main manuscript, abstract, conclusion, highlights, or cover letter;",cross,C.1 prohibition list; decision_log.md enforcement,P9 integrity audit at every gate; Section 15 validators,P1
+R-6736,6736,Prohibited: alter the frozen algorithm during final ablation;,cross,C.1 prohibition list; decision_log.md enforcement,P9 integrity audit at every gate; Section 15 validators,P2
+R-6737,6737,Prohibited: infer SGSM benefit from an SGSM-off scaffold design;,cross,C.1 prohibition list; decision_log.md enforcement,P9 integrity audit at every gate; Section 15 validators,P3
+R-6738,6738,Prohibited: infer independent causality from remove-one or order-dependent increments;,cross,C.1 prohibition list; decision_log.md enforcement,P9 integrity audit at every gate; Section 15 validators,P3
+R-6739,6739,Prohibited: hide adverse primary or ablation results;,cross,C.1 prohibition list; decision_log.md enforcement,P9 integrity audit at every gate; Section 15 validators,P1
+R-6740,6740,Prohibited: insert equations as images in Word;,cross,C.1 prohibition list; decision_log.md enforcement,P9 integrity audit at every gate; Section 15 validators,P8
+R-6741,6741,Prohibited: insert tables as images in Word;,cross,C.1 prohibition list; decision_log.md enforcement,P9 integrity audit at every gate; Section 15 validators,P8
+R-6742,6742,"Prohibited: flatten captions, numbering, cross-references, citations, or bibliography when native updateable Word fields are required;",cross,C.1 prohibition list; decision_log.md enforcement,P9 integrity audit at every gate; Section 15 validators,P8
+R-6744,6744,Prohibited: convert the PDF into Word as the manuscript-generation method;,cross,C.1 prohibition list; decision_log.md enforcement,P9 integrity audit at every gate; Section 15 validators,P8
+R-6745,6745,"Prohibited: invent author, affiliation, ORCID, funding, conflict, ethics, reviewer, or availability metadata;",cross,C.1 prohibition list; decision_log.md enforcement,P9 integrity audit at every gate; Section 15 validators,P10
+R-6747,6747,Prohibited: distribute proprietary font files; or,cross,C.1 prohibition list; decision_log.md enforcement,P9 integrity audit at every gate; Section 15 validators,P10
+R-6748,6748,Prohibited: write to evade automated authorship detectors.,cross,C.1 prohibition list; decision_log.md enforcement,P9 integrity audit at every gate; Section 15 validators,P6
+R-6752,6752,Avoid C.2 formulations unless the exact wording is supported and scoped.,cross,manuscript prose / claims_evidence_matrix.csv,Phase 10 R1/R4 review; 14.9 rubric; C.2 phrase scan,P6
+R-6777,6777,"Replace restricted formulations with exact suite, dimension, panel, test, effect, interval, cost, limitation.",cross,manuscript prose,Phase 10 R1/R4 review; C.2 phrase scan,P6
+R-6783,6783,Remove C.3 stock transitions/cliches when semantically empty.,cross,manuscript prose,14.9 natural-prose rubric; C.3 phrase scan,P6
+R-6801,6801,Literal/technically necessary use of stock terms permitted only when the term carries real meaning.,cross,manuscript prose,14.9 natural-prose rubric; C.3 phrase scan,P6
+R-6808,6808,"All Appendix D commands are expected forms; MUST be reconciled with runbook, paths, strict evidence rule, OS.",cross,project_configuration.md command reconciliation,Phase 0/2 preflight reconciliation records,P5
+R-6836,6836,Audit analogous suite launchers vs explicit campaigns; outputs stay staging until promoted; --seed-policy reference only when verified.,2,comparability_audit.md / promotion records,Phase 2/6 audit evidence,P4
+R-6850,6850,"Source guard MUST prove no fallback path; derived results go to controlled analysis area (7.13), never results/_run_all/_analysis.",6,strict source guard (E.1); papers/analysis/<release_id>/,15.7/E.1 guard proof,P4
+R-6884,6884,--ablation-root defaults to staging; after promotion (12.10) the release-rooted invocation is mandatory.,12,generate_ablation_matrix.py invocation records,E.10/15.7 ablation-release checks,P4
+R-6888,6888,Additional SGSM/cumulative/interaction/cost/convergence/sensitivity commands come from frozen preregistration; recorded in final manifest.,12,ablation preregistration + final manifest,Phase 12 manifest audit,P3
+R-6900,6900,"Word pipeline MUST expose deterministic entry points; Phase 9 audits/extends build_docx.py, adds missing validators, documents commands.",9,papers/scripts/build_docx.py + validators; project_configuration.md,Phase 9 gate; 15.6.2,P8
+R-6921,6921,Verify configured review-artifact filename (DT-GSK-CEC2017-review.pdf); missing.log must have no unexplained missing line.,2,papers/DT-GSK-CEC2017-review.pdf + _missing.log,D.6 log inspection; Phase 2/7 checks,P7
+R-6928,6928,"D.7 names are mandatory audit targets; they do not override strict-source, final-ablation, or current-repository rules.",2,asset_map.md / audit records,Phase 2-3 audit evidence,P4
+R-6935,6935,"Verify existence, actual signatures, publication-mode behaviour of the listed analysis entry points.",3,implementation_correspondence.md,Phase 3 code-correspondence audit,P5
+R-6951,6951,"Audit historical analysis CLI defaults (reference-root, results-root, proposed, alpha, no-figures, out).",2,comparability_audit.md,Phase 2 audit records,P4
+R-6962,6962,Publication --results-root fallback MUST be disabled; --out writes to controlled analysis area; scratch runs deleted or marked non-evidence.,6,strict source guard + papers/analysis/<release_id>/,E.1 guard; 15.7,P4
+R-6971,6971,"Audit run_config.json, seed_schedule.csv, environment.json provenance fields from actual files.",2,data_ledger.csv,Phase 2 provenance audit,P4
+R-6979,6979,MaxFES is not a run_config key; only max_nfes_override exists; verify per-run MaxFES from per_run.csv nfes column.,2,data_ledger.csv / per_run.csv audit,Phase 2 MaxFES accounting check,P4
+R-6983,6983,Audit expected arithmetic: CEC2013 51x28x3=4284 and CEC2017 51x29x4=5916 records per optimizer.,2,experiment_matrix.csv,Phase 2 count reconciliation,P4
+R-6990,6990,"Verify seed is a pure function of (base_seed, dim, func, run) in src/gsk_family/runners/seed_policy.py.",2,seed_policy.py audit record,Phase 2 seed verification,P4
+R-6993,6993,Verify actual CEC2011 problem/dimension schema; do not force the expected 16-CSV count if repository evidence differs.,2,data_ledger.csv,Phase 2 layout audit,P4
+R-6998,6998,Runner path rule <output_root>/<optimizer>/<suite>/; reject the doubled-path trap before evidence admission.,2,promotion validation records,Phase 2 path audit,P4
+R-7006,7006,"Treat the listed source assertions as explicit audit targets requiring verification, not assumption.",2,assumption_register.csv / audit records,Phase 2-3 canonical checks,P9
+R-7018,7018,No manuscript statement may use D.7.3 assertions until the corresponding canonical/code check passes.,8,claims_evidence_matrix.csv,15.2 claim coverage; P9 audit,P9
+R-7023,7023,Verify or deliberately migrate the expected statistical-output names and schemas.,6,primary_stats outputs,Phase 6 output-contract audit,P3
+R-7035,7035,"Authoritative stats schema SHOULD add suite, estimand, unit/resolution, canonical evidence IDs, commit, resampling unit.",6,statistical_results.csv,7.14 schema check,P3
+R-7037,7037,BCa rng argument is required and must be seeded with the frozen analysis seed.,6,bootstrap_bca_ci calls / analysis plan,Phase 6 analysis-code audit,P3
+R-7042,7042,"Audit table-generation mappings in code, including the listed expected examples.",7,papers/scripts table generators,Phase 7 generator audit,P7
+R-7053,7053,Verify T06/T11-T16 role anchors in generator code; retire stale mappings; never hand-author a table.,7,papers/scripts table generators,Phase 7 generator audit,P7
+R-7060,7060,"Audit listed flags on their owning scripts; absence on a different script is expected, not a defect.",12,run_ablation.py / generate_ablation_matrix.py / run.py,Phase 12 option audit,P4
+R-7078,7078,run_ablation.py accepts no --seed-policy/--max-evaluations; hardcodes unified seed policy; budget from suite protocol.,12,run_ablation.py audit,Phase 12 config audit,P4
+R-7087,7087,Active mechanisms MUST be in the final Phase-12 design or excluded with preregistered justification; record inactive ones.,12,ablation plan (12.3),Gate 11/12 preregistration check,P2
+R-7100,7100,Legacy aggregate path is derived/staging; final analysis must read the promoted immutable ablation release.,12,promoted ablation release,15.7/E.10 checks,P4
+R-7105,7105,Generate legacy names as views/aliases of authoritative governance artifacts; no conflicting sources of truth.,cross,governance views/aliases,P5 audit of alias generation,P5
+R-7122,7122,Status token pending-phase-2 is superseded; final ablation rows use planned-phase-12 until Gate 11 authorizes execution.,12,experiment_matrix.csv statuses,Gate 11 authorization check,P5
+R-7128,7128,Audit but do not require the legacy companion files.,0,instruction_precedence.md,Phase 0 task 2 inventory,P1
+R-7144,7144,Every still-valid companion requirement must be in this master; no companion needed to execute the project.,0,instruction_precedence.md / this master,Phase 0 precedence resolution,P1
+R-7150,7150,Preserve D.9 strings as compatibility audit targets; Section 3 schemas stay authoritative; aliases MUST NOT create second source of truth.,cross,governance schemas + legacy views,P5 alias audit,P5
+R-7171,7171,Audit the exact D.9 path/glob patterns when they exist.,2,preflight/asset inventory,Phase 2 path audit,P5
+R-7189,7189,Audit compatibility patterns for generated cells and LaTeX bindings.,7,table/figure generators; ablation cells,Phase 7/12 binding audit,P5
+R-7203,7203,Treat listed historical CLI messages as hard configuration/input failures; never fall back or continue silently.,6,analysis CLI runs,E.1 guard; run logs,P4
+R-7211,7211,Historical PHASE_0..9 range and companion pattern superseded by the Phase 0-12 model; compatibility identifiers only.,0,instruction_precedence.md,Phase 0 precedence record,P1
+R-7223,7223,Strict source guard: every empirical open resolves inside the selected release and never under results root.,cross,strict source guard (E.1),15.7 evidence-release validation,P5
+R-7229,7229,Use an equivalent safe implementation on Python versions without Path.is_relative_to.,cross,E.1 guard implementation,code review of guard,P5
+R-7235,7235,Citation validator: used keys subset of bib and admissible; no undefined; semantic map complete; no nocite*.,cross,citation validator (E.2),15.1 citation-set validation,P9
+R-7251,7251,Claim-coverage validator: every scientific paragraph has claim IDs with accepted support and evidence anchor.,cross,claim validator (E.3),15.2 claim-coverage validation,P9
+R-7260,7260,Number-binding validator: displayed value equals declared rounding of recomputed full-precision source.,cross,number validator (E.4),15.3 number-binding validation,P5
+R-7267,7267,"Exclude page numbers, citation years, labels, non-result numerals via an explicit allowlist.",cross,E.4 allowlist,15.3 number-binding validation,P5
+R-7273,7273,"Exhibit-binding validator: generator/inputs exist, checksums match, labels resolve, caption scope and destination correct.",cross,exhibit validator (E.5),15.4 exhibit-binding validation,P5
+R-7286,7286,"OMML validator: every equation is native m:oMath(Para), semantically equal to canonical math, never an image.",cross,OMML validator (E.6),15.6.2 Word validation,P8
+R-7297,7297,"Native-table validator: every table is w:tbl with cells equal to authoritative display values, never an image.",cross,table validator (E.7),15.6.2 Word validation,P8
+R-7307,7307,"Word-field validator: TOC/SEQ/REF/CITATION/BIBLIOGRAPHY present, bookmarks resolve, fields update, no repair prompt.",cross,field validator (E.8),15.6.2 Word validation,P8
+R-7317,7317,Adjust required Word fields only when the verified journal explicitly does not need a list or field type.,4,E.8 required-field set,Phase 4 journal verification,P8
+R-7323,7323,Cross-format validator: normalized LaTeX and DOCX extraction equal for every canonical logical artifact.,cross,cross-format validator (E.9),15.5 cross-document validation,P5
+R-7328,7328,"Numbers, equations, labels, captions, citation keys need exact semantic comparison; wrapping/layout may differ.",cross,E.9 comparison rules,15.5 cross-document validation,P5
+R-7334,7334,"Ablation phase-order validator: Gate 11 signed, hashes match freezes, ablation starts after signature.",12,phase-order validator (E.10),Phase 12 entry check,P5
+R-7344,7344,"Scan every output surface (canonical, LaTeX, PDF, DOCX XML, hidden text, captions, figures, highlights, cover letter) for ablation content.",12,ablation prohibition scanner (E.11),1.3/15.9.4 prohibition gate,P9
+R-7352,7352,Allow only the approved neutral supplementary pointer in the main manuscript.,12,E.11 scanner allowlist,1.3/E.11 scan,P9
+R-7358,7358,Answer each reviewer point using the Appendix F response template.,10,reviewer response documents,Phase 10 revision_log.md checks,P6
+R-7375,7375,"Keep responses factual, courteous, evidence-led; never claim a change absent from both final formats.",10,reviewer responses,P9/R4 review of responses,P6
+R-7382,7382,Final package manifest MUST include at least the Appendix G schema columns.,12,final package manifest,Phase 12 packaging gate,P10
+R-7390,7390,Final package MUST contain all twelve mandatory artifact groups.,12,final package,Phase 12 packaging gate; 15.9.7,P10
+R-7447,7447,Machine-readable line-by-line review matrix MUST accompany master; every nonblank line mapped; none unmapped or partial.,0,source_line_traceability.csv + requirements_traceability_matrix.csv,Phase 0 validation; final gate check,P1
+R-7457,7457,Begin with Phase 0; the first work product MUST contain the listed elements.,0,PHASE_0_readiness.md + governance registers,Gate 0 review,P1
+R-7469,7469,"First work product: no manuscript prose, no primary analyses, no final exhibits, no ablation.",0,Phase 0 outputs,Gate 0 review,P1

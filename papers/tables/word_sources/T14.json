@@ -1,0 +1,71 @@
+{
+ "table_id": "T14",
+ "manuscript_label": "Table 14",
+ "caption_stub": "CEC2013 per-dimension Wilcoxon signed-rank summary, DT-GSK vs GSK (R+/R-, p-value, win/tie/loss; D=10/30/50).",
+ "headers": [
+  [
+   "Metric",
+   "D10",
+   "D30",
+   "D50"
+  ]
+ ],
+ "rows": [
+  [
+   "R+",
+   "340",
+   "286",
+   "314"
+  ],
+  [
+   "R-",
+   "11",
+   "65",
+   "37"
+  ],
+  [
+   "p_value",
+   "<10^-4",
+   "0.005209751",
+   "0.0004568309"
+  ],
+  [
+   "p_holm",
+   "0.0001867032",
+   "0.0312585",
+   "0.002740986"
+  ],
+  [
+   "Wins(+)",
+   "24",
+   "21",
+   "24"
+  ],
+  [
+   "Ties(=)",
+   "2",
+   "2",
+   "2"
+  ],
+  [
+   "Losses(-)",
+   "2",
+   "5",
+   "2"
+  ],
+  [
+   "Decision",
+   "+",
+   "+",
+   "+"
+  ]
+ ],
+ "notes": [
+  "values transcribed verbatim from the Phase 6 export of release rel-2026-07-20-67d9345f9; see benchmarks/cec_reference_results/_paper_tables/provenance.json",
+  "display names at Word build time MUST apply the frozen Phase 4 glossary: EGSK -> eGSK, FDBAGSK -> FDB-AGSK (headers/rows here are verbatim CSV identifiers, not display names)",
+  "R+ favors DT-GSK; ties |d|<1e-8 dropped"
+ ],
+ "number_format": "as-is",
+ "source_csv": "benchmarks/cec_reference_results/_paper_tables/T14.csv",
+ "source_sha256": "49da04b0c2c5c235553f79a98551acbd2e3cb18d0f12789c305961a6aaead6a1"
+}

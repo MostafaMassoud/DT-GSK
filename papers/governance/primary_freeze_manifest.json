@@ -1,0 +1,70 @@
+{
+  "schema": "primary_freeze_manifest/v1",
+  "phase": "Phase 11 - Primary manuscript finalization and pre-ablation freeze",
+  "generated_utc": "2026-07-11T08:35:12Z",
+  "anchor_commit": "cffcbb48153fd6395c67bb35ece0107269c15694",
+  "release_id": "rel-2026-07-10-262fc16c9",
+  "primary_evidence_release": {
+    "release_id": "rel-2026-07-10-262fc16c9",
+    "status": "IMMUTABLE (read-only; Phase 2 controlled release)",
+    "evidence_release_manifest": {
+      "path": "papers/governance/evidence_release_manifest.json",
+      "sha256": "a9146c719f9e0907c7b597f864c1835718a6b0ff2678c4da9ce5f70ca432ba87",
+      "bytes": 638392
+    }
+  },
+  "analysis_bundle": {
+    "description": "Phase 6 primary statistical analysis bundle (strict-source, deterministic).",
+    "analysis_checksums": {
+      "path": "papers/analysis/rel-2026-07-10-262fc16c9/analysis_checksums.sha256",
+      "sha256": "58a9b1341732fc2fe1a34fb88bdcf3c7b19636189ef35c8f843580f73d1f2412",
+      "bytes": 18639
+    }
+  },
+  "source_use_audit_reference": {
+    "description": "Strict-source (GSK_STRICT_SOURCE) audit: every analysis open resolved under the immutable release; zero ablation reads.",
+    "files": [
+      {
+        "path": "papers/analysis/rel-2026-07-10-262fc16c9/source_precheck.json",
+        "sha256": "4f53b28db280ecec27bf3d4cd27aab6ab38321d0379b9bbfb25ef2405b0253dc",
+        "bytes": 7544
+      },
+      {
+        "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/source_use_log.json",
+        "sha256": "44a1ea7993bd15a36e451dcaa582c0be5d0164a86e73ede9b8d5931d86d4b5a5",
+        "bytes": 179482
+      },
+      {
+        "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2013/source_use_log.json",
+        "sha256": "a966adf43c4514468f4b3227585cb203de0839dfa8c6b21d3515a1812d3930c6",
+        "bytes": 47094
+      },
+      {
+        "path": "papers/analysis/rel-2026-07-10-262fc16c9/cec2011/source_use_log.json",
+        "sha256": "947a2e149e0916324c0fe7921c6965d6f3befdc7b1677fa347f8fa94b1617eee",
+        "bytes": 35511
+      }
+    ]
+  },
+  "artifact_binding_coverage": {
+    "path": "papers/governance/artifact_binding.csv",
+    "sha256": "5186ed24bf92f817672122c6abbe6d8e4743e3f3cb495e2f9dac4e76df8ec57f",
+    "artifact_rows": 55,
+    "note": "Every shipped exhibit is bound to a named generator + source checksums + evidence release; coverage verified orphan-clean at Gate 7."
+  },
+  "hash_algorithm": "SHA-256",
+  "scientific_content_status": "FROZEN_BEFORE_ABLATION",
+  "cr_0006_refreeze": {
+    "date_utc": "2026-07-11",
+    "change_request": "CR-0006 (A2-004 apgsk CEC2017 D10/D30/D50 per-run data-loss correction; decision_log D-0011; APPROVED P1)",
+    "statement": "CR-0006 Stage-3 re-freeze of the primary analysis-bundle provenance. The apgsk CEC2017 D10/D30/D50 per_run.csv was recovered by a validated deterministic re-derivation that reproduces the frozen summary CSVs EXACTLY, and phase6_run_analysis.py recomputed the formerly disclosed-unavailable apgsk run-level cells. Substantive data changes are confined to apgsk at CEC2017 D10/D30/D50 (run-level Wilcoxon AN-PWRUN/AN-EXP-BH, effect sizes AN-EFF A12/Cliff/BCa, success-rate AN-DESC, runtime AN-COST) plus the shared source_checksums that embed the recovered file hash; every other algorithm's statistical results are byte-identical, and the frozen summary CSVs (descriptive_stats_*, results/paper_tables/T*.csv) are unmodified. artifact_binding.csv is byte-identical (no bound exhibit source references a changed file). The six provenance files below were re-hashed; the cec2013/cec2011 source_use_log changes are run-timestamp-only (source reads and checksums for those suites are unchanged).",
+    "updated_paths": [
+      "papers/governance/evidence_release_manifest.json",
+      "papers/analysis/rel-2026-07-10-262fc16c9/analysis_checksums.sha256",
+      "papers/analysis/rel-2026-07-10-262fc16c9/source_precheck.json",
+      "papers/analysis/rel-2026-07-10-262fc16c9/cec2017/source_use_log.json",
+      "papers/analysis/rel-2026-07-10-262fc16c9/cec2013/source_use_log.json",
+      "papers/analysis/rel-2026-07-10-262fc16c9/cec2011/source_use_log.json"
+    ]
+  }
+}

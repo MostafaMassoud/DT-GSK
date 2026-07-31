@@ -1,0 +1,191 @@
+
+DT-GSK.docx: 33 PASS / 0 FAIL
+{
+  "file": "papers\\DT-GSK.docx",
+  "ok": true,
+  "checks": [
+    {
+      "check": "zip_integrity",
+      "status": "PASS",
+      "detail": "zip CRC ok"
+    },
+    {
+      "check": "zip_unique_part_names",
+      "status": "PASS",
+      "detail": "26 parts"
+    },
+    {
+      "check": "xml_well_formed",
+      "status": "PASS",
+      "detail": "19 XML parts parsed"
+    },
+    {
+      "check": "required_parts",
+      "status": "PASS",
+      "detail": "all required parts present"
+    },
+    {
+      "check": "content_types_cover_all_parts",
+      "status": "PASS",
+      "detail": "3 defaults + 20 overrides"
+    },
+    {
+      "check": "relationship_targets_resolve",
+      "status": "PASS",
+      "detail": "4 rels parts clean"
+    },
+    {
+      "check": "document_rids_resolve",
+      "status": "PASS",
+      "detail": "42 r:id references resolve"
+    },
+    {
+      "check": "root_body_sectpr",
+      "status": "PASS",
+      "detail": "w:document/w:body present, sectPr terminal"
+    },
+    {
+      "check": "no_invalid_control_chars",
+      "status": "PASS",
+      "detail": "text nodes clean"
+    },
+    {
+      "check": "omml_present",
+      "status": "PASS",
+      "detail": "727 m:oMath (0 m:oMathPara)"
+    },
+    {
+      "check": "zero_equation_images",
+      "status": "PASS",
+      "detail": "7 drawings + 0 OLE vs 7 canonical \\includegraphics; formula-named media: []"
+    },
+    {
+      "check": "alt_text_on_every_image",
+      "status": "PASS",
+      "detail": "7/7 images carry descr"
+    },
+    {
+      "check": "unique_drawing_docpr_ids",
+      "status": "PASS",
+      "detail": "7 unique ids"
+    },
+    {
+      "check": "table_count_vs_source",
+      "status": "PASS",
+      "detail": "15 w:tbl vs 15 canonical table environments"
+    },
+    {
+      "check": "table_structure_sane",
+      "status": "PASS",
+      "detail": "tblGrid/gridSpan consistent, no empty rows/cells"
+    },
+    {
+      "check": "fldchar_balance",
+      "status": "PASS",
+      "detail": "begin=272 end=272 separate=272"
+    },
+    {
+      "check": "toc_field_absent",
+      "status": "PASS",
+      "detail": "0 TOC fields (expected 0: DOCX matches the no-TOC PDF)"
+    },
+    {
+      "check": "fields_have_cached_results",
+      "status": "PASS",
+      "detail": "every SEQ/REF/CITATION carries a cached result"
+    },
+    {
+      "check": "seq_names_expected",
+      "status": "PASS",
+      "detail": "SEQ names: ['Algorithm', 'Equation', 'Figure', 'Table']"
+    },
+    {
+      "check": "bookmark_pairing",
+      "status": "PASS",
+      "detail": "136 starts / 136 ends, ids paired"
+    },
+    {
+      "check": "bookmark_ids_unique",
+      "status": "PASS",
+      "detail": "ids unique"
+    },
+    {
+      "check": "bookmark_names_unique",
+      "status": "PASS",
+      "detail": "names unique"
+    },
+    {
+      "check": "bookmark_names_word_legal",
+      "status": "PASS",
+      "detail": "all names [A-Za-z0-9_], len<=40, letter-initial"
+    },
+    {
+      "check": "ref_targets_exist",
+      "status": "PASS",
+      "detail": "150 REF fields all target bookmarks"
+    },
+    {
+      "check": "field_registry_agrees",
+      "status": "PASS",
+      "detail": "340 registry rows match package inventory"
+    },
+    {
+      "check": "citation_store_present_and_wired",
+      "status": "PASS",
+      "detail": "b:Sources with 40 entries; itemProps/rels/content-type/document-rel wiring ok"
+    },
+    {
+      "check": "citation_store_count_vs_aux",
+      "status": "PASS",
+      "detail": "40 sources vs 40 cited keys in frozen .aux"
+    },
+    {
+      "check": "no_update_fields_on_open",
+      "status": "PASS",
+      "detail": "w:updateFields=false"
+    },
+    {
+      "check": "referenced_styles_defined",
+      "status": "PASS",
+      "detail": "21 referenced style ids all defined"
+    },
+    {
+      "check": "no_unresolved_markers",
+      "status": "PASS",
+      "detail": "0 @@ markers"
+    },
+    {
+      "check": "no_ablation_tokens_any_part",
+      "status": "PASS",
+      "detail": "tokens ('ablation', 'ablat', 'phase_12_placeholder', 'do not release') absent from all 26 parts"
+    },
+    {
+      "check": "s6_placeholder_not_rendered",
+      "status": "PASS",
+      "detail": "no rendered S6 heading/paragraph"
+    },
+    {
+      "check": "python_docx_opens",
+      "status": "PASS",
+      "detail": "docx.Document() ok"
+    }
+  ],
+  "counts": {
+    "m_oMath": 727,
+    "m_oMathPara": 0,
+    "images_embedded": 7,
+    "ole_objects": 0,
+    "media_parts": 7,
+    "images_with_alt": 7,
+    "w_tbl": 15,
+    "field_SEQ": 35,
+    "field_REF": 150,
+    "field_CITATION": 87,
+    "field_TOC": 0,
+    "fields_total": 272,
+    "bookmarks": 136,
+    "citation_sources": 40,
+    "markers_left": 0
+  },
+  "warnings": []
+}

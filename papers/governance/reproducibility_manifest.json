@@ -1,0 +1,522 @@
+{
+  "schema": "PAPER_BUILD_PROMPT.md Section 3.1 (environment, seeds, hashes, commands, outputs) with Section 2.12 manifest fields",
+  "created_phase": "Phase 0",
+  "created_date": "2026-07-10",
+  "project_root": "D:/AI/PhD-Projects/00-GSK-Family/02-GSK_Family_Python_v1.1",
+  "git_root": "D:/AI/PhD-Projects",
+  "anchor_commit": "67d9345f9502a9a584e645fa8948f60a61d70e29",
+  "branch": "main",
+  "environment": {
+    "environment_id": "phase0-preflight-host",
+    "os": "Windows-10-10.0.26200-SP0",
+    "machine": "AMD64",
+    "python": "3.10.11",
+    "python_executable": "C:\\AI\\Python\\Python310\\python.exe",
+    "toolchain": {
+      "python": {
+        "version_line": "Python 3.10.11",
+        "exit_code": 0
+      },
+      "pip": {
+        "version_line": "pip 26.1.2 from C:\\AI\\Python\\Python310\\lib\\site-packages\\pip (python 3.10)",
+        "exit_code": 0
+      },
+      "git": {
+        "version_line": "git version 2.49.0.windows.1",
+        "exit_code": 0
+      },
+      "pdflatex": {
+        "version_line": "MiKTeX-pdfTeX 4.27 (MiKTeX 26.5)",
+        "exit_code": 0
+      },
+      "latexmk": {
+        "version_line": "Latexmk, John Collins, 9 March 2026. Version 4.88",
+        "exit_code": 0
+      },
+      "xelatex": {
+        "version_line": "MiKTeX-XeTeX 4.18 (MiKTeX 26.5)",
+        "exit_code": 0
+      },
+      "bibtex": {
+        "version_line": "MiKTeX-BibTeX 4.2 (MiKTeX 26.5)",
+        "exit_code": 0
+      },
+      "biber": {
+        "version_line": "biber version: 2.21",
+        "exit_code": 0
+      },
+      "pandoc": {
+        "version_line": "pandoc 3.9.0.2",
+        "exit_code": 0
+      },
+      "tar": {
+        "version_line": "bsdtar 3.8.4 - libarchive 3.8.4 zlib/1.2.13.1-motley liblzma/5.8.1 bz2lib/1.0.8 libzstd/1.5.7 cng/2.0 libb2/bundled",
+        "exit_code": 0
+      },
+      "certutil": {
+        "version_line": "CertUtil (Windows built-in); -hashfile SHA256 verified working",
+        "exit_code": 0
+      },
+      "Get-FileHash": {
+        "version_line": "PowerShell 5.1 cmdlet present",
+        "exit_code": 0
+      },
+      "7z": {
+        "version_line": "[tool not found]",
+        "exit_code": null
+      },
+      "python_module_docx": {
+        "version_line": "1.2.0",
+        "exit_code": 0
+      },
+      "python_module_pypandoc": {
+        "version_line": "[not importable]",
+        "exit_code": 1
+      }
+    },
+    "fp_sentinel": "not yet bound (Phase 2/6 responsibility)"
+  },
+  "seeds": {
+    "note": "No seeds consumed in Phase 0; seed formula/schedule bound in Phase 2 per Section 6.4."
+  },
+  "source_hashes": {
+    "note": "Evidence checksums bound in Phase 2 (data_ledger.csv / evidence_release_manifest.json); none consumed in Phase 0."
+  },
+  "commands": [
+    {
+      "command_id": "git_status_scoped",
+      "command": "git status --porcelain -- .",
+      "cwd": "D:/AI/PhD-Projects/00-GSK-Family/02-GSK_Family_Python_v1.1",
+      "date": "2026-07-10",
+      "exit_code": 0,
+      "output_verbatim": " M 00-GSK-Family/02-GSK_Family_Python_v1.1/results/_ablation/baseline/dt-gsk/cec2017/summary/dt-gsk_cec2017_D100.csv\n M 00-GSK-Family/02-GSK_Family_Python_v1.1/results/_ablation/baseline/dt-gsk/cec2017/summary/per_run.csv\n?? 00-GSK-Family/02-GSK_Family_Python_v1.1/results/_ablation/baseline/dt-gsk/cec2017/curves/Figure_F25_D100_Run#5.csv\n?? 00-GSK-Family/02-GSK_Family_Python_v1.1/results/_ablation/baseline/dt-gsk/cec2017/curves/Figure_F26_D100_Run#22.csv\n?? 00-GSK-Family/02-GSK_Family_Python_v1.1/results/_ablation/baseline/dt-gsk/cec2017/curves/Figure_F27_D100_Run#15.csv\n?? 00-GSK-Family/02-GSK_Family_Python_v1.1/results/_ablation/baseline/dt-gsk/cec2017/curves/Figure_F28_D100_Run#25.csv\n?? 00-GSK-Family/02-GSK_Family_Python_v1.1/results/_ablation/baseline/dt-gsk/cec2017/curves/Figure_F29_D100_Run#2.csv\n?? 00-GSK-Family/02-GSK_Family_Python_v1.1/results/_ablation/baseline/dt-gsk/cec2017/curves/Figure_F30_D100_Run#21.csv\n?? 00-GSK-Family/02-GSK_Family_Python_v1.1/results/_ablation/baseline/dt-gsk/cec2017/summary/environment.json\n?? 00-GSK-Family/02-GSK_Family_Python_v1.1/results/_ablation/baseline/dt-gsk/cec2017/summary/dt-gsk_D100_log_2026-07-10_15.00.23.txt\n?? 00-GSK-Family/02-GSK_Family_Python_v1.1/results/_ablation/baseline/dt-gsk/cec2017/summary/dt-gsk_D100_runs_log_2026-07-10_15.00.23.txt\n?? 00-GSK-Family/02-GSK_Family_Python_v1.1/results/_ablation/baseline/dt-gsk/cec2017/summary/dt-gsk_D10_log_2026-07-10_15.00.23.txt\n?? 00-GSK-Family/02-GSK_Family_Python_v1.1/results/_ablation/baseline/dt-gsk/cec2017/summary/dt-gsk_D10_runs_log_2026-07-10_15.00.23.txt\n?? 00-GSK-Family/02-GSK_Family_Python_v1.1/results/_ablation/baseline/dt-gsk/cec2017/summary/dt-gsk_D30_log_2026-07-10_15.00.23.txt\n?? 00-GSK-Family/02-GSK_Family_Python_v1.1/results/_ablation/baseline/dt-gsk/cec2017/summary/dt-gsk_D30_runs_log_2026-07-10_15.00.23.txt\n?? 00-GSK-Family/02-GSK_Family_Python_v1.1/results/_ablation/baseline/dt-gsk/cec2017/summary/dt-gsk_D50_log_2026-07-10_15.00.23.txt\n?? 00-GSK-Family/02-GSK_Family_Python_v1.1/results/_ablation/baseline/dt-gsk/cec2017/summary/dt-gsk_D50_runs_log_2026-07-10_15.00.23.txt\n?? 00-GSK-Family/02-GSK_Family_Python_v1.1/results/_ablation/baseline/dt-gsk/cec2017/summary/verification.json\n?? 00-GSK-Family/02-GSK_Family_Python_v1.1/results/_ablation/no_ace/\n?? 00-GSK-Family/02-GSK_Family_Python_v1.1/results/_ablation/no_psr/\n",
+      "output_sha256": "c2ade2e3e8be39dfed48ea7f3cd64b7ceadd8e6deb92dfb3b2ef094fd3240e69"
+    },
+    {
+      "command_id": "git_rev_parse_head",
+      "command": "git rev-parse HEAD",
+      "cwd": "D:/AI/PhD-Projects/00-GSK-Family/02-GSK_Family_Python_v1.1",
+      "date": "2026-07-10",
+      "exit_code": 0,
+      "output_verbatim": "262fc16c91fbe5608a1a0b0c5df3cbcd009edc21\n",
+      "output_sha256": "56aaa7ba1013956512770f344f81c28b0685cb8d150a3112e202c3d462438acd"
+    },
+    {
+      "command_id": "git_branch_show_current",
+      "command": "git branch --show-current",
+      "cwd": "D:/AI/PhD-Projects/00-GSK-Family/02-GSK_Family_Python_v1.1",
+      "date": "2026-07-10",
+      "exit_code": 0,
+      "output_verbatim": "main\n",
+      "output_sha256": "6403203dd5a0867eb14d104ee8a73730bd72dd9ad92e78d996a6dba0a5dcfc01"
+    },
+    {
+      "command_id": "git_submodule_status",
+      "command": "git submodule status",
+      "cwd": "D:/AI/PhD-Projects/00-GSK-Family/02-GSK_Family_Python_v1.1",
+      "date": "2026-07-10",
+      "exit_code": 0,
+      "output_verbatim": "",
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command_id": "git_rev_list_1_head",
+      "command": "git rev-list -1 HEAD",
+      "cwd": "D:/AI/PhD-Projects/00-GSK-Family/02-GSK_Family_Python_v1.1",
+      "date": "2026-07-10",
+      "exit_code": 0,
+      "output_verbatim": "262fc16c91fbe5608a1a0b0c5df3cbcd009edc21\n",
+      "output_sha256": "56aaa7ba1013956512770f344f81c28b0685cb8d150a3112e202c3d462438acd"
+    },
+    {
+      "command_id": "git_rev_parse_show_toplevel",
+      "command": "git rev-parse --show-toplevel",
+      "cwd": "D:/AI/PhD-Projects/00-GSK-Family/02-GSK_Family_Python_v1.1",
+      "date": "2026-07-10",
+      "exit_code": 0,
+      "output_verbatim": "D:/AI/PhD-Projects\n",
+      "output_sha256": "af5ed3f06e908fdc8a0a5b8a004883df66f84764b52eccae05b66dbb8f420f81"
+    },
+    {
+      "command_id": "git_remote_v",
+      "command": "git remote -v",
+      "cwd": "D:/AI/PhD-Projects/00-GSK-Family/02-GSK_Family_Python_v1.1",
+      "date": "2026-07-10",
+      "exit_code": 0,
+      "output_verbatim": "origin\thttps://github.com/MostafaMassoud/PhD-Projects.git (fetch)\norigin\thttps://github.com/MostafaMassoud/PhD-Projects.git (push)\n",
+      "output_sha256": "d3c283295a868385952b885c369dca213e2f983aefa4e78b924ab611097d3d28"
+    }
+  ],
+  "outputs": {
+    "note": "Phase 0 writes governance artifacts only, under papers/governance/.",
+    "artifacts": [
+      "papers/governance/project_configuration.md",
+      "papers/governance/instruction_precedence.md",
+      "papers/governance/decision_log.md",
+      "papers/governance/assumption_register.csv",
+      "papers/governance/risk_register.csv",
+      "papers/governance/phase_gate_register.csv",
+      "papers/governance/change_request_register.csv",
+      "papers/governance/reproducibility_manifest.json",
+      "papers/governance/administrative_gap_register.md",
+      "papers/governance/preflight_inventory.csv",
+      "papers/governance/engineering_preflight.md",
+      "papers/governance/source_line_traceability.csv",
+      "papers/governance/requirements_traceability_matrix.csv",
+      "papers/governance/parts/ (construction parts 0-5 for both traceability files; retained as gate evidence)",
+      "papers/governance/PHASE_0_readiness.md"
+    ]
+  },
+  "exclusions_repairs_failures_deviations": [
+    "Live staging campaign (scripts/run_ablation.py) writing to results/_ablation/ during preflight; recorded as non-blocking per Section 0.3 staging-only rule.",
+    "7z absent; GNU tar 1.35 + certutil/Get-FileHash serve archive/checksum roles.",
+    "pypandoc python module not importable; pandoc 3.9.0.2 CLI present (Phase 9 dependency note).",
+    "NTFS ACL read-only enforcement on benchmarks/cec_reference_results NOT applied (icacls requires elevation); enforced procedurally (documented technical limitation)."
+  ],
+  "phase0_verification": {
+    "procedure": "Phase 0 verification: re-run git status --porcelain -- . and compare with the initial snapshot",
+    "date": "2026-07-10",
+    "command": "git status --porcelain -- .",
+    "cwd": "D:/AI/PhD-Projects/00-GSK-Family/02-GSK_Family_Python_v1.1",
+    "exit_code": 0,
+    "output_verbatim": " M 00-GSK-Family/02-GSK_Family_Python_v1.1/results/_ablation/baseline/dt-gsk/cec2017/summary/dt-gsk_cec2017_D100.csv\n M 00-GSK-Family/02-GSK_Family_Python_v1.1/results/_ablation/baseline/dt-gsk/cec2017/summary/per_run.csv\n?? 00-GSK-Family/02-GSK_Family_Python_v1.1/papers/governance/\n?? 00-GSK-Family/02-GSK_Family_Python_v1.1/results/_ablation/baseline/dt-gsk/cec2017/curves/Figure_F25_D100_Run#5.csv\n?? 00-GSK-Family/02-GSK_Family_Python_v1.1/results/_ablation/baseline/dt-gsk/cec2017/curves/Figure_F26_D100_Run#22.csv\n?? 00-GSK-Family/02-GSK_Family_Python_v1.1/results/_ablation/baseline/dt-gsk/cec2017/curves/Figure_F27_D100_Run#15.csv\n?? 00-GSK-Family/02-GSK_Family_Python_v1.1/results/_ablation/baseline/dt-gsk/cec2017/curves/Figure_F28_D100_Run#25.csv\n?? 00-GSK-Family/02-GSK_Family_Python_v1.1/results/_ablation/baseline/dt-gsk/cec2017/curves/Figure_F29_D100_Run#2.csv\n?? 00-GSK-Family/02-GSK_Family_Python_v1.1/results/_ablation/baseline/dt-gsk/cec2017/curves/Figure_F30_D100_Run#21.csv\n?? 00-GSK-Family/02-GSK_Family_Python_v1.1/results/_ablation/baseline/dt-gsk/cec2017/summary/environment.json\n?? 00-GSK-Family/02-GSK_Family_Python_v1.1/results/_ablation/baseline/dt-gsk/cec2017/summary/dt-gsk_D100_log_2026-07-10_15.00.23.txt\n?? 00-GSK-Family/02-GSK_Family_Python_v1.1/results/_ablation/baseline/dt-gsk/cec2017/summary/dt-gsk_D100_runs_log_2026-07-10_15.00.23.txt\n?? 00-GSK-Family/02-GSK_Family_Python_v1.1/results/_ablation/baseline/dt-gsk/cec2017/summary/dt-gsk_D10_log_2026-07-10_15.00.23.txt\n?? 00-GSK-Family/02-GSK_Family_Python_v1.1/results/_ablation/baseline/dt-gsk/cec2017/summary/dt-gsk_D10_runs_log_2026-07-10_15.00.23.txt\n?? 00-GSK-Family/02-GSK_Family_Python_v1.1/results/_ablation/baseline/dt-gsk/cec2017/summary/dt-gsk_D30_log_2026-07-10_15.00.23.txt\n?? 00-GSK-Family/02-GSK_Family_Python_v1.1/results/_ablation/baseline/dt-gsk/cec2017/summary/dt-gsk_D30_runs_log_2026-07-10_15.00.23.txt\n?? 00-GSK-Family/02-GSK_Family_Python_v1.1/results/_ablation/baseline/dt-gsk/cec2017/summary/dt-gsk_D50_log_2026-07-10_15.00.23.txt\n?? 00-GSK-Family/02-GSK_Family_Python_v1.1/results/_ablation/baseline/dt-gsk/cec2017/summary/dt-gsk_D50_runs_log_2026-07-10_15.00.23.txt\n?? 00-GSK-Family/02-GSK_Family_Python_v1.1/results/_ablation/baseline/dt-gsk/cec2017/summary/verification.json\n?? 00-GSK-Family/02-GSK_Family_Python_v1.1/results/_ablation/no_ace/\n?? 00-GSK-Family/02-GSK_Family_Python_v1.1/results/_ablation/no_psr/\n",
+    "output_sha256": "14f3198460741a615804879bba7f91178e883ecebb1019f082615d66ab6dc224",
+    "diff_vs_initial_snapshot": {
+      "added_lines": [
+        "?? 00-GSK-Family/02-GSK_Family_Python_v1.1/papers/governance/"
+      ],
+      "removed_lines": [],
+      "assessment": "Only expected deltas: (a) '?? .../papers/governance/' = Phase 0's own governance artifacts (the sanctioned Phase 0 output); (b) time-varying results/_ablation/ staging churn from the live campaign (non-blocking per Section 0.3 and decision D-0002). No scientific source file changed during preflight."
+    }
+  },
+  "gate0_verification": {
+    "procedure": "Gate 0 assembly: re-run git status --porcelain -- . and two independent anchor commands after merging traceability parts and before rendering the gate verdict",
+    "date": "2026-07-10",
+    "commands": [
+      {
+        "command": "git status --porcelain -- .",
+        "cwd": "D:/AI/PhD-Projects/00-GSK-Family/02-GSK_Family_Python_v1.1",
+        "exit_code": 0,
+        "output_sha256": "14f3198460741a615804879bba7f91178e883ecebb1019f082615d66ab6dc224",
+        "note": "Output byte-identical to phase0_verification.output_verbatim (same SHA-256): dirty set is exactly '?? papers/governance/' plus the live results/_ablation staging churn. No scientific source file changed between the preflight verification and the gate."
+      },
+      {
+        "command": "git rev-parse HEAD",
+        "cwd": "D:/AI/PhD-Projects/00-GSK-Family/02-GSK_Family_Python_v1.1",
+        "exit_code": 0,
+        "output_verbatim": "262fc16c91fbe5608a1a0b0c5df3cbcd009edc21\n"
+      },
+      {
+        "command": "git rev-list -1 HEAD",
+        "cwd": "D:/AI/PhD-Projects/00-GSK-Family/02-GSK_Family_Python_v1.1",
+        "exit_code": 0,
+        "output_verbatim": "262fc16c91fbe5608a1a0b0c5df3cbcd009edc21\n"
+      }
+    ],
+    "anchor_consistency": "Anchor 262fc16c91fbe5608a1a0b0c5df3cbcd009edc21 confirmed unchanged by two independent commands and present in every governance artifact that records a commit (project_configuration.md, instruction_precedence.md, decision_log.md, engineering_preflight.md, preflight_inventory.csv, phase_gate_register.csv, this manifest); no conflicting 40-hex anchor found in any governance file.",
+    "traceability_merge": {
+      "source_line_traceability.csv": {
+        "rows": 5880,
+        "part_rows": {
+          "part0": 994,
+          "part1": 1028,
+          "part2": 946,
+          "part3": 969,
+          "part4": 1004,
+          "part5": 939
+        },
+        "duplicate_line_no": 0,
+        "master_nonblank_lines": 5880,
+        "missing_line_no": 0,
+        "extra_line_no": 0,
+        "invalid_classifications": 0,
+        "classification_histogram": {
+          "integrated": 4299,
+          "structural_heading": 748,
+          "nonoperative": 508,
+          "example_or_comment": 307,
+          "duplicate": 18,
+          "superseded_by_later_requirement": 0
+        },
+        "forbidden_status_hits": 0
+      },
+      "requirements_traceability_matrix.csv": {
+        "rows": 2105,
+        "part_rows": {
+          "part0": 230,
+          "part1": 203,
+          "part2": 494,
+          "part3": 514,
+          "part4": 407,
+          "part5": 257
+        },
+        "duplicate_requirement_id": 0,
+        "unmapped_rows": 0,
+        "dangling_requirement_refs": 0,
+        "orphan_requirements": 0
+      },
+      "note": "Condensed schemas accepted per decision D-0005; validation script and JSON report in the session scratchpad (gate0_merge_validate.py / gate0_report.json), results transcribed here and in PHASE_0_readiness.md."
+    }
+  },
+  "cr0001_cr0002_traceability_patch": {
+    "procedure": "Section 0.6 change-control rerun: re-derive source-line traceability against the post-CR master and append the new operative requirements (CR-0001/CR-0002, change_request_register.csv, decision D-0005)",
+    "date": "2026-07-10",
+    "frozen_baseline": {
+      "command": "git show 262fc16c91fbe5608a1a0b0c5df3cbcd009edc21:00-GSK-Family/02-GSK_Family_Python_v1.1/papers/PAPER_BUILD_PROMPT.md",
+      "cwd": "D:/AI/PhD-Projects/00-GSK-Family/02-GSK_Family_Python_v1.1",
+      "exit_code": 0,
+      "lines": 7472,
+      "nonblank_lines": 5880
+    },
+    "current_master": {
+      "path": "papers/PAPER_BUILD_PROMPT.md",
+      "lines": 7585,
+      "nonblank_lines": 5985
+    },
+    "commands": [
+      {
+        "command_id": "cr_patch_script",
+        "command": "python <scratchpad>/cr_traceability_patch.py",
+        "cwd": "D:/AI/PhD-Projects/00-GSK-Family/02-GSK_Family_Python_v1.1",
+        "date": "2026-07-10",
+        "exit_code": 0,
+        "note": "difflib.SequenceMatcher (autojunk=False) opcode map frozen->current; shifts unchanged-line rows, drops+reclassifies the 4 replaced-line rows (frozen 1776, 1847-1849 -> current 1795-1798, 1882-1885), inserts 109 classified rows for the CR insertion ranges, appends 21 requirements; script and pre-patch CSV backups retained in the session scratchpad"
+      },
+      {
+        "command_id": "cr_patch_line1094_mapping_fix",
+        "command": "python -c \"...rewrite note of line 1094 to 'mandated contribution-matrix columns; continuation of R-1092'; full re-validation...\"",
+        "cwd": "D:/AI/PhD-Projects/00-GSK-Family/02-GSK_Family_Python_v1.1",
+        "date": "2026-07-10",
+        "exit_code": 0,
+        "note": "closes the single pre-existing unmapped integrated row surfaced by the rerun validation"
+      }
+    ],
+    "results": {
+      "source_line_traceability.csv": {
+        "rows": 5985,
+        "master_nonblank_lines": 5985,
+        "rows_added": 109,
+        "rows_dropped_replaced": 4,
+        "rows_shifted": 4782,
+        "duplicate_line_no": 0,
+        "missing_line_no": 0,
+        "extra_line_no": 0,
+        "invalid_classifications": 0,
+        "unmapped_integrated_rows": 0,
+        "dangling_requirement_refs": 0
+      },
+      "requirements_traceability_matrix.csv": {
+        "rows": 2126,
+        "requirements_added": 21,
+        "duplicate_requirement_id": 0,
+        "new_ids": [
+          "R-1375",
+          "R-1381",
+          "R-1386-CR0001",
+          "R-1389-CR0001",
+          "R-1391-CR0001",
+          "R-1795",
+          "R-1843",
+          "R-1852",
+          "R-1932",
+          "R-1946",
+          "R-1954",
+          "R-1960",
+          "R-1964",
+          "R-2407",
+          "R-3605",
+          "R-3635",
+          "R-3659",
+          "R-4340-CR0001",
+          "R-5136-CR0002",
+          "R-6635",
+          "R-6638"
+        ],
+        "id_convention": "R-<current-line>; -CR000x suffix only where the bare number collides with a frozen-anchor id; pre-CR ids and their line_no fields keep frozen-master anchors, resolved to current positions via source_line_traceability.csv"
+      }
+    }
+  },
+  "cr0003_traceability_patch": {
+    "procedure": "Section 0.6 change-control rerun: rebuild source-line traceability against the post-CR-0003 master in one pass and append the new operative requirements (CR-0003, change_request_register.csv, decision D-0005; same method as cr0001_cr0002_traceability_patch)",
+    "date": "2026-07-10",
+    "frozen_baseline": {
+      "command": "git show 262fc16c91fbe5608a1a0b0c5df3cbcd009edc21:00-GSK-Family/02-GSK_Family_Python_v1.1/papers/PAPER_BUILD_PROMPT.md",
+      "cwd": "D:/AI/PhD-Projects/00-GSK-Family/02-GSK_Family_Python_v1.1",
+      "exit_code": 0,
+      "lines": 7472,
+      "nonblank_lines": 5880,
+      "sha256": "4cea60c7fca0b50a26a3cd7775534aa83722396af3956efb83568d11cad690b9",
+      "note": "scratchpad master_frozen.md re-verified byte-identical to the anchor version before diffing"
+    },
+    "current_master": {
+      "path": "papers/PAPER_BUILD_PROMPT.md",
+      "lines": 7759,
+      "nonblank_lines": 6146,
+      "sha256": "067725d4a8237c8ca1169b998b86a5c5c992e9f9ee7ff0d4fcadf5b4e2896678"
+    },
+    "commands": [
+      {
+        "command_id": "cr0003_patch_script",
+        "command": "python <scratchpad>/cr0003_traceability_patch.py",
+        "cwd": "D:/AI/PhD-Projects/00-GSK-Family/02-GSK_Family_Python_v1.1",
+        "date": "2026-07-10",
+        "exit_code": 0,
+        "note": "difflib.SequenceMatcher (autojunk=False) opcode map frozen->current; the CR-0001/2-era master (7585/5985) was never committed, so the frozen->CR-era row alignment was reconstructed from the Gate 0 pre-patch CSV backup vs the existing CSV (all 5,876 carried pairs content-verified identical modulo the documented line-1094 note fix); carries 5,875 frozen-mapped rows (5,691 shifted) + 94 CR-0001/2-inserted rows via an explicit block map (notes updated where CR-0003 reworded text); adds 177 classified rows for the CR-0003 insertions; frozen line 1422 (extended in place by CR-0003) reclassified at current 1482 under R-1421 with the new guard as R-1483; 15 CR-0001/2-era rows whose text CR-0003 replaced are re-expressed under R-2030-CR0003 / R-3768-CR0003 / R-1960-CR0003 with supersessions named in row notes; appends 27 requirements; script, JSON report (cr0003_patch_report.json), and pre-patch CSV backups (*.pre_cr0003_backup.csv) retained in the session scratchpad"
+      }
+    ],
+    "results": {
+      "source_line_traceability.csv": {
+        "rows": 6146,
+        "master_nonblank_lines": 6146,
+        "rows_added": 177,
+        "rows_carried_frozen_mapped": 5875,
+        "rows_carried_cr0001_2_blocks": 94,
+        "rows_shifted": 5691,
+        "dropped_frozen_lines": [
+          1422,
+          1776,
+          1847,
+          1848,
+          1849
+        ],
+        "duplicate_line_no": 0,
+        "missing_line_no": 0,
+        "extra_line_no": 0,
+        "invalid_classifications": 0,
+        "unmapped_integrated_rows": 0,
+        "dangling_requirement_refs": 0,
+        "orphan_requirements": 0,
+        "classification_histogram": {
+          "integrated": 4563,
+          "structural_heading": 748,
+          "nonoperative": 510,
+          "example_or_comment": 307,
+          "duplicate": 18,
+          "superseded_by_later_requirement": 0
+        }
+      },
+      "requirements_traceability_matrix.csv": {
+        "rows": 2153,
+        "requirements_added": 27,
+        "duplicate_requirement_id": 0,
+        "new_ids": [
+          "R-226",
+          "R-404",
+          "R-1401",
+          "R-1420",
+          "R-1483",
+          "R-1595",
+          "R-1601-CR0003",
+          "R-1620-CR0003",
+          "R-1644",
+          "R-1647",
+          "R-1865",
+          "R-1878",
+          "R-1960-CR0003",
+          "R-2022",
+          "R-2030-CR0003",
+          "R-2107",
+          "R-2461",
+          "R-3227-CR0003",
+          "R-3231",
+          "R-3755",
+          "R-3768-CR0003",
+          "R-4578-CR0003",
+          "R-4583",
+          "R-6740-CR0003",
+          "R-6806",
+          "R-6811",
+          "R-6851"
+        ],
+        "id_convention": "R-<current-line> anchored to post-CR-0003 master positions; -CR0003 suffix only where the bare number collides with an existing id; pre-CR-0003 ids and their line_no fields keep their prior anchors, resolved to current positions via source_line_traceability.csv"
+      }
+    }
+  },
+  "phase12_reproducibility": {
+    "recorded_phase": 12,
+    "recorded_date": "2026-07-12",
+    "evidence_release": "rel-2026-07-10-262fc16c9",
+    "ablation_release": "abl-rel-2026-07-11",
+    "determinism_contract": {
+      "pdf_source_date_epoch": 1783468800,
+      "docx_source_date_epoch": 1783641600
+    },
+    "delivery_level_taxonomy": [
+      "analytical",
+      "visual",
+      "byte_for_byte_after_timestamp_normalization"
+    ],
+    "achieved_levels_by_artifact_class": {
+      "immutable_primary_evidence": {
+        "level": "byte_for_byte",
+        "evidence": "SHA-256 manifests under benchmarks/cec_reference_results/; not regenerated"
+      },
+      "derived_analysis_bundle": {
+        "level": "analytical+byte_for_byte",
+        "evidence": "papers/build_prompt_phases/phase_06/determinism_check.md PASS (0 real diffs / 5 timestamp-only across 115 files)"
+      },
+      "latex_tables": {
+        "level": "visual+byte_for_byte",
+        "evidence": "generate_latex_tables.py regenerates T01-T16 byte-identical from _paper_tables/"
+      },
+      "figures": {
+        "level": "visual+byte_for_byte",
+        "evidence": "CreationDate suppressed in vector PDFs -> deterministic; rank charts + concept figures re-generate byte-identical"
+      },
+      "main_pdf": {
+        "level": "byte_for_byte_after_timestamp_normalization",
+        "sha256": "503692de16b6ef5b490277acd57c5065854fb6979a1abcdaf627d7ba95e1ac42",
+        "evidence": "bit-identical across two builds under SOURCE_DATE_EPOCH=1783468800 + FORCE_SOURCE_DATE=1 (2026-07-12, DOCX-fidelity D1d refreeze)"
+      },
+      "main_docx": {
+        "level": "byte_for_byte_after_timestamp_normalization",
+        "sha256": "993fe08ab784b5432eb77cf3fa2241016bddfa0ceb83e6bc9174df4410f6412e",
+        "evidence": "bit-identical across two builds under SOURCE_DATE_EPOCH=1783641600 + deterministic-zip normalization (2026-07-12, DOCX-fidelity D1d refreeze)"
+      },
+      "ablation_evidence": {
+        "level": "byte_for_byte",
+        "evidence": "_ablation/manifest.json = 1032 files, all SHA-256 recompute"
+      }
+    },
+    "double_rebuild_contract": {
+      "requirement": "double rebuild from the immutable release achieves analytical everywhere, visual for all exhibits, byte-for-byte where timestamp normalization applies",
+      "status": "MET",
+      "verified_2026_07_12": true
+    },
+    "freeze_manifest_agreement": "main_manuscript_freeze_manifest.json: all 12 tracked files recompute-match on-disk (post R9-review re-freeze); PDF/DOCX hashes above agree.",
+    "notes": "Supersedes the Phase-0 stub status of this file for delivery-level recording (R-2461 / R-6851). Requirement satisfied for Gate-12 evidence except author-side administrative items."
+  },
+  "evidence_release": "rel-2026-07-20-67d9345f9",
+  "superseded_anchor": "262fc16c91fbe5608a1a0b0c5df3cbcd009edc21",
+  "updated_utc": "2026-07-24T00:00:00Z",
+  "update_note": "SE-004: this record was two evidence releases stale (anchored at 262fc16c9, rel-2026-07-10-262fc16c9). Re-pointed to rel-2026-07-20-67d9345f9 (anchor 67d9345f9), the release every reported number derives from.",
+  "shipped_artifacts": {
+    "papers/DT-GSK.pdf": {
+      "sha256": "f1faa5e9ebacf5f605713b1aea9fe0095c06b8b2ffdb9b1938540a1f04baffc7",
+      "bytes": 761899
+    },
+    "papers/DT-GSK.docx": {
+      "sha256": "00176cff030ffe26cf81d99399e2ee5518f7556b1444f181a8bea5b0842b271f",
+      "bytes": 986577
+    },
+    "papers/supplementary.pdf": {
+      "sha256": "76a0bbbd8e0c7b08c04aef70e579f33ccd8b6d11f092fad7c03f89bc08db9944",
+      "bytes": 1609418
+    },
+    "papers/supplementary.docx": {
+      "sha256": "ba225735b78a501aec8ecd8de68834f916ac6a16d577acf5e0ab4dcc4747c318",
+      "bytes": 9572245
+    },
+    "papers/cover_letter.pdf": {
+      "sha256": "a3ce6481ab4db70f387b341369c8f2d1115d223af2e5b170f5052197284ce374",
+      "bytes": 119864
+    }
+  },
+  "determinism_record": {
+    "pdf_source_date_epoch": 1783468800,
+    "pdf_double_build": "byte-identical (DT-GSK.pdf, supplementary.pdf, cover_letter.pdf)",
+    "docx_build": "papers/scripts/build_docx.py",
+    "python": "3.10.11",
+    "platform": "win32"
+  }
+}

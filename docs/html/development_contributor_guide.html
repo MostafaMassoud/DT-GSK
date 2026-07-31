@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Contributor Guide - GSK Family Python Documentation">
+  <title>Contributor Guide | GSK Family Python Documentation</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <div class="site-shell">
+    <aside class="sidebar">
+<div class="brand"><a href="index.html">GSK Family Python</a></div>
+<input class="nav-search" type="search" placeholder="Filter docs" aria-label="Filter docs">
+<nav class="nav-list" aria-label="Documentation">
+<section><h2>Getting Started</h2>
+<a class="nav-link" href="getting-started_configuration.html">Configuration</a>
+<a class="nav-link" href="getting-started_explainer.html">Explainer</a>
+<a class="nav-link" href="getting-started_runbook.html">Runbook</a>
+<a class="nav-link" href="getting-started_troubleshooting.html">Troubleshooting</a>
+<a class="nav-link" href="getting-started_tutorial.html">Tutorial</a>
+<a class="nav-link" href="getting-started_user_guide.html">User Guide</a>
+</section>
+<section><h2>Reference</h2>
+<a class="nav-link" href="reference_api.html">API Reference</a>
+<a class="nav-link" href="reference_architecture.html">Architecture</a>
+<a class="nav-link" href="reference_benchmark_mapping.html">Benchmark Mapping</a>
+<a class="nav-link" href="reference_benchmark_protocol.html">Benchmark Protocol</a>
+<a class="nav-link" href="reference_cec2011_cpp_python_equivalence_review.html">CEC2011 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013_cpp_python_equivalence_review.html">CEC2013 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013lsgo_cpp_python_equivalence_review.html">CEC2013LSGO C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2017_cpp_python_equivalence_review.html">CEC2017 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2020_cpp_python_equivalence_review.html">CEC2020 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="index.html">Documentation Index</a>
+<a class="nav-link" href="reference_fp_regime.html">Floating-Point Regime Verification</a>
+<a class="nav-link" href="reference_diagrams.html">Flowcharts And Diagrams</a>
+<a class="nav-link" href="reference_glossary.html">Glossary</a>
+<a class="nav-link" href="LICENSES.html">Licenses</a>
+<a class="nav-link" href="reference_module_dependencies.html">Module Dependencies</a>
+<a class="nav-link" href="reference_project_structure.html">Project Structure</a>
+<a class="nav-link" href="reference_python_optimizer_interface.html">Python Optimizer Interface</a>
+<a class="nav-link" href="reference_result_schema.html">Result Schema</a>
+<a class="nav-link" href="reference_seed_policy.html">Seed Policy</a>
+<a class="nav-link" href="reference_workflows.html">Workflows</a>
+</section>
+<section><h2>Algorithm Guides</h2>
+<a class="nav-link" href="algorithms_agsk.html">AGSK — Adaptive Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_apgsk.html">APGSK — Adaptive-Parameters Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_atmals-gsk.html">ATMALS-GSK — Adaptive Tuning, Memory, Adaptive Local Search</a>
+<a class="nav-link" href="algorithms_dt-gsk.html">DT-GSK — Dimension-Tiered Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_egsk.html">EGSK — Enhanced Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_fdb-agsk.html">FDB-AGSK — Fitness-Distance-Balance AGSK</a>
+<a class="nav-link" href="algorithms_gsk.html">GSK — Gaining-Sharing Knowledge</a>
+</section>
+<section><h2>Development</h2>
+<a class="nav-link" href="development_BUG_resume_summary_truncation.html">BUG-RESUME-01 — resume mode truncates (and mis-computes) the per-dimension summary CSV</a>
+<a class="nav-link" href="development_LSGO_ACCELERATION_PLAN.html">CEC2013LSGO Acceleration Plan — all 7 GSK-family algorithms, bit-identically</a>
+<a class="nav-link" href="development_LSGO_INTEGRATION_CAMPAIGN.html">CEC2013LSGO Integration — Campaign Plan</a>
+<a class="nav-link" href="development_CEC2017_PREC_adjudication.html">CEC2017-PREC — adjudication (CLOSED 2026-07-25)</a>
+<a class="nav-link" href="development_code_reading_guide.html">Code Reading Guide</a>
+<a class="nav-link active" href="development_contributor_guide.html">Contributor Guide</a>
+<a class="nav-link" href="development_DECC_G_port_record.html">DECC-G port — fidelity and validation record</a>
+<a class="nav-link" href="development_developer_guide.html">Developer Guide</a>
+<a class="nav-link" href="development_README.html">Development Docs</a>
+<a class="nav-link" href="development_dt_gsk_core_reference.html">DT-GSK Core Reference — the vendored core and its byte-identity lock</a>
+<a class="nav-link" href="development_evidence_rerun_runbook.html">DT-GSK re-run runbook — corrected implementation (C006 + graph backend)</a>
+<a class="nav-link" href="development_egsk_port_spec.html">EGSK — Algorithm Spec &amp; Porting Verdict</a>
+<a class="nav-link" href="development_extension_guide.html">Extension Guide</a>
+<a class="nav-link" href="development_FAMILY_ACCELERATION_PLAN.html">Family-wide acceleration plan — 7 algorithms x 5 suites, bit-identical only</a>
+<a class="nav-link" href="development_FINAL_PUBLICATION_PLAN.html">FINAL PUBLICATION PLAN — DT-GSK, Four(/Five)-Suite Scope</a>
+<a class="nav-link" href="development_ACCELERATION_CAMPAIGN_PROMPT.html">GSK-Family Acceleration Campaign — Execution Prompt</a>
+<a class="nav-link" href="development_maintenance_guide.html">Maintenance Guide</a>
+<a class="nav-link" href="development_PORT_05_TUNING_TRIAGE.html">Porting project-05 tuning into 02 — Phase 1 audit and triage</a>
+<a class="nav-link" href="development_REFERENCE_PROMOTION_PLAN.html">Reference Promotion Plan — CEC2013LSGO now, CEC2020 behind its completeness gate</a>
+<a class="nav-link" href="development_SIBLING_CAMPAIGN_TRANSFER.html">Sibling-Campaign Transfer — every tuning that can make the GSK family fast</a>
+</section>
+<section><h2>Research</h2>
+<a class="nav-link" href="research_egsk_validation_appendix.html">EGSK Validation Appendix — Paired Port-vs-Reference Equivalence</a>
+<a class="nav-link" href="research_numerical_examples.html">Numerical Examples</a>
+<a class="nav-link" href="research_performance.html">Performance</a>
+<a class="nav-link" href="research_reproducibility.html">Reproducibility</a>
+<a class="nav-link" href="research_researcher_handbook.html">Researcher Handbook</a>
+<a class="nav-link" href="research_statistical_analysis.html">Statistical Analysis (GSK-family comparison)</a>
+<a class="nav-link" href="research_validation_report.html">Validation Report</a>
+</section>
+<section><h2>Prompts</h2>
+<a class="nav-link" href="prompt_documentation-deep-upgrade.html">Deep Documentation Review &amp; Upgrade Prompt — GSK Family Python</a>
+<a class="nav-link" href="prompt_project-review.html">Deep Expert Review Prompt For GSK Family Python</a>
+<a class="nav-link" href="prompt_documentation-review.html">Documentation Review Prompt</a>
+<a class="nav-link" href="prompt_publication-polish.html">Final Publication Prompt — Production-Ready Q1 Release of GSK Family Python v1.1</a>
+</section>
+<section><h2>Python API</h2>
+<a class="nav-link" href="api_index.html">API Module Index</a>
+<a class="nav-link api-link" href="api/gsk_family.__init__.html">gsk_family.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.__init__.html">gsk_family.analysis.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.family_report.html">gsk_family.analysis.family_report</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.figures.html">gsk_family.analysis.figures</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.latex_tables.html">gsk_family.analysis.latex_tables</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.project_policy.html">gsk_family.analysis.project_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.result_loader.html">gsk_family.analysis.result_loader</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistical_tests.html">gsk_family.analysis.statistical_tests</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistics.html">gsk_family.analysis.statistics</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.__init__.html">gsk_family.benchmark_adapter.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.factory.html">gsk_family.benchmark_adapter.factory</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.problem.html">gsk_family.benchmark_adapter.problem</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.protocol.html">gsk_family.benchmark_adapter.protocol</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.__init__.html">gsk_family.cli.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.list.html">gsk_family.cli.list</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.run.html">gsk_family.cli.run</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.stats.html">gsk_family.cli.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.validate.html">gsk_family.cli.validate</a>
+<a class="nav-link api-link" href="api/gsk_family.common.__init__.html">gsk_family.common.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.common.bounds.html">gsk_family.common.bounds</a>
+<a class="nav-link api-link" href="api/gsk_family.common.donors.html">gsk_family.common.donors</a>
+<a class="nav-link api-link" href="api/gsk_family.common.numeric_compat.html">gsk_family.common.numeric_compat</a>
+<a class="nav-link api-link" href="api/gsk_family.common.population.html">gsk_family.common.population</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reduction.html">gsk_family.common.reduction</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reference_rng.html">gsk_family.common.reference_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.rng.html">gsk_family.common.rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.threefry_rng.html">gsk_family.common.threefry_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.__init__.html">gsk_family.optimizers.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_profiles.html">gsk_family.optimizers._dt_profiles</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_rng.html">gsk_family.optimizers._dt_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._kernels.html">gsk_family.optimizers._kernels</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.agsk.html">gsk_family.optimizers.agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.apgsk.html">gsk_family.optimizers.apgsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_gsk.html">gsk_family.optimizers.atmals_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_helpers.html">gsk_family.optimizers.atmals_helpers</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.dt_gsk.html">gsk_family.optimizers.dt_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.egsk.html">gsk_family.optimizers.egsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.__init__.html">gsk_family.optimizers.external.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._base.html">gsk_family.optimizers.external._base</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._telemetry_shim.html">gsk_family.optimizers.external._telemetry_shim</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.cmaes.html">gsk_family.optimizers.external.cmaes</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.decc_g.html">gsk_family.optimizers.external.decc_g</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.ebowithcmar.html">gsk_family.optimizers.external.ebowithcmar</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.jso.html">gsk_family.optimizers.external.jso</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade.html">gsk_family.optimizers.external.lshade</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade_spacma.html">gsk_family.optimizers.external.lshade_spacma</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.mos_cec2013lsgo.html">gsk_family.optimizers.external.mos_cec2013lsgo</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.shade_ils.html">gsk_family.optimizers.external.shade_ils</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_agsk.html">gsk_family.optimizers.fdb_agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_scores.html">gsk_family.optimizers.fdb_scores</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.gsk.html">gsk_family.optimizers.gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.__init__.html">gsk_family.runners.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.config.html">gsk_family.runners.config</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.fp_regime.html">gsk_family.runners.fp_regime</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.output.html">gsk_family.runners.output</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.parallel.html">gsk_family.runners.parallel</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.performance.html">gsk_family.runners.performance</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.run_experiment.html">gsk_family.runners.run_experiment</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.seed_policy.html">gsk_family.runners.seed_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.verification.html">gsk_family.runners.verification</a>
+<a class="nav-link api-link" href="api/gsk_family.stats.html">gsk_family.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.types.html">gsk_family.types</a>
+</section>
+</nav></aside>
+    <main class="content">
+      <article class="doc-card">
+        <h1 id="contributor-guide">Contributor Guide</h1>
+<blockquote><strong>Orientation.</strong> This page is the checklist for *submitting* a change: branch,</blockquote>
+<blockquote>edit, update docs, run the gate, open a pull request. It is for anyone landing</blockquote>
+<blockquote>a contribution, large or small. After reading it you will know the exact</blockquote>
+<blockquote>commands the project expects to pass before review, and which changes require</blockquote>
+<blockquote>a documentation update. For the mechanics of the code itself, see the</blockquote>
+<blockquote><a href="development_developer_guide.html">Developer Guide</a>; to add a whole new optimizer, suite, or</blockquote>
+<blockquote>command, see the <a href="development_extension_guide.html">Extension Guide</a>. Unfamiliar terms are</blockquote>
+<blockquote>defined in the <a href="reference_glossary.html">glossary</a>.</blockquote>
+<p>The overriding rule: contributions must preserve reference-compatible behavior and the reference evidence trail. &quot;Reference&quot; here means the upstream implementation this package ports; &quot;evidence trail&quot; means the imported reference results the Python output is checked against.</p>
+<h2 id="contribution-workflow">Contribution Workflow</h2>
+<p>The end-to-end path from idea to pull request. Steps are ordered — do not push before the local gate (step 3) is green.</p>
+<ol>
+<li>Work on a branch. Keep commits small and focused, each with a clear message</li>
+<p>that explains the change.</p>
+<li>Update documentation alongside the code it describes. For example, an</li>
+<p>algorithm change updates its <code>docs/algorithms/*.md</code> guide.</p>
+<li>Run the local gate before pushing — the test suite, the ruff correctness</li>
+<p>lint, and the scoped mypy type check (the same three commands CI runs):</p>
+</ol>
+<pre><code class="code-block language-powershell">   python -m pytest -q
+   python -m ruff check src tests scripts
+   python -m mypy src/gsk_family/cli src/gsk_family/runners src/gsk_family/common `
+     --ignore-missing-imports --follow-imports=skip</code></pre>
+<p>After any docs or docstring change, also regenerate the HTML twins under <code>docs/html/</code> and commit them:</p>
+<pre><code class="code-block language-powershell">   python scripts/build_docs_html.py</code></pre>
+<ol>
+<li>Open a pull request once the gate is green.</li>
+</ol>
+<p>The path from idea to merge, and where each gate sits:</p>
+<pre class="mermaid">flowchart LR
+  A[Branch off main] --&gt; B[Edit code + docs together]
+  B --&gt; C[python -m pytest -q&lt;br/&gt;unit / smoke / regression / 3 doc gates]
+  C --&gt; D[ruff check + scoped mypy]
+  D --&gt; E[build_docs_html.py&lt;br/&gt;regenerate HTML twins]
+  E --&gt; F{All green?}
+  F -- no --&gt; B
+  F -- yes --&gt; G[Open pull request]</pre>
+<h3 id="what-the-local-gate-enforces">What the local gate enforces</h3>
+<p><code>python -m pytest</code> is not just unit tests — it also runs three documentation gates that frequently catch contribution mistakes. Knowing them up front saves a red CI run:</p>
+<ul>
+<li><strong>Docstring coverage</strong> (<code>tests/unit/test_docstrings.py</code>): every module, class,</li>
+<p>function, and method under <code>src/gsk_family</code> needs a docstring. The vendored <code>dt-gsk</code> core and the vendored analysis modules are exempt; everything else is not.</p>
+<li><strong>Doc-list resolution</strong> (<code>tests/smoke/test_documentation_commands.py</code>,</li>
+<p><code>test_documented_docs_exist</code>): a fixed list of documentation paths must exist on disk. <strong>Do not rename, move, or delete a listed doc.</strong> If you genuinely must add a new doc, add its path to that list in the same PR — but prefer editing an existing file.</p>
+<li><strong>Link resolution</strong> (<code>tests/smoke/test_documentation_commands.py</code>,</li>
+<p><code>test_generated_html_local_links_resolve</code>): every local link in the generated <code>docs/html/</code> site must resolve. Verify any relative Markdown link you add points at a real file, then rebuild the HTML.</p>
+</ul>
+<p>These mirror the gates described in the <a href="development_developer_guide.html#documentation-requirements">Developer Guide</a>. The ruff configuration lives in <code>pyproject.toml</code>: <code>[tool.ruff]</code> sets <code>target-version = &quot;py310&quot;</code> and <code>line-length = 120</code>, and the nested <code>[tool.ruff.lint]</code> table sets <code>select = [&quot;E9&quot;, &quot;F&quot;]</code>. The scoped mypy gate (<code>[tool.mypy]</code>) type-checks only <code>src/gsk_family/cli</code>, <code>src/gsk_family/runners</code>, and <code>src/gsk_family/common</code> under <code>--follow-imports=skip</code>, so it is fast and must stay green on those three packages.</p>
+<h3 id="pr-checklist">PR checklist</h3>
+<p>Before you click &quot;open pull request&quot;, confirm:</p>
+<ul>
+<li>[ ] Branch is up to date; commits are small, focused, and clearly messaged.</li>
+<li>[ ] <code>python -m pytest -q</code> is green (including the three doc gates).</li>
+<li>[ ] <code>python -m ruff check src tests scripts</code> is clean.</li>
+<li>[ ] The scoped <code>python -m mypy src/gsk_family/cli src/gsk_family/runners src/gsk_family/common --ignore-missing-imports --follow-imports=skip</code> gate is clean.</li>
+<li>[ ] Docs updated in the same PR (see <a href="#documentation-expectations">Documentation Expectations</a>).</li>
+<li>[ ] HTML twins regenerated and committed if any <code>.md</code> or docstring changed.</li>
+<li>[ ] Imported reference evidence under <code>benchmarks/cec_reference_results/</code> was</li>
+<p>not edited (see <a href="#evidence-policy">Evidence Policy</a>).</p>
+<li>[ ] If you touched anything under <code>optimizers/_dt_core.py</code> or <code>optimizers/_dt_subsystems/</code>,</li>
+<p>the byte-stability regression still passes (see <a href="#vendored-dt-gsk-byte-identity">Vendored dt-gsk</a>).</p>
+</ul>
+<h2 id="before-changing-code">Before Changing Code</h2>
+<p>A short orientation pass so your change fits existing behavior and provenance.</p>
+<ol>
+<li>Read the relevant algorithm or architecture document (the</li>
+<p><a href="algorithms_gsk.html">algorithm guides</a> and <a href="reference_architecture.html">architecture</a>).</p>
+<li>Check <a href="LICENSES.html"><code>docs/LICENSES.md</code></a> for source provenance.</li>
+<li>Run the focused tests for the area you plan to change (see the</li>
+<p><a href="development_developer_guide.html#testing">Developer Guide testing tiers</a>).</p>
+</ol>
+<h2 id="before-submitting-changes">Before Submitting Changes</h2>
+<p>This is the minimum verification beyond the workflow gate above. Run the full suite:</p>
+<pre><code class="code-block language-powershell">python -m pytest</code></pre>
+<p>For runner or benchmark changes, also run at least one CLI smoke command. The bundled <code>configs/smoke.yml</code> runs one optimizer on one function at a tiny budget, so it finishes in seconds:</p>
+<pre><code class="code-block language-powershell">gsk-run --config configs/smoke.yml --root .</code></pre>
+<p>For a change that should exercise every runnable optimizer, use the bundled multi-optimizer smoke configs (<code>configs/all_optimizers_smoke.yml</code>, <code>configs/all_optimizers_cec2017_reduced.yml</code>). A single direct invocation is also useful when you want full control over one cell:</p>
+<pre><code class="code-block language-powershell">gsk-run --optimizer dt-gsk --suite cec2017 --dimension 10 --function 1 `
+  --runs 1 --max-evaluations 2000 --seed-policy unified `
+  --rand-generator threefry --output-root results --overwrite</code></pre>
+<p>If your change can affect the live statistics panel, add <code>--stats</code> (opt-in, default OFF) to a run on an advanced optimizer. The panel is skipped only for vanilla <code>gsk</code>; fixed-dimension suites emit a per-dimension panel and native-dimension <code>cec2011</code> emits a single per-suite rollup panel.</p>
+<h2 id="documentation-expectations">Documentation Expectations</h2>
+<p>Docs live next to the behavior they describe. Update documentation in the same pull request when you change:</p>
+<div class="table-wrap"><table><thead><tr><th>You changed...</th><th>Update at least...</th></tr></thead><tbody><tr><td>optimizer behavior</td><td>the matching <code>docs/algorithms/&lt;name&gt;.md</code></td></tr><tr><td>benchmark protocol metadata</td><td><code>docs/reference/benchmark_protocol.md</code></td></tr><tr><td>config fields</td><td><code>docs/getting-started/configuration.md</code></td></tr><tr><td>output files / artifact schema</td><td><code>docs/reference/result_schema.md</code></td></tr><tr><td>seed policy</td><td><code>docs/reference/seed_policy.md</code></td></tr><tr><td>validation thresholds / parity decisions</td><td><code>docs/research/validation_report.md</code></td></tr><tr><td>CLI commands or flags</td><td><code>docs/getting-started/runbook.md</code></td></tr></tbody></table></div>
+<p>After any of these doc or docstring edits, regenerate the HTML twins with <code>python scripts/build_docs_html.py</code> and commit them so the link-resolution gate stays green.</p>
+<h2 id="vendored-dt-gsk-byte-identity">Vendored dt-gsk byte-identity</h2>
+<p><code>dt-gsk</code> is this project&#x27;s proposed method, and its core was migrated <strong>byte-identically</strong> from the source DT-GSK v2.1 project. Those modules must not be edited for behavior, reformatted, or &quot;cleaned up&quot; to satisfy a linter -- they are intentionally exempt from the docstring gate because they are upstream copies. If upstream changes, re-vendor wholesale and regenerate the goldens; never hand-edit.</p>
+<p><strong>The locked file list, the tests that guard it, the dimension tiers, and the golden parameters are all in the <a href="development_dt_gsk_core_reference.html">DT-GSK Core Reference</a>.</strong> Read it before touching anything under <code>optimizers/_dt_*</code>.</p>
+<p>Two things that catch people out, and are spelled out there:</p>
+<ul>
+<li>the byte-stable golden runs at <strong>D &lt;= 30</strong>, *below* the tier where the interaction</li>
+<p>graph and the final polish activate -- so it cannot see a defect in either;</p>
+<li>a behavior change at <strong>D &gt;= 50</strong> invalidates the evidence produced by the old binary</li>
+<p>and forces a regeneration campaign (<a href="development_evidence_rerun_runbook.html">Evidence Re-run Runbook</a>).</p>
+</ul>
+<h2 id="evidence-policy">Evidence Policy</h2>
+<p>The separation between imported and generated data is what makes parity claims trustworthy. Imported reference tables are source evidence: treat them as read-only and never edit them to make a Python run pass — the read-only root is <code>benchmarks/cec_reference_results/</code>. Generated Python evidence belongs under <code>results/</code> (typically <code>results/_run_all/&lt;optimizer&gt;/&lt;suite&gt;/</code>) or another explicit generated-output root, so the two never mix. The same rule covers the papers review pack: missing convergence curves are logged to <code>papers/DT-GSK-CEC2017-review_missing.log</code> and are <strong>never</strong> fabricated to fill a grid. See <a href="research_reproducibility.html">Reproducibility</a> for how this evidence is used and <a href="development_maintenance_guide.html#reference-evidence">Maintenance Guide</a> for how new external evidence is recorded.</p>
+      </article>
+    </main>
+    <aside class="page-toc" aria-label="On this page">
+<h2>On This Page</h2>
+<a class="toc-level-1" href="#contributor-guide">Contributor Guide</a>
+<a class="toc-level-2" href="#contribution-workflow">Contribution Workflow</a>
+<a class="toc-level-3" href="#what-the-local-gate-enforces">What the local gate enforces</a>
+<a class="toc-level-3" href="#pr-checklist">PR checklist</a>
+<a class="toc-level-2" href="#before-changing-code">Before Changing Code</a>
+<a class="toc-level-2" href="#before-submitting-changes">Before Submitting Changes</a>
+<a class="toc-level-2" href="#documentation-expectations">Documentation Expectations</a>
+<a class="toc-level-2" href="#vendored-dt-gsk-byte-identity">Vendored dt-gsk byte-identity</a>
+<a class="toc-level-2" href="#evidence-policy">Evidence Policy</a>
+</aside>
+  </div>
+  <script src="assets/search.js"></script>
+  <script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs'; mermaid.initialize({ startOnLoad: true, securityLevel: 'loose', theme: 'neutral' });</script>
+</body>
+</html>

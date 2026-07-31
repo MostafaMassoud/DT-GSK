@@ -1,0 +1,35 @@
+# DT-GSK diagnostic 15-run confirmation on the priority cells (Wave 4b).
+# Reduces the 5-run noise so the population-level signals (notably the
+# local-search waste fraction) become conclusive before any Wave-3 fix.
+# Diagnostics-only (observational; default optimizer behavior unchanged).
+#
+# NOTE on runtime: 5 functions x 4 dims x 15 runs = 300 cells; the D50/D100
+# cells (SGSM/TERRA) dominate the wall-clock -- expect several hours. For a
+# quick first pass, trim to `dimensions: [10, 30]` or `runs: 10`.
+#
+# NOTE on the D10 F30 trap: it occurs on run 27 (seed 87242640), so a 15-run
+# sweep (runs 1-15) will NOT contain it. To study that specific trap, run F30
+# D10 with enough runs to include run 27 (e.g. the full 51-run sweep).
+#
+# Analyze with:
+#   python scripts/analyze_dt_diagnostics.py \
+#     --input results/_experimental/dt_diag_15run/dt-gsk/cec2017/diagnostics \
+#     --out   results/_experimental/dt_diag_15run/dt-gsk/cec2017/diagnostics_analysis
+optimizers:
+  - dt-gsk
+suite: cec2017
+functions: [4, 13, 19, 26, 30]
+dimensions: [10, 30, 50, 100]
+runs: 15
+seed: 20240620
+seed_policy: unified
+rand_generator: threefry
+parallel: true
+workers: 15
+generation_logs: true
+convergence_graphs: false
+overwrite: true
+output_root: results/_experimental/dt_diag_15run
+optimizer_options:
+  dt_diagnostics: true
+  dt_diagnostics_include_all_fields: true

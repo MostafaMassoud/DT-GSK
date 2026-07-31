@@ -1,0 +1,137 @@
+{
+  "schema": "algorithm_freeze_manifest/v1",
+  "phase": "Phase 3 - Method reconstruction, code correspondence, and algorithm freeze",
+  "frozen_utc": "2026-07-19",
+  "anchor_commit": "3760bccf98f587c94b476f82788818b530a765cd",
+  "evidence_release": "rel-2026-07-16-78f075cb0",
+  "method": {
+    "name": "DT-GSK",
+    "long_name": "DT-GSK: Dimension-Tiered Adaptive Control and Deterministic Refinement for Gaining-Sharing Knowledge Optimization",
+    "optimizer_id": "dt-gsk",
+    "shipped_profile": "pub",
+    "profile_builder": "src/gsk_family/optimizers/_ism_profiles.py:build_pub_config",
+    "generator": "threefry",
+    "seed_policy": "unified (UNIFIED_ONLY_OPTIMIZERS)",
+    "max_nfes": "10000 * D",
+    "np_init": "5 * D",
+    "return_value": "global-best (preserved across deep-stall restarts)"
+  },
+  "frozen_core_sources": {
+    "note": "full SHA-256 at anchor_commit; byte-identity enforced by scripts/validate_profile_lock.py and tests/regression/test_dt_gsk_byte_stable.py",
+    "dt_gsk.py": "51b12194a3962a200ad4d6d4d297ce3ae7c76bc6cdee14058f08e5aa1452682c",
+    "_dt_core.py": "3ce5db5291dcda4dec234bca376507d5ac6b697bfc809520bdbfd1731f82097c",
+    "_dt_profiles.py": "7baadf228d3563940e50ac2351acd05a96b306e0051c6c1911abc8e09da67581",
+    "_dt_rng.py": "8a0fc27d7531b847553d37f943486ad90cfdaf597fca044b0bb168a513fdfa0c",
+    "_dt_subsystems_merkle": "e2a86124c6fb2fabcf9edc04f4ec573c6b91c4588df468d4be8bfb3ac95879c5",
+    "_dt_subsystems_files": [
+      "__init__.py",
+      "_dt_provenance.py",
+      "_numba_accel.py",
+      "basin_memory.py",
+      "bound_constraint.py",
+      "budget.py",
+      "budget_policy.py",
+      "gained_shared_junior.py",
+      "gained_shared_senior.py",
+      "interaction_graph.py"
+    ]
+  },
+  "mechanism_inventory": {
+    "inherited": [
+      "gaining-sharing operator",
+      "junior/senior Kexp schedule",
+      "strictly-greedy selection",
+      "L-SHADE midpoint bound repair"
+    ],
+    "modified": [
+      "NLPSR (tier-floored)",
+      "ACE bandit control",
+      "linkage-aware block crossover",
+      "BSE budget-safe escape",
+      "distance-thresholded elite archive",
+      "deep-stall full restart",
+      "self-init fair-start exception"
+    ],
+    "original": [
+      "ARGP acceptance-gated pruning",
+      "SGSM/ISM interaction-structure memory",
+      "eigenframe final polish",
+      "D>=100 controllers (A1/A2/FC4/basin/SP-NLPSR/TERRA)",
+      "13-substream append-only RNG layer"
+    ]
+  },
+  "primary_contribution": {
+    "C1": "eigenframe final polish (deterministic, RNG-free, one-shot)",
+    "C2": "dimension-tiered adaptive scaffold (ACE/ARGP, NLPSR, BSE, restart)",
+    "C3": "controlled, reproducible family evaluation",
+    "note": "the interaction-structure memory (ISM) is a SUPPORTING mechanism, not a contribution; its direct isolation is a controlled negative result"
+  },
+  "dimension_gating": {
+    "linkage": "pub ON from D>=10 per tier (ISM-fed from D>=50)",
+    "sgsm_and_polish": "D>=50 (interaction_graph_min_dim=50)",
+    "high_d_controllers": "D>=100"
+  },
+  "excluded_experimental_keys": {
+    "note": "off in the locked headline; NOT part of the shipped method (in _ALGORITHM_EXCLUDE_KEYS)",
+    "keys": [
+      "ace_coverage_weighted",
+      "argp_enabled",
+      "init_oversample>1",
+      "init_method=lhs",
+      "terra_* (below D100)",
+      "late_accept_clip_* / frozen_broaden_* / link_random_mix_* defaults",
+      "kr_min_dims",
+      "ace_de_policy_mode=state"
+    ]
+  },
+  "evaluation_accounting": {
+    "single_cap": "BudgetController (_ism_subsystems/budget.py)",
+    "all_calls_charged": true,
+    "budget_safe_exit": "truncation of final batch OR strict BudgetExhausted",
+    "verified_trace": "deterministic_trace/trace_cec2017_F1_D10_S20240620.json (nfes_used==3000==MaxFES, monotone, deterministic)"
+  },
+  "change_control": {
+    "rule": "Any change to the frozen core sources, the pub profile, or the mechanism inventory after this freeze INVALIDATES Phase 3 and all later phases and REQUIRES a change_request_register.csv row per Section 12.2, plus re-run of Gate 3.",
+    "locks": [
+      "scripts/validate_profile_lock.py",
+      "tests/regression/test_dt_gsk_byte_stable.py",
+      "tests/regression/test_dt_graph_backend_parity.py",
+      "tests/regression/test_dt_polish_incumbent_consistent.py",
+      "tests/regression/test_dormant_mechanisms_unreachable.py",
+      "tests/regression/test_ace_equation_conformance.py"
+    ],
+    "register": "papers/governance/change_request_register.csv"
+  },
+  "gate": {
+    "gate_id": "Gate 3",
+    "approvers": [
+      "P2",
+      "P4",
+      "P5",
+      "P9"
+    ],
+    "status": "DRAFT-PENDING-SIGNOFF",
+    "pending": [
+      "P2 independent one-iteration code->pseudocode walk",
+      "P4 formal evaluation-accounting sign-off (report drafted)",
+      ".tex/.omml renderings deferred to Phase 7/9 from canonical .md sources"
+    ]
+  },
+  "supersedes": {
+    "file": "algorithm_freeze_manifest.json",
+    "frozen_utc": "2026-07-10",
+    "anchor_commit": "708a927bf525a74eaec41c7efc10820a4af6442b",
+    "why": "its hashes pin the pre-fix sources under their pre-rename filenames (ism_gsk.py, _ism_core.py, _ism_profiles.py, _ism_rng.py); the C006 and M038 corrections and the ISM-GSK -> DT-GSK rename mean none of them matches a shipped module. Registered as CR-0007."
+  },
+  "mechanism_inventory_corrections": {
+    "greedy_selection": "tie-accepting (<=), not strict",
+    "diversity_archive": "distance-filtered; no fitness gate",
+    "ace_operator": "piecewise credit map with Euclidean projection onto the floored simplex; see main-text Eq. (7) as corrected under C-006"
+  },
+  "dormant_mechanisms": {
+    "ism_subspace_local_search": "implemented, disabled at every tier in the frozen profile",
+    "research_oracle_hooks": "keyword-only, default None, absent from config and profiles",
+    "trust_region_governor": "removed from the code; telemetry column pinned at 0.0",
+    "gate": "tests/regression/test_dormant_mechanisms_unreachable.py"
+  }
+}

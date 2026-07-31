@@ -1,0 +1,401 @@
+{
+ "release_id": "rel-2026-07-10-262fc16c9",
+ "anchor_commit": "262fc16c91fbe5608a1a0b0c5df3cbcd009edc21",
+ "negative_tests": {
+  "results/_run_all path via audit_source_open": "PASS (StrictSourceViolation raised)",
+  "results/_ablation path via audit_source_open": "PASS (StrictSourceViolation raised)",
+  "load_reproduced() staging resolver": "PASS (StrictSourceViolation raised)"
+ },
+ "summary_csv_check": {
+  "cec2017/gsk/D10": {
+   "functions": 29,
+   "expected": 29,
+   "status": "ok"
+  },
+  "cec2017/gsk/D30": {
+   "functions": 29,
+   "expected": 29,
+   "status": "ok"
+  },
+  "cec2017/gsk/D50": {
+   "functions": 29,
+   "expected": 29,
+   "status": "ok"
+  },
+  "cec2017/gsk/D100": {
+   "functions": 29,
+   "expected": 29,
+   "status": "ok"
+  },
+  "cec2017/agsk/D10": {
+   "functions": 29,
+   "expected": 29,
+   "status": "ok"
+  },
+  "cec2017/agsk/D30": {
+   "functions": 29,
+   "expected": 29,
+   "status": "ok"
+  },
+  "cec2017/agsk/D50": {
+   "functions": 29,
+   "expected": 29,
+   "status": "ok"
+  },
+  "cec2017/agsk/D100": {
+   "functions": 29,
+   "expected": 29,
+   "status": "ok"
+  },
+  "cec2017/apgsk/D10": {
+   "functions": 29,
+   "expected": 29,
+   "status": "ok"
+  },
+  "cec2017/apgsk/D30": {
+   "functions": 29,
+   "expected": 29,
+   "status": "ok"
+  },
+  "cec2017/apgsk/D50": {
+   "functions": 29,
+   "expected": 29,
+   "status": "ok"
+  },
+  "cec2017/apgsk/D100": {
+   "functions": 29,
+   "expected": 29,
+   "status": "ok"
+  },
+  "cec2017/fdb-agsk/D10": {
+   "functions": 29,
+   "expected": 29,
+   "status": "ok"
+  },
+  "cec2017/fdb-agsk/D30": {
+   "functions": 29,
+   "expected": 29,
+   "status": "ok"
+  },
+  "cec2017/fdb-agsk/D50": {
+   "functions": 29,
+   "expected": 29,
+   "status": "ok"
+  },
+  "cec2017/fdb-agsk/D100": {
+   "functions": 29,
+   "expected": 29,
+   "status": "ok"
+  },
+  "cec2017/atmals-gsk/D10": {
+   "functions": 29,
+   "expected": 29,
+   "status": "ok"
+  },
+  "cec2017/atmals-gsk/D30": {
+   "functions": 29,
+   "expected": 29,
+   "status": "ok"
+  },
+  "cec2017/atmals-gsk/D50": {
+   "functions": 29,
+   "expected": 29,
+   "status": "ok"
+  },
+  "cec2017/atmals-gsk/D100": {
+   "functions": 29,
+   "expected": 29,
+   "status": "ok"
+  },
+  "cec2017/egsk/D10": {
+   "functions": 29,
+   "expected": 29,
+   "status": "ok"
+  },
+  "cec2017/egsk/D30": {
+   "functions": 29,
+   "expected": 29,
+   "status": "ok"
+  },
+  "cec2017/egsk/D50": {
+   "functions": 29,
+   "expected": 29,
+   "status": "ok"
+  },
+  "cec2017/egsk/D100": {
+   "functions": 29,
+   "expected": 29,
+   "status": "ok"
+  },
+  "cec2017/dt-gsk/D10": {
+   "functions": 29,
+   "expected": 29,
+   "status": "ok"
+  },
+  "cec2017/dt-gsk/D30": {
+   "functions": 29,
+   "expected": 29,
+   "status": "ok"
+  },
+  "cec2017/dt-gsk/D50": {
+   "functions": 29,
+   "expected": 29,
+   "status": "ok"
+  },
+  "cec2017/dt-gsk/D100": {
+   "functions": 29,
+   "expected": 29,
+   "status": "ok"
+  },
+  "cec2013/gsk/D10": {
+   "functions": 28,
+   "expected": 28,
+   "status": "ok"
+  },
+  "cec2013/gsk/D30": {
+   "functions": 28,
+   "expected": 28,
+   "status": "ok"
+  },
+  "cec2013/gsk/D50": {
+   "functions": 28,
+   "expected": 28,
+   "status": "ok"
+  },
+  "cec2013/agsk/D10": {
+   "functions": 28,
+   "expected": 28,
+   "status": "ok"
+  },
+  "cec2013/agsk/D30": {
+   "functions": 28,
+   "expected": 28,
+   "status": "ok"
+  },
+  "cec2013/agsk/D50": {
+   "functions": 28,
+   "expected": 28,
+   "status": "ok"
+  },
+  "cec2013/apgsk/D10": {
+   "functions": 28,
+   "expected": 28,
+   "status": "ok"
+  },
+  "cec2013/apgsk/D30": {
+   "functions": 28,
+   "expected": 28,
+   "status": "ok"
+  },
+  "cec2013/apgsk/D50": {
+   "functions": 28,
+   "expected": 28,
+   "status": "ok"
+  },
+  "cec2013/fdb-agsk/D10": {
+   "functions": 28,
+   "expected": 28,
+   "status": "ok"
+  },
+  "cec2013/fdb-agsk/D30": {
+   "functions": 28,
+   "expected": 28,
+   "status": "ok"
+  },
+  "cec2013/fdb-agsk/D50": {
+   "functions": 28,
+   "expected": 28,
+   "status": "ok"
+  },
+  "cec2013/atmals-gsk/D10": {
+   "functions": 28,
+   "expected": 28,
+   "status": "ok"
+  },
+  "cec2013/atmals-gsk/D30": {
+   "functions": 28,
+   "expected": 28,
+   "status": "ok"
+  },
+  "cec2013/atmals-gsk/D50": {
+   "functions": 28,
+   "expected": 28,
+   "status": "ok"
+  },
+  "cec2013/egsk/D10": {
+   "functions": 28,
+   "expected": 28,
+   "status": "ok"
+  },
+  "cec2013/egsk/D30": {
+   "functions": 28,
+   "expected": 28,
+   "status": "ok"
+  },
+  "cec2013/egsk/D50": {
+   "functions": 28,
+   "expected": 28,
+   "status": "ok"
+  },
+  "cec2013/dt-gsk/D10": {
+   "functions": 28,
+   "expected": 28,
+   "status": "ok"
+  },
+  "cec2013/dt-gsk/D30": {
+   "functions": 28,
+   "expected": 28,
+   "status": "ok"
+  },
+  "cec2013/dt-gsk/D50": {
+   "functions": 28,
+   "expected": 28,
+   "status": "ok"
+  },
+  "cec2011/gsk": {
+   "functions": 22,
+   "expected": 22,
+   "status": "ok"
+  },
+  "cec2011/agsk": {
+   "functions": 22,
+   "expected": 22,
+   "status": "ok"
+  },
+  "cec2011/apgsk": {
+   "functions": 22,
+   "expected": 22,
+   "status": "ok"
+  },
+  "cec2011/fdb-agsk": {
+   "functions": 22,
+   "expected": 22,
+   "status": "ok"
+  },
+  "cec2011/atmals-gsk": {
+   "functions": 22,
+   "expected": 22,
+   "status": "ok"
+  },
+  "cec2011/egsk": {
+   "functions": 22,
+   "expected": 22,
+   "status": "ok"
+  },
+  "cec2011/dt-gsk": {
+   "functions": 22,
+   "expected": 22,
+   "status": "ok"
+  }
+ },
+ "summary_failures": [],
+ "per_run_check": {
+  "cec2017/gsk": {
+   "rows": 5916,
+   "expected": 5916,
+   "status": "ok"
+  },
+  "cec2017/agsk": {
+   "rows": 5916,
+   "expected": 5916,
+   "status": "ok"
+  },
+  "cec2017/apgsk": {
+   "rows": 5916,
+   "expected": 5916,
+   "status": "ok"
+  },
+  "cec2017/fdb-agsk": {
+   "rows": 5916,
+   "expected": 5916,
+   "status": "ok"
+  },
+  "cec2017/atmals-gsk": {
+   "rows": 5916,
+   "expected": 5916,
+   "status": "ok"
+  },
+  "cec2017/egsk": {
+   "rows": 5916,
+   "expected": 5916,
+   "status": "ok"
+  },
+  "cec2017/dt-gsk": {
+   "rows": 5916,
+   "expected": 5916,
+   "status": "ok"
+  },
+  "cec2013/gsk": {
+   "rows": 4284,
+   "expected": 4284,
+   "status": "ok"
+  },
+  "cec2013/agsk": {
+   "rows": 4284,
+   "expected": 4284,
+   "status": "ok"
+  },
+  "cec2013/apgsk": {
+   "rows": 4284,
+   "expected": 4284,
+   "status": "ok"
+  },
+  "cec2013/fdb-agsk": {
+   "rows": 4284,
+   "expected": 4284,
+   "status": "ok"
+  },
+  "cec2013/atmals-gsk": {
+   "rows": 4284,
+   "expected": 4284,
+   "status": "ok"
+  },
+  "cec2013/egsk": {
+   "rows": 4284,
+   "expected": 4284,
+   "status": "ok"
+  },
+  "cec2013/dt-gsk": {
+   "rows": 4284,
+   "expected": 4284,
+   "status": "ok"
+  },
+  "cec2011/gsk": {
+   "rows": 550,
+   "expected": 550,
+   "status": "ok"
+  },
+  "cec2011/agsk": {
+   "rows": 550,
+   "expected": 550,
+   "status": "ok"
+  },
+  "cec2011/apgsk": {
+   "rows": 550,
+   "expected": 550,
+   "status": "ok"
+  },
+  "cec2011/fdb-agsk": {
+   "rows": 550,
+   "expected": 550,
+   "status": "ok"
+  },
+  "cec2011/atmals-gsk": {
+   "rows": 550,
+   "expected": 550,
+   "status": "ok"
+  },
+  "cec2011/egsk": {
+   "rows": 550,
+   "expected": 550,
+   "status": "ok"
+  },
+  "cec2011/dt-gsk": {
+   "rows": 550,
+   "expected": 550,
+   "status": "ok"
+  }
+ },
+ "per_run_failures": [],
+ "apgsk_cec2017_disposition": "A2-004 RESOLVED under CR-0006 (2026-07-11): cec2017/apgsk per_run.csv restored to full D10/D30/D50/D100 coverage (validated deterministic reconstruction that reproduces the frozen apgsk summaries exactly, scripts/recover_apgsk_perrun.py); run-level quantities vs apgsk at CEC2017 D10/D30/D50 (Wilcoxon/A12/Cliff/BCa) are now computed from the recovered per_run.csv, no longer disclosed-unavailable"
+}

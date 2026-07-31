@@ -1,0 +1,26 @@
+# Final publishable DT-GSK CEC2017 campaign (canonical protocol).
+#
+# The deep-stall full-restart (multi-start) is now a STANDARD default-on DT-GSK
+# mechanism (`deep_stall_restart_enabled=True`), so no optimizer_options override
+# is needed -- this config reproduces the published "DT-GSK final" exactly.
+#
+# Canonical regime: unified Threefry seed schedule, error vs known optimum,
+# F2 excluded, 51 runs, 10000*D NFEs. Do not switch RNG/seeds for the main paper.
+#
+# Generate the family statistical report after the run:
+#   python -m gsk_family.cli.stats --suite CEC2017 --dims 10,30,50,100 --results-root results/_publish
+optimizers:
+  - dt-gsk
+suite: cec2017
+functions: default          # F1, F3..F30 (F2 excluded by protocol)
+dimensions: [10, 30, 50, 100]
+runs: 51
+seed: 20240620
+seed_policy: unified
+rand_generator: threefry
+parallel: true
+workers: 15
+generation_logs: false
+convergence_graphs: true
+overwrite: true
+output_root: results/_publish

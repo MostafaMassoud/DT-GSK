@@ -1,0 +1,97 @@
+{
+ "status": "CLOSED",
+ "opened_utc": "2026-07-28T00:00:00Z",
+ "opened_by": "CR-0019 final empirical scope (author decisions 2026-07-27/28): two suites added to the paper, eight external baselines removed from it, headline recomputed over five suites",
+ "reason": "The manuscript frozen at tag dtgsk-submission-v1.0-2026-07-25 (pass 23) reports three suites and treats CEC2020 and CEC2013LSGO as out of scope. The author has fixed the final scope at seven family algorithms on FIVE suites, with the eight vendored externals excluded from every panel. That is a scope change, not an erratum: new evidence releases are minted, the descriptive headline is recomputed, and two supplement sections (S7 LSGO, S8 CEC2020) are added. main_manuscript_freeze_manifest.json therefore goes intentionally stale on papers/governance/claims_evidence_matrix.csv (three PENDING pre-registered rows added in the pre-registration commit) and, later, on the .tex/.pdf/.docx artifacts. A check_manifest mismatch on those files is EXPECTED while this ticket is OPEN and is not evidence of drift.",
+ "standing_constraints": [
+  "no optimizer-core edit (byte-locked; the family acceleration campaign proved the bit-identical surface exhausted, CR-0018)",
+  "no comparator edit (deliberate MATLAB-faithful ports)",
+  "no re-run of the frozen cec2017 / cec2011 / cec2013 banks",
+  "rel-2026-07-20-67d9345f9 is never re-run, never re-minted, never superseded; the two new releases are separate, non-superseding, underscore-prefixed trees",
+  "analysis outputs under papers/analysis/rel-2026-07-20-67d9345f9/** stay BYTE-IDENTICAL; a snapshot guard re-checks them after every phase",
+  "the statistical analysis plan addendum is append-only after its signing commit",
+  "overwrite: false on every campaign config"
+ ],
+ "tickets": {
+  "P0-PREREG": "SAP Addendum 1 (CEC2020 + CEC2013LSGO) committed BEFORE any CEC2020 datum exists; SHA-256 recorded in decision_log.md D-0021 - DONE 2026-07-28",
+  "P0-SEEDS": "unified seed policy for all suites; agsk_cec2020.yml corrected (was seed_policy: reference + nonexistent data_root); run_all_cec2020.py repointed at family_cec2020.yml - DONE 2026-07-28",
+  "P0-GATE0": "Decision Gate 0: CEC2013 KEPT; five-suite branch in force, [DROP]-branch tasks void - DONE 2026-07-28 (author)",
+  "P0-LSGOFORENSICS": "adjudicate the four *.csv.prebugfix siblings and the six-commit code-identity spread before any LSGO promotion or claim - DONE 2026-07-28 (D-5..D-7 adjudicated; D-7 discharged 8/8 full-budget replays)",
+  "P0-CITATIONS": "CR-0020 four-key lockstep (LSGO suite definition, yue2020cec2020, SHADE-ILS, MOS) - DONE 2026-07-28 (corpus 57->61, C1-C5 green; CrossRef-verified metadata)",
+  "P0-NAMESPACE": "relocate the external LSGO banks to _external_baselines/ with provenance sidecars; move BENCHMARK_EVIDENCE_INDEX.md; reach zero unlisted files under --strict-inventory - DONE 2026-07-28 (externals relocated with EV-09 sidecars; index moved to _index/ with stale ids fixed; strict inventory zero unlisted)",
+  "P0-LOCKS": "config-lock configs/family_cec2020.yml (and retroactively the LSGO configs) so nothing can drift between pre-registration and run - DONE 2026-07-28 (validate_profile_lock covers 10 configs incl. the campaign locks)",
+  "P1-CAMPAIGN": "author runs the CEC2020 campaign: 7 algorithms x 38 cells x 30 runs = 7,980 runs, 2.948e10 evaluations - DONE 2026-07-29 (7x1140 rows, completeness gate PASS, single end-of-campaign commit)",
+  "P2-RELEASES": "mint _cec2013lsgo and _cec2020 releases (separate, non-superseding) - DONE 2026-07-29 (lsgo-rel-2026-07-28-ff1a046ef + cec2020-rel-2026-07-29-5867abe1e minted; union strict-inventory zero unlisted)",
+  "P3-STATS": "phase6b confirmatory batteries incl. the never-computed LSGO run-level paired layer - DONE 2026-07-29 (phase6b bundles committed; registered outcomes in Amendments 1-2)",
+  "P4-P5-MANUSCRIPT": "main-text surgery + supplements S7/S8; the three hard-honesty disclosure sentences are load-bearing and may not be cut for page budget - DONE 2026-07-29 (W1-W3 commit 294e95300 + main-text completeness 5db2fd7ca; W5 sweep 0 BLOCKING)",
+  "P6-P7-REFREEZE": "gates, rebuild both formats at their pinned epochs, re-mint the manuscript freeze manifest, freeze statement pass 24, tag dtgsk-submission-v2.0 - DONE 2026-07-29 (pass-24 mint, check_manifest 15/15, tag dtgsk-submission-v2.0); superseded 2026-07-31 by the pass-25 re-mint after the author-directed affiliation correction (anchor 2d29e2606, 15/15, tag dtgsk-submission-v2.0-2026-07-31)"
+ },
+ "exit_criteria": [
+  "every PENDING_PREREGISTERED claim row (RS-12, RS-13, LM-06) resolved to a registered status with pipeline-sourced values",
+  "registered analyses executed exactly as pre-registered, with every deviation recorded as a dated amendment",
+  "byte-identity guard GREEN on papers/analysis/rel-2026-07-20-67d9345f9/**",
+  "validate_citation_controls C1-C5 green on the reopened corpus",
+  "check_manifest --strict-inventory: zero unlisted files, all releases",
+  "cross-format parity 0 FAIL; both DOCX gates PASS; provenance-claims gate green on source AND rendered artifacts",
+  "main_manuscript_freeze_manifest.json re-minted fresh and matching",
+  "freeze statement pass 24 appended; tag dtgsk-submission-v2.0-<date> created (v1.0 retained, never moved)"
+ ],
+ "prior_closure": {
+  "note": "The 2026-07-22 reopening (post-review remediation R-01..R-14) was CLOSED on 2026-07-22 and is retained verbatim below as history. It is unrelated to this reopening.",
+  "record": {
+   "status": "CLOSED",
+   "opened_utc": "2026-07-22T00:00:00Z",
+   "opened_by": "post-review remediation (external D2 review, verified and re-scoped)",
+   "reason": "The terminal freeze at 383d7896be4034d25e46bf24da51c31dca6476e1 is RE-OPENED. Its validate_provenance_claims=0 attestation is VOID, not merely stale: the gate attested exactly the property that was violated (the supplement presented superseded release rel-2026-07-16-78f075cb0 as current) and passed only because of four independent false-negative defects, including an unconditional ok() and a regex that captured the pronoun in 'drawn from it'. A gate that cannot fail is not evidence.",
+   "standing_constraints": [
+    "no optimizer-core edit (byte-locked; Decision 3: correct the paper, not the code)",
+    "no comparator edit (deliberate MATLAB-faithful ports)",
+    "no rerun",
+    "no new evidence release: rel-2026-07-20-67d9345f9 remains valid"
+   ],
+   "tickets": {
+    "R-01": "Eq.(4) per-phase signs s_J/s_S + donor naming + sign convention promoted to rendered text + Table 3 row - DONE",
+    "R-02": "equation registry drift E3/E4/E8 + contribution_matrix - DONE",
+    "R-03": "DOCX OMML literal '&' alignment markers (Eqs. 4/11/13) - build-path fix DONE, rebuild pending",
+    "R-04": "restart invariant sentence (deep-stall resamples; global best preserved) - DONE",
+    "R-05": "budget-crossing semantics: audit false claim + performance.tex scoping - DONE",
+    "R-06": "supplement release identity: items 6/7 + anchor -> rel-2026-07-20-67d9345f9 - DONE",
+    "R-07": "validate_provenance_claims.py hardening + self-test; RED-then-GREEN evidenced - DONE",
+    "R-08": "contribution count (ISM not a fourth contribution) - DONE",
+    "R-09": "cover letter: reviewer placeholder removed (.tex+.md), byte-stability narrowed - DONE",
+    "R-10": "'credit credit-based' typo - DONE",
+    "R-11": "per-coordinate bounds notation - DONE",
+    "R-12": "phase-gate register write-back (Phase 12 -> FROZEN) - DONE",
+    "R-13": "sentence de-packing / S5 ledger tokens / resizebox - partially DONE (style)",
+    "R-14": "counting + poison-equivalence probes - DONE: tests/regression/test_budget_crossing_semantics.py, 14 tests, all seven optimizers. Non-vacuous: MaxFES=1050 vs NP=100 forces a truncated terminal batch; dt-gsk overrun 0, the six ports 8-50 uncounted rows (174 total); poisoning all of them with 1e300 leaves best_fitness/nfes/best_x bit-identical for all seven."
+   },
+   "exit_criteria": [
+    "hardened validate_provenance_claims.py GREEN on source AND rendered artifacts",
+    "check_manifest 15/15 against a freshly minted manifest",
+    "cross-format parity 0 FAIL",
+    "no literal '&' math runs in either DOCX",
+    "all gates green, then re-mint"
+   ],
+   "superseded_record": {
+    "status": "CLOSED",
+    "closed_utc": "2026-07-21T22:15:21Z",
+    "closed_by": "ticket C-008 - terminal manuscript re-freeze",
+    "resolution": "main_manuscript_freeze_manifest.json minted FRESH (15 files incl. supplement PDF/DOCX and cover letter; SHA-256; 68 *_refreeze history blocks retired). check_manifest.py now reports 15/15 match (exit 0). The EXPECTED-failure state recorded under prior_state is resolved.",
+    "prior_state": {
+     "generated_utc": "2026-07-20T18:58:53+00:00",
+     "release_id": "rel-2026-07-20-67d9345f9",
+     "reason": "EXPECTED failure: the hand-minted main_manuscript_freeze_manifest.json still binds the pre-rerun bytes. Refreeze is a HUMAN byte-surgical step (CRLF + 2-space indent; edit hashes in place, never rewrite the file).",
+     "checker_exit": 1,
+     "checker_findings": [
+      "1/12 match  ['papers/main.tex', 'papers/sections/conclusions.tex', 'papers/sections/introduction.tex', 'papers/sections/performance.tex', 'papers/sections/proposed_algorithm.tex', 'papers/sections/related_work.tex', 'papers/DT-GSK.pdf', 'papers/DT-GSK.docx', 'papers/governance/claims_evidence_matrix.csv', 'papers/governance/citation_usage_map.csv', 'papers/governance/artifact_binding.csv']",
+      "changed : ['papers/main.tex', 'papers/sections/conclusions.tex', 'papers/sections/introduction.tex', 'papers/sections/performance.tex', 'papers/sections/proposed_algorithm.tex', 'papers/sections/related_work.tex', 'papers/DT-GSK.pdf', 'papers/DT-GSK.docx', 'papers/governance/claims_evidence_matrix.csv', 'papers/governance/citation_usage_map.csv', 'papers/governance/artifact_binding.csv']"
+     ]
+    }
+   },
+   "closed_utc": "2026-07-22T00:00:00Z",
+   "resolution": "Re-freeze complete. check_manifest 15/15 against the freshly minted manifest; cross-format parity 578 rows / 0 FAIL; hardened validate_provenance_claims GREEN on BOTH source and rendered artifacts (it was RED on the pre-fix bytes, and its --self-test fails the shapes that previously slipped through); 0 literal '&' math runs in either DOCX; both DOCX 33 PASS / 0 FAIL; all other gates exit 0. R-14 is now CLOSED: the budget-crossing argument is machine-checked rather than argued. NO optimizer code changed, NO evaluations re-run, NO reported value altered."
+  }
+ },
+ "closed_utc": "2026-07-29T00:00:00Z",
+ "resolution": "Five-suite re-freeze complete. All W-phase tickets DONE; W4 builds byte-stable x2 at the canonical epochs; W5 full gate battery green with the three-reviewer adversarial sweep at 0 BLOCKING (w5_review_sweep_2026-07-29.md); pass-24 manifest freshly minted and verified 15/15; registered-vs-reported verification found reported = registered to the digit on both new suites. The frozen primary release and its analysis bundle remained byte-identical throughout (115/115). Tag dtgsk-submission-v2.0 is the submission basis; v1.0 retained."
+}

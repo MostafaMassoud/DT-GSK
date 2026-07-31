@@ -1,0 +1,515 @@
+requirement_id,line_no,summary,phase,artifact,validation,owner
+R-3801,3801,P9 verifies planned wording matches method capability.,5,PHASE_5_gate_report.md,Gate 5 sign-off evidence in phase_gate_register.csv,P9
+R-3805,3805,no post hoc primary choice;,5,phase_gate_register.csv (Gate 5 QA evidence),Phase 5 QA checkpoint audit at Gate 5,P3
+R-3806,3806,no pseudo-replication;,5,phase_gate_register.csv (Gate 5 QA evidence),Phase 5 QA checkpoint audit at Gate 5,P3
+R-3807,3807,no invalid pairing;,5,phase_gate_register.csv (Gate 5 QA evidence),Phase 5 QA checkpoint audit at Gate 5,P3
+R-3808,3808,no mixed correction families;,5,phase_gate_register.csv (Gate 5 QA evidence),Phase 5 QA checkpoint audit at Gate 5,P3
+R-3809,3809,no unseeded bootstrap;,5,phase_gate_register.csv (Gate 5 QA evidence),Phase 5 QA checkpoint audit at Gate 5,P3
+R-3810,3810,no convergence cherry-picking;,5,phase_gate_register.csv (Gate 5 QA evidence),Phase 5 QA checkpoint audit at Gate 5,P3
+R-3811,3811,no ablation result inspection.,5,phase_gate_register.csv (Gate 5 QA evidence),Phase 5 QA checkpoint audit at Gate 5,P9
+R-3815,3815,research questions and endpoints are frozen;,5,phase_gate_register.csv (Gate 5),Gate 5 acceptance evidence in phase_gate_register.csv,P3
+R-3816,3816,"units, pairing, tests, corrections, effects, and intervals are valid;",5,phase_gate_register.csv (Gate 5),Gate 5 acceptance evidence in phase_gate_register.csv,P3
+R-3817,3817,every exhibit and claim has an analysis binding;,5,phase_gate_register.csv (Gate 5),Gate 5 acceptance evidence in phase_gate_register.csv,P3
+R-3818,3818,robustness and cost plans are complete;,5,phase_gate_register.csv (Gate 5),Gate 5 acceptance evidence in phase_gate_register.csv,P3
+R-3819,3819,source guard and deterministic outputs are specified;,5,phase_gate_register.csv (Gate 5),Gate 5 acceptance evidence in phase_gate_register.csv,P5
+R-3820,3820,final ablation is fully pre-registered but untouched.,5,phase_gate_register.csv (Gate 5),Gate 5 acceptance evidence in phase_gate_register.csv,P9
+R-3824,3824,Phase 5 freezes after P3/P4/P5/P9 sign-off. Any later primary analysis change is logged and classified as confirmatory amendment or explo...,5,phase_gate_register.csv (Gate 5),Gate 5 exit record; reopen only via change_request_register.csv (Sec 12.2),P1
+R-3853,3853,"All generated outputs plus PHASE_5_gate_report.md summarizing RQs, endpoints, units, families, effects, intervals, strict-source proof pl...",5,PHASE_5_gate_report.md,Gate 5 deliverable check,P1
+R-3859,3859,"Gate 5: P3 + P4 + P5 + P9 approve. Invalid pairing, undefined multiplicity, unbound claim, forbidden source, or early ablation access fai...",5,phase_gate_register.csv (Gate 5),Gate 5 approval record in phase_gate_register.csv,P1
+R-3883,3883,Phases 0–5 are frozen;,6,phase_gate_register.csv (Phase 6 entry),Phase 6 entry check recorded in phase_gate_register.csv (Sec 12.1),P1
+R-3884,3884,source guard tests pass;,6,phase_gate_register.csv (Phase 6 entry),Phase 6 entry check recorded in phase_gate_register.csv (Sec 12.1),P5
+R-3885,3885,selected evidence release is immutable and complete;,6,phase_gate_register.csv (Phase 6 entry),Phase 6 entry check recorded in phase_gate_register.csv (Sec 12.1),P4
+R-3886,3886,analysis plan and schemas are frozen;,6,phase_gate_register.csv (Phase 6 entry),Phase 6 entry check recorded in phase_gate_register.csv (Sec 12.1),P3
+R-3887,3887,algorithm remains unchanged.,6,phase_gate_register.csv (Phase 6 entry),Phase 6 entry check recorded in phase_gate_register.csv (Sec 12.1),P2
+R-3899,3899,immutable evidence release only;,6,analysis_source_use.log (Phase 6 task 19),Phase 6 source-use / evidence audit; Gate 6,P4
+R-3906,3906,"Phases 2, 3, and 5. No ablation input is permitted.",6,analysis_source_use.log + no-ablation QA (Gate 6),Phase 6 no-ablation scan and source-use audit; Gate 6,P9
+R-3910,3910,Create clean analysis environment.,6,papers/analysis/<release_id>/ bundle,Phase 6 validation procedures; Gate 6 review,P5
+R-3911,3911,"Record software/library versions, locale, thread settings, RNG behavior, and working directory.",6,papers/analysis/<release_id>/ bundle,Phase 6 validation procedures; Gate 6 review,P5
+R-3913,3913,Confirm anchor and algorithm freeze hashes.,6,papers/analysis/<release_id>/ bundle,Phase 6 validation procedures; Gate 6 review,P5
+R-3915,3915,Activate strict source guard.,6,papers/analysis/<release_id>/ bundle,Phase 6 validation procedures; Gate 6 review,P5
+R-3916,3916,Set selected release root and ID.,6,papers/analysis/<release_id>/ bundle,Phase 6 validation procedures; Gate 6 review,P5
+R-3917,3917,Disable results/_run_all/ fallback.,6,papers/analysis/<release_id>/ bundle,Phase 6 validation procedures; Gate 6 review,P5
+R-3918,3918,Start file-open/source-use logging.,6,papers/analysis/<release_id>/ bundle,Phase 6 validation procedures; Gate 6 review,P5
+R-3919,3919,Execute a negative test proving a forbidden path fails.,6,papers/analysis/<release_id>/ bundle,Phase 6 validation procedures; Gate 6 review,P5
+R-3921,3921,Validate source completeness immediately before analysis.,6,papers/analysis/<release_id>/ bundle,Phase 6 validation procedures; Gate 6 review,P4
+R-3922,3922,Recompute manifest hashes.,6,papers/analysis/<release_id>/ bundle,Phase 6 validation procedures; Gate 6 review,P4
+R-3923,3923,"Recheck run counts, seed schedules, FP sentinels, and cell schemas.",6,papers/analysis/<release_id>/ bundle,Phase 6 validation procedures; Gate 6 review,P4
+R-3924,3924,Abort affected analysis on drift.,6,papers/analysis/<release_id>/ bundle,Phase 6 validation procedures; Gate 6 review,P4
+R-3926,3926,Run primary suite analysis.,6,papers/analysis/<release_id>/cec2017/,Phase 6 validation procedures; Gate 6 review,P3
+R-3932,3932,Confirm expected function denominator from release metadata.,6,papers/analysis/<release_id>/cec2017/,Phase 6 validation procedures; Gate 6 review,P3
+R-3933,3933,"Capture stdout, stderr, command, environment, and output hashes.",6,papers/analysis/<release_id>/cec2017/,Phase 6 validation procedures; Gate 6 review,P3
+R-3935,3935,Run CEC2011 analysis.,6,papers/analysis/<release_id>/cec2011/,Phase 6 validation procedures; Gate 6 review,P3
+R-3941,3941,Respect native dimensions and task definitions.,6,papers/analysis/<release_id>/cec2011/,Phase 6 validation procedures; Gate 6 review,P3
+R-3943,3943,Run CEC2013 analysis.,6,papers/analysis/<release_id>/cec2013/,Phase 6 validation procedures; Gate 6 review,P3
+R-3949,3949,Do not apply the CEC2017 F2 exclusion.,6,papers/analysis/<release_id>/cec2013/,Phase 6 validation procedures; Gate 6 review,P3
+R-3951,3951,Compute descriptive summaries.,6,papers/analysis/<release_id>/ bundle,Phase 6 validation procedures; Gate 6 review,P3
+R-3952,3952,"Best, median, mean, worst, SD, IQR, failures, and n.",6,papers/analysis/<release_id>/ bundle,Phase 6 validation procedures; Gate 6 review,P3
+R-3953,3953,Verify against source summaries and per-run reconstruction.,6,papers/analysis/<release_id>/ bundle,Phase 6 validation procedures; Gate 6 review,P3
+R-3954,3954,"Resolve any discrepancy through code/provenance audit, never manual edits.",6,papers/analysis/<release_id>/ bundle,Phase 6 validation procedures; Gate 6 review,P3
+R-3956,3956,Compute omnibus ranks/tests.,6,papers/analysis/<release_id>/ bundle,Phase 6 validation procedures; Gate 6 review,P3
+R-3957,3957,One frozen design per suite/dimension.,6,papers/analysis/<release_id>/ bundle,Phase 6 validation procedures; Gate 6 review,P3
+R-3958,3958,"Emit tasks, algorithms, ranks, statistic, p-value, and CD inputs.",6,papers/analysis/<release_id>/ bundle,Phase 6 validation procedures; Gate 6 review,P3
+R-3960,3960,Compute pairwise analyses.,6,papers/analysis/<release_id>/ bundle,Phase 6 validation procedures; Gate 6 review,P3
+R-3961,3961,DT-GSK versus each valid comparator.,6,papers/analysis/<release_id>/ bundle,Phase 6 validation procedures; Gate 6 review,P3
+R-3962,3962,Wilcoxon only with valid pairing.,6,papers/analysis/<release_id>/ bundle,Phase 6 validation procedures; Gate 6 review,P3
+R-3963,3963,Holm-adjust within declared families.,6,papers/analysis/<release_id>/ bundle,Phase 6 validation procedures; Gate 6 review,P3
+R-3964,3964,"Emit raw/adjusted p, statistic, direction, n, ties, and status.",6,papers/analysis/<release_id>/ bundle,Phase 6 validation procedures; Gate 6 review,P3
+R-3966,3966,Compute effect sizes.,6,papers/analysis/<release_id>/ bundle,Phase 6 validation procedures; Gate 6 review,P3
+R-3967,3967,A12 with direction and data unit explicit.,6,papers/analysis/<release_id>/ bundle,Phase 6 validation procedures; Gate 6 review,P3
+R-3968,3968,Bind each significance claim to an effect.,6,papers/analysis/<release_id>/ bundle,Phase 6 validation procedures; Gate 6 review,P3
+R-3970,3970,Compute BCa intervals.,6,headline_bca.csv,Phase 6 validation procedures; Gate 6 review,P3
+R-3971,3971,"Use frozen RNG seed, resampling unit, and number of resamples.",6,headline_bca.csv,Phase 6 validation procedures; Gate 6 review,P3
+R-3972,3972,Emit headline_bca.csv or registry-defined equivalent.,6,headline_bca.csv,Phase 6 validation procedures; Gate 6 review,P3
+R-3973,3973,Record convergence/failure of interval computation.,6,headline_bca.csv,Phase 6 validation procedures; Gate 6 review,P3
+R-3975,3975,Create curve selection.,6,curve_selection.csv,Phase 6 validation procedures; Gate 6 review,P3
+R-3976,3976,Apply the pre-specified rule without viewing final chart aesthetics.,6,curve_selection.csv,Phase 6 validation procedures; Gate 6 review,P3
+R-3977,3977,Record selected suite/function/dimension and reason.,6,curve_selection.csv,Phase 6 validation procedures; Gate 6 review,P3
+R-3978,3978,Include hard/adverse case.,6,curve_selection.csv,Phase 6 validation procedures; Gate 6 review,P3
+R-3980,3980,Compute convergence aggregates.,6,convergence aggregate data,Phase 6 validation procedures; Gate 6 review,P3
+R-3981,3981,Validate checkpoints.,6,convergence aggregate data,Phase 6 validation procedures; Gate 6 review,P3
+R-3982,3982,"Emit central trajectory, uncertainty, n, failures, and source list.",6,convergence aggregate data,Phase 6 validation procedures; Gate 6 review,P3
+R-3984,3984,Compute parameter sensitivity summaries.,6,papers/analysis/<release_id>/ bundle,Phase 6 validation procedures; Gate 6 review,P3
+R-3985,3985,Use only admitted immutable evidence if a validated sensitivity release exists.,6,papers/analysis/<release_id>/ bundle,Phase 6 validation procedures; Gate 6 review,P3
+R-3987,3987,Otherwise mark sensitivity unavailable; do not use results/ staging.,6,papers/analysis/<release_id>/ bundle,Phase 6 validation procedures; Gate 6 review,P3
+R-3988,3988,Label n = 3 evidence exploratory.,6,papers/analysis/<release_id>/ bundle,Phase 6 validation procedures; Gate 6 review,P3
+R-3990,3990,Compute primary overhead/cost.,6,papers/analysis/<release_id>/ bundle,Phase 6 validation procedures; Gate 6 review,P4
+R-3991,3991,Use a validated immutable cost record or promote candidate measurements before use.,6,papers/analysis/<release_id>/ bundle,Phase 6 validation procedures; Gate 6 review,P4
+R-3993,3993,"Separate objective cost, wall time, and memory.",6,papers/analysis/<release_id>/ bundle,Phase 6 validation procedures; Gate 6 review,P4
+R-3995,3995,Execute robustness checks.,6,papers/analysis/<release_id>/ bundle,Phase 6 validation procedures; Gate 6 review,P3
+R-3996,3996,Run every pre-specified check.,6,papers/analysis/<release_id>/ bundle,Phase 6 validation procedures; Gate 6 review,P3
+R-3997,3997,Flag reversals or material sensitivity.,6,papers/analysis/<release_id>/ bundle,Phase 6 validation procedures; Gate 6 review,P3
+R-3999,3999,Cross-implementation verification.,6,papers/analysis/<release_id>/ bundle,Phase 6 validation procedures; Gate 6 review,P3
+R-4000,4000,"Independently recompute a sample of ranks, p-value adjustment, A12, and interval using a second implementation or direct formula when pra...",6,papers/analysis/<release_id>/ bundle,Phase 6 validation procedures; Gate 6 review,P3
+R-4002,4002,Resolve discrepancies.,6,papers/analysis/<release_id>/ bundle,Phase 6 validation procedures; Gate 6 review,P3
+R-4004,4004,Determinism check.,6,papers/analysis/<release_id>/ bundle,Phase 6 validation procedures; Gate 6 review,P5
+R-4005,4005,Rerun each suite to a scratch directory.,6,papers/analysis/<release_id>/ bundle,Phase 6 validation procedures; Gate 6 review,P5
+R-4006,4006,Compare machine-readable outputs byte-for-byte or with a documented deterministic tolerance where unavoidable.,6,papers/analysis/<release_id>/ bundle,Phase 6 validation procedures; Gate 6 review,P5
+R-4008,4008,Delete or quarantine scratch outputs.,6,papers/analysis/<release_id>/ bundle,Phase 6 validation procedures; Gate 6 review,P5
+R-4010,4010,Source-use audit.,6,analysis_source_use.log,Phase 6 validation procedures; Gate 6 review,P5
+R-4011,4011,Parse file-open log.,6,analysis_source_use.log,Phase 6 validation procedures; Gate 6 review,P5
+R-4012,4012,Assert every empirical input is under selected release root.,6,analysis_source_use.log,Phase 6 validation procedures; Gate 6 review,P5
+R-4013,4013,Assert no results/ input.,6,analysis_source_use.log,Phase 6 validation procedures; Gate 6 review,P5
+R-4015,4015,Build source-of-truth bundle.,6,analysis_manifest.json + analysis_checksums.sha256 + table_to_csv_map.md,Phase 6 validation procedures; Gate 6 review,P5
+R-4016,4016,One authoritative machine-readable source per planned exhibit.,6,analysis_manifest.json + analysis_checksums.sha256 + table_to_csv_map.md,Phase 6 validation procedures; Gate 6 review,P5
+R-4017,4017,Write analysis manifest and SHA-256 checksums.,6,analysis_manifest.json + analysis_checksums.sha256 + table_to_csv_map.md,Phase 6 validation procedures; Gate 6 review,P5
+R-4018,4018,Create table_to_csv_map.md and figure bindings.,6,analysis_manifest.json + analysis_checksums.sha256 + table_to_csv_map.md,Phase 6 validation procedures; Gate 6 review,P5
+R-4020,4020,Update claims.,6,claims_evidence_matrix.csv,Phase 6 validation procedures; Gate 6 review,P9
+R-4021,4021,"Accept, narrow, omit, or block each planned empirical claim.",6,claims_evidence_matrix.csv,Phase 6 validation procedures; Gate 6 review,P9
+R-4022,4022,Record negative and unstable findings.,6,claims_evidence_matrix.csv,Phase 6 validation procedures; Gate 6 review,P9
+R-4023,4023,Do not create ablation claims.,6,claims_evidence_matrix.csv,Phase 6 validation procedures; Gate 6 review,P9
+R-4025,4025,Orphan checks.,6,primary_stats/statistical_results.csv,Phase 6 validation procedures; Gate 6 review,P3
+R-4026,4026,Every planned number has a row in primary_stats/statistical_results.csv (Section 7.14 schema).,6,primary_stats/statistical_results.csv,Phase 6 validation procedures; Gate 6 review,P3
+R-4028,4028,Every output intended for publication maps to a claim/exhibit.,6,primary_stats/statistical_results.csv,Phase 6 validation procedures; Gate 6 review,P3
+R-4029,4029,No number exists only in stdout or prose.,6,primary_stats/statistical_results.csv,Phase 6 validation procedures; Gate 6 review,P3
+R-4031,4031,Export paper-table staging CSVs.,6,results/paper_tables/,Phase 6 validation procedures; Gate 6 review,P4
+R-4032,4032,"From the authoritative controlled analysis bundle (papers/analysis/<release_id>/, Section 7.13), export the T1–T16 input CSVs — and, cond...",6,results/paper_tables/,Phase 6 validation procedures; Gate 6 review,P4
+R-4037,4037,"Record bundle provenance (release ID, source paths, checksums) with every exported CSV.",6,results/paper_tables/,Phase 6 validation procedures; Gate 6 review,P4
+R-4039,4039,Never populate results/paper_tables/ from any other source.,6,results/paper_tables/,Phase 6 validation procedures; Gate 6 review,P4
+R-4043,4043,"suite analysis bundles for CEC2017, CEC2011, and CEC2013 under papers/analysis/<release_id>/;",6,papers/analysis/<release_id>/,Phase 6 validation; P5 artifact/hash check at Gate 6,P3
+R-4045,4045,"primary_stats/ machine-readable registry outputs, including the authoritative primary_stats/statistical_results.csv (Section 7.14 schema);",6,primary_stats/,Phase 6 validation; P5 artifact/hash check at Gate 6,P3
+R-4047,4047,results/paper_tables/ exported table-input CSVs with bundle provenance;,6,results/paper_tables/,Phase 6 validation; P5 artifact/hash check at Gate 6,P4
+R-4048,4048,headline_bca.csv;,6,headline_bca.csv,Phase 6 validation; P5 artifact/hash check at Gate 6,P3
+R-4049,4049,effect-size outputs;,6,papers/analysis/<release_id>/ bundle,Phase 6 validation; P5 artifact/hash check at Gate 6,P3
+R-4050,4050,curve_selection.csv;,6,curve_selection.csv,Phase 6 validation; P5 artifact/hash check at Gate 6,P3
+R-4051,4051,convergence aggregate data;,6,papers/analysis/<release_id>/ bundle,Phase 6 validation; P5 artifact/hash check at Gate 6,P3
+R-4052,4052,robustness outputs;,6,papers/analysis/<release_id>/ bundle,Phase 6 validation; P5 artifact/hash check at Gate 6,P3
+R-4053,4053,cost outputs when admissible;,6,papers/analysis/<release_id>/ bundle,Phase 6 validation; P5 artifact/hash check at Gate 6,P3
+R-4054,4054,analysis_source_use.log;,6,analysis_source_use.log,Phase 6 validation; P5 artifact/hash check at Gate 6,P5
+R-4055,4055,analysis_manifest.json;,6,analysis_manifest.json,Phase 6 validation; P5 artifact/hash check at Gate 6,P5
+R-4056,4056,analysis_checksums.sha256;,6,analysis_checksums.sha256,Phase 6 validation; P5 artifact/hash check at Gate 6,P5
+R-4057,4057,table_to_csv_map.md;,6,table_to_csv_map.md,Phase 6 validation; P5 artifact/hash check at Gate 6,P5
+R-4058,4058,updated claims/exhibit plans;,6,papers/analysis/<release_id>/ bundle,Phase 6 validation; P5 artifact/hash check at Gate 6,P9
+R-4059,4059,results_validation_report.md.,6,results_validation_report.md,Phase 6 validation; P5 artifact/hash check at Gate 6,P3
+R-4063,4063,schema and range validation;,6,phase_gate_register.csv (Gate 6 validation evidence),Executed in Phase 6 VALIDATION state; evidence at Gate 6,P3
+R-4064,4064,task/function denominator checks;,6,phase_gate_register.csv (Gate 6 validation evidence),Executed in Phase 6 VALIDATION state; evidence at Gate 6,P3
+R-4065,4065,raw-to-summary reconstruction;,6,phase_gate_register.csv (Gate 6 validation evidence),Executed in Phase 6 VALIDATION state; evidence at Gate 6,P3
+R-4066,4066,paired-key alignment checks;,6,phase_gate_register.csv (Gate 6 validation evidence),Executed in Phase 6 VALIDATION state; evidence at Gate 6,P3
+R-4067,4067,correction-family checks;,6,phase_gate_register.csv (Gate 6 validation evidence),Executed in Phase 6 VALIDATION state; evidence at Gate 6,P3
+R-4068,4068,effect direction checks;,6,phase_gate_register.csv (Gate 6 validation evidence),Executed in Phase 6 VALIDATION state; evidence at Gate 6,P3
+R-4069,4069,interval seed/resampling checks;,6,phase_gate_register.csv (Gate 6 validation evidence),Executed in Phase 6 VALIDATION state; evidence at Gate 6,P3
+R-4070,4070,deterministic rerun comparison;,6,phase_gate_register.csv (Gate 6 validation evidence),Executed in Phase 6 VALIDATION state; evidence at Gate 6,P5
+R-4071,4071,orphan number/output checks.,6,phase_gate_register.csv (Gate 6 validation evidence),Executed in Phase 6 VALIDATION state; evidence at Gate 6,P3
+R-4075,4075,P3 independently verifies critical statistics.,6,PHASE_6_gate_report.md,Gate 6 sign-off evidence in phase_gate_register.csv,P3
+R-4076,4076,"P4 verifies source rows, task scope, and denominators.",6,PHASE_6_gate_report.md,Gate 6 sign-off evidence in phase_gate_register.csv,P4
+R-4077,4077,"P5 verifies source-use log, hashes, commands, and determinism.",6,PHASE_6_gate_report.md,Gate 6 sign-off evidence in phase_gate_register.csv,P5
+R-4078,4078,P9 checks claim wording against actual outputs.,6,PHASE_6_gate_report.md,Gate 6 sign-off evidence in phase_gate_register.csv,P9
+R-4082,4082,no forbidden input path;,6,phase_gate_register.csv (Gate 6 QA evidence),Phase 6 QA checkpoint audit at Gate 6,P5
+R-4083,4083,no p-value without test design and family;,6,phase_gate_register.csv (Gate 6 QA evidence),Phase 6 QA checkpoint audit at Gate 6,P3
+R-4084,4084,no significance without effect and uncertainty where planned;,6,phase_gate_register.csv (Gate 6 QA evidence),Phase 6 QA checkpoint audit at Gate 6,P3
+R-4085,4085,no rank from rounded values;,6,phase_gate_register.csv (Gate 6 QA evidence),Phase 6 QA checkpoint audit at Gate 6,P3
+R-4086,4086,no cherry-picked curve;,6,phase_gate_register.csv (Gate 6 QA evidence),Phase 6 QA checkpoint audit at Gate 6,P3
+R-4087,4087,no hidden unfavorable result;,6,phase_gate_register.csv (Gate 6 QA evidence),Phase 6 QA checkpoint audit at Gate 6,P9
+R-4088,4088,no ablation analysis.,6,phase_gate_register.csv (Gate 6 QA evidence),Phase 6 QA checkpoint audit at Gate 6,P9
+R-4092,4092,all primary analyses execute from immutable reference evidence only;,6,phase_gate_register.csv (Gate 6),Gate 6 acceptance evidence in phase_gate_register.csv,P5
+R-4093,4093,outputs are deterministic and checksummed;,6,phase_gate_register.csv (Gate 6),Gate 6 acceptance evidence in phase_gate_register.csv,P3
+R-4094,4094,every headline claim has valid statistics/effect/interval as planned;,6,phase_gate_register.csv (Gate 6),Gate 6 acceptance evidence in phase_gate_register.csv,P3
+R-4095,4095,every exhibit has one authoritative data source;,6,phase_gate_register.csv (Gate 6),Gate 6 acceptance evidence in phase_gate_register.csv,P3
+R-4096,4096,robustness outcomes are disclosed;,6,phase_gate_register.csv (Gate 6),Gate 6 acceptance evidence in phase_gate_register.csv,P3
+R-4097,4097,claims matrix reflects actual evidence;,6,phase_gate_register.csv (Gate 6),Gate 6 acceptance evidence in phase_gate_register.csv,P9
+R-4098,4098,no orphan or fabricated number exists.,6,phase_gate_register.csv (Gate 6),Gate 6 acceptance evidence in phase_gate_register.csv,P3
+R-4102,4102,"Phase 6 freezes after P3/P4/P5/P9 sign-off. Any later change to source release, algorithm, endpoint, or analysis plan invalidates affecte...",6,phase_gate_register.csv (Gate 6),Gate 6 exit record; reopen only via change_request_register.csv (Sec 12.2),P1
+R-4131,4131,"All generated outputs plus PHASE_6_gate_report.md with source-only proof, analysis summary, determinism result, negative findings, and ac...",6,PHASE_6_gate_report.md,Gate 6 deliverable check,P1
+R-4137,4137,"Gate 6: P3 + P4 + P5 + P9 approve. Any empirical input outside the evidence release, unreconciled statistic discrepancy, invalid inferent...",6,phase_gate_register.csv (Gate 6),Gate 6 approval record in phase_gate_register.csv,P1
+R-4162,4162,Phases 0–6 are frozen;,7,phase_gate_register.csv (Phase 7 entry),Phase 7 entry check recorded in phase_gate_register.csv (Sec 12.1),P1
+R-4163,4163,authoritative primary analysis bundle exists;,7,phase_gate_register.csv (Phase 7 entry),Phase 7 entry check recorded in phase_gate_register.csv (Sec 12.1),P3
+R-4164,4164,results/paper_tables/ inputs exist and carry bundle provenance (Phase 6 task 23);,7,phase_gate_register.csv (Phase 7 entry),Phase 7 entry check recorded in phase_gate_register.csv (Sec 12.1),P4
+R-4166,4166,claims and exhibit plans are updated to actual evidence;,7,phase_gate_register.csv (Phase 7 entry),Phase 7 entry check recorded in phase_gate_register.csv (Sec 12.1),P9
+R-4167,4167,algorithm remains frozen.,7,phase_gate_register.csv (Phase 7 entry),Phase 7 entry check recorded in phase_gate_register.csv (Sec 12.1),P2
+R-4190,4190,"Phases 3, 4, and 6. No Phase 12 ablation source is available or allowed.",7,no-ablation artifact scan (Phase 7 validation),Phase 7 no-ablation scan and source-use audit; Gate 7,P9
+R-4194,4194,Audit generators before execution.,7,papers/tables/ + papers/figures/,Phase 7 validation procedures; Gate 7 review,P5
+R-4195,4195,Inspect empirical inputs.,7,papers/tables/ + papers/figures/,Phase 7 validation procedures; Gate 7 review,P5
+R-4196,4196,"Import/smoke-check every generator before execution; a missing input MUST fail hard, never be silently skipped or defaulted.",7,papers/tables/ + papers/figures/,Phase 7 validation procedures; Gate 7 review,P5
+R-4198,4198,Replace or wrap any non-authoritative input with strict reference/authoritative analysis input. Non-authoritative inputs include any resu...,7,papers/tables/ + papers/figures/,Phase 7 validation procedures; Gate 7 review,P5
+R-4203,4203,"Verify each generator's output destination resolves inside the framework layout (papers/tables/, papers/figures/); repair any stray desti...",7,papers/tables/ + papers/figures/,Phase 7 validation procedures; Gate 7 review,P5
+R-4207,4207,Confirm deterministic output naming and sorting.,7,papers/tables/ + papers/figures/,Phase 7 validation procedures; Gate 7 review,P5
+R-4209,4209,Regenerate primary LaTeX tables.,7,papers/tables/*.tex,Phase 7 validation procedures; Gate 7 review,P7
+R-4217,4217,"Suppress or disable ablation-table generation until Phase 12 by an explicit mechanism: before invoking generate_latex_tables.py, assert t...",7,papers/tables/*.tex,Phase 7 validation procedures; Gate 7 review,P7
+R-4223,4223,Run generate_parametric_tables.py (T21/T22) only when Phase 6 task 14 admitted parameter sensitivity from a validated immutable sensitivi...,7,papers/tables/*.tex,Phase 7 validation procedures; Gate 7 review,P7
+R-4229,4229,"Preserve expected T01–T16, T16_bca, T21, T22 mapping only when verified.",7,papers/tables/*.tex,Phase 7 validation procedures; Gate 7 review,P7
+R-4230,4230,Do not create T17–T20 merely to fill numbering.,7,papers/tables/*.tex,Phase 7 validation procedures; Gate 7 review,P7
+R-4232,4232,Generate primary performance figures.,7,papers/figures/**,Phase 7 validation procedures; Gate 7 review,P7
+R-4242,4242,Bind to Phase 6 curve selection and analysis outputs.,7,papers/figures/**,Phase 7 validation procedures; Gate 7 review,P7
+R-4243,4243,Rewire generate_nemenyi_cd.py (named tooling work) to read unrounded mean ranks from the authoritative Phase 6 bundle (the <suite>_friedm...,7,papers/figures/**,Phase 7 validation procedures; Gate 7 review,P7
+R-4248,4248,Log missing inputs; never interpolate.,7,papers/figures/**,Phase 7 validation procedures; Gate 7 review,P7
+R-4250,4250,Generate conceptual/method figures.,7,papers/figures/** (conceptual),Phase 7 validation procedures; Gate 7 review,P7
+R-4260,4260,Verify every label against frozen terminology.,7,papers/figures/** (conceptual),Phase 7 validation procedures; Gate 7 review,P7
+R-4261,4261,Data-backed traces must use admissible evidence; conceptual diagrams must not imply unverified behavior.,7,papers/figures/** (conceptual),Phase 7 validation procedures; Gate 7 review,P7
+R-4264,4264,Finalize equations and pseudocode.,7,equation/pseudocode registry artifacts,Phase 7 validation procedures; Gate 7 review,P2
+R-4265,4265,Use canonical equation registry.,7,equation/pseudocode registry artifacts,Phase 7 validation procedures; Gate 7 review,P2
+R-4266,4266,"Check every symbol, number, update order, and code mapping.",7,equation/pseudocode registry artifacts,Phase 7 validation procedures; Gate 7 review,P2
+R-4267,4267,Prepare LaTeX and Word semantic representations.,7,equation/pseudocode registry artifacts,Phase 7 validation procedures; Gate 7 review,P2
+R-4269,4269,Finalize table selection.,7,papers/tables/ + papers/figures/,Phase 7 validation procedures; Gate 7 review,P6
+R-4270,4270,"Main: concise protocol, primary summaries, inference/effect, secondary evidence, sensitivity if valid, cost.",7,papers/tables/ + papers/figures/,Phase 7 validation procedures; Gate 7 review,P6
+R-4272,4272,"Supplement: complete per-function tables, matrices, full curves, extended primary diagnostics.",7,papers/tables/ + papers/figures/,Phase 7 validation procedures; Gate 7 review,P6
+R-4274,4274,No ablation table or figure yet.,7,papers/tables/ + papers/figures/,Phase 7 validation procedures; Gate 7 review,P6
+R-4276,4276,Apply visual standards.,7,papers/tables/ + papers/figures/,Phase 7 validation procedures; Gate 7 review,P7
+R-4277,4277,"Final-size fonts, accessible palette, grayscale line styles, vector output, units, log labels, consistent scales, uncertainty, and no mis...",7,papers/tables/ + papers/figures/,Phase 7 validation procedures; Gate 7 review,P7
+R-4280,4280,Write self-contained captions.,7,papers/tables/ + papers/figures/,Phase 7 validation procedures; Gate 7 review,P6
+R-4281,4281,"Suite, dimension, metric, aggregation, n, uncertainty, significance rule, source release, and limitation where needed.",7,papers/tables/ + papers/figures/,Phase 7 validation procedures; Gate 7 review,P6
+R-4283,4283,Do not put unsupported interpretation in captions.,7,papers/tables/ + papers/figures/,Phase 7 validation procedures; Gate 7 review,P6
+R-4285,4285,Create native table data for Word.,7,semantic Word table sources,Phase 7 validation procedures; Gate 7 review,P8
+R-4286,4286,"Export semantic table JSON/CSV with headers, notes, styles, and field IDs.",7,semantic Word table sources,Phase 7 validation procedures; Gate 7 review,P8
+R-4287,4287,Do not convert LaTeX-rendered tables to images.,7,semantic Word table sources,Phase 7 validation procedures; Gate 7 review,P8
+R-4289,4289,Create editable diagram sources.,7,editable diagram sources,Phase 7 validation procedures; Gate 7 review,P8
+R-4290,4290,DrawingML/SmartArt plan or .drawio/.pptx source.,7,editable diagram sources,Phase 7 validation procedures; Gate 7 review,P8
+R-4291,4291,Ensure embedded render and source are synchronized.,7,editable diagram sources,Phase 7 validation procedures; Gate 7 review,P8
+R-4293,4293,Bind artifacts.,7,artifact_binding.csv,Phase 7 validation procedures; Gate 7 review,P5
+R-4294,4294,"Create artifact_binding.csv in the governance root (Section 3.8 schema; this phase first populates it, per the Section 3 preamble) or upd...",7,artifact_binding.csv,Phase 7 validation procedures; Gate 7 review,P5
+R-4298,4298,Maintain the Section 9.1 cross-reference labels here: seed manuscript_label from the Phase 4 exhibit plan and keep it current.,7,artifact_binding.csv,Phase 7 validation procedures; Gate 7 review,P5
+R-4301,4301,Value-level validation.,7,exhibit_validation_report.md,Phase 7 validation procedures; Gate 7 review,P3
+R-4302,4302,Compare every displayed table value with authoritative source.,7,exhibit_validation_report.md,Phase 7 validation procedures; Gate 7 review,P3
+R-4303,4303,Sample or fully validate figure points against source arrays.,7,exhibit_validation_report.md,Phase 7 validation procedures; Gate 7 review,P3
+R-4304,4304,Check ranks/significance use unrounded data.,7,exhibit_validation_report.md,Phase 7 validation procedures; Gate 7 review,P3
+R-4306,4306,Legibility review.,7,visual_qa_report.md,Phase 7 validation procedures; Gate 7 review,P7
+R-4307,4307,Inspect at target column/page size and grayscale.,7,visual_qa_report.md,Phase 7 validation procedures; Gate 7 review,P7
+R-4308,4308,"Correct layout, not data.",7,visual_qa_report.md,Phase 7 validation procedures; Gate 7 review,P7
+R-4310,4310,Orphan and duplication review.,7,exhibit_plan.csv,Phase 7 validation procedures; Gate 7 review,P9
+R-4311,4311,Every artifact has a planned discussion.,7,exhibit_plan.csv,Phase 7 validation procedures; Gate 7 review,P9
+R-4312,4312,Remove redundant exhibits.,7,exhibit_plan.csv,Phase 7 validation procedures; Gate 7 review,P9
+R-4313,4313,Route missing evidence back to Phase 6 rather than hand-authoring.,7,exhibit_plan.csv,Phase 7 validation procedures; Gate 7 review,P9
+R-4317,4317,final non-ablation papers/tables/*.tex;,7,papers/tables/*.tex,Phase 7 validation; P5 artifact/hash check at Gate 7,P7
+R-4318,4318,semantic Word table sources;,7,papers/tables/ + papers/figures/,Phase 7 validation; P5 artifact/hash check at Gate 7,P8
+R-4319,4319,final non-ablation papers/figures/;,7,papers/figures/**,Phase 7 validation; P5 artifact/hash check at Gate 7,P7
+R-4320,4320,editable diagram sources;,7,papers/tables/ + papers/figures/,Phase 7 validation; P5 artifact/hash check at Gate 7,P8
+R-4321,4321,"notation, equation, algorithm, and parameter artifacts;",7,papers/tables/ + papers/figures/,Phase 7 validation; P5 artifact/hash check at Gate 7,P2
+R-4322,4322,created/updated artifact_binding.csv;,7,artifact_binding.csv,Phase 7 validation; P5 artifact/hash check at Gate 7,P5
+R-4323,4323,exhibit_validation_report.md;,7,exhibit_validation_report.md,Phase 7 validation; P5 artifact/hash check at Gate 7,P3
+R-4324,4324,visual_qa_report.md.,7,visual_qa_report.md,Phase 7 validation; P5 artifact/hash check at Gate 7,P7
+R-4328,4328,full table cell comparison;,7,phase_gate_register.csv (Gate 7 validation evidence),Executed in Phase 7 VALIDATION state; evidence at Gate 7,P3
+R-4329,4329,figure source/point and metadata checks;,7,phase_gate_register.csv (Gate 7 validation evidence),Executed in Phase 7 VALIDATION state; evidence at Gate 7,P7
+R-4330,4330,label uniqueness and cross-reference registry checks;,7,phase_gate_register.csv (Gate 7 validation evidence),Executed in Phase 7 VALIDATION state; evidence at Gate 7,P7
+R-4331,4331,caption completeness;,7,phase_gate_register.csv (Gate 7 validation evidence),Executed in Phase 7 VALIDATION state; evidence at Gate 7,P7
+R-4332,4332,vector/raster resolution checks;,7,phase_gate_register.csv (Gate 7 validation evidence),Executed in Phase 7 VALIDATION state; evidence at Gate 7,P7
+R-4333,4333,grayscale/accessibility review;,7,phase_gate_register.csv (Gate 7 validation evidence),Executed in Phase 7 VALIDATION state; evidence at Gate 7,P7
+R-4334,4334,no-ablation artifact scan.,7,phase_gate_register.csv (Gate 7 validation evidence),Executed in Phase 7 VALIDATION state; evidence at Gate 7,P9
+R-4338,4338,P2 verifies method artifacts.,7,PHASE_7_gate_report.md,Gate 7 sign-off evidence in phase_gate_register.csv,P2
+R-4339,4339,P3 verifies statistical marks and captions.,7,PHASE_7_gate_report.md,Gate 7 sign-off evidence in phase_gate_register.csv,P3
+R-4340,4340,P5 verifies generators and source bindings.,7,PHASE_7_gate_report.md,Gate 7 sign-off evidence in phase_gate_register.csv,P5
+R-4341,4341,P7 performs final-size visual inspection.,7,PHASE_7_gate_report.md,Gate 7 sign-off evidence in phase_gate_register.csv,P7
+R-4342,4342,P8 verifies Word-native source suitability.,7,PHASE_7_gate_report.md,Gate 7 sign-off evidence in phase_gate_register.csv,P8
+R-4346,4346,zero hand-typed result values;,7,phase_gate_register.csv (Gate 7 QA evidence),Phase 7 QA checkpoint audit at Gate 7,P5
+R-4347,4347,zero unbound exhibit;,7,phase_gate_register.csv (Gate 7 QA evidence),Phase 7 QA checkpoint audit at Gate 7,P5
+R-4348,4348,zero unexplained missing input;,7,phase_gate_register.csv (Gate 7 QA evidence),Phase 7 QA checkpoint audit at Gate 7,P7
+R-4349,4349,zero illegible main-text artifact;,7,phase_gate_register.csv (Gate 7 QA evidence),Phase 7 QA checkpoint audit at Gate 7,P7
+R-4350,4350,no ablation artifact;,7,phase_gate_register.csv (Gate 7 QA evidence),Phase 7 QA checkpoint audit at Gate 7,P9
+R-4351,4351,consistent terminology and labels.,7,phase_gate_register.csv (Gate 7 QA evidence),Phase 7 QA checkpoint audit at Gate 7,P7
+R-4355,4355,every primary exhibit regenerates from named authoritative inputs;,7,phase_gate_register.csv (Gate 7),Gate 7 acceptance evidence in phase_gate_register.csv,P5
+R-4356,4356,every value/point is validated;,7,phase_gate_register.csv (Gate 7),Gate 7 acceptance evidence in phase_gate_register.csv,P3
+R-4357,4357,captions are self-contained and scoped;,7,phase_gate_register.csv (Gate 7),Gate 7 acceptance evidence in phase_gate_register.csv,P7
+R-4358,4358,method equations/pseudocode/code agree;,7,phase_gate_register.csv (Gate 7),Gate 7 acceptance evidence in phase_gate_register.csv,P2
+R-4359,4359,main/supplement split is appropriate;,7,phase_gate_register.csv (Gate 7),Gate 7 acceptance evidence in phase_gate_register.csv,P7
+R-4360,4360,Word-native sources exist;,7,phase_gate_register.csv (Gate 7),Gate 7 acceptance evidence in phase_gate_register.csv,P8
+R-4361,4361,no ablation appears.,7,phase_gate_register.csv (Gate 7),Gate 7 acceptance evidence in phase_gate_register.csv,P9
+R-4365,4365,Phase 7 freezes after P2/P3/P5/P7/P8 sign-off. A later changed analysis output requires exhibit regeneration and revalidation.,7,phase_gate_register.csv (Gate 7),Gate 7 exit record; reopen only via change_request_register.csv (Sec 12.2),P1
+R-4394,4394,"All generated outputs plus PHASE_7_gate_report.md with full artifact inventory, source-binding coverage, visual QA, and no-ablation confi...",7,PHASE_7_gate_report.md,Gate 7 deliverable check,P1
+R-4399,4399,"Gate 7: P2 + P3 + P5 + P7 + P8 approve. A hand-edited result, unbound artifact, illegible exhibit, or ablation content fails the gate.",7,phase_gate_register.csv (Gate 7),Gate 7 approval record in phase_gate_register.csv,P1
+R-4423,4423,Phases 0–7 are frozen;,8,phase_gate_register.csv (Phase 8 entry),Phase 8 entry check recorded in phase_gate_register.csv (Sec 12.1),P1
+R-4424,4424,every planned primary number and exhibit is validated;,8,phase_gate_register.csv (Phase 8 entry),Phase 8 entry check recorded in phase_gate_register.csv (Sec 12.1),P3
+R-4425,4425,citation set/evidence cards are complete;,8,phase_gate_register.csv (Phase 8 entry),Phase 8 entry check recorded in phase_gate_register.csv (Sec 12.1),P9
+R-4426,4426,journal structure is verified.,8,phase_gate_register.csv (Phase 8 entry),Phase 8 entry check recorded in phase_gate_register.csv (Sec 12.1),P10
+R-4442,4442,existing draft prose for audit/rewrite only;,8,paragraph_evidence_audit.csv (Phase 8 task 14),Phase 8 source-use / evidence audit; Gate 8,P6
+R-4453,4453,Use the deliberate drafting order. Problem formulation and baseline GSK. Proposed method. Experimental setup. Primary results. Discussion...,8,papers/sections/*.tex,Phase 8 validation procedures; Gate 8 review,P6
+R-4465,4465,Run the per-section evidence loop.,8,papers/sections/*.tex,Phase 8 validation procedures; Gate 8 review,P6
+R-4466,4466,Select accepted claim IDs.,8,papers/sections/*.tex,Phase 8 validation procedures; Gate 8 review,P6
+R-4467,4467,Build paragraph skeleton with claim/evidence anchors.,8,papers/sections/*.tex,Phase 8 validation procedures; Gate 8 review,P6
+R-4468,4468,Insert citations only from approved keys and sanctioned roles.,8,papers/sections/*.tex,Phase 8 validation procedures; Gate 8 review,P6
+R-4469,4469,Bind every number to an analysis/artifact ID while writing.,8,papers/sections/*.tex,Phase 8 validation procedures; Gate 8 review,P6
+R-4470,4470,Add cross-references immediately.,8,papers/sections/*.tex,Phase 8 validation procedures; Gate 8 review,P6
+R-4471,4471,Update claims and citation-usage maps.,8,papers/sections/*.tex,Phase 8 validation procedures; Gate 8 review,P6
+R-4472,4472,"Check scope, limitations, terminology, and budget.",8,papers/sections/*.tex,Phase 8 validation procedures; Gate 8 review,P6
+R-4474,4474,Draft problem/baseline section.,8,papers/sections/*.tex,Phase 8 validation procedures; Gate 8 review,P2
+R-4475,4475,Separate inherited GSK from new material.,8,papers/sections/*.tex,Phase 8 validation procedures; Gate 8 review,P2
+R-4476,4476,Define notation and optimization problem.,8,papers/sections/*.tex,Phase 8 validation procedures; Gate 8 review,P2
+R-4478,4478,Draft proposed method.,8,papers/sections/*.tex,Phase 8 validation procedures; Gate 8 review,P2
+R-4479,4479,Follow problem → rationale → mechanism → timing → cost → expected behavior → planned test.,8,papers/sections/*.tex,Phase 8 validation procedures; Gate 8 review,P2
+R-4481,4481,Mark contribution boundaries.,8,papers/sections/*.tex,Phase 8 validation procedures; Gate 8 review,P2
+R-4482,4482,Do not report ablation outcomes.,8,papers/sections/*.tex,Phase 8 validation procedures; Gate 8 review,P2
+R-4484,4484,Draft experimental setup.,8,papers/sections/*.tex,Phase 8 validation procedures; Gate 8 review,P4
+R-4485,4485,"Evidence release, suites, function sets, dimensions, runs, seeds, pairing, MaxFES, panel, parameters, environment, FP, source-resolution,...",8,papers/sections/*.tex,Phase 8 validation procedures; Gate 8 review,P4
+R-4488,4488,State strict reference-only empirical rule.,8,papers/sections/*.tex,Phase 8 validation procedures; Gate 8 review,P4
+R-4490,4490,Draft primary results.,8,papers/sections/*.tex,Phase 8 validation procedures; Gate 8 review,P3
+R-4491,4491,Measurement before interpretation.,8,papers/sections/*.tex,Phase 8 validation procedures; Gate 8 review,P3
+R-4492,4492,"Primary suite, inference, effects/intervals, convergence, secondary suites, sensitivity, cost, robustness.",8,papers/sections/*.tex,Phase 8 validation procedures; Gate 8 review,P3
+R-4494,4494,Report exceptions and losses.,8,papers/sections/*.tex,Phase 8 validation procedures; Gate 8 review,P3
+R-4495,4495,No ablation subsection or result.,8,papers/sections/*.tex,Phase 8 validation procedures; Gate 8 review,P3
+R-4497,4497,Draft discussion and limitations.,8,papers/sections/*.tex,Phase 8 validation procedures; Gate 8 review,P6
+R-4498,4498,Interpret within evidence.,8,papers/sections/*.tex,Phase 8 validation procedures; Gate 8 review,P6
+R-4499,4499,Label mechanism hypotheses.,8,papers/sections/*.tex,Phase 8 validation procedures; Gate 8 review,P6
+R-4500,4500,"Address same-family, benchmark, dimension, tuning, comparator, statistical, and cost limits.",8,papers/sections/*.tex,Phase 8 validation procedures; Gate 8 review,P6
+R-4502,4502,State that component-level ablation is reserved for Supplementary Materials after final algorithm freeze only if a neutral pointer is app...,8,papers/sections/*.tex,Phase 8 validation procedures; Gate 8 review,P6
+R-4506,4506,Draft related work from evidence cards.,8,papers/sections/*.tex,Phase 8 validation procedures; Gate 8 review,P6
+R-4507,4507,"Comparative synthesis, not bibliography catalogue.",8,papers/sections/*.tex,Phase 8 validation procedures; Gate 8 review,P6
+R-4508,4508,Use exact source locators and role map.,8,papers/sections/*.tex,Phase 8 validation procedures; Gate 8 review,P6
+R-4510,4510,Draft introduction and contributions.,8,papers/sections/*.tex,Phase 8 validation procedures; Gate 8 review,P6
+R-4511,4511,Do not promise more than primary evidence and final contribution matrix.,8,papers/sections/*.tex,Phase 8 validation procedures; Gate 8 review,P6
+R-4512,4512,"Contributions about components describe the mechanism and evaluation framework, not unobserved ablation benefits.",8,papers/sections/*.tex,Phase 8 validation procedures; Gate 8 review,P6
+R-4515,4515,Draft conclusion.,8,papers/sections/*.tex,Phase 8 validation procedures; Gate 8 review,P6
+R-4516,4516,Primary evidence only.,8,papers/sections/*.tex,Phase 8 validation procedures; Gate 8 review,P6
+R-4517,4517,No ablation claim or new result.,8,papers/sections/*.tex,Phase 8 validation procedures; Gate 8 review,P6
+R-4519,4519,Draft abstract last.,8,papers/main.tex (abstract),Phase 8 validation procedures; Gate 8 review,P6
+R-4520,4520,Journal limit.,8,papers/main.tex (abstract),Phase 8 validation procedures; Gate 8 review,P6
+R-4521,4521,One or two bound primary numbers.,8,papers/main.tex (abstract),Phase 8 validation procedures; Gate 8 review,P6
+R-4522,4522,Honest scope.,8,papers/main.tex (abstract),Phase 8 validation procedures; Gate 8 review,P6
+R-4523,4523,No citation if prohibited and no ablation.,8,papers/main.tex (abstract),Phase 8 validation procedures; Gate 8 review,P6
+R-4525,4525,Draft non-ablation supplementary content.,8,papers/supplementary.tex,Phase 8 validation procedures; Gate 8 review,P6
+R-4526,4526,"Complete tables, curves, pairwise matrices, sensitivity, reproducibility, derivations, traces.",8,papers/supplementary.tex,Phase 8 validation procedures; Gate 8 review,P6
+R-4528,4528,"Reserve a clearly marked internal placeholder section ID for Phase 12 ablation, but do not include result text, tables, or guessed conclu...",8,papers/supplementary.tex,Phase 8 validation procedures; Gate 8 review,P6
+R-4532,4532,Draft declarations.,8,administrative_gap_register.md + declarations,Phase 8 validation procedures; Gate 8 review,P10
+R-4533,4533,Use verified metadata only.,8,administrative_gap_register.md + declarations,Phase 8 validation procedures; Gate 8 review,P10
+R-4534,4534,Populate administrative gaps without invention.,8,administrative_gap_register.md + declarations,Phase 8 validation procedures; Gate 8 review,P10
+R-4536,4536,Perform claim/citation audit.,8,paragraph_evidence_audit.csv,Phase 8 validation procedures; Gate 8 review,P9
+R-4537,4537,Every scientific paragraph has appropriate evidence anchor.,8,paragraph_evidence_audit.csv,Phase 8 validation procedures; Gate 8 review,P9
+R-4538,4538,Every citation has usage-map row and evidence-card support.,8,paragraph_evidence_audit.csv,Phase 8 validation procedures; Gate 8 review,P9
+R-4539,4539,Every number has authoritative binding.,8,paragraph_evidence_audit.csv,Phase 8 validation procedures; Gate 8 review,P9
+R-4541,4541,Perform writing-quality pass.,8,papers/sections/*.tex,Phase 8 validation procedures; Gate 8 review,P6
+R-4542,4542,"Specific, calibrated, non-promotional prose.",8,papers/sections/*.tex,Phase 8 validation procedures; Gate 8 review,P6
+R-4543,4543,Remove stock transitions and generic claims.,8,papers/sections/*.tex,Phase 8 validation procedures; Gate 8 review,P6
+R-4544,4544,Preserve facts/citations/numbers.,8,papers/sections/*.tex,Phase 8 validation procedures; Gate 8 review,P6
+R-4546,4546,Check page budget (Section 1.5 hard rule).,8,phase_gate_register.csv (page-count row),Phase 8 validation procedures; Gate 8 review,P6
+R-4547,4547,"Read the measured typeset page count from the compiled draft PDF's build log (""Output written on ... pages"") — never estimate.",8,phase_gate_register.csv (page-count row),Phase 8 validation procedures; Gate 8 review,P6
+R-4549,4549,Compare against the verified target-journal limit recorded at Phase 4 (or the Section 1.5 provisional ceiling when verification is pending).,8,phase_gate_register.csv (page-count row),Phase 8 validation procedures; Gate 8 review,P6
+R-4551,4551,"On overflow: migrate non-essential material (extended tables, additional figures, detailed derivations, comprehensive experimental result...",8,phase_gate_register.csv (page-count row),Phase 8 validation procedures; Gate 8 review,P6
+R-4555,4555,"Do not shrink artifacts below legibility, delete required declarations, or compress prose past comprehensibility.",8,phase_gate_register.csv (page-count row),Phase 8 validation procedures; Gate 8 review,P6
+R-4557,4557,Record the page-count row in papers/governance/phase_gate_register.csv.,8,phase_gate_register.csv (page-count row),Phase 8 validation procedures; Gate 8 review,P6
+R-4562,4562,complete canonical main manuscript draft;,8,papers/sections/*.tex,Phase 8 validation; P5 artifact/hash check at Gate 8,P6
+R-4563,4563,papers/main.tex draft;,8,papers/main.tex,Phase 8 validation; P5 artifact/hash check at Gate 8,P6
+R-4564,4564,pre-ablation papers/supplementary.tex draft;,8,papers/supplementary.tex,Phase 8 validation; P5 artifact/hash check at Gate 8,P6
+R-4565,4565,section files;,8,papers/sections/*.tex,Phase 8 validation; P5 artifact/hash check at Gate 8,P6
+R-4566,4566,updated claims_evidence_matrix.csv;,8,claims_evidence_matrix.csv,Phase 8 validation; P5 artifact/hash check at Gate 8,P9
+R-4567,4567,citation_usage_map.csv;,8,citation_usage_map.csv,Phase 8 validation; P5 artifact/hash check at Gate 8,P9
+R-4568,4568,drafting_decisions.md;,8,drafting_decisions.md,Phase 8 validation; P5 artifact/hash check at Gate 8,P6
+R-4569,4569,paragraph_evidence_audit.csv;,8,paragraph_evidence_audit.csv,Phase 8 validation; P5 artifact/hash check at Gate 8,P9
+R-4570,4570,administrative_gap_register.md updates.,8,administrative_gap_register.md,Phase 8 validation; P5 artifact/hash check at Gate 8,P10
+R-4574,4574,claim coverage check;,8,phase_gate_register.csv (Gate 8 validation evidence),Executed in Phase 8 VALIDATION state; evidence at Gate 8,P9
+R-4575,4575,citation-set and semantic-role checks;,8,phase_gate_register.csv (Gate 8 validation evidence),Executed in Phase 8 VALIDATION state; evidence at Gate 8,P9
+R-4576,4576,number-binding scan;,8,phase_gate_register.csv (Gate 8 validation evidence),Executed in Phase 8 VALIDATION state; evidence at Gate 8,P9
+R-4577,4577,cross-reference/label scan;,8,phase_gate_register.csv (Gate 8 validation evidence),Executed in Phase 8 VALIDATION state; evidence at Gate 8,P9
+R-4578,4578,acronym/terminology/symbol checks;,8,phase_gate_register.csv (Gate 8 validation evidence),Executed in Phase 8 VALIDATION state; evidence at Gate 8,P6
+R-4579,4579,no-ablation keyword/artifact scan;,8,phase_gate_register.csv (Gate 8 validation evidence),Executed in Phase 8 VALIDATION state; evidence at Gate 8,P9
+R-4580,4580,page/word budget estimate.,8,phase_gate_register.csv (Gate 8 validation evidence),Executed in Phase 8 VALIDATION state; evidence at Gate 8,P6
+R-4584,4584,P2 verifies method prose.,8,PHASE_8_gate_report.md,Gate 8 sign-off evidence in phase_gate_register.csv,P2
+R-4585,4585,P3 verifies setup/results/statistical wording.,8,PHASE_8_gate_report.md,Gate 8 sign-off evidence in phase_gate_register.csv,P3
+R-4586,4586,P4 verifies protocol/provenance statements.,8,PHASE_8_gate_report.md,Gate 8 sign-off evidence in phase_gate_register.csv,P4
+R-4587,4587,P6 performs evidence-aware editorial review.,8,PHASE_8_gate_report.md,Gate 8 sign-off evidence in phase_gate_register.csv,P6
+R-4588,4588,P9 independently samples paragraphs against claims/evidence cards.,8,PHASE_8_gate_report.md,Gate 8 sign-off evidence in phase_gate_register.csv,P9
+R-4592,4592,every scientific paragraph evidence-anchored;,8,phase_gate_register.csv (Gate 8 QA evidence),Phase 8 QA checkpoint audit at Gate 8,P9
+R-4593,4593,no unsupported novelty/superiority;,8,phase_gate_register.csv (Gate 8 QA evidence),Phase 8 QA checkpoint audit at Gate 8,P9
+R-4594,4594,no orphan number/citation;,8,phase_gate_register.csv (Gate 8 QA evidence),Phase 8 QA checkpoint audit at Gate 8,P9
+R-4595,4595,losses and limitations visible;,8,phase_gate_register.csv (Gate 8 QA evidence),Phase 8 QA checkpoint audit at Gate 8,P9
+R-4596,4596,no main-text ablation;,8,phase_gate_register.csv (Gate 8 QA evidence),Phase 8 QA checkpoint audit at Gate 8,P9
+R-4597,4597,abstract written last and scoped.,8,phase_gate_register.csv (Gate 8 QA evidence),Phase 8 QA checkpoint audit at Gate 8,P6
+R-4601,4601,complete main and non-ablation supplementary source;,8,phase_gate_register.csv (Gate 8),Gate 8 acceptance evidence in phase_gate_register.csv,P6
+R-4602,4602,all scientific claims accepted and bound;,8,phase_gate_register.csv (Gate 8),Gate 8 acceptance evidence in phase_gate_register.csv,P9
+R-4603,4603,all citations semantically valid;,8,phase_gate_register.csv (Gate 8),Gate 8 acceptance evidence in phase_gate_register.csv,P9
+R-4604,4604,all numbers traceable;,8,phase_gate_register.csv (Gate 8),Gate 8 acceptance evidence in phase_gate_register.csv,P9
+R-4605,4605,manuscript fits provisional/verified budget;,8,phase_gate_register.csv (Gate 8),Gate 8 acceptance evidence in phase_gate_register.csv,P6
+R-4606,4606,no ablation content or guessed result;,8,phase_gate_register.csv (Gate 8),Gate 8 acceptance evidence in phase_gate_register.csv,P9
+R-4607,4607,administrative gaps explicit.,8,phase_gate_register.csv (Gate 8),Gate 8 acceptance evidence in phase_gate_register.csv,P10
+R-4611,4611,Phase 8 freezes after P2/P3/P4/P6/P9 sign-off. Subsequent changes occur through review tickets and preserve evidence bindings.,8,phase_gate_register.csv (Gate 8),Gate 8 exit record; reopen only via change_request_register.csv (Sec 12.2),P1
+R-4640,4640,"All generated outputs plus PHASE_8_gate_report.md with claim/citation/number coverage, page budget, no-ablation proof, and section sign-o...",8,PHASE_8_gate_report.md,Gate 8 deliverable check,P1
+R-4645,4645,"Gate 8: P2 + P3 + P4 + P6 + P9 approve. Unsupported prose, semantic citation failure, orphan number, hidden loss, or any ablation result ...",8,phase_gate_register.csv (Gate 8),Gate 8 approval record in phase_gate_register.csv,P1
+R-4671,4671,Phases 0–8 are frozen;,9,phase_gate_register.csv (Phase 9 entry),Phase 9 entry check recorded in phase_gate_register.csv (Sec 12.1),P1
+R-4672,4672,canonical manuscript source is complete;,9,phase_gate_register.csv (Phase 9 entry),Phase 9 entry check recorded in phase_gate_register.csv (Sec 12.1),P6
+R-4673,4673,"equation, exhibit, and citation registries exist (equation_registry.csv, artifact_binding.csv, and the Phase 1 citation maps); the canoni...",9,phase_gate_register.csv (Phase 9 entry),Phase 9 entry check recorded in phase_gate_register.csv (Sec 12.1),P5
+R-4677,4677,journal template and Word requirements are known.,9,phase_gate_register.csv (Phase 9 entry),Phase 9 entry check recorded in phase_gate_register.csv (Sec 12.1),P10
+R-4704,4704,Freeze the canonical source snapshot.,9,papers/DT-GSK.docx,Phase 9 validation procedures; Gate 9 review,P5
+R-4705,4705,"Record content hash, label registry, citation set, figure/table inventory, and claim-matrix version.",9,papers/DT-GSK.docx,Phase 9 validation procedures; Gate 9 review,P5
+R-4708,4708,Build LaTeX main manuscript.,9,papers/DT-GSK.pdf,Phase 9 validation procedures; Gate 9 review,P7
+R-4714,4714,Capture complete logs and output checksum.,9,papers/DT-GSK.pdf,Phase 9 validation procedures; Gate 9 review,P7
+R-4715,4715,"Resolve undefined references/citations, missing figures, fatal warnings, and harmful overfull boxes.",9,papers/DT-GSK.pdf,Phase 9 validation procedures; Gate 9 review,P7
+R-4718,4718,Build pre-ablation supplement.,9,papers/supplementary.pdf,Phase 9 validation procedures; Gate 9 review,P7
+R-4724,4724,Ensure it is standalone.,9,papers/supplementary.pdf,Phase 9 validation procedures; Gate 9 review,P7
+R-4725,4725,Do not emit a visible empty ablation section.,9,papers/supplementary.pdf,Phase 9 validation procedures; Gate 9 review,P7
+R-4727,4727,Build review pack when supported.,9,review pack (internal advisor artifact),Phase 9 validation procedures; Gate 9 review,P7
+R-4733,4733,Treat missing-curve logs as defects unless explicitly explained.,9,review pack (internal advisor artifact),Phase 9 validation procedures; Gate 9 review,P7
+R-4734,4734,"The review pack is an internal advisor artifact: it reads staging inputs (results/_run_all/..., results/gsk/...), is excluded from public...",9,review pack (internal advisor artifact),Phase 9 validation procedures; Gate 9 review,P7
+R-4739,4739,Create or verify Word reference template.,9,word/reference.docx,Phase 9 validation procedures; Gate 9 review,P8
+R-4740,4740,"Journal page size, margins, fonts, styles, headings, captions, lists, tables, equations, code/algorithm styles, references, and metadata.",9,word/reference.docx,Phase 9 validation procedures; Gate 9 review,P8
+R-4742,4742,Do not distribute proprietary font files.,9,word/reference.docx,Phase 9 validation procedures; Gate 9 review,P8
+R-4744,4744,Implement or extend the Word pipeline tooling (tooling to build).,9,papers/scripts/build_docx.py + validate_* scripts,Phase 9 validation procedures; Gate 9 review,P8
+R-4745,4745,"Extend papers/scripts/build_docx.py (Sections 4.1 and 9.5, Appendix D.6): add a --supplementary entry point consuming papers/supplementar...",9,papers/scripts/build_docx.py + validate_* scripts,Phase 9 validation procedures; Gate 9 review,P8
+R-4752,4752,"Implement the missing validators papers/scripts/validate_docx.py, papers/scripts/validate_cross_format_parity.py, and papers/scripts/vali...",9,papers/scripts/build_docx.py + validate_* scripts,Phase 9 validation procedures; Gate 9 review,P8
+R-4755,4755,"Record the implemented commands and the output-filename mapping (build_docx.py writes papers/DT-GSK.docx, not papers/main.docx) in proje...",9,papers/scripts/build_docx.py + validate_* scripts,Phase 9 validation procedures; Gate 9 review,P8
+R-4759,4759,Generate main DOCX from canonical source.,9,papers/DT-GSK.docx,Phase 9 validation procedures; Gate 9 review,P8
+R-4765,4765,Use the OOXML-aware deterministic pipeline from task 6; the output maps to papers/DT-GSK.docx per the recorded filename mapping.,9,papers/DT-GSK.docx,Phase 9 validation procedures; Gate 9 review,P8
+R-4767,4767,Do not convert the PDF.,9,papers/DT-GSK.docx,Phase 9 validation procedures; Gate 9 review,P8
+R-4768,4768,"Preserve section structure, fields, citations, tables, equations, figures, footnotes, and hyperlinks.",9,papers/DT-GSK.docx,Phase 9 validation procedures; Gate 9 review,P8
+R-4771,4771,Generate pre-ablation supplementary DOCX.,9,papers/supplementary.docx,Phase 9 validation procedures; Gate 9 review,P8
+R-4777,4777,Use the task 6 --supplementary entry point with the same semantic registries and style system.,9,papers/supplementary.docx,Phase 9 validation procedures; Gate 9 review,P8
+R-4779,4779,Preserve independent numbering as journal rules require.,9,papers/supplementary.docx,Phase 9 validation procedures; Gate 9 review,P8
+R-4781,4781,Generate native OMML.,9,papers/DT-GSK.docx,Phase 9 validation procedures; Gate 9 review,P8
+R-4782,4782,Convert every equation registry entry to m:oMath or m:oMathPara.,9,papers/DT-GSK.docx,Phase 9 validation procedures; Gate 9 review,P8
+R-4783,4783,"Verify inline/display distinction, matrices, scripts, operators, accents, delimiters, and special symbols.",9,papers/DT-GSK.docx,Phase 9 validation procedures; Gate 9 review,P8
+R-4785,4785,"Keep numbering as fields, not equation images.",9,papers/DT-GSK.docx,Phase 9 validation procedures; Gate 9 review,P8
+R-4787,4787,Generate native Word tables.,9,papers/DT-GSK.docx,Phase 9 validation procedures; Gate 9 review,P8
+R-4788,4788,Build w:tbl from semantic table sources.,9,papers/DT-GSK.docx,Phase 9 validation procedures; Gate 9 review,P8
+R-4789,4789,"Apply header, alignment, width, note, and accessibility properties.",9,papers/DT-GSK.docx,Phase 9 validation procedures; Gate 9 review,P8
+R-4790,4790,Preserve exact values and display precision.,9,papers/DT-GSK.docx,Phase 9 validation procedures; Gate 9 review,P8
+R-4792,4792,"Generate captions, numbering, and references.",9,papers/DT-GSK.docx,Phase 9 validation procedures; Gate 9 review,P8
+R-4793,4793,"SEQ fields for figures, tables, algorithms, and equations.",9,papers/DT-GSK.docx,Phase 9 validation procedures; Gate 9 review,P8
+R-4794,4794,REF fields for every cross-reference.,9,papers/DT-GSK.docx,Phase 9 validation procedures; Gate 9 review,P8
+R-4795,4795,bookmarks with stable IDs.,9,papers/DT-GSK.docx,Phase 9 validation procedures; Gate 9 review,P8
+R-4796,4796,multilevel lists for section numbering.,9,papers/DT-GSK.docx,Phase 9 validation procedures; Gate 9 review,P8
+R-4798,4798,Generate updateable citations and bibliography.,9,papers/DT-GSK.docx,Phase 9 validation procedures; Gate 9 review,P8
+R-4799,4799,"Native Word CITATION fields and source store, or approved dynamic reference-manager fields.",9,papers/DT-GSK.docx,Phase 9 validation procedures; Gate 9 review,P8
+R-4801,4801,Native BIBLIOGRAPHY field.,9,papers/DT-GSK.docx,Phase 9 validation procedures; Gate 9 review,P8
+R-4802,4802,Verify source metadata against the closed corpus and BibTeX.,9,papers/DT-GSK.docx,Phase 9 validation procedures; Gate 9 review,P8
+R-4804,4804,Generate TOC and lists.,9,papers/DT-GSK.docx,Phase 9 validation procedures; Gate 9 review,P8
+R-4805,4805,"Native TOC, list of figures, list of tables, and list of algorithms if required.",9,papers/DT-GSK.docx,Phase 9 validation procedures; Gate 9 review,P8
+R-4807,4807,Set update-on-open behavior.,9,papers/DT-GSK.docx,Phase 9 validation procedures; Gate 9 review,P8
+R-4809,4809,Embed figures and diagrams.,9,papers/DT-GSK.docx,Phase 9 validation procedures; Gate 9 review,P8
+R-4810,4810,Vector where supported.,9,papers/DT-GSK.docx,Phase 9 validation procedures; Gate 9 review,P8
+R-4811,4811,Editable captions and alt text.,9,papers/DT-GSK.docx,Phase 9 validation procedures; Gate 9 review,P8
+R-4812,4812,Native DrawingML or linked editable source for diagrams/flowcharts.,9,papers/DT-GSK.docx,Phase 9 validation procedures; Gate 9 review,P8
+R-4814,4814,Inspect OOXML package.,9,word_validation_report.md,Phase 9 validation procedures; Gate 9 review,P8
+R-4815,4815,Unzip DOCX to a temporary validation directory.,9,word_validation_report.md,Phase 9 validation procedures; Gate 9 review,P8
+R-4816,4816,"Count and validate OMML, tables, fields, bookmarks, relationships, images, source store, and update fields.",9,word_validation_report.md,Phase 9 validation procedures; Gate 9 review,P8
+R-4818,4818,Verify no equation/table screenshot.,9,word_validation_report.md,Phase 9 validation procedures; Gate 9 review,P8
+R-4820,4820,Open-save-open validation.,9,word_validation_report.md,Phase 9 validation procedures; Gate 9 review,P8
+R-4821,4821,"When Microsoft Word is available, open, update fields, save, reopen, and rerun OOXML checks.",9,word_validation_report.md,Phase 9 validation procedures; Gate 9 review,P8
+R-4823,4823,Record version and any repair message.,9,word_validation_report.md,Phase 9 validation procedures; Gate 9 review,P8
+R-4824,4824,A document that Word repairs on open fails.,9,word_validation_report.md,Phase 9 validation procedures; Gate 9 review,P8
+R-4826,4826,Cross-format text and structure comparison.,9,cross_format_consistency.csv,Phase 9 validation procedures; Gate 9 review,P6
+R-4827,4827,"Compare normalized headings, paragraphs, equations, table values, captions, citations, bibliography entries, labels, and cross-references.",9,cross_format_consistency.csv,Phase 9 validation procedures; Gate 9 review,P6
+R-4829,4829,Record intentional format-only differences.,9,cross_format_consistency.csv,Phase 9 validation procedures; Gate 9 review,P6
+R-4831,4831,Visual inspection.,9,visual_inspection_report.md,Phase 9 validation procedures; Gate 9 review,P7
+R-4832,4832,Every PDF page.,9,visual_inspection_report.md,Phase 9 validation procedures; Gate 9 review,P7
+R-4833,4833,Every Word page/section in print layout.,9,visual_inspection_report.md,Phase 9 validation procedures; Gate 9 review,P7
+R-4834,4834,"Check equation wrapping, table breaks, figure placement, captions, headings, widows/orphans, references, and accessibility.",9,visual_inspection_report.md,Phase 9 validation procedures; Gate 9 review,P7
+R-4837,4837,No-ablation scan.,9,no-ablation scan evidence (Gate 9),Phase 9 validation procedures; Gate 9 review,P9
+R-4838,4838,"Search main and supplement outputs, fields, captions, and hidden text for ablation results or historical ablation values.",9,no-ablation scan evidence (Gate 9),Phase 9 validation procedures; Gate 9 review,P9
+R-4840,4840,Neutral internal placeholders must not be rendered.,9,no-ablation scan evidence (Gate 9),Phase 9 validation procedures; Gate 9 review,P9
+R-4842,4842,Create build reports and hashes.,9,latex_build_report.md + word_build_report.md,Phase 9 validation procedures; Gate 9 review,P5
+R-4843,4843,"Source hash, command, environment, output hash, warnings, page count, field counts, and validation status.",9,latex_build_report.md + word_build_report.md,Phase 9 validation procedures; Gate 9 review,P5
+R-4848,4848,pre-ablation main PDF: papers/DT-GSK.pdf (build_pdf.py moves main.pdf to DT-GSK.pdf on success — record this mapping in project_configu...,9,papers/DT-GSK.pdf,Phase 9 validation; P5 artifact/hash check at Gate 9,P7
+R-4852,4852,pre-ablation main DOCX: papers/DT-GSK.docx (same recorded mapping);,9,papers/DT-GSK.docx,Phase 9 validation; P5 artifact/hash check at Gate 9,P8
+R-4853,4853,pre-ablation papers/supplementary.pdf;,9,papers/supplementary.pdf,Phase 9 validation; P5 artifact/hash check at Gate 9,P7
+R-4854,4854,pre-ablation papers/supplementary.docx (task 6 --supplementary entry point);,9,papers/supplementary.docx,Phase 9 validation; P5 artifact/hash check at Gate 9,P8
+R-4856,4856,word/reference.docx;,9,word/reference.docx,Phase 9 validation; P5 artifact/hash check at Gate 9,P8
+R-4857,4857,Word bibliography source store;,9,papers/DT-GSK.docx,Phase 9 validation; P5 artifact/hash check at Gate 9,P8
+R-4858,4858,word/field_registry.csv;,9,word/field_registry.csv,Phase 9 validation; P5 artifact/hash check at Gate 9,P8
+R-4859,4859,word_validation_report.md;,9,word_validation_report.md,Phase 9 validation; P5 artifact/hash check at Gate 9,P8
+R-4860,4860,cross_format_consistency.csv;,9,cross_format_consistency.csv,Phase 9 validation; P5 artifact/hash check at Gate 9,P5
+R-4861,4861,latex_build_report.md;,9,latex_build_report.md,Phase 9 validation; P5 artifact/hash check at Gate 9,P7
+R-4862,4862,word_build_report.md;,9,word_build_report.md,Phase 9 validation; P5 artifact/hash check at Gate 9,P8
+R-4863,4863,visual_inspection_report.md.,9,visual_inspection_report.md,Phase 9 validation; P5 artifact/hash check at Gate 9,P7
+R-4867,4867,LaTeX log scan;,9,phase_gate_register.csv (Gate 9 validation evidence),Executed in Phase 9 VALIDATION state; evidence at Gate 9,P7
+R-4868,4868,PDF file/font/figure checks;,9,phase_gate_register.csv (Gate 9 validation evidence),Executed in Phase 9 VALIDATION state; evidence at Gate 9,P7
+R-4869,4869,DOCX OOXML schema/relationship checks;,9,phase_gate_register.csv (Gate 9 validation evidence),Executed in Phase 9 VALIDATION state; evidence at Gate 9,P8
+R-4870,4870,OMML equation registry comparison;,9,phase_gate_register.csv (Gate 9 validation evidence),Executed in Phase 9 VALIDATION state; evidence at Gate 9,P8
+R-4871,4871,native Word table value comparison;,9,phase_gate_register.csv (Gate 9 validation evidence),Executed in Phase 9 VALIDATION state; evidence at Gate 9,P8
+R-4872,4872,"field, bookmark, TOC/list, citation, and bibliography checks;",9,phase_gate_register.csv (Gate 9 validation evidence),Executed in Phase 9 VALIDATION state; evidence at Gate 9,P8
+R-4873,4873,cross-format content hashes by logical artifact;,9,phase_gate_register.csv (Gate 9 validation evidence),Executed in Phase 9 VALIDATION state; evidence at Gate 9,P5
+R-4874,4874,no-ablation scan.,9,phase_gate_register.csv (Gate 9 validation evidence),Executed in Phase 9 VALIDATION state; evidence at Gate 9,P9
+R-4878,4878,P7 independently reviews PDF/build quality.,9,PHASE_9_gate_report.md,Gate 9 sign-off evidence in phase_gate_register.csv,P7
+R-4879,4879,P8 independently reviews DOCX/OOXML and editability.,9,PHASE_9_gate_report.md,Gate 9 sign-off evidence in phase_gate_register.csv,P8
+R-4880,4880,"P5 verifies deterministic builds and hashes. The determinism contract is normalized-content equality (text, OMML, table values, field inv...",9,PHASE_9_gate_report.md,Gate 9 sign-off evidence in phase_gate_register.csv,P5
+R-4885,4885,P6 verifies wording/structure equality.,9,PHASE_9_gate_report.md,Gate 9 sign-off evidence in phase_gate_register.csv,P6
+R-4886,4886,P9 verifies citation and number integrity.,9,PHASE_9_gate_report.md,Gate 9 sign-off evidence in phase_gate_register.csv,P9
+R-4890,4890,zero equation image;,9,phase_gate_register.csv (Gate 9 QA evidence),Phase 9 QA checkpoint audit at Gate 9,P8
+R-4891,4891,zero table image;,9,phase_gate_register.csv (Gate 9 QA evidence),Phase 9 QA checkpoint audit at Gate 9,P8
+R-4892,4892,all captions editable;,9,phase_gate_register.csv (Gate 9 QA evidence),Phase 9 QA checkpoint audit at Gate 9,P8
+R-4893,4893,all required fields updateable;,9,phase_gate_register.csv (Gate 9 QA evidence),Phase 9 QA checkpoint audit at Gate 9,P8
+R-4894,4894,all cross-references functional;,9,phase_gate_register.csv (Gate 9 QA evidence),Phase 9 QA checkpoint audit at Gate 9,P8
+R-4895,4895,Word opens without repair;,9,phase_gate_register.csv (Gate 9 QA evidence),Phase 9 QA checkpoint audit at Gate 9,P8
+R-4896,4896,PDF and Word content equivalent;,9,phase_gate_register.csv (Gate 9 QA evidence),Phase 9 QA checkpoint audit at Gate 9,P6
+R-4897,4897,no ablation content.,9,phase_gate_register.csv (Gate 9 QA evidence),Phase 9 QA checkpoint audit at Gate 9,P9
+R-4901,4901,clean main and pre-ablation supplementary PDFs;,9,phase_gate_register.csv (Gate 9),Gate 9 acceptance evidence in phase_gate_register.csv,P7
+R-4902,4902,fully editable main and supplementary DOCX;,9,phase_gate_register.csv (Gate 9),Gate 9 acceptance evidence in phase_gate_register.csv,P8
+R-4903,4903,all equations native OMML;,9,phase_gate_register.csv (Gate 9),Gate 9 acceptance evidence in phase_gate_register.csv,P8
+R-4904,4904,all tables native Word tables;,9,phase_gate_register.csv (Gate 9),Gate 9 acceptance evidence in phase_gate_register.csv,P8
+R-4905,4905,"automatic numbering, cross-references, TOC/lists, citations, and bibliography work;",9,phase_gate_register.csv (Gate 9),Gate 9 acceptance evidence in phase_gate_register.csv,P8
+R-4907,4907,cross-format consistency passes;,9,phase_gate_register.csv (Gate 9),Gate 9 acceptance evidence in phase_gate_register.csv,P8
+R-4908,4908,visual quality meets journal requirements;,9,phase_gate_register.csv (Gate 9),Gate 9 acceptance evidence in phase_gate_register.csv,P7
+R-4909,4909,no ablation is present.,9,phase_gate_register.csv (Gate 9),Gate 9 acceptance evidence in phase_gate_register.csv,P9
+R-4913,4913,Phase 9 freezes after P5/P6/P7/P8/P9 sign-off. Any later content revision requires rebuilding and revalidating both formats.,9,phase_gate_register.csv (Gate 9),Gate 9 exit record; reopen only via change_request_register.csv (Sec 12.2),P1
+R-4943,4943,"All generated outputs plus PHASE_9_gate_report.md with PDF/Word checks, field/OMML/table counts, cross-format status, page counts, and no...",9,PHASE_9_gate_report.md,Gate 9 deliverable check,P1
+R-4948,4948,"Gate 9: P5 + P6 + P7 + P8 + P9 approve. Rasterized mathematics, image tables, static required fields, broken references, format divergenc...",9,phase_gate_register.csv (Gate 9),Gate 9 approval record in phase_gate_register.csv,P1
+R-4976,4976,Phases 0–9 are frozen;,10,phase_gate_register.csv (Phase 10 entry),Phase 10 entry check recorded in phase_gate_register.csv (Sec 12.1),P1
+R-4977,4977,both formats build and validate;,10,phase_gate_register.csv (Phase 10 entry),Phase 10 entry check recorded in phase_gate_register.csv (Sec 12.1),P1
+R-4978,4978,"claims, citations, and numbers are fully bound;",10,phase_gate_register.csv (Phase 10 entry),Phase 10 entry check recorded in phase_gate_register.csv (Sec 12.1),P1
+R-4979,4979,no ablation content exists.,10,phase_gate_register.csv (Phase 10 entry),Phase 10 entry check recorded in phase_gate_register.csv (Sec 12.1),P1
+R-5001,5001,Run R1 scientific review.,10,R1 review report + revision_log.md,Phase 10 validation procedures; Gate 10 review,R1
+R-5002,5002,R1 review dimension: Importance and problem specificity.,10,R1 review report + revision_log.md,Phase 10 validation procedures; Gate 10 review,R1
+R-5003,5003,R1 review dimension: Contribution novelty boundary.,10,R1 review report + revision_log.md,Phase 10 validation procedures; Gate 10 review,R1
+R-5004,5004,R1 review dimension: Same-family scope.,10,R1 review report + revision_log.md,Phase 10 validation procedures; Gate 10 review,R1
+R-5005,5005,R1 review dimension: Mechanism distinction.,10,R1 review report + revision_log.md,Phase 10 validation procedures; Gate 10 review,R1
+R-5006,5006,R1 review dimension: Baseline strength.,10,R1 review report + revision_log.md,Phase 10 validation procedures; Gate 10 review,R1
+R-5007,5007,R1 review dimension: External validity.,10,R1 review report + revision_log.md,Phase 10 validation procedures; Gate 10 review,R1
+R-5008,5008,R1 review dimension: Losses and limitations.,10,R1 review report + revision_log.md,Phase 10 validation procedures; Gate 10 review,R1
+R-5010,5010,Run R2 methodology/statistics review.,10,R2 review report + revision_log.md,Phase 10 validation procedures; Gate 10 review,R2
+R-5011,5011,"R2 review dimension: Endpoint, units, pairing, independence.",10,R2 review report + revision_log.md,Phase 10 validation procedures; Gate 10 review,R2
+R-5012,5012,R2 review dimension: Multiplicity families.,10,R2 review report + revision_log.md,Phase 10 validation procedures; Gate 10 review,R2
+R-5013,5013,R2 review dimension: Friedman/Nemenyi validity.,10,R2 review report + revision_log.md,Phase 10 validation procedures; Gate 10 review,R2
+R-5014,5014,R2 review dimension: Wilcoxon validity.,10,R2 review report + revision_log.md,Phase 10 validation procedures; Gate 10 review,R2
+R-5015,5015,R2 review dimension: A12 and BCa design.,10,R2 review report + revision_log.md,Phase 10 validation procedures; Gate 10 review,R2
+R-5016,5016,R2 review dimension: Robustness checks.,10,R2 review report + revision_log.md,Phase 10 validation procedures; Gate 10 review,R2
+R-5017,5017,R2 review dimension: No causal component claims before ablation.,10,R2 review report + revision_log.md,Phase 10 validation procedures; Gate 10 review,R2
+R-5019,5019,Run R3 reproducibility review.,10,R3 review report + revision_log.md,Phase 10 validation procedures; Gate 10 review,R3
+R-5020,5020,R3 review dimension: Evidence release.,10,R3 review report + revision_log.md,Phase 10 validation procedures; Gate 10 review,R3
+R-5021,5021,R3 review dimension: Source-only audit.,10,R3 review report + revision_log.md,Phase 10 validation procedures; Gate 10 review,R3
+R-5022,5022,"R3 review dimension: seeds, MaxFES, FP, environment.",10,R3 review report + revision_log.md,Phase 10 validation procedures; Gate 10 review,R3
+R-5023,5023,R3 review dimension: command determinism.,10,R3 review report + revision_log.md,Phase 10 validation procedures; Gate 10 review,R3
+R-5024,5024,R3 review dimension: code/equation/prose correspondence.,10,R3 review report + revision_log.md,Phase 10 validation procedures; Gate 10 review,R3
+R-5025,5025,R3 review dimension: artifact bindings.,10,R3 review report + revision_log.md,Phase 10 validation procedures; Gate 10 review,R3
+R-5027,5027,Run R4 editorial/presentation review.,10,R4 review report + revision_log.md,Phase 10 validation procedures; Gate 10 review,R4
+R-5028,5028,"R4 review dimension: narrative, clarity, section balance.",10,R4 review report + revision_log.md,Phase 10 validation procedures; Gate 10 review,R4
+R-5029,5029,R4 review dimension: figure/table legibility.,10,R4 review report + revision_log.md,Phase 10 validation procedures; Gate 10 review,R4
+R-5030,5030,R4 review dimension: captions and cross-references.,10,R4 review report + revision_log.md,Phase 10 validation procedures; Gate 10 review,R4
+R-5031,5031,R4 review dimension: journal structure and language.,10,R4 review report + revision_log.md,Phase 10 validation procedures; Gate 10 review,R4
+R-5032,5032,R4 review dimension: unsupported rhetoric.,10,R4 review report + revision_log.md,Phase 10 validation procedures; Gate 10 review,R4
+R-5034,5034,Run R5 Word review.,10,R5 review report + revision_log.md,Phase 10 validation procedures; Gate 10 review,R5
+R-5035,5035,R5 review dimension: OMML editability.,10,R5 review report + revision_log.md,Phase 10 validation procedures; Gate 10 review,R5
+R-5036,5036,R5 review dimension: native tables.,10,R5 review report + revision_log.md,Phase 10 validation procedures; Gate 10 review,R5
+R-5037,5037,"R5 review dimension: fields, bookmarks, citations, bibliography.",10,R5 review report + revision_log.md,Phase 10 validation procedures; Gate 10 review,R5
+R-5038,5038,R5 review dimension: TOC/lists.,10,R5 review report + revision_log.md,Phase 10 validation procedures; Gate 10 review,R5
+R-5039,5039,R5 review dimension: update/open/save behavior.,10,R5 review report + revision_log.md,Phase 10 validation procedures; Gate 10 review,R5
+R-5040,5040,R5 review dimension: visual parity with PDF.,10,R5 review report + revision_log.md,Phase 10 validation procedures; Gate 10 review,R5
+R-5042,5042,Run R6 skeptical domain review.,10,R6 review report + revision_log.md,Phase 10 validation procedures; Gate 10 review,R6
+R-5043,5043,R6 review dimension: challenge SGSM versus differential grouping.,10,R6 review report + revision_log.md,Phase 10 validation procedures; Gate 10 review,R6
+R-5044,5044,R6 review dimension: challenge linkage/eigenframe positioning.,10,R6 review report + revision_log.md,Phase 10 validation procedures; Gate 10 review,R6
+R-5045,5045,R6 review dimension: challenge “no additional objective evaluations” and overhead.,10,R6 review report + revision_log.md,Phase 10 validation procedures; Gate 10 review,R6
+R-5046,5046,R6 review dimension: challenge dimension labels.,10,R6 review report + revision_log.md,Phase 10 validation procedures; Gate 10 review,R6
+R-5047,5047,R6 review dimension: challenge CEC2013 role and development leakage.,10,R6 review report + revision_log.md,Phase 10 validation procedures; Gate 10 review,R6
+R-5048,5048,R6 review dimension: identify likely failure cases and missing limitations.,10,R6 review report + revision_log.md,Phase 10 validation procedures; Gate 10 review,R6
+R-5050,5050,Score every rubric category 1–5.,10,rubric scorecard + PHASE_10 gate evidence,Phase 10 validation procedures; Gate 10 review,P1

@@ -1,0 +1,24 @@
+optimizers:
+  - gsk
+suite: sphere
+functions:
+  - 1
+dimensions:
+  - 4
+runs: 3
+seed: 20240620
+seed_policy: unified
+rand_generator: threefry
+max_evaluations: 120
+overwrite: true
+parallel: true
+parallel_backend: thread
+workers: 2
+warmup: true
+profile: true
+convergence_graphs: true
+data_root: benchmarks/cec_suite
+reference_root: benchmarks/cec_reference_results
+output_root: results/phase19_performance_campaign
+optimizer_options:
+  np: 20

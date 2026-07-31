@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Reproducibility - GSK Family Python Documentation">
+  <title>Reproducibility | GSK Family Python Documentation</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <div class="site-shell">
+    <aside class="sidebar">
+<div class="brand"><a href="index.html">GSK Family Python</a></div>
+<input class="nav-search" type="search" placeholder="Filter docs" aria-label="Filter docs">
+<nav class="nav-list" aria-label="Documentation">
+<section><h2>Getting Started</h2>
+<a class="nav-link" href="getting-started_configuration.html">Configuration</a>
+<a class="nav-link" href="getting-started_explainer.html">Explainer</a>
+<a class="nav-link" href="getting-started_runbook.html">Runbook</a>
+<a class="nav-link" href="getting-started_troubleshooting.html">Troubleshooting</a>
+<a class="nav-link" href="getting-started_tutorial.html">Tutorial</a>
+<a class="nav-link" href="getting-started_user_guide.html">User Guide</a>
+</section>
+<section><h2>Reference</h2>
+<a class="nav-link" href="reference_api.html">API Reference</a>
+<a class="nav-link" href="reference_architecture.html">Architecture</a>
+<a class="nav-link" href="reference_benchmark_mapping.html">Benchmark Mapping</a>
+<a class="nav-link" href="reference_benchmark_protocol.html">Benchmark Protocol</a>
+<a class="nav-link" href="reference_cec2011_cpp_python_equivalence_review.html">CEC2011 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013_cpp_python_equivalence_review.html">CEC2013 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013lsgo_cpp_python_equivalence_review.html">CEC2013LSGO C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2017_cpp_python_equivalence_review.html">CEC2017 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2020_cpp_python_equivalence_review.html">CEC2020 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="index.html">Documentation Index</a>
+<a class="nav-link" href="reference_fp_regime.html">Floating-Point Regime Verification</a>
+<a class="nav-link" href="reference_diagrams.html">Flowcharts And Diagrams</a>
+<a class="nav-link" href="reference_glossary.html">Glossary</a>
+<a class="nav-link" href="LICENSES.html">Licenses</a>
+<a class="nav-link" href="reference_module_dependencies.html">Module Dependencies</a>
+<a class="nav-link" href="reference_project_structure.html">Project Structure</a>
+<a class="nav-link" href="reference_python_optimizer_interface.html">Python Optimizer Interface</a>
+<a class="nav-link" href="reference_result_schema.html">Result Schema</a>
+<a class="nav-link" href="reference_seed_policy.html">Seed Policy</a>
+<a class="nav-link" href="reference_workflows.html">Workflows</a>
+</section>
+<section><h2>Algorithm Guides</h2>
+<a class="nav-link" href="algorithms_agsk.html">AGSK — Adaptive Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_apgsk.html">APGSK — Adaptive-Parameters Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_atmals-gsk.html">ATMALS-GSK — Adaptive Tuning, Memory, Adaptive Local Search</a>
+<a class="nav-link" href="algorithms_dt-gsk.html">DT-GSK — Dimension-Tiered Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_egsk.html">EGSK — Enhanced Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_fdb-agsk.html">FDB-AGSK — Fitness-Distance-Balance AGSK</a>
+<a class="nav-link" href="algorithms_gsk.html">GSK — Gaining-Sharing Knowledge</a>
+</section>
+<section><h2>Development</h2>
+<a class="nav-link" href="development_BUG_resume_summary_truncation.html">BUG-RESUME-01 — resume mode truncates (and mis-computes) the per-dimension summary CSV</a>
+<a class="nav-link" href="development_LSGO_ACCELERATION_PLAN.html">CEC2013LSGO Acceleration Plan — all 7 GSK-family algorithms, bit-identically</a>
+<a class="nav-link" href="development_LSGO_INTEGRATION_CAMPAIGN.html">CEC2013LSGO Integration — Campaign Plan</a>
+<a class="nav-link" href="development_CEC2017_PREC_adjudication.html">CEC2017-PREC — adjudication (CLOSED 2026-07-25)</a>
+<a class="nav-link" href="development_code_reading_guide.html">Code Reading Guide</a>
+<a class="nav-link" href="development_contributor_guide.html">Contributor Guide</a>
+<a class="nav-link" href="development_DECC_G_port_record.html">DECC-G port — fidelity and validation record</a>
+<a class="nav-link" href="development_developer_guide.html">Developer Guide</a>
+<a class="nav-link" href="development_README.html">Development Docs</a>
+<a class="nav-link" href="development_dt_gsk_core_reference.html">DT-GSK Core Reference — the vendored core and its byte-identity lock</a>
+<a class="nav-link" href="development_evidence_rerun_runbook.html">DT-GSK re-run runbook — corrected implementation (C006 + graph backend)</a>
+<a class="nav-link" href="development_egsk_port_spec.html">EGSK — Algorithm Spec &amp; Porting Verdict</a>
+<a class="nav-link" href="development_extension_guide.html">Extension Guide</a>
+<a class="nav-link" href="development_FAMILY_ACCELERATION_PLAN.html">Family-wide acceleration plan — 7 algorithms x 5 suites, bit-identical only</a>
+<a class="nav-link" href="development_FINAL_PUBLICATION_PLAN.html">FINAL PUBLICATION PLAN — DT-GSK, Four(/Five)-Suite Scope</a>
+<a class="nav-link" href="development_ACCELERATION_CAMPAIGN_PROMPT.html">GSK-Family Acceleration Campaign — Execution Prompt</a>
+<a class="nav-link" href="development_maintenance_guide.html">Maintenance Guide</a>
+<a class="nav-link" href="development_PORT_05_TUNING_TRIAGE.html">Porting project-05 tuning into 02 — Phase 1 audit and triage</a>
+<a class="nav-link" href="development_REFERENCE_PROMOTION_PLAN.html">Reference Promotion Plan — CEC2013LSGO now, CEC2020 behind its completeness gate</a>
+<a class="nav-link" href="development_SIBLING_CAMPAIGN_TRANSFER.html">Sibling-Campaign Transfer — every tuning that can make the GSK family fast</a>
+</section>
+<section><h2>Research</h2>
+<a class="nav-link" href="research_egsk_validation_appendix.html">EGSK Validation Appendix — Paired Port-vs-Reference Equivalence</a>
+<a class="nav-link" href="research_numerical_examples.html">Numerical Examples</a>
+<a class="nav-link" href="research_performance.html">Performance</a>
+<a class="nav-link active" href="research_reproducibility.html">Reproducibility</a>
+<a class="nav-link" href="research_researcher_handbook.html">Researcher Handbook</a>
+<a class="nav-link" href="research_statistical_analysis.html">Statistical Analysis (GSK-family comparison)</a>
+<a class="nav-link" href="research_validation_report.html">Validation Report</a>
+</section>
+<section><h2>Prompts</h2>
+<a class="nav-link" href="prompt_documentation-deep-upgrade.html">Deep Documentation Review &amp; Upgrade Prompt — GSK Family Python</a>
+<a class="nav-link" href="prompt_project-review.html">Deep Expert Review Prompt For GSK Family Python</a>
+<a class="nav-link" href="prompt_documentation-review.html">Documentation Review Prompt</a>
+<a class="nav-link" href="prompt_publication-polish.html">Final Publication Prompt — Production-Ready Q1 Release of GSK Family Python v1.1</a>
+</section>
+<section><h2>Python API</h2>
+<a class="nav-link" href="api_index.html">API Module Index</a>
+<a class="nav-link api-link" href="api/gsk_family.__init__.html">gsk_family.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.__init__.html">gsk_family.analysis.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.family_report.html">gsk_family.analysis.family_report</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.figures.html">gsk_family.analysis.figures</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.latex_tables.html">gsk_family.analysis.latex_tables</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.project_policy.html">gsk_family.analysis.project_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.result_loader.html">gsk_family.analysis.result_loader</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistical_tests.html">gsk_family.analysis.statistical_tests</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistics.html">gsk_family.analysis.statistics</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.__init__.html">gsk_family.benchmark_adapter.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.factory.html">gsk_family.benchmark_adapter.factory</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.problem.html">gsk_family.benchmark_adapter.problem</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.protocol.html">gsk_family.benchmark_adapter.protocol</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.__init__.html">gsk_family.cli.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.list.html">gsk_family.cli.list</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.run.html">gsk_family.cli.run</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.stats.html">gsk_family.cli.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.validate.html">gsk_family.cli.validate</a>
+<a class="nav-link api-link" href="api/gsk_family.common.__init__.html">gsk_family.common.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.common.bounds.html">gsk_family.common.bounds</a>
+<a class="nav-link api-link" href="api/gsk_family.common.donors.html">gsk_family.common.donors</a>
+<a class="nav-link api-link" href="api/gsk_family.common.numeric_compat.html">gsk_family.common.numeric_compat</a>
+<a class="nav-link api-link" href="api/gsk_family.common.population.html">gsk_family.common.population</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reduction.html">gsk_family.common.reduction</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reference_rng.html">gsk_family.common.reference_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.rng.html">gsk_family.common.rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.threefry_rng.html">gsk_family.common.threefry_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.__init__.html">gsk_family.optimizers.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_profiles.html">gsk_family.optimizers._dt_profiles</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_rng.html">gsk_family.optimizers._dt_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._kernels.html">gsk_family.optimizers._kernels</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.agsk.html">gsk_family.optimizers.agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.apgsk.html">gsk_family.optimizers.apgsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_gsk.html">gsk_family.optimizers.atmals_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_helpers.html">gsk_family.optimizers.atmals_helpers</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.dt_gsk.html">gsk_family.optimizers.dt_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.egsk.html">gsk_family.optimizers.egsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.__init__.html">gsk_family.optimizers.external.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._base.html">gsk_family.optimizers.external._base</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._telemetry_shim.html">gsk_family.optimizers.external._telemetry_shim</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.cmaes.html">gsk_family.optimizers.external.cmaes</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.decc_g.html">gsk_family.optimizers.external.decc_g</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.ebowithcmar.html">gsk_family.optimizers.external.ebowithcmar</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.jso.html">gsk_family.optimizers.external.jso</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade.html">gsk_family.optimizers.external.lshade</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade_spacma.html">gsk_family.optimizers.external.lshade_spacma</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.mos_cec2013lsgo.html">gsk_family.optimizers.external.mos_cec2013lsgo</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.shade_ils.html">gsk_family.optimizers.external.shade_ils</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_agsk.html">gsk_family.optimizers.fdb_agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_scores.html">gsk_family.optimizers.fdb_scores</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.gsk.html">gsk_family.optimizers.gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.__init__.html">gsk_family.runners.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.config.html">gsk_family.runners.config</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.fp_regime.html">gsk_family.runners.fp_regime</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.output.html">gsk_family.runners.output</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.parallel.html">gsk_family.runners.parallel</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.performance.html">gsk_family.runners.performance</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.run_experiment.html">gsk_family.runners.run_experiment</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.seed_policy.html">gsk_family.runners.seed_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.verification.html">gsk_family.runners.verification</a>
+<a class="nav-link api-link" href="api/gsk_family.stats.html">gsk_family.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.types.html">gsk_family.types</a>
+</section>
+</nav></aside>
+    <main class="content">
+      <article class="doc-card">
+        <h1 id="reproducibility">Reproducibility</h1>
+<blockquote><strong>What this page is.</strong> The rules and procedure for making a run repeatable —</blockquote>
+<blockquote>same config, same seeds, same artifacts — and an honest statement of what is</blockquote>
+<blockquote>and is not bit-exact against the upstream source.</blockquote>
+<blockquote></blockquote>
+<blockquote><strong>Who it is for.</strong> Anyone who needs a run to come out the same way twice, or</blockquote>
+<blockquote>who is preparing evidence for a paper or release.</blockquote>
+<blockquote></blockquote>
+<blockquote><strong>What you will get.</strong> How to record the environment, how seeds work, the</blockquote>
+<blockquote>settings that pin determinism, a step-by-step experiment procedure, and the</blockquote>
+<blockquote>precise bit-exact caveats.</blockquote>
+<blockquote></blockquote>
+<blockquote><strong>Prerequisites.</strong> Workflow context is in the</blockquote>
+<blockquote><a href="research_researcher_handbook.html">Researcher Handbook</a>; seed formulas are in</blockquote>
+<blockquote><a href="reference_seed_policy.html">Seed Policy</a>. Terms are defined in</blockquote>
+<blockquote><a href="reference_glossary.html">the glossary</a>.</blockquote>
+<p>This project treats reproducibility as a first-class project deliverable.</p>
+<h2 id="environment">Environment</h2>
+<p>Record exactly what software produced a result, so it can be recreated later.</p>
+<p>Install the package in editable mode:</p>
+<pre><code class="code-block language-powershell">python -m pip install -e &quot;.[dev]&quot;</code></pre>
+<p>Record the interpreter and package versions for published runs:</p>
+<pre><code class="code-block language-powershell">python --version
+python -m pip freeze</code></pre>
+<p>Each <code>gsk-run</code> execution writes an <code>environment.json</code> artifact below the run directory with config, package, platform, and budget metadata. Keep this file — together with the campaign YAML it is the core provenance for the run.</p>
+<p>The artifact includes an <code>fp_regime</code> block with a floating-point regime sentinel (a SHA-256 fingerprint of fixed kernel-probe outputs). The runner refuses to start any process whose numba JIT kernels are unavailable or whose sentinel disagrees with the parent&#x27;s, so every campaign is single-regime by construction. When pairing runs <strong>across</strong> campaigns at run level (paired Wilcoxon, seed-matched deltas), the operational rule is: **run the paired arms sequentially on the same machine+build, and before trusting any cross-campaign delta verify that both campaigns record matching FP sentinels *and* that the should-be-identical guard cells differ by zero.** Different sentinels — or any nonzero guard-cell diff — mean the runs are not bit-comparable even though each campaign is internally deterministic. See <a href="reference_fp_regime.html">Floating-Point Regime Verification</a> for the canonical description of the sentinel and the guard-cell validity check.</p>
+<h2 id="reference-data-single-source-of-truth">Reference data (single source of truth)</h2>
+<p>All paper data and statistics — the proposed <code>dt-gsk</code> included — are read from the committed reference panel under <code>benchmarks/cec_reference_results/&lt;suite&gt;/&lt;optimizer&gt;/</code>. Each optimizer directory is a flat, self-contained run record: <code>&lt;opt&gt;_&lt;suite&gt;_D&lt;dim&gt;.csv</code> summaries (plus a <code>&lt;opt&gt;_cec2011.csv</code> rollup for CEC2011), <code>per_run.csv</code>, the provenance set (<code>environment.json</code>, <code>run_config.json</code>, <code>seed_schedule.csv</code>, <code>verification.json</code>, <code>phase0_protocol.json</code>), and the <code>curves/</code> and <code>gen_logs/</code> convergence assets. The full 7-optimizer panel is committed for <strong>CEC2017</strong>, <strong>CEC2011</strong>, and <strong>CEC2013</strong> (the second comparison suite: 28 functions, D = 10/30/50, 51 runs); <code>cec2020</code> (agsk only) and <code>cec2013lsgo</code> (<code>decc-g</code>, <code>mos</code>) are partial context suites.</p>
+<p>The analysis layer loads this tree <strong>first</strong> and treats a locally reproduced run under <code>results/_run_all/</code> only as a fallback for cells the reference tree does not carry (<code>analysis/result_loader.py::load_algorithm</code>, <code>analysis/family_report.py</code>). The convergence-figure generators (<code>papers/scripts/generate_full_convergence.py</code>, <code>generate_cec2011_convergence.py</code>, <code>generate_cec2013_convergence.py</code>) likewise read <code>curves/</code> and <code>gen_logs/</code> from the reference tree. One resolution caveat: <code>per_run.csv</code> is complete for <code>dt-gsk</code> on every panel suite and dimension, while some comparators carry only partial per-run coverage — their per-dimension summary CSVs are the complete comparator source, so seed-matched per-run analyses are guaranteed only for the proposed method (see <a href="research_statistical_analysis.html#data-sources">Statistical Analysis — Data sources</a>).</p>
+<h2 id="seeds">Seeds</h2>
+<p>Seeds decide the random draws, so fixing them is what makes a run repeatable.</p>
+<p>The default campaign policy is <code>unified</code>. It derives a stable seed from <code>(base, dimension, function, run)</code> only — it is <strong>optimizer- and suite-independent</strong>, so the same seed (and the same fair-start population) is shared across optimizers for matching <code>(dimension, function, run)</code> cells. That independence is exactly what makes the cross-optimizer starts fair. (See <a href="reference_glossary.html">Fair start</a> for what &quot;shared start&quot; means.)</p>
+<p>The two campaign-facing policies serve different goals:</p>
+<div class="table-wrap"><table><thead><tr><th>Seed policy</th><th>Use it to</th><th>Result</th></tr></thead><tbody><tr><td><code>unified</code> (default)</td><td>Compare optimizers fairly.</td><td>Matching cells share a fair-start population and post-init RNG state.</td></tr><tr><td><code>reference</code></td><td>Reproduce published reference tables.</td><td>Per-optimizer seeding that reproduces the published CEC tables.</td></tr></tbody></table></div>
+<p>Two further diagnostic variants exist — <code>native</code> and <code>derived</code> — which route to <code>derive_run_seed</code>; see <a href="reference_seed_policy.html">Seed Policy</a>.</p>
+<p>The unified seed for one cell is a closed-form function of the cell coordinates (<code>get_cec_seed</code> in <code>src/gsk_family/runners/seed_policy.py</code>):</p>
+<pre><code class="code-block language-text">seed = mod(base_seed + 1000003*Dim + 1000033*Function + 1000037*Run,
+           2147483646) + 1</code></pre>
+<p>Worked example (matching <a href="reference_seed_policy.html#unified-formula">Seed Policy</a>):</p>
+<pre><code class="code-block language-text">base_seed = 20240620, Dim = 30, Function = 7, Run = 12
+20240620 + 1000003*30 + 1000033*7 + 1000037*12
+  = 20240620 + 30000090 + 7000231 + 12000444
+  = 69241385
+mod 2147483646 = 69241385,  + 1  -&gt;  seed = 69241386</code></pre>
+<p>The default <code>base_seed</code> is <code>20240620</code> (<code>DEFAULT_BASE_SEED</code>) and the modulus is <code>2147483646</code> (<code>MAX_SAFE_SEED</code>). Because the optimizer id and suite are not inputs to this formula, every optimizer in a matching <code>(Dim, Function, Run)</code> cell gets the identical seed under the unified policy.</p>
+<p>The seed helpers live in:</p>
+<pre><code class="code-block language-text">src/gsk_family/runners/seed_policy.py
+src/gsk_family/common/rng.py</code></pre>
+<p>See <a href="reference_seed_policy.html">Seed Policy</a> for the exact formulas and the generator mapping, and <a href="research_numerical_examples.html#unified-seed-and-fair-start">Numerical Examples — Unified seed and fair start</a> for a worked seed derivation.</p>
+<h3 id="the-threefry-determinism-story">The threefry determinism story</h3>
+<p>A fixed seed only guarantees repeatability if the random *stream* derived from it is itself deterministic and portable. Under the unified policy the family uses a bundled counter-based <strong>Threefry-4x64-20</strong> generator (<code>src/gsk_family/common/threefry_rng.py</code>, class <code>ThreefryGenerator</code>) selected by the <code>threefry</code> label. It reproduces the source project&#x27;s <code>rng(seed, &#x27;threefry&#x27;)</code> double stream bit-for-bit, so the same seed yields the same draws across runs and machines independent of NumPy&#x27;s own <code>default_rng</code> versioning. <code>RandomContext</code> (<code>src/gsk_family/common/rng.py</code>) wraps the generator and exposes <code>copy_state</code> / <code>restore_state</code>, which is how the runner captures and replays the post-initialization RNG state for a fair start.</p>
+<p><code>dt-gsk</code> always selects <code>threefry</code> regardless of the configured generator (it is in <code>UNIFIED_ONLY_OPTIMIZERS</code>), and self-inits its <code>5*D</code> (<code>np_init_mult * D</code>, <code>np_init_mult = 5</code>) population from that same <code>threefry(seed)</code> stream — keeping it on identical seed/stream footing with the rest of the family while remaining a documented fair-start exception.</p>
+<p>Internally, <code>dt-gsk</code> does not draw every subsystem from one shared cursor. <code>RNGStreams.from_seed</code> (<code>src/gsk_family/optimizers/_dt_rng.py</code>) fans the single scheduled run seed out into <strong>13 named, independent substreams</strong> — <code>init</code>, <code>core</code>, <code>ace</code>, <code>kexp</code>, <code>div</code>, <code>bse</code>, <code>arch</code>, <code>link</code>, <code>de</code>, <code>control</code>, <code>flow</code>, <code>basin</code>, <code>trust</code> — each assigned a deterministic child seed <strong>by position</strong>. This isolation means a subsystem that fires (or doesn&#x27;t) in one generation cannot shift the draws consumed by another, which is what keeps the trajectory reproducible as the optimizer&#x27;s high-dimensional controllers switch on and off. The order is an append-only contract: the first nine names are prefix-locked (<code>SUBSTREAM_NAMES</code> guards this with an assertion), and new substreams may only be appended at the end so existing child-seed assignments never move.</p>
+<h2 id="deterministic-settings">Deterministic Settings</h2>
+<p>Pin every source of variation explicitly rather than relying on a default that could change.</p>
+<div class="table-wrap"><table><thead><tr><th>Setting</th><th>Recommended value</th><th>Why</th></tr></thead><tbody><tr><td><code>seed</code></td><td>a fixed integer (default base <code>20240620</code>)</td><td>fixes every random draw</td></tr><tr><td><code>seed_policy</code></td><td><code>unified</code> (fair) or <code>reference</code> (reproduce tables)</td><td>selects the seed schedule</td></tr><tr><td><code>rand_generator</code></td><td><code>threefry</code></td><td>portable, bit-stable family stream</td></tr><tr><td><code>max_evaluations</code></td><td>explicit value</td><td>makes reduced runs comparable</td></tr><tr><td><code>overwrite</code></td><td><code>true</code> only when regenerating evidence</td><td>avoids silent stale results</td></tr></tbody></table></div>
+<ul>
+<li>Keep generated output outside <code>benchmarks/cec_reference_results/</code> so generated</li>
+<p>runs never overwrite committed reference tables. (Deliberately regenerating the reference panel is a separate, documented promotion step — see the root <code>runbook.md</code> single-source-of-truth and doubled-suite-trap notes.)</p>
+<li>Parallelism does not change the numbers: run seeds are derived from cell</li>
+<p>coordinates *before* dispatch and results are reordered to input order before writing, so process, thread, and <code>--serial</code> runs yield byte-identical numeric artifacts (see <a href="research_numerical_examples.html#parallel-determinism">Parallel determinism</a>).</p>
+<li>Avoid the <code>thread</code> backend for timing-sensitive or kernel-heavy runs — it is</li>
+<p>numerically identical but can deadlock with <code>parallel=True</code> Numba kernels (see <a href="research_performance.html#parallel-execution">Performance</a>).</p>
+</ul>
+<h2 id="experiment-procedure">Experiment Procedure</h2>
+<p>Run the pipeline in confidence-building order: prove the code works, prove a small run works, then commit to the full campaign, then validate and archive.</p>
+<ol>
+<li><strong>Install dependencies.</strong></li>
+</ol>
+<pre><code class="code-block language-powershell">   python -m pip install -e &quot;.[dev]&quot;</code></pre>
+<ol>
+<li><strong>Run <code>python -m pytest</code></strong> to confirm the suite passes before you generate</li>
+<p>evidence.</p>
+</ol>
+<pre><code class="code-block language-powershell">   python -m pytest -q</code></pre>
+<ol>
+<li><strong>Run a smoke configuration</strong> (a reduced budget that exercises the whole</li>
+<p>pipeline quickly).</p>
+</ol>
+<pre><code class="code-block language-powershell">   gsk-run --config configs/smoke.yml --root .</code></pre>
+<ol>
+<li><strong>Run the intended campaign configuration</strong> at the real budget and run count.</li>
+</ol>
+<pre><code class="code-block language-powershell">   gsk-run --config configs/all_cec2017.yml --root .</code></pre>
+<ol>
+<li><strong>Validate generated summaries against imported reference tables</strong> when</li>
+<p>applicable.</p>
+</ol>
+<pre><code class="code-block language-powershell">   gsk-validate --compare results/_run_all/gsk/cec2017 benchmarks/cec_reference_results</code></pre>
+<ol>
+<li><strong>Archive</strong> the YAML config, <code>environment.json</code>, <code>per_run.csv</code>, summary CSVs,</li>
+<p>convergence logs (<code>gen_logs/</code>), and <code>verification.json</code>.</p>
+</ol>
+<p>To check that repeated runs land identically, run the same campaign twice (or once normally and once with <code>--serial</code>) and byte-compare the deterministic numeric artifacts:</p>
+<pre><code class="code-block language-powershell">gsk-run --config configs/smoke.yml --root . --overwrite
+# move/copy the run aside, then:
+gsk-run --config configs/smoke.yml --root . --serial --overwrite
+# compare per_run.csv / summary CSVs byte-for-byte</code></pre>
+<p>See <a href="research_numerical_examples.html#parallel-determinism">Numerical Examples</a> for a worked illustration of why parallel and serial runs produce identical artifacts.</p>
+<h2 id="bit-exact-caveats">Bit-Exact Caveats</h2>
+<p>This is the honest scope of the port. Read it before claiming equivalence to the upstream source.</p>
+<p>Python and the reference source do not share identical floating-point library paths or random generator implementations. The port preserves algorithm structure, evaluation budgets, bounds, seed policy, and output schema. It does not claim universal bit-exact replay of reference outputs.</p>
+<p>What <strong>is</strong> locked bit-for-bit:</p>
+<ul>
+<li><strong>Within this project</strong>, repeated runs of the same config are byte-identical,</li>
+<p>and process / thread / <code>--serial</code> runs agree (the determinism above).</p>
+<li>The <strong>threefry double stream</strong> matches the source project&#x27;s</li>
+<p><code>rng(seed, &#x27;threefry&#x27;)</code> generator bit-for-bit (see <a href="#the-threefry-determinism-story">The threefry determinism story</a>).</p>
+<li><strong><code>dt-gsk</code> parity with its source DT-GSK v2.1 project</strong> is pinned by a golden</li>
+<p>regression, <code>tests/regression/test_dt_gsk_byte_stable.py</code>, which asserts exact <code>best_fitness</code> values on sphere and CEC2017 cells (validated byte-identical at <code>seed=12345</code>, <code>max_nfes=3000</code>).</p>
+</ul>
+<p>What is <strong>not</strong> claimed: bit-exact reproduction of every upstream CEC reference table across all suites, because the underlying floating-point math libraries differ between the Python and reference toolchains. Treat a reduced-budget <code>gsk-validate --compare</code> as a schema and consistency check, not a final equivalence claim.</p>
+      </article>
+    </main>
+    <aside class="page-toc" aria-label="On this page">
+<h2>On This Page</h2>
+<a class="toc-level-1" href="#reproducibility">Reproducibility</a>
+<a class="toc-level-2" href="#environment">Environment</a>
+<a class="toc-level-2" href="#reference-data-single-source-of-truth">Reference data (single source of truth)</a>
+<a class="toc-level-2" href="#seeds">Seeds</a>
+<a class="toc-level-3" href="#the-threefry-determinism-story">The threefry determinism story</a>
+<a class="toc-level-2" href="#deterministic-settings">Deterministic Settings</a>
+<a class="toc-level-2" href="#experiment-procedure">Experiment Procedure</a>
+<a class="toc-level-2" href="#bit-exact-caveats">Bit-Exact Caveats</a>
+</aside>
+  </div>
+  <script src="assets/search.js"></script>
+</body>
+</html>

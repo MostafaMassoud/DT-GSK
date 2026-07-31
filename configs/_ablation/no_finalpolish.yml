@@ -1,0 +1,18 @@
+optimizers:
+- dt-gsk
+suite: cec2017
+functions: default
+dimensions:
+- 30
+runs: 25
+seed: 20240620
+seed_policy: unified
+rand_generator: threefry
+parallel: true
+workers: 2
+convergence_graphs: false
+overwrite: true
+output_root: results/_ablation/no_finalpolish
+optimizer_options:
+  interaction_graph_enabled: false
+  final_polish_enabled: false

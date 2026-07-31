@@ -1,0 +1,25 @@
+dimension,cell,component_removed,n_funcs,n_active_funcs,removal_hurt,removal_helped,tie,median_rel_change_pct,geomean_error_ratio_vs_baseline,mean_rank,delta_rank_vs_full,best_count,wilcoxon_p,holm_p,holm_significant
+10,no_ace,ACE bandit control,29,25,24,1,4,85.9464,3.24384,6.069,2.8448,1,0.000184,0.001104,yes
+10,no_arch,distance-thresholded elite archive,29,25,14,10,5,0.0128,1.01863,3.6034,0.3793,3,0.3104,0.6779,no
+10,no_bse,BSE budget-safe escape,29,25,15,10,4,0.5106,1.03564,4.0862,0.8621,2,0.07143,0.2857,no
+10,no_linkage,linkage-aware block crossover,29,25,11,14,4,-0.0436,0.83666,3.2414,0.0172,8,1,1,no
+10,no_localsearch,eigenframe local-search polish,29,21,14,7,8,0.0001,1.00769,3.5,0.2759,3,0.04381,0.219,no
+10,no_psr,NLPSR population reduction,29,25,17,8,4,1.482,1.20827,4.2759,1.0517,5,0.226,0.6779,no
+30,no_ace,ACE bandit control,29,26,13,13,3,0.0,1.04082,3.2759,0.2759,13,0.6476,1,no
+30,no_arch,distance-thresholded elite archive,29,23,12,11,6,0.0,1.00973,3.1379,0.1379,3,0.338,1,no
+30,no_bse,BSE budget-safe escape,29,23,19,4,6,0.968,1.061,4.3103,1.3103,0,0.008516,0.03406,yes
+30,no_linkage,linkage-aware block crossover,29,27,15,12,2,0.3164,1.00121,3.3448,0.3448,2,0.3426,1,no
+30,no_localsearch,eigenframe local-search polish,29,24,21,3,5,6.3183,1.19708,5.0345,2.0345,1,0.0002413,0.001448,yes
+30,no_psr,NLPSR population reduction,29,27,24,3,2,30.5876,1.62469,5.8966,2.8966,2,0.0008765,0.004383,yes
+50,no_ace,ACE bandit control,29,29,18,11,0,9.9961,1.16212,4.4483,1.1897,10,0.0543,0.1629,no
+50,no_arch,distance-thresholded elite archive,29,21,12,9,8,0.0,0.98798,3.431,0.1724,5,0.2373,0.4746,no
+50,no_bse,BSE budget-safe escape,29,21,16,5,8,0.5933,1.03636,3.9828,0.7241,0,0.0181,0.1086,no
+50,no_linkage,linkage-aware block crossover,29,29,15,14,0,0.3559,2.09251,3.2759,0.0172,7,0.7132,0.7132,no
+50,no_localsearch,eigenframe local-search polish,29,28,20,8,1,2.3614,1.03049,4.9483,1.6897,2,0.0249,0.1226,no
+50,no_psr,NLPSR population reduction,29,29,19,10,0,2.8295,1.60088,4.6552,1.3966,2,0.02452,0.1226,no
+100,no_ace,ACE bandit control,29,29,13,16,0,-2.2543,0.69918,3.5172,-0.1207,15,0.8288,1,no
+100,no_arch,distance-thresholded elite archive,29,20,10,10,9,0.0,1.00068,3.7069,0.069,2,0.8563,1,no
+100,no_bse,BSE budget-safe escape,29,20,13,7,9,0.0,1.01871,4.1207,0.4828,0,0.06131,0.3679,no
+100,no_linkage,linkage-aware block crossover,29,29,14,15,0,-0.0076,1.02579,3.4138,-0.2241,6,0.6971,1,no
+100,no_localsearch,eigenframe local-search polish,29,29,20,9,0,2.2947,1.09068,5.0172,1.3793,3,0.08557,0.4279,no
+100,no_psr,NLPSR population reduction,29,29,18,11,0,3.0416,1.26523,4.5862,0.9483,3,0.1247,0.4989,no

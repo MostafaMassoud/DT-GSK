@@ -1,0 +1,46 @@
+# SGSM/ISM-overlay direct isolation on CEC2011 — cell: full (ISM ON).
+#
+# WHY THIS EXISTS: the published S6.5 ISM isolation covers CEC2017 (D50/D100)
+# and CEC2013 (D50) only. CEC2011 has NEVER been in the ISM ablation, so the
+# disclosed null is silently CEC2017/CEC2013-scoped. This pair settles it.
+#
+# SCOPE: only the 7 CEC2011 functions whose native dim clears the ISM gate
+# (interaction_graph_min_dim=50) can differ between the arms at all --
+#   F9 (D126), F11 (D120), F12 (D240), F17 (D140), F18/F19/F20 (D96).
+# The other 15 functions are below the gate, so both arms are IDENTICAL there by
+# construction; running them would burn ~68% of the compute to prove 0 == 0.
+#
+# Honest prior: expect a null. The estimator is broken everywhere (learned basis
+# == coordinate axes to 5e-05), and CEC2011's FLAT 150k budget against
+# NP = 5*D leaves ISM almost no history to learn from at exactly these dims:
+# F12 gets ~125 generations, F17 ~214, F9 ~238, F18-20 ~312 -- versus ~2000 at
+# CEC2017 D100. Counter-argument worth testing: CEC2011's problems have GENUINE
+# physical coupling (ODE, Tersoff, orbital mechanics), which is the structure ISM
+# was designed for -- unlike CEC2017's synthetic rotations.
+#
+# Paired by construction: this cell and overlay_no_sgsm_cec2011.yml share seed /
+# runs / suite / dims / functions and differ ONLY in interaction_graph_enabled.
+optimizers:
+- dt-gsk
+suite: cec2011
+functions:
+- 9
+- 11
+- 12
+- 17
+- 18
+- 19
+- 20
+dimensions: native
+runs: 25
+seed: 20240620
+seed_policy: unified
+rand_generator: threefry
+parallel: true
+workers: 15
+generation_logs: false
+convergence_graphs: false
+overwrite: true
+output_root: results/_ablation_sgsm_cec2011/full
+optimizer_options:
+  interaction_graph_enabled: true

@@ -1,0 +1,18 @@
+# Runtime dependencies for the GSK optimizer family (Python).
+#
+# pyproject.toml is the canonical source of these constraints; this file mirrors
+# them so the project can be set up with plain pip:
+#
+#     python -m pip install -r requirements.txt
+#
+# That is enough to run experiments via `python run.py` (run.py adds src/ to
+# sys.path itself). To also install the gsk-run / gsk-list / gsk-validate
+# console entry points, install the package: `pip install -e .`.
+# For test/lint/type/build tooling, use requirements-dev.txt.
+
+numpy>=1.24,<2.4
+scipy>=1.10,<1.16
+pandas>=2.0,<2.4
+matplotlib>=3.7,<3.11
+PyYAML>=6.0,<7
+numba>=0.64,<0.66

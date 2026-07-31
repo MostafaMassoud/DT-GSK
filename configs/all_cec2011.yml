@@ -1,0 +1,23 @@
+optimizers:
+  - gsk
+  - agsk
+  - apgsk
+  - atmals-gsk
+  - fdb-agsk
+suite: cec2011
+functions: all
+dimensions: native
+runs: 25
+seed: 20240620
+seed_policy: unified
+rand_generator: threefry
+max_evaluations: 0
+overwrite: false
+parallel: true
+parallel_backend: process
+workers: 2
+numba_threads: 0
+convergence_graphs: true
+data_root: benchmarks/cec_suite
+reference_root: benchmarks/cec_reference_results
+output_root: results/_run_all

@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="DT-GSK re-run runbook — corrected implementation (C006 + graph backend) - GSK Family Python Documentation">
+  <title>DT-GSK re-run runbook — corrected implementation (C006 + graph backend) | GSK Family Python Documentation</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <div class="site-shell">
+    <aside class="sidebar">
+<div class="brand"><a href="index.html">GSK Family Python</a></div>
+<input class="nav-search" type="search" placeholder="Filter docs" aria-label="Filter docs">
+<nav class="nav-list" aria-label="Documentation">
+<section><h2>Getting Started</h2>
+<a class="nav-link" href="getting-started_configuration.html">Configuration</a>
+<a class="nav-link" href="getting-started_explainer.html">Explainer</a>
+<a class="nav-link" href="getting-started_runbook.html">Runbook</a>
+<a class="nav-link" href="getting-started_troubleshooting.html">Troubleshooting</a>
+<a class="nav-link" href="getting-started_tutorial.html">Tutorial</a>
+<a class="nav-link" href="getting-started_user_guide.html">User Guide</a>
+</section>
+<section><h2>Reference</h2>
+<a class="nav-link" href="reference_api.html">API Reference</a>
+<a class="nav-link" href="reference_architecture.html">Architecture</a>
+<a class="nav-link" href="reference_benchmark_mapping.html">Benchmark Mapping</a>
+<a class="nav-link" href="reference_benchmark_protocol.html">Benchmark Protocol</a>
+<a class="nav-link" href="reference_cec2011_cpp_python_equivalence_review.html">CEC2011 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013_cpp_python_equivalence_review.html">CEC2013 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013lsgo_cpp_python_equivalence_review.html">CEC2013LSGO C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2017_cpp_python_equivalence_review.html">CEC2017 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2020_cpp_python_equivalence_review.html">CEC2020 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="index.html">Documentation Index</a>
+<a class="nav-link" href="reference_fp_regime.html">Floating-Point Regime Verification</a>
+<a class="nav-link" href="reference_diagrams.html">Flowcharts And Diagrams</a>
+<a class="nav-link" href="reference_glossary.html">Glossary</a>
+<a class="nav-link" href="LICENSES.html">Licenses</a>
+<a class="nav-link" href="reference_module_dependencies.html">Module Dependencies</a>
+<a class="nav-link" href="reference_project_structure.html">Project Structure</a>
+<a class="nav-link" href="reference_python_optimizer_interface.html">Python Optimizer Interface</a>
+<a class="nav-link" href="reference_result_schema.html">Result Schema</a>
+<a class="nav-link" href="reference_seed_policy.html">Seed Policy</a>
+<a class="nav-link" href="reference_workflows.html">Workflows</a>
+</section>
+<section><h2>Algorithm Guides</h2>
+<a class="nav-link" href="algorithms_agsk.html">AGSK — Adaptive Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_apgsk.html">APGSK — Adaptive-Parameters Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_atmals-gsk.html">ATMALS-GSK — Adaptive Tuning, Memory, Adaptive Local Search</a>
+<a class="nav-link" href="algorithms_dt-gsk.html">DT-GSK — Dimension-Tiered Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_egsk.html">EGSK — Enhanced Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_fdb-agsk.html">FDB-AGSK — Fitness-Distance-Balance AGSK</a>
+<a class="nav-link" href="algorithms_gsk.html">GSK — Gaining-Sharing Knowledge</a>
+</section>
+<section><h2>Development</h2>
+<a class="nav-link" href="development_BUG_resume_summary_truncation.html">BUG-RESUME-01 — resume mode truncates (and mis-computes) the per-dimension summary CSV</a>
+<a class="nav-link" href="development_LSGO_ACCELERATION_PLAN.html">CEC2013LSGO Acceleration Plan — all 7 GSK-family algorithms, bit-identically</a>
+<a class="nav-link" href="development_LSGO_INTEGRATION_CAMPAIGN.html">CEC2013LSGO Integration — Campaign Plan</a>
+<a class="nav-link" href="development_CEC2017_PREC_adjudication.html">CEC2017-PREC — adjudication (CLOSED 2026-07-25)</a>
+<a class="nav-link" href="development_code_reading_guide.html">Code Reading Guide</a>
+<a class="nav-link" href="development_contributor_guide.html">Contributor Guide</a>
+<a class="nav-link" href="development_DECC_G_port_record.html">DECC-G port — fidelity and validation record</a>
+<a class="nav-link" href="development_developer_guide.html">Developer Guide</a>
+<a class="nav-link" href="development_README.html">Development Docs</a>
+<a class="nav-link" href="development_dt_gsk_core_reference.html">DT-GSK Core Reference — the vendored core and its byte-identity lock</a>
+<a class="nav-link active" href="development_evidence_rerun_runbook.html">DT-GSK re-run runbook — corrected implementation (C006 + graph backend)</a>
+<a class="nav-link" href="development_egsk_port_spec.html">EGSK — Algorithm Spec &amp; Porting Verdict</a>
+<a class="nav-link" href="development_extension_guide.html">Extension Guide</a>
+<a class="nav-link" href="development_FAMILY_ACCELERATION_PLAN.html">Family-wide acceleration plan — 7 algorithms x 5 suites, bit-identical only</a>
+<a class="nav-link" href="development_FINAL_PUBLICATION_PLAN.html">FINAL PUBLICATION PLAN — DT-GSK, Four(/Five)-Suite Scope</a>
+<a class="nav-link" href="development_ACCELERATION_CAMPAIGN_PROMPT.html">GSK-Family Acceleration Campaign — Execution Prompt</a>
+<a class="nav-link" href="development_maintenance_guide.html">Maintenance Guide</a>
+<a class="nav-link" href="development_PORT_05_TUNING_TRIAGE.html">Porting project-05 tuning into 02 — Phase 1 audit and triage</a>
+<a class="nav-link" href="development_REFERENCE_PROMOTION_PLAN.html">Reference Promotion Plan — CEC2013LSGO now, CEC2020 behind its completeness gate</a>
+<a class="nav-link" href="development_SIBLING_CAMPAIGN_TRANSFER.html">Sibling-Campaign Transfer — every tuning that can make the GSK family fast</a>
+</section>
+<section><h2>Research</h2>
+<a class="nav-link" href="research_egsk_validation_appendix.html">EGSK Validation Appendix — Paired Port-vs-Reference Equivalence</a>
+<a class="nav-link" href="research_numerical_examples.html">Numerical Examples</a>
+<a class="nav-link" href="research_performance.html">Performance</a>
+<a class="nav-link" href="research_reproducibility.html">Reproducibility</a>
+<a class="nav-link" href="research_researcher_handbook.html">Researcher Handbook</a>
+<a class="nav-link" href="research_statistical_analysis.html">Statistical Analysis (GSK-family comparison)</a>
+<a class="nav-link" href="research_validation_report.html">Validation Report</a>
+</section>
+<section><h2>Prompts</h2>
+<a class="nav-link" href="prompt_documentation-deep-upgrade.html">Deep Documentation Review &amp; Upgrade Prompt — GSK Family Python</a>
+<a class="nav-link" href="prompt_project-review.html">Deep Expert Review Prompt For GSK Family Python</a>
+<a class="nav-link" href="prompt_documentation-review.html">Documentation Review Prompt</a>
+<a class="nav-link" href="prompt_publication-polish.html">Final Publication Prompt — Production-Ready Q1 Release of GSK Family Python v1.1</a>
+</section>
+<section><h2>Python API</h2>
+<a class="nav-link" href="api_index.html">API Module Index</a>
+<a class="nav-link api-link" href="api/gsk_family.__init__.html">gsk_family.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.__init__.html">gsk_family.analysis.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.family_report.html">gsk_family.analysis.family_report</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.figures.html">gsk_family.analysis.figures</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.latex_tables.html">gsk_family.analysis.latex_tables</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.project_policy.html">gsk_family.analysis.project_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.result_loader.html">gsk_family.analysis.result_loader</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistical_tests.html">gsk_family.analysis.statistical_tests</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistics.html">gsk_family.analysis.statistics</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.__init__.html">gsk_family.benchmark_adapter.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.factory.html">gsk_family.benchmark_adapter.factory</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.problem.html">gsk_family.benchmark_adapter.problem</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.protocol.html">gsk_family.benchmark_adapter.protocol</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.__init__.html">gsk_family.cli.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.list.html">gsk_family.cli.list</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.run.html">gsk_family.cli.run</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.stats.html">gsk_family.cli.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.validate.html">gsk_family.cli.validate</a>
+<a class="nav-link api-link" href="api/gsk_family.common.__init__.html">gsk_family.common.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.common.bounds.html">gsk_family.common.bounds</a>
+<a class="nav-link api-link" href="api/gsk_family.common.donors.html">gsk_family.common.donors</a>
+<a class="nav-link api-link" href="api/gsk_family.common.numeric_compat.html">gsk_family.common.numeric_compat</a>
+<a class="nav-link api-link" href="api/gsk_family.common.population.html">gsk_family.common.population</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reduction.html">gsk_family.common.reduction</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reference_rng.html">gsk_family.common.reference_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.rng.html">gsk_family.common.rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.threefry_rng.html">gsk_family.common.threefry_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.__init__.html">gsk_family.optimizers.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_profiles.html">gsk_family.optimizers._dt_profiles</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_rng.html">gsk_family.optimizers._dt_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._kernels.html">gsk_family.optimizers._kernels</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.agsk.html">gsk_family.optimizers.agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.apgsk.html">gsk_family.optimizers.apgsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_gsk.html">gsk_family.optimizers.atmals_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_helpers.html">gsk_family.optimizers.atmals_helpers</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.dt_gsk.html">gsk_family.optimizers.dt_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.egsk.html">gsk_family.optimizers.egsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.__init__.html">gsk_family.optimizers.external.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._base.html">gsk_family.optimizers.external._base</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._telemetry_shim.html">gsk_family.optimizers.external._telemetry_shim</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.cmaes.html">gsk_family.optimizers.external.cmaes</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.decc_g.html">gsk_family.optimizers.external.decc_g</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.ebowithcmar.html">gsk_family.optimizers.external.ebowithcmar</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.jso.html">gsk_family.optimizers.external.jso</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade.html">gsk_family.optimizers.external.lshade</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade_spacma.html">gsk_family.optimizers.external.lshade_spacma</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.mos_cec2013lsgo.html">gsk_family.optimizers.external.mos_cec2013lsgo</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.shade_ils.html">gsk_family.optimizers.external.shade_ils</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_agsk.html">gsk_family.optimizers.fdb_agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_scores.html">gsk_family.optimizers.fdb_scores</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.gsk.html">gsk_family.optimizers.gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.__init__.html">gsk_family.runners.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.config.html">gsk_family.runners.config</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.fp_regime.html">gsk_family.runners.fp_regime</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.output.html">gsk_family.runners.output</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.parallel.html">gsk_family.runners.parallel</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.performance.html">gsk_family.runners.performance</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.run_experiment.html">gsk_family.runners.run_experiment</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.seed_policy.html">gsk_family.runners.seed_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.verification.html">gsk_family.runners.verification</a>
+<a class="nav-link api-link" href="api/gsk_family.stats.html">gsk_family.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.types.html">gsk_family.types</a>
+</section>
+</nav></aside>
+    <main class="content">
+      <article class="doc-card">
+        <h1 id="dt-gsk-re-run-runbook-corrected-implementation-c006-graph-backend">DT-GSK re-run runbook — corrected implementation (C006 + graph backend)</h1>
+<p><strong>Written:</strong> 2026-07-14 <strong>Why:</strong> two source defects were found and fixed. One of them changes DT-GSK&#x27;s trajectory at <code>D &gt;= 50</code>, so the evidence produced by the old binary can no longer be attributed to the shipped code. This is the exact command sequence to regenerate it.</p>
+<blockquote>### ✅ Status (2026-07-20): the <code>D &gt;= 50</code> regeneration described here is COMPLETE</blockquote>
+<blockquote>This runbook drove the C006 + M038 regeneration, and that work has <strong>landed</strong>. The</blockquote>
+<blockquote>corrected <code>D &gt;= 50</code> evidence was re-minted as the current release</blockquote>
+<blockquote><strong><code>rel-2026-07-20-67d9345f9</code></strong> (ablation <strong><code>abl-rel-2026-07-20</code></strong>), the manuscript was</blockquote>
+<blockquote>rebuilt on it, and every build / cross-format-parity / provenance gate is green. The page</blockquote>
+<blockquote>is retained as the <strong>procedure of record</strong> — follow it verbatim if a future <code>D &gt;= 50</code> core</blockquote>
+<blockquote>change forces another regeneration.</blockquote>
+<blockquote></blockquote>
+<blockquote><strong>RT-001 is CLOSED (2026-07-20) — do NOT re-run it.</strong> The six-comparator re-timing was</blockquote>
+<blockquote>executed and *failed* its determinism gate (3,772 differing rows), so it was not adopted.</blockquote>
+<blockquote>Under Decision 7 Option 3 the runtime table (<code>tab:runtime</code>) was instead narrowed to a</blockquote>
+<blockquote><strong>DT-GSK-only, single-session</strong> table, and the manuscript makes no cross-algorithm</blockquote>
+<blockquote>wall-clock claim anywhere. No timing refresh is outstanding: do not request one, do not</blockquote>
+<blockquote>run <code>scripts\retime_comparators.py</code>, and do not re-freeze the runtime table on comparator</blockquote>
+<blockquote>timings. <code>benchmarks/cec_reference_results/</code> remains read-only.</blockquote>
+<blockquote></blockquote>
+<blockquote><strong>No evidence task is open.</strong> Every empirical number in the manuscript derives from</blockquote>
+<blockquote><code>rel-2026-07-20-67d9345f9</code> (ablation <code>abl-rel-2026-07-20</code>); reproduction means re-deriving</blockquote>
+<blockquote>the analysis and artifacts from that release, not re-optimizing.</blockquote>
+<blockquote>### One-command finalization</blockquote>
+<blockquote>Once every staging bundle is complete (primary suites + scaffold + overlay), the</blockquote>
+<blockquote>entire promotion → stats → analysis-bundle → tables → figures → builds → gates chain</blockquote>
+<blockquote>in Sections 5–7 is automated by <strong><code>papers/scripts/finalize_evidence.py</code></strong>:</blockquote>
+<blockquote></blockquote>
+<blockquote>```powershell</blockquote>
+<blockquote>python papers\scripts\finalize_evidence.py --dry-run   # preflight only</blockquote>
+<blockquote>python papers\scripts\finalize_evidence.py             # full chain (checkpointed)</blockquote>
+<blockquote>```</blockquote>
+<blockquote></blockquote>
+<blockquote>It is resumable (<code>--from-phase P6</code>), mints the new release ids, and ends with</blockquote>
+<blockquote><code>results/_finalize/finalize_report.md</code> — the old-vs-new headline diff plus the</blockquote>
+<blockquote>remaining HUMAN steps (manuscript prose, freeze-manifest refreeze). Section 6 of this</blockquote>
+<blockquote>runbook remains the authority for those manual manuscript edits.</blockquote>
+<p>---</p>
+<h2 id="1-what-changed-and-what-it-does">1. What changed, and what it does</h2>
+<div class="table-wrap"><table><thead><tr><th>Fix</th><th>Effect on results</th><th>Effect on runtime</th></tr></thead><tbody><tr><td><strong>C006</strong> — final polish received a stale incumbent vector paired with a newer incumbent&#x27;s fitness (<code>_dt_core.py</code>, polish entry). Now <code>best_idx</code>/<code>best_f</code>/<code>best_x</code> are re-materialised atomically.</td><td><strong>Changes trajectories where the polish fires</strong></td><td>negligible</td></tr><tr><td><strong>M038</strong> — the interaction graph imported <code>gsk_family._numba_accel</code> (does not exist), so the compiled kernels silently fell back to NumPy. Now imports <code>._numba_accel</code>.</td><td><strong>None — bit-identical</strong> (verified at D50/D100; kernels are <code>fastmath=False</code>, no parallel reduction)</td><td><strong>~1.34× faster</strong> at D50 on the memory-on arm</td></tr></tbody></table></div>
+<p>Both are locked by new regression tests, each of which <strong>fails on the old code</strong>:</p>
+<ul>
+<li><code>tests/regression/test_dt_polish_incumbent_consistent.py</code> (C006)</li>
+<li><code>tests/regression/test_dt_graph_backend_parity.py</code> (M038 — also asserts the two</li>
+<p>backends are bit-identical; the pre-existing byte-stability KAT could never catch this, as its cells are <code>D &lt;= 30</code>, below the tier where the graph activates)</p>
+</ul>
+<h3 id="set-expectations-before-spending-the-compute">Set expectations before spending the compute</h3>
+<p>On a 14-cell probe, <strong>only 2 cells changed</strong>, and both changed *slightly worse* (F1 D50 by ~1e-13; F3 D100 by 0.13%). C006 only bites when a local-search improvement lands in the same generation as the polish. <strong>This is a correctness fix, not a performance win</strong> — the polish now searches the neighbourhood it claims to search. Do not assume the headline ranks survive; they must be re-derived and re-checked.</p>
+<p>---</p>
+<h2 id="2-blast-radius-what-must-be-re-run-and-what-must-not">2. Blast radius — what must be re-run (and what must not)</h2>
+<p>The polish is enabled <strong>only at <code>D &gt;= 50</code></strong> (<code>final_polish_enabled</code> is <code>False</code> at D10/D30 in the <code>pub</code> profile), and the interaction graph activates only at <code>D &gt;= 50</code>. Therefore:</p>
+<p><strong>Unaffected — do NOT re-run (provably byte-identical):</strong></p>
+<ul>
+<li>every <strong>comparator</strong> (<code>gsk</code>, <code>agsk</code>, <code>apgsk</code>, <code>fdb-agsk</code>, <code>atmals-gsk</code>, <code>egsk</code>) — their</li>
+<p>code did not change at all; their frozen reference CSVs stay valid;</p>
+<li><code>dt-gsk</code> at <strong>CEC2017 D10/D30</strong>, <strong>CEC2013 D10/D30</strong>, <strong>CEC2020</strong> (all dims ≤ 20);</li>
+<li><code>dt-gsk</code> on <strong>CEC2011</strong> problems whose native dimension is &lt; 50.</li>
+</ul>
+<p><strong>Affected — must be re-run:</strong></p>
+<div class="table-wrap"><table><thead><tr><th>Evidence</th><th>Cells</th></tr></thead><tbody><tr><td>CEC2017 primary</td><td><code>dt-gsk</code>, <strong>D50 + D100</strong>, 51 runs</td></tr><tr><td>CEC2013 primary</td><td><code>dt-gsk</code>, <strong>D50</strong>, 51 runs</td></tr><tr><td>CEC2011 primary</td><td><code>dt-gsk</code>, <strong>F9, F11, F12, F17, F18, F19, F20</strong> (native D = 126, 120, 240, 140, 96, 96, 96)</td></tr><tr><td>SGSM overlay ablation</td><td>all 4 cells (<code>full</code>, <code>no_sgsm</code>, <code>no_adaptive</code>, <code>no_finalpolish</code>), CEC2017 D50/D100 + CEC2013 D50</td></tr><tr><td>Scaffold ablation</td><td>the <strong>D50/D100</strong> cells</td></tr><tr><td>Runtime table + §S6.5 overhead</td><td>re-measured directly by the above (the <code>+54%/+37%</code> figures were the un-accelerated NumPy path)</td></tr></tbody></table></div>
+<p>---</p>
+<h2 id="3-determinism-setup-do-this-in-every-shell-before-python-starts">3. Determinism setup (do this in every shell, before Python starts)</h2>
+<p><code>D &gt;= 50</code> uses <code>prange</code>/SGSM, so thread count changes floating-point reduction order. Pin <strong>all six</strong> variables *before* Python imports numpy/numba — setting them inside Python has no effect.</p>
+<pre><code class="code-block language-powershell">$env:OMP_NUM_THREADS=1; $env:MKL_NUM_THREADS=1; $env:OPENBLAS_NUM_THREADS=1
+$env:VECLIB_MAXIMUM_THREADS=1; $env:NUMEXPR_NUM_THREADS=1; $env:NUMBA_NUM_THREADS=1</code></pre>
+<p>With Numba pinned to one thread per process, <strong>process-level parallelism is still safe</strong>: each cell&#x27;s seed is a pure function of <code>(base_seed, dim, func, run)</code>, independent of worker count or execution order. So use <code>--parallel --workers N --numba-threads 1</code>.</p>
+<p>Sanity-check the toolchain before committing hours:</p>
+<pre><code class="code-block language-powershell">python -m pytest tests\regression\test_dt_polish_incumbent_consistent.py tests\regression\test_dt_graph_backend_parity.py tests\regression\test_dt_gsk_byte_stable.py -q</code></pre>
+<p>---</p>
+<h2 id="4-the-commands-in-dependency-order">4. The commands, in dependency order</h2>
+<p>Run from the repository root. Everything writes to <code>results/</code> — <strong>never</strong> to <code>benchmarks/cec_reference_results/</code>.</p>
+<h3 id="4-1-primary-evidence-dt-gsk-only-comparators-are-untouched">4.1 Primary evidence (<code>dt-gsk</code> only — comparators are untouched)</h3>
+<pre><code class="code-block language-powershell"># CEC2017 -- the affected tiers
+python run.py --root . --optimizer dt-gsk --suite cec2017 --function 1:30 --dimension 50,100 --runs 51 --parallel --workers 15 --numba-threads 1 --convergence-graphs --overwrite
+
+# CEC2013 -- D50 only
+python run.py --root . --optimizer dt-gsk --suite cec2013 --function 1:28 --dimension 50 --runs 51 --parallel --workers 15 --numba-threads 1 --convergence-graphs --overwrite
+
+# CEC2011 -- only the seven native-D&gt;=50 problems
+python run.py --root . --optimizer dt-gsk --suite cec2011 --function 9,11,12,17,18,19,20 --dimension native --runs 25 --parallel --workers 15 --numba-threads 1 --convergence-graphs --overwrite</code></pre>
+<blockquote>If you prefer a <strong>coherent full DT-GSK campaign</strong> over a surgical one (the external</blockquote>
+<blockquote>review recommends this, to avoid any mixed-binary question), drop the <code>--dimension</code></blockquote>
+<blockquote>restriction and re-run all dims/suites for <code>dt-gsk</code>. It costs more but removes the need</blockquote>
+<blockquote>to argue that D10/D30 was unaffected. The comparators still never need re-running.</blockquote>
+<h3 id="4-2-ablation-evidence">4.2 Ablation evidence</h3>
+<pre><code class="code-block language-powershell"># SGSM overlay -- the 4-cell direct isolation (this is what S6.5 reports)
+python scripts\run_overlay_ablation_51.py --suite cec2017
+python scripts\run_overlay_ablation_51.py --suite cec2013
+
+# Scaffold remove-one ablation -- the D&gt;=50 cells
+python scripts\run_ablation.py --dimension 50,100 --runs 25 --workers 15</code></pre>
+<h3 id="4-3-statistics-tables-figures">4.3 Statistics, tables, figures</h3>
+<pre><code class="code-block language-powershell">python -m gsk_family.cli.stats --suite CEC2017 --dims 10,30,50,100
+python -m gsk_family.cli.stats --suite CEC2013 --dims 10,30,50
+python -m gsk_family.cli.stats --suite CEC2011
+
+python papers\scripts\generate_ablation_matrix.py --dimension 50
+python papers\scripts\generate_ablation_matrix.py --dimension 100
+python papers\scripts\ablation_overlay_effects.py
+
+python papers\scripts\generate_latex_tables.py
+python papers\scripts\generate_full_convergence.py
+python papers\scripts\generate_nemenyi_cd.py
+python papers\scripts\generate_rank_charts.py</code></pre>
+<h3 id="4-4-gates">4.4 Gates</h3>
+<pre><code class="code-block language-powershell">python -m pytest -q
+python -m ruff check src tests scripts
+python scripts\validate_profile_lock.py --root .
+python scripts\build_docs_html.py</code></pre>
+<p>---</p>
+<h2 id="5-promote-to-a-new-immutable-release-never-overwrite-the-old-one">5. Promote to a NEW immutable release — never overwrite the old one</h2>
+<blockquote><strong>Executed.</strong> The regenerated evidence was promoted as <strong><code>rel-2026-07-20-67d9345f9</code></strong> /</blockquote>
+<blockquote><strong><code>abl-rel-2026-07-20</code></strong> (superseding the interim <code>rel-2026-07-16-78f075cb0</code> /</blockquote>
+<blockquote><code>abl-rel-2026-07-16</code>). The pre-fix <code>rel-2026-07-10-262fc16c9</code> / <code>abl-rel-2026-07-13</code></blockquote>
+<blockquote>remains the honest record of the *old* binary — kept, never overwritten. The steps below</blockquote>
+<blockquote>are the procedure that was followed and that a future regeneration repeats.</blockquote>
+<p>The pre-fix release (<code>rel-2026-07-10-262fc16c9</code>, ablation <code>abl-rel-2026-07-13</code>) is the honest record of what the <strong>old</strong> binary produced. Keep it. Promote the regenerated evidence as a <strong>new</strong> release, recording:</p>
+<ul>
+<li>the git commit of the corrected source (commit the C006 + backend fixes <strong>before</strong></li>
+<p>launching, so the release binds to an exact SHA);</p>
+<li>the configuration hash, environment lock, and <strong>the selected graph backend</strong></li>
+<p>(<code>numba</code>, now that it actually loads — the old release ran NumPy);</p>
+<li>the seed schedule, raw run files, analysis scripts, and a checksum inventory.</li>
+</ul>
+<h3 id="5-1-promotion-is-two-steps-the-tool-alone-does-not-update-what-the-stats-read">5.1 Promotion is TWO steps — the tool alone does not update what the stats read</h3>
+<p><code>scripts/promote_evidence.py</code> can write a versioned audit copy under <code>_releases/</code>, but <strong>per-release audit copies are no longer retained</strong> (removed 2026-07-18 — git history is the audit record). It <strong>never touches the flat live layout</strong> <code>&lt;suite&gt;/&lt;optimizer&gt;/</code> — by design; <code>gsk-stats</code>, the loaders, and every paper script read the <strong>flat layout only</strong>. Therefore:</p>
+<ol>
+<li><strong>Versioned promotion (optional; git history is the audit record)</strong> — one call per suite bundle:</li>
+</ol>
+<pre><code class="code-block language-powershell">   python scripts\promote_evidence.py --staging results/_run_all/dt-gsk/cec2017 --suite cec2017 --optimizer dt-gsk --release-id rel-&lt;date&gt;-&lt;sha&gt; --dry-run
+   # inspect the plan, then re-run without --dry-run; repeat for cec2011, cec2013</code></pre>
+<ol>
+<li><strong>Flat-layout refresh (what the stats actually read)</strong> — an explicit,</li>
+<p>user-sanctioned maintenance step: replace the contents of <code>benchmarks/cec_reference_results/&lt;suite&gt;/dt-gsk/</code> with the accepted staging bundle for each of cec2017/cec2011/cec2013 (the old flat cells remain recoverable via git history and the prior release bundle). Comparator directories are NOT touched. Rename the summary CSVs if staging names differ from the reference convention (<code>dt-gsk_&lt;suite&gt;_D&lt;dim&gt;.csv</code>; cec2011 rollup <code>dt-gsk_cec2011.csv</code>).</p>
+</ol>
+<ol>
+<li><strong>Ablation + overlay</strong> land under <code>_ablation/</code> as a NEW additively-minted release</li>
+<p>id (keep <code>abl-rel-2026-07-13</code>; add a supersession record in the manifest). The 51-run overlay staging roots are <code>results/_ablation_sgsm_cec2017_51/</code> and <code>results/_ablation_sgsm_51/</code>; the scaffold cells are <code>results/_ablation/&lt;cell&gt;/</code>.</p>
+</ol>
+<ol>
+<li><strong>The paper-tables layer has one more hop</strong>: <code>generate_latex_tables.py</code> reads the</li>
+<p>promoted export <code>benchmarks/cec_reference_results/_paper_tables/</code>, which is produced by the Phase-6 exporter from the controlled analysis bundle (<code>papers/analysis/&lt;release&gt;/</code>). After <code>gsk-stats</code> produces the new panels, the analysis bundle and the <code>_paper_tables</code> export must be regenerated and promoted before the table generators run — otherwise the tables silently rebuild from the old release&#x27;s CSVs.</p>
+</ol>
+<ol>
+<li>Update <code>_index/BENCHMARK_EVIDENCE_INDEX.md</code> and re-run the release self-checks; only</li>
+<p>then run stats -&gt; tables -&gt; figures -&gt; builds.</p>
+</ol>
+<p>---</p>
+<h2 id="6-mandatory-manuscript-edits-after-the-re-run">6. Mandatory manuscript edits after the re-run</h2>
+<p>These were <strong>not optional</strong> — the pre-fix text was true only of the *old* binary — and they <strong>landed in the <code>rel-2026-07-20</code> manuscript build</strong>. They are recorded here as the edit checklist a future <code>D &gt;= 50</code> regeneration must repeat:</p>
+<ol>
+<li><strong>Supplement §S6.6 (&quot;Implementation Caveats&quot;)</strong> — the pre-fix text disclosed the polish</li>
+<p>defect and *&quot;[left] the frozen numbers intact rather than mix corrected and uncorrected cells.&quot;* It now states the defect was <strong>identified and corrected</strong>, and all <code>D &gt;= 50</code> evidence was <strong>regenerated</strong> under the corrected implementation.</p>
+<li><strong>Supplement §S6.5</strong> — the <code>+54%</code> / <code>+37%</code> memory overhead (the un-accelerated NumPy</li>
+<p>cost) was replaced with the values re-measured on the accelerated numba backend: <strong>+57.3 %</strong> (CEC2017 D50), <strong>+36.3 %</strong> (D100), <strong>+30.3 %</strong> (CEC2013 D50). These are final (RT-001 closed; no further timing refresh is pending).</p>
+<li><strong>Main-text runtime table + Conclusions limitation</strong> — the &quot;upper estimate&quot; qualifier</li>
+<p>about the NumPy backend was removed; the numbers are the accelerated path. <code>tab:runtime</code> carries <strong>no comparator columns</strong>: RT-001 closed without adoption, so the table was narrowed to DT-GSK-only, single-session, and no cross-algorithm wall-clock claim is made.</p>
+<li><strong>Every headline claim was re-verified</strong> against the regenerated statistics — the overall</li>
+<p>CEC2017 mean rank, the per-dimension standings, the D30 / CEC2011 eGSK contrasts, and the §S6.5 interaction-graph isolation null. None were carried over on faith.</p>
+<li>Re-run the binding/parity checks (all green as of 2026-07-20): <code>papers\scripts\check_manifest.py</code>,</li>
+<p><code>papers\scripts\validate_evidence_bindings.py</code>, <code>papers\scripts\validate_cross_format_parity.py</code>.</p>
+</ol>
+<p>---</p>
+<h2 id="7-rough-cost">7. Rough cost</h2>
+<p>With <code>--workers 15</code> and Numba pinned to 1 thread per process, and the graph now compiled (~1.34× faster at D50 on the memory-on arm):</p>
+<div class="table-wrap"><table><thead><tr><th>Stage</th><th>Order of magnitude</th></tr></thead><tbody><tr><td>CEC2017 <code>dt-gsk</code> D50 + D100 (51 runs)</td><td>~2–3 h</td></tr><tr><td>CEC2013 D50 + CEC2011 (7 problems)</td><td>~1–2 h</td></tr><tr><td>Overlay ablation (4 cells × 51 runs, both suites)</td><td>~4–6 h</td></tr><tr><td>Scaffold ablation (D50/D100)</td><td>~2–4 h</td></tr><tr><td>Oracle study</td><td>minutes</td></tr><tr><td>Stats + figures + rebuild</td><td>~1 h</td></tr></tbody></table></div>
+<p>Budget roughly <strong>one to two days</strong> of wall-clock on a 16-core workstation.</p>
+      </article>
+    </main>
+    <aside class="page-toc" aria-label="On this page">
+<h2>On This Page</h2>
+<a class="toc-level-1" href="#dt-gsk-re-run-runbook-corrected-implementation-c006-graph-backend">DT-GSK re-run runbook — corrected implementation (C006 + graph backend)</a>
+<a class="toc-level-2" href="#1-what-changed-and-what-it-does">1. What changed, and what it does</a>
+<a class="toc-level-3" href="#set-expectations-before-spending-the-compute">Set expectations before spending the compute</a>
+<a class="toc-level-2" href="#2-blast-radius-what-must-be-re-run-and-what-must-not">2. Blast radius — what must be re-run (and what must not)</a>
+<a class="toc-level-2" href="#3-determinism-setup-do-this-in-every-shell-before-python-starts">3. Determinism setup (do this in every shell, before Python starts)</a>
+<a class="toc-level-2" href="#4-the-commands-in-dependency-order">4. The commands, in dependency order</a>
+<a class="toc-level-3" href="#4-1-primary-evidence-dt-gsk-only-comparators-are-untouched">4.1 Primary evidence (`dt-gsk` only — comparators are untouched)</a>
+<a class="toc-level-3" href="#4-2-ablation-evidence">4.2 Ablation evidence</a>
+<a class="toc-level-3" href="#4-3-statistics-tables-figures">4.3 Statistics, tables, figures</a>
+<a class="toc-level-3" href="#4-4-gates">4.4 Gates</a>
+<a class="toc-level-2" href="#5-promote-to-a-new-immutable-release-never-overwrite-the-old-one">5. Promote to a NEW immutable release — never overwrite the old one</a>
+<a class="toc-level-3" href="#5-1-promotion-is-two-steps-the-tool-alone-does-not-update-what-the-stats-read">5.1 Promotion is TWO steps — the tool alone does not update what the stats read</a>
+<a class="toc-level-2" href="#6-mandatory-manuscript-edits-after-the-re-run">6. Mandatory manuscript edits after the re-run</a>
+<a class="toc-level-2" href="#7-rough-cost">7. Rough cost</a>
+</aside>
+  </div>
+  <script src="assets/search.js"></script>
+</body>
+</html>

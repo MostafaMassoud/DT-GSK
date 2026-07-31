@@ -1,0 +1,37 @@
+{
+  "schema": "external_baseline_provenance/EV-09",
+  "suite": "cec2013lsgo",
+  "status": "out_of_paper_scope",
+  "authority": "CR-0019 (papers/governance/change_request_register.csv); FINAL_PUBLICATION_PLAN.md ruling R7",
+  "comparability": "context-only; NOT admissible for the seven-method panel; no comparability audit claimed (see data_ledger.csv rows)",
+  "content": "summary-only table (no per-run data, no environment/seed records); 3-4 significant figures consistent with a published-results transcription; transcription NOT re-verified against the source table in this repository",
+  "previous_path_before_2026_07_28": "benchmarks/cec_reference_results/cec2013lsgo/mos/",
+  "protocol_attributed": "15 functions, D=1000 (F13/F14 at 905); suite convention 25 runs / 3e6 FES -- attributed, not verified from these files",
+  "algorithm": "mos",
+  "related_publication": {
+    "citation_key": "latorre2013mos",
+    "title_from_pdf": "Large Scale Global Optimization: Experimental Results with MOS-based Hybrid Algorithms",
+    "doi_crossref_verified_2026_07_28": "10.1109/CEC.2013.6557901",
+    "pages_crossref": "2742-2749",
+    "venue_crossref": "2013 IEEE Congress on Evolutionary Computation"
+  },
+  "objective_variant_flag": "PUBLISHED MOS RESULTS USE THE RAW ACKLEY VARIANT on F3/F6/F10; the family banks use the transformed chain -- those three functions are NOT comparable (see lsgo Ackley-variant record; production_deviation_record.md D-8.2)",
+  "import_history_git": [
+    {
+      "commit": "296c36036",
+      "date": "2026-06-27",
+      "note": "initial import"
+    },
+    {
+      "commit": "0d2f291fd",
+      "date": "2026-07-18"
+    },
+    {
+      "commit": "a1bb33497",
+      "date": "2026-07-22"
+    }
+  ],
+  "file": "mos_cec2013lsgo.csv",
+  "sha256": "0716596c45e301669ecc9bbe1c53160c9a7d5a659a6159773704f4538fc43fb1",
+  "bytes": 837
+}

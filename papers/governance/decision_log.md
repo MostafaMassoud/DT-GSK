@@ -1,0 +1,1091 @@
+# Decision Log
+
+Section 3.1 schema: every autonomous decision, rationale, evidence, impact.
+Section 12.3 autonomous decision protocol applies to each entry.
+Append-only; one `## D-NNNN` block per decision.
+
+## D-0001 — Reconciliation commit as anchor (Phase 0, 2026-07-10)
+
+- **Decision**: Adopt commit `262fc16c91fbe5608a1a0b0c5df3cbcd009edc21`
+  (branch `main`) as `anchor_commit` for the entire publication production run.
+- **Alternatives considered**: (a) anchor on the previous commit and treat the
+  framework revision + generator fixes as dirty working-tree state; (b) create
+  a fresh commit mid-preflight.
+- **Rationale**: Immediately before Phase 0, the framework revision of
+  `papers/PAPER_BUILD_PROMPT.md` together with generator fixes was reconciled
+  into a single commit, leaving the tree clean except for live staging outputs
+  (see D-0002). Anchoring on this reconciliation commit gives Phase 0 a state
+  where the authoritative instructions and the code they govern are identical
+  to what Git records — the "clean or explicitly reconciled repository state"
+  expected outcome of Phase 0. Option (a) would have left the master framework
+  itself unversioned at the anchor; option (b) would have interleaved
+  scientific-path commits with governance preflight.
+- **Evidence**: `git rev-parse HEAD` and `git rev-list -1 HEAD` both return
+  `262fc16c91fbe5608a1a0b0c5df3cbcd009edc21` (independent cross-check,
+  2026-07-10); verbatim records in `reproducibility_manifest.json`.
+- **Impact**: All Phase 0 artifacts cite this single commit; later phases
+  verify against it. No scientific artifact modified by this decision.
+
+## D-0002 — Live staging campaign is non-blocking (Phase 0, 2026-07-10)
+
+- **Decision**: Treat the running DT-GSK scaffold ablation campaign
+  (`scripts/run_ablation.py`, writing to `results/_ablation/<cell>/`:
+  `baseline` mid-D100, `no_ace`, `no_psr`; log stamps 2026-07-10) as
+  NON-BLOCKING for Phase 0. Do not wait for it; do not touch
+  `results/_ablation/`; record its churn as the dirty-path list.
+- **Alternatives considered**: (a) block Phase 0 until the campaign completes;
+  (b) quarantine the staging outputs into a separate worktree.
+- **Rationale**: Section 0.3 declares `results/` staging-only — never evidence
+  without Section 2.4 promotion. Phase 0 task 1 blocks freezing only for dirty
+  paths touching benchmark evidence, source code, configuration, tables,
+  figures, or analysis; the scoped `git status --porcelain` shows dirty paths
+  exclusively under `results/_ablation/`. Waiting would delay governance work
+  that does not depend on staging; quarantine would perturb a running
+  scientific campaign for no evidentiary gain.
+- **Evidence**: Scoped `git status --porcelain -- .` snapshot (verbatim +
+  SHA-256 in `reproducibility_manifest.json`; itemized in
+  `project_configuration.md` Section 2).
+- **Impact**: Dirty list is time-varying during preflight; recorded as risk
+  R-0001. Any later use of ablation outputs requires Section 2.4 controlled
+  promotion (Phase 12 is the sole ablation phase). Phase 0 gate is not held
+  open for the campaign.
+
+## D-0003 — No installation during toolchain discovery (Phase 0, 2026-07-10)
+
+- **Decision**: Record `7z` (not on PATH) and `pypandoc` (not importable) as
+  missing without installing either; register risks R-0002 and R-0003 naming
+  the phases that need them (Phase 12 packaging; Phase 9 Word production).
+- **Alternatives considered**: install the missing tools now.
+- **Rationale**: Phase 0 task 5 requires recording versions "without installing
+  unapproved software that could modify evidence". Both gaps have in-place
+  mitigations already verified working: GNU tar 1.35 + certutil/Get-FileHash
+  for archiving/checksums, and the pandoc 3.9.0.2 CLI + python-docx 1.2.0 for
+  Word production, so no phase is hard-blocked today.
+- **Evidence**: Verbatim `--version`/import-check outputs in
+  `reproducibility_manifest.json` (environment.toolchain) and
+  `project_configuration.md` Section 8.
+- **Impact**: Phase 9/12 may raise a formal, documented install request if the
+  mitigations prove insufficient; until then the toolchain is frozen as found.
+
+## D-0004 — Engineering-preflight pip deviation formalized (Phase 0, 2026-07-10)
+
+- **Decision**: Formally log (in this register, closing the reserved slot) the
+  Task Group D deviation already documented in `engineering_preflight.md`:
+  `python -m pip show gsk-family` was run INSTEAD of
+  `python -m pip install -e ".[dev]"` for preflight command 1.
+- **Alternatives considered**: run the installer as written.
+- **Rationale**: Running an installer mid-campaign could mutate the interpreter
+  environment used by the live ablation processes (dependency re-resolution,
+  entry-point rewrite). Phase 0 task 6 permits this under its own
+  revert-or-document clause; `pip show` verified the editable install already
+  points at the project root — the exact state `pip install -e` would produce.
+- **Evidence**: `engineering_preflight.md` (command 1: exit 0, output SHA-256
+  `6a997a5430fa20e0c0365af449b794d0e4bc0a6516eb26cb291fb3abf2d60fe6`).
+- **Impact**: No environment mutation during preflight; no lock file changed.
+  Phase 2+ may re-run the full install form once no campaign is live.
+
+## D-0005 — Condensed traceability schemas + part merge (Phase 0 gate assembly, 2026-07-10)
+
+- **Decision**: Accept the condensed column sets used by the traceability
+  parts and merge them as-is into the canonical files:
+  `source_line_traceability.csv` = `line_no,classification,requirement_id,note`
+  (5,880 rows; parts 0–5); `requirements_traceability_matrix.csv` =
+  `requirement_id,line_no,summary,phase,artifact,validation,owner`
+  (2,105 rows; parts 0–5). Single header each; `parts/` retained as
+  construction evidence.
+- **Alternatives considered**: (a) rewrite both files into the full Section 3.2
+  column lists; (b) reject the parts and re-classify.
+- **Rationale**: Every Section 3.2 informational requirement is preserved:
+  `source_document` is a file-wide constant recorded in
+  `project_configuration.md` Section 3 (`papers/PAPER_BUILD_PROMPT.md`);
+  `line_text` is recoverable byte-exactly from the master at the anchor commit
+  (`262fc16c91fbe5608a1a0b0c5df3cbcd009edc21`), avoiding a 5,880-row
+  duplication of the master's text; classification values are exactly the
+  Section 3.2 allowed set; per-line requirement linkage and per-requirement
+  phase/artifact/validation/owner destinations are present. Validation confirms
+  the Section 3.2 substance: every nonblank line classified exactly once, no
+  `unmapped`/`partial`/`unknown` anywhere, no dangling or orphan
+  requirement references. Option (a) would add bulk without information;
+  option (b) would discard verified-complete work.
+- **Evidence**: Gate 0 merge-validation run (2026-07-10): 5,880 rows ==
+  5,880 nonblank master lines; 0 duplicate `line_no`; 0 missing; 0 extra;
+  0 invalid classifications; 2,105 unique requirement IDs; 0 unmapped
+  requirement rows; 0 dangling refs; 0 orphan requirements. Recorded in
+  `PHASE_0_readiness.md`.
+- **Impact**: Later phases resolving `line_text` MUST read the master at the
+  anchor commit. Any consumer needing the literal Section 3.2 wide schema can
+  derive it mechanically from these files plus the master; no information loss.
+
+## D-0005 (2026-07-10) — Post-Gate-0 master-framework change requests CR-0001, CR-0002
+
+Two user requirements arrived after Gate 0 froze (Section 0.2 precedence item 1):
+(1) seven-curve family-overlay convergence panels per function (CR-0001); (2)
+presentation calibration against the GSK and ATMALS-GSK exemplars plus corpus
+Q1/Q2 best practices (CR-0002). Both applied to the master framework via change
+control; the Gate 0 source-line/requirements traceability is patched by a
+targeted re-classification of the edited ranges (rerun of the affected Gate 0
+validation), recorded in this run. Master grew 7472 -> 7585 lines.
+
+## D-0006 (2026-07-10) — CR-0003 scope decision: amend, not rebuild
+
+The 30-chapter user specification is satisfied by targeted amendment of the
+existing evidence-locked framework (12 delta groups) rather than a rewrite:
+a rebuild would orphan the frozen Gate-0 traceability (5,880 lines / 2,105
+requirements) and the in-flight Phase 1 audit. The user-proposed
+paper_outputs/ derived-tree is satisfied by the already-frozen equivalent
+layout (papers/governance/, papers/analysis/<release_id>/, results/ staging,
+papers/tables|figures) — equivalence to be recorded in Section 1.2 by CR-0003
+rather than relocating frozen roots mid-run.
+
+## D-0007 (2026-07-10) — CR-0004: bibliography metadata corrections from the Phase 1 identity audit
+
+- **Decision**: Apply, via maintenance change request CR-0004, every
+  bib-metadata correction recorded (from printed sources) in the `notes`
+  column of the frozen Phase 1 `reference_inventory.csv` to
+  `papers/references.bib`, propagate the byte-identical copy to
+  `reference_papers/references.bib`, and surgically regenerate only the
+  affected rows of `reference_papers/README.md` and
+  `reference_papers/PAPERS_LIST.md`. Citation KEYS are unchanged without
+  exception (including `mohamed2021novel`, whose year corrects to 2019, and
+  `fialho2010adaptive`, whose author order corrects to Da Costa first).
+- **Scope** (15 entries): wrong DOIs in `mohamed2021novel` (also year
+  2021→2019 and third author → Jambi, Kamal M.), `apgsk_imode2024`
+  (→ ctae231), `nabahat2024hybrid` (→ s42979-024-02674-y), `arini2022gjojos`
+  (→ ACCESS.2022.3227510), `hu2022qcsca` (→ jcde/qwac119),
+  `kolda2003directsearch` (→ 10.1137/S0036144502428893, truncated final
+  digit); author-name corrections in `apgsk_imode2024`, `nabahat2024hybrid`,
+  `arini2022gjojos`, `hu2022qcsca`, `jalali2021opposition`,
+  `zhong2021gskhho`, `navaneetha2022gskde`, `liang2024gskwoa`,
+  `zhou2021iade`, `kaveh2021pgo`; `awad2017ensemble` title corrected to
+  '...with Euclidean Neighborhood for Solving CEC2017 Benchmark Problems'
+  (the LSHADE-cnEpSin paper); `jawad2024egsk` converted from @misc
+  preprint placeholder to the published @article (Results in Control and
+  Optimization 19 (2025) 100542, DOI 10.1016/j.rico.2025.100542; printed
+  title 'Enhanced Gaining-Sharing Knowledge-based algorithm', without
+  'for Global Optimization'; key retained per its own in-bib note);
+  `fialho2010adaptive` retyped @article→@inproceedings (GECCO proceedings
+  name moves journal→booktitle) with source author order Da Costa, Fialho,
+  Schoenauer, Sebag.
+- **Alternatives considered**: (a) defer corrections to the manuscript
+  bibliography phase — rejected: every downstream artifact (citation maps,
+  README/PAPERS_LIST, Word bibliography) inherits the errors; (b) also
+  rewrite the frozen `reference_inventory.csv` bib_* columns — rejected:
+  Phase 1 artifacts are frozen; the inventory's notes column deliberately
+  records the corrections against the audited (pre-correction) bib state.
+- **Evidence**: `reference_inventory.csv` notes column (identity_status
+  `minor_metadata_mismatch` rows, each verified against the local printed
+  source); Phase 1 evidence cards; CR-0004 row in
+  `change_request_register.csv`.
+- **Impact**: Citation keys, `papers/sections/*.tex` \cite commands, and the
+  allowed-citation-key list are unchanged; the cites-subset-of-bibkeys
+  invariant re-verified after the edit. The two .bib copies re-verified
+  byte-identical. Follow-up flagged for the writing phases: prose that
+  labels eGSK by year ('eGSK 2024') must reconcile with the published year
+  2025; `awad2016problem` remains BLOCKED (wrong local document) and is
+  untouched by this CR.
+
+## D-0008 (2026-07-10) — Phase 2 tasks 9 + 11–13: ledger/matrix built; schema extension; apgsk defect recorded
+
+- **Decision**: (1) Build `data_ledger.csv` (174 rows: one per algorithm ×
+  suite × dimension, + CEC2011 native-dim and rollup rows, + context-suite
+  rows) and `experiment_matrix.csv` (70,813 rows: one per run from each cell's
+  `per_run.csv`), with cell-level SHA-256 checksums, per-cell
+  `environment.json` `git_commit`, and the placeholder
+  `PENDING-RELEASE-ID(phase2-evidence_release_manifest)` until the Section 6.6
+  manifest assigns the release ID. (2) Extend the Section 3.8 data-ledger
+  schema with one trailing column `function_set_hash` (SHA-256/16 of the
+  sorted function-ID list), per the executing brief's "+function-set hash"
+  requirement; canonical column order is otherwise preserved. (3) Record the
+  `cec2017/apgsk` metadata-overwrite defect as three DEFECT ledger rows
+  (`blocked-pending-recovery-or-new-release`) instead of touching evidence.
+- **Alternatives considered**: (a) encode the hash inside `function_set` —
+  rejected (destroys readability and exact-schema greps); (b) reconstruct
+  apgsk D10/30/50 per-run data from git history now — rejected (recovery must
+  go through a new immutable release per Section 2.4, owned by the Phase 2
+  gate, not a ledger task); (c) omit context suites — rejected (Section 4.3
+  requires separate context-scope verification).
+- **Evidence**: seed formula `(20240620 + 1000003·dim + 1000033·func +
+  1000037·run) mod 2147483646 + 1` verified on all 70,813 rows (0 mismatches);
+  key uniqueness verified (0 duplicates); coverage complete for all cells
+  except `cec2017/apgsk` D10/30/50 (summary/curves/checkpoints present,
+  per_run/seed/env cover D100 only, env timestamp 2026-07-08, commit
+  `20cfed0acb…`); 1,507 rows terminate `target_error_reached` (agsk cec2017
+  D10/D30; agsk+apgsk cec2013 all dims) — flagged to task 7 as an
+  algorithm-specific budget-accounting difference.
+- **Impact**: `papers/governance/data_ledger.csv`, `experiment_matrix.csv`,
+  `asset_map.md`, `table_figure_source_map.csv`, `staging_inventory.md`
+  created; `instruction_precedence.md` gains row C-11 (runbook
+  `results/paper_tables/` "from the stats pass" claim STALE; sole sanctioned
+  producer = Phase 6 task 23 export). T17–T20 recorded as an intentional gap.
+  No evidence, manuscript, table, figure, or staging file modified.
+
+
+## D-0009 (2026-07-10) — CR-0005: awad2016problem unblocked (correct CEC2017 definitions report supplied)
+
+- **Decision**: Accept the user-supplied replacement
+  `reference_papers/awad2016problem.pdf` (34 pp., sha256 `b69f52f0…`) as the
+  correct Awad/Ali/Liang/Qu/Suganthan NTU 2016 bound-constrained CEC2017
+  problem-definitions report; flip the key from BLOCKED to admissible via
+  change request CR-0005 (Phase 1 reopened under change control only for this
+  row); close evidence gap EG-001.
+- **Evidence**: full-text content certification this session (title without
+  "Constrained"; F1–F30; unimodal/multimodal/hybrid/composition; [-100,100];
+  MaxFES = 10000·D; no constraint g/h machinery); CR-0005 row;
+  `evidence_cards/awad2016problem.md` (full card, supersedes stub);
+  `allowed_citation_keys.txt` 56 → 57.
+- **Impact**: The CEC2017 suite-definition citation role (Appendix B.4) is now
+  fillable; `awad2017ensemble`/`brest2017single` revert to corroborating
+  participant descriptions. No remaining blocking literature gap.
+
+## D-0010 (2026-07-10) — Phase 4 journal freeze: MDPI Algorithms; R-0004 cover-letter conflict DEFERRED
+
+- **Decision**: Freeze the repository-wired provisional target — **MDPI
+  *Algorithms*** (`papers/Definitions/mdpi.cls`, class option `algorithms`,
+  `papers/main.tex` line 5) — as the Phase 4 target journal, per the framework
+  Phase 4 task 1 default ("use the repository-wired target") and the explicit
+  user instruction of 2026-07-10: "use the current plan's target and flag
+  R-0004 for later."
+- **R-0004 disposition**: the cover-letter venue mismatch (`cover_letter.md`/
+  `.tex`/`.pdf` address Elsevier *Swarm and Evolutionary Computation*) is
+  **DEFERRED, not resolved**. It remains an open risk owned by the
+  finalization phases: before submission the cover letter MUST be rewritten
+  for the frozen venue (or the venue decision revisited by the author via a
+  new change request). Phase 9/11 must not render or package the stale
+  cover letter as-is.
+- **Alternatives considered**: (a) switch target to Swarm and Evolutionary
+  Computation to match the cover letter — rejected: the framework default
+  binds to the repository-wired template, and the user chose the current
+  plan's target; (b) resolve the cover letter now — rejected: user explicitly
+  deferred.
+- **Impact**: Phase 4 `journal_requirements.md`/`journal_decision.md` record
+  the frozen target and current official MDPI instructions (with access date
+  and online-verification status); `page_budget.md` binds the Section 1.5
+  hard page-limit rule to a self-imposed budget if MDPI states no hard cap;
+  risk register R-0004 updated (owner → Phase 9/11, mitigation = deferred
+  cover-letter rewrite gate).
+
+## D-0010 addendum (2026-07-10, later same day) — Author ratification of the MDPI Algorithms target
+
+- **Event**: After a live two-index verification of 15 candidate venues (2025 JCR
+  + CiteScore/SJR, July 2026), the author explicitly confirmed: "keep Algorithms
+  (MDPI) as target journal."
+- **Effect**: D-0010 is upgraded from framework-default freeze to **author-ratified
+  decision**. Supporting facts recorded at ratification: MDPI Algorithms 2025 JCR
+  IF 2.6 (Q2 CS Theory & Methods), CiteScore 2024 4.5 (Q1 Numerical Analysis,
+  19/88), ~18-day median first decision, APC 1,600 CHF, and direct family
+  precedent — ATMALS-GSK (alfadli2025atmals) published in this exact journal
+  (Algorithms 18(7):398, 2025) with a family-scoped comparison panel.
+- **R-0004 unchanged**: the cover-letter rewrite for MDPI Algorithms remains
+  deferred to Phase 9/11 (owner unchanged). AG-0006 scope unchanged (cover letter
+  + APC acceptance + submission account remain author-side items).
+
+- **Institutional-requirement check closed (2026-07-10)**: author confirmed Q1 or
+  Q2 suffices for the PhD requirement. MDPI Algorithms (WoS Q2, CS Theory &
+  Methods; Scopus CiteScore Q1, Numerical Analysis 19/88) satisfies it. No
+  residual venue-standing concern; the only open venue item remains the R-0004
+  cover-letter rewrite (Phase 9/11).
+
+- **N-021 disposition (2026-07-21)**: The reviewer flagged the recorded JCR/
+  CiteScore figures (IF 2.6; CiteScore 4.5) as temporally stale versus a current
+  two-index check (reviewer cited CiteScore 5.4, Q1 Computational Mathematics).
+  Resolved via the reviewer's acceptable alternative: journal quartile/index
+  figures are kept OUT of all manuscript-facing materials (verified - no quartile/
+  JCR/CiteScore claim in the main text, sections, or cover letter) and confined to
+  this internal record. The figures above are the 2026-07-10 ratification snapshot
+  and are NOT auto-refreshed; before submission the author may capture current
+  JCR/Scopus figures (with an access date) from the official databases if an
+  in-manuscript claim is later desired. Ticket N-021 closed on this basis; no
+  figures fabricated.
+
+## D-0011 (2026-07-11) — CR-0006: apgsk CEC2017 per-run recovery (A2-004 data-loss correction)
+
+- **Decision**: Accept CR-0006. The apgsk CEC2017 D10/D30/D50 per-run data — lost
+  from `benchmarks/cec_reference_results/cec2017/apgsk/per_run.csv` and recorded as
+  anomaly **A2-004** (per_run covered D100 only; run-level quantities vs apgsk at
+  the three lower dimensions were disposed *disclosed-unavailable*, never imputed) —
+  is **restored** to all four dimensions (1479 → 5916 rows) by a **validated
+  deterministic recovery** (`scripts/recover_apgsk_perrun.py`). The recovered
+  D10/D30/D50 rows **reproduce the frozen summary CSVs EXACTLY**, which is the
+  admissibility proof: this is a **completeness correction of lost data**, not new
+  experimental data. No benchmark was re-run; the frozen algorithm and every other
+  optimizer's data are immutable.
+- **Confirmatory-amendment / outcome-blindness basis (SAP Section 13)**: the SAP
+  pre-registered exactly this contingency — `source_resolution_map.csv` disposition
+  (iv) and SAP Section 6b anticipate a *registered change request* sanctioning a
+  recovered apgsk per-run source as a **logged confirmatory amendment**, not a
+  silent change. CR-0006 is that logged amendment. The recovery is validated
+  against frozen summaries (not against any inspected outcome), so it preserves the
+  confirmatory character of the affected families.
+- **Bounded blast radius (verified Stage 1 + Stage 2)**: reopens **Phase 6**
+  (run-level analysis recompute), **Phase 7** (exhibit regeneration), and **Phase 11**
+  (freeze/parity re-verification) **for apgsk run-level cells only**.
+  - Phase 6: 31 bundle files under `papers/analysis/rel-2026-07-10-262fc16c9/`
+    changed (apgsk run-level `wilcoxon_run`/`effect_sizes`/`bca_ci`/`headline_bca`,
+    `cost`, `exploratory_bh`, robustness r02/r05/r06, `primary_stats`, and
+    provenance re-stamps). **0 non-apgsk data cells changed**; all
+    `friedman_ranks_*`, `descriptive_stats_*`, function-level `wilcoxon_holm_*`,
+    `cross_check.json`, robustness r01/r03/**r04**/r07/r08, and all CEC2013/CEC2011
+    run-level files are **byte-identical**.
+  - Phase 7: re-ran `generate_latex_tables.py` + `generate_t16_bca.py` — **all 21
+    `papers/tables/*.tex` byte-identical** (they read `results/paper_tables/T*.csv`
+    and `descriptive_stats_*`, all byte-identical). `results/paper_tables/T*.csv`
+    and `artifact_binding.csv` are unchanged (no built exhibit or bound source
+    references a changed run-level file). The main-text effect-size table (T15,
+    `tab:effect-sizes`) is summary-means-based and **unaffected**; the main
+    manuscript was **not** touched.
+  - Phase 9 (Word/docx) is **NOT reopened** by this CR; `word_sources/T16_bca.json`
+    (which reads the recovered `headline_bca.csv`) and a Word/PDF rebuild are a
+    separate downstream stage, recorded as a hand-off.
+- **No claim upgraded**: filling a disclosed-unavailable cell with its true measured
+  value is a completeness correction. `claims_evidence_matrix.csv` RS-07/RS-08/RS-09/
+  LM-04 carry a dated CR-0006 *evidence note* only; permitted/blocked wording and
+  `ACCEPTED_PHASE_6`/`READY` status are unchanged; no disclosure wording was
+  inflated.
+- **Governance updates**: `evidence_release_manifest.json` (size/sha + recovery
+  note, Stage 1); `phase2_anomaly_register.csv` A2-004 → **RESOLVED-CR-0006**
+  (siblings A2-005/A2-006/A2-007 on seed_schedule/env/gen-log provenance remain
+  open — out of scope); `phase_05/{analysis_registry.csv, statistical_analysis_plan.md,
+  source_resolution_map.csv}` dispositions annotated RESOLVED (original
+  pre-registration text preserved); `change_request_register.csv` CR-0006 APPROVED
+  (P1). `evidence_gap_register.md` does not carry the apgsk per-run gap and is
+  untouched.
+- **Approver**: P1. **Status**: APPROVED.
+
+## D-0012 (2026-07-13) — Submission Phase A0: format + DOCX-field decisions; title recommendation
+
+Governs the consolidated `SUBMISSION_IMPLEMENTATION_PLAN.md` (Phase A0). The
+author's directive "decide the best recommended actions then start phase 0"
+authorises the two production decisions below; author-side *facts* (ORCID, DOI,
+e-mail, CRediT split, GenAI version, licenses, funding, COI) are NOT decided
+here and remain open in `administrative_gap_register.md` (AG-0001..0007).
+
+- **Decision A0-1 — Submission artifact = LaTeX; DOCX is a companion.**
+  MDPI *Algorithms* is submitted and typeset from LaTeX source (`mdpi.cls`,
+  class option `algorithms`; D-0010). The deterministic build + freeze
+  governance is LaTeX-native and the PDF is the source of truth. Pixel-exact
+  DOCX is provably unattainable through the pandoc pipeline (fidelity audit
+  Section 1), so DOCX production furniture (Part B Tiers D2/D3) would yield a
+  companion that can never be authoritative. **Consequence:** Part B stops at
+  the completed Tier D1; the DOCX remains a clean, self-contained,
+  content-faithful companion for co-authors/reviewers. D2/D3 are OPTIONAL and
+  DEFERRED (only revisited if the author is required to submit in Word).
+- **Decision A0-2 — DOCX `w:updateFields` = false (self-contained).**
+  Fulfils the author's explicit requirement that the DOCX "be open in any place
+  and self-contained" with no "update fields?" prompt on open. The pipeline
+  bakes deterministic cached field results, so `updateFields=false` renders
+  correctly everywhere without user action. This is the current build state, so
+  no change is required. Trade-off (fields do not auto-refresh) is immaterial
+  for a companion whose sources are frozen.
+- **Recommendation A0-3 — Title (author prerogative; NOT auto-applied).**
+  Keep "An Interaction-Structure Memory for High-Dimensional Gaining-Sharing
+  Knowledge Optimization" and preempt reviewer item Q1-004 with a one-sentence
+  operating-regime clarification in the Introduction (dimensions up to 100; ISM
+  active at the D>=50 tier) rather than retitling. Rationale: D100 is defensibly
+  "high-dimensional" in this sub-literature; the established DT-GSK identity,
+  PDF metadata, and cover letter all reference the current title; a clarifying
+  sentence is cheaper and lower-risk than a retitle. Alternative on offer:
+  retitle to drop "High-Dimensional" (e.g. "... for Dimension-Scalable
+  Gaining-Sharing Knowledge Optimization"). This recommendation is recorded for
+  author confirmation; the edit itself (either path) is a Phase A1.T5 task.
+
+- **Author-facts still open (gate A1.T5 metadata-insertion + Part C packaging
+  only; they do NOT gate A1 no-compute science or the A2 experiment):**
+  AG-0001 (H.S.M.R. CRediT split), AG-0002 (ORCIDs), AG-0003 (funding),
+  AG-0004 (COI wording), AG-0005 (H.S.M.R. e-mail), AG-0006 (cover-letter venue
+  rewrite / APC / account; R-0004), AG-0007 (GenAI version/date); plus the
+  Zenodo DOI/URL and code/data licenses.
+- **Acceptance-gate evidence**: `papers/scripts/check_manifest.py` -> `12/12
+  match []` (2026-07-13); `papers/scripts/check_manifest.py` committed
+  (d77e49b4a). Unblocked by this decision: Phase A1 (no-compute hardening) and
+  Phase A2 (ISM isolation) may both start. Note: an uncommitted, pre-existing
+  build artifact `word/field_registry.csv` (section-number formatting from
+  earlier Tier-D1 DOCX work; NOT one of the 12 frozen files) will be reconciled
+  at the next DOCX rebuild (A1.T6); it does not affect any tracked hash.
+- **Approver**: P1. **Status**: A0-1/A0-2 DECIDED; A0-3 RECOMMENDED (author
+  confirm); author-facts OPEN.
+
+## D-0013 (2026-07-13) — Submission Phase A1: supplement operator-spec + post-hoc robustness
+
+Governs SUBMISSION_IMPLEMENTATION_PLAN.md Phase A1. Author-approved scope this
+session: full operator specification (review-gated) + results-gated post-hoc
+statistics. Three read-only mappers first established that the manuscript was
+already near-fully specified (NLPSR, BSE/deep-stall, dimension-tier cadence,
+D>=50 gate, both RNG seed maps, Reproducibility Appendix S5, BCa CIs, and the
+r01--r08 robustness battery all present), so A1 was scoped to close only the
+genuine residual, not to regenerate existing content.
+
+- **A1.T1 -- Complete Operator Specification (supplement Section S5.3)**: added
+  code-accurate detail for the items the frozen equation registry
+  (E6/E9/E10/E11/E12) summarizes but did not fully pin -- the five ACE arms
+  (K_F,K_R,K_exp) + initial probabilities; the two-accumulator interaction-graph
+  update with per-displacement L1 normalization and improvement weighting; the
+  graph->block extraction procedure + confidence/readiness gate; the eigenframe
+  compass-search constants (with the correction that DT-GSK's endgame is
+  SciPy-free -- SLSQP belongs to eGSK); and the Cauchy-escape scale + RNG
+  substream modulus. Every value transcribed from the hash-frozen sources and
+  BIND-annotated to code:line; high-visibility values (ACE arms, polish
+  fractions, Cauchy scale) directly re-verified against source, which corrected
+  a mapper imprecision (Cauchy scale is 0.04 at the active tiers D>=20, disabled
+  for D<20, applied as 0.04*D^-0.5*span*Cauchy). The frozen equation registry
+  itself was NOT edited; the new subsection references E6/E9/E10/E11/E12.
+
+- **A1.T2 -- Post-hoc robustness (supplement Section S2, sec:supp:posthoc)**:
+  results-gated. Two sensitivity checks computed read-only from the frozen
+  per-run/descriptive artifacts by the new deterministic script
+  papers/scripts/posthoc_robustness_cec2017.py (outputs
+  papers/analysis/posthoc_robustness/*.csv): (i) endpoint invariance -- DT-GSK's
+  Friedman place is unchanged under raw/median/log10 endpoints (first at
+  D=10/50/100, second at D=30 behind eGSK); (ii) exact inference -- an exact
+  sign-flip permutation of the signed-rank statistic (2e5 perms, seed 20240620)
+  preserves all 24 Holm alpha=0.05 pairwise decisions (0/24 changes). The script
+  reproduces the frozen primary Friedman ranks (max |delta| ~ 4e-7) as a
+  validation gate. Both checks are labeled post-hoc / non-pre-registered; no
+  primary number, rank, or headline was changed.
+
+- **Reproducibility / scope**: supplementary.pdf (986,380 B) and
+  supplementary.docx rebuilt deterministically and bit-identical across two
+  builds (SOURCE_DATE_EPOCH 1783468800 PDF / 1783641600 DOCX); supplement DOCX
+  validator markers_left=0, TOC=0, 0 replacement chars, new content present. The
+  12-file main-manuscript freeze manifest is UNAFFECTED (no tracked main file
+  changed; check_manifest.py -> 12/12); per established practice supplement
+  changes are outside the 12-file manifest scope, and the stale
+  pre_ablation_supplement_freeze_manifest.json (Phase-11 snapshot, unmaintained
+  since S6) was left unchanged.
+
+- **Deferred / open**: A1.T5 author-fact metadata (DOI/CRediT/GenAI) remains
+  blocked on author input (AG-0001..0007); the optional IQR column and proper
+  connected-clique CD diagrams are deferred; per-component FES ledgers are out
+  of no-compute scope (gap EG-005).
+
+- **Approver**: P1. **Status**: A1 core additions COMPLETE (supplement-only,
+  reproducible x2); author-fact items OPEN.
+
+## D-0014 (2026-07-13) — Submission Phase A3: ISM-overlay isolation completed and reported
+
+The direct ISM isolation reviewers requested (pre-registered X-ABL-02) is now
+run on the PRIMARY suite and reported. Author ran the 4-cell overlay campaign
+(full / no_sgsm / no_adaptive / no_finalpolish), CEC2017 D50+D100, 25 paired
+runs, promoted under benchmarks/cec_reference_results/_ablation/overlay. Promotion
+verified: 1450 rows/cell (29 funcs x 2 dims x 25 runs), 0 NaN, identical seed
+schedule across cells (paired/common-random-numbers), config toggles exact, and
+the runner self-verification verdict CONSISTENT (0 hard failures).
+
+- **Result (honest, results-gated).** Across CEC2017 D50/D100 and CEC2013 D50:
+  the interaction-structure memory shows **no significant standalone benefit** at
+  its active tiers (paired Wilcoxon, Holm p = 0.80 / 0.93 / 0.24; Delta-rank ~
+  +0.09; Vargha-Delaney A12 ~ 0.50), while adding a **+54% (D50) / +37% (D100)**
+  wall-time overhead; the **eigenframe final polish is a significant contributor**
+  (Holm p = 0.010 / 0.006 / 0.002; A12 0.59 / 0.54 / 0.64); the adaptive gate is
+  directional but not significant. Friedman omnibus significant on all three.
+- **Reporting.** Supplement Section S6.5 (Table A17) converts the prior 'deferred
+  to future work' note into the completed result. Per author decision (this
+  session), the MAIN TEXT now states the null: performance.tex, proposed_algorithm.tex
+  and conclusions.tex updated from 'reserved for a follow-up supplement' to the
+  completed isolation with its no-standalone-benefit finding.
+- **No claim upgraded.** No primary result, rank, or number changed; DT-GSK's
+  family-best standing is unchanged and rests on the full dimension-tiered system.
+  This CONFIRMS, not upgrades, the paper's prior cautious framing.
+- **Provenance.** generate_ablation_matrix.py (rank/Wilcoxon/Holm) +
+  ablation_overlay_effects.py (A12/cost) -> papers/analysis/ablation_overlay/*.csv
+  (committed), reproducing every Table A17 number. RAW overlay evidence (~114 MB,
+  296 files, mostly convergence curves) remains UNTRACKED pending an author
+  provenance decision (commit essential per_run/summary vs full tree vs Zenodo /
+  promote_evidence.py release id).
+- **Integrity.** 4 artifacts rebuilt deterministic x2; DOCX markers_left=0; main
+  manifest refrozen 12/12 (a3_ism_isolation_refreeze) + reproducibility_manifest.
+- **Approver**: P1. **Status**: A3 COMPLETE; raw-evidence provenance OPEN.
+
+## D-0015 (2026-07-13) — Submission Phase A4: title reframe + consistency fixes
+
+After an independent read-only adversarial consistency review (which confirmed
+the A3 work is clean: S6.5 prose == Table A17, no dangling refs, abstract does
+not overclaim ISM, no leftover standalone-benefit claims), the author approved
+applying all surfaced fixes.
+
+- **Title reframe (author decision).** "An Interaction-Structure Memory for
+  High-Dimensional Gaining-Sharing Knowledge Optimization" -> "DT-GSK: A
+  Dimension-Tiered Gaining-Sharing Knowledge Optimizer with Interaction-Structure
+  Memory". Fixes TWO reviewer-facing flags at once: drops the "High-Dimensional"
+  overclaim (Q1-004; D<=100) and positions ISM as the organizing element of a
+  dimension-tiered system rather than the performance driver -- consistent with
+  the S6.5 isolation null. Applied to main.tex \Title, DOCX core-props title
+  (build_docx.py), and the cover letter (.md + .tex).
+- **Consistency fixes.** (i) introduction.tex: "is closed by the memory" ->
+  "is targeted by the memory ... whose isolated contribution is examined directly
+  in the Supplementary Materials" (removes an efficacy overclaim the null
+  undercuts; matches the hedged related_work.tex wording). (ii) main.tex
+  back-matter supplement summary now names the direct ISM isolation (S6.5)
+  alongside the scaffold ablation (it was invisible there). (iii) conclusions.tex
+  "Future work is anchored..." opener -> "Component-level evidence anchors the
+  mechanisms and frames the open questions" so the completed S6.5 study is not
+  misread as future work. (iv) supplement: Table~A17 now cross-referenced from
+  the S6.5 prose.
+- **QA ledger.** cross_format_consistency.csv regenerated (was stale, predating
+  D1/A1/A3 -- it still certified "Campaign in Progress"). Residual FAILs are
+  cross-format parity-check limitations on the D1 native/authored tables + the
+  accepted main-text ablation-study mention; NOT content errors (DOCX validators
+  markers_left=0). The parity-check tooling has drifted from the native-table
+  redesign and warrants a separate modernization (follow-up).
+- **Judgment calls (review minors NOT applied, with reason).** Abstract emphasis:
+  left as-is -- it already gives the eigenframe polish its own sentence and makes
+  no factual overclaim. Dead \sgsm macro in the pandoc shims: left -- never
+  invoked, renders nothing.
+- **Integrity.** All 4 artifacts rebuilt deterministic x2; DOCX markers_left=0;
+  main manifest refrozen 12/12 (a4_title_and_consistency_refreeze). NO primary
+  result/rank/number/equation/figure changed.
+- **Approver**: P1. **Status**: A4 fixes COMPLETE. Cover-letter venue rewrite
+  (R-0004) and A1.T5 author facts remain open; D4 Visio re-test open.
+
+## D-0016 (2026-07-18) — M-026: tie-corrected Friedman adopted after the primary outcome was known
+
+- **Change**: `gsk_family.analysis.statistics.friedman_rank` was changed to use the
+  tie-corrected rank variance underlying the Iman-Davenport F, replacing the
+  uncorrected form used when the primary results were first computed.
+- **Post-outcome disclosure**: this is an analysis change made AFTER the primary
+  outcome was known. It is logged here rather than presented as pre-registered.
+- **Rationale**: the 1e-8 success floor maps distinct outcomes onto exactly 0, so
+  exact ties concentrate in the low-dimensional panels; the uncorrected statistic
+  is anti-conservative there. The correction factor C = 0.890 at D=10 (9 of 29
+  functions tied) and 0.979 at D=30; C = 1 exactly at D=50 and D=100.
+- **Direction is bounded a priori**: because C <= 1 the correction can only
+  INCREASE the statistic, and it leaves mean ranks untouched. It therefore cannot
+  manufacture a favourable omnibus decision that the uncorrected form would have
+  refused.
+- **Effect on reported results**: every omnibus decision, rank, and effect
+  direction is identical under both forms; both are emitted to the released CSVs
+  (`friedman_chi2` / `friedman_chi2_uncorrected`, `iman_davenport_F` /
+  `iman_davenport_F_uncorrected`) so a reader can check this directly.
+- **Approver**: P1. **Status**: CLOSED-VERIFIED (P4).
+
+## D-0017 (2026-07-18) — M-027: rank-biserial r emitted and promoted to the tabulated effect size
+
+- **Change**: the matched-pairs rank-biserial correlation r = (R+ - R-)/(R+ + R-)
+  was added to the released Wilcoxon CSVs and became the effect size tabulated
+  beside the across-function test; Vargha-Delaney A12 was demoted to a descriptive
+  companion retained in the workbooks.
+- **Post-outcome disclosure**: analysis change made after the primary outcome was
+  known; logged, not pre-registered.
+- **Rationale**: the across-function test is a matched-pairs Wilcoxon, so its
+  aligned effect size is the matched-pairs rank-biserial correlation. A12 is an
+  UNPAIRED distributional measure and does not align with the test being reported;
+  pairing the two was a mismatch of estimand and test.
+- **Effect on reported results**: no p-value, decision, or rank changed; this
+  changes which effect size is printed next to an unchanged test.
+  `claims_evidence_matrix.csv` row RS-08 was aligned to the shipped choice under
+  SE-041 (2026-07-22).
+- **Approver**: P1. **Status**: CLOSED-VERIFIED (P4).
+
+## D-0018 (2026-07-18) — M-028: Holm family scope stated explicitly in the conclusions
+
+- **Change**: the conclusions were qualified to name the Holm correction family
+  the significance statements belong to, rather than asserting significance
+  without a family scope.
+- **Post-outcome disclosure**: wording change made after the primary outcome was
+  known; logged for completeness.
+- **Rationale**: Holm adjustment is only interpretable against a declared family.
+  The manuscript uses several (six-comparison within-dimension; m24 global across
+  dimensions), and an unqualified claim silently invites the reader to assume the
+  strongest one.
+- **Effect on reported results**: none. No p-value, adjustment, or decision
+  changed; only the stated scope of an existing claim.
+- **Approver**: P1. **Status**: CLOSED-VERIFIED (P4), triaged PARTIALLY-FIXED at
+  entry and completed in P4.
+
+## D-0019 (2026-07-22) — SE-025: awad2016problem role-map row added; citation controls made checkable
+
+- **Change**: `citation_role_map.csv` gained a B.4 row for `awad2016problem` (56
+  -> 57 rows); `literature_audit_report.md` gained a supersession banner naming
+  CR-0005 / D-0009; a new gate `papers/scripts/validate_citation_controls.py`
+  cross-checks the role map, the usage map and the Word tag map.
+- **Rationale**: the key was un-blocked by CR-0005 / D-0009 (2026-07-10) but no
+  register was re-checked afterwards, so the manuscript's highest-traffic
+  suite-definition citation was cited under NO sanctioned role while a superseded
+  Phase-1 report still declared it inadmissible. Nothing detected this, because
+  the three citation-control files had no cross-check between them.
+- **Non-vacuity**: removing the new row reproduces the defect as two failures
+  (C1 and C3); restoring it returns the gate to PASS.
+- **Approver**: P1. **Status**: CLOSED.
+
+## D-0020 (2026-07-23) - SE-014: selection-exposure count attested at six full-panel candidates
+
+- **Ticket**: SE-014 (Major), also filed as MX-04 - the review register's only
+  `essential_before_submission` item. The manuscript disclosed selection exposure
+  qualitatively ("several full-panel candidate configurations") without a count,
+  so a reader could not judge how much optimistic-selection risk the CEC2017
+  headline carries.
+- **Author attestation (P1, 2026-07-23)**: **six** full-panel candidate
+  configurations were examined during development, **including the configuration
+  ultimately promoted**.
+- **Definition of the count**: "full panel" means the candidate was run against
+  the complete seven-algorithm GSK-family panel on CEC2017, not a smoke test, a
+  function or dimension subset, or an isolated component experiment. Excluded:
+  preliminary debugging and smoke runs; partial-function or partial-dimension
+  pilots; single-component ablations and sensitivity checks; failed or incomplete
+  configurations; post-selection validation, correction, and
+  evidence-regeneration runs.
+- **Provenance status - READ THIS BEFORE CITING THE NUMBER**: the figure is
+  **author-attested and NOT independently corroborated by any repository
+  artifact**. A search of `papers/governance/` and `docs/development/` returns no
+  record of a candidate roster or count. That is consistent with the attestation
+  itself: the intermediate candidates predate the immutable evidence release and
+  were not retained in it. The number therefore rests on the authors' development
+  record, and the manuscript says so explicitly in both places it appears.
+- **Applied to**: `papers/supplementary.tex` Section "Configuration Selection and
+  Development Protocol" (full statement with the inclusion/exclusion scope) and
+  `papers/sections/performance.tex` (one-sentence main-text statement pointing to
+  the supplement).
+- **Effect on reported results**: NONE. No claim, number, rank, p-value, equation
+  or figure changes; this adds a disclosure that was previously absent.
+- **Approver**: P1. **Status**: CLOSED.
+
+## D-0021 (2026-07-28) - Final empirical scope, Decision Gate 0, and the CEC2020 pre-registration
+
+- **Decisions recorded**: three author rulings of 2026-07-27/28 that fix the
+  paper's final empirical scope, plus the pre-commitment artifacts they require.
+- **(1) Scope**: the paper reports the SEVEN GSK-family algorithms on FIVE
+  suites - CEC2017 (29 functions, D=10/30/50/100, 51 runs; primary), CEC2011 (22
+  problems, native, 25 runs), CEC2013 (28 functions, D=10/30/50, 51 runs),
+  CEC2020 (10 functions, D=5/10/15/20, F6/F7 undefined at D=5 -> 38 cells, 30
+  runs, MaxFES 50k/1M/3M/10M) and CEC2013LSGO (15 functions, D=1000/905, 25
+  runs, 3e6 FES). The eight vendored external optimizers appear in NO panel,
+  table, figure, statistic or claim; they stay in-repo as validated tooling with
+  their banks documented-but-unpromoted. CEC2013LSGO uses the TRANSFORMED Ackley
+  variant only; `ackley_raw` remains permanently unwired. Registered as CR-0019.
+- **(2) Decision Gate 0 - CEC2013 is KEPT** (author, 2026-07-28). The five-suite
+  branch of `docs/development/FINAL_PUBLICATION_PLAN.md` is in force and every
+  task marked [DROP] there is void. Rationale: the evidence is already frozen and
+  validated inside `rel-2026-07-20-67d9345f9`, so keeping costs nothing, whereas
+  dropping would surrender a suite on which DT-GSK ranks first (2.80 best-of-7),
+  weaken the headline from first-on-two to first-on-one, and force a public
+  rationale because the cited immutable release permanently ships the CEC2013
+  banks.
+- **(3) Unified seed policy everywhere** (author, 2026-07-28): every suite runs
+  the unified schedule so that runs are paired across optimizers by (dimension,
+  function, run) and every run-level test is valid. `configs/agsk_cec2020.yml`
+  was the sole exception - it carried `seed_policy: reference` together with a
+  `data_root` (`benchmarks/cec_suite`) that does not exist in this repository -
+  and `scripts/run_all_cec2020.py` hard-pointed at it, so one accidental
+  invocation would have written reference-seeded AGSK rows into the shared output
+  tree where they would have looked valid while being unpairable. Both corrected;
+  the wrapper now runs `configs/family_cec2020.yml` and forwards CLI arguments.
+- **THE PRE-REGISTRATION**: `papers/build_prompt_phases/phase_05/statistical_analysis_plan_addendum_cec2020_lsgo.md`,
+  a Section-13 confirmatory amendment to the frozen SAP (the SAP body is
+  untouched). **SHA-256
+  `4b351008bebf8f41413cca67703fcbad9562dd111befb9e76e81a032429dcea1`**
+  (11,584 bytes, 192 lines). The commit that adds this decision-log entry IS the
+  pre-registration commit: **`5c9bfae82`** (2026-07-28).
+- **Outcome-blindness, verified rather than asserted**: at signing,
+  `results/_run_all/*/cec2020` did not exist for any optimizer and no CEC2020
+  result bank existed anywhere in the repository. Every CEC2020 hypothesis,
+  analysis id, tie rule and outcome sentence in the addendum was therefore
+  written without a single datum. The three CEC2020 outcome sentences are
+  pre-written in the addendum's Section 9 wording bank - including the one that
+  applies if AGSK wins - so the reporting language cannot be tuned to the result.
+- **Asymmetry that the addendum makes explicit**: CEC2013LSGO is NOT
+  outcome-blind. Its family Friedman ranks and per-function means were inspected
+  before registration, and Section 6 of the addendum records exactly what was
+  seen. Those quantities are therefore descriptive-after-inspection and may never
+  carry a headline; only the run-level paired Wilcoxon + Holm layer, never
+  computed before registration, is confirmatory-with-disclosure.
+- **Grid verified before signing**: both CEC2020 configs resolve to exactly 38
+  protocol cells (8 at D=5; 10 at each of D=10/15/20; F6/F7 at D=5 correctly
+  absent), runs 30, seed 20240620, policy unified, generator threefry, overwrite
+  false, budgets 50k/1M/3M/10M. The family campaign is 7,980 runs and
+  2.948e10 evaluations.
+- **Applied to**: the addendum file; the S8 supplement skeleton
+  (`papers/build_prompt_phases/phase_05/S8_cec2020_supplement_skeleton.tex`,
+  result slots empty, not yet `\input` anywhere); three PENDING_PREREGISTERED
+  rows in `claims_evidence_matrix.csv` (RS-12 CEC2020, RS-13 CEC2013LSGO, LM-06
+  the large-scale limitation); CR-0019 and CR-0020 in
+  `change_request_register.csv`; `_pending_refreeze.json` reopened; review-prompt
+  layer 1.5.0-N added, superseding 1.5.0-M's external-baseline mandate and its
+  (i) veto on family-internal ranks.
+- **Effect on reported results**: NONE yet. No CEC2020 datum exists; no frozen
+  bank is touched; `rel-2026-07-20-67d9345f9` is untouched and still authoritative
+  for CEC2017, CEC2011 and CEC2013.
+- **Known consequence, deliberate**: `main_manuscript_freeze_manifest.json` now
+  reports a mismatch on `papers/governance/claims_evidence_matrix.csv`. That is
+  expected while `_pending_refreeze.json` is OPEN and is not drift; it clears at
+  the pass-24 re-freeze.
+- **Approver**: P1 (author decisions 2026-07-27 and 2026-07-28). **Status**: OPEN
+  (closes when the registered analyses have been executed and every
+  PENDING_PREREGISTERED row is resolved).
+
+- **Correction (2026-07-28, later — see D-0025).** Two descriptive phrases above are
+  imprecise; the decisions they record are unchanged. (i) "validated tooling"
+  over-claims: six of the eight externals' author-code parity records live only in
+  the sibling project and are not reproducible here, and DECC-G has no author-code
+  oracle at all — the accurate phrasing is runnable tooling whose validation evidence
+  is not reproducible in this repository. (ii) "`ackley_raw` remains permanently
+  unwired" — the raw kernels ARE implemented and reachable via `ackley_raw_scope`;
+  what is unwired is the ACTIVATION (`ackley_raw_active()` returns False and no caller
+  outside `benchmarks/` enters the scope), so every committed bank ran the transformed
+  chain. The same imprecision was corrected in CR-0019, FINAL_PUBLICATION_PLAN.md and
+  review-prompt layer 1.5.0-N on 2026-07-28; this entry was missed in that pass.
+
+## D-0022 (2026-07-28) - LSGO confirmatory layer first computed; SAP Amendment 1; pre-resume runner metadata fixes
+
+- **Context**: the author stopped the CEC2020 campaign at a clean cell boundary
+  (gsk/agsk/apgsk complete at 1,140 rows each; fdb-agsk at 1,020 with exactly
+  D20 x {F7,F8,F9,F10} outstanding; atmals-gsk/egsk/dt-gsk not started) to
+  close every open CEC2013LSGO issue before resuming. An eleven-agent
+  verification pass (seven investigators, four adversarial verifiers) audited
+  every open item; everything below is its outcome.
+- **(1) AN-PW-LSGO-NATIVE and AN-PWRUN-LSGO-NATIVE computed for the first
+  time**, exactly as registered in SAP Addendum 1 (signing commit `5c9bfae82`),
+  against inputs pinned by SHA-256 in Amendment 1. Suite-level result: NO
+  comparator separates from DT-GSK after Holm (smallest adjusted p = 0.2875);
+  the registered outcome sentence "tied-first descriptive rank; paired tests do
+  not separate DT-GSK from AGSK" is now data-resolved and binding. Run-level
+  regularities: DT-GSK Holm-significantly better than all six family members on
+  F4 and F8, worse than all six on F7 and F15. Every number was reproduced by a
+  second, fully independent implementation (no scipy) before being recorded.
+  AN-EFF-LSGO-NATIVE remains registered and not yet computed.
+- **(2) SAP Amendment 1** committed as
+  `papers/build_prompt_phases/phase_05/statistical_analysis_plan_addendum_cec2020_lsgo_amendment_01.md`
+  (SHA-256 `ef56c224c58a855ceff0771bbca133e60bb917795997ce5b8d4ab5d91cddab5b`),
+  per Addendum Section 13 (the addendum itself is untouched). It (a) corrects
+  Section 6's recorded "omnibus p = 0.0372" to the reproducible chi2 = 15.3143,
+  p = 0.0179 - the recorded ranks reproduce exactly and mathematically force
+  that p, so the recorded p could not have come from the same computation; an
+  exhaustive recipe search (bases x subsets x precisions x statistics x
+  historical bank states) found nothing that rounds to 0.0372; (b) scopes the
+  outcome-blindness declaration explicitly to CEC2020 results, cross-referencing
+  D-0020's CEC2017 selection-exposure attestation; (c) records the first
+  computation of (1) with methods and input pins so no later recomputation can
+  silently substitute a different procedure.
+- **(3) Latent tooling hazard recorded, binding on Phase 3**: the papers-side
+  `friedman_rank_test` helper defaults to `excluded=(2,)` (drops F2 - a CEC2017
+  convention). Applied blindly to LSGO it yields p = 0.0370 with wrong ranks.
+  The phase6b driver must pass the exclusion list explicitly for every suite.
+- **(4) Pre-resume runner metadata fixes** (no optimizer/evaluator/seed code
+  touched; 584-test suite incl. the 42-pin hex golden matrix green; ruff clean):
+  verification verdicts can no longer be vacuous (D-8.1: `NOT_VERIFIED` /
+  `NO_REFERENCE` when nothing was comparable) and a zero-new-runs resume can no
+  longer rewrite a completed bank's `environment.json` (D-8.5; new regression
+  test asserts byte-identity across a full-skip resume). Without the D-8.5 fix,
+  the very next resume would have replaced the production commit and nulled
+  `statistics_basis` in all three completed CEC2020 banks.
+- **(5) D-7 replay initiated**: eight single-run CEC2013LSGO replays at HEAD
+  (one per algorithm; two for dt-gsk spanning its F1-F4 / F5-F15 code-version
+  split; apgsk included - previously the one member with no full-budget LSGO
+  re-verification). Comparison criterion recorded in advance: per_run stores
+  best_fitness as %.10e (11 significant digits), so bank agreement is
+  representation-exact at that precision plus %.16g agreement of the final
+  gen_log checkpoint; hex-exactness against per_run is impossible by format.
+  Results are appended to D-7's record when the batch completes.
+- **Effect on reported results**: NONE on any frozen suite (frozen-analysis
+  byte guard 115/115 green). The LSGO statistical values in (1) are new,
+  pre-registered outputs; the CEC2020 banks are untouched.
+- **Approver**: P1 (author stop-and-close directive, 2026-07-28). **Status**:
+  CLOSED, except the D-7 replay comparison which lands in the deviation record.
+
+## D-0023 (2026-07-28) - CEC2013LSGO promoted to reference results as lsgo-rel-2026-07-28-ff1a046ef
+
+- **What**: the seven family CEC2013LSGO banks were promoted from staging
+  (`results/_run_all/<alg>/cec2013lsgo/`) into
+  `benchmarks/cec_reference_results/cec2013lsgo/<alg>/` by the new gate-checked
+  tool `papers/scripts/promote_suite.py`, minting the separate, non-superseding
+  release **`lsgo-rel-2026-07-28-ff1a046ef`** (173 files; manifest
+  `papers/governance/evidence_release_manifest_cec2013lsgo.json` with per-file
+  SHA-256, file classes, pre-registration bindings and in-manifest exclusions:
+  106 curve CSVs, 70 session logs). Authority: REFERENCE_PROMOTION_PLAN.md,
+  author-approved 2026-07-28 with a dry-run stop; the mint was separately
+  confirmed after dry-run review.
+- **Preconditions executed first**: namespace relocation (the three external
+  summary tables to `_external_baselines/` with EV-09 sidecars; the living
+  index to `_index/` with five stale release ids corrected), and
+  `check_manifest` union support so strict inventory can hold multiple
+  releases to zero unlisted.
+- **Adjudicated corrections applied at promotion** (production deviation
+  record D-5/D-8, all now EXECUTED): honest verification verdicts
+  (`NOT_VERIFIED`/`NO_REFERENCE` with a promotion note; staging untouched);
+  `benchmark_variant.json` sidecar x7 recording the transformed Ackley variant
+  on F3/F6/F10; `skipped_runs.csv` and the four `.csv.prebugfix` files carried
+  under the `deviation_record` file class.
+- **Gates at mint, all green**: preflight re-run by the tool (7 x 375 rows,
+  unified-seed formula exact, cross-algorithm pairing 0 mismatches, summary
+  fidelity <= 4.6e-11); post-verify re-hash of all 173 files; union
+  strict-inventory zero unlisted (primary 3,403/3,403 + lsgo 173/173);
+  frozen-analysis byte guard 115/115; the runner's reference loader reads the
+  promoted bank identically to the frozen suites; `gsk-validate --compare`
+  returns its first genuine CEC2013LSGO verdict (functions_checked=15,
+  missing_reference=0, W/T/L 0/15/0 vs the byte-identical staging source);
+  592 tests, ruff, config locks.
+- **Known cosmetic deviation, recorded**: the evidence-root `README.md` is
+  byte-bound by the frozen primary manifest and cannot be edited; its relative
+  link to the index still names the old location. Every unfrozen referencing
+  document points at `_index/`.
+- **CEC2020**: promotion stays LOCKED by the tool itself until the campaign
+  completeness gate passes (verified live: refusal, exit 1). The frozen
+  primary release `rel-2026-07-20-67d9345f9` is untouched.
+- **Approver**: P1 (mint confirmed after dry-run review). **Status**: CLOSED.
+
+## D-0024 (2026-07-28) - First interim inspection of CEC2020 data (4 comparator banks; no proposed-method data existed)
+
+- **What was inspected, mid-campaign**: descriptive tie-corrected Friedman mean
+  ranks per dimension and per-function mean-error wins over the FOUR banks
+  complete at the time (gsk, agsk, apgsk, fdb-agsk; 1,140 rows each).
+  Quantities seen: per-dimension rank orders (apgsk best at D5 1.875; agsk
+  best at D10/D15/D20 with 1.650/1.600/1.450; gsk last everywhere), the
+  descriptive 4-bank aggregate (agsk 1.738 < fdb-agsk 1.962 < apgsk 2.594 <
+  gsk 3.706), 4-bank omnibus p-values (0.0067/0.0003/0.0001/0.0001), and
+  full-tie blocks (F1 at every dimension, F8 at D5, solved to the 1e-8 floor
+  by all four).
+- **What did NOT exist**: any dt-gsk, egsk, or complete atmals-gsk CEC2020
+  row. The registered outcome question -- DT-GSK's standing on this suite --
+  was untouched and untouchable at inspection time, and the pre-written
+  Section 9 outcome sentences remain unselected.
+- **Why recorded**: the CEC2020 registration (Addendum 1, signing commit
+  5c9bfae82) is outcome-blind at signing; the LSGO precedent (Addendum
+  Section 6) is that any pre-analysis inspection is disclosed with its exact
+  scope rather than left discoverable. This entry is that disclosure for
+  CEC2020's campaign window: the observed comparator-only ordering matches
+  the directional expectation already registered in Section 3 (AGSK favored
+  on its home regime), and no registered analysis, id, tie rule, or wording
+  is affected. The 4-bank p-values belong to no registered family and will
+  not be reported in the paper.
+- **Extension (2026-07-28, later the same day)**: second interim view after
+  atmals-gsk completed (1,140 rows; egsk mid-run at 450 rows, dt-gsk still
+  absent). Five-bank descriptive ranks seen: overall agsk 1.803 <
+  fdb-agsk 2.028 < apgsk 2.716 < atmals-gsk 4.225 ~ gsk 4.228; atmals-gsk
+  entered fourth at D5/D10 and LAST at D15/D20 (4.200/4.600, below base
+  gsk), with zero outright per-function wins at any dimension. Same
+  bindings as above: comparator-only, no registered family touched, these
+  5-bank quantities will not be reported in the paper.
+- **Extension 2 (2026-07-28, later still)**: third interim view after egsk
+  completed (1,140 rows). dt-gsk had begun (D5 + F1/D10 on disk, 270 rows)
+  and its partial data was deliberately NOT inspected -- the proposed
+  method's standing is the registered outcome question and is not examined
+  piecemeal. Six-bank descriptive ranks seen: overall agsk 1.884 <
+  fdb-agsk 2.109 < apgsk 2.847 < egsk 4.622 < atmals-gsk 4.747 < gsk 4.791;
+  egsk entered the last tier (4th at D5/D10, 4th at D15, LAST at D20 with
+  5.150), zero outright wins, growing set of outright last places with
+  dimension (none at D5 -> F6,F7,F8,F9 at D20). Same bindings: comparator
+  quantities only; nothing here is reportable or registered.
+- **Extension 3 (2026-07-28, later still) -- FIRST inspection touching the
+  proposed method's data, author-initiated**: the campaign console showed
+  the author dt-gsk's completed D5 block (240 rows; D10 in progress,
+  D15/D20 nonexistent), and the author directed a D5 comparison against
+  the six complete banks. Quantities seen: D5 Friedman k=7 N=8 mean ranks
+  (apgsk 2.375, agsk 2.750, fdb-agsk 2.750, dt-gsk 4.250, egsk 4.875,
+  atmals-gsk 5.375, gsk 5.625; tie-corrected p=0.00073); per-function D5
+  means for all seven; dt-gsk W/T/L vs each comparator on the mean basis
+  (best-of-all on F2; worst-of-all on F8 and F9). BINDING NOTES: (i) the
+  registered CEC2020 analyses, tie rules and Section 9 outcome sentences
+  were committed at 5c9bfae82 before any datum and cannot be altered by
+  this inspection; (ii) the remaining campaign is mechanically determined
+  -- unified seeds, config locked by validate_profile_lock, overwrite
+  false, no tunable knob between inspection and completion -- so the
+  inspection cannot influence the data still being produced; (iii) D5 is
+  the reduced 8-function task set at the smallest budget (8 of 38 cells)
+  and per the registered Section 3 every dimension-gated dt-gsk subsystem
+  is OFF at D<=20, so a non-leading D5 standing is within the registered
+  directional expectation; (iv) the suite-level outcome sentence remains
+  unselected until the registered k=7 analyses run over the COMPLETE bank.
+  S8's disclosure must cite this extension.
+- **Extension 4 (2026-07-28, later still)**: author-initiated dt-gsk D10
+  comparison after the console showed the completed D10 block (dt-gsk rows
+  on disk: D5 240 + D10 300; D15/D20 nonexistent). Seen: D10 k=7 N=10
+  Friedman ranks (agsk 1.900, fdb-agsk 2.200, apgsk 3.000, dt-gsk 4.100,
+  atmals-gsk 5.200, egsk 5.400, gsk 6.200; p<1e-6), per-function D10 means,
+  W/T/L vs each comparator (dt-gsk best-of-all on F2 again; 8W/1T/1L vs gsk
+  and egsk; 1W/1T/8L vs agsk and fdb-agsk), and the D5+D10 running
+  descriptive aggregate (dt-gsk 4.175, 4th of 7). Same bindings as
+  extension 3: registered analyses and wording frozen at 5c9bfae82;
+  remaining campaign mechanically determined; suite verdict selected only
+  by the registered k=7 analyses over the complete bank.
+- **Approver**: P1 (requested the interim view). **Status**: CLOSED; any later
+  interim inspection during this campaign should extend this entry, dated.
+
+## D-0025 (2026-07-28) - External-baseline crossover audit: "validated" retired; two latent traps recorded
+
+- **Trigger**: a review of the SIBLING project (05-Human-Inspired-Family) reported
+  four defects in ITS external baselines. This project vendored eight externals
+  from that codebase, so an 11-agent read-only audit (four investigators plus an
+  adversarial verifier with independent probes) established, for THIS repository
+  only, which defects crossed over and what they touch.
+- **Result: three of four crossed over; NONE contaminates any artifact here; one
+  reached the manuscript.**
+- **(1) MOS bounds defect - PRESENT, reachable, artifacts clean.**
+  `src/gsk_family/optimizers/external/mos_cec2013lsgo.py:523` collapses the
+  per-dimension box to scalars (`lb0, ub0 = float(lb[0]), float(ub[0])`); the GA
+  and Solis-Wets techniques receive the full `lb`/`ub` vectors (`:586`, `:588`)
+  but MTS-LS1-Reduced receives the scalars (`:591`), so its probes clip against
+  the wrong bounds (`:431`, `:447`). Measured against the REAL CEC2011 bound
+  vectors: 12 of 22 functions produce out-of-box evaluations (worst F21, 16.8% of
+  evaluations, max excursion 1899 units), and with a deceptive objective the
+  RETURNED `best_x` can itself be infeasible with a fitness no feasible point can
+  attain - the sibling's "rank-1 from outside the feasible box" symptom,
+  reproduced here. The governing condition is interval CONTAINMENT
+  (`[lb0,ub0]` inside every dimension's box), not dimension ordering; CEC2011 F10
+  is the only one of 22 that happens to be protected, which is why a spot check
+  can wrongly clear it. **Our banks are unaffected**: all 15 CEC2013LSGO functions
+  have per-variable-uniform bounds, so the collapse is exactly the identity, and
+  MOS has no bank on any other suite. **But it is reachable**:
+  `configs/baselines_cec2011.yml:26` schedules MOS on cec2011 and the runner has
+  no suite guard.
+- **(2) DECC-G random-grouping degeneracy - PRESENT, artifacts clean.** With
+  `_DEFAULT_GROUP_SIZE = 100`, any dimension <= 100 yields a single subcomponent,
+  making the per-cycle random regrouping a no-op: the algorithm degenerates to
+  SaNSDE with adaptive weighting while still reporting `group_size: 100`. Our
+  banks are D=905/1000 (10 genuine subcomponents), so nothing committed is
+  affected. Four baseline configs schedule it into 15 degenerate suite-dimension
+  combinations. Note the sibling's "below D=100" under-reports: D=100 itself is
+  degenerate.
+- **(3) CMA-ES IPOP mislabel - DID NOT cross over.** The shipped optimizer is
+  standard rank-one+rank-mu CMA-ES with a divergence re-seed that does NOT grow
+  the population, and nothing in this repository advertises IPOP: all eight
+  "IPOP" hits are dated historical notes, a context-PDF listing, or an explicit
+  prohibition in the hansen2001cmaes evidence card. Two minor accuracy defects
+  found instead: a stale `cmaes.py:77` docstring calling it "the 2001 canonical
+  CMA-ES" (contradicting `:5-6`), and `decc_g.py:37` claiming DECC-G is "vendored
+  alongside MOS and SHADE-ILS" (contradicting DECC_G_port_record.md, which states
+  it is first-party from the paper).
+- **(4) THE ONE THAT REACHED THE PAPER - "validated" retired.** The registered
+  disclosure sentence (FINAL_PUBLICATION_PLAN.md task 0.4(c)) described the
+  externals as "validated implementations". Not defensible: `docs/development/
+  matlab_parity/` does not exist in this repository, so six of the eight vendored
+  ports' parity records are unreachable here; DECC-G has no author-code oracle at
+  all; no external appears in any test or golden pin. (MOS and SHADE-ILS DO carry
+  quantitative in-repo header attestations - shade-ils 14/15 within 2x of the
+  published table, mos 15/15 cells compared - so a blanket "no validation record"
+  would have been too strong and was rejected.) The sentence now states that the
+  implementations "carry no validation evidence checkable within this repository"
+  and says why. Corrected in the same pass: CR-0019 clause (c),
+  `_external_baselines/README.md`, and a correction note inside D-0021 (which also
+  carried the stale "ackley_raw permanently unwired" phrasing missed in the
+  earlier correction pass).
+  A rejected alternative is recorded deliberately: an "unfavourable results"
+  clause naming our own external banks as beating the family was proposed and
+  REJECTED - it would import an unregistered empirical claim into Data
+  Availability against the explicit blocks in claims rows RS-13 and LM-06.
+  The reworded sentence still trips the `audit_manuscript.py:475` REVIEW pattern
+  ("validat*" + CEC2013 in one paragraph). That is accepted and correct: the flag
+  surfaces the paragraph for adjudication, and the adjudication is that the
+  sentence DISCLAIMS validation rather than claiming it. Rewording to evade a
+  review flag was considered and rejected.
+- **Deferred deliberately**: all external CODE changes (the MOS bounds fix, the
+  DECC-G degeneracy guard, the two false docstrings) wait until the CEC2020
+  campaign finishes - `run_experiment.py:46-52` imports the external modules at
+  module level, so every worker spawn re-imports them, and dt-gsk's leg is
+  in flight. The MOS fix additionally belongs UPSTREAM in the sibling project and
+  should be re-vendored, since our copy is byte-faithful by contract.
+- **Effect on reported results**: NONE. No external appears as a comparator in any
+  manuscript source (verified by word-boundary grep: MOS, SHADE-ILS, DECC-G,
+  EBOwithCMAR, jSO, LSHADE-SPACMA all zero; the CMA-ES and L-SHADE hits are a
+  glossary row, narrative prose, and the limitation stating that NO external
+  baseline is evaluated).
+- **Approver**: P1 (reviewed the four draft sentences before application).
+  **Status**: CLOSED for wording; code fixes tracked as post-campaign work.
+
+## D-0026 (2026-07-29) - W4/W5 complete: builds green, adversarial sweep 0 BLOCKING; main text made parameter- and results-complete
+
+- **Builds (W4)**: all five artifacts rebuilt deterministically at the pinned
+  epochs (PDF 1783468800 + FORCE_SOURCE_DATE=1; DOCX 1783641600), each
+  byte-identical across double builds; build hygiene OK; cover letter still 2
+  pages. Three content defects surfaced by the gates and fixed: the transposed
+  protocol table 45pt overwide (caption-duplicated parenthetical removed,
+  info rows tightened -- an interim compression of the seed formula was itself
+  wrong and was reverted to the exact plain-digit constants); a PDF line-wrap
+  put "S6.5" at line start, tripping the main-PDF ablation scan (non-breaking
+  tie); the supplement's stale .bbl lacked the four new keys (--rebuild-bib).
+- **W5 sweep**: full gate battery green (601 tests, parity 717->724 rows /
+  0 FAIL, DOCX validators, provenance-claims, citation C1-C5, labels,
+  consistency, frozen-analysis 115/115, union strict-inventory). Three-reviewer
+  adversarial panel (record: papers/governance/w5_review_sweep_2026-07-29.md):
+  86/86 pattern hits ADJUDICATED-BENIGN with 0 BLOCKING (the audit script's id
+  universe predates the five-suite scope -- every "unrecognized" AN-* id is
+  real, registered and file-backed; three NOTE-level tooling improvements
+  recorded for post-tag work); scope review passed all five 1.5.0-N items;
+  registered-vs-reported verdict: "reported = registered, to the digit, across
+  both suites", incl. DOCX spot-parity of the [AGSK first] sentence and the
+  five-suite recount.
+- **Author-requested main-text completeness** (commit 5db2fd7ca): the
+  comparator parameter table now appears in the MAIN text
+  (tab:comparator-params-main, generated read-from-source) beside DT-GSK's full
+  frozen configuration, and the final CEC2020 and CEC2013LSGO panels are
+  main-text tables (tab:cec2020-ranks with the mandatory D5/MaxFES caption
+  disclosure; tab:lsgo-ranks with the tied-first convention and the
+  across-function Wilcoxon layer). Every cell mechanically verified against its
+  source CSV -- the check caught two half-way rounding defects (2.0875, 4.1125
+  printed at 3 decimals), resolved by printing at the CSVs' own 4-decimal
+  precision; a W-T-L header that inverted perspective; and a machine token in
+  prose. Review-prompt layer 1.5.0-O added; 1.5.1 variables refreshed.
+- **Remaining**: W7 only -- pass-24 mint of main_manuscript_freeze_manifest.json
+  (15 files), check_manifest 15/15, freeze statement append, tag
+  dtgsk-submission-v2.0. **Approver**: P1 (W1 diff approved 2026-07-29).
+  **Status**: CLOSED.
+
+## D-0027 (2026-07-31) - Affiliation correction; pass-25 re-freeze; tag re-created as dtgsk-submission-v2.0-2026-07-31
+
+- **Author direction**: remove affiliations 2 (Applied Science Private
+  University, Amman 11931, Jordan) and 3 (Chitkara University Institute of
+  Engineering and Technology, Rajpura, 140401, Punjab, India) from the main
+  manuscript and the supplement; all three authors now carry affiliation 1
+  only. Applied in main.tex and supplementary.tex with dated in-place
+  comments (commit 2d29e2606). No scientific content changed: no number,
+  rank, p-value, effect size, table cell, or conclusion differs from pass 24.
+- **Rebuilds**: all four artifacts rebuilt at the pinned epochs (PDF
+  1783468800 + FORCE_SOURCE_DATE=1; DOCX 1783641600), each byte-identical
+  across double builds; zero occurrences of either removed affiliation in
+  any rendered artifact (checked in all four).
+- **Two validator repairs surfaced by the re-run gates**: (1) the layout
+  shift from the removed address lines moved the notation-table float
+  mid-paragraph, splitting one paragraph across a page break in the PDF
+  extraction stream -- cross-format parity gained a split-containment
+  fallback (paragraph must appear verbatim as exactly two contiguous runs,
+  min 25 alnum chars each; recorded PASS_FORMAT_DIFF, same artifact class
+  as the stripped running headers); (2) the provenance gate still parsed
+  evidence_release as a string and had been failing silently since the
+  pass-24 mint introduced the per-suite mapping -- it now accepts either
+  schema and cross-checks the cec2013lsgo and cec2020 ids against their own
+  release manifests. Gate battery green: parity 724/0, provenance OK,
+  citation C1-C5, labels, doc-consistency, build hygiene.
+- **Freeze**: pass-25 minted (anchor 2d29e2606, 15/15 verified; 5 hashes
+  changed, all traceable to the correction). The never-pushed pass-24 tag
+  dtgsk-submission-v2.0-2026-07-29 was deleted and the freeze re-tagged as
+  dtgsk-submission-v2.0-2026-07-31 at the pass-25 state; v1.0 and its DOI
+  history remain valid and unmoved. **Approver**: author (affiliation
+  removal directed 2026-07-31). **Status**: CLOSED.
+
+## D-0028 (2026-07-31) - Eight-seat panel round closed: full fix batch applied under Amendment 3; pass-26 re-freeze; tag dtgsk-submission-v2.1-2026-07-31
+
+- **Panel**: eight-seat expert review applying PAPER_REVIEW_PROMPT.md 1.5.0-O
+  end-to-end over the pass-24/25 manuscript; record filed at
+  papers/governance/panel_review_register_2026-07-31.md (9be6e5769). Verdict
+  unanimous MINOR REVISION; zero defects in any number, standing, test, or
+  registered outcome; 2 BLOCKING + 3 MAJOR sentence-level truth defects, 18
+  minors/notes, 9 enhancements, 6 repo-side updates. Author directive:
+  "fix all" (2026-07-31).
+- **Amendment 3** (append-only, e7ee2e9ca): the registered wording bank's
+  "the CEC2020 competition it won" was a false literature fact -- AGSK was
+  the CEC2020 RUNNER-UP (IMODE won), per the corpus's own sanctioned source
+  apgsk2021 p. 65936. The corrected [AGSK first] sentence is the binding
+  verbatim from Amendment 3 forward; applied at all eight loci with
+  \cite{apgsk2021} outside the abstract; RS-12 claims row annotated. No
+  standing, ordinal, or number changed.
+- **Batch** (afc93d201): every register fix I-1..I-23 + E-1..E-9 applied;
+  U-2..U-5 filed at e7ee2e9ca (CR-0021 caps 44pp/24k; runbook five-suite
+  pipeline; ablation README id; attestation regenerated green=True with
+  603 tests x2, zero failures). All five artifacts rebuilt at the pinned
+  epochs, byte-identical across double builds; full gate battery green
+  (parity 724/0; provenance with per-suite id cross-checks; C1-C5; labels;
+  doc-consistency; tests 601+2).
+- **Latent gate defect found and fixed in passing**: full-mode
+  validate_build_hygiene.py had failed on the D-0025 adopted-verbatim
+  "author-code oracle" phrase since W1-W3 (294e95300) -- masked because
+  W4/W5 ran --logs-only; exposed by the U-2 attestation regeneration. The
+  retired-content pattern now excludes exactly that phrase via lookbehind,
+  documented in-line. The D-0025 sentence itself is untouched.
+- **Verification**: four-lens adversarial workflow (register completeness;
+  bank-verbatim + standings vs released CSVs, ~60 cells; rendered-artifact
+  content; regression hunt incl. control bytes, CRLF, braces, logs) --
+  4/4 PASS, zero failures, before the mint.
+- **Freeze**: pass-26 minted at anchor afc93d201 (13 of 15 hashes changed,
+  all batch-traceable), check_manifest 15/15 twice. Tag
+  **dtgsk-submission-v2.1-2026-07-31** at the pass-26 state supersedes
+  v2.0-2026-07-31 as submission basis; v2.0 and v1.0 remain in place,
+  unmoved; nothing pushed (the author pushes). Review-prompt layer 1.5.0-P
+  records the corrected bank wording and current pins. **Approver**: author
+  ("fix all", 2026-07-31). **Status**: CLOSED.

@@ -1,0 +1,55 @@
+# AGSK-only subset of the CEC2020 family panel.
+#
+# Every protocol knob below is IDENTICAL to configs/family_cec2020.yml; the only
+# difference is the optimizer list. That is deliberate: a single-algorithm rerun
+# (recovery, spot check, resumed cell) must land in the same output tree with the
+# same seeds as the seven-method campaign, so its rows stay directly foldable
+# into the paired analysis.
+#
+# Usage:
+#   python run.py --config configs/agsk_cec2020.yml --workers 14
+#
+# SEED POLICY IS `unified` AND MUST STAY SO. The run-level Wilcoxon tests pair
+# runs across optimizers by (dimension, function, run) seed identity; a
+# `reference` schedule assigns different seeds and silently destroys that
+# pairing. This file previously carried `seed_policy: reference` together with a
+# `data_root` (benchmarks/cec_suite) that does not exist in this repository --
+# both corrected 2026-07-28 under CR-0019. No CEC2020 results had ever been
+# produced, so nothing was invalidated by the correction.
+
+optimizers:
+  - agsk
+
+suite: cec2020
+functions: all          # all 10 functions
+# DIMENSION SCOPE. All four protocol dimensions. F6/F7 at D=5 are undefined by
+# the protocol (Yue et al. 2019 SS2.1) and are dropped from the schedule
+# automatically; F1/F8 at D=5/D=15 were validated against the in-repo C++
+# oracle on 2026-07-26 (worst rel 1.258e-15 vs the committed 1e-12 criterion)
+# and are now runnable -- see tests/regression/test_cec2020_restored_cells.py.
+dimensions:
+  - 5
+  - 10
+  - 15
+  - 20
+runs: 30                # CEC2020 convention (Yue et al. 2020 problem definitions);
+                        # author-confirmed 2026-07-26 and corroborated by Mohamed et al.
+                        # (2020) AGSK, itself a CEC2020 paper, which reports 30 runs.
+                        # Corrects an unsourced 25 inherited from the sibling project.
+
+seed: 20240620
+seed_policy: unified
+rand_generator: threefry
+max_evaluations: 0          # 0 = the suite's own protocol budget
+
+overwrite: false
+parallel: true
+parallel_backend: process
+numba_threads: 1
+generation_logs: true
+convergence_graphs: false
+benchmark_fp_mode: default
+benchmark_backend: auto
+data_root: benchmarks/cec_suite_python
+reference_root: benchmarks/cec_reference_results
+output_root: results/_run_all

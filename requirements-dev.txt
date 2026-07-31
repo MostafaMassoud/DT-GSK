@@ -1,0 +1,16 @@
+# Development dependencies: runtime libraries plus test / lint / type / build
+# tooling. Mirrors pyproject.toml's [project.optional-dependencies] dev extra.
+#
+#     python -m pip install -r requirements-dev.txt
+#
+# Equivalent to the libraries from `pip install -e ".[dev]"` without the
+# editable package install (the gsk-* console entry points). Use
+# `pip install -e ".[dev]"` if you want those as well.
+
+-r requirements.txt
+
+build>=1.0
+mypy>=1.10,<2
+pytest>=7.4,<10
+ruff>=0.6,<1
+types-PyYAML>=6.0

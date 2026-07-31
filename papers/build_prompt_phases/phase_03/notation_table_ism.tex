@@ -1,0 +1,38 @@
+% ============================================================================
+% DT-GSK notation table -- ISM / EIGENFRAME POLISH (main text, Section 3.4).
+% Canonical source: papers/build_prompt_phases/phase_03/notation_table.md
+% Label: tab:notation-ism.
+%
+% Split out of notation_table.tex under ticket N-015. Carries the symbols for
+% the interaction-structure memory (supporting mechanism, Section 3.4) and the
+% eigenframe final polish (Contribution C1, Section 3.5), which reads on the
+% eigenbasis of the signed interaction graph defined here. Placed with those
+% sections so the symbols are introduced at first use. Kept as a single tabular
+% for the native Word w:tbl conversion.
+% ============================================================================
+\begin{table}[t]
+\caption{Interaction-structure memory and eigenframe-polish notation
+(supporting mechanism, Section~\ref{sec:alg:ism}; Contribution~C1,
+Section~\ref{sec:alg:polish}). Constants take the frozen-configuration values
+(Table~\ref{tab:parameters}); the graph-confidence functional is detailed in
+Supplementary Materials, Section~S5.}
+\label{tab:notation-ism}
+\centering
+\footnotesize
+\begin{tabular}{@{}l@{\hspace{1.2em}}p{0.62\textwidth}@{}}
+\toprule
+\textbf{Symbol} & \textbf{Meaning}\\
+\midrule
+$G_{\mathrm{abs}}\in\mathbb{R}^{D\times D}$ & non-negative magnitude interaction graph (decaying); confidence gate + linkage\\
+$G_{\mathrm{signed}}\in\mathbb{R}^{D\times D}$ & signed interaction graph (decaying); eigenframe-polish basis\\
+$g_{\mathrm{act}}\in\mathbb{R}^{D}$ & per-dimension self-weight (decaying; LS dim-selection, inactive in the frozen config)\\
+$C\in\mathbb{R}^{D\times D}$ & co-occurrence support/count (decaying)\\
+$\lambda=0.95$ & interaction decay (EMA)\\
+$\eta=1.0$ & interaction learning rate (EMA accumulation)\\
+$\kappa_{\min}=0.35$ & interaction confidence gate (adaptive at $D\ge50$)\\
+$\operatorname{conf}(G_{\mathrm{abs}})$ & graph confidence (edge density $\times$ magnitude $\times$ support $\times$ stability; $\kappa(\cdot)$, Supplementary Materials, Section~S5)\\
+$V$ & eigenbasis of $G_{\mathrm{signed}}$ (polish directions)\\
+$s_{\text{fp}}$ & polish start fraction ($0.96$)\\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,27 @@
+# DT-GSK diagnostics mini-campaign (Wave 1/2).
+# Opt-in per-generation telemetry only -- default optimizer behavior is unchanged
+# and diagnostics are observational (no RNG/eval/result change for a given seed).
+# Writes one JSONL trace per cell under:
+#   results/_experimental/dt_diag/dt-gsk/cec2017/diagnostics/
+# Analyze with:
+#   python scripts/analyze_dt_diagnostics.py \
+#     --input results/_experimental/dt_diag/dt-gsk/cec2017/diagnostics \
+#     --out   results/_experimental/dt_diag/dt-gsk/cec2017/diagnostics_analysis
+optimizers:
+  - dt-gsk
+suite: cec2017
+functions: [4, 13, 19, 26, 30]
+dimensions: [10, 30, 50, 100]
+runs: 5
+seed: 20240620
+seed_policy: unified
+rand_generator: threefry
+parallel: true
+workers: 2
+generation_logs: true
+convergence_graphs: false
+overwrite: true
+output_root: results/_experimental/dt_diag
+optimizer_options:
+  dt_diagnostics: true
+  dt_diagnostics_include_all_fields: true

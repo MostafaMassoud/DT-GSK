@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Statistical Analysis (GSK-family comparison) - GSK Family Python Documentation">
+  <title>Statistical Analysis (GSK-family comparison) | GSK Family Python Documentation</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <div class="site-shell">
+    <aside class="sidebar">
+<div class="brand"><a href="index.html">GSK Family Python</a></div>
+<input class="nav-search" type="search" placeholder="Filter docs" aria-label="Filter docs">
+<nav class="nav-list" aria-label="Documentation">
+<section><h2>Getting Started</h2>
+<a class="nav-link" href="getting-started_configuration.html">Configuration</a>
+<a class="nav-link" href="getting-started_explainer.html">Explainer</a>
+<a class="nav-link" href="getting-started_runbook.html">Runbook</a>
+<a class="nav-link" href="getting-started_troubleshooting.html">Troubleshooting</a>
+<a class="nav-link" href="getting-started_tutorial.html">Tutorial</a>
+<a class="nav-link" href="getting-started_user_guide.html">User Guide</a>
+</section>
+<section><h2>Reference</h2>
+<a class="nav-link" href="reference_api.html">API Reference</a>
+<a class="nav-link" href="reference_architecture.html">Architecture</a>
+<a class="nav-link" href="reference_benchmark_mapping.html">Benchmark Mapping</a>
+<a class="nav-link" href="reference_benchmark_protocol.html">Benchmark Protocol</a>
+<a class="nav-link" href="reference_cec2011_cpp_python_equivalence_review.html">CEC2011 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013_cpp_python_equivalence_review.html">CEC2013 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013lsgo_cpp_python_equivalence_review.html">CEC2013LSGO C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2017_cpp_python_equivalence_review.html">CEC2017 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2020_cpp_python_equivalence_review.html">CEC2020 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="index.html">Documentation Index</a>
+<a class="nav-link" href="reference_fp_regime.html">Floating-Point Regime Verification</a>
+<a class="nav-link" href="reference_diagrams.html">Flowcharts And Diagrams</a>
+<a class="nav-link" href="reference_glossary.html">Glossary</a>
+<a class="nav-link" href="LICENSES.html">Licenses</a>
+<a class="nav-link" href="reference_module_dependencies.html">Module Dependencies</a>
+<a class="nav-link" href="reference_project_structure.html">Project Structure</a>
+<a class="nav-link" href="reference_python_optimizer_interface.html">Python Optimizer Interface</a>
+<a class="nav-link" href="reference_result_schema.html">Result Schema</a>
+<a class="nav-link" href="reference_seed_policy.html">Seed Policy</a>
+<a class="nav-link" href="reference_workflows.html">Workflows</a>
+</section>
+<section><h2>Algorithm Guides</h2>
+<a class="nav-link" href="algorithms_agsk.html">AGSK — Adaptive Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_apgsk.html">APGSK — Adaptive-Parameters Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_atmals-gsk.html">ATMALS-GSK — Adaptive Tuning, Memory, Adaptive Local Search</a>
+<a class="nav-link" href="algorithms_dt-gsk.html">DT-GSK — Dimension-Tiered Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_egsk.html">EGSK — Enhanced Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_fdb-agsk.html">FDB-AGSK — Fitness-Distance-Balance AGSK</a>
+<a class="nav-link" href="algorithms_gsk.html">GSK — Gaining-Sharing Knowledge</a>
+</section>
+<section><h2>Development</h2>
+<a class="nav-link" href="development_BUG_resume_summary_truncation.html">BUG-RESUME-01 — resume mode truncates (and mis-computes) the per-dimension summary CSV</a>
+<a class="nav-link" href="development_LSGO_ACCELERATION_PLAN.html">CEC2013LSGO Acceleration Plan — all 7 GSK-family algorithms, bit-identically</a>
+<a class="nav-link" href="development_LSGO_INTEGRATION_CAMPAIGN.html">CEC2013LSGO Integration — Campaign Plan</a>
+<a class="nav-link" href="development_CEC2017_PREC_adjudication.html">CEC2017-PREC — adjudication (CLOSED 2026-07-25)</a>
+<a class="nav-link" href="development_code_reading_guide.html">Code Reading Guide</a>
+<a class="nav-link" href="development_contributor_guide.html">Contributor Guide</a>
+<a class="nav-link" href="development_DECC_G_port_record.html">DECC-G port — fidelity and validation record</a>
+<a class="nav-link" href="development_developer_guide.html">Developer Guide</a>
+<a class="nav-link" href="development_README.html">Development Docs</a>
+<a class="nav-link" href="development_dt_gsk_core_reference.html">DT-GSK Core Reference — the vendored core and its byte-identity lock</a>
+<a class="nav-link" href="development_evidence_rerun_runbook.html">DT-GSK re-run runbook — corrected implementation (C006 + graph backend)</a>
+<a class="nav-link" href="development_egsk_port_spec.html">EGSK — Algorithm Spec &amp; Porting Verdict</a>
+<a class="nav-link" href="development_extension_guide.html">Extension Guide</a>
+<a class="nav-link" href="development_FAMILY_ACCELERATION_PLAN.html">Family-wide acceleration plan — 7 algorithms x 5 suites, bit-identical only</a>
+<a class="nav-link" href="development_FINAL_PUBLICATION_PLAN.html">FINAL PUBLICATION PLAN — DT-GSK, Four(/Five)-Suite Scope</a>
+<a class="nav-link" href="development_ACCELERATION_CAMPAIGN_PROMPT.html">GSK-Family Acceleration Campaign — Execution Prompt</a>
+<a class="nav-link" href="development_maintenance_guide.html">Maintenance Guide</a>
+<a class="nav-link" href="development_PORT_05_TUNING_TRIAGE.html">Porting project-05 tuning into 02 — Phase 1 audit and triage</a>
+<a class="nav-link" href="development_REFERENCE_PROMOTION_PLAN.html">Reference Promotion Plan — CEC2013LSGO now, CEC2020 behind its completeness gate</a>
+<a class="nav-link" href="development_SIBLING_CAMPAIGN_TRANSFER.html">Sibling-Campaign Transfer — every tuning that can make the GSK family fast</a>
+</section>
+<section><h2>Research</h2>
+<a class="nav-link" href="research_egsk_validation_appendix.html">EGSK Validation Appendix — Paired Port-vs-Reference Equivalence</a>
+<a class="nav-link" href="research_numerical_examples.html">Numerical Examples</a>
+<a class="nav-link" href="research_performance.html">Performance</a>
+<a class="nav-link" href="research_reproducibility.html">Reproducibility</a>
+<a class="nav-link" href="research_researcher_handbook.html">Researcher Handbook</a>
+<a class="nav-link active" href="research_statistical_analysis.html">Statistical Analysis (GSK-family comparison)</a>
+<a class="nav-link" href="research_validation_report.html">Validation Report</a>
+</section>
+<section><h2>Prompts</h2>
+<a class="nav-link" href="prompt_documentation-deep-upgrade.html">Deep Documentation Review &amp; Upgrade Prompt — GSK Family Python</a>
+<a class="nav-link" href="prompt_project-review.html">Deep Expert Review Prompt For GSK Family Python</a>
+<a class="nav-link" href="prompt_documentation-review.html">Documentation Review Prompt</a>
+<a class="nav-link" href="prompt_publication-polish.html">Final Publication Prompt — Production-Ready Q1 Release of GSK Family Python v1.1</a>
+</section>
+<section><h2>Python API</h2>
+<a class="nav-link" href="api_index.html">API Module Index</a>
+<a class="nav-link api-link" href="api/gsk_family.__init__.html">gsk_family.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.__init__.html">gsk_family.analysis.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.family_report.html">gsk_family.analysis.family_report</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.figures.html">gsk_family.analysis.figures</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.latex_tables.html">gsk_family.analysis.latex_tables</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.project_policy.html">gsk_family.analysis.project_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.result_loader.html">gsk_family.analysis.result_loader</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistical_tests.html">gsk_family.analysis.statistical_tests</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistics.html">gsk_family.analysis.statistics</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.__init__.html">gsk_family.benchmark_adapter.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.factory.html">gsk_family.benchmark_adapter.factory</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.problem.html">gsk_family.benchmark_adapter.problem</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.protocol.html">gsk_family.benchmark_adapter.protocol</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.__init__.html">gsk_family.cli.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.list.html">gsk_family.cli.list</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.run.html">gsk_family.cli.run</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.stats.html">gsk_family.cli.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.validate.html">gsk_family.cli.validate</a>
+<a class="nav-link api-link" href="api/gsk_family.common.__init__.html">gsk_family.common.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.common.bounds.html">gsk_family.common.bounds</a>
+<a class="nav-link api-link" href="api/gsk_family.common.donors.html">gsk_family.common.donors</a>
+<a class="nav-link api-link" href="api/gsk_family.common.numeric_compat.html">gsk_family.common.numeric_compat</a>
+<a class="nav-link api-link" href="api/gsk_family.common.population.html">gsk_family.common.population</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reduction.html">gsk_family.common.reduction</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reference_rng.html">gsk_family.common.reference_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.rng.html">gsk_family.common.rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.threefry_rng.html">gsk_family.common.threefry_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.__init__.html">gsk_family.optimizers.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_profiles.html">gsk_family.optimizers._dt_profiles</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_rng.html">gsk_family.optimizers._dt_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._kernels.html">gsk_family.optimizers._kernels</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.agsk.html">gsk_family.optimizers.agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.apgsk.html">gsk_family.optimizers.apgsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_gsk.html">gsk_family.optimizers.atmals_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_helpers.html">gsk_family.optimizers.atmals_helpers</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.dt_gsk.html">gsk_family.optimizers.dt_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.egsk.html">gsk_family.optimizers.egsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.__init__.html">gsk_family.optimizers.external.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._base.html">gsk_family.optimizers.external._base</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._telemetry_shim.html">gsk_family.optimizers.external._telemetry_shim</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.cmaes.html">gsk_family.optimizers.external.cmaes</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.decc_g.html">gsk_family.optimizers.external.decc_g</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.ebowithcmar.html">gsk_family.optimizers.external.ebowithcmar</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.jso.html">gsk_family.optimizers.external.jso</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade.html">gsk_family.optimizers.external.lshade</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade_spacma.html">gsk_family.optimizers.external.lshade_spacma</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.mos_cec2013lsgo.html">gsk_family.optimizers.external.mos_cec2013lsgo</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.shade_ils.html">gsk_family.optimizers.external.shade_ils</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_agsk.html">gsk_family.optimizers.fdb_agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_scores.html">gsk_family.optimizers.fdb_scores</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.gsk.html">gsk_family.optimizers.gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.__init__.html">gsk_family.runners.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.config.html">gsk_family.runners.config</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.fp_regime.html">gsk_family.runners.fp_regime</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.output.html">gsk_family.runners.output</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.parallel.html">gsk_family.runners.parallel</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.performance.html">gsk_family.runners.performance</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.run_experiment.html">gsk_family.runners.run_experiment</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.seed_policy.html">gsk_family.runners.seed_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.verification.html">gsk_family.runners.verification</a>
+<a class="nav-link api-link" href="api/gsk_family.stats.html">gsk_family.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.types.html">gsk_family.types</a>
+</section>
+</nav></aside>
+    <main class="content">
+      <article class="doc-card">
+        <h1 id="statistical-analysis-gsk-family-comparison">Statistical Analysis (GSK-family comparison)</h1>
+<p>This project ships a paper-grade statistical-comparison suite for the proposed optimizer (<code>dt-gsk</code> by default) against the GSK-family comparators. It was migrated from the source DT-GSK project and retargeted to this repository&#x27;s committed reference tables (<code>benchmarks/cec_reference_results/</code>) with the <code>results/_run_all/&lt;optimizer&gt;/&lt;suite&gt;/summary/</code> layout as a fallback. The suite lives in <code>src/gsk_family/analysis/</code> and is driven by the <code>gsk-stats</code> console script.</p>
+<h2 id="what-it-computes">What it computes</h2>
+<p>For each requested dimension the suite builds the <strong>7-algorithm GSK-family panel</strong> — the proposed algorithm plus the six committed reference comparators (<code>gsk</code>, <code>agsk</code>, <code>apgsk</code>, <code>fdb-agsk</code>, <code>egsk</code>, <code>atmals-gsk</code>) — over the common benchmark functions, and reports the statistics below. The committed reference tree carries the full 7-optimizer panel for three suites: <strong>CEC2017</strong> (F1, F3–F30 — the withdrawn F2 is excluded — at D = 10/30/50/100, 51 runs), <strong>CEC2011</strong> (22 real-world problems at their native per-function dimensions, 25 runs), and <strong>CEC2013</strong> (the second comparison suite: 28 functions at D = 10/30/50, 51 runs, no exclusions).</p>
+<ul>
+<li><strong>Friedman ranking</strong> — average rank per algorithm (lower is better) with the</li>
+<p>Friedman chi-squared p-value (<code>statistical_tests.friedman_rank_test</code>).</p>
+<li><strong>Nemenyi critical difference (CD)</strong> — the two-tailed post-hoc threshold</li>
+<p><code>CD = q_alpha * sqrt(k (k+1) / (6 N))</code> (Demsar 2006, Table 5), rendered as a Demsar-style CD diagram.</p>
+<li><strong>Pairwise Wilcoxon signed-rank tests</strong> — proposed vs each comparator on the</li>
+<p>per-function mean errors, with R+/R-, win/tie/loss, two-sided p-value, the standardized effect size <code>r = Z / sqrt(n)</code>, and the function-level Cliff&#x27;s δ.</p>
+<li><strong>Holm correction</strong> — family-wise adjustment of the per-dimension comparator</li>
+<p>p-values, yielding the corrected decision (<code>+</code> / <code>=</code> / <code>-</code>).</p>
+<li><strong>Vargha-Delaney A12</strong> — probability of superiority on the per-function mean</li>
+<p>errors (&gt; 0.5 favours the proposed algorithm).</p>
+</ul>
+<h2 id="methodology-in-detail">Methodology in detail</h2>
+<p>Each test answers a different question; together they form the standard non-parametric comparison protocol for stochastic optimizers (Demsar 2006).</p>
+<h3 id="friedman-ranking-and-nemenyi-critical-difference">Friedman ranking and Nemenyi critical difference</h3>
+<p>Within each benchmark function the <code>k = 7</code> algorithms are ranked by mean error (rank 1 = lowest error); each algorithm&#x27;s ranks are then averaged across the <code>N</code> functions. The Friedman chi-squared statistic tests the null hypothesis that all mean ranks are equal.</p>
+<p>Because the <code>1e-8</code> success floor collapses many distinct solver outcomes onto exactly <code>0.0</code>, tied ranks are common — 9 of the 29 CEC2017 functions at D=10, for instance. Tied rows shrink the rank variance and bias the raw chi-squared *downwards* (making the uncorrected test conservative), so <code>friedman_rank</code> in <code>analysis/statistics.py</code> also returns the <strong>tie-corrected</strong> statistic <code>chi2 / C</code> with</p>
+<pre><code class="code-block language-text">C = 1 - sum_i sum_g (t_ig^3 - t_ig) / ( N (k^3 - k) )</code></pre>
+<p>where <code>t_ig</code> is the size of the g-th tie group in function <code>i</code>. Since <code>C &lt;= 1</code> the correction can only *raise* significance, and it leaves the average ranks — hence the ranking itself — untouched (<code>tie_correction</code>, <code>statistic_tie_corrected</code> on the returned <code>FriedmanSummary</code>).</p>
+<p>If the omnibus test rejects, the <strong>Nemenyi</strong> post-hoc gives the critical difference</p>
+<pre><code class="code-block language-text">CD = q_alpha * sqrt( k (k + 1) / (6 N) )</code></pre>
+<p>(Demsar 2006, Table 5 supplies <code>q_alpha</code>). Two algorithms differ significantly only if their average ranks differ by more than <code>CD</code>; the CD diagram draws a bar of that width so groups that are statistically indistinguishable are visibly connected. A <a href="research_numerical_examples.html#friedman-average-rank-by-hand">worked three-algorithm ranking</a> shows the averaging by hand.</p>
+<h3 id="pairwise-wilcoxon-signed-rank">Pairwise Wilcoxon signed-rank</h3>
+<p>The proposed algorithm is paired against each comparator <strong>by function</strong>, using per-function mean errors, with the convention that a positive difference <code>ref_mean - new_mean</code> means the proposed algorithm is better. The test reports <code>R+</code>/<code>R-</code>, win/tie/loss, the two-sided p-value, and the standardized effect size <code>r = Z / sqrt(n)</code>. To keep the effect size numerically consistent with the p-value on the same line, <code>|Z|</code> is recovered by inverting the two-sided p-value (so the continuity and ties corrections SciPy applies to the variance flow through automatically), then signed from the rank sums — <code>R+ &gt; R-</code> gives <code>r &gt; 0</code>, oriented so <strong>positive <code>r</code> favours the proposed algorithm</strong>. Ties use a scale-aware band (an absolute floor plus a relative term) so sub-noise differences on large-magnitude functions are not miscounted — see the <a href="research_numerical_examples.html#pairwise-win-tie-loss-wilcoxon-framing">win/tie/loss worked example</a>.</p>
+<h3 id="holm-correction">Holm correction</h3>
+<p>Running one Wilcoxon test per comparator inflates the family-wise error rate, so the per-dimension comparator p-values are adjusted with <strong>Holm&#x27;s</strong> sequentially rejective procedure: sort the <code>m</code> raw p-values ascending, multiply the rank-<code>i</code> value (0-indexed) by <code>(m - i)</code>, enforce monotonicity, and clip to 1.0. A comparison is significant when its adjusted p-value is below <code>alpha</code> (default <code>0.05</code>). The corrected per-comparator decision is rendered as <code>+</code> (proposed wins), <code>=</code> (no significant difference), or <code>-</code> (proposed loses). The vendored core also provides a Benjamini-Hochberg FDR variant for reference.</p>
+<p>Worked example — three comparators with raw p-values <code>[0.004, 0.030, 0.045]</code> (<code>m = 3</code>), following <code>holm_correction</code> in <code>analysis/statistics.py</code> exactly:</p>
+<pre><code class="code-block language-text">sort ascending:   0.004 (i=0)   0.030 (i=1)   0.045 (i=2)
+step multiplier:  x (3-0)=3     x (3-1)=2     x (3-2)=1
+raw x mult:       0.012         0.060         0.045
+enforce monotone: 0.012         0.060         max(0.045, 0.060) = 0.060
+decision @0.05:   significant   not sig.      not sig.</code></pre>
+<p>The third comparator has raw <code>p = 0.045 &lt; 0.05</code> yet ends <strong>non-significant</strong>: Holm&#x27;s monotonicity clamp lifts its adjusted value to the running maximum (<code>0.060</code>). That is the point of a step-down correction — a later hypothesis cannot be rejected once an earlier, smaller raw p-value has already failed, so reading the *raw* 0.045 as a win would be exactly the error the correction exists to prevent.</p>
+<h3 id="effect-sizes">Effect sizes</h3>
+<p>Significance says a difference is unlikely to be chance; <strong>effect size</strong> says how large it is. The suite reports two:</p>
+<ul>
+<li><strong>Vargha-Delaney A12</strong> — probability that a randomly chosen proposed-algorithm</li>
+<p>value is better (lower) than a comparator value. Magnitude thresholds follow Vargha &amp; Delaney (2000): negligible <code>0.44-0.56</code>, small, medium, large (<code>A12 &gt; 0.71</code> or <code>&lt; 0.29</code>). <code>A12 &gt; 0.5</code> favours the proposed algorithm.</p>
+<li><strong>Cliff&#x27;s delta</strong> — a per-function rank-based effect size reported alongside the</li>
+<p>Wilcoxon panel.</p>
+</ul>
+<p>BCa (bias-corrected and accelerated) bootstrap confidence intervals are available in the vendored core (<code>bootstrap_bca_ci</code>) for interval estimates on these statistics.</p>
+<h3 id="published-panel-statistics-the-paper-s-tool-of-record">Published-panel statistics (the paper&#x27;s tool of record)</h3>
+<p><code>gsk-stats</code> is the live, interactive comparison tool. The <strong>released</strong> paper tables under <code>papers/analysis/rel-2026-07-20-67d9345f9/</code> are produced by <code>papers/scripts/phase6_run_analysis.py</code>, which builds on the same <code>analysis/statistics.py</code> core and reports two further forms derived from it:</p>
+<ul>
+<li><strong>Iman-Davenport <code>F</code></strong> — the Friedman omnibus decision statistic, computed from</li>
+<p>the *tie-corrected* chi-squared (above) as <code>F = (N-1) * chi2 / (N*(k-1) - chi2)</code> and tested against <code>F(k-1, (k-1)(N-1))</code>. It replaces the raw chi-squared p-value as the reported omnibus decision; the columns <code>friedman_chi2</code>, <code>iman_davenport_F</code>, <code>tie_correction_C</code>, <code>n_tied_functions</code> (plus <code>*_uncorrected</code> companions) live in <code>friedman_ranks_&lt;suite&gt;[_D&lt;dim&gt;].csv</code>.</p>
+<li><strong>Matched-pairs rank-biserial <code>r</code></strong> — the paired Wilcoxon effect size</li>
+<p><code>r = (R- - R+) / (R+ + R-)</code>, negated from the textbook <code>(R+ - R-)/(R+ + R-)</code> so that, on error differences (lower is better), <strong><code>r &gt; 0</code> favours the proposed algorithm</strong> — the same orientation as the <code>direction</code> field and the <code>A12 &gt; 0.5</code> convention. It is carried in <code>wilcoxon_holm_&lt;suite&gt;[_D&lt;dim&gt;].csv</code> alongside <code>w_plus</code>, <code>w_minus</code>, the Holm-adjusted <code>p_holm</code>, and the <code>win</code>/<code>tie</code>/<code>loss</code> <code>outcome</code>.</p>
+</ul>
+<p>These are reporting refinements over the same underlying tests, not a different analysis: the tie correction leaves ranks untouched and the rank-biserial only re-expresses the signed-rank sums, so no rank, sign, or decision changes as a result of adopting them.</p>
+<h2 id="data-sources">Data sources</h2>
+<p>The committed reference panel is the paper&#x27;s <strong>single source of truth</strong> for every algorithm — the proposed method included:</p>
+<ul>
+<li><strong>Every</strong> algorithm (proposed and comparators alike) is loaded</li>
+<p><strong>reference-first</strong> from <code>benchmarks/cec_reference_results/&lt;suite&gt;/&lt;optimizer&gt;/</code>. Each optimizer directory uses a flat layout: <code>&lt;opt&gt;_&lt;suite&gt;_D&lt;dim&gt;.csv</code> per-dimension summaries (plus a <code>&lt;opt&gt;_cec2011.csv</code> rollup for CEC2011), <code>per_run.csv</code>, provenance files (<code>environment.json</code>, <code>run_config.json</code>, <code>seed_schedule.csv</code>, <code>verification.json</code>, <code>phase0_protocol.json</code>), and the <code>curves/</code> and <code>gen_logs/</code> convergence assets.</p>
+<li>A <strong>locally reproduced run</strong> under</li>
+<p><code>results/_run_all/&lt;optimizer&gt;/&lt;suite&gt;/summary/</code> is used only as a <strong>fallback</strong> for cells the reference tree does not carry. The policy is implemented in <code>analysis/result_loader.py</code> (<code>load_algorithm</code>: reference first, reproduced fallback) and <code>analysis/family_report.py</code> (<code>analyze_family</code> resolves the proposed method&#x27;s CSV the same way).</p>
+</ul>
+<p>Two resolution caveats when working below the per-function summaries:</p>
+<ul>
+<li>The panel statistics themselves operate on <strong>per-function mean errors</strong> (one</li>
+<p>value per function), never on raw per-run values.</p>
+<li><code>per_run.csv</code> gives full per-run (seed-level) resolution for <strong><code>dt-gsk</code></strong> on</li>
+<p>every panel suite and dimension; some comparators carry only <strong>partial</strong> per-run coverage (their per-dimension summary CSVs are the complete source). Seed-matched per-run analyses are therefore guaranteed only for the proposed method — comparator claims should stay at per-function summary resolution.</p>
+</ul>
+<h2 id="usage">Usage</h2>
+<pre><code class="code-block language-powershell"># CEC2017 family report for the default dimensions (10, 30, 50, 100)
+gsk-stats --suite CEC2017
+
+# Specific dimensions, no figures
+gsk-stats --suite CEC2017 --dims 10,30 --no-figures
+
+# CEC2011 (per-function native dimensions; uses the rollup summary)
+gsk-stats --suite CEC2011
+
+# CEC2013 (second comparison suite: 28 functions, D = 10/30/50)
+gsk-stats --suite CEC2013 --dims 10,30,50</code></pre>
+<h3 id="during-a-run-stats">During a run (<code>--stats</code>)</h3>
+<p>The experiment runner can also stream the per-dimension analysis live, matching the reference project. Pass <code>--stats</code> to <code>gsk-run</code>/<code>run.py</code> and, after each dimension completes, the runner prints the Wilcoxon signed-rank panel + the GSK-family Friedman ranking + a compact TL;DR banner, plus a cross-dimension summary at the end. It is opt-in (default off), skips vanilla <code>gsk</code>, and covers both the fixed-dimension suites and the native-dimension <code>cec2011</code> rollup (emitted once as a single per-suite panel after the rollup CSV lands):</p>
+<pre><code class="code-block language-powershell">gsk-run --optimizer dt-gsk --suite cec2017 --dimension 10 --dimension 30 --stats</code></pre>
+<p><code>gsk-stats</code> remains the way to produce the figures, CSV, and LaTeX artifacts after a run; <code>--stats</code> is purely the live console/per-run report.</p>
+<p><strong>Self-validation against a committed reference table.</strong> The <code>--stats</code> path has a generic self-validation hook: when it runs an optimizer that has *committed reference results of its own* under <code>benchmarks/cec_reference_results/&lt;suite&gt;/&lt;optimizer&gt;/</code>, those results are folded into the panel as an extra <code>&lt;OPT&gt;-REF</code> comparator (a Wilcoxon comparison plus a row in the Friedman ranking) <strong>while retaining the comparisons with the other GSK-family algorithms</strong>. This hook is general and only fires when such a self-reference table is present.</p>
+<p>Because the committed reference tree now carries the full DT-GSK panel for CEC2017, CEC2011, and CEC2013 (it is the paper&#x27;s single source of truth — see <a href="#data-sources">Data sources</a>), this hook <strong>does</strong> fire when you re-run <code>dt-gsk</code> with <code>--stats</code>: the freshly reproduced run is compared against the committed reference DT-GSK as an <code>DT-GSK-REF</code> row. Read that row as a <strong>reproduction/self-consistency check</strong> on your local run — not as a paper result; the paper&#x27;s DT-GSK numbers are the committed reference tables themselves.</p>
+<h3 id="gsk-stats-options"><code>gsk-stats</code> options</h3>
+<p>Key options: <code>--proposed</code> (default <code>dt-gsk</code>), <code>--dims</code> (default: the suite&#x27;s standard set), <code>--results-root</code> (default <code>results/_run_all</code>), <code>--reference-root</code> (default <code>benchmarks/cec_reference_results</code>), <code>--out</code> (default <code>&lt;results-root&gt;/_analysis/&lt;suite&gt;</code>), <code>--alpha</code> (default <code>0.05</code>), and <code>--no-figures</code>. Passing <code>--strict-source</code> switches to <strong>publication mode</strong>: the loader refuses any empirical input outside the immutable evidence release (<code>benchmarks/cec_reference_results/</code> — no <code>results/</code> fallback; a missing cell fails loudly) and writes a <code>source_use_audit.csv</code> of every opened data file next to the report. The command exits nonzero when the reference tree is missing, or when the proposed optimizer has neither a committed reference table nor a reproduced fallback run for the requested suite/dimensions.</p>
+<h2 id="outputs">Outputs</h2>
+<p>Written to <code>results/_run_all/_analysis/&lt;suite&gt;/</code> by default:</p>
+<ul>
+<li><code>&lt;suite&gt;_statistical_report.txt</code> — concatenated per-dimension text report</li>
+<p>(Wilcoxon tables + Friedman table + peer comparison).</p>
+<li><code>&lt;suite&gt;_friedman_ranks.csv</code> — algorithms x dimensions of mean ranks plus an</li>
+<p><code>Overall_MeanRank</code> column.</p>
+<li><code>&lt;suite&gt;_friedman_ranks.tex</code>, <code>&lt;suite&gt;_wilcoxon_summary.tex</code> — LaTeX</li>
+<p><code>tabular</code> fragments (best values wrapped in a <code>\bestval{...}</code> macro).</p>
+<li><code>figures/nemenyi_cd_&lt;suite&gt;_D&lt;dim&gt;.png</code>,</li>
+<p><code>figures/friedman_ranks_&lt;suite&gt;_D&lt;dim&gt;.png</code> — matplotlib (Agg) figures.</p>
+</ul>
+<h3 id="reading-the-output">Reading the output</h3>
+<p>A defensible claim combines all three layers — never read one in isolation:</p>
+<ol>
+<li><strong>Friedman + Nemenyi CD</strong> (<code>*_friedman_ranks.csv</code>, the CD PNG): where the</li>
+<p>proposed algorithm sits in the overall ranking, and which competitors it is *not* statistically separated from (connected on the CD bar).</p>
+<li><strong>Per-comparator Wilcoxon + Holm</strong> (the text report, <code>*_wilcoxon_summary.tex</code>):</li>
+<p>the head-to-head <code>+</code>/<code>=</code>/<code>-</code> verdict after family-wise correction, with win/tie/loss counts.</p>
+<li><strong>Effect size</strong> (A12 / Cliff&#x27;s delta): how *large* a significant difference is,</li>
+<p>so a statistically significant but practically negligible gap is not oversold.</p>
+</ol>
+<p>Report the corrected (Holm) decision, not the raw p-value, when summarizing multiple comparators in one dimension.</p>
+<h3 id="troubleshooting">Troubleshooting</h3>
+<div class="table-wrap"><table><thead><tr><th>Symptom</th><th>Likely cause</th><th>Fix</th></tr></thead><tbody><tr><td><code>gsk-stats</code> exits nonzero, &quot;no … summaries found&quot;</td><td>The reference tree lacks the proposed optimizer for that suite <strong>and</strong> no local fallback run exists.</td><td>The committed panel already covers <code>dt-gsk</code> on CEC2017/CEC2011/CEC2013; for another <code>--proposed &lt;id&gt;</code> or suite, run <code>gsk-run</code> first.</td></tr><tr><td><code>gsk-stats</code> exits nonzero, &quot;reference tree missing&quot;</td><td><code>--reference-root</code> points nowhere.</td><td>Point it at <code>benchmarks/cec_reference_results</code>.</td></tr><tr><td>A comparator column is blank</td><td>No committed reference table for that algorithm/dimension.</td><td>Expected for partial coverage; it is omitted, not fabricated.</td></tr><tr><td>Figures not produced</td><td><code>--no-figures</code> was passed.</td><td>Re-run without <code>--no-figures</code>.</td></tr><tr><td>CEC2011 ranks look off</td><td>CEC2011 uses native per-function dimensions and the rollup summary.</td><td>Run <code>gsk-stats --suite CEC2011</code> (no <code>--dims</code>).</td></tr></tbody></table></div>
+<h2 id="paper-review-pack">Paper review pack</h2>
+<p>For advisor review, the <code>papers/</code> tree ships a standalone PDF builder that complements <code>gsk-stats</code>. Run it from the project root:</p>
+<pre><code class="code-block language-powershell">python papers/scripts/generate_review_pack.py</code></pre>
+<p>It writes <code>papers/DT-GSK-CEC2017-review.pdf</code> (matplotlib <code>PdfPages</code>, no LaTeX needed for the review pack): a headline dashboard (Friedman ranks + Holm- corrected Wilcoxon scoreboard), 7-algorithm CEC2017/CEC2011 per-function mean tables, and <strong>7-algorithm GSK-family convergence grids</strong> (GSK, AGSK, APGSK, FDB-AGSK, eGSK, ATMALS-GSK, DT-GSK). Each convergence curve is the mean best-so-far error over an algorithm&#x27;s runs, read from the shared CEC checkpoint CSVs under <code>benchmarks/cec_reference_results/&lt;suite&gt;/&lt;alg&gt;/gen_logs/</code> (comparators) and <code>results/_run_all/dt-gsk/&lt;suite&gt;/gen_logs/</code> (dt-gsk). Missing <code>(algorithm, function, dimension)</code> curves are <strong>never fabricated</strong>: they are skipped on the plot and recorded in <code>papers/DT-GSK-CEC2017-review_missing.log</code>. See <a href="../../papers/README.md"><code>papers/README.md</code></a> for the full page layout.</p>
+<h2 id="module-map">Module map</h2>
+<div class="table-wrap"><table><thead><tr><th>Module</th><th>Role</th></tr></thead><tbody><tr><td><code>analysis/statistics.py</code></td><td>Vendored pure-NumPy core: Wilcoxon, Friedman, Holm, Benjamini-Hochberg, Vargha-Delaney, win/tie/loss, BCa bootstrap.</td></tr><tr><td><code>analysis/statistical_tests.py</code></td><td>Vendored scipy-backed layer: <code>wilcoxon_signed_rank</code>, <code>friedman_rank_test</code>, the formatted text report, and the <code>run_statistical_analysis</code> orchestrator.</td></tr><tr><td><code>analysis/result_loader.py</code></td><td>Loads reference + reproduced summaries into normalized <code>AlgorithmResult</code> records (reference takes priority; a reproduced run is the fallback).</td></tr><tr><td><code>analysis/project_policy.py</code></td><td>Runnable-optimizer and reference-comparator policy (single source of truth for the family panel).</td></tr><tr><td><code>analysis/family_report.py</code></td><td>Ties loading -&gt; tests -&gt; Holm/A12 -&gt; figures/LaTeX/CSV/text into one report.</td></tr><tr><td><code>analysis/figures.py</code></td><td>Nemenyi CD diagram and Friedman rank-chart renderers (matplotlib Agg).</td></tr><tr><td><code>analysis/latex_tables.py</code></td><td>LaTeX <code>tabular</code> fragments built directly from the structured results.</td></tr><tr><td><code>cli/stats.py</code></td><td>The <code>gsk-stats</code> entry point.</td></tr></tbody></table></div>
+<p>The vendored <code>statistics.py</code> and <code>statistical_tests.py</code> carry the published formulas verbatim; the loader, figures, LaTeX, report orchestrator, and CLI are target-native so the suite reads this repository&#x27;s on-disk layout.</p>
+      </article>
+    </main>
+    <aside class="page-toc" aria-label="On this page">
+<h2>On This Page</h2>
+<a class="toc-level-1" href="#statistical-analysis-gsk-family-comparison">Statistical Analysis (GSK-family comparison)</a>
+<a class="toc-level-2" href="#what-it-computes">What it computes</a>
+<a class="toc-level-2" href="#methodology-in-detail">Methodology in detail</a>
+<a class="toc-level-3" href="#friedman-ranking-and-nemenyi-critical-difference">Friedman ranking and Nemenyi critical difference</a>
+<a class="toc-level-3" href="#pairwise-wilcoxon-signed-rank">Pairwise Wilcoxon signed-rank</a>
+<a class="toc-level-3" href="#holm-correction">Holm correction</a>
+<a class="toc-level-3" href="#effect-sizes">Effect sizes</a>
+<a class="toc-level-3" href="#published-panel-statistics-the-paper-s-tool-of-record">Published-panel statistics (the paper&#x27;s tool of record)</a>
+<a class="toc-level-2" href="#data-sources">Data sources</a>
+<a class="toc-level-2" href="#usage">Usage</a>
+<a class="toc-level-3" href="#during-a-run-stats">During a run (`--stats`)</a>
+<a class="toc-level-3" href="#gsk-stats-options">`gsk-stats` options</a>
+<a class="toc-level-2" href="#outputs">Outputs</a>
+<a class="toc-level-3" href="#reading-the-output">Reading the output</a>
+<a class="toc-level-3" href="#troubleshooting">Troubleshooting</a>
+<a class="toc-level-2" href="#paper-review-pack">Paper review pack</a>
+<a class="toc-level-2" href="#module-map">Module map</a>
+</aside>
+  </div>
+  <script src="assets/search.js"></script>
+</body>
+</html>

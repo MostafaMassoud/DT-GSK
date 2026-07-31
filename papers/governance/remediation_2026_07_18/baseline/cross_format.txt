@@ -1,0 +1,52 @@
+cross-format consistency -> D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\papers\governance\cross_format_consistency.csv
+  DT-GSK.docx            bibliography_entry         PASS=  40 FMT_DIFF=  0 FAIL=  0
+  DT-GSK.docx            bibliography_inventory     PASS=   1 FMT_DIFF=  0 FAIL=  0
+  DT-GSK.docx            caption                    PASS=  21 FMT_DIFF=  1 FAIL=  0
+  DT-GSK.docx            citation_keys              PASS=   1 FMT_DIFF=  0 FAIL=  0
+  DT-GSK.docx            citation_numbers           PASS=   1 FMT_DIFF=  0 FAIL=  0
+  DT-GSK.docx            citation_pdf_render        PASS=   1 FMT_DIFF=  0 FAIL=  0
+  DT-GSK.docx            equation_display           PASS=   0 FMT_DIFF=  8 FAIL=  0
+  DT-GSK.docx            heading                    PASS=  38 FMT_DIFF=  0 FAIL=  0
+  DT-GSK.docx            heading_inventory          PASS=   1 FMT_DIFF=  0 FAIL=  0
+  DT-GSK.docx            heading_number_typography  PASS=   0 FMT_DIFF=  1 FAIL=  0
+  DT-GSK.docx            heading_runin              PASS=  12 FMT_DIFF=  0 FAIL=  0
+  DT-GSK.docx            paragraph                  PASS= 131 FMT_DIFF=  2 FAIL=  0
+  DT-GSK.docx            table_authored             PASS=   8 FMT_DIFF=  5 FAIL=  0
+  DT-GSK.docx            table_generated            PASS=   0 FMT_DIFF=  0 FAIL=  2
+  DT-GSK.docx            table_pdf_spot             PASS=   2 FMT_DIFF=  0 FAIL=  0
+  DT-GSK.docx            table_value_precision      PASS=   0 FMT_DIFF=  1 FAIL=  0
+  DT-GSK.docx            toc                        PASS=   0 FMT_DIFF=  1 FAIL=  0
+  DT-GSK.pdf             no_ablation_scan           PASS=   1 FMT_DIFF=  0 FAIL=  0
+  supplementary.docx     bibliography_entry         PASS=   8 FMT_DIFF=  0 FAIL=  0
+  supplementary.docx     bibliography_inventory     PASS=   1 FMT_DIFF=  0 FAIL=  0
+  supplementary.docx     caption                    PASS=  42 FMT_DIFF=  0 FAIL=  0
+  supplementary.docx     citation_keys              PASS=   1 FMT_DIFF=  0 FAIL=  0
+  supplementary.docx     citation_numbers           PASS=   1 FMT_DIFF=  0 FAIL=  0
+  supplementary.docx     citation_pdf_render        PASS=   1 FMT_DIFF=  0 FAIL=  0
+  supplementary.docx     equation_display           PASS=   0 FMT_DIFF=  2 FAIL=  0
+  supplementary.docx     heading                    PASS=  28 FMT_DIFF=  0 FAIL=  0
+  supplementary.docx     heading_inventory          PASS=   1 FMT_DIFF=  0 FAIL=  0
+  supplementary.docx     heading_number_typography  PASS=   0 FMT_DIFF=  1 FAIL=  0
+  supplementary.docx     heading_runin              PASS=  18 FMT_DIFF=  0 FAIL=  0
+  supplementary.docx     paragraph                  PASS=  94 FMT_DIFF=  5 FAIL=  1
+  supplementary.docx     table_authored             PASS=   3 FMT_DIFF=  1 FAIL=  1
+  supplementary.docx     table_generated            PASS=   1 FMT_DIFF=  0 FAIL= 16
+  supplementary.docx     table_pdf_spot             PASS=  17 FMT_DIFF=  0 FAIL=  0
+  supplementary.docx     toc                        PASS=   0 FMT_DIFF=  1 FAIL=  0
+  supplementary.pdf      no_ablation_scan           PASS=   1 FMT_DIFF=  0 FAIL=  0
+TOTAL rows=524  FAIL=20
+  FAIL DT-GSK.docx table_generated 'T16 (Table 16)' :: 8 differing rows; first: [(0, ['Algorithm', 'D10', 'D30', 'D50', 'D100', 'Overall'], ['Algorithm', 'D10_MeanRank', 'D30_
+  FAIL DT-GSK.docx table_generated 'T15 (Table 15)' :: 7 differing rows; first: [(0, ['Algorithm', 'D10', 'D30'], ['Algorithm', 'D10_p', 'D10_p_holm', 'D10_W', 'D10_T', 'D10_L
+  FAIL supplementary.docx table_generated 'T7 (Table 7)' :: 30 differing rows; first: [(0, ['Func.', 'GSK', 'AGSK', 'APGSK', 'FDB-AGSK', 'ATMALS-GSK', 'eGSK', 'DT-GSK'], ['Func', '
+  FAIL supplementary.docx table_generated 'T8 (Table 8)' :: 30 differing rows; first: [(0, ['Func.', 'GSK', 'AGSK', 'APGSK', 'FDB-AGSK', 'ATMALS-GSK', 'eGSK', 'DT-GSK'], ['Func', '
+  FAIL supplementary.docx table_generated 'T9 (Table 9)' :: 30 differing rows; first: [(0, ['Func.', 'GSK', 'AGSK', 'APGSK', 'FDB-AGSK', 'ATMALS-GSK', 'eGSK', 'DT-GSK'], ['Func', '
+  FAIL supplementary.docx table_generated 'T10 (Table 10)' :: 30 differing rows; first: [(0, ['Func.', 'GSK', 'AGSK', 'APGSK', 'FDB-AGSK', 'ATMALS-GSK', 'eGSK', 'DT-GSK'], ['Func', '
+  FAIL supplementary.docx table_generated 'T2 (Table 2)' :: 30 differing rows; first: [(0, ['', 'Best', 'Median', 'Worst', 'Mean', 'SD'], ['Func', 'Best_GSK', 'Best_ISM', 'Median_G
+  FAIL supplementary.docx table_generated 'T3 (Table 3)' :: 30 differing rows; first: [(0, ['', 'Best', 'Median', 'Worst', 'Mean', 'SD'], ['Func', 'Best_GSK', 'Best_ISM', 'Median_G
+  FAIL supplementary.docx table_generated 'T4 (Table 4)' :: 30 differing rows; first: [(0, ['', 'Best', 'Median', 'Worst', 'Mean', 'SD'], ['Func', 'Best_GSK', 'Best_ISM', 'Median_G
+  FAIL supplementary.docx table_generated 'T5 (Table 5)' :: 30 differing rows; first: [(0, ['', 'Best', 'Median', 'Worst', 'Mean', 'SD'], ['Func', 'Best_GSK', 'Best_ISM', 'Median_G
+  FAIL supplementary.docx table_generated 'T6 (Table 6)' :: 5 differing rows; first: [(3, ['p value', '0.0458'], ['p_value', '0.0457927'])]
+  FAIL supplementary.docx table_generated 'T1 (Table 1)' :: 23 differing rows; first: [(0, ['', 'Best', 'Median', 'Worst', 'Mean', 'SD'], ['Func', 'Best_GSK', 'Best_ISM', 'Median_G
+  FAIL supplementary.docx table_generated 'T11 (Table 11)' :: 29 differing rows; first: [(0, ['', 'Best', 'Median', 'Worst', 'Mean', 'SD'], ['Func', 'Best_GSK', 'Best_ISM', 'Median_G
+  FAIL supplementary.docx table_generated 'T12 (Table 12)' :: 29 differing rows; first: [(0, ['', 'Best', 'Median', 'Worst', 'Mean', 'SD'], ['Func', 'Best_GSK', 'Best_ISM', 'Median_G
+  FAIL supplementary.docx table_generated 'T13 (Table 13)' :: 29 differing rows; first: [(0, ['', 'Best', 'Median', 'Worst', 'Mean', 'SD'], ['Func', 'Best_GSK', 'Best_ISM', 'Median_G

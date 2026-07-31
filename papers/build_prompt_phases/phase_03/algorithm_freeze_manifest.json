@@ -1,0 +1,104 @@
+{
+  "schema": "algorithm_freeze_manifest/v1",
+  "phase": "Phase 3 - Method reconstruction, code correspondence, and algorithm freeze",
+  "frozen_utc": "2026-07-10",
+  "anchor_commit": "708a927bf525a74eaec41c7efc10820a4af6442b",
+  "evidence_release": "rel-2026-07-10-262fc16c9",
+  "method": {
+    "name": "DT-GSK",
+    "long_name": "Interaction-Structure Memory Gaining-Sharing Knowledge Optimization",
+    "optimizer_id": "dt-gsk",
+    "shipped_profile": "pub",
+    "profile_builder": "src/gsk_family/optimizers/_ism_profiles.py:build_pub_config",
+    "generator": "threefry",
+    "seed_policy": "unified (UNIFIED_ONLY_OPTIMIZERS)",
+    "max_nfes": "10000 * D",
+    "np_init": "5 * D",
+    "return_value": "global-best (preserved across deep-stall restarts)"
+  },
+  "frozen_core_sources": {
+    "note": "SHA-256 (first 16 hex) at anchor; full byte-identity enforced by scripts/validate_profile_lock.py and tests/regression/test_ism_gsk_byte_stable.py",
+    "ism_gsk.py": "a274e0f83b4efd3c",
+    "_ism_core.py": "1ef815cee5d4c9c3",
+    "_ism_profiles.py": "c3dcdce3a3477dca",
+    "_ism_rng.py": "db1cc028b3ebc145",
+    "_ism_subsystems_merkle32": "e532fc4435fd407cf585c5ee57ba3de8"
+  },
+  "mechanism_inventory": {
+    "inherited": [
+      "gaining-sharing operator",
+      "junior/senior Kexp schedule",
+      "strictly-greedy selection",
+      "L-SHADE midpoint bound repair"
+    ],
+    "modified": [
+      "NLPSR (tier-floored)",
+      "ACE bandit control",
+      "linkage-aware block crossover",
+      "BSE budget-safe escape",
+      "distance-thresholded elite archive",
+      "deep-stall full restart",
+      "self-init fair-start exception"
+    ],
+    "original": [
+      "ARGP acceptance-gated pruning",
+      "SGSM/ISM interaction-structure memory",
+      "eigenframe final polish",
+      "D>=100 controllers (A1/A2/FC4/basin/SP-NLPSR/TERRA)",
+      "13-substream append-only RNG layer"
+    ]
+  },
+  "primary_contribution": "SGSM/ISM interaction-structure memory + eigenframe polish (zero-extra-objective-evaluation structure learning and deterministic end-of-run polish)",
+  "dimension_gating": {
+    "linkage": "pub ON from D>=10 per tier (ISM-fed from D>=50)",
+    "sgsm_and_polish": "D>=50 (interaction_graph_min_dim=50)",
+    "high_d_controllers": "D>=100"
+  },
+  "excluded_experimental_keys": {
+    "note": "off in the locked headline; NOT part of the shipped method (in _ALGORITHM_EXCLUDE_KEYS)",
+    "keys": [
+      "ace_coverage_weighted",
+      "argp_enabled",
+      "init_oversample>1",
+      "init_method=lhs",
+      "terra_* (below D100)",
+      "late_accept_clip_* / frozen_broaden_* / link_random_mix_* defaults",
+      "kr_min_dims",
+      "ace_de_policy_mode=state"
+    ]
+  },
+  "evaluation_accounting": {
+    "single_cap": "BudgetController (_ism_subsystems/budget.py)",
+    "all_calls_charged": true,
+    "budget_safe_exit": "truncation of final batch OR strict BudgetExhausted",
+    "verified_trace": "deterministic_trace/trace_cec2017_F1_D10_S20240620.json (nfes_used==3000==MaxFES, monotone, deterministic)"
+  },
+  "change_control": {
+    "rule": "Any change to the frozen core sources, the pub profile, or the mechanism inventory after this freeze INVALIDATES Phase 3 and all later phases and REQUIRES a change_request_register.csv row per Section 12.2, plus re-run of Gate 3.",
+    "locks": [
+      "scripts/validate_profile_lock.py (byte-identical ISM core)",
+      "tests/regression/test_ism_gsk_byte_stable.py",
+      "tests/unit/test_ism_profiles.py (profile oracle)"
+    ]
+  },
+  "gate": {
+    "gate_id": "Gate 3",
+    "approvers": [
+      "P2",
+      "P4",
+      "P5",
+      "P9"
+    ],
+    "status": "DRAFT-PENDING-SIGNOFF",
+    "pending": [
+      "P2 independent one-iteration code->pseudocode walk",
+      "P4 formal evaluation-accounting sign-off (report drafted)",
+      ".tex/.omml renderings deferred to Phase 7/9 from canonical .md sources"
+    ]
+  },
+  "SUPERSEDED": {
+    "by": "algorithm_freeze_manifest_2026-07-19.json",
+    "on": "2026-07-19",
+    "why": "the hashes below pin the PRE-fix sources under their PRE-rename filenames (ism_gsk.py, _ism_core.py, _ism_profiles.py, _ism_rng.py). The C006 and M038 corrections and the ISM-GSK -> DT-GSK rename mean none of them matches a shipped module. Retained as the historical record of the 2026-07-10 freeze; do NOT cite it as the current method lock. Registered as CR-0007."
+  }
+}

@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Sibling-Campaign Transfer — every tuning that can make the GSK family fast - GSK Family Python Documentation">
+  <title>Sibling-Campaign Transfer — every tuning that can make the GSK family fast | GSK Family Python Documentation</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <div class="site-shell">
+    <aside class="sidebar">
+<div class="brand"><a href="index.html">GSK Family Python</a></div>
+<input class="nav-search" type="search" placeholder="Filter docs" aria-label="Filter docs">
+<nav class="nav-list" aria-label="Documentation">
+<section><h2>Getting Started</h2>
+<a class="nav-link" href="getting-started_configuration.html">Configuration</a>
+<a class="nav-link" href="getting-started_explainer.html">Explainer</a>
+<a class="nav-link" href="getting-started_runbook.html">Runbook</a>
+<a class="nav-link" href="getting-started_troubleshooting.html">Troubleshooting</a>
+<a class="nav-link" href="getting-started_tutorial.html">Tutorial</a>
+<a class="nav-link" href="getting-started_user_guide.html">User Guide</a>
+</section>
+<section><h2>Reference</h2>
+<a class="nav-link" href="reference_api.html">API Reference</a>
+<a class="nav-link" href="reference_architecture.html">Architecture</a>
+<a class="nav-link" href="reference_benchmark_mapping.html">Benchmark Mapping</a>
+<a class="nav-link" href="reference_benchmark_protocol.html">Benchmark Protocol</a>
+<a class="nav-link" href="reference_cec2011_cpp_python_equivalence_review.html">CEC2011 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013_cpp_python_equivalence_review.html">CEC2013 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013lsgo_cpp_python_equivalence_review.html">CEC2013LSGO C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2017_cpp_python_equivalence_review.html">CEC2017 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2020_cpp_python_equivalence_review.html">CEC2020 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="index.html">Documentation Index</a>
+<a class="nav-link" href="reference_fp_regime.html">Floating-Point Regime Verification</a>
+<a class="nav-link" href="reference_diagrams.html">Flowcharts And Diagrams</a>
+<a class="nav-link" href="reference_glossary.html">Glossary</a>
+<a class="nav-link" href="LICENSES.html">Licenses</a>
+<a class="nav-link" href="reference_module_dependencies.html">Module Dependencies</a>
+<a class="nav-link" href="reference_project_structure.html">Project Structure</a>
+<a class="nav-link" href="reference_python_optimizer_interface.html">Python Optimizer Interface</a>
+<a class="nav-link" href="reference_result_schema.html">Result Schema</a>
+<a class="nav-link" href="reference_seed_policy.html">Seed Policy</a>
+<a class="nav-link" href="reference_workflows.html">Workflows</a>
+</section>
+<section><h2>Algorithm Guides</h2>
+<a class="nav-link" href="algorithms_agsk.html">AGSK — Adaptive Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_apgsk.html">APGSK — Adaptive-Parameters Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_atmals-gsk.html">ATMALS-GSK — Adaptive Tuning, Memory, Adaptive Local Search</a>
+<a class="nav-link" href="algorithms_dt-gsk.html">DT-GSK — Dimension-Tiered Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_egsk.html">EGSK — Enhanced Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_fdb-agsk.html">FDB-AGSK — Fitness-Distance-Balance AGSK</a>
+<a class="nav-link" href="algorithms_gsk.html">GSK — Gaining-Sharing Knowledge</a>
+</section>
+<section><h2>Development</h2>
+<a class="nav-link" href="development_BUG_resume_summary_truncation.html">BUG-RESUME-01 — resume mode truncates (and mis-computes) the per-dimension summary CSV</a>
+<a class="nav-link" href="development_LSGO_ACCELERATION_PLAN.html">CEC2013LSGO Acceleration Plan — all 7 GSK-family algorithms, bit-identically</a>
+<a class="nav-link" href="development_LSGO_INTEGRATION_CAMPAIGN.html">CEC2013LSGO Integration — Campaign Plan</a>
+<a class="nav-link" href="development_CEC2017_PREC_adjudication.html">CEC2017-PREC — adjudication (CLOSED 2026-07-25)</a>
+<a class="nav-link" href="development_code_reading_guide.html">Code Reading Guide</a>
+<a class="nav-link" href="development_contributor_guide.html">Contributor Guide</a>
+<a class="nav-link" href="development_DECC_G_port_record.html">DECC-G port — fidelity and validation record</a>
+<a class="nav-link" href="development_developer_guide.html">Developer Guide</a>
+<a class="nav-link" href="development_README.html">Development Docs</a>
+<a class="nav-link" href="development_dt_gsk_core_reference.html">DT-GSK Core Reference — the vendored core and its byte-identity lock</a>
+<a class="nav-link" href="development_evidence_rerun_runbook.html">DT-GSK re-run runbook — corrected implementation (C006 + graph backend)</a>
+<a class="nav-link" href="development_egsk_port_spec.html">EGSK — Algorithm Spec &amp; Porting Verdict</a>
+<a class="nav-link" href="development_extension_guide.html">Extension Guide</a>
+<a class="nav-link" href="development_FAMILY_ACCELERATION_PLAN.html">Family-wide acceleration plan — 7 algorithms x 5 suites, bit-identical only</a>
+<a class="nav-link" href="development_FINAL_PUBLICATION_PLAN.html">FINAL PUBLICATION PLAN — DT-GSK, Four(/Five)-Suite Scope</a>
+<a class="nav-link" href="development_ACCELERATION_CAMPAIGN_PROMPT.html">GSK-Family Acceleration Campaign — Execution Prompt</a>
+<a class="nav-link" href="development_maintenance_guide.html">Maintenance Guide</a>
+<a class="nav-link" href="development_PORT_05_TUNING_TRIAGE.html">Porting project-05 tuning into 02 — Phase 1 audit and triage</a>
+<a class="nav-link" href="development_REFERENCE_PROMOTION_PLAN.html">Reference Promotion Plan — CEC2013LSGO now, CEC2020 behind its completeness gate</a>
+<a class="nav-link active" href="development_SIBLING_CAMPAIGN_TRANSFER.html">Sibling-Campaign Transfer — every tuning that can make the GSK family fast</a>
+</section>
+<section><h2>Research</h2>
+<a class="nav-link" href="research_egsk_validation_appendix.html">EGSK Validation Appendix — Paired Port-vs-Reference Equivalence</a>
+<a class="nav-link" href="research_numerical_examples.html">Numerical Examples</a>
+<a class="nav-link" href="research_performance.html">Performance</a>
+<a class="nav-link" href="research_reproducibility.html">Reproducibility</a>
+<a class="nav-link" href="research_researcher_handbook.html">Researcher Handbook</a>
+<a class="nav-link" href="research_statistical_analysis.html">Statistical Analysis (GSK-family comparison)</a>
+<a class="nav-link" href="research_validation_report.html">Validation Report</a>
+</section>
+<section><h2>Prompts</h2>
+<a class="nav-link" href="prompt_documentation-deep-upgrade.html">Deep Documentation Review &amp; Upgrade Prompt — GSK Family Python</a>
+<a class="nav-link" href="prompt_project-review.html">Deep Expert Review Prompt For GSK Family Python</a>
+<a class="nav-link" href="prompt_documentation-review.html">Documentation Review Prompt</a>
+<a class="nav-link" href="prompt_publication-polish.html">Final Publication Prompt — Production-Ready Q1 Release of GSK Family Python v1.1</a>
+</section>
+<section><h2>Python API</h2>
+<a class="nav-link" href="api_index.html">API Module Index</a>
+<a class="nav-link api-link" href="api/gsk_family.__init__.html">gsk_family.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.__init__.html">gsk_family.analysis.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.family_report.html">gsk_family.analysis.family_report</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.figures.html">gsk_family.analysis.figures</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.latex_tables.html">gsk_family.analysis.latex_tables</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.project_policy.html">gsk_family.analysis.project_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.result_loader.html">gsk_family.analysis.result_loader</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistical_tests.html">gsk_family.analysis.statistical_tests</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistics.html">gsk_family.analysis.statistics</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.__init__.html">gsk_family.benchmark_adapter.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.factory.html">gsk_family.benchmark_adapter.factory</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.problem.html">gsk_family.benchmark_adapter.problem</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.protocol.html">gsk_family.benchmark_adapter.protocol</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.__init__.html">gsk_family.cli.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.list.html">gsk_family.cli.list</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.run.html">gsk_family.cli.run</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.stats.html">gsk_family.cli.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.validate.html">gsk_family.cli.validate</a>
+<a class="nav-link api-link" href="api/gsk_family.common.__init__.html">gsk_family.common.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.common.bounds.html">gsk_family.common.bounds</a>
+<a class="nav-link api-link" href="api/gsk_family.common.donors.html">gsk_family.common.donors</a>
+<a class="nav-link api-link" href="api/gsk_family.common.numeric_compat.html">gsk_family.common.numeric_compat</a>
+<a class="nav-link api-link" href="api/gsk_family.common.population.html">gsk_family.common.population</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reduction.html">gsk_family.common.reduction</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reference_rng.html">gsk_family.common.reference_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.rng.html">gsk_family.common.rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.threefry_rng.html">gsk_family.common.threefry_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.__init__.html">gsk_family.optimizers.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_profiles.html">gsk_family.optimizers._dt_profiles</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_rng.html">gsk_family.optimizers._dt_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._kernels.html">gsk_family.optimizers._kernels</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.agsk.html">gsk_family.optimizers.agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.apgsk.html">gsk_family.optimizers.apgsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_gsk.html">gsk_family.optimizers.atmals_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_helpers.html">gsk_family.optimizers.atmals_helpers</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.dt_gsk.html">gsk_family.optimizers.dt_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.egsk.html">gsk_family.optimizers.egsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.__init__.html">gsk_family.optimizers.external.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._base.html">gsk_family.optimizers.external._base</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._telemetry_shim.html">gsk_family.optimizers.external._telemetry_shim</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.cmaes.html">gsk_family.optimizers.external.cmaes</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.decc_g.html">gsk_family.optimizers.external.decc_g</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.ebowithcmar.html">gsk_family.optimizers.external.ebowithcmar</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.jso.html">gsk_family.optimizers.external.jso</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade.html">gsk_family.optimizers.external.lshade</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade_spacma.html">gsk_family.optimizers.external.lshade_spacma</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.mos_cec2013lsgo.html">gsk_family.optimizers.external.mos_cec2013lsgo</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.shade_ils.html">gsk_family.optimizers.external.shade_ils</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_agsk.html">gsk_family.optimizers.fdb_agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_scores.html">gsk_family.optimizers.fdb_scores</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.gsk.html">gsk_family.optimizers.gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.__init__.html">gsk_family.runners.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.config.html">gsk_family.runners.config</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.fp_regime.html">gsk_family.runners.fp_regime</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.output.html">gsk_family.runners.output</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.parallel.html">gsk_family.runners.parallel</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.performance.html">gsk_family.runners.performance</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.run_experiment.html">gsk_family.runners.run_experiment</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.seed_policy.html">gsk_family.runners.seed_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.verification.html">gsk_family.runners.verification</a>
+<a class="nav-link api-link" href="api/gsk_family.stats.html">gsk_family.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.types.html">gsk_family.types</a>
+</section>
+</nav></aside>
+    <main class="content">
+      <article class="doc-card">
+        <h1 id="sibling-campaign-transfer-every-tuning-that-can-make-the-gsk-family-fast">Sibling-Campaign Transfer — every tuning that can make the GSK family fast</h1>
+<p><strong>2026-07-17 · What was proven in <code>05-Human-Inspired-Family_Python_v0.1</code>, mapped onto <code>02-GSK_Family_Python_v1.1</code> (7 algorithms × cec2017/cec2013/cec2011/cec2013lsgo/cec2020).</strong> Companion to <code>ACCELERATION_CAMPAIGN_PROMPT.md</code> (method + governance). Every number below is <strong>measured in the sibling campaign</strong> unless marked *estimated*. Source of truth: <code>05-Human-Inspired-Family_Python_v0.1/docs/development/OPTIMIZER_PERFORMANCE_AUDIT.md</code>.</p>
+<p>---</p>
+<h2 id="0-the-one-fact-that-governs-the-whole-transfer">0. The one fact that governs the whole transfer</h2>
+<p>The sibling project&#x27;s <strong><code>gsk.py</code> is population-batch — the identical shape to this family</strong> (two <code>problem.evaluate</code> sites: init + one <code>(NP,D)</code> trial per generation, NP=100 fixed). So it is not an analogy: **their gsk *is* our gsk**, and whatever it gained, we can expect.</p>
+<p>It gained, in order:</p>
+<div class="table-wrap"><table><thead><tr><th>Lever</th><th>Measured on their population-batch gsk</th></tr></thead><tbody><tr><td>Serial-kernel twins (cec2017)</td><td><strong>3.2× (F1 D10) → 10.8× (F28 D10)</strong></td></tr><tr><td>Serial-kernel twins (LSGO D=1000)</td><td><strong>1.5×</strong> (kernel volume dominates at high D)</td></tr><tr><td>Unrolled Threefry fill</td><td><strong>3.9×</strong> on RNG (96 → 376 M doubles/s); gsk &quot;gains disproportionately&quot; — <strong>✅ already banked here at 4.19×</strong> (§1.2)</td></tr><tr><td><code>gsk.py</code> micro-set</td><td><strong>~8–15%</strong> on the serial residual</td></tr></tbody></table></div>
+<p>Result: *&quot;The proposed method is now the fastest optimizer in the suite in the regime the campaign actually runs&quot;* — 4/4 race cells, +3% to +16% over the previous leader.</p>
+<p><strong>Roughly two-thirds of that campaign does NOT transfer</strong> — wave-splitting, rejection-aware speculative batching, phase-merging, the local-read/global-read dichotomy — because it all exists to drag *member-sequential* optimizers toward gsk&#x27;s shape. <strong>This family is already at that target.</strong> Do not port it; do not let its 10–19× headline numbers set expectations.</p>
+<p>---</p>
+<h2 id="1-applies-ranked-by-expected-value-here">1. ✅ APPLIES — ranked by expected value here</h2>
+<h3 id="1-1-serial-kernel-twins-the-biggest-lever">1.1 Serial-kernel twins — <strong>the biggest lever</strong> ⭐</h3>
+<ul>
+<li><strong>What:</strong> re-jit each suite kernel&#x27;s *same* <code>py_func</code> with <code>parallel=False</code>; route opted-in</li>
+<p>callers via a thread-local scope. Same math, no numba workqueue launch.</p>
+<li><strong>Why it pays even at NP=100:</strong> one <code>evaluate</code> is <strong>2–15 kernel launches</strong> (F1–F10 ≈ 2 ≈</li>
+<p>135 µs; hybrids ≈ 4 ≈ 272 µs; compositions ≈ 6–15 ≈ 580–965 µs), and at <code>threads=1</code> the launch is paid <strong>per call at every batch size</strong> — 1-thread <code>parallel=True</code> is literally *serial + tax*. Single-row kernel call <strong>60 µs → 0.4 µs</strong>.</p>
+<li><strong>Expected here:</strong> <strong>~3–10× on cec2017</strong>, <strong>~1.5× on cec2013lsgo D=1000</strong>, <strong>0 on cec2011</strong>.</li>
+<li><strong>Preconditions (all verified present):</strong> suite kernels are <code>parallel=True</code> ✅ (cec2017,</li>
+<p>cec2013, cec2013lsgo, cec2020); campaign pins <code>NUMBA_NUM_THREADS=1</code> ✅ (<code>run_campaign.py:146-153</code>).</p>
+<li><strong>Risk:</strong> <strong>R2</strong> on cec2017/cec2013lsgo (fastmath tail). Sibling&#x27;s exhaustive bar, 2.16 M</li>
+<p>rows: *95.68% bitwise; worst <strong>11 ULP</strong> (F29 D100); <strong>relative ≤ 2.5e-15 everywhere</strong>*; documented contract <strong>≤3e-15 relative under fastmath, bit-identical under strict fp</strong>. → <strong>R1 by construction on cec2013 and cec2020</strong> (fastmath absent suite-wide, by audit ruling M-03/H1) and on cec2013lsgo&#x27;s 4 group-reduction kernels (0 ULP measured there: 4,080/4,080 rows).</p>
+<li><strong>⚠ Two traps to copy exactly:</strong> <code>cache=False</code> on the re-jit is <strong>load-bearing</strong></li>
+<p>(<code>cache=True</code> silently loads the *parallel* build&#x27;s on-disk artifact — a silent-correctness trap, &quot;verified twice&quot;); and <strong>per-suite scopes</strong> so a cec2017 scope can never route LSGO kernels.</p>
+<li><strong>Cost:</strong> ~2.3 s/worker one-time warmup, folded into the pool initializer.</li>
+<li><strong>Status here:</strong> the cec2017 serial-twin <strong>infrastructure has landed, opt-in and default-OFF</strong>,</li>
+<p>and the R2 question was *measured* on cec2017 — <strong>93.20% bitwise, worst 13 ULP</strong> (close to the sibling&#x27;s 95.68% / 11 ULP). That measurement is exactly why cec2017 twins are a <strong>priced</strong> choice (Option C — signed refreeze + full ×7 regeneration), not a free win. See §4.</p>
+</ul>
+<h3 id="1-2-unrolled-threefry-4x64-20-fill-kernel-landed">1.2 Unrolled Threefry-4x64-20 fill kernel ⭐ — ✅ <strong>LANDED</strong></h3>
+<ul>
+<li><strong>What:</strong> unroll the 20 rounds with literal rotation constants + compile-time key</li>
+<p>injection. Pure integer ops in identical order ⇒ <strong>stream-identical by construction</strong>.</p>
+<li><strong>Sibling measurement:</strong> <strong>96 → 376 M doubles/s (3.9×)</strong>, suite-wide. Their note: *&quot;gsk, the</li>
+<p>suite&#x27;s heaviest RNG consumer (3·NP·D doubles/gen), <strong>gains disproportionately</strong>.&quot;*</p>
+<li><strong>Status here: DONE — this lever is spent.</strong> <code>common/threefry_rng.py</code> is <strong>already unrolled</strong>:</li>
+<p>the fill kernel emits the rounds as literal <code>np.uint64</code> rotation constants (generated mechanically), and the old <code>r % 8</code> / <code>(r+1) % 4</code> / <code>s % 5</code> anti-patterns are gone. It landed as a <strong>bit-identical R1 edit at 4.19×</strong> on the RNG (measured here — on the optimistic side of the 3.9× sibling estimate), verified bitwise on <strong>980,000 doubles</strong> across seeds, counter offsets, and the carry/wraparound path. Threefry is the production stream (<code>run_campaign.py --rand-generator threefry</code>; dt-gsk forces it regardless of policy), so the win is realized family-wide. The measure-before-committing caveat (LLVM might already unroll a constant-trip <code>range(20)</code>) was settled by that measurement.</p>
+</ul>
+<h3 id="1-3-the-gsk-py-micro-set-5-named-r1-edits">1.3 The <code>gsk.py</code> micro-set — 5 named R1 edits</h3>
+<p>Landed as one bit-identical batch, <strong>~8–15% of the serial residual</strong>, gated on a <strong>30-fingerprint battery</strong> (best_fitness/best_x/convergence × 5 cells × 3 seeds × both kernel paths) + a production replay. All five are shape-compatible with our six classics:</p>
+<ul>
+<li><strong>Copy elimination</strong> — 2 full <code>(NP,D)</code> copies/gen → alias + one blended <code>np.where</code>.</li>
+<p>✅ *Our gsk/agsk/apgsk/fdb_agsk/atmals/egsk each do exactly <code>pop = popold.copy(); popold = pop.copy()</code> per generation.*</p>
+<li><strong>Kernel-arg hoisting</strong> — call the compiled trial-builder directly with loop-invariant</li>
+<p>vectors. ✅ *Our <code>_kernels.py:159-214</code> does <strong>13 <code>ascontiguousarray</code> casts + 4 allocating <code>_as_f64_vector</code> calls per generation</strong> (in <code>gsk_build_trial</code>). Lands once for six algorithms.*</p>
+<li><strong>Donor scratch-buffer reuse.</strong> ✅ likely applicable (<code>common/donors.py</code>).</li>
+<li><strong>Flat 1-D draw</strong> — <code>3×random(NP)</code> → one <code>random(3*NP)</code>.</li>
+<p>🚨 <strong>PORT THE WARNING TOO:</strong> *&quot;1-D draws are stream-sequential; a 2-D <code>(3,NP)</code> draw would NOT be equivalent — column-major fill.&quot;* Our RNG fills column-major and returns non-contiguous transposed views (<code>reference_rng.py:59</code>) — this trap is <strong>live</strong>.</p>
+<li><strong>Constant-K scalar schedule pow.</strong> ✅ *our gsk does a vector <code>power</code> over an all-equal</li>
+<p><code>k_vec</code> where a scalar suffices.*</p>
+</ul>
+<h3 id="1-4-rng-scalar-fast-paths">1.4 RNG scalar fast paths</h3>
+<ul>
+<li><strong>Measured:</strong> <code>integers(size ∈ {None,1})</code> <strong>8.1 → 3.2 µs</strong>; scalar <code>_draw(count==1)</code> combine.</li>
+<li><strong>Applies here:</strong> ✅ <strong>R1</strong> — pays for <strong>ATMALS-GSK</strong>, whose <code>_local_search</code> makes</li>
+<p><strong>≥5·D scalar <code>float(rng.random())</code> calls/gen</strong> in a nested Python loop (<code>atmals_gsk.py:95-107</code>); 500+/gen at D=100. Our scalar path goes <code>random(None) → float(self._draw(1)[0])</code> — a full Python→njit round trip per double.</p>
+<li><strong>Proof bar:</strong> stream equivalence on 20k draws (bitwise + generator-state match) <strong>and</strong></li>
+<p>frozen replays.</p>
+</ul>
+<h3 id="1-5-persistent-draw-buffers-manual-6-4">1.5 Persistent draw buffers (manual §6.4)</h3>
+<ul>
+<li><strong>R1 by construction</strong> for counter-based generators (block N always yields the same</li>
+<p>values ⇒ stream bytes unchanged). Serves ATMALS&#x27;s singles from a bulk buffer.</p>
+<li>⚠ The argument is <strong>counter-based-specific</strong>: it holds for threefry; MT19937/mcg16807 are</li>
+<p>sequential generators and need their own proof.</p>
+</ul>
+<h3 id="1-6-cec2011-style-analytic-quick-wins">1.6 cec2011-style analytic quick wins</h3>
+<ul>
+<li><strong>Measured:</strong> scipy-import hoist ≈ <strong>13% of F3</strong>; memoization; constant hoists.</li>
+<li><strong>Applies here:</strong> ✅ R1 — but <strong>cec2011 is 1% of our campaign</strong>. Do it only if free.</li>
+</ul>
+<p>---</p>
+<h2 id="2-does-not-apply-do-not-spend-a-round">2. ❌ DOES NOT APPLY — do not spend a round</h2>
+<div class="table-wrap"><table><thead><tr><th>Technique</th><th>Their result</th><th>Why it&#x27;s dead here</th></tr></thead><tbody><tr><td><strong>Wave-splitting</strong></td><td>sgo-social <strong>10.4×</strong></td><td>Needs member-sequential + local-read. <strong>1 dispatch/gen has no waves to split.</strong></td></tr><tr><td><strong>Rejection-aware speculative batching</strong> (&quot;single most valuable lever&quot;)</td><td>tlbo 2.84×, po 2.24×</td><td>Same. Also became *negative value* on their own serial path (sns&#x27;s 9.84× speculative volume = &quot;pure excess&quot;).</td></tr><tr><td><strong>Phase-merging</strong></td><td>pro <strong>2.80×</strong></td><td>Needs ≥2 independent same-iteration phases. Our junior/senior already build <strong>one</strong> trial matrix.</td></tr><tr><td><strong><code>count_precomputed</code></strong> (kill redundant budget-accounting eval)</td><td>qsa 1.52×</td><td>Needs a double-eval. <strong>GSK has none.</strong></td></tr><tr><td><strong>Per-member loop vectorization</strong></td><td>seeker-oa 3.76×</td><td>Our classics are already vectorized.</td></tr><tr><td><strong>Ragged-list → dense arrays</strong></td><td>hlo 1.65×</td><td>We use dense <code>(NP,D)</code> throughout.</td></tr><tr><td><strong>Telemetry dedup</strong></td><td>82% of recomputes avoided</td><td>Needs multi-phase re-recording. Our classics record <strong>1 point/gen</strong>; DT-GSK&#x27;s MEM-1 emits 2 scalars.</td></tr><tr><td><strong>Their gsk&#x27;s #1 residual: dense per-gen diversity telemetry</strong> (47% ceiling)</td><td>—</td><td><strong>Harness difference — does not transfer.</strong> Their <code>TelemetryRecorder</code> snapshots diversity per generation; ours doesn&#x27;t.</td></tr><tr><td><strong>Population size N</strong></td><td>—</td><td>Needs-decision there; <strong>N=100 is already gsk&#x27;s reference</strong>. Research choice, not perf.</td></tr><tr><td><strong>Kernel fusion</strong></td><td>~3–5% of launch slice</td><td><strong>Rejected twice</strong>: not bit-identical, breaks F11–F30 reproducibility. Serial twins take the same prize without touching kernel arithmetic.</td></tr><tr><td><strong>gsk r3-collision draw blocking</strong></td><td>—</td><td><strong>Certified not-blockable</strong>: unbounded redraw-until without a spec cap; <strong>≤0.5 ms/run</strong>. *Never re-propose.*</td></tr><tr><td><strong>cec2011 serial twins</strong></td><td>—</td><td>*&quot;zero prange kernels — no launch tax.&quot;* Nothing to remove.</td></tr></tbody></table></div>
+<p>---</p>
+<h2 id="3-blocked-by-governance-the-real-difference-between-the-two-projects">3. 🔒 BLOCKED BY GOVERNANCE — the real difference between the two projects</h2>
+<p><strong>Block draws (R3)</strong> — their single biggest wall win: <strong>ema 3.83 s → 0.202 s (19×)</strong>, 49.7% of the campaign → noise, 500/500 recording-replay cases bitwise.</p>
+<p><strong>Unavailable here</strong>, and their own text says exactly why it was available *there*:</p>
+<blockquote>*&quot;ema has no async structure (all phases snapshot-determined) and <strong>no frozen results</strong>.&quot;*</blockquote>
+<p>Every one of our 7 algorithms has archived cec2011+cec2013+cec2017 cells under a 3,409-file manifest. **And the constraint travels with the *algorithm*, not the suite** — reordering ATMALS&#x27;s draws to speed up LSGO breaks ATMALS&#x27;s archived cec2017 cells.</p>
+<p><strong>What un-freezing actually cost them</strong> (they did it, once, for gsk — the price is the point):</p>
+<ol>
+<li><strong>Explicit user authorization</strong> — *the un-freeze is the gate, not the code*</li>
+<li>30-fingerprint battery, all byte-identical</li>
+<li>Named production replay (<code>538.539710494278</code>)</li>
+<li><strong>1.2 GB archive retired to a dated backup — moved, never deleted</strong></li>
+<li>Allowlist/refusal-list surgery</li>
+<li><strong>Full leg regeneration — the old results were thrown away and recomputed</strong></li>
+<li>Full suite green + FP sentinel unchanged</li>
+</ol>
+<p>They had <strong>one</strong> algorithm to regenerate. We have <strong>seven × three suites</strong>.</p>
+<p>---</p>
+<h2 id="4-the-recommendation-a-priced-choice">4. The recommendation — a priced choice</h2>
+<div class="table-wrap"><table><thead><tr><th>Option</th><th>Gets you</th><th>Governance cost</th></tr></thead><tbody><tr><td><strong>A. R1-only, all suites</strong></td><td>Threefry unroll <strong>✅ banked (4.19×)</strong> + micro-set (8–15%) + scalar fast paths</td><td><strong>None.</strong> No ruling, no refreeze.</td></tr><tr><td><strong>B ⭐ RECOMMENDED. A + serial twins on greenfield only</strong> (cec2013lsgo, cec2020 = <strong>52% of the campaign</strong>)</td><td><strong>+ ~1.5–10× on the two suites that have never been run</strong></td><td><strong>None</strong> — nothing is frozen there, exactly as LSGO needed no ruling in the sibling (&quot;no LSGO results exist to fork&quot;). Archive untouched <strong>by construction</strong>.</td></tr><tr><td><strong>C. B + serial twins on cec2017</strong></td><td><strong>+ ~3–10× on the paper&#x27;s primary suite</strong> (32% of campaign)</td><td><strong>Signed refreeze + full regeneration of every archived dt-gsk/×7 cell.</strong> R2 (≤3e-15).</td></tr><tr><td><strong>D. C + R3 block draws</strong></td><td>+ up to 19× on ATMALS</td><td>Refreeze of <strong>all</strong> archived cells. Not recommended.</td></tr></tbody></table></div>
+<p><strong>Option B is free, needs no ruling, and covers the majority of the projected campaign.</strong> It is also exactly what the sibling did first on LSGO, for the same reason.</p>
+<p>Note the pleasing asymmetry: <strong>cec2013 and cec2020 have no fastmath at all</strong> (audit rulings M-03 and H1) ⇒ serial twins there are <strong>R1, bit-identical by construction</strong> — no tolerance argument needed even in principle.</p>
+<p>---</p>
+<h2 id="5-two-warnings-the-sibling-paid-for-inherit-them-free">5. Two warnings the sibling paid for — inherit them free</h2>
+<ul>
+<li><strong><code>cache=False</code> on every <code>py_func</code> re-jit.</strong> <code>cache=True</code> silently loads the *parallel*</li>
+<p>build&#x27;s cached artifact; your &quot;serial&quot; twin then runs at parallel speed with <strong>no warning</strong>, and <code>targetoptions</code> still *looks* right. They hit it twice.</p>
+<li><strong>Never widen a 2-D draw.</strong> <code>random((3,NP)) ≠ 3× random(NP)</code> under column-major fill.</li>
+<p>Only flat-1-D (<code>random(3*NP)</code>) and leading-axis collapse are stream-equivalent. Our reference RNG fills column-major (<code>reference_rng.py:59</code>) — <strong>live trap</strong>.</p>
+</ul>
+<h2 id="6-calibration-how-much-to-trust-the-forward-estimates">6. Calibration — how much to trust the forward estimates</h2>
+<p>Their measured-vs-predicted record: hlo 1.53 predicted / <strong>1.65 landed</strong>; qsa 1.66 / 1.52; po ~2.2–2.5 / 2.24; tlbo ~2.4–3 / 2.84; seeker-oa ~3.4–4.1 / 3.76 — good. <strong>But two badly overshot:</strong> sns predicted ~3.7–4.6× and landed <strong>1.52×</strong>; bso predicted ~2–2.3× and landed <strong>~1×</strong> (a correct fix with no payoff). <strong>Treat forward estimates as ±2× on the pessimistic tail — including the ones in this document.</strong></p>
+<p><strong>The first landing here fits the record:</strong> the Threefry unroll (§1.2) was estimated at 3.9× (sibling) and <strong>measured 4.19×</strong> here — on the optimistic side, as expected for a stream-identical, pure-integer-op change with no fastmath tolerance tail.</p>
+<p>And the campaign <strong>reversed its own conclusion once</strong>: it declared *&quot;the optimization ceiling is the algorithm level, reached&quot;* and *&quot;realistic ceiling ~4×gsk&quot;* — then found the 60 µs launch was not a floor at all and drove toa to 2.4× with <strong>zero algorithm changes</strong>. <strong>Measure; don&#x27;t derive.</strong> (This document&#x27;s own v1.0 made precisely the derived-not-measured error about serial twins — see the correction box in <code>ACCELERATION_CAMPAIGN_PROMPT.md</code> §3.1.)</p>
+      </article>
+    </main>
+    <aside class="page-toc" aria-label="On this page">
+<h2>On This Page</h2>
+<a class="toc-level-1" href="#sibling-campaign-transfer-every-tuning-that-can-make-the-gsk-family-fast">Sibling-Campaign Transfer — every tuning that can make the GSK family fast</a>
+<a class="toc-level-2" href="#0-the-one-fact-that-governs-the-whole-transfer">0. The one fact that governs the whole transfer</a>
+<a class="toc-level-2" href="#1-applies-ranked-by-expected-value-here">1. ✅ APPLIES — ranked by expected value here</a>
+<a class="toc-level-3" href="#1-1-serial-kernel-twins-the-biggest-lever">1.1 Serial-kernel twins — **the biggest lever** ⭐</a>
+<a class="toc-level-3" href="#1-2-unrolled-threefry-4x64-20-fill-kernel-landed">1.2 Unrolled Threefry-4x64-20 fill kernel ⭐ — ✅ **LANDED**</a>
+<a class="toc-level-3" href="#1-3-the-gsk-py-micro-set-5-named-r1-edits">1.3 The `gsk.py` micro-set — 5 named R1 edits</a>
+<a class="toc-level-3" href="#1-4-rng-scalar-fast-paths">1.4 RNG scalar fast paths</a>
+<a class="toc-level-3" href="#1-5-persistent-draw-buffers-manual-6-4">1.5 Persistent draw buffers (manual §6.4)</a>
+<a class="toc-level-3" href="#1-6-cec2011-style-analytic-quick-wins">1.6 cec2011-style analytic quick wins</a>
+<a class="toc-level-2" href="#2-does-not-apply-do-not-spend-a-round">2. ❌ DOES NOT APPLY — do not spend a round</a>
+<a class="toc-level-2" href="#3-blocked-by-governance-the-real-difference-between-the-two-projects">3. 🔒 BLOCKED BY GOVERNANCE — the real difference between the two projects</a>
+<a class="toc-level-2" href="#4-the-recommendation-a-priced-choice">4. The recommendation — a priced choice</a>
+<a class="toc-level-2" href="#5-two-warnings-the-sibling-paid-for-inherit-them-free">5. Two warnings the sibling paid for — inherit them free</a>
+<a class="toc-level-2" href="#6-calibration-how-much-to-trust-the-forward-estimates">6. Calibration — how much to trust the forward estimates</a>
+</aside>
+  </div>
+  <script src="assets/search.js"></script>
+</body>
+</html>

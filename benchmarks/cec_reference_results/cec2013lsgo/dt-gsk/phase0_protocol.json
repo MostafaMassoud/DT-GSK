@@ -1,0 +1,67 @@
+{
+  "base_seed": 20240620,
+  "stride_run": 1000037,
+  "dim_stride": 1000003,
+  "func_stride": 1000033,
+  "runs": 25,
+  "dims": [
+    905,
+    1000
+  ],
+  "suite": "CEC2013LSGO",
+  "excluded": [],
+  "funcs_to_run": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "seed_policy": {
+    "scheme": "unified: seed = mod(uint64(base_seed) + uint64(1000003)*uint64(dim) + uint64(1000033)*uint64(func) + uint64(1000037)*uint64(run), uint64(2147483646)) + 1; optimizer-independent fair cross-family schedule; generator resolved to threefry when available, otherwise twister; X0 drawn once in the runner",
+    "run_id_origin": 1,
+    "base_seed_field": "base_seed",
+    "stride_field": "stride_run"
+  },
+  "rand_generator": "threefry",
+  "benchmark_fp_mode": "default",
+  "benchmark_backend": "python",
+  "benchmark_backend_requested": "auto",
+  "generation_logs": true,
+  "convergence_graphs": true,
+  "initial_population_policy": "runner-generated shared X0 from get_cec_seed(base_seed,dim,func,run); post-initialization rng state restored inside optimizer",
+  "optimizer_options": {
+    "linkage_block_size_by_dim": {
+      "1": 1,
+      "5": 5,
+      "6": 5,
+      "7": 5,
+      "10": 5,
+      "12": 5,
+      "13": 5,
+      "15": 5,
+      "20": 5,
+      "22": 5,
+      "26": 5,
+      "30": 5,
+      "40": 5,
+      "50": 10,
+      "96": 10,
+      "100": 10,
+      "120": 10,
+      "126": 10,
+      "140": 10,
+      "240": 10,
+      "905": 50,
+      "1000": 50
+    },
+    "strict_profile_dims": true
+  },
+  "smoke": false
+}

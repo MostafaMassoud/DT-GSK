@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Extension Guide - GSK Family Python Documentation">
+  <title>Extension Guide | GSK Family Python Documentation</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <div class="site-shell">
+    <aside class="sidebar">
+<div class="brand"><a href="index.html">GSK Family Python</a></div>
+<input class="nav-search" type="search" placeholder="Filter docs" aria-label="Filter docs">
+<nav class="nav-list" aria-label="Documentation">
+<section><h2>Getting Started</h2>
+<a class="nav-link" href="getting-started_configuration.html">Configuration</a>
+<a class="nav-link" href="getting-started_explainer.html">Explainer</a>
+<a class="nav-link" href="getting-started_runbook.html">Runbook</a>
+<a class="nav-link" href="getting-started_troubleshooting.html">Troubleshooting</a>
+<a class="nav-link" href="getting-started_tutorial.html">Tutorial</a>
+<a class="nav-link" href="getting-started_user_guide.html">User Guide</a>
+</section>
+<section><h2>Reference</h2>
+<a class="nav-link" href="reference_api.html">API Reference</a>
+<a class="nav-link" href="reference_architecture.html">Architecture</a>
+<a class="nav-link" href="reference_benchmark_mapping.html">Benchmark Mapping</a>
+<a class="nav-link" href="reference_benchmark_protocol.html">Benchmark Protocol</a>
+<a class="nav-link" href="reference_cec2011_cpp_python_equivalence_review.html">CEC2011 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013_cpp_python_equivalence_review.html">CEC2013 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013lsgo_cpp_python_equivalence_review.html">CEC2013LSGO C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2017_cpp_python_equivalence_review.html">CEC2017 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2020_cpp_python_equivalence_review.html">CEC2020 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="index.html">Documentation Index</a>
+<a class="nav-link" href="reference_fp_regime.html">Floating-Point Regime Verification</a>
+<a class="nav-link" href="reference_diagrams.html">Flowcharts And Diagrams</a>
+<a class="nav-link" href="reference_glossary.html">Glossary</a>
+<a class="nav-link" href="LICENSES.html">Licenses</a>
+<a class="nav-link" href="reference_module_dependencies.html">Module Dependencies</a>
+<a class="nav-link" href="reference_project_structure.html">Project Structure</a>
+<a class="nav-link" href="reference_python_optimizer_interface.html">Python Optimizer Interface</a>
+<a class="nav-link" href="reference_result_schema.html">Result Schema</a>
+<a class="nav-link" href="reference_seed_policy.html">Seed Policy</a>
+<a class="nav-link" href="reference_workflows.html">Workflows</a>
+</section>
+<section><h2>Algorithm Guides</h2>
+<a class="nav-link" href="algorithms_agsk.html">AGSK — Adaptive Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_apgsk.html">APGSK — Adaptive-Parameters Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_atmals-gsk.html">ATMALS-GSK — Adaptive Tuning, Memory, Adaptive Local Search</a>
+<a class="nav-link" href="algorithms_dt-gsk.html">DT-GSK — Dimension-Tiered Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_egsk.html">EGSK — Enhanced Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_fdb-agsk.html">FDB-AGSK — Fitness-Distance-Balance AGSK</a>
+<a class="nav-link" href="algorithms_gsk.html">GSK — Gaining-Sharing Knowledge</a>
+</section>
+<section><h2>Development</h2>
+<a class="nav-link" href="development_BUG_resume_summary_truncation.html">BUG-RESUME-01 — resume mode truncates (and mis-computes) the per-dimension summary CSV</a>
+<a class="nav-link" href="development_LSGO_ACCELERATION_PLAN.html">CEC2013LSGO Acceleration Plan — all 7 GSK-family algorithms, bit-identically</a>
+<a class="nav-link" href="development_LSGO_INTEGRATION_CAMPAIGN.html">CEC2013LSGO Integration — Campaign Plan</a>
+<a class="nav-link" href="development_CEC2017_PREC_adjudication.html">CEC2017-PREC — adjudication (CLOSED 2026-07-25)</a>
+<a class="nav-link" href="development_code_reading_guide.html">Code Reading Guide</a>
+<a class="nav-link" href="development_contributor_guide.html">Contributor Guide</a>
+<a class="nav-link" href="development_DECC_G_port_record.html">DECC-G port — fidelity and validation record</a>
+<a class="nav-link" href="development_developer_guide.html">Developer Guide</a>
+<a class="nav-link" href="development_README.html">Development Docs</a>
+<a class="nav-link" href="development_dt_gsk_core_reference.html">DT-GSK Core Reference — the vendored core and its byte-identity lock</a>
+<a class="nav-link" href="development_evidence_rerun_runbook.html">DT-GSK re-run runbook — corrected implementation (C006 + graph backend)</a>
+<a class="nav-link" href="development_egsk_port_spec.html">EGSK — Algorithm Spec &amp; Porting Verdict</a>
+<a class="nav-link active" href="development_extension_guide.html">Extension Guide</a>
+<a class="nav-link" href="development_FAMILY_ACCELERATION_PLAN.html">Family-wide acceleration plan — 7 algorithms x 5 suites, bit-identical only</a>
+<a class="nav-link" href="development_FINAL_PUBLICATION_PLAN.html">FINAL PUBLICATION PLAN — DT-GSK, Four(/Five)-Suite Scope</a>
+<a class="nav-link" href="development_ACCELERATION_CAMPAIGN_PROMPT.html">GSK-Family Acceleration Campaign — Execution Prompt</a>
+<a class="nav-link" href="development_maintenance_guide.html">Maintenance Guide</a>
+<a class="nav-link" href="development_PORT_05_TUNING_TRIAGE.html">Porting project-05 tuning into 02 — Phase 1 audit and triage</a>
+<a class="nav-link" href="development_REFERENCE_PROMOTION_PLAN.html">Reference Promotion Plan — CEC2013LSGO now, CEC2020 behind its completeness gate</a>
+<a class="nav-link" href="development_SIBLING_CAMPAIGN_TRANSFER.html">Sibling-Campaign Transfer — every tuning that can make the GSK family fast</a>
+</section>
+<section><h2>Research</h2>
+<a class="nav-link" href="research_egsk_validation_appendix.html">EGSK Validation Appendix — Paired Port-vs-Reference Equivalence</a>
+<a class="nav-link" href="research_numerical_examples.html">Numerical Examples</a>
+<a class="nav-link" href="research_performance.html">Performance</a>
+<a class="nav-link" href="research_reproducibility.html">Reproducibility</a>
+<a class="nav-link" href="research_researcher_handbook.html">Researcher Handbook</a>
+<a class="nav-link" href="research_statistical_analysis.html">Statistical Analysis (GSK-family comparison)</a>
+<a class="nav-link" href="research_validation_report.html">Validation Report</a>
+</section>
+<section><h2>Prompts</h2>
+<a class="nav-link" href="prompt_documentation-deep-upgrade.html">Deep Documentation Review &amp; Upgrade Prompt — GSK Family Python</a>
+<a class="nav-link" href="prompt_project-review.html">Deep Expert Review Prompt For GSK Family Python</a>
+<a class="nav-link" href="prompt_documentation-review.html">Documentation Review Prompt</a>
+<a class="nav-link" href="prompt_publication-polish.html">Final Publication Prompt — Production-Ready Q1 Release of GSK Family Python v1.1</a>
+</section>
+<section><h2>Python API</h2>
+<a class="nav-link" href="api_index.html">API Module Index</a>
+<a class="nav-link api-link" href="api/gsk_family.__init__.html">gsk_family.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.__init__.html">gsk_family.analysis.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.family_report.html">gsk_family.analysis.family_report</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.figures.html">gsk_family.analysis.figures</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.latex_tables.html">gsk_family.analysis.latex_tables</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.project_policy.html">gsk_family.analysis.project_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.result_loader.html">gsk_family.analysis.result_loader</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistical_tests.html">gsk_family.analysis.statistical_tests</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistics.html">gsk_family.analysis.statistics</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.__init__.html">gsk_family.benchmark_adapter.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.factory.html">gsk_family.benchmark_adapter.factory</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.problem.html">gsk_family.benchmark_adapter.problem</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.protocol.html">gsk_family.benchmark_adapter.protocol</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.__init__.html">gsk_family.cli.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.list.html">gsk_family.cli.list</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.run.html">gsk_family.cli.run</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.stats.html">gsk_family.cli.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.validate.html">gsk_family.cli.validate</a>
+<a class="nav-link api-link" href="api/gsk_family.common.__init__.html">gsk_family.common.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.common.bounds.html">gsk_family.common.bounds</a>
+<a class="nav-link api-link" href="api/gsk_family.common.donors.html">gsk_family.common.donors</a>
+<a class="nav-link api-link" href="api/gsk_family.common.numeric_compat.html">gsk_family.common.numeric_compat</a>
+<a class="nav-link api-link" href="api/gsk_family.common.population.html">gsk_family.common.population</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reduction.html">gsk_family.common.reduction</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reference_rng.html">gsk_family.common.reference_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.rng.html">gsk_family.common.rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.threefry_rng.html">gsk_family.common.threefry_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.__init__.html">gsk_family.optimizers.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_profiles.html">gsk_family.optimizers._dt_profiles</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_rng.html">gsk_family.optimizers._dt_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._kernels.html">gsk_family.optimizers._kernels</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.agsk.html">gsk_family.optimizers.agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.apgsk.html">gsk_family.optimizers.apgsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_gsk.html">gsk_family.optimizers.atmals_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_helpers.html">gsk_family.optimizers.atmals_helpers</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.dt_gsk.html">gsk_family.optimizers.dt_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.egsk.html">gsk_family.optimizers.egsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.__init__.html">gsk_family.optimizers.external.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._base.html">gsk_family.optimizers.external._base</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._telemetry_shim.html">gsk_family.optimizers.external._telemetry_shim</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.cmaes.html">gsk_family.optimizers.external.cmaes</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.decc_g.html">gsk_family.optimizers.external.decc_g</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.ebowithcmar.html">gsk_family.optimizers.external.ebowithcmar</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.jso.html">gsk_family.optimizers.external.jso</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade.html">gsk_family.optimizers.external.lshade</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade_spacma.html">gsk_family.optimizers.external.lshade_spacma</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.mos_cec2013lsgo.html">gsk_family.optimizers.external.mos_cec2013lsgo</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.shade_ils.html">gsk_family.optimizers.external.shade_ils</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_agsk.html">gsk_family.optimizers.fdb_agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_scores.html">gsk_family.optimizers.fdb_scores</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.gsk.html">gsk_family.optimizers.gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.__init__.html">gsk_family.runners.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.config.html">gsk_family.runners.config</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.fp_regime.html">gsk_family.runners.fp_regime</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.output.html">gsk_family.runners.output</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.parallel.html">gsk_family.runners.parallel</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.performance.html">gsk_family.runners.performance</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.run_experiment.html">gsk_family.runners.run_experiment</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.seed_policy.html">gsk_family.runners.seed_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.verification.html">gsk_family.runners.verification</a>
+<a class="nav-link api-link" href="api/gsk_family.stats.html">gsk_family.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.types.html">gsk_family.types</a>
+</section>
+</nav></aside>
+    <main class="content">
+      <article class="doc-card">
+        <h1 id="extension-guide">Extension Guide</h1>
+<blockquote><strong>Orientation.</strong> This page shows how to *add* to the package: a new optimizer,</blockquote>
+<blockquote>a benchmark suite, an output artifact, or a CLI command. It is for contributors</blockquote>
+<blockquote>extending capability rather than fixing existing code. After reading it you can</blockquote>
+<blockquote>create each kind of component, register it in the right place, and know which</blockquote>
+<blockquote>tests and docs to add. It assumes you have read the</blockquote>
+<blockquote><a href="development_developer_guide.html">Developer Guide</a> and the</blockquote>
+<blockquote><a href="development_code_reading_guide.html">Code Reading Guide</a>; follow the</blockquote>
+<blockquote><a href="development_contributor_guide.html">Contributor Guide</a> when you submit. The optimizer</blockquote>
+<blockquote>contract is specified in the</blockquote>
+<blockquote><a href="reference_python_optimizer_interface.html">Python Optimizer Interface</a>, and</blockquote>
+<blockquote>shared terms are in the <a href="reference_glossary.html">glossary</a>.</blockquote>
+<p>Each section below is a self-contained recipe. Do the numbered steps in order; the registration step (where the new component becomes visible to the runner or CLI) is the one that is easy to forget.</p>
+<h2 id="add-an-optimizer">Add An Optimizer</h2>
+<p>An optimizer is a single module exposing one <code>optimize(problem, options)</code> function and returning an <code>OptimizerResult</code>. The numbered contract below is the same one <code>optimizers/gsk.py</code> follows; the skeleton after it is a compiling starting point.</p>
+<ol>
+<li>Create <code>src/gsk_family/optimizers/&lt;name&gt;.py</code>.</li>
+<li>Expose <code>optimize(problem, options)</code>.</li>
+<li>Accept <code>OptimizerOptions</code> and plain dictionaries.</li>
+<li>Read custom options from <code>options.values</code> or from the top-level dict.</li>
+<li>Evaluate candidates only through <code>problem.evaluate</code>.</li>
+<li>Keep candidates inside <code>problem.lb</code> and <code>problem.ub</code>.</li>
+<li>Stop at <code>problem.max_nfes</code>.</li>
+<li>Return <code>OptimizerResult</code>.</li>
+<li>Register the optimizer in <code>OPTIMIZER_FUNCTIONS</code> in</li>
+<p><code>src/gsk_family/runners/run_experiment.py</code>.</p>
+<li>Add smoke, fair-start/replay, and runner tests.</li>
+<li>Add an algorithm page under <code>docs/algorithms/</code>.</li>
+</ol>
+<h3 id="skeleton">Skeleton</h3>
+<p>The <code>optimize</code> contract is the same one the baseline GSK optimizer follows. The stub below compiles against <code>gsk_family.types</code> and shows the option-reading and <code>OptimizerResult</code> construction patterns from <code>optimizers/gsk.py</code>. Fill the loop with the real search and keep every field name as written.</p>
+<pre><code class="code-block language-python">&quot;&quot;&quot;Example optimizer.&quot;&quot;&quot;
+
+from __future__ import annotations
+
+import time
+from typing import Any
+
+import numpy as np
+
+from gsk_family.benchmark_adapter.problem import BenchmarkProblem
+from gsk_family.stats import compute_error
+from gsk_family.types import ConvergenceTrace, OptimizerOptions, OptimizerResult
+
+_MISSING = object()
+
+
+def _option_value(options: Any, name: str, default: Any = _MISSING) -&gt; Any:
+    &quot;&quot;&quot;Read an option from object, dict, or nested values mapping.&quot;&quot;&quot;
+    if options is None:
+        if default is _MISSING:
+            raise ValueError(f&quot;options.{name} is required.&quot;)
+        return default
+    if isinstance(options, dict):
+        value = options.get(name, _MISSING)
+        values = options.get(&quot;values&quot;, {})
+    else:
+        value = getattr(options, name, _MISSING)
+        values = getattr(options, &quot;values&quot;, {})
+    if (value is _MISSING or value is None) and isinstance(values, dict):
+        value = values.get(name, _MISSING)
+    if value is _MISSING or value is None:
+        if default is _MISSING:
+            raise ValueError(f&quot;options.{name} is required.&quot;)
+        return default
+    return value
+
+
+def optimize(
+    problem: BenchmarkProblem,
+    options: OptimizerOptions | dict[str, Any],
+) -&gt; OptimizerResult:
+    &quot;&quot;&quot;Run the example optimizer and return one `OptimizerResult`.&quot;&quot;&quot;
+    seed = int(_option_value(options, &quot;seed&quot;))
+    np_size = int(_option_value(options, &quot;np&quot;, 100))
+
+    start = time.perf_counter()
+    dim = int(problem.dim)
+    max_nfes = int(problem.max_nfes)
+
+    nfes = 0
+    best_fitness = float(&quot;1e300&quot;)
+    best_x = np.zeros(dim, dtype=np.float64)
+    conv_nfes: list[int] = []
+    conv_best: list[float] = []
+
+    # Search loop: draw candidates inside problem.lb/problem.ub, evaluate only
+    # through problem.evaluate, update best_x/best_fitness, and stop at max_nfes.
+    while nfes &lt; max_nfes:
+        candidates = np.random.default_rng(seed + nfes).uniform(
+            problem.lb, problem.ub, size=(np_size, dim)
+        )
+        fitness = np.asarray(problem.evaluate(candidates), dtype=np.float64).reshape(-1)
+        n_count = min(np_size, max_nfes - nfes)
+        idx = int(np.argmin(fitness[:n_count]))
+        if float(fitness[idx]) &lt; best_fitness:
+            best_fitness = float(fitness[idx])
+            best_x = candidates[idx, :].copy()
+        nfes += n_count
+        conv_nfes.append(int(nfes))
+        conv_best.append(float(best_fitness))
+
+    error = compute_error(
+        best_fitness, float(problem.optimum), float(problem.target_error)
+    )
+
+    return OptimizerResult(
+        optimizer=&quot;example&quot;,
+        suite=problem.suite,
+        func_id=int(problem.func_id),
+        dim=dim,
+        seed=seed,
+        best_x=best_x,
+        best_fitness=float(best_fitness),
+        error=float(error),
+        nfes=int(nfes),
+        termination=&quot;max_evaluations&quot;,
+        convergence=ConvergenceTrace(
+            nfes=np.asarray(conv_nfes, dtype=np.int64),
+            best_fitness=np.asarray(conv_best, dtype=np.float64),
+        ),
+        runtime_seconds=float(time.perf_counter() - start),
+        params={&quot;np&quot;: np_size},
+        notes=&quot;&quot;,
+    )</code></pre>
+<p>Register it (step 9) by adding the name and its <code>optimize</code> function to the <code>OPTIMIZER_FUNCTIONS</code> dict in <code>runners/run_experiment.py</code>, keeping the existing imported alias style:</p>
+<pre><code class="code-block language-python">OPTIMIZER_FUNCTIONS = {
+    &quot;agsk&quot;: optimize_agsk,
+    &quot;apgsk&quot;: optimize_apgsk,
+    &quot;atmals-gsk&quot;: optimize_atmals_gsk,
+    &quot;egsk&quot;: optimize_egsk,
+    &quot;example&quot;: optimize_example,  # add the new optimizer here
+    &quot;fdb-agsk&quot;: optimize_fdb_agsk,
+    &quot;gsk&quot;: optimize_gsk,
+    &quot;dt-gsk&quot;: optimize_dt_gsk,
+}</code></pre>
+<p>Also add the id to the <code>OPTIMIZER_IDS</code> tuple in <code>src/gsk_family/optimizers/__init__.py</code> so <code>gsk-list</code> and config validation see it. If the optimizer needs a fixed seed/RNG policy regardless of the run&#x27;s <code>seed_policy</code>, register it in <code>runners/seed_policy.py</code> as well (for example by adding the id to <code>UNIFIED_ONLY_OPTIMIZERS</code>, which forces <code>threefry</code> + the shared <code>get_cec_seed</code> schedule under every policy — this is exactly what <code>dt-gsk</code> does).</p>
+<p>To recap, a new optimizer has <strong>three</strong> registration points, all of which the worked <code>dt-gsk</code> example below touches:</p>
+<ol>
+<li><code>OPTIMIZER_FUNCTIONS</code> in <code>runners/run_experiment.py</code> (name -&gt; <code>optimize</code>).</li>
+<li><code>OPTIMIZER_IDS</code> in <code>optimizers/__init__.py</code> (so <code>gsk-list</code> and config</li>
+<p>validation accept the id).</p>
+<li>*(optional)* <code>runners/seed_policy.py</code> (only if it needs a fixed seed/RNG</li>
+<p>policy).</p>
+</ol>
+<p>Then add tests in the matching tiers — a smoke test under <code>tests/smoke/</code> (model it on <code>tests/smoke/test_gsk_smoke.py</code>), any fair-start/replay coverage, and a runner test — and an algorithm page under <code>docs/algorithms/&lt;name&gt;.md</code> linked from <code>docs/index.md</code>. The new module must satisfy the docstring gate (<code>tests/unit/test_docstrings.py</code>): give the module, <code>optimize</code>, and every helper a docstring unless the module is a byte-identical vendored copy.</p>
+<h3 id="worked-example-dt-gsk">Worked example: dt-gsk</h3>
+<p><code>dt-gsk</code> — this project&#x27;s proposed Dimension-Tiered Gaining-Sharing Knowledge — is a real optimizer added through exactly the steps above, and is a good template when your optimizer needs its own configuration and RNG layers:</p>
+<ul>
+<li>the <code>optimize(problem, options)</code> adapter lives in</li>
+<p><code>optimizers/dt_gsk.py</code> (it applies the dimension-aware &quot;pub&quot; profile automatically by <code>problem.dim</code>);</p>
+<li>the per-dimension-tier config builder is in <code>optimizers/_dt_profiles.py</code>;</li>
+<li>the named-substream RNG layer is in <code>optimizers/_dt_rng.py</code>, with the core</li>
+<p>driver and subsystems under <code>optimizers/_dt_core.py</code> and <code>optimizers/_dt_subsystems/</code>;</p>
+<li>it is registered in <code>OPTIMIZER_IDS</code> (<code>optimizers/__init__.py</code>) and</li>
+<p><code>OPTIMIZER_FUNCTIONS</code> (<code>runners/run_experiment.py</code>), and is listed in <code>UNIFIED_ONLY_OPTIMIZERS</code> in <code>runners/seed_policy.py</code> so it always uses the unified shared seed with <code>threefry</code> under every seed policy;</p>
+<li>it self-initializes a <code>np_init_mult * D</code> population (always <code>5*D</code>;</li>
+<p><code>np_init_mult</code> is never overridden at any dimension) rather than consuming the runner&#x27;s fair-start <code>initial_population</code>; the adapter records this as <code>notes=&quot;self-init (fair-start exception)&quot;</code>;</p>
+<li>it ships a <strong>default-on deep-stall full restart</strong> (multi-start): when the</li>
+<p>incumbent has been frozen for <code>&gt;= deep_stall_frac</code> of the budget the entire working population is re-initialised uniformly while a separate global-best preserves the best-ever, so a restart can never lose ground. The fields live in <code>DTGSKConfig</code> (<code>optimizers/_dt_core.py</code>): <code>deep_stall_restart_enabled=True</code>, <code>deep_stall_frac=0.25</code>, <code>deep_stall_cooldown_frac=0.15</code>, <code>deep_stall_stop_frac=0.9</code>, <code>deep_stall_min_budget=20000</code>. It is a <strong>standard</strong> mechanism, not an <code>experimental_*</code> flag, and draws RNG only when it fires — non-stalling and tiny-budget runs (below <code>deep_stall_min_budget</code>) stay byte-identical, which is why the byte-stability golden is unaffected.</p>
+</ul>
+<p>Two distinct kinds of &quot;locked&quot; apply here, and it is worth keeping them apart. The whole <code>dt-gsk</code> set — <code>dt_gsk.py</code>, <code>_dt_profiles.py</code>, <code>_dt_rng.py</code>, <code>_dt_core.py</code>, and <code>_dt_subsystems/</code> — is <strong>behavior-frozen</strong> (hash-locked in <code>algorithm_freeze_manifest.json</code>) and guarded by <code>tests/regression/test_dt_gsk_byte_stable.py</code> (exact <code>best_fitness</code> at <code>seed=12345</code>, <code>max_nfes=3000</code>, <code>pub</code> profile) and <code>tests/unit/test_dt_profiles.py</code>. The <strong>docstring-gate exemption</strong> is narrower: only the two byte-identical upstream copies — <code>_dt_core.py</code> and everything under <code>_dt_subsystems/</code> — are exempt (<code>_is_vendored_ism</code> in <code>tests/unit/test_docstrings.py</code>). The adapter <code>dt_gsk.py</code> and the project-authored <code>_dt_profiles.py</code> / <code>_dt_rng.py</code> carry full docstrings and <strong>are</strong> checked by the gate. A brand-new optimizer you author is neither frozen nor exempt — give it full docstrings. Use <code>dt-gsk</code> as a structural template for layering (adapter + profile + RNG + core), not as a license to skip the docstring or test requirements.</p>
+<h2 id="add-a-benchmark-suite">Add A Benchmark Suite</h2>
+<p>A suite is described by its metadata (dimensions, function count, budget) and a factory that builds each <code>BenchmarkProblem</code>. Add both, then make sure shapes are normalized so optimizers see a consistent problem object. See the <a href="reference_benchmark_protocol.html">Benchmark Protocol</a> for the metadata fields.</p>
+<ol>
+<li>Add a <code>SuiteProtocol</code> entry to the <code>SUITE_PROTOCOLS</code> map in</li>
+<p><code>benchmark_adapter/protocol.py</code>, and list the new id in <code>SUPPORTED_SUITES</code> (and <code>CEC_SUITES</code> if it is a CEC suite). A <code>SuiteProtocol</code> carries <code>suite</code>, <code>function_ids</code>, <code>default_function_ids</code>, <code>default_dimensions</code>, <code>statistics_basis</code>, <code>target_error</code>, and <code>notes</code>. Two fields encode the conventions the runner and analysis layers gate on:</p>
+</ol>
+<ul>
+<li><strong>Statistics basis.</strong> Set <code>statistics_basis</code> to <code>STAT_RAW</code> (raw objectives,</li>
+<p>as <code>cec2011</code>/<code>cec2013lsgo</code> do) or <code>STAT_ERROR</code> (error-vs-optimum, as <code>cec2013</code>/<code>cec2017</code>/<code>cec2020</code> do); the same basis is stamped onto each <code>BenchmarkProblem</code> in <code>factory.py</code>. Keep the module-level membership sets <code>RAW_OBJECTIVE_SUITES</code> / <code>ERROR_VS_OPTIMUM_SUITES</code> in sync with that choice.</p>
+<li><strong>Native dimension.</strong> Set <code>default_dimensions=&quot;native&quot;</code> for a</li>
+<p>per-function-dimension suite (like <code>cec2011</code>); <code>is_native_dimension_suite()</code> then reports <code>True</code>. Otherwise give an explicit dimension tuple such as <code>(10, 30, 50, 100)</code>.</p>
+</ul>
+<ol>
+<li>Add problem construction to <code>benchmark_adapter/factory.py</code> so <code>make_problem</code></li>
+<p>builds your <code>BenchmarkProblem</code> (follow the existing <code>_sphere_problem</code> / per-suite branches; honor <code>max_nfes_override</code>).</p>
+<li>Normalize population and fitness shapes through</li>
+<p><code>benchmark_adapter/problem.py</code>.</p>
+<li>Add a benchmark README under <code>benchmarks/cec_suite_python/&lt;suite&gt;/</code> if data is</li>
+<p>packaged.</p>
+<li>Add or update documentation, fixtures, and validation evidence for the suite</li>
+<p>before exposing it through the runner.</p>
+<li>Add adapter tests (model on <code>tests/unit/test_benchmark_adapter.py</code>) for</li>
+<p>bounds, dimensions, function ids, and backend selection.</p>
+</ol>
+<p>Two existing protocol conventions to respect: the <strong>CEC2017 scored set excludes F2</strong> (it covers <code>F1</code>, <code>F3</code>-<code>F30</code>), and <code>cec2011</code> is native-dimension, so its live <code>--stats</code> panel is a single per-suite rollup rather than a per-dimension one (the panel is skipped only for vanilla <code>gsk</code>, never by suite). Keep any new suite&#x27;s metadata consistent with how the analysis loader and the runner gate on these properties.</p>
+<h2 id="add-an-output-artifact">Add An Output Artifact</h2>
+<p>An artifact is a file the runner writes per experiment (for example a CSV or a JSON summary). Add the writer, document its schema, and test by parsing it back. Existing artifacts and their byte-format conventions are in the <a href="reference_result_schema.html">Result Schema</a>.</p>
+<ol>
+<li>Add writer logic to <code>runners/output.py</code>.</li>
+<li>Add schema documentation to <code>docs/reference/result_schema.md</code>.</li>
+<li>Add tests that parse the artifact rather than only checking file existence.</li>
+<li>Keep generated output below <code>results/</code> by default.</li>
+</ol>
+<h2 id="add-a-cli-command">Add A CLI Command</h2>
+<p>A CLI command is a thin module wired to a console entry point. The existing commands (<code>gsk-run</code>, <code>gsk-list</code>, <code>gsk-validate</code>, <code>gsk-stats</code>) live in <code>src/gsk_family/cli/</code> and delegate all real work to the lower layers -- follow that pattern.</p>
+<ol>
+<li>Create a module in <code>src/gsk_family/cli/</code> that exposes a <code>main(argv=None) -&gt; int</code></li>
+<p>function (the existing <code>list.py</code>, <code>run.py</code>, <code>validate.py</code>, and <code>stats.py</code> modules all follow this signature).</p>
+<li>Add an entry to <code>[project.scripts]</code> in <code>pyproject.toml</code>, mapping the script</li>
+<p>name to <code>gsk_family.cli.&lt;module&gt;:main</code>. For reference, the current entries are:</p>
+</ol>
+<pre><code class="code-block language-toml">   [project.scripts]
+   gsk-list = &quot;gsk_family.cli.list:main&quot;
+   gsk-run = &quot;gsk_family.cli.run:main&quot;
+   gsk-family-run = &quot;gsk_family.cli.run:main&quot;
+   gsk-validate = &quot;gsk_family.cli.validate:main&quot;
+   gsk-stats = &quot;gsk_family.cli.stats:main&quot;</code></pre>
+<ol>
+<li>Keep CLI modules thin; business logic belongs in <code>runners</code>, <code>analysis</code>, or</li>
+<p><code>benchmark_adapter</code>. (<code>gsk-stats</code>, for example, is a thin wrapper over the <code>analysis/</code> statistical suite.)</p>
+<li>Add smoke tests (model on <code>tests/smoke/test_stats_cli_smoke.py</code>) and update</li>
+<p>the <a href="getting-started_runbook.html">runbook</a>. If you quote the new command in any doc, the documentation-command gate (<code>tests/smoke/test_documentation_commands.py</code>) will execute it — keep the quoted invocation runnable.</p>
+</ol>
+      </article>
+    </main>
+    <aside class="page-toc" aria-label="On this page">
+<h2>On This Page</h2>
+<a class="toc-level-1" href="#extension-guide">Extension Guide</a>
+<a class="toc-level-2" href="#add-an-optimizer">Add An Optimizer</a>
+<a class="toc-level-3" href="#skeleton">Skeleton</a>
+<a class="toc-level-3" href="#worked-example-dt-gsk">Worked example: dt-gsk</a>
+<a class="toc-level-2" href="#add-a-benchmark-suite">Add A Benchmark Suite</a>
+<a class="toc-level-2" href="#add-an-output-artifact">Add An Output Artifact</a>
+<a class="toc-level-2" href="#add-a-cli-command">Add A CLI Command</a>
+</aside>
+  </div>
+  <script src="assets/search.js"></script>
+</body>
+</html>

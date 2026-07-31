@@ -1,0 +1,38 @@
+{
+  "problem": {
+    "suite": "cec2017",
+    "func": 1,
+    "dim": 10,
+    "max_nfes": 3000
+  },
+  "seed": 20240620,
+  "generator": "threefry",
+  "nfes_used": 3000,
+  "best_fitness": 493884.7764573206,
+  "budget_exact": true,
+  "convergence_points": 140,
+  "nfes_head": [
+    99,
+    148,
+    196,
+    243,
+    289
+  ],
+  "bsf_head": [
+    10189189995.772242,
+    9970050393.742964,
+    9967986251.560072,
+    9967986251.560072,
+    9967986251.560072
+  ],
+  "bsf_tail": [
+    584510.5053226094,
+    562760.4255973512,
+    562760.4255973512,
+    562760.4255973512,
+    493884.7764573206
+  ],
+  "best_so_far_monotone_nonincreasing": true,
+  "notes": "self-init (fair-start exception)",
+  "determinism_repeat_identical": true
+}

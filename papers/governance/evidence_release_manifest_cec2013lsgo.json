@@ -1,0 +1,1083 @@
+{
+  "schema": "suite_evidence_manifest/v1",
+  "release_id": "lsgo-rel-2026-07-28-ff1a046ef",
+  "anchor_commit": "ff1a046ef741db628c68c6f4fc0df3162c533b60",
+  "evidence_root": "benchmarks/cec_reference_results",
+  "release_scope": [
+    "cec2013lsgo"
+  ],
+  "supersedes_release": null,
+  "supersession_note": "Separate, non-superseding release. The primary release rel-2026-07-20-67d9345f9 (cec2017/cec2011/cec2013) is untouched and remains authoritative for its suites.",
+  "preregistration": {
+    "addendum": "papers/build_prompt_phases/phase_05/statistical_analysis_plan_addendum_cec2020_lsgo.md",
+    "addendum_sha256": "4b351008bebf8f41413cca67703fcbad9562dd111befb9e76e81a032429dcea1",
+    "amendment_01": "papers/build_prompt_phases/phase_05/statistical_analysis_plan_addendum_cec2020_lsgo_amendment_01.md",
+    "amendment_01_sha256": "ef56c224c58a855ceff0771bbca133e60bb917795997ce5b8d4ab5d91cddab5b",
+    "signing_commit": "5c9bfae82"
+  },
+  "staging_source": {
+    "root": "results/_run_all/<alg>/cec2013lsgo/",
+    "bank_production_commits": {
+      "gsk": "a1bb33497eade2b3947f40b79c32524ad154f4b7",
+      "agsk": "45248eb31af7b01567c251f2a5da4f36e92d6030",
+      "apgsk": "593d598dcce360280afcba5270018ddeb538f5e6",
+      "fdb-agsk": "593d598dcce360280afcba5270018ddeb538f5e6",
+      "atmals-gsk": "e04e20a0dcce0053bf153223e792732a73bcf0e0",
+      "egsk": "385f5ad465711989d1cd0445626e94f6de392f55",
+      "dt-gsk": "62fc49b809d60e0c638fd4fbd4d9bade19e6b0e4"
+    }
+  },
+  "exclusions": {
+    "curve_csvs_excluded": 106,
+    "session_logs_excluded": 70
+  },
+  "creation_record": {
+    "created_utc": "2026-07-28T12:23:01+00:00",
+    "created_by": "papers/scripts/promote_suite.py",
+    "command": "python papers/scripts/promote_suite.py --suite cec2013lsgo"
+  },
+  "totals": {
+    "files": 173,
+    "bytes": 1143821
+  },
+  "files": [
+    {
+      "path": "cec2013lsgo/gsk/per_run.csv",
+      "sha256": "8cc973e546f82bbe897d86172f0e76daf83c5eeeb26a8809af51208d62d8a723",
+      "bytes": 35478,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/gsk/seed_schedule.csv",
+      "sha256": "6f206fe38989381fe8801ee11006e8f8a8c75b55c71b40c4ac653989618e5dc0",
+      "bytes": 8188,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/gsk/environment.json",
+      "sha256": "47d9a8a1c2e83df4c56f041cef8b2880e7daed07161b3917e02c8ca9b93e0966",
+      "bytes": 3586,
+      "file_class": "provenance"
+    },
+    {
+      "path": "cec2013lsgo/gsk/phase0_protocol.json",
+      "sha256": "8e992a732e6148d34bfb9ddd69856dc1c283ece637b0a5a86758ba0392e7677b",
+      "bytes": 1210,
+      "file_class": "provenance"
+    },
+    {
+      "path": "cec2013lsgo/gsk/run_config.json",
+      "sha256": "0c109081cdefaf6901af05558becea92e51f0e8d53d463138b72297bafc89fdb",
+      "bytes": 1488,
+      "file_class": "provenance"
+    },
+    {
+      "path": "cec2013lsgo/gsk/verification.json",
+      "sha256": "b278416b52766c907a73fdb1d783311022ef0f5007aa3ebeeeac5fccf87f19f5",
+      "bytes": 3543,
+      "file_class": "provenance"
+    },
+    {
+      "path": "cec2013lsgo/gsk/gsk_cec2013lsgo_D1000.csv",
+      "sha256": "7b9a3ab98a9bf1c8fe26653040e9416acccea8bcd5d8ad5bce7fde5af9f2d0eb",
+      "bytes": 1184,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/gsk/gsk_cec2013lsgo_D905.csv",
+      "sha256": "395de5e29bb183cfaf878ba5c59e44aece734439b63a6f5353289fc457e4e6cc",
+      "bytes": 214,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/gsk/gen_logs/CheckpointErrors_gsk_F10_D1000.csv",
+      "sha256": "5f882998dcb6e25117542e0c743ac0806319ad1d07f067bdde21904f16b6fe70",
+      "bytes": 6725,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/gsk/gen_logs/CheckpointErrors_gsk_F11_D1000.csv",
+      "sha256": "8dae7acb4cc1f254f94a857b15de63838b81a3372595ccb47cd62df82ae300ab",
+      "bytes": 6759,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/gsk/gen_logs/CheckpointErrors_gsk_F12_D1000.csv",
+      "sha256": "bc8becee095aaa74d2fbf21da171782872b50bc39cd62955c607ccccce9fa400",
+      "bytes": 6753,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/gsk/gen_logs/CheckpointErrors_gsk_F13_D905.csv",
+      "sha256": "715d909ed3e203f8c0bc7db02247f8c9ee48c597b7757474bcac75947d10a0b0",
+      "bytes": 6720,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/gsk/gen_logs/CheckpointErrors_gsk_F14_D905.csv",
+      "sha256": "b4e143febfd129ced0868f68c9563e0b3d94b8728d1c3d2fad53aa124057fa91",
+      "bytes": 6739,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/gsk/gen_logs/CheckpointErrors_gsk_F15_D1000.csv",
+      "sha256": "777fa4c2074f2884a434db335511d716fad3279caffd148ea23ce97b69de4b69",
+      "bytes": 6759,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/gsk/gen_logs/CheckpointErrors_gsk_F1_D1000.csv",
+      "sha256": "552a78f47e30bba7b377502056a2d0925ec4026a40f13d0126d45600bbafb03a",
+      "bytes": 6762,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/gsk/gen_logs/CheckpointErrors_gsk_F2_D1000.csv",
+      "sha256": "13b214f9e571024be7ef228cd1607dfbba2153c47aef7ad51a44721192f58f16",
+      "bytes": 6755,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/gsk/gen_logs/CheckpointErrors_gsk_F3_D1000.csv",
+      "sha256": "d7e96a6c48c70106bfbbc5bc8b16014d220543bc98a5672aa4c6523f2666f5c5",
+      "bytes": 6766,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/gsk/gen_logs/CheckpointErrors_gsk_F4_D1000.csv",
+      "sha256": "7bb902cdf0c3271739bbdddde7e2523e8f1b3adf7be483c0cfd4c32e2139ca05",
+      "bytes": 6749,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/gsk/gen_logs/CheckpointErrors_gsk_F5_D1000.csv",
+      "sha256": "31485231dfc5f2c94e3bb09f2a972373e5eeef5380d19d6cea43afbdfc6ca202",
+      "bytes": 6754,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/gsk/gen_logs/CheckpointErrors_gsk_F6_D1000.csv",
+      "sha256": "e3a055cb8458c99474b6221dd5ad95b463ad2f0faad2460f851877bf9cad4c16",
+      "bytes": 6768,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/gsk/gen_logs/CheckpointErrors_gsk_F7_D1000.csv",
+      "sha256": "17004194f6443f857249102d027627f61d83aecf377266c98987b0bd7b456812",
+      "bytes": 6749,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/gsk/gen_logs/CheckpointErrors_gsk_F8_D1000.csv",
+      "sha256": "e7b685f18d2446b1cddeec3a80d364f0456b0b4923964e0ab2a212f3bb595d9d",
+      "bytes": 6684,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/gsk/gen_logs/CheckpointErrors_gsk_F9_D1000.csv",
+      "sha256": "0eecdcf77feb493e5eb8a69ed06958461ee096f257b75ce8e23c860cb1a0228e",
+      "bytes": 6749,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/gsk/benchmark_variant.json",
+      "sha256": "8b980892c3fbae0b76b2e5b9114e9fa5b4e7b3bd091856ec9f63d2c99f9ba251",
+      "bytes": 531,
+      "file_class": "variant_sidecar"
+    },
+    {
+      "path": "cec2013lsgo/agsk/per_run.csv",
+      "sha256": "bf4ae39eeb619a51d366e067a1620175093d0244c73691dc965de18caf5c1c71",
+      "bytes": 35845,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/agsk/seed_schedule.csv",
+      "sha256": "6f206fe38989381fe8801ee11006e8f8a8c75b55c71b40c4ac653989618e5dc0",
+      "bytes": 8188,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/agsk/environment.json",
+      "sha256": "8f856b8d052178344287462b8e741312df95f32bcb9fa8076d1bd8a9745acdd4",
+      "bytes": 3583,
+      "file_class": "provenance"
+    },
+    {
+      "path": "cec2013lsgo/agsk/phase0_protocol.json",
+      "sha256": "8e992a732e6148d34bfb9ddd69856dc1c283ece637b0a5a86758ba0392e7677b",
+      "bytes": 1210,
+      "file_class": "provenance"
+    },
+    {
+      "path": "cec2013lsgo/agsk/run_config.json",
+      "sha256": "fc7e3262f3108cb81bde5af75de1caa9c9de1b4bbea990e3093f73b81a5543ee",
+      "bytes": 1458,
+      "file_class": "provenance"
+    },
+    {
+      "path": "cec2013lsgo/agsk/verification.json",
+      "sha256": "9e046db0df1fb67d4d1d52edc85c60c959e7ecb7c6b163e040007a59389eae40",
+      "bytes": 3545,
+      "file_class": "provenance"
+    },
+    {
+      "path": "cec2013lsgo/agsk/agsk_cec2013lsgo_D1000.csv",
+      "sha256": "06d512f11f9045c78ee5e9fdbe1a6f9c90176838d080309170e4e6b1049e0d7d",
+      "bytes": 1184,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/agsk/agsk_cec2013lsgo_D905.csv",
+      "sha256": "2f927149732f4cf2ba4a490d6958148411e0cb5d3d03aa0d224a88ae5c773408",
+      "bytes": 214,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/agsk/gen_logs/CheckpointErrors_agsk_F10_D1000.csv",
+      "sha256": "bfed247fc135a8fa5512335065b582eaf8064d47d383cb280516f8d1ef6b9b46",
+      "bytes": 6757,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/agsk/gen_logs/CheckpointErrors_agsk_F11_D1000.csv",
+      "sha256": "2bd2f26fd5c78a80a06b7a7276bcac1dad04f26976e04c2a3443b7984983d4f3",
+      "bytes": 6751,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/agsk/gen_logs/CheckpointErrors_agsk_F12_D1000.csv",
+      "sha256": "9560b92af1bf7de0c279481b523380b392cf08287d89c1d0f5672929372815a8",
+      "bytes": 6747,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/agsk/gen_logs/CheckpointErrors_agsk_F13_D905.csv",
+      "sha256": "81b9e24734eb228d0e47e74fb772b81bb2940bad0439d35e24cbe10fd7e630e6",
+      "bytes": 6733,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/agsk/gen_logs/CheckpointErrors_agsk_F14_D905.csv",
+      "sha256": "efca7827f4076966a4f312de1e173bd20dce8a0d532cfaf8ae4c43005d40f46e",
+      "bytes": 6727,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/agsk/gen_logs/CheckpointErrors_agsk_F15_D1000.csv",
+      "sha256": "3279d5660e24602c3ed79b47d3a9cc7fac586b9d6c4b1f484831de02b8ee4413",
+      "bytes": 6753,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/agsk/gen_logs/CheckpointErrors_agsk_F1_D1000.csv",
+      "sha256": "d8b8b6e4c3c3feda0493ea4277de215c01c1740a79486e7cf34e8945bbd9f611",
+      "bytes": 6749,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/agsk/gen_logs/CheckpointErrors_agsk_F2_D1000.csv",
+      "sha256": "a3777c56c938a9588534b71b92964b26303693e07715e645e1e0629b34b73d05",
+      "bytes": 6757,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/agsk/gen_logs/CheckpointErrors_agsk_F3_D1000.csv",
+      "sha256": "c1b24b11b10d9324c250a00888c10a7cda74180238ec1df8e316c46c5a88fb84",
+      "bytes": 6761,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/agsk/gen_logs/CheckpointErrors_agsk_F4_D1000.csv",
+      "sha256": "d74b0b614e374878fe4b5d2bb481d4b45f8736fa3b0aa3e0b475df70872f6879",
+      "bytes": 6756,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/agsk/gen_logs/CheckpointErrors_agsk_F5_D1000.csv",
+      "sha256": "6b2dd14e938a041aca9e232acced5b254e495495c9c9b02bca5531c5ba13baa6",
+      "bytes": 6741,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/agsk/gen_logs/CheckpointErrors_agsk_F6_D1000.csv",
+      "sha256": "f4c4aca8c1a8d3e6f84ad5160ad613b155a67971d559834f7d0564c4fac2dc9a",
+      "bytes": 6746,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/agsk/gen_logs/CheckpointErrors_agsk_F7_D1000.csv",
+      "sha256": "1f623f2a4547cc06bbe71e1e33ffa4fb34bd23b27914c525101eb03160d8ed94",
+      "bytes": 6748,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/agsk/gen_logs/CheckpointErrors_agsk_F8_D1000.csv",
+      "sha256": "33530e931832c755bc2a0fe9ca77685f31f26eda523e6929c6e4722b1c844a5b",
+      "bytes": 6894,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/agsk/gen_logs/CheckpointErrors_agsk_F9_D1000.csv",
+      "sha256": "d1882e17fd186210501352296a413b6388f2fad2ae177aa2cf481b837fef2db4",
+      "bytes": 6762,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/agsk/benchmark_variant.json",
+      "sha256": "8b980892c3fbae0b76b2e5b9114e9fa5b4e7b3bd091856ec9f63d2c99f9ba251",
+      "bytes": 531,
+      "file_class": "variant_sidecar"
+    },
+    {
+      "path": "cec2013lsgo/apgsk/per_run.csv",
+      "sha256": "5b1e6fc6520c265031a79570be0dea6f2cce8bd49b41dd24adddd60ff7c45175",
+      "bytes": 36226,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/apgsk/seed_schedule.csv",
+      "sha256": "6f206fe38989381fe8801ee11006e8f8a8c75b55c71b40c4ac653989618e5dc0",
+      "bytes": 8188,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/apgsk/environment.json",
+      "sha256": "4842038bee262e6e7acb4d22ae605bf3cf9be26e08317edb6874f42c45ba51c5",
+      "bytes": 3592,
+      "file_class": "provenance"
+    },
+    {
+      "path": "cec2013lsgo/apgsk/phase0_protocol.json",
+      "sha256": "8e992a732e6148d34bfb9ddd69856dc1c283ece637b0a5a86758ba0392e7677b",
+      "bytes": 1210,
+      "file_class": "provenance"
+    },
+    {
+      "path": "cec2013lsgo/apgsk/run_config.json",
+      "sha256": "f2ee6be875ea2c5f50addf33f43f759c25f77a45dbb993b2e740f93be60accd8",
+      "bytes": 1459,
+      "file_class": "provenance"
+    },
+    {
+      "path": "cec2013lsgo/apgsk/verification.json",
+      "sha256": "97affb103bb82789b18838d6ac085fbbda3d44740871f8e24ec70182be473731",
+      "bytes": 3547,
+      "file_class": "provenance"
+    },
+    {
+      "path": "cec2013lsgo/apgsk/apgsk_cec2013lsgo_D1000.csv",
+      "sha256": "f1e51455ccaa36d962c84a7028610833fcc84e24599f3913c78d8a847395962d",
+      "bytes": 1184,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/apgsk/apgsk_cec2013lsgo_D905.csv",
+      "sha256": "f11caf37ddaa02f88635d6081d37d49a78af5e3a3df4b1b2d0c40ee7b3c19da2",
+      "bytes": 214,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/apgsk/gen_logs/CheckpointErrors_apgsk_F10_D1000.csv",
+      "sha256": "a5adfb80f9c5b3db3a96c57a0767e17e03efce7ebea28f055a2d43b55a6f8557",
+      "bytes": 6755,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/apgsk/gen_logs/CheckpointErrors_apgsk_F11_D1000.csv",
+      "sha256": "4331d129b4a89e04e3bc818c59b26620f6ae441427744bdd5781e7e8ceebd69e",
+      "bytes": 6737,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/apgsk/gen_logs/CheckpointErrors_apgsk_F12_D1000.csv",
+      "sha256": "e4231d012bc463ef4d3f60036eebe3930b410a18209d125939f4a46b7705d4d4",
+      "bytes": 6755,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/apgsk/gen_logs/CheckpointErrors_apgsk_F13_D905.csv",
+      "sha256": "cff3250ed95d31309ffcd0fe66f93247a0438a72b54b5d2c0f5c8769a1050342",
+      "bytes": 6732,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/apgsk/gen_logs/CheckpointErrors_apgsk_F14_D905.csv",
+      "sha256": "5111d0626db6d699e93858b71542d71f92e81521749291bddec1f99c59aca6b2",
+      "bytes": 6729,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/apgsk/gen_logs/CheckpointErrors_apgsk_F15_D1000.csv",
+      "sha256": "17a3a1337e69f9ceb98fd6eaac918f0b3e6b89af3756e49151a0a5faed5264c9",
+      "bytes": 6753,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/apgsk/gen_logs/CheckpointErrors_apgsk_F1_D1000.csv",
+      "sha256": "607439ca4bcb4220f7b2bfcb26ce24f65f3ffae7097ac7db80b1f09b29b3e330",
+      "bytes": 6754,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/apgsk/gen_logs/CheckpointErrors_apgsk_F2_D1000.csv",
+      "sha256": "0c8efffd3b0626e9659f938f370ac657f48e63b8005aecd28ad9018f2218147e",
+      "bytes": 6755,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/apgsk/gen_logs/CheckpointErrors_apgsk_F3_D1000.csv",
+      "sha256": "3210291888493560d9f98d8e01fec9b3762fd82d2e106ae58899d8a8293e61ad",
+      "bytes": 6745,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/apgsk/gen_logs/CheckpointErrors_apgsk_F4_D1000.csv",
+      "sha256": "1f082c1f09477d630d097b73f79761c2fa90d9cf7cd2f40a9850c96cb1ea0619",
+      "bytes": 6750,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/apgsk/gen_logs/CheckpointErrors_apgsk_F5_D1000.csv",
+      "sha256": "aaae364d47628c0186f46b4eb53a79cf4dec0b311ac358074a2e3ddb4b5d908b",
+      "bytes": 6746,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/apgsk/gen_logs/CheckpointErrors_apgsk_F6_D1000.csv",
+      "sha256": "8bab084255f6e61fd51e235bf015366a928d06c30bc4bc95dae03a50da3bd5cd",
+      "bytes": 6765,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/apgsk/gen_logs/CheckpointErrors_apgsk_F7_D1000.csv",
+      "sha256": "558144a1f282dac510593bbd893fee6e9c6defbeb92d87995d03c51cf870d216",
+      "bytes": 6742,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/apgsk/gen_logs/CheckpointErrors_apgsk_F8_D1000.csv",
+      "sha256": "48d3f95c78337bec853d99b9154792230649a27b218f1dcdaca96fc8cc59fd7f",
+      "bytes": 6833,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/apgsk/gen_logs/CheckpointErrors_apgsk_F9_D1000.csv",
+      "sha256": "63761303054f25865edc175ef3488b93f6e7f6c622b64ceffb5908c7a3eb4175",
+      "bytes": 6742,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/apgsk/benchmark_variant.json",
+      "sha256": "8b980892c3fbae0b76b2e5b9114e9fa5b4e7b3bd091856ec9f63d2c99f9ba251",
+      "bytes": 531,
+      "file_class": "variant_sidecar"
+    },
+    {
+      "path": "cec2013lsgo/fdb-agsk/per_run.csv",
+      "sha256": "8dcfb4b265ef65b335515e8c840566654018fb963b190298c5d076499e7810df",
+      "bytes": 37351,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/fdb-agsk/seed_schedule.csv",
+      "sha256": "6f206fe38989381fe8801ee11006e8f8a8c75b55c71b40c4ac653989618e5dc0",
+      "bytes": 8188,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/fdb-agsk/environment.json",
+      "sha256": "dca6de2ef26ba580414a463c89cede488c4aac66d6c2995483e73485443e9354",
+      "bytes": 3600,
+      "file_class": "provenance"
+    },
+    {
+      "path": "cec2013lsgo/fdb-agsk/phase0_protocol.json",
+      "sha256": "8e992a732e6148d34bfb9ddd69856dc1c283ece637b0a5a86758ba0392e7677b",
+      "bytes": 1210,
+      "file_class": "provenance"
+    },
+    {
+      "path": "cec2013lsgo/fdb-agsk/run_config.json",
+      "sha256": "2cdcca802489ec5f2be1b9e53917df0711c75237d358621f8625be9d3f10fc96",
+      "bytes": 1462,
+      "file_class": "provenance"
+    },
+    {
+      "path": "cec2013lsgo/fdb-agsk/verification.json",
+      "sha256": "d224944be68d810af2b16832815d29a40b2edc8606928e824b778b0fb015340a",
+      "bytes": 3553,
+      "file_class": "provenance"
+    },
+    {
+      "path": "cec2013lsgo/fdb-agsk/fdb-agsk_cec2013lsgo_D1000.csv",
+      "sha256": "c11fa9c4a80c7e93319d3318f748f8afe58a724c4d808b7c7aa938fc5c4dc32a",
+      "bytes": 1184,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/fdb-agsk/fdb-agsk_cec2013lsgo_D905.csv",
+      "sha256": "49ec10b3ecf4342ec5a291fcb84cbabeb9a682ac778e0c04a8fdb6d211b1c0d2",
+      "bytes": 214,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/fdb-agsk/gen_logs/CheckpointErrors_fdb-agsk_F10_D1000.csv",
+      "sha256": "5f3ecdf2a280dd6db0a5020fb5b9017ebf8996afed842b4f7bfc0363c637b4d5",
+      "bytes": 6745,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/fdb-agsk/gen_logs/CheckpointErrors_fdb-agsk_F11_D1000.csv",
+      "sha256": "ef9fd00b62a7ce1879506509abea37179707f37f5ff1ca77c0a13b6ed970a81c",
+      "bytes": 6739,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/fdb-agsk/gen_logs/CheckpointErrors_fdb-agsk_F12_D1000.csv",
+      "sha256": "adae72b07b6541f9b954c945c15bc31f45c8e58f033135b1ac35c24f943986de",
+      "bytes": 6740,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/fdb-agsk/gen_logs/CheckpointErrors_fdb-agsk_F13_D905.csv",
+      "sha256": "fcfd804a3f87e1ef2959abfa1abcc35def7b02d679beff9d26f2d5510bba099b",
+      "bytes": 6722,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/fdb-agsk/gen_logs/CheckpointErrors_fdb-agsk_F14_D905.csv",
+      "sha256": "f6241960c3e7a2c82a96b562495cdd69bcd7252932e66fa3966ee04fbb52e354",
+      "bytes": 6742,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/fdb-agsk/gen_logs/CheckpointErrors_fdb-agsk_F15_D1000.csv",
+      "sha256": "e286eadd4731414fccef187a5051b0f901f28cfa811c32e0ad1a672e2c128f2f",
+      "bytes": 6750,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/fdb-agsk/gen_logs/CheckpointErrors_fdb-agsk_F1_D1000.csv",
+      "sha256": "657e18cc2eb070a353a0c1369eaeca4c9fdea55355157080e07920917a0a74f5",
+      "bytes": 6763,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/fdb-agsk/gen_logs/CheckpointErrors_fdb-agsk_F2_D1000.csv",
+      "sha256": "f21f3bf2ffa84625853143588606cef28b2660ce8e2abce15f0ccd9ba37de1d5",
+      "bytes": 6752,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/fdb-agsk/gen_logs/CheckpointErrors_fdb-agsk_F3_D1000.csv",
+      "sha256": "38d32ce568fa29925abc66595f52ca893a866d2789b069c3ebd54c77c9452968",
+      "bytes": 6761,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/fdb-agsk/gen_logs/CheckpointErrors_fdb-agsk_F4_D1000.csv",
+      "sha256": "5ea70a81360101086f26acbc67435c6bb2fa16989f9055e6815d13a0c4c2380c",
+      "bytes": 6749,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/fdb-agsk/gen_logs/CheckpointErrors_fdb-agsk_F5_D1000.csv",
+      "sha256": "e814ccbeb792b42b9d02c4227c5b40c06aa495f8a3f6a5f0d5dd5c6146b82d33",
+      "bytes": 6757,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/fdb-agsk/gen_logs/CheckpointErrors_fdb-agsk_F6_D1000.csv",
+      "sha256": "ed5fd4b243defc8339609de3cbebc819cfaa716290b9eb1960c814f484a58283",
+      "bytes": 6753,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/fdb-agsk/gen_logs/CheckpointErrors_fdb-agsk_F7_D1000.csv",
+      "sha256": "d7f70039440b2ebe8570a00eca2f1ce0e30a44343d5f0ef558feba44f2018b9a",
+      "bytes": 6755,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/fdb-agsk/gen_logs/CheckpointErrors_fdb-agsk_F8_D1000.csv",
+      "sha256": "29feb67c61399024d6bbe18c612e96798e15abbb25563e6fc4e130e65e15481f",
+      "bytes": 6860,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/fdb-agsk/gen_logs/CheckpointErrors_fdb-agsk_F9_D1000.csv",
+      "sha256": "854220affcdc05df3a1d450d620cdac2111eaabe908fdc63ebc00b23c101fc1a",
+      "bytes": 6758,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/fdb-agsk/benchmark_variant.json",
+      "sha256": "8b980892c3fbae0b76b2e5b9114e9fa5b4e7b3bd091856ec9f63d2c99f9ba251",
+      "bytes": 531,
+      "file_class": "variant_sidecar"
+    },
+    {
+      "path": "cec2013lsgo/atmals-gsk/per_run.csv",
+      "sha256": "422aedd640115743844bf6d386ec7eddf471045952bd5fdb020f8f232d8191e6",
+      "bytes": 38262,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/atmals-gsk/seed_schedule.csv",
+      "sha256": "6f206fe38989381fe8801ee11006e8f8a8c75b55c71b40c4ac653989618e5dc0",
+      "bytes": 8188,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/atmals-gsk/environment.json",
+      "sha256": "e0f9c64917139d5cce86c3fce071b936308fee225ceb80c09b20afd540fed471",
+      "bytes": 3596,
+      "file_class": "provenance"
+    },
+    {
+      "path": "cec2013lsgo/atmals-gsk/phase0_protocol.json",
+      "sha256": "28145d76fea00d17078ac1671e5da0b530a36a2b88f09edbc07958bd4d5446ce",
+      "bytes": 1154,
+      "file_class": "provenance"
+    },
+    {
+      "path": "cec2013lsgo/atmals-gsk/run_config.json",
+      "sha256": "58139cbd6643cb0e08c8852d5de1b119b100ab6b7f8f32ba8c799ca001003a4b",
+      "bytes": 1330,
+      "file_class": "provenance"
+    },
+    {
+      "path": "cec2013lsgo/atmals-gsk/verification.json",
+      "sha256": "b6a252784a326d00555c265bc2a5342cd331ab3e6b70db9a94079c8fe639b6f6",
+      "bytes": 2282,
+      "file_class": "provenance"
+    },
+    {
+      "path": "cec2013lsgo/atmals-gsk/atmals-gsk_cec2013lsgo_D1000.csv",
+      "sha256": "67f052c6e305e0401fe5e7fc03cdbdd0be66f7bb18cb32a05361b7a7bc9ed43a",
+      "bytes": 1184,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/atmals-gsk/atmals-gsk_cec2013lsgo_D905.csv",
+      "sha256": "0a4ba8f1f855463e34e91f4716ad4567f3ab916383992b44c34c20dde94bdd75",
+      "bytes": 214,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/atmals-gsk/gen_logs/CheckpointErrors_atmals-gsk_F10_D1000.csv",
+      "sha256": "1bdd76d8ac469f02de4c87e45ace33867ff3125efc97f354a587693a0312b77e",
+      "bytes": 6747,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/atmals-gsk/gen_logs/CheckpointErrors_atmals-gsk_F11_D1000.csv",
+      "sha256": "2f88df79806aacf7235dfc2783641b5b99b09c20da4055772deba18c9e11c07e",
+      "bytes": 6756,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/atmals-gsk/gen_logs/CheckpointErrors_atmals-gsk_F12_D1000.csv",
+      "sha256": "d0110ae57c29794985b4a676a1f5129f68ca92e3d233c913951daad764e631d0",
+      "bytes": 6761,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/atmals-gsk/gen_logs/CheckpointErrors_atmals-gsk_F13_D905.csv",
+      "sha256": "51a756b5fe8ca7c6c4b202ee9c1573da60a44b4d8abe106e8d3953f59097d297",
+      "bytes": 6740,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/atmals-gsk/gen_logs/CheckpointErrors_atmals-gsk_F14_D905.csv",
+      "sha256": "0ba08db3ed47b4210e48d704895180d52b9e506c1269804181fcbd02d2f1352a",
+      "bytes": 6725,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/atmals-gsk/gen_logs/CheckpointErrors_atmals-gsk_F15_D1000.csv",
+      "sha256": "16492aa95c849b582c5fe3d007647e40f3956dd9ac7dbe5b7390c2c48158d13c",
+      "bytes": 6761,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/atmals-gsk/gen_logs/CheckpointErrors_atmals-gsk_F1_D1000.csv",
+      "sha256": "00ca339a92fc94aa273cce7c2ce20619ab60045f62975a9f64db5d7692d34a6d",
+      "bytes": 6752,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/atmals-gsk/gen_logs/CheckpointErrors_atmals-gsk_F2_D1000.csv",
+      "sha256": "ccc1b0010063a09447695b8789fbf2773bd0c048ab305ebb3e3316a90607933e",
+      "bytes": 6760,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/atmals-gsk/gen_logs/CheckpointErrors_atmals-gsk_F3_D1000.csv",
+      "sha256": "89ef91c5fd80d089f16d6c3d14def2feecb46fae933f6839abef015f99126db1",
+      "bytes": 6741,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/atmals-gsk/gen_logs/CheckpointErrors_atmals-gsk_F4_D1000.csv",
+      "sha256": "c3c2bf7e94bc2cfa311bb0d932befc0ce76d9367e5d15428a02c15a79655d7c3",
+      "bytes": 6753,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/atmals-gsk/gen_logs/CheckpointErrors_atmals-gsk_F5_D1000.csv",
+      "sha256": "02f7583eff3b78c260c45adfdc4b21021dd0a6bc708d89cd294167719b38faad",
+      "bytes": 6754,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/atmals-gsk/gen_logs/CheckpointErrors_atmals-gsk_F6_D1000.csv",
+      "sha256": "66b2b19d8332390b2152407a42542bc62d250958a42eafca8b2fd70185fac0ae",
+      "bytes": 6761,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/atmals-gsk/gen_logs/CheckpointErrors_atmals-gsk_F7_D1000.csv",
+      "sha256": "168301cec979355a08a7177eb82cf09548e0c558d962d1552cea2f48d136ac21",
+      "bytes": 6759,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/atmals-gsk/gen_logs/CheckpointErrors_atmals-gsk_F8_D1000.csv",
+      "sha256": "635e2014d7b95d1535a2ff0a3ff1822da8aa1ece5cf31681f9ee67e3b903c208",
+      "bytes": 3275,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/atmals-gsk/gen_logs/CheckpointErrors_atmals-gsk_F9_D1000.csv",
+      "sha256": "42fb5470a053eca9c7e62aa6aa114523ba52a5d387b51ce65d5524f45728796a",
+      "bytes": 6764,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/atmals-gsk/atmals-gsk_cec2013lsgo_D1000.csv.prebugfix",
+      "sha256": "edbdd6e4a30ab461872ad9746e449cfd77f3662ebde0b39f80e902471f45e5ed",
+      "bytes": 568,
+      "file_class": "deviation_record"
+    },
+    {
+      "path": "cec2013lsgo/atmals-gsk/atmals-gsk_cec2013lsgo_D905.csv.prebugfix",
+      "sha256": "815a0b34014685dc689acffc7d0742f2159e9075ddda82035cd40752f38f70ce",
+      "bytes": 214,
+      "file_class": "deviation_record"
+    },
+    {
+      "path": "cec2013lsgo/atmals-gsk/benchmark_variant.json",
+      "sha256": "8b980892c3fbae0b76b2e5b9114e9fa5b4e7b3bd091856ec9f63d2c99f9ba251",
+      "bytes": 531,
+      "file_class": "variant_sidecar"
+    },
+    {
+      "path": "cec2013lsgo/egsk/per_run.csv",
+      "sha256": "b11ee3a564b5891d37f7224d56d0f06a2e5617b5b7ff06d299d7e6ed1ca07f97",
+      "bytes": 35888,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/egsk/seed_schedule.csv",
+      "sha256": "6f206fe38989381fe8801ee11006e8f8a8c75b55c71b40c4ac653989618e5dc0",
+      "bytes": 8188,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/egsk/environment.json",
+      "sha256": "a2a4b095ee0d4cf2d012347916682471b7d0f7f6a8257de1244ab41172de7c43",
+      "bytes": 3589,
+      "file_class": "provenance"
+    },
+    {
+      "path": "cec2013lsgo/egsk/phase0_protocol.json",
+      "sha256": "249d5b09d7f32f8e0feba2e7a69809498bc893c26676cd807611320dfb6e3ef4",
+      "bytes": 1162,
+      "file_class": "provenance"
+    },
+    {
+      "path": "cec2013lsgo/egsk/run_config.json",
+      "sha256": "c7005e10c0f6529ba5b911709913adec97b72f85aed43881c809ae343740389e",
+      "bytes": 1340,
+      "file_class": "provenance"
+    },
+    {
+      "path": "cec2013lsgo/egsk/verification.json",
+      "sha256": "294a2ae05cc2afbd923737ad600980752b45f14562121ecab9218529fef1a9a5",
+      "bytes": 2452,
+      "file_class": "provenance"
+    },
+    {
+      "path": "cec2013lsgo/egsk/egsk_cec2013lsgo_D1000.csv",
+      "sha256": "ed087a9bb02153de4764775d613268560a881bc829e5f73e3d3ef72f3e1fae54",
+      "bytes": 1184,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/egsk/egsk_cec2013lsgo_D905.csv",
+      "sha256": "5375b28a25c68c35d0e5f20e5888424cadbce7a7d4a1a607ca682b959b3b3152",
+      "bytes": 214,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/egsk/gen_logs/CheckpointErrors_egsk_F10_D1000.csv",
+      "sha256": "4541340268718cd6452a002208d85c9cf216818f89b7811b424e228215b706c6",
+      "bytes": 6776,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/egsk/gen_logs/CheckpointErrors_egsk_F11_D1000.csv",
+      "sha256": "00114275925d2695a6e26bd5e26bc025267671c45e030a2ffbb22944ea29c3dd",
+      "bytes": 6757,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/egsk/gen_logs/CheckpointErrors_egsk_F12_D1000.csv",
+      "sha256": "92c6080327958e333da619ba1978055aebea84011754c35c8247ab4eae000533",
+      "bytes": 6750,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/egsk/gen_logs/CheckpointErrors_egsk_F13_D905.csv",
+      "sha256": "fece6e511d60d532cf2b4e97ee1901ba90fc9241e66e4668e75ee8d7a70f9eb4",
+      "bytes": 6727,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/egsk/gen_logs/CheckpointErrors_egsk_F14_D905.csv",
+      "sha256": "a655ccc2de3227aab72e281c8f9f08ff1bef71ceb4a500c4a3741dc693e00358",
+      "bytes": 6733,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/egsk/gen_logs/CheckpointErrors_egsk_F15_D1000.csv",
+      "sha256": "ef044704dbdac743635dd58618cc693fd1168558ab01fa0712656eca0d55abdc",
+      "bytes": 6757,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/egsk/gen_logs/CheckpointErrors_egsk_F1_D1000.csv",
+      "sha256": "199771f709c914d2c968b7843d25389aee340ffc1e73ff7809e8bca5ee4ccd62",
+      "bytes": 6751,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/egsk/gen_logs/CheckpointErrors_egsk_F2_D1000.csv",
+      "sha256": "35cbe64a9bda88f327f946dc92c202fad8d21565e899cbbb8d39d874c9119b1e",
+      "bytes": 6750,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/egsk/gen_logs/CheckpointErrors_egsk_F3_D1000.csv",
+      "sha256": "1dccb6b4bbe30b3ec8d98aefc3e831c03552835d1d120eb388b15c0cb7b44d92",
+      "bytes": 6761,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/egsk/gen_logs/CheckpointErrors_egsk_F4_D1000.csv",
+      "sha256": "916599f0aa5aab7243fc4f6f79a7fdf0e423694f9ee1b8a163460dcb24a4feee",
+      "bytes": 6742,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/egsk/gen_logs/CheckpointErrors_egsk_F5_D1000.csv",
+      "sha256": "481e28e2de4b092843785fbcd0d62025202347bf5b745d41510ff40c71c3ae93",
+      "bytes": 6753,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/egsk/gen_logs/CheckpointErrors_egsk_F6_D1000.csv",
+      "sha256": "5fd871682d73abbbaa336311ed5e04fa5fddf3e5e7bd3adca21d48ebec5f0401",
+      "bytes": 6741,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/egsk/gen_logs/CheckpointErrors_egsk_F7_D1000.csv",
+      "sha256": "3301fa9dd06b0ad41a4ece3b9cb139796dee2406129c8a8390d53d8ddced2484",
+      "bytes": 6749,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/egsk/gen_logs/CheckpointErrors_egsk_F8_D1000.csv",
+      "sha256": "d7cc575953d6d18a0d828b52b2670c04ae9684e98c0a3553bf44a8ea7a3694b7",
+      "bytes": 6673,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/egsk/gen_logs/CheckpointErrors_egsk_F9_D1000.csv",
+      "sha256": "8cade85800bfb84b0f6d42e12e219eb9d542b42173fe97bb0b2e8fda7d718ccb",
+      "bytes": 6735,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/egsk/egsk_cec2013lsgo_D1000.csv.prebugfix",
+      "sha256": "1a906b1084f78afc1eb3d8cec8422a3dbbe95aed18ca365ac3baf6b236da48e8",
+      "bytes": 656,
+      "file_class": "deviation_record"
+    },
+    {
+      "path": "cec2013lsgo/egsk/egsk_cec2013lsgo_D905.csv.prebugfix",
+      "sha256": "5375b28a25c68c35d0e5f20e5888424cadbce7a7d4a1a607ca682b959b3b3152",
+      "bytes": 214,
+      "file_class": "deviation_record"
+    },
+    {
+      "path": "cec2013lsgo/egsk/benchmark_variant.json",
+      "sha256": "8b980892c3fbae0b76b2e5b9114e9fa5b4e7b3bd091856ec9f63d2c99f9ba251",
+      "bytes": 531,
+      "file_class": "variant_sidecar"
+    },
+    {
+      "path": "cec2013lsgo/dt-gsk/per_run.csv",
+      "sha256": "091340735e0be7d3d0a48d5c5ed92fcb36de405e6e41e0d993ea7605d1fe7500",
+      "bytes": 36762,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/dt-gsk/seed_schedule.csv",
+      "sha256": "6f206fe38989381fe8801ee11006e8f8a8c75b55c71b40c4ac653989618e5dc0",
+      "bytes": 8188,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/dt-gsk/environment.json",
+      "sha256": "88be7be8942a3e9583762198d7f1ca5ffdfce1508c391dd1a6ec3cf3770c867a",
+      "bytes": 4057,
+      "file_class": "provenance"
+    },
+    {
+      "path": "cec2013lsgo/dt-gsk/phase0_protocol.json",
+      "sha256": "381df3348a56d46112a5f1b27072c7b9a751bd81b0d4a5905e1dec78a1d5a061",
+      "bytes": 1623,
+      "file_class": "provenance"
+    },
+    {
+      "path": "cec2013lsgo/dt-gsk/run_config.json",
+      "sha256": "0539a482db2f02a23ed2041d0ccb7fbc2598cfb6496a5a6d23b051eeaaf5e48c",
+      "bytes": 2212,
+      "file_class": "provenance"
+    },
+    {
+      "path": "cec2013lsgo/dt-gsk/verification.json",
+      "sha256": "e29fe665b55fef513f59b39cd0c4ed1780e9cdcc4888ae2d6de4ee1ebd00d9f4",
+      "bytes": 3549,
+      "file_class": "provenance"
+    },
+    {
+      "path": "cec2013lsgo/dt-gsk/dt-gsk_cec2013lsgo_D1000.csv",
+      "sha256": "11a8f8b4934705774c9bcb19cef4c1b6ae5085382d3418490c2696881af101fa",
+      "bytes": 1184,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/dt-gsk/dt-gsk_cec2013lsgo_D905.csv",
+      "sha256": "c5b201289c5531b08619233fa9527568fc765480c945f73af5aafac389229cb1",
+      "bytes": 214,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/dt-gsk/gen_logs/CheckpointErrors_dt-gsk_F10_D1000.csv",
+      "sha256": "f82ecdf80938efc5f0281d96685614595a55a9f31ffd3708d037578121d1a1ac",
+      "bytes": 6754,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/dt-gsk/gen_logs/CheckpointErrors_dt-gsk_F11_D1000.csv",
+      "sha256": "7beb905c5285442d329cc7de07ab5ccd4eef541acc750607637d48ce634eff4f",
+      "bytes": 6854,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/dt-gsk/gen_logs/CheckpointErrors_dt-gsk_F12_D1000.csv",
+      "sha256": "70d3a93964f4f81f3ac641bb463fcdf94da547e94142711e3ea2463ad536bd79",
+      "bytes": 6748,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/dt-gsk/gen_logs/CheckpointErrors_dt-gsk_F13_D905.csv",
+      "sha256": "04fc10e3c2ef1e2e6c61e1b151ef8ff0d5b98aad61636835367fac8812ce6a3b",
+      "bytes": 6832,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/dt-gsk/gen_logs/CheckpointErrors_dt-gsk_F14_D905.csv",
+      "sha256": "ed2fda81c20fbe565d829257263b7e2a7093dd37204e1f53a964242c7c973bd2",
+      "bytes": 6903,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/dt-gsk/gen_logs/CheckpointErrors_dt-gsk_F15_D1000.csv",
+      "sha256": "25e5a2de51c938c3182c0a02c4bf7f4d5fe5f47ab344879eb09b5df6981feafb",
+      "bytes": 6914,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/dt-gsk/gen_logs/CheckpointErrors_dt-gsk_F1_D1000.csv",
+      "sha256": "acce7358f8d34da0c932d0af4cda63064a92d6f8cfb156f2ffcde3cbb407a32d",
+      "bytes": 6745,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/dt-gsk/gen_logs/CheckpointErrors_dt-gsk_F2_D1000.csv",
+      "sha256": "441a5421bb1a8a3b37506c343b2fbe7d4ffba92450eac4e9e76e067588c9423d",
+      "bytes": 6749,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/dt-gsk/gen_logs/CheckpointErrors_dt-gsk_F3_D1000.csv",
+      "sha256": "92c6312129f194866f41d25e059e7e06a530373e9d699eb1b8b03c2178ae87bf",
+      "bytes": 6748,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/dt-gsk/gen_logs/CheckpointErrors_dt-gsk_F4_D1000.csv",
+      "sha256": "7ddc2c9cf2610025828e024c80486bd90ecd8594b4e1bd5c97284ffd8d43e764",
+      "bytes": 6756,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/dt-gsk/gen_logs/CheckpointErrors_dt-gsk_F5_D1000.csv",
+      "sha256": "a6af1540cbc69c1308d613e4f896c68bb0b20edf7170474f7f346e038bddace3",
+      "bytes": 6750,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/dt-gsk/gen_logs/CheckpointErrors_dt-gsk_F6_D1000.csv",
+      "sha256": "af328c3a17c835b7ae2f6a5fde6fef9f2e675b48816330b3c265be30c248d671",
+      "bytes": 6725,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/dt-gsk/gen_logs/CheckpointErrors_dt-gsk_F7_D1000.csv",
+      "sha256": "6bc453032f828e2fdf1621f4164de4aad42e4075dfc1cb77528197dc849168f3",
+      "bytes": 6755,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/dt-gsk/gen_logs/CheckpointErrors_dt-gsk_F8_D1000.csv",
+      "sha256": "cc5aca76de1d3b17d4212b1dbccedbd17cc1495e0a6c9742f6d3e848a437211a",
+      "bytes": 7327,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/dt-gsk/gen_logs/CheckpointErrors_dt-gsk_F9_D1000.csv",
+      "sha256": "5881c9f58ba587ef40cb68e5d50962a6ad566b03a505fd5be63ed5f48bce306c",
+      "bytes": 6756,
+      "file_class": "result_data"
+    },
+    {
+      "path": "cec2013lsgo/dt-gsk/skipped_runs.csv",
+      "sha256": "4700d5f29b4a0c001820e880694ed3d22607bb1b67550277c7adc1b493e3797f",
+      "bytes": 41444,
+      "file_class": "deviation_record"
+    },
+    {
+      "path": "cec2013lsgo/dt-gsk/benchmark_variant.json",
+      "sha256": "8b980892c3fbae0b76b2e5b9114e9fa5b4e7b3bd091856ec9f63d2c99f9ba251",
+      "bytes": 531,
+      "file_class": "variant_sidecar"
+    }
+  ]
+}

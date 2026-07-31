@@ -1,0 +1,128 @@
+{
+  "failures": [
+    {
+      "dimension": 1000,
+      "function": 1,
+      "hard": false,
+      "kind": "missing_reference",
+      "message": "No matching reference summary row found."
+    },
+    {
+      "dimension": 1000,
+      "function": 2,
+      "hard": false,
+      "kind": "missing_reference",
+      "message": "No matching reference summary row found."
+    },
+    {
+      "dimension": 1000,
+      "function": 3,
+      "hard": false,
+      "kind": "missing_reference",
+      "message": "No matching reference summary row found."
+    },
+    {
+      "dimension": 1000,
+      "function": 4,
+      "hard": false,
+      "kind": "missing_reference",
+      "message": "No matching reference summary row found."
+    },
+    {
+      "dimension": 1000,
+      "function": 5,
+      "hard": false,
+      "kind": "missing_reference",
+      "message": "No matching reference summary row found."
+    },
+    {
+      "dimension": 1000,
+      "function": 6,
+      "hard": false,
+      "kind": "missing_reference",
+      "message": "No matching reference summary row found."
+    },
+    {
+      "dimension": 1000,
+      "function": 7,
+      "hard": false,
+      "kind": "missing_reference",
+      "message": "No matching reference summary row found."
+    },
+    {
+      "dimension": 1000,
+      "function": 8,
+      "hard": false,
+      "kind": "missing_reference",
+      "message": "No matching reference summary row found."
+    },
+    {
+      "dimension": 1000,
+      "function": 9,
+      "hard": false,
+      "kind": "missing_reference",
+      "message": "No matching reference summary row found."
+    },
+    {
+      "dimension": 1000,
+      "function": 10,
+      "hard": false,
+      "kind": "missing_reference",
+      "message": "No matching reference summary row found."
+    },
+    {
+      "dimension": 1000,
+      "function": 11,
+      "hard": false,
+      "kind": "missing_reference",
+      "message": "No matching reference summary row found."
+    },
+    {
+      "dimension": 1000,
+      "function": 12,
+      "hard": false,
+      "kind": "missing_reference",
+      "message": "No matching reference summary row found."
+    },
+    {
+      "dimension": 1000,
+      "function": 15,
+      "hard": false,
+      "kind": "missing_reference",
+      "message": "No matching reference summary row found."
+    },
+    {
+      "dimension": 905,
+      "function": 13,
+      "hard": false,
+      "kind": "missing_reference",
+      "message": "No matching reference summary row found."
+    },
+    {
+      "dimension": 905,
+      "function": 14,
+      "hard": false,
+      "kind": "missing_reference",
+      "message": "No matching reference summary row found."
+    }
+  ],
+  "functions_checked": 0,
+  "generated_dir": "results\\_run_all\\gsk\\cec2013lsgo",
+  "hard_failures": 0,
+  "missing_reference": 15,
+  "optimizer": "gsk",
+  "reduced_budget": false,
+  "reference_root": "benchmarks\\cec_reference_results",
+  "suite": "cec2013lsgo",
+  "thresholds": {
+    "gross_factor": 1000000.0,
+    "negative_error_floor": -1e-06,
+    "reference_trivial_floor": 1e-08
+  },
+  "verdict": "CONSISTENT",
+  "win_tie_loss": [
+    0,
+    0,
+    0
+  ]
+}

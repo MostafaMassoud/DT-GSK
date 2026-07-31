@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="DT-GSK — Dimension-Tiered Gaining-Sharing Knowledge - GSK Family Python Documentation">
+  <title>DT-GSK — Dimension-Tiered Gaining-Sharing Knowledge | GSK Family Python Documentation</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <div class="site-shell">
+    <aside class="sidebar">
+<div class="brand"><a href="index.html">GSK Family Python</a></div>
+<input class="nav-search" type="search" placeholder="Filter docs" aria-label="Filter docs">
+<nav class="nav-list" aria-label="Documentation">
+<section><h2>Getting Started</h2>
+<a class="nav-link" href="getting-started_configuration.html">Configuration</a>
+<a class="nav-link" href="getting-started_explainer.html">Explainer</a>
+<a class="nav-link" href="getting-started_runbook.html">Runbook</a>
+<a class="nav-link" href="getting-started_troubleshooting.html">Troubleshooting</a>
+<a class="nav-link" href="getting-started_tutorial.html">Tutorial</a>
+<a class="nav-link" href="getting-started_user_guide.html">User Guide</a>
+</section>
+<section><h2>Reference</h2>
+<a class="nav-link" href="reference_api.html">API Reference</a>
+<a class="nav-link" href="reference_architecture.html">Architecture</a>
+<a class="nav-link" href="reference_benchmark_mapping.html">Benchmark Mapping</a>
+<a class="nav-link" href="reference_benchmark_protocol.html">Benchmark Protocol</a>
+<a class="nav-link" href="reference_cec2011_cpp_python_equivalence_review.html">CEC2011 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013_cpp_python_equivalence_review.html">CEC2013 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013lsgo_cpp_python_equivalence_review.html">CEC2013LSGO C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2017_cpp_python_equivalence_review.html">CEC2017 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2020_cpp_python_equivalence_review.html">CEC2020 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="index.html">Documentation Index</a>
+<a class="nav-link" href="reference_fp_regime.html">Floating-Point Regime Verification</a>
+<a class="nav-link" href="reference_diagrams.html">Flowcharts And Diagrams</a>
+<a class="nav-link" href="reference_glossary.html">Glossary</a>
+<a class="nav-link" href="LICENSES.html">Licenses</a>
+<a class="nav-link" href="reference_module_dependencies.html">Module Dependencies</a>
+<a class="nav-link" href="reference_project_structure.html">Project Structure</a>
+<a class="nav-link" href="reference_python_optimizer_interface.html">Python Optimizer Interface</a>
+<a class="nav-link" href="reference_result_schema.html">Result Schema</a>
+<a class="nav-link" href="reference_seed_policy.html">Seed Policy</a>
+<a class="nav-link" href="reference_workflows.html">Workflows</a>
+</section>
+<section><h2>Algorithm Guides</h2>
+<a class="nav-link" href="algorithms_agsk.html">AGSK — Adaptive Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_apgsk.html">APGSK — Adaptive-Parameters Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_atmals-gsk.html">ATMALS-GSK — Adaptive Tuning, Memory, Adaptive Local Search</a>
+<a class="nav-link active" href="algorithms_dt-gsk.html">DT-GSK — Dimension-Tiered Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_egsk.html">EGSK — Enhanced Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_fdb-agsk.html">FDB-AGSK — Fitness-Distance-Balance AGSK</a>
+<a class="nav-link" href="algorithms_gsk.html">GSK — Gaining-Sharing Knowledge</a>
+</section>
+<section><h2>Development</h2>
+<a class="nav-link" href="development_BUG_resume_summary_truncation.html">BUG-RESUME-01 — resume mode truncates (and mis-computes) the per-dimension summary CSV</a>
+<a class="nav-link" href="development_LSGO_ACCELERATION_PLAN.html">CEC2013LSGO Acceleration Plan — all 7 GSK-family algorithms, bit-identically</a>
+<a class="nav-link" href="development_LSGO_INTEGRATION_CAMPAIGN.html">CEC2013LSGO Integration — Campaign Plan</a>
+<a class="nav-link" href="development_CEC2017_PREC_adjudication.html">CEC2017-PREC — adjudication (CLOSED 2026-07-25)</a>
+<a class="nav-link" href="development_code_reading_guide.html">Code Reading Guide</a>
+<a class="nav-link" href="development_contributor_guide.html">Contributor Guide</a>
+<a class="nav-link" href="development_DECC_G_port_record.html">DECC-G port — fidelity and validation record</a>
+<a class="nav-link" href="development_developer_guide.html">Developer Guide</a>
+<a class="nav-link" href="development_README.html">Development Docs</a>
+<a class="nav-link" href="development_dt_gsk_core_reference.html">DT-GSK Core Reference — the vendored core and its byte-identity lock</a>
+<a class="nav-link" href="development_evidence_rerun_runbook.html">DT-GSK re-run runbook — corrected implementation (C006 + graph backend)</a>
+<a class="nav-link" href="development_egsk_port_spec.html">EGSK — Algorithm Spec &amp; Porting Verdict</a>
+<a class="nav-link" href="development_extension_guide.html">Extension Guide</a>
+<a class="nav-link" href="development_FAMILY_ACCELERATION_PLAN.html">Family-wide acceleration plan — 7 algorithms x 5 suites, bit-identical only</a>
+<a class="nav-link" href="development_FINAL_PUBLICATION_PLAN.html">FINAL PUBLICATION PLAN — DT-GSK, Four(/Five)-Suite Scope</a>
+<a class="nav-link" href="development_ACCELERATION_CAMPAIGN_PROMPT.html">GSK-Family Acceleration Campaign — Execution Prompt</a>
+<a class="nav-link" href="development_maintenance_guide.html">Maintenance Guide</a>
+<a class="nav-link" href="development_PORT_05_TUNING_TRIAGE.html">Porting project-05 tuning into 02 — Phase 1 audit and triage</a>
+<a class="nav-link" href="development_REFERENCE_PROMOTION_PLAN.html">Reference Promotion Plan — CEC2013LSGO now, CEC2020 behind its completeness gate</a>
+<a class="nav-link" href="development_SIBLING_CAMPAIGN_TRANSFER.html">Sibling-Campaign Transfer — every tuning that can make the GSK family fast</a>
+</section>
+<section><h2>Research</h2>
+<a class="nav-link" href="research_egsk_validation_appendix.html">EGSK Validation Appendix — Paired Port-vs-Reference Equivalence</a>
+<a class="nav-link" href="research_numerical_examples.html">Numerical Examples</a>
+<a class="nav-link" href="research_performance.html">Performance</a>
+<a class="nav-link" href="research_reproducibility.html">Reproducibility</a>
+<a class="nav-link" href="research_researcher_handbook.html">Researcher Handbook</a>
+<a class="nav-link" href="research_statistical_analysis.html">Statistical Analysis (GSK-family comparison)</a>
+<a class="nav-link" href="research_validation_report.html">Validation Report</a>
+</section>
+<section><h2>Prompts</h2>
+<a class="nav-link" href="prompt_documentation-deep-upgrade.html">Deep Documentation Review &amp; Upgrade Prompt — GSK Family Python</a>
+<a class="nav-link" href="prompt_project-review.html">Deep Expert Review Prompt For GSK Family Python</a>
+<a class="nav-link" href="prompt_documentation-review.html">Documentation Review Prompt</a>
+<a class="nav-link" href="prompt_publication-polish.html">Final Publication Prompt — Production-Ready Q1 Release of GSK Family Python v1.1</a>
+</section>
+<section><h2>Python API</h2>
+<a class="nav-link" href="api_index.html">API Module Index</a>
+<a class="nav-link api-link" href="api/gsk_family.__init__.html">gsk_family.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.__init__.html">gsk_family.analysis.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.family_report.html">gsk_family.analysis.family_report</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.figures.html">gsk_family.analysis.figures</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.latex_tables.html">gsk_family.analysis.latex_tables</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.project_policy.html">gsk_family.analysis.project_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.result_loader.html">gsk_family.analysis.result_loader</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistical_tests.html">gsk_family.analysis.statistical_tests</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistics.html">gsk_family.analysis.statistics</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.__init__.html">gsk_family.benchmark_adapter.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.factory.html">gsk_family.benchmark_adapter.factory</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.problem.html">gsk_family.benchmark_adapter.problem</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.protocol.html">gsk_family.benchmark_adapter.protocol</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.__init__.html">gsk_family.cli.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.list.html">gsk_family.cli.list</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.run.html">gsk_family.cli.run</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.stats.html">gsk_family.cli.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.validate.html">gsk_family.cli.validate</a>
+<a class="nav-link api-link" href="api/gsk_family.common.__init__.html">gsk_family.common.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.common.bounds.html">gsk_family.common.bounds</a>
+<a class="nav-link api-link" href="api/gsk_family.common.donors.html">gsk_family.common.donors</a>
+<a class="nav-link api-link" href="api/gsk_family.common.numeric_compat.html">gsk_family.common.numeric_compat</a>
+<a class="nav-link api-link" href="api/gsk_family.common.population.html">gsk_family.common.population</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reduction.html">gsk_family.common.reduction</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reference_rng.html">gsk_family.common.reference_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.rng.html">gsk_family.common.rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.threefry_rng.html">gsk_family.common.threefry_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.__init__.html">gsk_family.optimizers.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_profiles.html">gsk_family.optimizers._dt_profiles</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_rng.html">gsk_family.optimizers._dt_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._kernels.html">gsk_family.optimizers._kernels</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.agsk.html">gsk_family.optimizers.agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.apgsk.html">gsk_family.optimizers.apgsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_gsk.html">gsk_family.optimizers.atmals_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_helpers.html">gsk_family.optimizers.atmals_helpers</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.dt_gsk.html">gsk_family.optimizers.dt_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.egsk.html">gsk_family.optimizers.egsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.__init__.html">gsk_family.optimizers.external.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._base.html">gsk_family.optimizers.external._base</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._telemetry_shim.html">gsk_family.optimizers.external._telemetry_shim</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.cmaes.html">gsk_family.optimizers.external.cmaes</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.decc_g.html">gsk_family.optimizers.external.decc_g</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.ebowithcmar.html">gsk_family.optimizers.external.ebowithcmar</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.jso.html">gsk_family.optimizers.external.jso</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade.html">gsk_family.optimizers.external.lshade</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade_spacma.html">gsk_family.optimizers.external.lshade_spacma</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.mos_cec2013lsgo.html">gsk_family.optimizers.external.mos_cec2013lsgo</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.shade_ils.html">gsk_family.optimizers.external.shade_ils</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_agsk.html">gsk_family.optimizers.fdb_agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_scores.html">gsk_family.optimizers.fdb_scores</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.gsk.html">gsk_family.optimizers.gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.__init__.html">gsk_family.runners.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.config.html">gsk_family.runners.config</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.fp_regime.html">gsk_family.runners.fp_regime</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.output.html">gsk_family.runners.output</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.parallel.html">gsk_family.runners.parallel</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.performance.html">gsk_family.runners.performance</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.run_experiment.html">gsk_family.runners.run_experiment</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.seed_policy.html">gsk_family.runners.seed_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.verification.html">gsk_family.runners.verification</a>
+<a class="nav-link api-link" href="api/gsk_family.stats.html">gsk_family.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.types.html">gsk_family.types</a>
+</section>
+</nav></aside>
+    <main class="content">
+      <article class="doc-card">
+        <h1 id="dt-gsk-dimension-tiered-gaining-sharing-knowledge">DT-GSK — Dimension-Tiered Gaining-Sharing Knowledge</h1>
+<blockquote><strong>What this is:</strong> the family&#x27;s <strong>headline / proposed method</strong> — it keeps the</blockquote>
+<blockquote>GSK gaining-sharing scaffold and wraps it in a <strong>dimension-aware</strong> stack of</blockquote>
+<blockquote>adaptive controllers, population reduction, escape, linkage-aware crossover,</blockquote>
+<blockquote>an <strong>interaction-structure memory</strong> that records the co-movement of strictly improving accepted moves</blockquote>
+<blockquote>at zero extra evaluation cost, and a deterministic eigenframe polish. <strong>For:</strong></blockquote>
+<blockquote>readers who already know the junior/senior core and want to understand every</blockquote>
+<blockquote>subsystem DT-GSK adds and how the &quot;pub&quot; profile turns them on by dimension.</blockquote>
+<blockquote><strong>Prerequisites:</strong> <a href="algorithms_gsk.html">GSK</a> (junior/senior gained vectors, midpoint</blockquote>
+<blockquote>repair, KR mask) and <a href="algorithms_agsk.html">AGSK</a> (the idea of adaptive parameter pools and</blockquote>
+<blockquote>population reduction). <strong>After reading</strong> you can name the eight core subsystems</blockquote>
+<blockquote>(plus the <code>D&gt;=100</code> controller bundle), read off what each dimension tier</blockquote>
+<blockquote>(<code>D&lt;20</code>, <code>20–49</code>, <code>50–99</code>, <code>&gt;=100</code>) adds, and map each behaviour to</blockquote>
+<blockquote><code>dt_gsk.py</code>, <code>_dt_profiles.py</code>, and <code>_dt_subsystems/</code>.</blockquote>
+<p>DT-GSK (&quot;Dimension-Tiered Gaining-Sharing Knowledge Optimization&quot;, optimizer id <code>dt-gsk</code>) is this project family&#x27;s own proposed method by Mostafa Masoud; the other family members (<a href="algorithms_gsk.html">GSK</a>, <a href="algorithms_agsk.html">AGSK</a>, <a href="algorithms_apgsk.html">APGSK</a>, <a href="algorithms_fdb-agsk.html">FDB-AGSK</a>, <a href="algorithms_atmals-gsk.html">ATMALS-GSK</a>, <a href="algorithms_egsk.html">EGSK</a>) are the baselines and variants it is compared against. It conforms to the <strong>same uniform contract</strong> as every other optimizer — <code>optimize(problem, options) -&gt; OptimizerResult</code> — so it is a drop-in for the runner and CLI:</p>
+<pre><code class="code-block language-python">from gsk_family.optimizers.dt_gsk import optimize
+from gsk_family.types import OptimizerOptions
+
+result = optimize(problem, OptimizerOptions(seed=20240620, rand_generator=&quot;threefry&quot;))</code></pre>
+<p>No tuning is required: the dimension-aware <strong><code>pub</code></strong> profile is selected automatically from <code>problem.dim</code>. Advanced users may override individual <code>DTGSKConfig</code> fields via <code>options.values</code> (see <a href="#parameters-and-the-pub-profile">Parameters</a>).</p>
+<h2 id="intuition">Intuition</h2>
+<p>DT-GSK starts from the same picture as <a href="algorithms_gsk.html">GSK</a>: a population improves by *gaining* knowledge from better peers and *sharing* it across dimensions, with a junior→senior schedule handing exploration over to exploitation. Plain GSK fixes its knobs and its population size; DT-GSK instead treats the whole run as a problem of *spending a fixed evaluation budget well across very different problem sizes*. Three ideas drive everything:</p>
+<ul>
+<li><strong>Adapt the operator, not just the parameter.</strong> A multi-armed bandit (ACE)</li>
+<p>learns which <code>(KF, KR, Kexp)</code> operator settings are paying off and concentrates draws on them, while weak entries get pruned (ARGP) on acceptance-rate evidence.</p>
+<li><strong>Spend the budget where it counts.</strong> The population shrinks nonlinearly</li>
+<p>(NLPSR) so early breadth gives way to late-stage concentration; a budget-safe escape (BSE) rescues the run from stagnation without blowing the budget; a <strong>deep-stall full restart (multi-start)</strong> abandons and re-initialises the whole working population when the incumbent freezes for a quarter of the budget — with a preserved global-best so it can never lose ground; and a deterministic eigenframe polish refines the incumbent in the final slice of budget.</p>
+<li><strong>Reuse the run&#x27;s own strictly improving accepted moves for free.</strong> At the upper tiers (<code>D&gt;=50</code>) the</li>
+<p>interaction-structure memory (SGSM/ISM) records which coordinates move *together* on accepted steps and reuses that co-movement to steer the linkage block crossover — all at <strong>zero extra evaluation cost</strong>, since it only observes moves the run already made. This is a non-learning success-graph statistic, not a recovery of the objective&#x27;s true variable interactions: the component&#x27;s isolated effect is examined directly, and its limits reported, in the Supplementary Materials (Section S6).</p>
+</ul>
+<p>Because what helps at <code>D=10</code> (aggressive escape, dense linkage mixing) differs from what helps at <code>D=300</code> (population floors, frozen-streak broadening, basin memory), every one of these subsystems is gated and tuned <strong>by dimension tier</strong>.</p>
+<h2 id="contributions">Contributions</h2>
+<p>The subsystems below map onto the three contributions the project claims:</p>
+<ul>
+<li><strong>C1 — Eigenframe final polish.</strong> A one-shot deterministic compass search on the</li>
+<p>eigenbasis of the signed interaction graph, run in the final budget slice at the <code>D&gt;=50</code> tiers.</p>
+<li><strong>C2 — Dimension-tiered adaptive scaffold.</strong> The <code>pub</code> profile itself: ACE/ARGP</li>
+<p>operator control, the NLPSR population schedule, and BSE + the diversity archive + the deep-stall restart, each gated and tuned by dimension tier.</p>
+<li><strong>C3 — Controlled family evaluation.</strong> The seven-algorithm GSK-family panel run</li>
+<p>under one frozen protocol (see <a href="#in-the-7-algorithm-panel">the panel section</a>).</p>
+</ul>
+<p>The **interaction-structure memory (ISM/SGSM) is a *supporting* mechanism, not a contribution.<strong> Its direct-isolation overlay finds </strong>no significant standalone benefit** at its active tiers once the family-wise error is Holm-corrected, so the method&#x27;s standing is attributed to the *complete dimension-tiered system*, never to ISM alone. Its role is purely to supply linkage evidence (to the block crossover) and an eigenbasis (to C1&#x27;s polish), both at <strong>zero extra evaluation cost</strong>. See the Supplementary Materials (Section S6) for the isolation design and result.</p>
+<h2 id="main-components">Main components</h2>
+<p>The eight core subsystems — plus the <code>D&gt;=100</code> controller bundle (the ninth row) — and how each one works:</p>
+<div class="table-wrap"><table><thead><tr><th>Subsystem</th><th>Role</th></tr></thead><tbody><tr><td><strong>ACE</strong> — Adaptive Control Engine</td><td>A multi-armed bandit over a 5-arm (+DE) pool of <code>(KF, KR, Kexp)</code> operator settings. EMA credit-tracking concentrates draws on arms with the higher realised improvement (the credit is the positive fitness delta, <code>max(parent-child, 0)</code>); at <code>D&gt;=20</code> it keeps a top/bottom acceptance memory.</td></tr><tr><td><strong>NLPSR</strong> — Nonlinear Population-Size Reduction</td><td>Shrinks <code>NP</code> from <code>NP_init</code> toward a tier floor <code>N_min</code> along a nonlinear schedule, so breadth early gives way to concentrated budget late.</td></tr><tr><td><strong>ARGP</strong> — Acceptance-Rate Gated Pruning</td><td>Watches operator-pool acceptance over a window and prunes entries whose acceptance falls below a tier threshold, after a warm-up fraction.</td></tr><tr><td><strong>Linkage-aware block crossover</strong></td><td>Recombines in arbitrary (non-contiguous) coordinate blocks --- chunks of a random coordinate permutation (block size 5 or 10 by dimension) for a dimension-dependent fraction of the population (<code>linkage_block_mix_prob</code> = 0.70 at <code>D&lt;20</code> and <code>D&gt;=50</code>, 0.40 at mid dim), preserving variable groupings instead of treating every coordinate independently.</td></tr><tr><td><strong>BSE</strong> — Budget-Safe Escape</td><td>A triple-trigger stagnation detector (acceptance / diversity / signal floors) that fires a Cauchy rescue and an archive-seeded restart, capped so it can never overshoot the budget.</td></tr><tr><td><strong>Deep-stall full restart (multi-start)</strong> — DEFAULT-ON</td><td>A standard mechanism (not experimental). When the incumbent has been frozen for <code>&gt;= deep_stall_frac</code> of the budget, the <strong>entire working population is re-initialised uniformly</strong> while a separate <strong>global-best</strong> preserves the best-ever — so a restart can never lose ground and escapes basins BSE cannot (BSE always keeps the trapped elite). RNG is drawn only when it fires; no extra NFEs.</td></tr><tr><td><strong>SGSM / ISM</strong> — Interaction-Structure Memory</td><td>At <code>D&gt;=50</code>, a confidence-gated success-graph that records the co-movement of *accepted* moves at zero extra evaluation cost and steers the linkage block crossover. (It also *can* steer a top-<code>k</code>-block subspace local search, but that path is <strong>not enabled</strong> in the frozen <code>pub</code> profile — a charged coordinate local search runs instead; see the <a href="#main-loop-per-generation-pipeline">main loop</a>, step 8.)</td></tr><tr><td><strong>Eigenframe final polish</strong></td><td>At <code>D&gt;=50</code>, a one-shot RNG-free deterministic compass search on the SGSM eigenbasis, run in the final budget slice (~96% of budget).</td></tr><tr><td><strong>D&gt;=100 controllers</strong></td><td>Upper-tier protection: A1 late-accept clip, A2 frozen-streak broaden, FC4 linkage random-mix, basin memory, and an SP-NLPSR subspace floor.</td></tr></tbody></table></div>
+<p><strong>How each works</strong></p>
+<ul>
+<li><strong>ACE</strong> keeps a small pool of operator settings (the bandit arms), each an</li>
+<p><code>(KF, KR, Kexp)</code> triple; an optional DE-style arm can enter the pool. Each generation it samples an arm per individual, then updates an exponential moving average of each arm&#x27;s credit from the summed fitness improvement of its trials (improvement magnitude, not an acceptance count) (<code>ace_learning_rate=0.10</code>, floor <code>ace_min_prob=0.05</code>), so the wheel drifts toward arms that win. At <code>D&gt;=20</code> the credit is split into top/bottom acceptance memory rather than a single pool.</p>
+<li><strong>NLPSR</strong> computes a target population size</li>
+<p><code>NP = NP_init + (N_min − NP_init) · x^(1−x)</code>, where <code>x = evals / max_evals</code>. The exponent <code>x^(1−x)</code> makes the curve concave, holding breadth longer than a straight line before collapsing toward <code>N_min</code> near the end; the worst individuals are dropped to hit each target.</p>
+<li><strong>ARGP</strong> maintains an acceptance window (<code>argp_window=30</code>) and, after a warm-up</li>
+<p>(<code>argp_warmup_frac=0.15</code>), <strong>freezes</strong> operator entries whose windowed acceptance sits below the tier threshold (<code>0.02</code> at low/mid dim, <code>0.010</code> at <code>D&gt;=50</code>) and redistributes their probability mass to the survivors (they are frozen behind a probability floor, not deleted, so a recovering arm can return), keeping draws concentrated on productive operators.</p>
+<li><strong>Linkage-aware block crossover</strong> replaces the per-coordinate KR mask, for a</li>
+<p>fraction of the population, with a *block* mask over arbitrary (non-contiguous) coordinate groups (<code>linkage_block_size_by_dim</code>: 5 below <code>D=50</code>, 10 at <code>D&gt;=50</code>), refreshed periodically. The mix probability is tier-dependent (<code>linkage_block_mix_prob</code> ≈ 0.70 at <code>D&lt;20</code>, 0.40 mid, 0.70 at <code>D&gt;=50</code>).</p>
+<li><strong>BSE</strong> tracks a stagnation signal over a window</li>
+<p>(<code>bse_signal_window</code>), an acceptance floor (<code>bse_acceptance_floor</code>), and a diversity floor (<code>bse_diversity_floor_frac</code>). At low dim a single stagnation trigger is used; at <code>D&gt;=20</code> the <strong>triple</strong> trigger (<code>bse_trigger_mode=&quot;triple&quot;</code>) requires several conditions. On firing it injects a Cauchy rescue (<code>bse_cauchy_*</code>) and reseeds part of the population from the external archive, bounded by <code>bse_max_restarts</code> so it is budget-safe.</p>
+<li><strong>Deep-stall full restart (multi-start)</strong> is a <strong>standard, default-on</strong></li>
+<p>mechanism (<code>deep_stall_restart_enabled=True</code>), distinct from BSE. At the <strong>end of every generation</strong> DT-GSK first updates a separate <strong>global-best</strong> (<code>global_best_f</code>, <code>global_best_x</code>) that shadows the best-ever solution, then tests a budget-proportional <strong>stall predicate</strong>. It fires a full restart when <strong>all</strong> of the following hold:</p>
+</ul>
+<ol>
+<li>the incumbent has been frozen for at least <code>deep_stall_frac</code> of the budget</li>
+<p>(<code>(nfes_used − nfes_at_best) / max_nfes &gt;= deep_stall_frac</code>, default <code>0.25</code>);</p>
+<li>the total budget is large enough — <code>max_nfes &gt;= deep_stall_min_budget</code></li>
+<p>(default <code>20000</code>); this keeps tiny budgets (e.g. the 3000-NFE byte-stability KAT) inert, so default-on is byte-safe and every real CEC run (<code>&gt;= 10000·D</code>) clears it;</p>
+<li>the <strong>cooldown</strong> has elapsed — at least <code>deep_stall_cooldown_frac</code> of the</li>
+<p>budget since the last deep-stall restart (default <code>0.15</code>);</p>
+<li>the run is not yet in its closing phase — <code>budget_frac &lt; deep_stall_stop_frac</code></li>
+<p>(default <code>0.9</code>). When it fires, the <strong>entire working population is re-initialised uniformly</strong> in the box (<code>lower + U·span</code>, drawn from the <code>bse</code> substream) and re-evaluated; the stall window and stagnation detector reset from &quot;now&quot;. The <strong>global-best invariant</strong> is the key guarantee: because the best-ever lives outside the working population, a full re-init can <strong>never lose ground</strong>, and <code>optimize()</code> returns the global-best (it replaces the working incumbent whenever the global-best is better). This lets the multi-start escape a basin BSE <strong>cannot</strong> — BSE structurally preserves the trapped elite, which in a deep trap *is* the bad attractor, whereas the full re-init removes it. It costs <strong>no extra NFEs</strong> beyond the re-evaluation it performs, and <strong>RNG is drawn only when it fires</strong>, so non-stalling runs (especially at the upper tiers, which stay productive via SGSM/TERRA) are <strong>byte-identical</strong> to runs with the mechanism off. It fixes the catastrophic CEC2017 <strong>F30 D10 run-27 basin trap</strong> (best-f <code>~817578 → ~591</code>), with a disclosed <strong>D30 trade-off</strong>: it can prematurely restart a handful of slow-converging multimodal functions.</p>
+</ol>
+<ul>
+<li><strong>SGSM/ISM</strong> accumulates a decaying interaction graph</li>
+<p>(<code>interaction_graph_decay=0.95</code>) over which coordinate pairs move together on accepted steps, refreshed every few generations after a warm-up. It is gated by confidence thresholds (<code>interaction_confidence_min</code>, with an adaptive variant) and minimum-evidence guards (<code>interaction_min_updates</code>, <code>interaction_min_refreshes</code>) so it only acts once the graph is trustworthy. When confident, it supplies linkage blocks to the block crossover. The graph can *also* feed a top-<code>k</code>-block subspace to the local search, but that path is <strong>dormant</strong> in the frozen <code>pub</code> profile (<code>local_search_method=&quot;coordinate&quot;</code>, <code>local_search_auto_subspace=False</code>); the charged coordinate local search runs instead. It costs <strong>no extra evaluations</strong> because it only observes moves the run already accepted.</p>
+<li><strong>Eigenframe final polish</strong> (<code>final_polish_*</code>) starts at ~96% of budget and</li>
+<p>runs a deterministic compass/pattern search along the eigenvectors of the SGSM interaction matrix, refining the incumbent without consuming the RNG — a clean, reproducible end-of-run squeeze.</p>
+<li><strong>D&gt;=100 controllers</strong> add: <strong>A1</strong> late-accept clip (tightens acceptance when a</li>
+<p>long log-drop streak stalls), <strong>A2</strong> frozen-streak broaden (widens the operator when acceptance freezes), <strong>FC4</strong> link random-mix (injects randomness into linkage on negative lift), <strong>basin memory</strong> (remembers visited basins), and the <strong>SP-NLPSR</strong> subspace floor that keeps a minimum number of subspace samples alive.</p>
+</ul>
+<p>The GSK survivor selection accepts a child when it is <strong>no worse</strong> (<code>&lt;=</code>; equal-fitness ties accepted) --- the one relaxation of base GSK&#x27;s strictly-greedy rule; DT-GSK&#x27;s machinery otherwise decides *how trials are built and how the budget is spent*, not how replacement works.</p>
+<h2 id="main-loop-per-generation-pipeline">Main loop (per-generation pipeline)</h2>
+<p>DT-GSK initialises a <code>5·D</code> population from its own <code>init</code> substream, evaluates it, and seeds the <strong>global-best</strong> shadow that the deep-stall restart preserves. It then runs the loop below until the evaluation budget is exhausted, and returns the <strong>global-best</strong>. The flowchart depicts the <strong>principal</strong> order in <code>_dt_core.py</code> (<code>dt_gsk_optimize</code>); the dimension-gated steps (<code>D&gt;=50</code>, <code>D&gt;=100</code>) are skipped when the active <code>pub</code> tier does not enable them. The <code>D&gt;=100</code> controllers are drawn as one node for readability, but are in fact <strong>interleaved</strong> across the generation: SP-NLPSR clamps the reduction target (step 2), FC4 acts inside the linkage crossover (step 4), and the TERRA budget policy gates the escape (step 7) and local-search (step 8) stages.</p>
+<pre class="mermaid">flowchart TD
+    A[&quot;Init population (5·D) + evaluate&lt;br/&gt;seed global-best (global_best_f / global_best_x)&quot;] --&gt; B{Budget&lt;br/&gt;exhausted?}
+    B -- yes --&gt; Z[&quot;Return GLOBAL-BEST&lt;br/&gt;(replaces working incumbent if better)&quot;]
+    B -- no --&gt; C[&quot;NLPSR population-size reduction&lt;br/&gt;compute target NP and cull worst (psr_schedule, n_min)&quot;]
+    C --&gt; D[&quot;ACE knowledge-source selection&lt;br/&gt;bandit over (KF, KR, Kexp) arms (ace_*)&quot;]
+    D --&gt; E[&quot;Junior / senior gaining-sharing crossover&lt;br/&gt;+ linkage-aware blocks (KF, KR, Kexp, linkage_*)&quot;]
+    E --&gt; F[&quot;Bound-handle (midpoint repair) &amp; evaluate&lt;br/&gt;(bound_constraint, BudgetController)&quot;]
+    F --&gt; G[&quot;Elitist accept&lt;br/&gt;(child replaces parent iff no worse; ties accepted)&quot;]
+    G --&gt; I[&quot;BSE budget-safe escape&lt;br/&gt;triple trigger -&gt; Cauchy + archive restart (bse_*)&quot;]
+    I --&gt; J{D &gt;= 50?}
+    J -- yes --&gt; K[&quot;SGSM/ISM interaction-graph linkage&lt;br/&gt;(+ coordinate local search; subspace path dormant) (interaction_*, local_search_*)&quot;]
+    J -- no --&gt; L
+    K --&gt; M{D &gt;= 100?}
+    M -- yes --&gt; N[&quot;D&gt;=100 controllers (interleaved, shown once):&lt;br/&gt;TERRA budget policy / basin memory / SP-NLPSR / A1 / A2 / FC4&lt;br/&gt;(terra_*, basin_*, sp_nlpsr_*, *_clip / broaden / mix)&quot;]
+    M -- no --&gt; L
+    N --&gt; L[&quot;Eigenframe final polish (D&gt;=50; pub default-on)&lt;br/&gt;one-shot RNG-free compass search (final_polish_*)&quot;]
+    L --&gt; O[&quot;Update GLOBAL-BEST from current best&lt;br/&gt;(global_best_f / global_best_x)&quot;]
+    O --&gt; P{&quot;Deep-stall?&lt;br/&gt;frozen &gt;= deep_stall_frac AND&lt;br/&gt;max_nfes &gt;= deep_stall_min_budget AND&lt;br/&gt;cooldown elapsed AND budget_frac &lt; stop_frac&quot;}
+    P -- yes --&gt; Q[&quot;FULL re-init of working population (uniform)&lt;br/&gt;global-best preserved; reset stall window (deep_stall_*)&quot;]
+    P -- no --&gt; B
+    Q --&gt; B</pre>
+<p>Step-by-step (each step cross-referenced to its config field):</p>
+<ol>
+<li><strong>Init.</strong> Sample <code>NP_init = np_init_mult·D = 5·D</code> rows from the <code>init</code></li>
+<p>substream, evaluate, and set <code>global_best_f</code>/<code>global_best_x</code> (<code>np_init_mult</code>).</p>
+<li><strong>NLPSR reduction.</strong> Compute the target <code>NP</code> from the budget fraction and cull</li>
+<p>the worst individuals toward <code>n_min</code> (<code>psr_schedule</code>, <code>psr_alpha</code>, <code>n_min</code>).</p>
+<li><strong>ACE selection.</strong> Sample a knowledge-source arm — an <code>(KF, KR, Kexp)</code> triple</li>
+<p>(plus optional DE arm) — per individual from the bandit memory (<code>ace_pool</code>, <code>ace_init_probs</code>, <code>ace_learning_rate</code>, <code>ace_min_prob</code>, <code>ace_memory_mode</code>, <code>ace_de_entry</code>).</p>
+<li><strong>Junior/senior crossover.</strong> Build the junior and senior gained vectors and</li>
+<p>mix them through the KR mask, using linkage-aware contiguous blocks for part of the population (<code>KF</code>, <code>KR</code>, <code>Kexp</code>, <code>p_senior</code>, <code>linkage_block_size_by_dim</code>, <code>linkage_block_mix_prob</code>).</p>
+<li><strong>Bound-handle &amp; evaluate.</strong> Repair out-of-bounds components by the L-SHADE</li>
+<p>midpoint rule and evaluate through the <code>BudgetController</code> cap (<code>bounds</code>, <code>max_nfes</code>).</p>
+<li><strong>Elitist accept.</strong> A child replaces its parent when it is <strong>no worse</strong></li>
+<p>(<code>&lt;=</code>; equal-fitness ties are accepted, matching the frozen code and Eq. (9) --- this is the one relaxation of the base GSK greedy selection).</p>
+<li><strong>BSE escape.</strong> On the triple stagnation trigger, fire the Cauchy rescue and</li>
+<p>archive-seeded partial restart, capped by <code>bse_max_restarts</code> (<code>bse_trigger_mode</code>, <code>bse_signal_window</code>, <code>bse_acceptance_floor</code>, <code>bse_diversity_floor_frac</code>, <code>bse_cauchy_*</code>, <code>bse_restart_frac</code>, <code>bse_max_restarts</code>, <code>bse_stop_frac</code>).</p>
+<li><strong>(D&gt;=50) SGSM/ISM + local search.</strong> Update the decaying interaction graph from</li>
+<p><strong>strictly improving</strong> accepted moves (ties do not update the graph; DE-arm moves have update weight 0, local-search displacements weight 0.25) and, when confident, steer the linkage block crossover. The frozen <code>pub</code> profile runs a <strong>charged coordinate local search</strong> here; the graph-steered top-<code>k</code>-block subspace variant is implemented but not enabled (<code>interaction_graph_enabled</code>, <code>interaction_confidence_min</code>, <code>interaction_use_for_linkage</code>, <code>local_search_method=&quot;coordinate&quot;</code>, <code>local_search_*</code>).</p>
+<li><strong>(D&gt;=100) upper-tier controllers.</strong> TERRA budget policy, basin memory, SP-NLPSR</li>
+<p>subspace floor, A1 late-accept clip, A2 frozen-streak broaden, FC4 linkage random-mix (<code>terra_enabled</code>, <code>budget_policy_enabled</code>, <code>basin_memory_enabled</code>, <code>sp_nlpsr_enabled</code>, <code>late_accept_clip_enabled</code>, <code>frozen_broaden_enabled</code>, <code>link_random_mix_enabled</code>). These are <strong>interleaved</strong> across the generation, not a single stage: SP-NLPSR clamps the step-2 reduction target, FC4 acts inside the step-4 linkage crossover, and the TERRA budget policy gates the step-7 escape and step-8 local search.</p>
+<li><strong>(D&gt;=50) Eigenframe final polish.</strong> Once, from <code>final_polish_start_frac</code> of</li>
+<p>the budget, refine the incumbent by a deterministic RNG-free compass search on the SGSM eigenbasis (<code>final_polish_enabled</code>, <code>final_polish_start_frac</code>, <code>final_polish_step_frac</code>).</p>
+<li><strong>Update global-best.</strong> If the current best beats <code>global_best_f</code>, record it</li>
+<p>and reset the stall marker (<code>nfes_at_best</code>).</p>
+<li><strong>Deep-stall test (decision).</strong> If the incumbent has been frozen for</li>
+<p><code>&gt;= deep_stall_frac</code> of the budget <strong>and</strong> <code>max_nfes &gt;= deep_stall_min_budget</code> <strong>and</strong> the cooldown has elapsed <strong>and</strong> <code>budget_frac &lt; deep_stall_stop_frac</code>, then <strong>re-initialise the entire working population uniformly</strong> and reset the stall window; otherwise continue. The preserved global-best means this can never lose ground (<code>deep_stall_restart_enabled</code>, <code>deep_stall_frac</code>, <code>deep_stall_min_budget</code>, <code>deep_stall_cooldown_frac</code>, <code>deep_stall_stop_frac</code>).</p>
+<li><strong>Loop / return.</strong> Repeat until the budget is exhausted, then return the</li>
+<p><strong>global-best</strong> (the core&#x27;s return path substitutes it for the working incumbent whenever it is better, before the adapter wraps the result).</p>
+</ol>
+<h2 id="worked-example">Worked example</h2>
+<p>DT-GSK&#x27;s distinctive budget mechanism is <strong>NLPSR</strong> — the nonlinear population-size reduction that holds breadth early and collapses toward the tier floor late. It is a clean closed form, so the target <code>NP</code> at any point in the run is hand-checkable. Take a <code>D=50</code> run, where the <code>pub</code> profile sets <code>NP_init = np_init_mult · D = 5 · 50 = 250</code> (the <code>np_init_mult</code> default, <code>_dt_core.py:152</code>) and the tier floor <code>n_min = 25</code> (<code>_dt_profiles.py:97</code>).</p>
+<p><strong>Formula</strong> (<code>nlpsr</code> schedule; <code>x = nfes_used / max_nfes</code>):</p>
+<pre><code class="code-block language-text">NP(x) = NP_init + (n_min - NP_init) · x^(1-x)          # rounded half-up
+      = 250     + (25      - 250)    · x^(1-x)
+      = 250     - 225 · x^(1-x)</code></pre>
+<p><strong>Step through the budget</strong> (<code>x^(1-x)</code> is 0 at <code>x=0</code> and 1 at <code>x=1</code>):</p>
+<div class="table-wrap"><table><thead><tr><th>x = nfes/max</th><th>x^(1-x)</th><th>250 − 225·x^(1-x)</th><th>NP (round half-up)</th></tr></thead><tbody><tr><td>0.00</td><td>0.0000</td><td>250.000</td><td>250</td></tr><tr><td>0.10</td><td>0.1259</td><td>221.674</td><td>222</td></tr><tr><td>0.25</td><td>0.3536</td><td>170.450</td><td>170</td></tr><tr><td>0.50</td><td>0.7071</td><td>90.901</td><td>91</td></tr><tr><td>0.75</td><td>0.9306</td><td>40.614</td><td>41</td></tr><tr><td>1.00</td><td>1.0000</td><td>25.000</td><td>25</td></tr></tbody></table></div>
+<p>The worst individuals are dropped each generation to hit the current target. The <code>x^(1-x)</code> exponent is what makes the schedule *nonlinear*: at the halfway point <code>x=0.5</code> the population is already down to 91, below the linear-<code>LPSR</code> value of <code>250 + (25 − 250)·0.5 = 137.5</code> for the same endpoints — so DT-GSK sheds breadth faster than a straight line through the first half of the run (the reduction is steepest mid-run, since the effective exponent is <code>1-x</code>, not <code>1</code>), then eases as it approaches the floor over the final quarter.</p>
+<p>Code: <code>_psr_target_size()</code> in <code>src/gsk_family/optimizers/_dt_core.py:800</code> (numba hot path <code>_psr_target_nb</code> in <code>_dt_subsystems/_numba_accel.py:909</code>, <code>nl = frac**(1.0-frac)</code> at line 933). Why it matters: NLPSR is how DT-GSK &quot;spends the budget where it counts&quot; — the same <code>x^(1-x)</code> shape AGSK uses for <a href="research_numerical_examples.html#lpsr-population-schedule-adaptive-variants">LPSR</a>, but starting from a dimension-scaled <code>5·D</code> population and bottoming out at a tier-specific floor rather than a fixed minimum.</p>
+<h2 id="dimension-tiers">Dimension tiers</h2>
+<p>The <code>pub</code> profile (built in <code>_dt_profiles.py:build_pub_config</code>) layers a common block of settings (<code>_PUB_COMMON</code>) with tier-specific overrides selected by <code>problem.dim</code>. What each tier adds:</p>
+<div class="table-wrap"><table><thead><tr><th>Tier</th><th>Adds / changes</th></tr></thead><tbody><tr><td><strong><code>D&lt;20</code></strong></td><td>ACE single-pool memory (<code>ace_memory_mode=&quot;single&quot;</code>), no DE arm entry, NLPSR; aggressive escape — extra restarts (<code>bse_max_restarts=4</code>, <code>bse_restart_frac=0.30</code>) and Cauchy rescue enabled; dense linkage mixing (<code>linkage_block_mix_prob=0.70</code>, block size 5); late coordinate local search (<code>local_search_start_frac=0.80</code>).</td></tr><tr><td><strong><code>20–49</code></strong></td><td>ACE top/bottom memory (<code>ace_memory_mode=&quot;top_bottom&quot;</code>), DE arm enabled (<code>ace_de_entry=True</code>), triple-trigger BSE with Cauchy, lighter linkage mixing (<code>0.40</code>); a best-status override across the whole tier (<code>_D30_BEST_STATUS_OVERRIDES</code>: <code>bse_restart_frac=0.30</code>, <code>p_senior=0.15</code>).</td></tr><tr><td><strong><code>50–99</code></strong></td><td>Population floor <code>n_min=25</code>; <strong>SGSM/ISM</strong> turned on (<code>interaction_graph_enabled</code>, <code>interaction_graph_min_dim=50</code>) with adaptive confidence, steering the linkage block crossover (the graph-steered subspace local search stays dormant — <code>local_search_method=&quot;coordinate&quot;</code>); block size 10; <strong>eigenframe final polish</strong> enabled (<code>final_polish_start_frac=0.96</code>); a senior split (<code>p_senior_split_enabled</code>) and promoted local-search budget.</td></tr><tr><td><strong><code>&gt;=100</code></strong></td><td>Everything in the <code>&gt;=50</code> tier <strong>plus</strong> the upper-tier controllers (<code>_PUB_D_GE_100_EXTRA</code>): TERRA budget policy, basin memory, SP-NLPSR subspace floor, coordinate local search with cooldowns, A1 late-accept clip (<code>late_accept_clip_enabled</code>), A2 frozen-streak broaden (<code>frozen_broaden_enabled</code>), FC4 linkage random-mix (<code>link_random_mix_enabled</code>), and a reduced restart cap (<code>bse_max_restarts=2</code>).</td></tr></tbody></table></div>
+<p>The exact resolved config for any dimension is whatever <code>build_pub_config(dim, …)</code> returns; the tables above summarise the override blocks in <code>_dt_profiles.py</code> (<code>_PUB_D_LT_20</code>, <code>_PUB_D_20_TO_49</code>, <code>_PUB_D_GE_50</code> + <code>_SGSM_D_GE_50_EXTRA</code> + the adaptive/promoted blocks, and <code>_PUB_D_GE_100_EXTRA</code>).</p>
+<p><strong>Worked example — what switches on at <code>D=10</code> vs <code>D=100</code>.</strong> Resolving <code>build_pub_config</code> at the two extremes makes the gating concrete (each cell is the value <code>_dt_profiles.py</code> merges onto the <code>DTGSKConfig</code> defaults):</p>
+<div class="table-wrap"><table><thead><tr><th>Subsystem</th><th><code>D=10</code> (tier <code>D&lt;20</code>)</th><th><code>D=100</code> (tier <code>&gt;=100</code>)</th></tr></thead><tbody><tr><td>ACE operator bandit</td><td>on — single-pool memory, <strong>no DE arm</strong></td><td>on — top/bottom memory, <strong>no DE arm</strong></td></tr><tr><td>NLPSR reduction</td><td>on (<code>nlpsr</code>)</td><td>on (<code>nlpsr</code>) <strong>+ SP-NLPSR</strong> subspace floor</td></tr><tr><td>ARGP pruning</td><td>on — threshold <code>0.02</code></td><td>on — threshold <code>0.010</code></td></tr><tr><td>Linkage block crossover</td><td>on — block size <strong>5</strong>, mix <code>0.70</code></td><td>on — block size <strong>10</strong>, mix <code>0.70</code></td></tr><tr><td>BSE escape</td><td>on — single <code>stagnation</code> trigger, Cauchy, <strong>4</strong> restarts</td><td>on — <code>triple</code> trigger, Cauchy, <strong>2</strong> restarts</td></tr><tr><td>Deep-stall restart</td><td>on (default)</td><td>on (default)</td></tr><tr><td>Coordinate local search</td><td>on — from <strong>80%</strong> of budget</td><td>on — from <strong>70%</strong>, with period/cooldown</td></tr><tr><td>SGSM/ISM memory</td><td><strong>off</strong> (<code>interaction_graph_min_dim=50</code>)</td><td><strong>on</strong> — adaptive confidence</td></tr><tr><td>Eigenframe final polish</td><td><strong>off</strong></td><td><strong>on</strong> — from <strong>96%</strong> of budget</td></tr><tr><td><code>D&gt;=100</code> controllers (TERRA / basin / A1 / A2 / FC4)</td><td><strong>off</strong></td><td><strong>on</strong></td></tr></tbody></table></div>
+<p>Two non-obvious points fall out of the merge order. First, the DE-style ACE arm is a <strong>mid-dimension-only</strong> feature: <code>ace_de_entry</code> is <code>True</code> only in the <code>20–49</code> and <code>50–99</code> tiers and <code>False</code> at both <code>D=10</code> and <code>D=100</code>. Second, everything &quot;off&quot; at <code>D=10</code> is off because the corresponding <code>DTGSKConfig</code> default is <code>False</code> (<code>interaction_graph_enabled</code>, <code>final_polish_enabled</code>, and every <code>D&gt;=100</code> controller) and the <code>D&lt;20</code> block never switches it on; everything &quot;on&quot; at <code>D=100</code> is turned on by the inherited <code>D&gt;=50</code> blocks (<code>_SGSM_D_GE_50_EXTRA</code>, <code>_D_GE_50_PROMOTED</code>) plus <code>_PUB_D_GE_100_EXTRA</code>.</p>
+<h2 id="rng-and-self-initialization">RNG and self-initialization</h2>
+<p>DT-GSK draws all randomness through a dedicated substream RNG layer (<code>_dt_rng.py</code>) with <strong>13 named, append-only substreams</strong>, child-seeded from one run seed:</p>
+<pre><code class="code-block language-text">init, core, ace, kexp, div, bse, arch, link, de, control, flow, basin, trust</code></pre>
+<p>The order is <strong>load-bearing</strong>: each substream&#x27;s child seed is assigned by position, so the contract is prefix-locked and new substreams may only be appended at the end. Stream 0 (<code>init</code>) receives the run seed *verbatim* — so the <strong><code>init</code> substream equals <code>threefry(seed)</code></strong>, the same stream the family&#x27;s fair-start mechanism uses. Toggling any subsystem therefore cannot disturb the draw order of the others.</p>
+<p>DT-GSK <strong>always</strong> uses the <code>threefry</code> generator with the unified shared seed <code>get_cec_seed</code> under <strong>every</strong> seed policy (it is listed in <code>seed_policy.UNIFIED_ONLY_OPTIMIZERS</code>), so it sits on the exact same shared seed/generator footing as the rest of the GSK family. See <a href="reference_seed_policy.html">Seed Policy</a>.</p>
+<p><strong>Self-init (a documented fair-start exception).</strong> DT-GSK&#x27;s initial population is <code>np_init_mult · D = 5·D</code> rows (the NLPSR starting size). It draws this population *itself*, from its own unified <code>threefry(seed)</code> stream (the <code>init</code> substream), and <strong>intentionally ignores the runner&#x27;s fair-start <code>X0</code></strong>. This is intrinsic to the algorithm — it preserves DT-GSK&#x27;s tuned, byte-identical initialization — and it is <strong>not</strong> a different seed: the self-init stream is the same <code>threefry(seed)</code> the fair-start uses. The result records <code>notes=&quot;self-init (fair-start exception)&quot;</code> (<code>dt_gsk.py:327</code>), and the run stays fully deterministic for a given seed.</p>
+<h2 id="budget-and-determinism">Budget and determinism</h2>
+<ul>
+<li><strong>Budget.</strong> Evaluations are counted *through* <code>problem.evaluate</code> by an internal</li>
+<p><code>BudgetController</code>, which is the single evaluation cap; the run stops at <code>problem.max_nfes</code> (default <code>10000·D</code>). <code>result.nfes_used</code> is reported as <code>OptimizerResult.nfes</code>, and the convergence trace records best-so-far at each callback (<code>dt_gsk.py:259-272</code>). Best-so-far is monotone non-increasing.</p>
+<li><strong>Bounds.</strong> Both <strong>uniform scalar</strong> <code>(lo, hi)</code> bounds and <strong>per-dimension</strong></li>
+<p>heterogeneous bounds are supported: <code>_resolve_bounds</code> collapses uniform bounds to a scalar pair and returns per-coordinate <code>(lb, ub)</code> arrays for heterogeneous ones (as used by the CEC2011 real-world problems, where each variable has its own range); only empty bounds raise (<code>_resolve_bounds</code>, <code>dt_gsk.py:75-90</code>).</p>
+<li><strong>Determinism.</strong> Same seed → identical result. Every draw flows through the 13</li>
+<p>substreams in a fixed order, and DT-GSK never reseeds mid-run. At <code>D&gt;=50</code>, byte-stable determinism relies on <strong>single-threaded numba/BLAS</strong> (thread pinning), because the SGSM linear-algebra paths must reduce in a fixed order.</p>
+</ul>
+<h2 id="byte-for-byte-parity-with-the-source-project">Byte-for-byte parity with the source project</h2>
+<p>DT-GSK was migrated from the sibling project <code>01-Python/03-DT-GSK-v2.1</code> and reproduces it <strong>byte-for-byte</strong>. The <code>_dt_profiles.py</code> <code>pub</code> builder is a faithful port of the source&#x27;s <code>profiles.py</code> <code>pub</code> profile together with the <code>dt_gsk_</code>-prefix-strip mapping the source&#x27;s <code>experiment._build_dt_gsk_config</code> applied, so the migrated optimizer produces the source&#x27;s per-dimension <code>DTGSKConfig</code> — and therefore its trajectory — bit-for-bit. The <code>_dt_subsystems/</code> core and subsystems are vendored byte-for-byte.</p>
+<p>Parity was validated on the sphere function and CEC2017 across <code>D=10/30/50/100</code> (all exact). Byte-stability is locked in CI by <code>tests/regression/test_dt_gsk_byte_stable.py</code>, and the profile builder is locked against an oracle generated from the source by <code>tests/unit/test_dt_profiles.py</code>.</p>
+<h2 id="parameters-and-the-pub-profile">Parameters and the <code>pub</code> profile</h2>
+<p>DT-GSK has <strong>no required tuning values</strong>. The dimension-aware <code>pub</code> profile is applied automatically by <code>problem.dim</code>; the run-level fields are resolved from the problem and options and cannot be overridden via <code>values</code>:</p>
+<div class="table-wrap"><table><thead><tr><th>Field</th><th>Source</th><th>Meaning</th></tr></thead><tbody><tr><td><code>profile</code></td><td>always <code>&quot;pub&quot;</code></td><td>The single shipped, paper-facing profile (<code>dt_gsk.py:318</code>).</td></tr><tr><td><code>dim</code>, <code>seed</code>, <code>max_nfes</code>, <code>bounds</code>, <code>rand_generator</code></td><td>problem / options</td><td><strong>Reserved</strong> run-level fields; not overridable via <code>values</code> (<code>_RESERVED_FIELDS</code>, <code>dt_gsk.py:40</code>).</td></tr><tr><td><code>np_init_mult</code></td><td>profile</td><td>Initial population multiplier; <code>NP_init = np_init_mult · D</code> (= <code>5·D</code>).</td></tr><tr><td><code>n_min</code></td><td>profile (tier)</td><td>NLPSR population floor (e.g. <code>25</code> at <code>D&gt;=50</code>).</td></tr><tr><td><code>KF</code>, <code>KR</code>, <code>Kexp</code></td><td>profile / ACE</td><td>Operator settings; the ACE bandit adapts these during the run.</td></tr><tr><td><code>deep_stall_restart_enabled</code></td><td>profile (default <code>True</code>)</td><td>Default-on <strong>deep-stall full restart (multi-start)</strong>; re-inits the working population on a deep stall while preserving the global-best.</td></tr><tr><td><code>deep_stall_frac</code></td><td>profile (default <code>0.25</code>)</td><td>Frozen-incumbent fraction of the budget that arms the deep-stall restart.</td></tr><tr><td><code>deep_stall_min_budget</code></td><td>profile (default <code>20000</code>)</td><td>Minimum <code>max_nfes</code> for the deep-stall restart to be active (keeps tiny budgets byte-identical).</td></tr><tr><td><code>deep_stall_cooldown_frac</code></td><td>profile (default <code>0.15</code>)</td><td>Minimum budget fraction between consecutive deep-stall restarts.</td></tr><tr><td><code>deep_stall_stop_frac</code></td><td>profile (default <code>0.9</code>)</td><td>Budget fraction past which deep-stall restarts no longer fire.</td></tr><tr><td><code>restarts_done</code></td><td>result</td><td>Number of BSE restarts that fired (<code>dt_gsk.py:324</code>).</td></tr></tbody></table></div>
+<p><strong>Advanced overrides.</strong> Any <code>DTGSKConfig</code> field (other than the reserved run-level ones) may be overridden per run via <code>options.values</code>; the adapter applies them with <code>dataclasses.replace</code> after building the profile (<code>dt_gsk.py:248-254</code>). For example, to disable the final polish at high dimension:</p>
+<pre><code class="code-block language-python">result = optimize(
+    problem,
+    OptimizerOptions(seed=20240620, values={&quot;final_polish_enabled&quot;: False}),
+)</code></pre>
+<p>Unknown keys are ignored; reserved keys (<code>dim</code>, <code>seed</code>, <code>max_nfes</code>, <code>bounds</code>, <code>rand_generator</code>) are never taken from <code>values</code>.</p>
+<h2 id="when-to-use">When to use</h2>
+<p>DT-GSK is the <strong>default first choice</strong> of the family and the method this project proposes. On CEC2017 (51 runs, 29 functions, F2 excluded) it is the <strong>#1 GSK-family algorithm overall by both mean and median</strong> — ranked <strong>#1 at D10, D50 and D100</strong>, and <strong>#2 at D30 behind the strong eGSK baseline</strong> (the runner-up overall). On the real-world CEC2011 suite it places <strong>#2</strong> in the family. It is designed to scale across dimensions — the eigenframe polish and <code>D&gt;=100</code> controllers target the upper dimension tiers — while its aggressive escape, dense linkage mixing, and the default-on deep-stall multi-start keep it strong at low dimension. The standing is a property of the <strong>complete dimension-tiered system</strong>: a direct component isolation finds no detectable standalone benefit from the interaction-structure memory at its active tiers, so the performance is not attributed to that one subsystem (see the Supplementary Materials, Section S6). Reach for DT-GSK when you want the strongest out-of-the-box result and do not want to tune by hand. (See <code>FINAL_RELEASE_REPORT.md</code> for the exact ranks.)</p>
+<p>For the baselines and variants it is compared against:</p>
+<ul>
+<li><a href="algorithms_gsk.html">GSK</a> — the un-tuned reference core every member extends.</li>
+<li><a href="algorithms_agsk.html">AGSK</a> — adaptive KF/KR pools + linear population reduction.</li>
+<li><a href="algorithms_apgsk.html">APGSK</a> — AGSK plus a negative-KF pool and stochastic junior schedule.</li>
+<li><a href="algorithms_fdb-agsk.html">FDB-AGSK</a> — AGSK with fitness-distance-balance donor selection.</li>
+<li><a href="algorithms_atmals-gsk.html">ATMALS-GSK</a> — five-pool memory tuning plus adaptive local search.</li>
+<li><a href="algorithms_egsk.html">EGSK</a> — dual adaptive knowledge factors plus a late interior-point</li>
+<p>polish; the strongest baseline in the panel.</p>
+</ul>
+<h2 id="in-the-7-algorithm-panel">In the 7-algorithm panel</h2>
+<p>DT-GSK is the <strong>proposed method</strong> at the centre of the family&#x27;s headline comparison — not a comparator. The statistical suite (<code>gsk-stats</code>) builds, per dimension, the <strong>7-algorithm GSK-family panel</strong>: DT-GSK plus the <strong>six reference comparators</strong> (<code>gsk</code>, <code>agsk</code>, <code>apgsk</code>, <code>fdb-agsk</code>, <code>egsk</code>, <code>atmals-gsk</code>). Note <code>egsk</code> contributes its committed comparator data to the panel from the committed <code>scipy</code>-SLSQP <strong>port</strong> CSVs (the comparator of record); this is the same runnable port shipped here, whose only deviation from the MATLAB reference is scipy-SLSQP in place of <code>fmincon</code>. Panel data for every algorithm — DT-GSK included — is loaded <strong>reference-first</strong> from the committed panel <code>benchmarks/cec_reference_results/&lt;suite&gt;/&lt;optimizer&gt;/</code> (the full 7-optimizer panel is committed for CEC2017, CEC2011, and CEC2013); a locally reproduced run under <code>results/_run_all/</code> is only a fallback for cells the reference tree does not carry. Across the panel DT-GSK appears as the row the analysis is built to defend: Friedman ranks + Nemenyi critical-difference diagrams, Holm-corrected pairwise Wilcoxon, Vargha-Delaney A12 / Cliff&#x27;s delta effect sizes, win/tie/loss tallies, BCa bootstrap intervals, LaTeX tables, and 7-curve convergence grids, all written under <code>results/_run_all/_analysis/&lt;suite&gt;/</code>. DT-GSK is the <strong>default target</strong> of the runner&#x27;s live <code>--stats</code> stream. The panel bears out the dimension-tier story above: on CEC2017 DT-GSK is <strong>#1 overall by both mean and median</strong>, <strong>#1 at D10/D50/D100</strong> and <strong>#2 at D30 behind the strong eGSK baseline</strong>, with the eigenframe polish and <code>D&gt;=100</code> controllers driving its separation from the comparators as <code>D</code> grows — while the SGSM/ISM memory is a <strong>supporting</strong> mechanism that a direct isolation shows <strong>no significant standalone benefit</strong> from (Holm-corrected; see Section S6), so its separation is never attributed to ISM. See <a href="research_statistical_analysis.html">Statistical Analysis</a> for the panel construction and the single-source-of-truth policy (<code>src/gsk_family/analysis/project_policy.py</code>) that fixes the runnable/reference split.</p>
+<p>Beyond the family panel, a <strong>scaffold ablation</strong> isolates what each DT-GSK mechanism contributes: <code>scripts/run_ablation.py</code> disables exactly one <code>optimizer_options</code> flag per cell — ACE (<code>ace_enabled</code>), NLPSR (<code>psr_enabled</code>), BSE (<code>bse_enabled</code>), linkage crossover (<code>linkage_blockwise_enabled</code>), the endgame coordinate local search (<code>local_search_enabled</code>), elite archive (<code>arch_enabled</code>) — plus the full-scaffold baseline, with SGSM (<code>interaction_graph_enabled</code>) held off in every cell; <code>papers/scripts/generate_ablation_matrix.py</code> then rolls the cells up into a mean-Friedman-rank matrix with full-vs-cell Wilcoxon/Holm tests. The SGSM overlay itself is ablated separately on a dedicated overlay design — the four cells <code>full</code> / <code>no_sgsm</code> / <code>no_adaptive</code> / <code>no_finalpolish</code>, run across CEC2013 and CEC2017 at the SGSM-active <code>D&gt;=50</code> tiers (<code>benchmarks/cec_reference_results/_ablation/overlay/</code>).</p>
+<p>The standalone CEC2017 review pack (<code>python papers/scripts/generate_review_pack.py</code> → <code>papers/DT-GSK-CEC2017-review.pdf</code>) renders the same 7-algorithm convergence grids (GSK, AGSK, APGSK, FDB-AGSK, eGSK, ATMALS-GSK, DT-GSK) from the per-cell <code>CheckpointErrors_&lt;alg&gt;_F&lt;k&gt;_D&lt;dim&gt;.csv</code> files; any missing curve is logged to <code>papers/DT-GSK-CEC2017-review_missing.log</code> and never fabricated.</p>
+<h2 id="source-and-validation">Source and validation</h2>
+<ul>
+<li><strong>Code map.</strong></li>
+<li><code>src/gsk_family/optimizers/dt_gsk.py</code> — the <code>optimize()</code> adapter (contract</li>
+<p>bridge, bounds check, profile build, result assembly).</p>
+<li><code>src/gsk_family/optimizers/_dt_profiles.py</code> — the dimension-tier <code>pub</code></li>
+<p>config builder (<code>build_pub_config</code>, <code>pub_overrides</code>).</p>
+<li><code>src/gsk_family/optimizers/_dt_rng.py</code> — the 13-substream RNG layer.</li>
+<li><code>src/gsk_family/optimizers/_dt_core.py</code> — the core driver</li>
+<p>(<code>dt_gsk_optimize</code>, <code>DTGSKConfig</code>, <code>DTGSKResult</code>).</p>
+<li><code>src/gsk_family/optimizers/_dt_subsystems/</code> — the DT-GSK core and</li>
+<p>subsystems, vendored byte-for-byte. Notable modules:</p>
+<li><code>interaction_graph.py</code> — the SGSM/ISM interaction-structure memory (the</li>
+<p>decaying coordinate-pair graph and the learned linkage it exposes).</p>
+<li><code>basin_memory.py</code> — the <code>D&gt;=100</code> basin memory of visited regions.</li>
+<li><code>budget.py</code> / <code>budget_policy.py</code> — the <code>BudgetController</code> evaluation cap and</li>
+<p>the TERRA budget policy that gates the final-polish / upper-tier behaviour.</p>
+<li><code>bound_constraint.py</code> — the uniform-scalar bound handling.</li>
+<li><code>gained_shared_junior.py</code> / <code>gained_shared_senior.py</code> — the</li>
+<p>gaining-sharing junior/senior gained-vector kernels.</p>
+<li><code>_numba_accel.py</code> — the numba-accelerated hot paths (single-threaded at</li>
+<p><code>D&gt;=50</code> for byte-stable reduction order).</p>
+<li><code>_dt_provenance.py</code> — provenance/version stamping used by the parity tests.</li>
+<li><strong>Validation.</strong> Byte-stability is locked by</li>
+<p><code>tests/regression/test_dt_gsk_byte_stable.py</code>; the profile builder is locked against a source oracle by <code>tests/unit/test_dt_profiles.py</code>. See the <a href="research_validation_report.html">Validation Report</a>.</p>
+<li><strong>Sample run.</strong> Canonical results land in <code>results/_run_all/dt-gsk/cec2017/</code>.</li>
+<p>Run for example:</p>
+</ul>
+<pre><code class="code-block language-bash">  python -m gsk_family.cli.run \
+    --optimizer dt-gsk \
+    --suite cec2017 \
+    --dimension 30 \
+    --function 1 \
+    --runs 1 \
+    --seed 20240620 \
+    --max-evaluations 300000 \
+    --output-root results/_run_all</code></pre>
+      </article>
+    </main>
+    <aside class="page-toc" aria-label="On this page">
+<h2>On This Page</h2>
+<a class="toc-level-1" href="#dt-gsk-dimension-tiered-gaining-sharing-knowledge">DT-GSK — Dimension-Tiered Gaining-Sharing Knowledge</a>
+<a class="toc-level-2" href="#intuition">Intuition</a>
+<a class="toc-level-2" href="#contributions">Contributions</a>
+<a class="toc-level-2" href="#main-components">Main components</a>
+<a class="toc-level-2" href="#main-loop-per-generation-pipeline">Main loop (per-generation pipeline)</a>
+<a class="toc-level-2" href="#worked-example">Worked example</a>
+<a class="toc-level-2" href="#dimension-tiers">Dimension tiers</a>
+<a class="toc-level-2" href="#rng-and-self-initialization">RNG and self-initialization</a>
+<a class="toc-level-2" href="#budget-and-determinism">Budget and determinism</a>
+<a class="toc-level-2" href="#byte-for-byte-parity-with-the-source-project">Byte-for-byte parity with the source project</a>
+<a class="toc-level-2" href="#parameters-and-the-pub-profile">Parameters and the `pub` profile</a>
+<a class="toc-level-2" href="#when-to-use">When to use</a>
+<a class="toc-level-2" href="#in-the-7-algorithm-panel">In the 7-algorithm panel</a>
+<a class="toc-level-2" href="#source-and-validation">Source and validation</a>
+</aside>
+  </div>
+  <script src="assets/search.js"></script>
+  <script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs'; mermaid.initialize({ startOnLoad: true, securityLevel: 'loose', theme: 'neutral' });</script>
+</body>
+</html>

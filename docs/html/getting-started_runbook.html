@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Runbook - GSK Family Python Documentation">
+  <title>Runbook | GSK Family Python Documentation</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <div class="site-shell">
+    <aside class="sidebar">
+<div class="brand"><a href="index.html">GSK Family Python</a></div>
+<input class="nav-search" type="search" placeholder="Filter docs" aria-label="Filter docs">
+<nav class="nav-list" aria-label="Documentation">
+<section><h2>Getting Started</h2>
+<a class="nav-link" href="getting-started_configuration.html">Configuration</a>
+<a class="nav-link" href="getting-started_explainer.html">Explainer</a>
+<a class="nav-link active" href="getting-started_runbook.html">Runbook</a>
+<a class="nav-link" href="getting-started_troubleshooting.html">Troubleshooting</a>
+<a class="nav-link" href="getting-started_tutorial.html">Tutorial</a>
+<a class="nav-link" href="getting-started_user_guide.html">User Guide</a>
+</section>
+<section><h2>Reference</h2>
+<a class="nav-link" href="reference_api.html">API Reference</a>
+<a class="nav-link" href="reference_architecture.html">Architecture</a>
+<a class="nav-link" href="reference_benchmark_mapping.html">Benchmark Mapping</a>
+<a class="nav-link" href="reference_benchmark_protocol.html">Benchmark Protocol</a>
+<a class="nav-link" href="reference_cec2011_cpp_python_equivalence_review.html">CEC2011 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013_cpp_python_equivalence_review.html">CEC2013 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013lsgo_cpp_python_equivalence_review.html">CEC2013LSGO C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2017_cpp_python_equivalence_review.html">CEC2017 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2020_cpp_python_equivalence_review.html">CEC2020 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="index.html">Documentation Index</a>
+<a class="nav-link" href="reference_fp_regime.html">Floating-Point Regime Verification</a>
+<a class="nav-link" href="reference_diagrams.html">Flowcharts And Diagrams</a>
+<a class="nav-link" href="reference_glossary.html">Glossary</a>
+<a class="nav-link" href="LICENSES.html">Licenses</a>
+<a class="nav-link" href="reference_module_dependencies.html">Module Dependencies</a>
+<a class="nav-link" href="reference_project_structure.html">Project Structure</a>
+<a class="nav-link" href="reference_python_optimizer_interface.html">Python Optimizer Interface</a>
+<a class="nav-link" href="reference_result_schema.html">Result Schema</a>
+<a class="nav-link" href="reference_seed_policy.html">Seed Policy</a>
+<a class="nav-link" href="reference_workflows.html">Workflows</a>
+</section>
+<section><h2>Algorithm Guides</h2>
+<a class="nav-link" href="algorithms_agsk.html">AGSK — Adaptive Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_apgsk.html">APGSK — Adaptive-Parameters Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_atmals-gsk.html">ATMALS-GSK — Adaptive Tuning, Memory, Adaptive Local Search</a>
+<a class="nav-link" href="algorithms_dt-gsk.html">DT-GSK — Dimension-Tiered Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_egsk.html">EGSK — Enhanced Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_fdb-agsk.html">FDB-AGSK — Fitness-Distance-Balance AGSK</a>
+<a class="nav-link" href="algorithms_gsk.html">GSK — Gaining-Sharing Knowledge</a>
+</section>
+<section><h2>Development</h2>
+<a class="nav-link" href="development_BUG_resume_summary_truncation.html">BUG-RESUME-01 — resume mode truncates (and mis-computes) the per-dimension summary CSV</a>
+<a class="nav-link" href="development_LSGO_ACCELERATION_PLAN.html">CEC2013LSGO Acceleration Plan — all 7 GSK-family algorithms, bit-identically</a>
+<a class="nav-link" href="development_LSGO_INTEGRATION_CAMPAIGN.html">CEC2013LSGO Integration — Campaign Plan</a>
+<a class="nav-link" href="development_CEC2017_PREC_adjudication.html">CEC2017-PREC — adjudication (CLOSED 2026-07-25)</a>
+<a class="nav-link" href="development_code_reading_guide.html">Code Reading Guide</a>
+<a class="nav-link" href="development_contributor_guide.html">Contributor Guide</a>
+<a class="nav-link" href="development_DECC_G_port_record.html">DECC-G port — fidelity and validation record</a>
+<a class="nav-link" href="development_developer_guide.html">Developer Guide</a>
+<a class="nav-link" href="development_README.html">Development Docs</a>
+<a class="nav-link" href="development_dt_gsk_core_reference.html">DT-GSK Core Reference — the vendored core and its byte-identity lock</a>
+<a class="nav-link" href="development_evidence_rerun_runbook.html">DT-GSK re-run runbook — corrected implementation (C006 + graph backend)</a>
+<a class="nav-link" href="development_egsk_port_spec.html">EGSK — Algorithm Spec &amp; Porting Verdict</a>
+<a class="nav-link" href="development_extension_guide.html">Extension Guide</a>
+<a class="nav-link" href="development_FAMILY_ACCELERATION_PLAN.html">Family-wide acceleration plan — 7 algorithms x 5 suites, bit-identical only</a>
+<a class="nav-link" href="development_FINAL_PUBLICATION_PLAN.html">FINAL PUBLICATION PLAN — DT-GSK, Four(/Five)-Suite Scope</a>
+<a class="nav-link" href="development_ACCELERATION_CAMPAIGN_PROMPT.html">GSK-Family Acceleration Campaign — Execution Prompt</a>
+<a class="nav-link" href="development_maintenance_guide.html">Maintenance Guide</a>
+<a class="nav-link" href="development_PORT_05_TUNING_TRIAGE.html">Porting project-05 tuning into 02 — Phase 1 audit and triage</a>
+<a class="nav-link" href="development_REFERENCE_PROMOTION_PLAN.html">Reference Promotion Plan — CEC2013LSGO now, CEC2020 behind its completeness gate</a>
+<a class="nav-link" href="development_SIBLING_CAMPAIGN_TRANSFER.html">Sibling-Campaign Transfer — every tuning that can make the GSK family fast</a>
+</section>
+<section><h2>Research</h2>
+<a class="nav-link" href="research_egsk_validation_appendix.html">EGSK Validation Appendix — Paired Port-vs-Reference Equivalence</a>
+<a class="nav-link" href="research_numerical_examples.html">Numerical Examples</a>
+<a class="nav-link" href="research_performance.html">Performance</a>
+<a class="nav-link" href="research_reproducibility.html">Reproducibility</a>
+<a class="nav-link" href="research_researcher_handbook.html">Researcher Handbook</a>
+<a class="nav-link" href="research_statistical_analysis.html">Statistical Analysis (GSK-family comparison)</a>
+<a class="nav-link" href="research_validation_report.html">Validation Report</a>
+</section>
+<section><h2>Prompts</h2>
+<a class="nav-link" href="prompt_documentation-deep-upgrade.html">Deep Documentation Review &amp; Upgrade Prompt — GSK Family Python</a>
+<a class="nav-link" href="prompt_project-review.html">Deep Expert Review Prompt For GSK Family Python</a>
+<a class="nav-link" href="prompt_documentation-review.html">Documentation Review Prompt</a>
+<a class="nav-link" href="prompt_publication-polish.html">Final Publication Prompt — Production-Ready Q1 Release of GSK Family Python v1.1</a>
+</section>
+<section><h2>Python API</h2>
+<a class="nav-link" href="api_index.html">API Module Index</a>
+<a class="nav-link api-link" href="api/gsk_family.__init__.html">gsk_family.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.__init__.html">gsk_family.analysis.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.family_report.html">gsk_family.analysis.family_report</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.figures.html">gsk_family.analysis.figures</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.latex_tables.html">gsk_family.analysis.latex_tables</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.project_policy.html">gsk_family.analysis.project_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.result_loader.html">gsk_family.analysis.result_loader</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistical_tests.html">gsk_family.analysis.statistical_tests</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistics.html">gsk_family.analysis.statistics</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.__init__.html">gsk_family.benchmark_adapter.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.factory.html">gsk_family.benchmark_adapter.factory</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.problem.html">gsk_family.benchmark_adapter.problem</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.protocol.html">gsk_family.benchmark_adapter.protocol</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.__init__.html">gsk_family.cli.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.list.html">gsk_family.cli.list</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.run.html">gsk_family.cli.run</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.stats.html">gsk_family.cli.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.validate.html">gsk_family.cli.validate</a>
+<a class="nav-link api-link" href="api/gsk_family.common.__init__.html">gsk_family.common.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.common.bounds.html">gsk_family.common.bounds</a>
+<a class="nav-link api-link" href="api/gsk_family.common.donors.html">gsk_family.common.donors</a>
+<a class="nav-link api-link" href="api/gsk_family.common.numeric_compat.html">gsk_family.common.numeric_compat</a>
+<a class="nav-link api-link" href="api/gsk_family.common.population.html">gsk_family.common.population</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reduction.html">gsk_family.common.reduction</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reference_rng.html">gsk_family.common.reference_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.rng.html">gsk_family.common.rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.threefry_rng.html">gsk_family.common.threefry_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.__init__.html">gsk_family.optimizers.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_profiles.html">gsk_family.optimizers._dt_profiles</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_rng.html">gsk_family.optimizers._dt_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._kernels.html">gsk_family.optimizers._kernels</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.agsk.html">gsk_family.optimizers.agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.apgsk.html">gsk_family.optimizers.apgsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_gsk.html">gsk_family.optimizers.atmals_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_helpers.html">gsk_family.optimizers.atmals_helpers</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.dt_gsk.html">gsk_family.optimizers.dt_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.egsk.html">gsk_family.optimizers.egsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.__init__.html">gsk_family.optimizers.external.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._base.html">gsk_family.optimizers.external._base</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._telemetry_shim.html">gsk_family.optimizers.external._telemetry_shim</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.cmaes.html">gsk_family.optimizers.external.cmaes</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.decc_g.html">gsk_family.optimizers.external.decc_g</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.ebowithcmar.html">gsk_family.optimizers.external.ebowithcmar</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.jso.html">gsk_family.optimizers.external.jso</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade.html">gsk_family.optimizers.external.lshade</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade_spacma.html">gsk_family.optimizers.external.lshade_spacma</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.mos_cec2013lsgo.html">gsk_family.optimizers.external.mos_cec2013lsgo</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.shade_ils.html">gsk_family.optimizers.external.shade_ils</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_agsk.html">gsk_family.optimizers.fdb_agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_scores.html">gsk_family.optimizers.fdb_scores</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.gsk.html">gsk_family.optimizers.gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.__init__.html">gsk_family.runners.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.config.html">gsk_family.runners.config</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.fp_regime.html">gsk_family.runners.fp_regime</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.output.html">gsk_family.runners.output</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.parallel.html">gsk_family.runners.parallel</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.performance.html">gsk_family.runners.performance</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.run_experiment.html">gsk_family.runners.run_experiment</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.seed_policy.html">gsk_family.runners.seed_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.verification.html">gsk_family.runners.verification</a>
+<a class="nav-link api-link" href="api/gsk_family.stats.html">gsk_family.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.types.html">gsk_family.types</a>
+</section>
+</nav></aside>
+    <main class="content">
+      <article class="doc-card">
+        <h1 id="runbook">Runbook</h1>
+<blockquote><strong>What this page is.</strong> A quick, copy-paste command reference for routine</blockquote>
+<blockquote>operation - the commands with only the context needed to choose the right one.</blockquote>
+<blockquote><strong>Who it is for.</strong> Anyone who already knows the workflow and just wants the</blockquote>
+<blockquote>command to run.</blockquote>
+<blockquote><strong>Prerequisites.</strong> The package installed (see <a href="getting-started_user_guide.html">User Guide</a>).</blockquote>
+<blockquote><strong>Want explanations?</strong> Each command is explained step by step in the</blockquote>
+<blockquote><a href="getting-started_user_guide.html">User Guide</a>; for a guided first run, see the</blockquote>
+<blockquote><a href="getting-started_tutorial.html">Tutorial</a>.</blockquote>
+<p>Run every command from the project root (the directory that contains <code>run.py</code>, <code>pyproject.toml</code>, and the <code>configs/</code> folder). On this machine that is:</p>
+<pre><code class="code-block language-powershell">cd D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1</code></pre>
+<p>The canonical runner is <code>python run.py</code>, which prepends <code>src/</code> to the import path so it works without installing the package. Once you have run <code>python -m pip install -e &quot;.[dev]&quot;</code>, the console scripts <code>gsk-run</code> (alias <code>gsk-family-run</code>), <code>gsk-list</code>, <code>gsk-validate</code>, and <code>gsk-stats</code> are equivalent and shorter; this runbook mixes both forms. Commands use PowerShell (the project&#x27;s primary shell on Windows) but work the same in other shells.</p>
+<h2 id="command-picker">Command Picker</h2>
+<div class="table-wrap"><table><thead><tr><th>I want to...</th><th>Jump to</th></tr></thead><tbody><tr><td>Confirm the install works</td><td><a href="#verify-the-environment">Verify The Environment</a></td></tr><tr><td>See which optimizers/suites/references exist</td><td><a href="#list-runtime-assets">List Runtime Assets</a></td></tr><tr><td>Run the tiniest possible job</td><td><a href="#smoke-run">Smoke Run</a></td></tr><tr><td>Reproduce one published cell</td><td><a href="#targeted-runs">Targeted Runs</a></td></tr><tr><td>Run one optimizer on one CEC cell</td><td><a href="#single-optimizer-run">Single Optimizer Run</a></td></tr><tr><td>Reproduce every paper artifact, in order</td><td><a href="#full-paper-pipeline">Full Paper Pipeline</a></td></tr><tr><td>Run the full 7-optimizer CEC2017 sweep</td><td><a href="#cec2017-all-optimizers">CEC2017 All Optimizers</a></td></tr><tr><td>Run another CEC suite end to end</td><td><a href="#other-full-sweeps">Other Full Sweeps</a></td></tr><tr><td>Run the second comparison suite</td><td><a href="#cec2013-family-panel">CEC2013 Family Panel</a></td></tr><tr><td>Run the large-scale (LSGO) suite, all 7 optimizers</td><td><a href="#cec2013-lsgo-family-panel">CEC2013-LSGO Family Panel</a></td></tr><tr><td>Check a run against reference tables</td><td><a href="#validate-results">Validate Results</a></td></tr><tr><td>Produce paper-grade Friedman/Wilcoxon stats</td><td><a href="#statistical-analysis">Statistical Analysis</a></td></tr><tr><td>Isolate what each DT-GSK mechanism contributes</td><td><a href="#dt-gsk-ablation">DT-GSK Ablation</a></td></tr><tr><td>Build the advisor review PDF</td><td><a href="#paper-review-pack">Paper Review Pack</a></td></tr><tr><td>Recover from a crash mid-sweep</td><td><a href="#tight-on-memory">Tight On Memory</a> and the <a href="getting-started_troubleshooting.html#a-worker-process-dies-or-the-pool-breaks-mid-run">Troubleshooting</a> page</td></tr></tbody></table></div>
+<h2 id="verify-the-environment">Verify The Environment</h2>
+<pre><code class="code-block language-powershell">python -m pip install -e &quot;.[dev]&quot;
+python -m pytest -q</code></pre>
+<p>A healthy run ends with a <code>passed</code> summary line. If the console scripts are later reported as &quot;not found&quot;, reopen the shell or fall back to <code>python run.py</code> (see <a href="getting-started_troubleshooting.html#gsk-run-is-not-found">Troubleshooting</a>).</p>
+<h2 id="list-runtime-assets">List Runtime Assets</h2>
+<pre><code class="code-block language-powershell">gsk-list --optimizers --benchmarks --references benchmarks/cec_reference_results</code></pre>
+<h2 id="smoke-run">Smoke Run</h2>
+<p>The fastest sanity check: one optimizer, the <code>sphere</code> smoke problem, a tiny budget. It finishes in seconds and writes a complete (if trivial) output tree.</p>
+<pre><code class="code-block language-powershell">python run.py --root . --optimizer gsk --suite sphere --function 1 --dimension 4 --runs 1 --max-evaluations 80 --overwrite</code></pre>
+<p>Or run the equivalent committed config, which targets one CEC2017 cell:</p>
+<pre><code class="code-block language-powershell">gsk-run --config configs/smoke.yml --root .</code></pre>
+<h2 id="single-optimizer-run">Single Optimizer Run</h2>
+<pre><code class="code-block language-powershell">python run.py --root . --optimizer agsk --suite cec2017 --dimension 10 --function 1 --runs 1 --seed 20240620 --max-evaluations 1000 --output-root results --overwrite</code></pre>
+<h2 id="full-paper-pipeline">Full Paper Pipeline</h2>
+<p>The complete data-to-PDF sequence, mirrored from the project-root <a href="../../runbook.md">runbook.md</a> (its &quot;Full Paper Pipeline&quot; section — the two are kept consistent; the root runbook adds the per-stage variants). <code>--workers 15</code> matches <code>configs/publish/</code>; drop to the safe baseline <code>2</code> if memory-constrained. Dependency order: 1 data -&gt; 3 stats -&gt; 5/6 figures &amp; tables -&gt; 7 build; and 2 ablation -&gt; 4 aggregate -&gt; 6 table.</p>
+<pre><code class="code-block language-powershell"># --- 1. Generate run data: the three benchmark campaigns ---
+python run.py --root . --optimizer gsk,agsk,apgsk,fdb-agsk,atmals-gsk,egsk,dt-gsk --suite cec2017 --function 1:30 --dimension 10,30,50,100 --runs 51 --parallel --workers 15 --convergence-graphs --overwrite
+python run.py --root . --optimizer gsk,agsk,apgsk,fdb-agsk,atmals-gsk,egsk,dt-gsk --suite cec2011 --function 1:22 --dimension native --runs 25 --parallel --workers 15 --convergence-graphs --overwrite
+python run.py --root . --optimizer gsk,agsk,apgsk,fdb-agsk,atmals-gsk,egsk,dt-gsk --suite cec2013 --function 1:28 --dimension 10,30,50 --runs 51 --parallel --workers 15 --convergence-graphs --overwrite
+
+# --- 2. DT-GSK scaffold ablation: CEC2017, all dimensions ---
+python scripts/run_ablation.py --dimension 10,30,50,100 --runs 25 --workers 15
+
+# --- 3. Statistical panels (per suite) ---
+python -m gsk_family.cli.stats --suite CEC2017 --dims 10,30,50,100
+python -m gsk_family.cli.stats --suite CEC2011
+python -m gsk_family.cli.stats --suite CEC2013 --dims 10,30,50
+
+# --- 4. Aggregate the ablation (per dimension) ---
+python papers/scripts/generate_ablation_matrix.py --dimension 10
+python papers/scripts/generate_ablation_matrix.py --dimension 30
+python papers/scripts/generate_ablation_matrix.py --dimension 50
+python papers/scripts/generate_ablation_matrix.py --dimension 100
+
+# --- 5. Figures ---
+python papers/scripts/generate_full_convergence.py
+python papers/scripts/generate_cec2011_convergence.py
+python papers/scripts/generate_cec2013_convergence.py --dimension 30
+python papers/scripts/generate_nemenyi_cd.py
+python papers/scripts/generate_rank_charts.py
+python papers/scripts/generate_trace_figures.py
+python papers/scripts/generate_nlpsr_trajectory.py
+python papers/scripts/generate_adaptive_params_panel.py
+
+# --- 6. Tables (read frozen, checked-in evidence: benchmarks/cec_reference_results/_paper_tables/
+#     and papers/analysis/rel-2026-07-20-67d9345f9/ — not results/ staging) ---
+python papers/scripts/generate_latex_tables.py
+python papers/scripts/generate_t16_bca.py
+
+# --- 7. Build the PDFs ---
+python papers/scripts/build_pdf.py
+python papers/scripts/build_supplementary.py
+python papers/scripts/generate_review_pack.py
+
+# --- 8. Quality gates ---
+python -m pytest -q
+python -m ruff check .
+python scripts\validate_profile_lock.py --root .
+python scripts\build_docs_html.py</code></pre>
+<h2 id="cec2017-all-optimizers">CEC2017 All Optimizers</h2>
+<p>Use a visible worker count in campaign commands. The safe baseline is <code>--workers 2</code>; increase the number only when you know the machine has spare CPU and memory and you are not running other heavy work. <code>--convergence-graphs</code> opts in to rendered PNG plots; omit it when you only need the convergence CSV files.</p>
+<pre><code class="code-block language-powershell">python run.py --root . --optimizer gsk,agsk,apgsk,fdb-agsk,atmals-gsk,egsk,dt-gsk --suite cec2017 --function 1:30 --dimension 10,30,50,100 --runs 51 --parallel --workers 2 --convergence-graphs --overwrite</code></pre>
+<p>This runs all seven runnable optimizers. <code>egsk</code> executes via its scipy-SLSQP port of the MATLAB reference, and its statistical-panel cells come from the committed <code>scipy</code>-SLSQP port run (the comparator of record). <code>--function 1:30</code> is an inclusive range; the CEC2017 *scored* set excludes the withdrawn F2, so per-function tables and statistics cover F1 and F3-F30. Each generated cell is one <code>(optimizer, suite, dimension, function)</code> group with 51 independent runs.</p>
+<p><code>--overwrite</code> recomputes matching cells. Omit it only when you intentionally want to <strong>resume</strong>: without <code>--overwrite</code>, cells whose runs already exist in <code>summary/per_run.csv</code> are skipped, so a sweep interrupted by a crash or reboot picks up where it left off. With <code>--overwrite</code>, the runner rebuilds that optimizer/suite <code>per_run.csv</code> from scratch: <strong>all</strong> previously recorded rows are discarded, not just the cells named in the command — so when overwriting, name the full cell set you want the tree to contain.</p>
+<h2 id="other-full-sweeps">Other Full Sweeps</h2>
+<pre><code class="code-block language-powershell"># CEC2020 - 10 functions, dims 5/10/15/20
+python run.py --root . --optimizer gsk,agsk,apgsk,fdb-agsk,atmals-gsk,egsk,dt-gsk --suite cec2020 --function 1:10 --dimension 5,10,15,20 --runs 51 --parallel --workers 2 --convergence-graphs --overwrite
+
+# CEC2013 - 28 functions, dims 10/30/50 (see the CEC2013 Family Panel section below)
+python run.py --root . --optimizer gsk,agsk,apgsk,fdb-agsk,atmals-gsk,egsk,dt-gsk --suite cec2013 --function 1:28 --dimension 10,30,50 --runs 51 --parallel --workers 2 --convergence-graphs --overwrite
+
+# CEC2011 - native per-problem dims. NOTE: --function defaults to F1 only, so you
+# MUST pass --function 1:22 to run the whole suite (22 problems).
+python run.py --root . --optimizer gsk,agsk,apgsk,fdb-agsk,atmals-gsk,egsk,dt-gsk --suite cec2011 --function 1:22 --dimension native --runs 25 --parallel --workers 2 --convergence-graphs --overwrite
+
+# CEC2013-LSGO - 15 funcs, native D=1000 (F13-F14: D=905), 3,000,000 evals/run; VERY
+# expensive. MUST use --dimension native (a fixed --dimension 1000 errors on F13/F14).
+# Full 7-optimizer panel + cost/scheduling caveats: see &quot;CEC2013-LSGO Family Panel&quot; below.
+python run.py --root . --optimizer gsk,agsk,apgsk,fdb-agsk,atmals-gsk,egsk,dt-gsk --suite cec2013lsgo --function 1:15 --dimension native --runs 25 --parallel --workers 2 --convergence-graphs --overwrite</code></pre>
+<h2 id="cec2013-family-panel">CEC2013 Family Panel</h2>
+<p>CEC2013 is the paper&#x27;s <strong>second comparison suite</strong>: 28 functions, dims 10/30/50, 51 runs (the CEC2013 competition standard). Run the full 7-optimizer panel (<code>egsk</code> runs via the scipy-SLSQP port; the statistical panel reads <code>egsk</code> from the committed <code>scipy</code>-SLSQP port CSVs, the comparator of record):</p>
+<pre><code class="code-block language-powershell">python run.py --root . --optimizer gsk,agsk,apgsk,fdb-agsk,atmals-gsk,egsk,dt-gsk --suite cec2013 --function 1:28 --dimension 10,30,50 --runs 51 --parallel --workers 2 --convergence-graphs --overwrite</code></pre>
+<p>Then build the CEC2013 family report (Friedman ranks, Nemenyi CD, pairwise Wilcoxon/Holm, effect sizes) — comparators are read from <code>benchmarks/cec_reference_results/cec2013/</code>:</p>
+<pre><code class="code-block language-powershell">python -m gsk_family.cli.stats --suite CEC2013 --dims 10,30,50</code></pre>
+<p>CEC2013 convergence-curve grids (28 functions at a chosen dimension):</p>
+<pre><code class="code-block language-powershell">python papers/scripts/generate_cec2013_convergence.py --dimension 30</code></pre>
+<h2 id="cec2013-lsgo-family-panel">CEC2013-LSGO Family Panel</h2>
+<p>CEC2013-LSGO is the CEC-2013 <strong>large-scale global optimization</strong> suite: 15 functions at native dimensions — <strong>D=1000</strong> for F1–F12 and F15, <strong>D=905</strong> for the overlapping-group functions F13–F14 — scored on <strong>raw objective value</strong> (no optimum subtraction, like CEC2011), with a <strong>3,000,000-evaluation</strong> budget per run. All seven optimizers run on it unchanged (<code>egsk</code> via the scipy-SLSQP port). It is registered in code (<code>CEC_SUITES</code> in <code>benchmark_adapter/protocol.py</code>) but carries <strong>no committed reference-results tree</strong>, so a fresh run populates <code>results/_run_all/</code> and the panel reads from there — not from <code>benchmarks/cec_reference_results/</code>.</p>
+<blockquote><strong>Cost &amp; scheduling — read first.</strong> This is by far the heaviest sweep in the</blockquote>
+<blockquote>project: 7 optimizers × 15 functions × 25 runs × 3,000,000 evaluations at</blockquote>
+<blockquote>D≈1000. Run it on an <strong>idle machine</strong>, and <strong>not</strong> concurrently with any</blockquote>
+<blockquote>timing-critical campaign — competing for CPU contaminates wall-clock</blockquote>
+<blockquote>measurements. (The RT-001 comparator re-timing that this warning originally</blockquote>
+<blockquote>referenced is closed and must not be re-run.) D=1000 is memory-heavy, so tune</blockquote>
+<blockquote><code>--workers</code> to your RAM (start low; see &quot;Tight On Memory&quot;). Always pass</blockquote>
+<blockquote><code>--dimension native</code>: a fixed <code>--dimension 1000</code> errors on F13/F14 (native</blockquote>
+<blockquote>D=905).</blockquote>
+<p>Do a <strong>bounded end-to-end check first</strong> (2 functions, 1 run, reduced budget) to confirm the pipeline in minutes before committing to the full multi-hour sweep:</p>
+<pre><code class="code-block language-powershell">python run.py --root . --optimizer gsk,agsk,apgsk,fdb-agsk,atmals-gsk,egsk,dt-gsk --suite cec2013lsgo --function 1,12 --dimension native --runs 1 --max-evaluations 50000 --parallel --workers 2 --overwrite</code></pre>
+<p>Full 7-optimizer panel (native dims, full 3,000,000-evaluation budget, 25 runs). Use <code>--workers 13</code>: the runner dispatches each function-cell&#x27;s 25 runs as a barrier (<code>ceil(25 / workers)</code> waves), so 13 is the knee that cuts 3 waves to 2 (~1.5x vs 12); 14-22 give the same 2 waves and &gt;22 cannot help on a 22-core box. <code>--numba-threads 1</code> keeps the batch kernel byte-stable at D&gt;=50.</p>
+<pre><code class="code-block language-powershell">python run.py --root . --optimizer gsk,agsk,apgsk,fdb-agsk,atmals-gsk,egsk,dt-gsk --suite cec2013lsgo --function 1:15 --dimension native --runs 25 --parallel --workers 13 --numba-threads 1 --convergence-graphs --overwrite</code></pre>
+<p>The 7-in-one command runs the optimizers <strong>sequentially</strong> (<code>[1/7]</code> -&gt; <code>[7/7]</code>); the 13 workers parallelize the 25 runs *within* each function-cell, not the optimizers. To run them <strong>one at a time</strong> instead -- cleaner failure isolation, and an early <code>gsk</code> result in hand before the slow ones -- launch each as its own command (each writes to its own <code>results/_run_all/&lt;optimizer&gt;/cec2013lsgo/</code>, so they never collide):</p>
+<pre><code class="code-block language-powershell">python run.py --root . --optimizer gsk        --suite cec2013lsgo --function 1:15 --dimension native --runs 25 --parallel --workers 13 --numba-threads 1 --convergence-graphs --overwrite
+python run.py --root . --optimizer agsk       --suite cec2013lsgo --function 1:15 --dimension native --runs 25 --parallel --workers 13 --numba-threads 1 --convergence-graphs --overwrite
+python run.py --root . --optimizer apgsk      --suite cec2013lsgo --function 1:15 --dimension native --runs 25 --parallel --workers 13 --numba-threads 1 --convergence-graphs --overwrite
+python run.py --root . --optimizer fdb-agsk   --suite cec2013lsgo --function 1:15 --dimension native --runs 25 --parallel --workers 13 --numba-threads 1 --convergence-graphs --overwrite
+python run.py --root . --optimizer egsk       --suite cec2013lsgo --function 1:15 --dimension native --runs 25 --parallel --workers 13 --numba-threads 1 --convergence-graphs --overwrite
+python run.py --root . --optimizer atmals-gsk --suite cec2013lsgo --function 1:15 --dimension native --runs 25 --parallel --workers 13 --numba-threads 1 --convergence-graphs --overwrite
+python run.py --root . --optimizer dt-gsk     --suite cec2013lsgo --function 1:15 --dimension native --runs 25 --parallel --workers 13 --numba-threads 1 --convergence-graphs --overwrite</code></pre>
+<p>Rough per-optimizer wall time (from the measured relative cost): <code>gsk</code> ~2.5 h; <code>agsk</code>/<code>apgsk</code>/<code>fdb-agsk</code>/<code>egsk</code> ~3-4 h each; <code>atmals-gsk</code> ~6 h (local search, ~2.4x gsk); <code>dt-gsk</code> ~12 h (scaffold + structure memory + eigenframe polish, ~4.8x gsk). The evaluation kernel is identical across all seven (numba batch, byte-stable at <code>threads=1</code>) -- the spread is the optimizers&#x27; own subsystems, not the benchmark.</p>
+<p>Output lands in <code>results/_run_all/&lt;optimizer&gt;/cec2013lsgo/summary/</code>. Then build the raw-objective family report (Friedman ranks, pairwise Wilcoxon/Holm, effect sizes) from those fresh results:</p>
+<pre><code class="code-block language-powershell">python -m gsk_family.cli.stats --suite cec2013lsgo</code></pre>
+<h2 id="config-launchers">Config Launchers</h2>
+<pre><code class="code-block language-powershell">python scripts\run_all_cec2017.py
+python scripts\run_all_cec2011.py
+python scripts\run_all_cec2020.py
+python scripts\run_all_cec2013.py
+python scripts\run_all_cec2013lsgo.py</code></pre>
+<p>You can also drive campaigns directly from the YAML files in <code>configs/</code>:</p>
+<pre><code class="code-block language-powershell">python run.py --root . --config configs/all_cec2017.yml
+python run.py --root . --config configs/all_optimizers_smoke.yml
+python run.py --root . --config configs/all_optimizers_cec2017_reduced.yml</code></pre>
+<h2 id="tight-on-memory">Tight On Memory</h2>
+<p>Run one optimizer at a time with the same safe worker baseline. Omit <code>--overwrite</code> only when you intentionally want to resume.</p>
+<pre><code class="code-block language-powershell">python run.py --root . --optimizer gsk --suite cec2017 --function 1:30 --dimension 10,30,50,100 --runs 51 --parallel --workers 2 --convergence-graphs --overwrite
+python run.py --root . --optimizer agsk --suite cec2017 --function 1:30 --dimension 10,30,50,100 --runs 51 --parallel --workers 2 --convergence-graphs --overwrite
+python run.py --root . --optimizer apgsk --suite cec2017 --function 1:30 --dimension 10,30,50,100 --runs 51 --parallel --workers 2 --convergence-graphs --overwrite
+python run.py --root . --optimizer fdb-agsk --suite cec2017 --function 1:30 --dimension 10,30,50,100 --runs 51 --parallel --workers 2 --convergence-graphs --overwrite
+python run.py --root . --optimizer atmals-gsk --suite cec2017 --function 1:30 --dimension 10,30,50,100 --runs 51 --parallel --workers 2 --convergence-graphs --overwrite
+python run.py --root . --optimizer egsk --suite cec2017 --function 1:30 --dimension 10,30,50,100 --runs 51 --parallel --workers 2 --convergence-graphs --overwrite
+python run.py --root . --optimizer dt-gsk --suite cec2017 --function 1:30 --dimension 10,30,50,100 --runs 51 --parallel --workers 2 --convergence-graphs --overwrite</code></pre>
+<p>Need more speed? Increase the worker count deliberately:</p>
+<pre><code class="code-block language-powershell">python run.py --root . --optimizer gsk --suite cec2017 --function 1:30 --dimension 10,30,50,100 --runs 51 --parallel --workers 4 --convergence-graphs --overwrite</code></pre>
+<h2 id="targeted-runs">Targeted Runs</h2>
+<pre><code class="code-block language-powershell"># One optimizer, one function, one dimension
+python run.py --root . --optimizer agsk --suite cec2017 --function 5 --dimension 30 --runs 51 --parallel --workers 2 --convergence-graphs --overwrite
+
+# Same run with reference seed policy
+python run.py --root . --optimizer agsk --suite cec2017 --function 5 --dimension 30 --runs 51 --seed-policy reference --parallel --workers 2 --convergence-graphs --overwrite</code></pre>
+<p><code>--seed-policy reference</code> reproduces the published per-optimizer seed labels for a single cell (see the <a href="reference_seed_policy.html">Seed Policy reference</a>); the default <code>unified</code> policy is what every family campaign uses.</p>
+<h2 id="where-output-lands">Where Output Lands</h2>
+<p>Generated runs are written under one root, keyed by optimizer and suite:</p>
+<pre><code class="code-block language-text">results/_run_all/&lt;optimizer&gt;/&lt;suite&gt;/
+  summary/    # per_run.csv, per-dimension summary CSVs, seed_schedule.csv, environment.json, verification.json
+  curves/     # median-run convergence CSVs (+ graphs/*.png when --convergence-graphs)
+  gen_logs/   # CheckpointErrors_&lt;alg&gt;_F&lt;k&gt;_D&lt;dim&gt;.csv per-checkpoint logs</code></pre>
+<p><code>gsk-stats</code> writes to <code>results/_run_all/_analysis/&lt;suite&gt;/</code>. The imported, read-only reference evidence stays under <code>benchmarks/cec_reference_results/</code>; the runner refuses to write generated output there. Exact filenames and CSV columns are in the <a href="reference_result_schema.html">Result Schema</a>.</p>
+<h2 id="validate-results">Validate Results</h2>
+<p>The first form audits that the reference tree is well formed; the second compares a generated run tree against it and prints a <code>verdict:</code> line (<code>CONSISTENT</code> / <code>DEVIATES</code>) plus counts and a win/tie/loss tally. The exit code is non-zero on <code>DEVIATES</code> or when no comparable functions were found, so the command is script-friendly. The equivalent console script is <code>gsk-validate</code>.</p>
+<pre><code class="code-block language-powershell">python -m gsk_family.cli.validate --references benchmarks/cec_reference_results
+python -m gsk_family.cli.validate --compare results/_run_all/gsk/cec2017 benchmarks/cec_reference_results</code></pre>
+<p>Reduced-budget runs will not reproduce full-budget reference statistics; read a comparison on such a run as a schema/consistency check, not a benchmark claim (see the <a href="research_validation_report.html">Validation Report</a>).</p>
+<h2 id="statistical-analysis">Statistical Analysis</h2>
+<p>Produce the paper-grade GSK-family comparison (Friedman ranks, Nemenyi CD, pairwise Wilcoxon/Holm, and effect sizes) for the proposed optimizer (<code>dt-gsk</code> by default) against the committed reference comparators. Outputs (text report, Friedman-rank CSV, LaTeX fragments, CD/rank PNGs) land under <code>results/_run_all/_analysis/&lt;suite&gt;/</code>.</p>
+<pre><code class="code-block language-powershell">gsk-stats --suite CEC2017 --dims 10,30,50,100
+gsk-stats --suite CEC2011
+gsk-stats --suite CEC2013 --dims 10,30,50</code></pre>
+<p>The 7-algorithm panel is the six reference comparators (<code>gsk</code>, <code>agsk</code>, <code>apgsk</code>, <code>fdb-agsk</code>, <code>egsk</code>, <code>atmals-gsk</code>) plus the proposed <code>dt-gsk</code>.</p>
+<p><strong>Single source of truth.</strong> All paper statistics — the proposed <code>dt-gsk</code> included — are read from the committed reference panel <code>benchmarks/cec_reference_results/&lt;suite&gt;/&lt;optimizer&gt;/</code> first; a locally reproduced run under <code>results/_run_all/</code> is used only as a fallback for cells the reference tree does not carry. The convergence-figure generators read curves and gen_logs from the same reference tree.</p>
+<p>Useful <code>gsk-stats</code> flags (all optional):</p>
+<div class="table-wrap"><table><thead><tr><th>Flag</th><th>Default</th><th>Effect</th></tr></thead><tbody><tr><td><code>--suite</code></td><td><code>CEC2017</code></td><td>Suite to analyse (<code>CEC2017</code>, <code>CEC2011</code>, <code>CEC2013</code>).</td></tr><tr><td><code>--dims</code></td><td>suite standard set</td><td>Comma-separated dimensions, e.g. <code>10,30,50,100</code>.</td></tr><tr><td><code>--proposed</code></td><td><code>dt-gsk</code></td><td>Optimizer id anchoring the pairwise comparisons.</td></tr><tr><td><code>--results-root</code></td><td><code>results/_run_all</code></td><td>Reproduced-results root.</td></tr><tr><td><code>--reference-root</code></td><td><code>benchmarks/cec_reference_results</code></td><td>Reference-results root.</td></tr><tr><td><code>--out</code></td><td><code>&lt;results-root&gt;/_analysis/&lt;suite&gt;</code></td><td>Output directory.</td></tr><tr><td><code>--alpha</code></td><td><code>0.05</code></td><td>Significance level for Holm/Wilcoxon/Nemenyi.</td></tr><tr><td><code>--no-figures</code></td><td>off</td><td>Skip the matplotlib CD/rank PNGs (text + CSV + LaTeX only).</td></tr><tr><td><code>--strict-source</code></td><td>off</td><td>Publication mode: refuse any empirical input outside <code>benchmarks/cec_reference_results/</code> (no <code>results/</code> fallback; missing cells fail loudly) and write a <code>source_use_audit.csv</code> of every opened data file beside the report.</td></tr></tbody></table></div>
+<p>Outputs (text report, Friedman-rank CSV, LaTeX fragments, and Nemenyi critical-difference + rank PNGs) land under <code>results/_run_all/_analysis/&lt;suite&gt;/</code> (lower-cased suite name).</p>
+<p>To instead stream the per-dimension Wilcoxon + Friedman analysis <strong>live during a run</strong>, add the opt-in <code>--stats</code> flag. It is off by default and, by design, skips vanilla <code>gsk</code> (the baseline anchor); <code>cec2011</code> is supported via its single per-suite rollup panel. Add it on any non-baseline optimizer:</p>
+<pre><code class="code-block language-powershell">python run.py --root . --optimizer dt-gsk --suite cec2017 --dimension 10 --dimension 30 --stats</code></pre>
+<p>(<code>--dimension</code> may be repeated, comma-separated, or given as a <code>START:STOP</code> range.) See <a href="research_statistical_analysis.html">Statistical Analysis</a> for the methodology and how to read the tables.</p>
+<h2 id="paper-review-pack">Paper Review Pack</h2>
+<p>Build the single-PDF advisor review pack from the reproduced DT-GSK run plus the committed comparator checkpoints:</p>
+<pre><code class="code-block language-powershell">python papers/scripts/generate_review_pack.py</code></pre>
+<p>This writes <code>papers/DT-GSK-CEC2017-review.pdf</code> (matplotlib <code>PdfPages</code>, no LaTeX needed): a headline dashboard, 7-algorithm CEC2017/CEC2011 mean tables, and 7-algorithm GSK-family convergence grids (GSK, AGSK, APGSK, FDB-AGSK, eGSK, ATMALS-GSK, DT-GSK), reading checkpoint CSVs from <code>benchmarks/cec_reference_results/&lt;suite&gt;/&lt;alg&gt;/gen_logs/</code> (comparators) and <code>results/_run_all/dt-gsk/&lt;suite&gt;/gen_logs/</code> (dt-gsk). Missing curves are never fabricated: they are skipped on the plot and listed in <code>papers/DT-GSK-CEC2017-review_missing.log</code>. See <a href="../../papers/README.md">papers/README.md</a> for the full layout.</p>
+<h2 id="dt-gsk-ablation">DT-GSK Ablation</h2>
+<p>The scaffold ablation isolates each DT-GSK mechanism by toggling <code>optimizer_options</code> flags (every mechanism defaults to <code>true</code> in the locked profile, so a cell disables exactly one). Six mechanisms plus the baseline give seven cells: ACE (<code>ace_enabled</code>), NLPSR (<code>psr_enabled</code>), BSE (<code>bse_enabled</code>), linkage crossover (<code>linkage_blockwise_enabled</code>), coordinate endgame local search (<code>local_search_enabled</code>; the locked <code>pub</code> profile runs the coordinate method, not the subspace/Nelder-Mead variant), and the elite archive (<code>arch_enabled</code>). <strong>SGSM (<code>interaction_graph_enabled</code>) stays off in every cell</strong> — the SGSM overlay is ablated separately (the CEC2013 hold-out design with <code>full</code> / <code>no-adaptive</code> / <code>no-sgsm</code> cells).</p>
+<pre><code class="code-block language-powershell"># inspect the per-cell configs without running
+python scripts/run_ablation.py --dimension 30 --dry-run
+
+# run the default cell set (baseline + one disable-one cell per mechanism), n=25
+python scripts/run_ablation.py --dimension 30 --runs 25 --workers 2
+
+# aggregate the cells you just ran -&gt; results/ablation/ablation_matrix_rank_summary_cec2017_D30.csv
+# (point --ablation-root at the fresh per-cell tree; run_ablation.py prints this exact
+#  line on completion. Without it the script defaults to the promoted immutable release
+#  benchmarks/cec_reference_results/_ablation/scaffold instead of your new run.)
+python papers/scripts/generate_ablation_matrix.py --ablation-root results/_ablation --suite cec2017 --dimension 30
+
+# render the scaffold-ablation supplement tables (SA01/SA02) -&gt; papers/tables/SA01.tex, SA02.tex
+# (reads the manifest-verified frozen release copy, not the fresh results/ablation/ aggregate)
+python papers/scripts/generate_ablation_exhibits.py</code></pre>
+<p>Useful flags: <code>--suite {cec2017,cec2011,cec2013}</code> (cec2011 uses native dims), <code>--mode {remove-one,add-one}</code>, <code>--dimension 10,30,50,100</code>, <code>--runs</code> (default 25), <code>--workers</code>, <code>--only &lt;cells&gt;</code>, <code>--dry-run</code>. Per-cell configs are written to <code>configs/_ablation/&lt;cell&gt;.yml</code> and per-cell output lands under <code>results/_ablation/&lt;cell&gt;/dt-gsk/&lt;suite&gt;/</code>. The full option surface and the ATMALS-GSK-protocol variants are in the project-root <a href="../../runbook.md#dt-gsk-ablation-cec2017">runbook.md</a>.</p>
+<h2 id="dt-gsk-diagnostics">DT-GSK Diagnostics</h2>
+<p>Opt-in per-generation telemetry for root-cause analysis. It is <strong>default off</strong> and <strong>observational</strong> — enabling it never alters DT-GSK&#x27;s RNG order, evaluations, or result for a given seed (the core&#x27;s <code>generation_callback</code> path draws no RNG and evaluates no objective). Enable it through <code>optimizer_options.dt_diagnostics</code> in a YAML config; the runner writes one JSONL trace per cell to <code>&lt;output_root&gt;/dt-gsk/&lt;suite&gt;/diagnostics/DTTrace_&lt;suite&gt;_F&lt;func&gt;_D&lt;dim&gt;_R&lt;run&gt;_S&lt;seed&gt;.jsonl</code>.</p>
+<pre><code class="code-block language-yaml"># configs/experimental/dt_diag.yml
+optimizers: [dt-gsk]
+suite: cec2017
+functions: [4, 13, 19, 26, 30]
+dimensions: [10, 30, 50, 100]
+runs: 5
+seed: 20240620
+seed_policy: unified
+rand_generator: threefry
+parallel: true
+workers: 2
+generation_logs: true
+convergence_graphs: false
+overwrite: true
+output_root: results/_experimental/dt_diag
+optimizer_options:
+  dt_diagnostics: true
+  dt_diagnostics_include_all_fields: true</code></pre>
+<pre><code class="code-block language-powershell">python run.py --root . --config configs/experimental/dt_diag.yml
+python scripts/analyze_dt_diagnostics.py `
+  --input results/_experimental/dt_diag/dt-gsk/cec2017/diagnostics `
+  --out   results/_experimental/dt_diag/dt-gsk/cec2017/diagnostics_analysis</code></pre>
+<p>The analyzer aggregates the traces into <code>diagnostics_summary.csv</code>, <code>wrong_basin_candidates.csv</code>, and per-subsystem summaries (ACE entropy, linkage reliability, diversity/population, local-search ROI, boundary hits). Wrong-basin flagging is general across all functions/dimensions — never hard-coded to a single function. The JSONL fields come straight from the core&#x27;s <code>DTGSKGenerationLog</code>.</p>
+<h2 id="build-html-documentation">Build HTML Documentation</h2>
+<pre><code class="code-block language-powershell">python scripts\build_docs_html.py</code></pre>
+<p>Open <code>docs/html/index.html</code> in a browser to browse the reference-style static documentation site.</p>
+<h2 id="clean-generated-python-caches">Clean Generated Python Caches</h2>
+<p>Only remove generated caches inside the project root:</p>
+<pre><code class="code-block language-powershell">Get-ChildItem -Path . -Recurse -Directory -Filter __pycache__ | Remove-Item -Recurse -Force
+Get-ChildItem -Path . -Recurse -Directory -Filter .pytest_cache | Remove-Item -Recurse -Force</code></pre>
+<p>Do not remove imported reference evidence.</p>
+<h2 id="campaign-checklist">Campaign Checklist</h2>
+<ul>
+<li>Config file is committed or archived.</li>
+<li><code>seed</code>, <code>seed_policy</code>, and <code>rand_generator</code> are explicit.</li>
+<li><code>output_root</code> is not inside <code>benchmarks/cec_reference_results</code>.</li>
+<li><code>output_root</code> points at the tree that *contains* the suite folders, never at</li>
+<p>a suite folder itself — the runner writes <code>&lt;output_root&gt;/&lt;optimizer&gt;/&lt;suite&gt;/</code>, so an <code>output_root</code> ending in a suite name creates a doubled <code>&lt;suite&gt;/&lt;optimizer&gt;/&lt;suite&gt;/</code> path (see <a href="getting-started_troubleshooting.html#output-lands-in-a-doubled-suite-path">Troubleshooting</a>).</p>
+<li><code>--overwrite</code> is present only when recomputing is intended.</li>
+<li>Reduced budget is clearly labelled.</li>
+<li><code>environment.json</code> and <code>verification.json</code> are kept with summaries.</li>
+</ul>
+      </article>
+    </main>
+    <aside class="page-toc" aria-label="On this page">
+<h2>On This Page</h2>
+<a class="toc-level-1" href="#runbook">Runbook</a>
+<a class="toc-level-2" href="#command-picker">Command Picker</a>
+<a class="toc-level-2" href="#verify-the-environment">Verify The Environment</a>
+<a class="toc-level-2" href="#list-runtime-assets">List Runtime Assets</a>
+<a class="toc-level-2" href="#smoke-run">Smoke Run</a>
+<a class="toc-level-2" href="#single-optimizer-run">Single Optimizer Run</a>
+<a class="toc-level-2" href="#full-paper-pipeline">Full Paper Pipeline</a>
+<a class="toc-level-2" href="#cec2017-all-optimizers">CEC2017 All Optimizers</a>
+<a class="toc-level-2" href="#other-full-sweeps">Other Full Sweeps</a>
+<a class="toc-level-2" href="#cec2013-family-panel">CEC2013 Family Panel</a>
+<a class="toc-level-2" href="#cec2013-lsgo-family-panel">CEC2013-LSGO Family Panel</a>
+<a class="toc-level-2" href="#config-launchers">Config Launchers</a>
+<a class="toc-level-2" href="#tight-on-memory">Tight On Memory</a>
+<a class="toc-level-2" href="#targeted-runs">Targeted Runs</a>
+<a class="toc-level-2" href="#where-output-lands">Where Output Lands</a>
+<a class="toc-level-2" href="#validate-results">Validate Results</a>
+<a class="toc-level-2" href="#statistical-analysis">Statistical Analysis</a>
+<a class="toc-level-2" href="#paper-review-pack">Paper Review Pack</a>
+<a class="toc-level-2" href="#dt-gsk-ablation">DT-GSK Ablation</a>
+<a class="toc-level-2" href="#dt-gsk-diagnostics">DT-GSK Diagnostics</a>
+<a class="toc-level-2" href="#build-html-documentation">Build HTML Documentation</a>
+<a class="toc-level-2" href="#clean-generated-python-caches">Clean Generated Python Caches</a>
+<a class="toc-level-2" href="#campaign-checklist">Campaign Checklist</a>
+</aside>
+  </div>
+  <script src="assets/search.js"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+optimizers:
+- dt-gsk
+suite: cec2017
+functions: default
+dimensions:
+- 50
+- 100
+runs: 51
+seed: 20240620
+seed_policy: unified
+rand_generator: threefry
+parallel: true
+workers: 15
+generation_logs: false
+convergence_graphs: false
+overwrite: true
+output_root: results/_ablation_sgsm_cec2017_51/no_sgsm
+optimizer_options:
+  interaction_graph_enabled: false

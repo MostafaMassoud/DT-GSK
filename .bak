@@ -1,0 +1,2219 @@
+%% Supplementary Material -- compiled separately from main.tex
+%% Phase 8 (drafting order step 12): non-ablation supplement, written from the
+%% frozen claim set (papers/governance/claims_evidence_matrix.csv), the Phase 7
+%% caption registry (papers/build_prompt_phases/phase_07/captions_registry.md),
+%% and papers/governance/artifact_binding.csv. Every empirical value traces to
+%% evidence release rel-2026-07-20-67d9345f9 (supersedes rel-2026-07-16-78f075cb0).
+\documentclass[algorithms,article,submit,moreauthors,pdftex]{Definitions/mdpi}
+
+%=================================================================
+\firstpage{1}
+\makeatletter
+\setcounter{page}{\@firstpage}
+\makeatother
+\pubvolume{xx}
+\issuenum{1}
+\articlenumber{5}
+\pubyear{2026}
+\copyrightyear{2026}
+\history{Received: date; Accepted: date; Published: date}
+
+%------------------------------------------------------------------
+% Additional packages
+%------------------------------------------------------------------
+% Suppress MDPI class "submit" mode line numbers without having to
+% switch to "accept" (which requires a journal-specific logo file we
+% do not ship).  The class issues \linenumbers in submit mode; turning
+% it into a no-op cleanly disables left-margin line numbering.
+% SE-048: submit-mode line numbering RESTORED 2026-07-22 -- MDPI review
+% copies carry left-margin line numbers so reviewers can anchor comments.
+% Verified not to disturb validate_cross_format_parity (squash-containment).
+%\let\linenumbers\relax
+\usepackage{amssymb}
+\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+\SetAlgoSkip{smallskip}
+\SetAlgoInsideSkip{smallskip}
+\SetKwComment{tcp}{\textit{// }}{}
+\SetKwComment{tcc}{\textit{/* }}{\textit{ */}}
+\usepackage{bm}
+\usepackage{longtable}
+\usepackage{siunitx}
+\usepackage{subcaption}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning, calc}
+\usepackage{rotating}
+
+%------------------------------------------------------------------
+% Custom macros (identical to main.tex)
+%------------------------------------------------------------------
+\newcommand{\dtgsk}{DT-GSK}
+\newcommand{\sgsm}{ISM}
+\newcommand{\atmals}{ATMALS-GSK}
+\newcommand{\agsk}{AGSK}
+\newcommand{\apgsk}{APGSK}
+\newcommand{\fdbagsk}{FDB-AGSK}
+\newcommand{\egsk}{eGSK}
+\newcommand{\bestval}[1]{\textbf{#1}}
+\newcommand{\wmark}{\ensuremath{+}}
+\newcommand{\lmark}{\ensuremath{-}}
+\newcommand{\emark}{\ensuremath{\approx}}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+% Zebra striping for data tables (matches main.tex; the generated table
+% fragments begin with \zebra). xcolor[table] is provided by the MDPI class.
+\definecolor{zebragray}{gray}{0.94}
+\newcommand{\zebra}{\rowcolors{2}{zebragray}{white}}
+
+% SI column type for tables
+\sisetup{
+  table-format=1.2e+2,
+  round-mode=places,
+  round-precision=2,
+  scientific-notation=true,
+  exponent-product=\times,
+}
+
+%=================================================================
+% Title
+% Gate 8 QA fix (2026-07-11): title aligned to the main document's frozen
+% Phase-8 title (main.tex \Title) -- stale "Adaptive" removed.
+\Title{Supplementary Material for: DT-GSK: Dimension-Tiered Adaptive Control and Deterministic Refinement for Gaining-Sharing Knowledge Optimization}
+
+% Author ORCID IDs
+\newcommand{\orcidauthorA}{0000-0000-0000-0000}
+\newcommand{\orcidauthorB}{0000-0000-0000-0000}
+\newcommand{\orcidauthorC}{0000-0000-0000-0000}
+
+% Authors
+\Author{Mostafa Elsayed Masoud $^{1,}$*, Heba Sayed Mohamed Roshdy $^{1}$ and Ali Wagdy Mohamed $^{1,2,3}$}
+
+% Authors for PDF metadata
+\AuthorNames{Mostafa Elsayed Masoud, Heba Sayed Mohamed Roshdy, Ali Wagdy Mohamed}
+
+% Affiliations
+% AG-0002: H.S.M.R. e-mail address is an author-side item; add before submission.
+\address{%
+$^{1}$ \quad Operations Research Department, Faculty of Graduate Studies for
+Statistical Research, Cairo University, Giza 12613, Egypt;
+moustafa.masoud@gmail.com (M.E.M.); aliwagdy@gmail.com (A.W.M.)\\
+$^{2}$ \quad Applied Science Research Center, Applied Science Private
+University, Amman 11931, Jordan\\
+$^{3}$ \quad Centre for Research Impact \& Outcome, Chitkara University
+Institute of Engineering and Technology, Chitkara University, Rajpura,
+140401, Punjab, India}
+
+% Corresponding author
+\corres{Correspondence: moustafa.masoud@gmail.com}
+
+%=================================================================
+% Abstract (supplement scope statement only; no result values)
+\abstract{%
+This Supplementary Material accompanies the main paper on
+Dimension-Tiered Gaining-Sharing Knowledge (\dtgsk{})
+optimization.  It contains the complete per-function CEC2017 panel
+tables (Section~S1), the \dtgsk{}-versus-GSK head-to-head matrices and the
+CEC2011 and CEC2013 detail tables (Section~S2), the convergence
+figure sets for all three suites (every scored function at the
+prespecified dimensions, Section~S3), a population-reduction schedule
+and diagnostic-availability note (Section~S4), a reproducibility appendix documenting
+the seed schedule, the frozen configuration, the evidence release, and
+the analysis pipeline (Section~S5), and a supplement-only
+component-contribution study (a scaffold remove-one ablation, a
+direct interaction-structure-memory isolation, and a by-class conditional-benefit
+breakdown, Section~S6).  Every empirical value in Sections~S1--S5 derives from the
+promoted, read-only evidence release accompanying this article;
+the Section~S6 scaffold and isolation results derive from a separate, immutable
+ablation release; no primary result is
+altered by any of it.  All comparative
+wording is scoped to the seven-algorithm GSK-family panel.%
+}
+
+% Keywords
+\keyword{%
+metaheuristic optimization;
+gaining-sharing knowledge;
+dimension-tiered adaptive control;
+deterministic final refinement;
+adaptive operator selection;
+population-size reduction;
+interaction-structure memory;
+CEC benchmark suites;
+nonparametric statistical comparison;
+reproducibility%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+% Supplement numbering scheme (presentation register, Dimension 20):
+% sections S1..S6; tables A.n; figures B.n; every exhibit cited by exact label.
+\renewcommand{\thesection}{S\arabic{section}}
+\renewcommand{\thesubsection}{S\arabic{section}.\arabic{subsection}}
+\renewcommand{\thetable}{A\arabic{table}}
+\renewcommand{\thefigure}{B\arabic{figure}}
+\setcounter{section}{0}
+
+%==================================================================
+% Shared protocol facts (stated once; repeated inside captions so that
+% every caption is self-contained, per the caption registry conventions).
+%==================================================================
+\noindent This Supplementary Material is organized so that the main paper
+remains auditable without it: the headline comparative claims are supported
+by main-text exhibits, and the material here provides the complete
+per-function, per-problem, and per-checkpoint record behind those
+exhibits.  Unless a caption states otherwise, the following frozen
+protocol applies throughout.
+CEC2017 is the primary suite with 29 scored functions (F1, F3--F30; F2 is
+excluded per protocol), $D \in \{10, 30, 50, 100\}$, 51 runs per
+(function, dimension) cell, and $\mathrm{MaxFES} = 10^{4} \cdot D$~\cite{awad2016problem}.
+% BIND: PR-01; PR-04
+CEC2011 comprises 22 real-world problems at their native dimensions with
+25 runs per problem and $\mathrm{MaxFES} = 150{,}000$; on problems without
+published optima the error column is undefined by design and the raw best
+objective value is authoritative~\cite{das2011cec2011}.
+% BIND: PR-02; PR-04
+CEC2013 is the second comparison suite, reported for breadth of
+comparison: 28 functions, $D \in \{10, 30, 50\}$, 51 runs per
+cell~\cite{liang2013cec2013}.
+% BIND: PR-03; AN-PW-2013-D10..D50 (n=28, 51 runs; seed_and_pairing_audit.md: 4,284 = 3 x 28 x 51 schedule rows)
+CEC2017/CEC2013 report the final error $f(x) - f(x^{*})$ with the suite
+success floor (error values below $10^{-8}$ are treated as zero per suite
+convention).
+% BIND: PR-05
+Pairwise inference uses the two-sided Wilcoxon signed-rank
+test~\cite{wilcoxon1945individual} with Holm's step-down
+correction~\cite{holm1979simple} at family level and $\alpha = 0.05$;
+win/tie/loss counts use the tie rule $|\Delta| < 10^{-8}$.
+% BIND: AN-PW-2017-D10..D100 protocol constants (captions_registry.md conventions block)
+Panel ranking uses the Friedman test~\cite{friedman1937use} with the
+Iman--Davenport correction and Nemenyi post-hoc critical-difference (CD)
+analysis~\cite{demsar2006statistical}.
+% BIND: AN-OMNI-2017-D10..D100
+The panel order everywhere is GSK, \agsk{}, \apgsk{}, \fdbagsk{},
+\atmals{}, \egsk{}, \dtgsk{}, and all comparative wording is scoped
+within the GSK-family panel, never field-wide.
+
+%==================================================================
+\section{Complete CEC2017 Per-Function Panel Tables}\label{sec:supp:cec2017-tables}
+%==================================================================
+
+Tables~\ref{tab:cec2017-d10}--\ref{tab:cec2017-d100} give the complete
+seven-algorithm per-function record on CEC2017: mean $\pm$ standard deviation
+of the final error over 51 runs for each of the 29 functions at each
+dimension, with the best mean per function in bold.
+% BIND: TAB-T07; TAB-T08; TAB-T09; TAB-T10 (AN-DESC-2017-D10..D100)
+These tables are the per-function basis behind the condensed panel
+summaries and the statistical exhibits of the main paper (Section~4);
+they carry no aggregation beyond the per-function statistics shown.
+
+One disclosed evidence limitation applies to the \apgsk{} column at
+$D = 10$, $30$, and $50$: at the analysis freeze the \apgsk{} CEC2017
+per-run record was available at $D = 100$ only (a sidecar-overwrite
+anomaly in the evidence tree), so the \apgsk{} cells at the three lower
+dimensions were taken from the final-checkpoint columns of the
+per-generation logs of the same runs (verified equivalent during the
+evidence audit) and were never imputed. The missing per-run records
+were subsequently recovered after the freeze --- deterministically,
+from the seed-identical per-run logs --- in a documented post-freeze recovery;
+the recovered records reproduce the tabulated values, which are
+therefore unchanged.
+% BIND: APGSK-GAP (captions_registry.md; seed_and_pairing_audit.md anomaly A1)
+
+\begin{sidewaystable}[p]
+\caption{CEC2017 at $D = 10$: mean $\pm$ SD of the final error over 51
+runs for all 7 GSK-family algorithms on each of the 29 functions (F1,
+F3--F30; success floor $10^{-8}$); best mean per function in bold.
+  \apgsk{} cells
+derive from the final-checkpoint columns of the per-generation logs
+(per-run file unavailable at this dimension at the analysis freeze;
+recovered post-freeze, values unchanged; never
+imputed).}\label{tab:cec2017-d10}
+% BIND: TAB-T07 (AN-DESC-2017-D10); APGSK-GAP
+\centering
+\tablesize{\footnotesize}
+\resizebox{\textheight}{!}{\input{tables/T07}}
+\end{sidewaystable}
+
+\begin{sidewaystable}[p]
+\caption{CEC2017 at $D = 30$: mean $\pm$ SD of the final error over 51
+runs for all 7 GSK-family algorithms on each of the 29 functions (F1,
+F3--F30; success floor $10^{-8}$); best mean per function in bold.
+  \apgsk{} cells
+derive from the final-checkpoint columns of the per-generation logs
+(per-run file unavailable at this dimension at the analysis freeze;
+recovered post-freeze, values unchanged; never
+imputed).}\label{tab:cec2017-d30}
+% BIND: TAB-T08 (AN-DESC-2017-D30); APGSK-GAP
+\centering
+\tablesize{\footnotesize}
+\resizebox{\textheight}{!}{\input{tables/T08}}
+\end{sidewaystable}
+
+\begin{sidewaystable}[p]
+\caption{CEC2017 at $D = 50$: mean $\pm$ SD of the final error over 51
+runs for all 7 GSK-family algorithms on each of the 29 functions (F1,
+F3--F30; success floor $10^{-8}$); best mean per function in bold.
+  \apgsk{} cells
+derive from the final-checkpoint columns of the per-generation logs
+(per-run file unavailable at this dimension at the analysis freeze;
+recovered post-freeze, values unchanged; never
+imputed).}\label{tab:cec2017-d50}
+% BIND: TAB-T09 (AN-DESC-2017-D50); APGSK-GAP
+\centering
+\tablesize{\footnotesize}
+\resizebox{\textheight}{!}{\input{tables/T09}}
+\end{sidewaystable}
+
+\begin{sidewaystable}[p]
+\caption{CEC2017 at $D = 100$: mean $\pm$ SD of the final error over 51
+runs for all 7 GSK-family algorithms on each of the 29 functions (F1,
+F3--F30; success floor $10^{-8}$); best mean per function in bold.
+}\label{tab:cec2017-d100}
+% BIND: TAB-T10 (AN-DESC-2017-D100)
+\centering
+\tablesize{\footnotesize}
+\resizebox{\textheight}{!}{\input{tables/T10}}
+\end{sidewaystable}
+
+%==================================================================
+\section{Pairwise Matrices and Additional-Suite Detail}\label{sec:supp:pairwise}
+%==================================================================
+
+\subsection{CEC2017 Head-to-Head Detail: \dtgsk{} vs.\ GSK}\label{sec:supp:h2h}
+
+Tables~\ref{tab:h2h_d10}--\ref{tab:h2h_d100} report the five-statistic
+head-to-head detail between \dtgsk{} and the original GSK on CEC2017
+(best / median / worst / mean / SD of the final error over 51 runs per
+function), one table per dimension.
+% BIND: TAB-T02; TAB-T03; TAB-T04; TAB-T05 (AN-DESC-2017-D10..D100)
+These are two-algorithm detail tables behind the family-panel exhibits
+of the main paper; they support no panel-wide claim.  The corresponding
+panel-wide Wilcoxon + Holm inference against \emph{all six} comparators
+--- including the cells that are unfavorable to \dtgsk{} --- is in the
+main paper (the CEC2017 across-function Wilcoxon--Holm summary table) and is not restated here.
+
+\begin{sidewaystable}[p]
+\caption{CEC2017 at $D = 10$ (29 functions, 51 runs): best / median /
+worst / mean / SD of the final error (success floor $10^{-8}$) for GSK
+vs.\ \dtgsk{}; best mean per function in bold.  Two-algorithm detail
+behind the family-panel exhibits --- no panel-wide claim.}\label{tab:h2h_d10}
+% BIND: TAB-T02 (AN-DESC-2017-D10)
+\centering
+\tablesize{\footnotesize}
+\resizebox{\textheight}{!}{\input{tables/T02}}
+\end{sidewaystable}
+
+\begin{sidewaystable}[p]
+\caption{CEC2017 at $D = 30$ (29 functions, 51 runs): best / median /
+worst / mean / SD of the final error (success floor $10^{-8}$) for GSK
+vs.\ \dtgsk{}; best mean per function in bold.  Two-algorithm detail
+behind the family-panel exhibits --- no panel-wide claim.}\label{tab:h2h_d30}
+% BIND: TAB-T03 (AN-DESC-2017-D30)
+\centering
+\tablesize{\footnotesize}
+\resizebox{\textheight}{!}{\input{tables/T03}}
+\end{sidewaystable}
+
+\begin{sidewaystable}[p]
+\caption{CEC2017 at $D = 50$ (29 functions, 51 runs): best / median /
+worst / mean / SD of the final error (success floor $10^{-8}$) for GSK
+vs.\ \dtgsk{}; best mean per function in bold.  Two-algorithm detail
+behind the family-panel exhibits --- no panel-wide claim.}\label{tab:h2h_d50}
+% BIND: TAB-T04 (AN-DESC-2017-D50)
+\centering
+\tablesize{\footnotesize}
+\resizebox{\textheight}{!}{\input{tables/T04}}
+\end{sidewaystable}
+
+\begin{sidewaystable}[p]
+\caption{CEC2017 at $D = 100$ (29 functions, 51 runs): best / median /
+worst / mean / SD of the final error (success floor $10^{-8}$) for GSK
+vs.\ \dtgsk{}; best mean per function in bold.  Two-algorithm detail
+behind the family-panel exhibits --- no panel-wide claim.}\label{tab:h2h_d100}
+% BIND: TAB-T05 (AN-DESC-2017-D100)
+\centering
+\tablesize{\footnotesize}
+\resizebox{\textheight}{!}{\input{tables/T05}}
+\end{sidewaystable}
+
+\subsection{CEC2011 Detail}\label{sec:supp:cec2011}
+
+Table~\ref{tab:cec2011-stats} summarizes the across-problem Wilcoxon
+signed-rank comparison between \dtgsk{} and GSK on the 22 CEC2011
+real-world problems (25 runs each, per-problem mean of the raw best
+objective value).
+% BIND: TAB-T06 (AN-PW-2011-NATIVE)
+After Holm correction at the six-comparator family level the
+\dtgsk{}-vs.-GSK comparison on this suite is \emph{not} significant at
+$\alpha = 0.05$ (decision ``$\approx$'' in the table), and no claim of
+superiority over GSK on CEC2011 is made.
+% BIND: TAB-T06 (AN-PW-2011-NATIVE; p_holm row)
+For panel-level context, the corresponding panel-wide tests on this
+suite include a statistically significant \emph{loss} for \dtgsk{}
+against \egsk{} across problems (Wilcoxon, $n = 22$, Holm-corrected
+$p = 4.2 \times 10^{-2}$); this deficit accompanies every CEC2011
+outcome statement in the main paper and is restated here so that this
+section cannot be read as a panel-wide best claim.
+% BIND: CEC2011-EGSK-LOSS (AN-PW-2011-NATIVE, egsk row p_holm=4.244817e-02); RS-10
+
+\begin{table}[H]
+\caption{Across-problem Wilcoxon signed-rank summary, \dtgsk{} vs.\ GSK
+on CEC2011 ($n = 22$ problems, 25 runs each, per-problem mean of the raw
+best objective): $R^{+}$, $R^{-}$, raw and Holm-corrected $p$, and
+win/tie/loss counts (tie $|\Delta| < 10^{-8}$); $\alpha = 0.05$.  The
+Holm-corrected decision is no significant difference.  Panel-level context: the
+corresponding panel-wide tests include a significant loss to \egsk{}
+(Holm-corrected $p = 4.2 \times 10^{-2}$).  }\label{tab:cec2011-stats}
+% BIND: TAB-T06 (AN-PW-2011-NATIVE); CEC2011-EGSK-LOSS
+\centering
+\tablesize{\footnotesize}
+\input{tables/T06}
+\end{table}
+
+The per-problem five-statistic detail behind that summary --- relocated here
+from the main text so the main paper carries only the corroborative ranking
+and significance --- is given in Table~\ref{tab:cec2011-perproblem}.
+
+\begin{sidewaystable}[p]
+\caption{CEC2011 real-world suite (22 problems, native dimensions, 25 runs,
+$\mathrm{MaxFES} = 150{,}000$): best / median / worst / mean / SD of the final
+raw objective value for GSK vs.\ \dtgsk{}; best mean per problem in bold (raw
+best-fitness basis; negative optima occur on some problems). Within the
+seven-algorithm family panel on this suite, \dtgsk{} significantly loses to
+\egsk{} across problems (Wilcoxon, $n = 22$, Holm $p = 4.2 \times 10^{-2}$);
+these head-to-head columns show GSK vs.\ \dtgsk{} only and must not be read as
+a panel-wide best claim.}\label{tab:cec2011-perproblem}
+\centering
+\tablesize{\footnotesize}
+\resizebox{\textheight}{!}{\input{tables/T01}}
+% BIND: TAB-T01 (validated; relocated from main text, M028 density); captions_registry TAB-T01 [CEC2011-EGSK-LOSS]
+\end{sidewaystable}
+
+\subsection{CEC2013 Second Comparison Suite Detail}\label{sec:supp:cec2013}
+
+Tables~\ref{tab:cec2013-d10}--\ref{tab:cec2013-d50} report the
+five-statistic head-to-head detail between \dtgsk{} and GSK on the
+CEC2013 second comparison suite (28 functions, 51 runs) at $D = 10$,
+$30$, and $50$; Table~\ref{tab:cec2013_wilcoxon} gives the
+across-function Wilcoxon signed-rank summary per dimension.
+% BIND: TAB-T11; TAB-T12; TAB-T13; TAB-T14 (AN-PW-2013-D10..D50)
+CEC2013 is a second comparison suite reported for breadth within the
+same frozen protocol; it is not an independence argument of any kind.
+% BIND: PR-03
+The panel-level disclosure at $D = 30$ is stated up front, alongside
+--- not after --- the head-to-head detail: on CEC2013 at $D = 30$,
+\dtgsk{} places \emph{third} by Friedman mean rank ($3.38$) behind
+\egsk{} ($3.07$) and \atmals{} ($3.34$).
+% BIND: CEC2013-D30-THIRD (AN-OMNI-2013-D30; friedman_ranks_cec2013_D30.csv: dt-gsk 3.375000, egsk 3.071429, atmals-gsk 3.339286)
+
+\begin{sidewaystable}[p]
+\caption{CEC2013 second comparison suite at $D = 10$ (28 functions,
+51 runs): best / median / worst / mean / SD of the final error for GSK
+vs.\ \dtgsk{}; best mean per function in bold.  CEC2013 is a second
+comparison suite reported for breadth of comparison.  }\label{tab:cec2013-d10}
+% BIND: TAB-T11 (descriptive-export cec2013 D10)
+\centering
+\tablesize{\footnotesize}
+\resizebox{\textheight}{!}{\input{tables/T11}}
+\end{sidewaystable}
+
+\begin{sidewaystable}[p]
+\caption{CEC2013 second comparison suite at $D = 30$ (28 functions,
+51 runs): best / median / worst / mean / SD of the final error for GSK
+vs.\ \dtgsk{}; best mean per function in bold.  Panel-level context at
+this dimension: \dtgsk{} places third by Friedman mean rank ($3.38$)
+behind \egsk{} ($3.07$) and \atmals{} ($3.34$).  }\label{tab:cec2013-d30}
+% BIND: TAB-T12 (descriptive-export cec2013 D30); CEC2013-D30-THIRD (AN-OMNI-2013-D30)
+\centering
+\tablesize{\footnotesize}
+\resizebox{\textheight}{!}{\input{tables/T12}}
+\end{sidewaystable}
+
+\begin{sidewaystable}[p]
+\caption{CEC2013 second comparison suite at $D = 50$ (28 functions,
+51 runs): best / median / worst / mean / SD of the final error for GSK
+vs.\ \dtgsk{}; best mean per function in bold.  }\label{tab:cec2013-d50}
+% BIND: TAB-T13 (descriptive-export cec2013 D50)
+\centering
+\tablesize{\footnotesize}
+\resizebox{\textheight}{!}{\input{tables/T13}}
+\end{sidewaystable}
+
+\begin{table}[H]
+\caption{Across-function Wilcoxon signed-rank summary, \dtgsk{} vs.\ GSK
+on the CEC2013 second comparison suite per dimension ($n = 28$ functions,
+51 runs, per-function mean error): $R^{+}$, $R^{-}$, raw and
+Holm-corrected $p$, win/tie/loss (tie $|\Delta| < 10^{-8}$), and the
+decision at $\alpha = 0.05$.  Panel-level context at $D = 30$:
+\dtgsk{} places third by Friedman mean rank behind \egsk{} and
+\atmals{}.  }\label{tab:cec2013_wilcoxon}
+% BIND: TAB-T14 (AN-PW-2013-D10;AN-PW-2013-D30;AN-PW-2013-D50); CEC2013-D30-THIRD
+\centering
+\tablesize{\footnotesize}
+\input{tables/T14}
+\end{table}
+
+\begin{table}[H]
+\caption{Complete across-function Wilcoxon--Holm matrix on the CEC2013 second
+comparison suite: \dtgsk{} against each of the six comparators at
+$D \in \{10, 30, 50\}$ ($n = 28$ paired per-function mean errors after the
+$|\Delta| < 10^{-8}$ tie rule).  Columns are the raw $p$, the $p$ adjusted by
+Holm step-down within that dimension's six-comparison family, the matched-pairs
+rank-biserial correlation $r$ ($r > 0$ favors \dtgsk{}), and the decision at
+$\alpha = 0.05$.  This is the matrix underlying the CEC2013 standing reported in
+the main text, which prints only the \dtgsk{}-versus-GSK column
+(Table~\ref{tab:cec2013_wilcoxon}).  Of the eighteen contrasts, five are
+Holm-significant and all five favor \dtgsk{}: GSK at all three dimensions,
+and \atmals{} and \egsk{} at $D = 10$.  The remaining thirteen are not
+separated, including every contrast at $D = 30$ except GSK.
+Win/tie/loss counts are not tabulated because no released CEC2013 artifact
+records them.}\label{tab:cec2013-pairwise}
+% BIND: AN-PW-2013-D10;AN-PW-2013-D30;AN-PW-2013-D50 (wilcoxon_holm_cec2013_D{10,30,50}.csv,
+% test_level=across_functions_funclevel); generated by papers/scripts/generate_cec2013_pairwise.py
+% from the promoted release -- read, never recomputed (SE-046)
+\centering
+\tablesize{\footnotesize}
+\input{tables/SA03}
+\end{table}
+
+\subsection{Descriptive Bootstrap Rank-Stability Intervals on the CEC2017 Friedman Mean Ranks}\label{sec:supp:bca}
+
+Table~\ref{tab:bca-ci} attaches $95\%$ bias-corrected and accelerated
+(BCa) bootstrap descriptive rank-stability intervals~\cite{efron1993introduction} to the
+CEC2017 Friedman mean ranks of the main paper: per dimension, the 29
+function-level midranks are resampled with $n_{\text{boot}} = 10{,}000$
+seeded replicates (base seed $20{,}260{,}422$), and the point
+estimates reproduce the main-text rank table exactly at two-decimal
+display.
+Because these intervals resample each algorithm's \emph{fixed} per-function
+midranks rather than re-ranking the algorithms within every bootstrap
+sample, they are \emph{descriptive} rank-stability intervals --- summarizing
+how stable each mean rank is under function resampling --- and not
+inferential rank-uncertainty (confidence) intervals; no ordering probability
+is read from them.
+% BIND: TAB-T16-BCA (rank-CI companion; n_boot=10000, BASE_SEED=20260422); M020 descriptive relabel
+Two qualifications accompany this table wherever its ranks are used.
+First, rank-ordering statements are qualified by the prespecified
+robustness battery: median-based re-ranking (variant r01) changes
+adjacent ordinal positions at $D = 10$ (\apgsk{}/\egsk{} swap) and at
+$D = 50$ (\fdbagsk{}/\atmals{} swap) and shifts win/tie/loss counts,
+and disputed-cell exclusion (variant r04, \apgsk{} removed at
+$D = 10$--$50$) changes the $D = 30$ ordering (GSK and \fdbagsk{} swap
+ordinal positions 4/5); mean-based ranks are the prespecified
+primary, \dtgsk{}'s own ordinal position is identical in every
+variant reported here, but panel orderings between comparators are not fully robust.
+Under the median endpoint \dtgsk{}'s $D = 100$ first place becomes an
+exact tie with \egsk{} (both 2.59).
+% BIND: RANK-ROBUSTNESS (robustness_summary_cec2017.md; robustness_cec2017_r01/r04*.csv)
+Second, \dtgsk{} and \egsk{} are never separated by the Nemenyi
+critical difference at any dimension ($k = 7$, $N = 29$,
+$\alpha = 0.05$, $\mathrm{CD} = 1.673$): differences inside a common CD
+band are reported as not statistically
+separable~\cite{demsar2006statistical}.
+% BIND: AN-OMNI-2017-D10..D100 (nemenyi_cd_cec2017_*.csv: critical_difference=1.672993); RS-06
+The \apgsk{} evidence limitation of Section~\ref{sec:supp:cec2017-tables}
+applies to the $D = 10$--$50$ columns here as well.
+% BIND: APGSK-GAP
+
+\begin{table}[H]
+\caption{$95\%$ bootstrap BCa descriptive rank-stability intervals on the CEC2017
+Friedman mean ranks of the seven-algorithm GSK-family panel (per dimension;
+29 function-level midranks resampled, $n_{\text{boot}} = 10{,}000$,
+seeded with base seed $20{,}260{,}422$); point estimates reproduce the
+main-text Friedman rank table exactly at 2-decimal display.  Lower is
+better.  Rank orderings between comparators are not fully robust under
+the prespecified r01/r04 robustness variants, and \dtgsk{} and
+\egsk{} are never Nemenyi-separable ($\mathrm{CD} = 1.673$).  \apgsk{}
+columns at $D = 10$--$50$ rest on the disclosed per-generation-log
+evidence basis.  }\label{tab:bca-ci}
+% BIND: TAB-T16-BCA; RANK-ROBUSTNESS; APGSK-GAP; AN-OMNI-2017-D10..D100 (CD=1.672993)
+\centering
+\tablesize{\footnotesize}
+\input{tables/T16_bca}
+\end{table}
+
+\subsection{Post-hoc Robustness: Endpoint Choice and Randomization Inference}\label{sec:supp:posthoc}
+
+This subsection reports two \emph{post-hoc} sensitivity checks --- not part of
+the prespecified analysis plan, which fixes the raw-error endpoint and the
+normal-approximation Wilcoxon signed-rank test.  Both are computed from the
+frozen per-run and descriptive-statistics artifacts of the evidence release (no
+new runs) and confirm that the primary CEC2017 conclusions are not artifacts of
+those two prespecified choices.
+% BIND: post-hoc sensitivity; papers/scripts/posthoc_robustness_cec2017.py
+
+\paragraph{Endpoint invariance.}
+Re-deriving the Friedman mean ranks under a median endpoint and a
+scale-invariant $\log_{10}$-error endpoint (floored at $10^{-8}$) leaves
+\dtgsk{}'s rank position unchanged at every dimension, matching the
+prespecified raw-error ranking:
+\begin{center}
+\small
+\begin{tabular}{ccccc}
+\toprule
+$D$ & raw error & median error & $\log_{10}$ error & \dtgsk{} place\\
+\midrule
+10  & 2.88 & 2.69 & 2.78 & first\\
+30  & 2.50 & 2.72 & 2.60 & second\\
+50  & 2.21 & 2.28 & 2.14 & first\\
+100 & 2.34 & 2.59 & 2.45 & first\\
+\bottomrule
+\end{tabular}
+\end{center}
+% BIND: papers/analysis/posthoc_robustness/posthoc_endpoint_ranks_cec2017.csv
+Values are the \dtgsk{} Friedman mean rank (lower is better; seven-algorithm
+panel).  The raw-error column reproduces the frozen main-text Friedman ranks;
+the median and $\log_{10}$ columns rank \dtgsk{} first at $D=10/50/100$ and
+second at $D=30$ (behind \egsk{}, as in the main text) under every endpoint;
+at $D=100$ that median-endpoint first place is shared with \egsk{} (both 2.59).
+
+\paragraph{Monte Carlo sign-flip inference.}
+Replacing the normal-approximation $p$-value of the headline pairwise Wilcoxon
+signed-rank comparison (\dtgsk{} versus each of the six comparators, paired
+across the 29 scored functions) with a Monte Carlo sign-flip randomization of the
+signed-rank statistic ($2\times10^{5}$ random sign assignments, base seed $20{,}240{,}620$)
+preserves every Holm-adjusted $\alpha=0.05$ decision: across the four dimensions
+and six comparators, $0$ of $24$ decisions change.  The prespecified normal
+approximation is therefore not the source of any reported significance.
+% BIND: papers/analysis/posthoc_robustness/posthoc_inference_cec2017.csv (0/24 Holm-decision changes)
+
+%==================================================================
+\subsection{Additional CEC2017 Rank Views: Overall Bars and Dimension Trend}\label{sec:supp:rankviews}
+%==================================================================
+
+For completeness, Figures~\ref{fig:supp-overall-ranks} and~\ref{fig:supp-rank-trend}
+render the same seven-algorithm CEC2017 Friedman mean ranks reported by the main
+paper's family-panel rank table (the authoritative numbers) and its per-dimension
+bar chart --- here as the overall aggregate ranking and as a rank-versus-dimension
+trend. They are relocated from the main text to reduce redundancy among the rank
+exhibits: all such renderings derive from a single analysis output (the per-dimension
+Friedman-rank CSVs), so they add no data and support no claim beyond the main-paper
+table.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.72\textwidth]{figures/ranks/friedman_gsk_family}
+\caption{Overall (dimension-aggregated) Friedman mean rank of the seven GSK-family
+algorithms on CEC2017; lower is better. Same ranks, qualifications, and provenance as
+the main paper's family-panel rank table.}\label{fig:supp-overall-ranks}
+% BIND: fig friedman_gsk_family.pdf (generate_rank_charts.py; friedman_ranks source)
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.82\textwidth]{figures/ranks/rank_vs_dim_cec2017}
+\caption{\dtgsk{} CEC2017 Friedman mean rank against problem dimension
+($D\in\{10,30,50,100\}$); the plotted per-dimension values are exactly those of the
+main paper's family-panel rank table.}\label{fig:supp-rank-trend}
+% BIND: fig rank_vs_dim_cec2017.pdf (generate_rank_charts.py; rank_trend source)
+\end{figure}
+
+%==================================================================
+\section{Convergence Figure Sets}\label{sec:supp:convergence}
+%==================================================================
+
+This section provides the complete convergence record behind the
+main-text convergence subset: every scored function of every suite --- CEC2017
+at all four dimensions, CEC2011 at native dimensions, and CEC2013 at the
+prespecified $D=30$ --- one panel per function, with all 7 panel algorithms
+overlaid in every panel.
+The aggregation basis is identical for all curves and all suites: each
+curve is the per-checkpoint \emph{mean} across all runs for that
+algorithm (51 runs for CEC2017/CEC2013, 25 for CEC2011), with no
+smoothing and no interpolation.
+% BIND: AN-CONV-2017-D10..D100; AN-CONV-2011-NATIVE; AN-CONV-2013-D30 (P2 aggregation rule)
+Axes are log-error with a display-only floor of $10^{-14}$ for exact
+zeros; the floor never enters any reported statistic.
+% BIND: convergence disclosure logs (cec2017/cec2011/cec2013_missing.log)
+Line styles follow a fixed color/linestyle map (Okabe--Ito palette,
+\dtgsk{} solid black) with one shared legend per grid, and every panel
+carries the full 7/7 series (companion disclosure logs
+\texttt{cec2017\_missing.log}, \texttt{cec2011\_missing.log},
+\texttt{cec2013\_missing.log} record zero absences).
+% BIND: FIG-CONV-SUP-* validation status (series-count-verified 7/7)
+
+\subsection{CEC2017: All 29 Functions at Each Dimension}\label{sec:supp:conv2017}
+
+Figures~\ref{fig:sconv-cec2017-d10-a}--\ref{fig:sconv-cec2017-d100-c}
+cover all 29 CEC2017 functions at each of the four dimensions, split
+into three sub-grids per dimension (F1, F3--F10 / F11--F20 / F21--F30).
+For $D = 10$, $30$, and $50$ the \apgsk{} checkpoint evidence derives
+from per-generation logs whose producing environment is unrecorded (the
+disclosed \apgsk{} evidence limitation); the curves are shown with that
+qualification.
+% BIND: APGSK-GAP
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth,height=0.87\textheight,keepaspectratio]{figures/convergence/all_funcs_D10_a}
+\caption{Family-overlay convergence on CEC2017 at $D = 10$, functions
+F1, F3--F9 (sub-grid a of 4): per-checkpoint mean error across 51 runs
+per algorithm (identical basis for all 7 curves; no smoothing), fixed
+Okabe--Ito style map, \dtgsk{} solid black, one shared legend,
+log-error $y$-axis with display-only floor $10^{-14}$ for exact zeros.
+All panels carry the full 7/7 series.  \apgsk{} checkpoint evidence at this
+dimension derives from per-generation logs (disclosed limitation).
+}\label{fig:sconv-cec2017-d10-a}
+% BIND: FIG-CONV-SUP-2017-D10-A (AN-CONV-2017-D10); APGSK-GAP
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth,height=0.87\textheight,keepaspectratio]{figures/convergence/all_funcs_D10_b}
+\caption{Family-overlay convergence on CEC2017 at $D = 10$, functions
+F10--F17 (sub-grid b of 4): per-checkpoint mean error across 51 runs per
+algorithm, 7-curve overlay, log-error $y$-axis (display floor
+$10^{-14}$), one shared legend.  \apgsk{} checkpoint evidence at this
+dimension derives from per-generation logs (disclosed limitation).
+}\label{fig:sconv-cec2017-d10-b}
+% BIND: FIG-CONV-SUP-2017-D10-B (AN-CONV-2017-D10); APGSK-GAP
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth,height=0.87\textheight,keepaspectratio]{figures/convergence/all_funcs_D10_c}
+\caption{Family-overlay convergence on CEC2017 at $D = 10$, functions
+F18--F25 (sub-grid c of 4): per-checkpoint mean error across 51 runs per
+algorithm, 7-curve overlay, log-error $y$-axis (display floor
+$10^{-14}$), one shared legend.  \apgsk{} checkpoint evidence at this
+dimension derives from per-generation logs (disclosed limitation).
+}\label{fig:sconv-cec2017-d10-c}
+% BIND: FIG-CONV-SUP-2017-D10-C (AN-CONV-2017-D10); APGSK-GAP
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth,height=0.87\textheight,keepaspectratio]{figures/convergence/all_funcs_D10_d}
+\caption{Family-overlay convergence on CEC2017 at $D = 10$, functions
+F26--F30 (sub-grid d of 4): per-checkpoint mean error across 51 runs per
+algorithm, 7-curve overlay, log-error $y$-axis (display floor
+$10^{-14}$), one shared legend.  \apgsk{} checkpoint evidence at this
+dimension derives from per-generation logs (disclosed limitation).
+}\label{fig:sconv-cec2017-d10-d}
+% BIND: FIG-CONV-SUP-2017-D10-D (AN-CONV-2017-D10); APGSK-GAP
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth,height=0.87\textheight,keepaspectratio]{figures/convergence/all_funcs_D30_a}
+\caption{Family-overlay convergence on CEC2017 at $D = 30$, functions
+F1, F3--F9 (sub-grid a of 4): per-checkpoint mean error across 51 runs
+per algorithm (identical basis for all 7 curves; no smoothing), fixed
+Okabe--Ito style map, \dtgsk{} solid black, one shared legend,
+log-error $y$-axis with display-only floor $10^{-14}$ for exact zeros.
+All panels carry the full 7/7 series.  \apgsk{} checkpoint evidence at this
+dimension derives from per-generation logs (disclosed limitation).
+}\label{fig:sconv-cec2017-d30-a}
+% BIND: FIG-CONV-SUP-2017-D30-A (AN-CONV-2017-D30); APGSK-GAP
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth,height=0.87\textheight,keepaspectratio]{figures/convergence/all_funcs_D30_b}
+\caption{Family-overlay convergence on CEC2017 at $D = 30$, functions
+F10--F17 (sub-grid b of 4): per-checkpoint mean error across 51 runs per
+algorithm, 7-curve overlay, log-error $y$-axis (display floor
+$10^{-14}$), one shared legend.  \apgsk{} checkpoint evidence at this
+dimension derives from per-generation logs (disclosed limitation).
+}\label{fig:sconv-cec2017-d30-b}
+% BIND: FIG-CONV-SUP-2017-D30-B (AN-CONV-2017-D30); APGSK-GAP
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth,height=0.87\textheight,keepaspectratio]{figures/convergence/all_funcs_D30_c}
+\caption{Family-overlay convergence on CEC2017 at $D = 30$, functions
+F18--F25 (sub-grid c of 4): per-checkpoint mean error across 51 runs per
+algorithm, 7-curve overlay, log-error $y$-axis (display floor
+$10^{-14}$), one shared legend.  \apgsk{} checkpoint evidence at this
+dimension derives from per-generation logs (disclosed limitation).
+}\label{fig:sconv-cec2017-d30-c}
+% BIND: FIG-CONV-SUP-2017-D30-C (AN-CONV-2017-D30); APGSK-GAP
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth,height=0.87\textheight,keepaspectratio]{figures/convergence/all_funcs_D30_d}
+\caption{Family-overlay convergence on CEC2017 at $D = 30$, functions
+F26--F30 (sub-grid d of 4): per-checkpoint mean error across 51 runs per
+algorithm, 7-curve overlay, log-error $y$-axis (display floor
+$10^{-14}$), one shared legend.  \apgsk{} checkpoint evidence at this
+dimension derives from per-generation logs (disclosed limitation).
+}\label{fig:sconv-cec2017-d30-d}
+% BIND: FIG-CONV-SUP-2017-D30-D (AN-CONV-2017-D30); APGSK-GAP
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth,height=0.87\textheight,keepaspectratio]{figures/convergence/all_funcs_D50_a}
+\caption{Family-overlay convergence on CEC2017 at $D = 50$, functions
+F1, F3--F9 (sub-grid a of 4): per-checkpoint mean error across 51 runs
+per algorithm (identical basis for all 7 curves; no smoothing), fixed
+Okabe--Ito style map, \dtgsk{} solid black, one shared legend,
+log-error $y$-axis with display-only floor $10^{-14}$ for exact zeros.
+All panels carry the full 7/7 series.  \apgsk{} checkpoint evidence at this
+dimension derives from per-generation logs (disclosed limitation).
+}\label{fig:sconv-cec2017-d50-a}
+% BIND: FIG-CONV-SUP-2017-D50-A (AN-CONV-2017-D50); APGSK-GAP
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth,height=0.87\textheight,keepaspectratio]{figures/convergence/all_funcs_D50_b}
+\caption{Family-overlay convergence on CEC2017 at $D = 50$, functions
+F10--F17 (sub-grid b of 4): per-checkpoint mean error across 51 runs per
+algorithm, 7-curve overlay, log-error $y$-axis (display floor
+$10^{-14}$), one shared legend.  \apgsk{} checkpoint evidence at this
+dimension derives from per-generation logs (disclosed limitation).
+}\label{fig:sconv-cec2017-d50-b}
+% BIND: FIG-CONV-SUP-2017-D50-B (AN-CONV-2017-D50); APGSK-GAP
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth,height=0.87\textheight,keepaspectratio]{figures/convergence/all_funcs_D50_c}
+\caption{Family-overlay convergence on CEC2017 at $D = 50$, functions
+F18--F25 (sub-grid c of 4): per-checkpoint mean error across 51 runs per
+algorithm, 7-curve overlay, log-error $y$-axis (display floor
+$10^{-14}$), one shared legend.  \apgsk{} checkpoint evidence at this
+dimension derives from per-generation logs (disclosed limitation).
+}\label{fig:sconv-cec2017-d50-c}
+% BIND: FIG-CONV-SUP-2017-D50-C (AN-CONV-2017-D50); APGSK-GAP
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth,height=0.87\textheight,keepaspectratio]{figures/convergence/all_funcs_D50_d}
+\caption{Family-overlay convergence on CEC2017 at $D = 50$, functions
+F26--F30 (sub-grid d of 4): per-checkpoint mean error across 51 runs per
+algorithm, 7-curve overlay, log-error $y$-axis (display floor
+$10^{-14}$), one shared legend.  \apgsk{} checkpoint evidence at this
+dimension derives from per-generation logs (disclosed limitation).
+}\label{fig:sconv-cec2017-d50-d}
+% BIND: FIG-CONV-SUP-2017-D50-D (AN-CONV-2017-D50); APGSK-GAP
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth,height=0.87\textheight,keepaspectratio]{figures/convergence/all_funcs_D100_a}
+\caption{Family-overlay convergence on CEC2017 at $D = 100$, functions
+F1, F3--F9 (sub-grid a of 4): per-checkpoint mean error across 51 runs
+per algorithm (identical basis for all 7 curves; no smoothing), fixed
+Okabe--Ito style map, \dtgsk{} solid black, one shared legend,
+log-error $y$-axis with display-only floor $10^{-14}$ for exact zeros.
+All panels carry the full 7/7 series.  \apgsk{} checkpoint evidence at this
+dimension derives from per-generation logs (disclosed limitation).
+}\label{fig:sconv-cec2017-d100-a}
+% BIND: FIG-CONV-SUP-2017-D100-A (AN-CONV-2017-D100); APGSK-GAP
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth,height=0.87\textheight,keepaspectratio]{figures/convergence/all_funcs_D100_b}
+\caption{Family-overlay convergence on CEC2017 at $D = 100$, functions
+F10--F17 (sub-grid b of 4): per-checkpoint mean error across 51 runs per
+algorithm, 7-curve overlay, log-error $y$-axis (display floor
+$10^{-14}$), one shared legend.  \apgsk{} checkpoint evidence at this
+dimension derives from per-generation logs (disclosed limitation).
+}\label{fig:sconv-cec2017-d100-b}
+% BIND: FIG-CONV-SUP-2017-D100-B (AN-CONV-2017-D100); APGSK-GAP
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth,height=0.87\textheight,keepaspectratio]{figures/convergence/all_funcs_D100_c}
+\caption{Family-overlay convergence on CEC2017 at $D = 100$, functions
+F18--F25 (sub-grid c of 4): per-checkpoint mean error across 51 runs per
+algorithm, 7-curve overlay, log-error $y$-axis (display floor
+$10^{-14}$), one shared legend.  \apgsk{} checkpoint evidence at this
+dimension derives from per-generation logs (disclosed limitation).
+}\label{fig:sconv-cec2017-d100-c}
+% BIND: FIG-CONV-SUP-2017-D100-C (AN-CONV-2017-D100); APGSK-GAP
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth,height=0.87\textheight,keepaspectratio]{figures/convergence/all_funcs_D100_d}
+\caption{Family-overlay convergence on CEC2017 at $D = 100$, functions
+F26--F30 (sub-grid d of 4): per-checkpoint mean error across 51 runs per
+algorithm, 7-curve overlay, log-error $y$-axis (display floor
+$10^{-14}$), one shared legend.  \apgsk{} checkpoint evidence at this
+dimension derives from per-generation logs (disclosed limitation).
+}\label{fig:sconv-cec2017-d100-d}
+% BIND: FIG-CONV-SUP-2017-D100-D (AN-CONV-2017-D100); APGSK-GAP
+\end{figure}
+
+\subsection{CEC2011: All 22 Real-World Problems}\label{sec:supp:conv2011}
+
+Figures~\ref{fig:sconv-cec2011-a}--\ref{fig:sconv-cec2011-c} cover all
+22 CEC2011 real-world problems at their native dimensions, split into
+three sub-grids (problems P1--P8 / P9--P16 / P17--P22; each panel is
+titled by the suite's function identifier and native dimension).
+Because several CEC2011 problems have negative optima, the plotted
+quantity is the per-checkpoint mean of the \emph{raw best objective}
+across 25 runs, and four panels whose means are negative fall back from
+the log axis to a linear $y$-axis with an in-panel disclosure: P2, P5,
+and P6 in sub-grid a, and P10 in sub-grid b; all other panels use the
+log axis with display floor $10^{-14}$.
+% BIND: FIG-CONV-CEC2011-A/B/C (AN-CONV-2011-NATIVE); linear-fallback count per figure_qa (a=3 [F2,F5,F6], b=1 [F10], c=0)
+Outcome context for this suite (disclosed alongside the figures, not
+after them): within the family panel, \dtgsk{}'s across-problem
+Wilcoxon versus \egsk{} on CEC2011 is a statistically significant loss
+($n = 22$, Holm-corrected $p = 4.2 \times 10^{-2}$).
+% BIND: CEC2011-EGSK-LOSS (AN-PW-2011-NATIVE)
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth,height=0.87\textheight,keepaspectratio]{figures/convergence/cec2011_a}
+\caption{Family-overlay convergence on the CEC2011 real-world optimization benchmark suite,
+problems P1--P8 at native dimensions (sub-grid a of 3): per-checkpoint
+mean of the raw best objective across 25 runs per algorithm, 7-curve
+overlay, one shared legend.  The three panels with negative means (P2,
+P5, P6) fall back to a linear $y$-axis with an in-panel disclosure; all
+other panels use the log axis with display floor $10^{-14}$.  All
+panels carry 7/7 series.  Suite-level outcome context: \dtgsk{}
+significantly loses to \egsk{} across problems on this suite
+(Holm-corrected $p = 4.2 \times 10^{-2}$).  }\label{fig:sconv-cec2011-a}
+% BIND: FIG-CONV-CEC2011-A (AN-CONV-2011-NATIVE); CEC2011-EGSK-LOSS
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth,height=0.87\textheight,keepaspectratio]{figures/convergence/cec2011_b}
+\caption{Family-overlay convergence on the CEC2011 real-world optimization benchmark suite,
+problems P9--P16 at native dimensions (sub-grid b of 3): per-checkpoint
+mean of the raw best objective across 25 runs per algorithm, 7-curve
+overlay, one shared legend.  The panel with negative means (P10) falls
+back to a linear $y$-axis with an in-panel disclosure; all other panels
+use the log axis with display floor $10^{-14}$.  All panels carry 7/7
+series.  Suite-level outcome context: \dtgsk{} significantly loses to
+\egsk{} across problems on this suite (Holm-corrected
+$p = 4.2 \times 10^{-2}$).  }\label{fig:sconv-cec2011-b}
+% BIND: FIG-CONV-CEC2011-B (AN-CONV-2011-NATIVE); CEC2011-EGSK-LOSS
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth,height=0.87\textheight,keepaspectratio]{figures/convergence/cec2011_c}
+\caption{Family-overlay convergence on the CEC2011 real-world optimization benchmark suite,
+problems P17--P22 at native dimensions (sub-grid c of 3): per-checkpoint
+mean of the raw best objective across 25 runs per algorithm, 7-curve
+overlay, log-error $y$-axis with display floor $10^{-14}$, one shared
+legend.  All panels carry 7/7 series.  Suite-level outcome context:
+\dtgsk{} significantly loses to \egsk{} across problems on this suite
+(Holm-corrected $p = 4.2 \times 10^{-2}$).  }\label{fig:sconv-cec2011-c}
+% BIND: FIG-CONV-CEC2011-C (AN-CONV-2011-NATIVE); CEC2011-EGSK-LOSS
+\end{figure}
+
+\subsection{CEC2013 Second Comparison Suite: All 28 Functions at $D = 30$}\label{sec:supp:conv2013}
+
+Figures~\ref{fig:sconv-cec2013-d30-a}--\ref{fig:sconv-cec2013-d30-d}
+cover all 28 functions of the CEC2013 second comparison suite at
+$D = 30$ --- the only prespecified CEC2013 convergence dimension ---
+split into four sub-grids (F1--F8 / F9--F16 / F17--F24 / F25--F28).
+% BIND: FIG-CONV-CEC2013-D30-A..D (AN-CONV-2013-D30; prespecification P4)
+The panel-level outcome disclosure for this suite and dimension applies
+here as in Section~\ref{sec:supp:cec2013}: \dtgsk{} places third by
+Friedman mean rank at $D = 30$, behind \egsk{} and \atmals{}.
+% BIND: CEC2013-D30-THIRD (AN-OMNI-2013-D30)
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth,height=0.87\textheight,keepaspectratio]{figures/convergence/cec2013_a}
+\caption{Family-overlay convergence on the CEC2013 second comparison
+suite at $D = 30$, functions F1--F8 (sub-grid a of 4): per-checkpoint
+mean error across 51 runs per algorithm, 7-curve overlay, log-error
+$y$-axis (display floor $10^{-14}$), one shared legend.  All panels
+carry 7/7 series.  Panel-level context at this dimension: \dtgsk{}
+places third by Friedman mean rank behind \egsk{} and \atmals{}.
+}\label{fig:sconv-cec2013-d30-a}
+% BIND: FIG-CONV-CEC2013-D30-A (AN-CONV-2013-D30); CEC2013-D30-THIRD
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth,height=0.87\textheight,keepaspectratio]{figures/convergence/cec2013_b}
+\caption{Family-overlay convergence on the CEC2013 second comparison
+suite at $D = 30$, functions F9--F16 (sub-grid b of 4): per-checkpoint
+mean error across 51 runs per algorithm, 7-curve overlay, log-error
+$y$-axis (display floor $10^{-14}$), one shared legend.  All panels
+carry 7/7 series.  }\label{fig:sconv-cec2013-d30-b}
+% BIND: FIG-CONV-CEC2013-D30-B (AN-CONV-2013-D30)
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth,height=0.87\textheight,keepaspectratio]{figures/convergence/cec2013_c}
+\caption{Family-overlay convergence on the CEC2013 second comparison
+suite at $D = 30$, functions F17--F24 (sub-grid c of 4): per-checkpoint
+mean error across 51 runs per algorithm, 7-curve overlay, log-error
+$y$-axis (display floor $10^{-14}$), one shared legend.  All panels
+carry 7/7 series.  }\label{fig:sconv-cec2013-d30-c}
+% BIND: FIG-CONV-CEC2013-D30-C (AN-CONV-2013-D30)
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth,height=0.87\textheight,keepaspectratio]{figures/convergence/cec2013_d}
+\caption{Family-overlay convergence on the CEC2013 second comparison
+suite at $D = 30$, functions F25--F28 (sub-grid d of 4): per-checkpoint
+mean error across 51 runs per algorithm, 7-curve overlay, log-error
+$y$-axis (display floor $10^{-14}$), one shared legend.  All panels
+carry 7/7 series.  }\label{fig:sconv-cec2013-d30-d}
+% BIND: FIG-CONV-CEC2013-D30-D (AN-CONV-2013-D30)
+\end{figure}
+
+%==================================================================
+\section{Population-Schedule Visualization and Diagnostic Availability}\label{sec:supp:diagnostics}
+%==================================================================
+
+Figure~\ref{fig:nlpsr-schedule} plots the analytic trajectory of the
+tier-floored Nonlinear Population-Size Reduction (NLPSR) schedule under
+the frozen configuration for all four dimension tiers
+($\mathrm{NP}_{0} = 5D$; $N_{\min} = 12/12/25/25$ for
+$D = 10/30/50/100$): population size versus consumed budget fraction.
+% BIND: FIG-NLPSR (phase_03/equation_registry.csv E5; phase_03/parameter_table.md)
+This is an analytic evaluation of the frozen schedule formula and
+contains no empirical result values; it is included so that the
+population-size trajectory quoted in the main paper can be inspected
+without re-deriving the schedule.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/concept/fig_nlpsr_schedule}
+\caption{Analytic trajectory of the tier-floored nonlinear population
+size reduction schedule under the frozen configuration for all
+four dimension tiers ($\mathrm{NP}_{0} = 5D$;
+$N_{\min} = 12/12/25/25$): population size vs.\ consumed budget
+fraction.  Analytic evaluation of the frozen formula --- no empirical
+result values.}\label{fig:nlpsr-schedule}
+% BIND: FIG-NLPSR (phase_03/equation_registry.csv E5; phase_03/parameter_table.md)
+\end{figure}
+
+Per-generation mechanism-trace figures (interaction-structure-memory
+traces and the adaptive-parameter panel) are not included in this
+Supplementary Material: no promoted per-generation diagnostic release
+exists in the accompanying evidence release, so these
+exhibits cannot be produced under the strict-source rule of
+Section~\ref{sec:repro} and are disclosed as unavailable rather than
+substituted or fabricated.
+% BIND: EG-005 (papers/governance/evidence_gap_register.md)
+
+%==================================================================
+\section{Reproducibility Appendix}\label{sec:repro}
+%==================================================================
+
+This appendix documents the mechanisms that make every reported number
+re-derivable from the released artifacts: the paired
+optimizer-independent seed schedule, the hash-frozen configuration, the
+promoted read-only evidence release, and the deterministic RNG layer.
+% BIND: CN-02
+No byte-stability guarantee is extended to comparator
+reimplementations; the guarantees below are properties of the \dtgsk{}
+implementation and of the evidence pipeline.
+% BIND: CN-02 (blocked-wording guard); MT-10
+
+\subsection{Seed Schedule and Pairing}\label{sec:repro:seeds}
+
+Every run in the evidence release is seeded by one deterministic,
+optimizer-independent formula keyed on the (dimension, function, run)
+triple, with base seed $20240620$:
+% BIND: seed_and_pairing_audit.md Section 1 (src/gsk_family/runners/seed_policy.py get_cec_seed)
+\begin{equation}\label{eq:supp-seed}
+\mathrm{seed}(D, f, r) \;=\;
+\bigl(20240620 + 1000003\,D + 1000033\,f + 1000037\,r\bigr)
+\bmod 2147483646 \;+\; 1 .
+\end{equation}
+% BIND: seed_and_pairing_audit.md Section 1 (base seed 20240620; strides 1000003/1000033/1000037; modulus 2147483646)
+The generator is the counter-based \texttt{threefry} generator in every
+panel cell.
+% BIND: seed_and_pairing_audit.md Section 1 (rand_generator = threefry)
+Because the formula contains no optimizer term, run $r$ of any two panel
+algorithms on the same (suite, function, dimension) cell consumes the
+same seed and starts from the same runner-generated shared initial
+population $X_{0}$; the single documented exception is \dtgsk{}
+self-initialization, which draws its own $5D$-point initial population
+from the same seed-paired stream.
+% BIND: PR-06; seed_and_pairing_audit.md Section 4
+The evidence audit recomputed every row of every stored seed
+schedule against Equation~(\ref{eq:supp-seed}) --- 70{,}813 stored schedule rows
+across the 21 (suite, optimizer) cells, plus the APGSK CEC2017
+low-dimension seeds recovered and verified from the surviving generation
+logs after their single-file sidecars were overwritten by a later run --- with zero mismatches, zero
+duplicate keys and, within each schedule, zero duplicate seed values (the
+schedule is intentionally optimizer-independent, so the same key maps to
+the same seed across all seven algorithms --- the basis of the paired
+comparison), and verified pairing validity for every comparator pair on
+all three suites.
+% BIND: seed_and_pairing_audit.md Sections 2 and 4 (70,813 rows; 0 mismatches; 21 cells)
+
+Within a run, a 13-substream append-only, prefix-locked counter-based
+RNG layer child-seeds all subsystems from the one run seed
+($\mathrm{stream}_{k}$ for $k \in \{0, \dots, 12\}$, with stream~0 the
+run seed verbatim), so toggling any subsystem cannot disturb any other
+subsystem's draw order --- the property that makes exact reproduction
+byte-stable and test-enforced. Table~\ref{tab:notation-rng} gives the
+substream key referenced by the main-text core notation table.
+% BIND: MT-10; phase_03/equation_registry.csv E12 (_dt_rng.py)
+
+% RNG substream key (ART-NOTATION; label tab:notation-rng). N-015 relocated
+% this rarely-referenced key out of the main-text notation table to the
+% reproducibility section, where the substreams are specified.
+\begin{table}[H]
+\caption{RNG substream key. The 13 append-only, prefix-locked substreams of
+the counter-based (\texttt{threefry}) layer, child-seeded from the single run
+seed; stream~0 is the run seed verbatim (self-init).}
+\label{tab:notation-rng}
+\centering
+\footnotesize
+\begin{tabular}{@{}l@{\hspace{1.2em}}p{0.66\textwidth}@{}}
+\toprule
+\textbf{Symbol} & \textbf{Meaning}\\
+\midrule
+13 substreams & init, core, ace, kexp, div, bse, arch, link, de, control, flow, basin, trust (append-only, prefix-locked)\\
+$\text{init}=\operatorname{threefry}(\text{seed})$ & stream 0 = run seed verbatim (self-init)\\
+$M$ & maximum safe seed (child-seed modulus)\\
+\bottomrule
+\end{tabular}
+\end{table}
+All objective evaluations, including polish and escape evaluations, are
+charged through a single strict budget-accounting path, so runs are
+budget-exact, monotone, and repeat-identical per the frozen
+deterministic trace.
+% BIND: MT-11; algorithm_freeze_manifest.json evaluation_accounting
+
+\subsection{Frozen Configuration and Freeze Manifest}\label{sec:repro:freeze}
+
+The complete shipped configuration of \dtgsk{} is the single
+dimension-aware configuration, tier-resolved over
+$D \in \{10, 30, 50, 100\}$ and identical across all three suites (no
+per-suite tuning).
+% BIND: ART-PARAMS (phase_03/parameter_table.md; algorithm_freeze_manifest.json)
+The configuration and the implementing sources are hash-frozen in the
+committed algorithm freeze manifest
+(\texttt{algorithm\_freeze\_manifest.json}).  Because the method was frozen
+\emph{before} a post-freeze code audit found two implementation defects, the
+provenance of the shipped code is a short chain rather than a single freeze, and
+we record it in full.
+
+% BIND: M-031 provenance chronology; algorithm_freeze_manifest.json (per-file SHA-256,
+%   subsystem Merkle digest) + main_manuscript_freeze_manifest.json; every printed hash,
+%   anchor and date is checked against those manifests by validate_provenance_claims.py
+\begin{enumerate}\itemsep2pt
+\item \textbf{Original freeze (2026-07-10, anchor \texttt{708a927bf}).}  The
+  manifest pinned the core sources under their production filenames ---
+  \texttt{ism\_gsk.py} \texttt{a274e0f83b4efd3c},
+  \texttt{\_ism\_core.py} \texttt{1ef815cee5d4c9c3},
+  \texttt{\_ism\_profiles.py} \texttt{c3dcdce3a3477dca},
+  \texttt{\_ism\_rng.py} \texttt{db1cc028b3ebc145} --- with a Merkle digest over
+  the subsystem sources (\texttt{e532fc4435fd407cf585c5ee57ba3de8}).  The evidence
+  produced under this freeze was release \texttt{rel-2026-07-10-262fc16c9}.
+\item \textbf{Post-freeze audit.}  Two defects were found in the frozen core: a
+  final-polish stale-incumbent fault (C006), which changes trajectories wherever
+  the polish fires, and a wrong module path in the interaction graph's guarded
+  \texttt{numba} import (M038), which silently selected the \textsc{NumPy}
+  fallback and affected wall-clock only.  Both are described with their measured
+  consequences in Section~\ref{sec:supp:ablation:caveats}.
+\item \textbf{Source fixes and locks.}  Both defects were fixed in the source and
+  each is pinned by a regression test that \emph{fails on the pre-fix code}
+  (\texttt{test\_dt\_polish\_incumbent\_consistent.py} for C006;
+  \texttt{test\_dt\_graph\_backend\_parity.py} for M038, which additionally
+  asserts that the compiled and \textsc{NumPy} backends are bit-identical).
+\item \textbf{Module rename.}  The shipped modules were renamed to
+  \texttt{dt\_gsk.py}, \texttt{\_dt\_core.py}, \texttt{\_dt\_profiles.py} and
+  \texttt{\_dt\_rng.py} when the method was renamed to \dtgsk{}.
+\item \textbf{Full regeneration.}  The primary-panel, scaffold and overlay
+  evidence was regenerated end to end with the corrected binary at 51 runs per
+  cell.  Comparator cells were verified byte-identical to the prior release
+  during minting, so the regeneration is scoped to \dtgsk{}.
+\item \textbf{Intermediate release (anchor \texttt{78f075cb0}).}  The regenerated
+  evidence was first promoted as release \texttt{rel-2026-07-16-78f075cb0}
+  (3{,}403 files), superseding \texttt{rel-2026-07-10-262fc16c9}.  It has since
+  been superseded in turn (next item) and is retained here only as a link in the
+  provenance chain.
+\item \textbf{Current release (anchor \texttt{67d9345f9}).}  The evidence
+  accompanying this article is release \texttt{rel-2026-07-20-67d9345f9} (anchor
+  commit \texttt{67d9345f9502a9a584e645fa8948f60a61d70e29}; 3{,}403 files), which
+  supersedes \texttt{rel-2026-07-16-78f075cb0}.  The remint re-timed \dtgsk{} with
+  the compiled interaction-graph kernels active after the M038 fix: the scientific
+  columns (\texttt{error}, \texttt{best\_fitness}, \texttt{seed}, \texttt{nfes},
+  \texttt{termination}) are byte-identical to the prior release and only
+  \texttt{runtime\_seconds} changed.  It also carries the regenerated
+  tie-corrected Friedman statistics (M-026) and the paired rank-biserial effect
+  sizes (M-027).  Every number reported in this paper and in this Supplementary
+  Material is drawn from \texttt{rel-2026-07-20-67d9345f9}.
+\end{enumerate}
+
+\noindent The four SHA-256 prefixes recorded in the original freeze manifest are
+therefore \textbf{historical}: they pin the pre-fix sources under their pre-rename
+filenames and do \emph{not} match the shipped modules. A current manifest,
+\texttt{algorithm\_freeze\_manifest\_2026-07-19.json}, was minted from the
+post-fix source and records the full SHA-256 of each shipped module together
+with a Merkle digest over the subsystem sources; the original is retained,
+marked superseded, as the record of the 2026-07-10 freeze. The shipped modules'
+current prefixes are
+\texttt{dt\_gsk.py} \texttt{51b12194a3962a20},
+\texttt{\_dt\_core.py} \texttt{dc2d59db91a288ee},
+\texttt{\_dt\_profiles.py} \texttt{7baadf228d356394} and
+\texttt{\_dt\_rng.py} \texttt{8a0fc27d7531b847}.
+What the manifest continues to guarantee is that the shipped configuration is
+immutable and machine-checked: the repository's configuration-lock validator and
+the byte-stability regression test enforce byte-identity of the \emph{current}
+sources on every run, so the code that produced the current release cannot drift
+without failing the gate.
+% BIND: algorithm_freeze_manifest.json frozen_core_sources (historical); shipped-module hashes at the current anchor
+Any post-freeze change to the frozen sources, the configuration, or the
+mechanism inventory requires a recorded change request; the two corrections
+above are registered as \texttt{CR-0007} in
+\texttt{papers/governance/change\_request\_register.csv}, together with the
+regeneration scope they forced.
+% BIND: algorithm_freeze_manifest.json change_control; change_request_register.csv CR-0007; M-031
+
+\subsection{Configuration Selection and Development Protocol}\label{sec:repro:tuning}
+
+The single dimension-aware configuration is fixed once and reused across all
+three suites; this subsection discloses \emph{how} it was selected, so the
+primary-suite comparison can be read with its selection exposure in view.
+% BIND: R6-T03 (development-suite / selection-exposure disclosure)
+CEC2017 was the \emph{development suite}: the tier-resolved parameter values
+were set against CEC2017 at the reported budget and run count ($n=51$), and no
+CEC2011 or CEC2013 result was consulted during configuration selection --- those
+two suites are held out with respect to the tuning choices. Before the final
+configuration was promoted, \textbf{six} full-panel candidate configurations ---
+including the one ultimately selected --- were
+compared against the complete seven-algorithm family panel on CEC2017. ``Full
+panel'' is the criterion that defines this count: each candidate was run against
+all seven algorithms on the full function set, not through a smoke test, a
+function or dimension subset, or an isolated component experiment. The count
+therefore \emph{excludes} preliminary debugging and smoke runs,
+partial-function or partial-dimension pilots, single-component ablations and
+sensitivity checks, failed or incomplete configurations, and all post-selection
+validation, correction, and evidence-regeneration runs. This selection exposure
+is disclosed as an author-attested development-history note: the
+intermediate candidates predate the immutable evidence release and are not part
+of it, so the figure rests on the authors' record rather than on a released
+artifact, and it is stated rather than absorbed silently. Consequently the CEC2017 headline (best overall Friedman mean rank)
+is a result \emph{on the development suite} and should be read as such: the two
+suites that did not inform selection place \dtgsk{} second on CEC2011 (a
+Holm-significant loss to \egsk{}) and third on CEC2013 at $D=30$; the held-out
+evidence is nonetheless mixed rather than uniformly less favorable, since
+\dtgsk{} attains the best overall Friedman rank on CEC2013. This tempers ---
+without eliminating --- the optimistic-selection concern and bounds how far the
+primary-suite standing should be generalized.
+
+\subsection{Limitations in Full}\label{sec:repro:limitations}
+
+The conclusions summarize the limitations that bound this study; they are
+stated here in full, with the numeric evidence for each. The wording is the
+wording of the conclusions in the submitted manuscript --- moved rather than
+rewritten, so that nothing is softened in transit.
+% BIND: N-020 (limitations relocated verbatim from the conclusions)
+
+\paragraph{Limitations.}
+Several limitations bound these findings. First, the mid-dimension tier
+favors \egsk{}. At CEC2017 $D = 30$, \dtgsk{} is second (2.50
+vs.\ 2.29) with an 11--2--16 head-to-head record; on CEC2013 at
+$D = 30$ it is third, and \egsk{} also leads CEC2011. The rank deficit
+is real. It is not statistically separable at this dimension
+($p_{\mathrm{Holm}} = 0.199$), which bounds how strongly either standing
+should be read, in both directions. % BIND: LM-01 (AN-OMNI-2017-D30; AN-PW-2017-D30; AN-OMNI-2013-D30; AN-OMNI-2011-NATIVE)
+Second, the structure memory and the polish are gated to $D \geq 50$
+under the frozen configuration, so at $D \leq 30$ \dtgsk{} runs essentially
+the adaptive scaffold: low-dimension behavior reflects this structural
+gating rather than the tier-gated mechanisms, the memory itself depends
+on accepted moves --- a stalled run feeds it no signal --- and the
+polish fires at most once, with whatever basis has been
+learned. % BIND: LM-02 (gating as design fact; mechanism failure modes)
+Third, every comparative finding is panel-relative by design: the study
+establishes standings within the seven-algorithm GSK family on the three
+suites at the stated budgets. The cost is external calibration --- no
+claim is made relative to other metaheuristic families or to CEC
+competition winners, and none can be read from these results. What the
+scope does buy is attribution: one code base, one protocol and one
+harness, so within-panel deltas reflect algorithmic differences up to the
+port and initialization asymmetries disclosed below. % BIND: LM-03
+Fourth, the \egsk{} panel cells derive from a port whose SLSQP polish
+substitutes the published \texttt{fmincon}-based solver. Cross-implementation
+runtime and environment comparability is therefore limited, and no
+runtime-superiority claim is made anywhere in this paper. The main-text runtime table reports
+\dtgsk{}'s own per-run cost only --- comparator timings came from a separate
+measurement session, so no cross-algorithm runtime comparison is drawn. These costs were
+measured with the interaction graph's compiled kernels active: an
+earlier release had silently executed the bit-for-bit-equivalent
+\textsc{NumPy} reference path, inflating wall-clock only, and the
+affected timings were re-measured in the 51-run regeneration
+(Supplementary Material, Section~S6.7). % BIND: LM-04 (comparability_audit.md; AN-COST-2017); backend fixed + re-measured in the 2026-07-16 campaign
+Fifth, the evidence ceiling is $D = 100$: behavior at
+the scale of large-scale global optimization is unknown, and no such claim is
+made. % BIND: LM-05
+Sixth, the study runs on a single host and environment: no
+independently verified second-environment cell exists, the run-time
+NumPy/SciPy versions behind \egsk{}'s SciPy-SLSQP polish are not
+captured in the evidence release (only the analysis bundle's own
+environment is), and byte-identical reproduction at $D \geq 50$ requires
+single-threaded numerical kernels, which caps parallel speed-up at the
+high-$D$ tiers where \dtgsk{}'s per-run cost is largest.
+% BIND: comparability_audit.md (single-host row: no second-environment cell); fp_environment_audit.md E2 (run-time numpy/scipy uncaptured); implementation_correspondence.md note 2 (single-thread precondition)
+Seventh, the comparison is entirely within the GSK family. As
+disclosed in the Conflicts of Interest, five of its six comparators were
+authored or co-authored by two of the present authors. No external, non-GSK
+baseline --- an L-SHADE-class or CMA-ES method, or a structure-learning
+method such as differential grouping --- is evaluated to calibrate the
+family against the broader state of the art, so the standings are
+interpretable only within this panel and not as a placement in the
+wider field. Relatedly, \dtgsk{}'s self-initialization (the documented
+shared-$X_{0}$ exception) means that no \dtgsk{} cell begins from the
+shared initial population --- the self-init applies at every dimension
+--- a disclosed fairness asymmetry that is not separately bounded and is
+most consequential at low dimension, where \dtgsk{} runs essentially the
+scaffold.
+% BIND: LM-03 (within-family panel scope); comparability_audit.md; main.tex conflictsofinterest; PR-06 (self-init exception)
+Eighth, three attribution gaps bound what the component evidence can say.
+The corroborative weight rests on the two suites held out from
+configuration selection, CEC2011 and CEC2013: CEC2017 is
+\emph{development-exposed} --- it
+informed the frozen configuration and is also the source of the headline
+rank --- so its standing is a performance estimate on a tuned-against
+suite rather than an untouched confirmatory one. The
+final-polish isolation removes the \emph{entire} deterministic compass
+endgame, so any effect it measures attaches to that phase as a whole, not to the
+\emph{learned} eigenbasis it consumes: whether that basis beats coordinate
+axes or a matched random orthonormal basis is not isolated by any contrast
+reported here and remains open. And the evidence-bearing runs carry no
+component-level evaluation ledger or memory-activation trace, so we cannot
+report how many evaluations each modifier consumed, nor how often the
+learned structure was actually exposed to its consumers; the standalone
+null is therefore ``no detectable benefit under this design'' and not a
+demonstration that the memory was active and neutral.
+% BIND: development-exposure disclosure; basis-isolation gap (M036); component-FES/activation ledger absent (M031, M052)
+Beyond these, the statistical scope is itself bounded: inference rests
+on 29-function and 22-problem blocks under rank-based tests; run-level
+records against \apgsk{} on CEC2017 at $D \leq 50$ were unavailable at
+analysis freeze (recovered post-freeze), leaving
+function-level tests as the frozen basis there; and the single frozen
+configuration was applied with no
+per-suite tuning, whose protocol disclosure is in the Supplementary
+Materials. % BIND: negative_findings.md item 8 (APGSK gap); ART-PARAMS
+
+\subsection{Sensitivity of the Win/Tie/Loss Tally to the Tie Band}\label{sec:repro:tieband}
+
+The reported win/tie/loss counts use a fixed absolute tie band,
+$|\Delta| < 10^{-8}$, applied uniformly to every function. That band is
+deliberately conservative, but it is not scale-free: on functions whose error
+scale is of order $10^{3}$ it admits no ties at all, while on functions solved to
+the reporting floor it absorbs every difference. It is therefore worth asking
+whether the tally is an artifact of that choice.
+
+Recomputing the CEC2017 counts from the same frozen per-function means under a
+\emph{relative} band --- a tie when
+$|a-b| \le \rho \max(|a|,|b|)$, retaining the $10^{-8}$ floor --- leaves the
+direction of every panel cell unchanged at $\rho = 1\%$ except one, and changes
+two cells at $\rho = 5\%$. Both are \egsk{} cells at the upper tiers: at
+$D = 50$ the 13--0--16 record becomes 12--7--10, and at $D = 100$ the 12--0--17
+record becomes 12--5--12. No other comparator changes direction at either
+threshold.
+
+This is consistent with, rather than contrary to, the result reported in the main
+text. Those are precisely the two cells whose Holm-corrected tests are \emph{not}
+significant ($p_{\mathrm{Holm}} = 1.0$ and $0.795$), and where the paper already
+states that \dtgsk{} and \egsk{} are not separable. The sensitivity shows that
+the apparent margin in those cells depends on how a tie is defined, which is an
+argument for reading them as ties in both directions --- not as evidence for
+\dtgsk{}. Every Holm decision, every Friedman rank, and every reported
+significance is computed from the tests themselves and is unaffected by the tie
+band, which enters only the descriptive counts.
+% BIND: N-005 (recomputed from descriptive_stats_cec2017_D*.csv; no optimizer runs)
+
+\subsection{Legacy Identifiers}\label{sec:repro:aliases}
+
+The method and its structure-memory subsystem were renamed during development,
+and the released artifacts retain the earlier identifiers wherever a hash or a
+directory name would otherwise change. Table~\ref{tab:aliases} maps each current
+name to the legacy one, so a reader working directly with the evidence release
+can resolve a name that no longer appears in this paper. Only the identifiers
+changed; no algorithm, configuration value, or result is affected.
+% BIND: N-008 (alias map for legacy identifiers)
+
+\begin{table}[H]
+\caption{Current names and the legacy identifiers retained in released
+artifacts.}
+\label{tab:aliases}
+\centering
+\small
+\begin{tabular}{lllp{4.4cm}}
+\toprule
+\textbf{Current} & \textbf{Legacy} & \textbf{Scope} & \textbf{Where the legacy form persists}\\
+\midrule
+ISM & SGSM & subsystem name & overlay-study cell IDs; some analysis column names\\
+\texttt{no\_sgsm} & --- & ablation cell ID & retained as the cell name in the overlay
+study; it denotes the ISM-off cell\\
+\texttt{\_dt\_core.py} & \texttt{\_ism\_core.py} & source file & hashes recorded in the
+algorithm freeze manifest\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Acronyms}\label{sec:repro:acronyms}
+
+The main-text notation table defines every mathematical symbol. This list covers
+the acronyms that appear in prose but carry no symbol, so a reader meeting one
+out of order does not have to search for its first use.
+% BIND: E-005 (acronyms absent from the main-text notation table)
+
+\begin{table}[H]
+\caption{Acronyms used in the text that are not mathematical symbols.}
+\label{tab:acronyms}
+\centering
+\small
+\begin{tabular}{ll}
+\toprule
+\textbf{Acronym} & \textbf{Expansion}\\
+\midrule
+ACE & Adaptive Control Engine (operator-configuration selector)\\
+ARGP & Acceptance-Rate Gated Pruning\\
+BSE & Budget-Safe Escape\\
+CD & Critical Difference (Nemenyi post-hoc)\\
+CMA-ES & Covariance Matrix Adaptation Evolution Strategy\\
+DE & Differential Evolution\\
+EWMA & Exponentially Weighted Moving Average\\
+GSK & Gaining--Sharing Knowledge (the base algorithm)\\
+ISM & Interaction-Structure Memory\\
+JADE & Adaptive DE with optional external archive\\
+MaxFES & Maximum number of function evaluations (the budget)\\
+NLPSR & Nonlinear Population-Size Reduction\\
+SHADE & Success-History based Adaptive DE\\
+SLSQP & Sequential Least-Squares Quadratic Programming\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Frozen Parameters: Per-Subsystem Detail}\label{sec:repro:params-detail}
+
+Table~\ref{tab:parameters-detail} completes the main-text
+frozen-parameter table. The main text carries the run-level settings, the
+core GSK operator and the population schedule; the per-subsystem constants are
+collected here, where they can be set at full size rather than compressed to fit
+a text block. Both halves derive from the same hash-frozen configuration and no
+value is omitted.
+% BIND: phase_03/parameter_table.md (canonical source); algorithm_freeze_manifest.json; N-013
+\input{build_prompt_phases/phase_03/parameter_table_detail.tex}
+
+\subsection{Complete Operator Specification}\label{sec:repro:opspec}
+
+This subsection records the operator-level constants and update rules that the
+main-text equation registry (Equations~(7), (10), (11), (12), and~(13)) summarizes, so
+that \dtgsk{} is reproducible from the text.  Every value is transcribed from
+the hash-frozen sources of Section~\ref{sec:repro:freeze} and is stated per
+dimension tier wherever the single dimension-aware configuration resolves it
+differently; the tier boundaries are $D<20$, $20\le D<50$ and $D\ge 50$ (with a
+further $D\ge 100$ extension), as in the main-text dimension-gating figure.
+% BIND: ART-PARAMS (_dt_core.py / _dt_profiles.py / interaction_graph.py / _dt_rng.py, hash-frozen)
+
+\paragraph{Knowledge-construction arms of ACE (main-text Equation~(7)).}
+The adaptive credit-based selector samples one of five fixed arms, each a triple
+$(K_F, K_R, K_{\exp})$ of the gaining--sharing rate, crossover rate and
+junior-dimension exponent, with the initial selection probabilities $\pi_0$:
+\begin{center}
+\small
+\begin{tabular}{cccccc}
+\toprule
+arm & $K_F$ & $K_R$ & $K_{\exp}$ & configuration & $\pi_0$\\
+\midrule
+1 & 0.1 & 0.2 & 2.0  & cautious explorer            & 0.05\\
+2 & 1.0 & 0.1 & 15.0 & dimension-selective bold     & 0.05\\
+3 & 0.5 & 0.9 & 10.0 & GSK-canonical (baseline)     & 0.45\\
+4 & 1.0 & 0.9 & 5.0  & aggressive wide              & 0.05\\
+5 & 0.5 & 0.9 & 3.0  & extended-exploration GSK     & 0.40\\
+\bottomrule
+\end{tabular}
+\end{center}
+% BIND: _dt_core.py:202-209 (ace_pool arms; ace_init_probs)
+The credit is an exponential moving average at learning rate $c=0.10$, the
+probabilities are projected onto the simplex under the floor $\pi_{\min}=0.05$,
+and updating begins once the consumed-budget fraction reaches $0.05$; the arm
+memory is a single pool for $D<20$ and a top/bottom split for $D\ge 20$.  For
+$20\le D<100$ an optional sixth differential-evolution arm ($F=0.5$, $CR=0.9$)
+enters with initial probability $0.10$--$0.20$ by tier.  When a generation yields no net
+improvement (its summed $f_{\mathrm{old}}-f_{\mathrm{new}}$ is non-positive) the
+credit target is restricted to the improving arms, as in main-text
+Equation~(7); when the generation is net-improving the full-pool target is
+used with worsened arms floored at $\pi_{\min}$.  The restricted branch
+stabilizes learning on hard functions.
+% BIND: _ace_update_probs _dt_core.py:1193-1258; ace_learning_rate/ace_start_frac/ace_min_prob _dt_core.py:210-212
+
+\paragraph{ACE/ARGP operating cycle (per generation).}
+The following states the order of operations, the timing conditions, and the
+edge cases of the selector and its pruning gate. Each step names the frozen
+source that implements it, so the specification can be checked line by line.
+
+% BIND: ART-PARAMS; _ace_update_probs _dt_core.py:1193-1258;
+%   ace_learning_rate / ace_start_frac / ace_min_prob _dt_core.py:210-212 (hash-frozen)
+\begin{enumerate}\itemsep2pt
+\item \textbf{Eligibility to update.} No credit update is applied until the
+  consumed-budget fraction reaches $0.05$; before that the probabilities remain
+  at $\pi_0$. \hfill\texttt{ace\_start\_frac}, \texttt{\_dt\_core.py:210--212}
+\item \textbf{Arm assignment.} Each individual independently draws one arm from
+  the current probability vector $\pi$ on the ACE substream; at $D\ge 20$ the
+  draw uses the top/bottom memory that the individual's fitness rank selects,
+  and a single shared memory below that.
+  \hfill\texttt{\_dt\_core.py} (ACE sampling), \texttt{\_dt\_rng.py}
+\item \textbf{Optional differential-evolution arm.} For $20\le D<100$ a sixth
+  arm ($F=0.5$, $CR=0.9$) joins the pool with tier-dependent initial
+  probability; it is excluded at $D<20$ and $D\ge 100$.
+  \hfill\texttt{ace\_de\_entry}, \texttt{\_dt\_profiles.py}
+\item \textbf{Credit accumulation.} Every individual contributes its signed
+  fitness delta to the arm that drew it, giving the per-arm aggregate $d_m$ of
+  main-text Equation~(7). Credit is an improvement magnitude, not an acceptance
+  count. \hfill\texttt{\_ace\_update\_probs}, \texttt{\_dt\_core.py:1203}
+\item \textbf{Target selection (two branches).} With $S=\sum_m d_m$: if $S>0$
+  the target is the full-pool share $d/S$; if $S<0$ and at least one arm
+  improved, the target is restricted to the improving arms. If $S=0$, if $S$ is
+  non-finite, or if no arm improved, no target is formed and $\pi$ is carried
+  forward unchanged apart from its projection.
+  \hfill\texttt{\_dt\_core.py:1236--1264}
+\item \textbf{Mixing and projection.} The target is projected, mixed into $\pi$
+  by an exponential moving average at rate $c=0.10$, and the result projected
+  again. The projection is the Euclidean projection onto
+  $\{\pi_m\ge\pi_{\min}=0.05,\ \sum_m \pi_m = 1\}$ --- not a floor followed by
+  renormalization. \hfill\texttt{\_ace\_project\_probs}, \texttt{\_dt\_core.py:694}
+\item \textbf{ARGP freeze.} After a warm-up fraction of the budget, an unfrozen
+  arm whose rolling acceptance over the trailing window falls below the tier
+  threshold is frozen and its mass redistributed. Freezing stops while only
+  \texttt{min\_active} arms remain unfrozen, so the pool can never collapse to a
+  single arm. \hfill\texttt{\_argp\_update\_memory\_probs}, \texttt{\_dt\_core.py:1271}
+\item \textbf{ARGP unfreeze (recoverable).} A frozen arm that is sampled again
+  and whose rolling acceptance recovers to the threshold is unfrozen. Pruning is
+  therefore soft and reversible; no arm is permanently removed.
+  \hfill\texttt{\_dt\_core.py:1271}
+\end{enumerate}
+
+\noindent The selector consumes no objective evaluations of its own: credit is
+read from evaluations the generation has already spent.
+% BIND: M-008 (ACE/ARGP operating cycle); _ace_update_probs _dt_core.py:1203;
+% _ace_project_probs :694; _argp_update_memory_probs :1271; _dt_profiles.py (tier constants)
+
+\paragraph{Interaction-graph update (refinement of main-text Equation~(11)).}
+The interaction-structure memory maintains an unsigned magnitude graph
+$G_{\mathrm{abs}}$ and a signed graph $G_{\mathrm{signed}}$ (with an auxiliary
+per-dimension self-weight and co-occurrence support used only for the confidence
+of Equation~\eqref{eq:opspec-conf}).  For each accepted move $i$ with strictly
+positive improvement $\delta_i$, its displacement $\Delta x_i$ (restricted to
+its non-zero support) is $\ell_1$-normalized,
+\begin{equation}
+v^{\mathrm{abs}}_i = \frac{\lvert \Delta x_i\rvert}{\lVert \Delta x_i\rVert_1},
+\qquad
+v^{\mathrm{sig}}_i = \frac{\Delta x_i}{\lVert \Delta x_i\rVert_1},
+\end{equation}
+and the accumulators receive an improvement-weighted rank-one scatter of weight
+$w_i=\delta_i\,s_i$,
+\begin{equation}
+G_{\mathrm{abs}} \leftarrow \lambda\,G_{\mathrm{abs}}
+ + \eta\sum_i w_i\, v^{\mathrm{abs}}_i {v^{\mathrm{abs}}_i}^{\!\top},
+\qquad
+G_{\mathrm{signed}} \leftarrow \lambda\,G_{\mathrm{signed}}
+ + \eta\sum_i w_i\, v^{\mathrm{sig}}_i {v^{\mathrm{sig}}_i}^{\!\top},
+\end{equation}
+after which each graph is symmetrized and its diagonal zeroed (the self-weight
+is tracked separately).  The per-source weight $s_i$ is $0$ for
+differential-evolution-arm moves, $0.25$ for local-search moves and $1$
+otherwise; the decay is $\lambda=0.95$ and the commit rate is $\eta=1.0$ (the
+$\lambda,\eta$ of main-text Equation~(11)).  Updates begin after budget fraction $0.10$
+and, at $D\ge 100$, are thinned to every tenth generation and capped at the $24$
+largest-improvement samples.  Because the multiplicative decay $\lambda$ is applied
+every generation while evidence is injected only every tenth at this tier, the
+effective decay between injections is $\lambda^{10}\approx 0.60$ rather than $0.95$;
+correspondingly the per-update cost of $O(24\,D^2)$ is incurred once per ten
+generations, i.e.\ an amortized $\approx O(2.4\,D^2)$ per generation, against the
+$O(NP\,D^2)$ per-\emph{update} worst case at $D=50$--$99$, where every accepted move
+contributes an uncapped rank-one scatter each generation.
+% BIND: ig_update_from_accepted interaction_graph.py:222-368; decay 0.95 / lr 1.0 _dt_profiles.py:120-121; de/ls update weights _dt_profiles.py:141-142
+
+\paragraph{Graph-to-block extraction and readiness.}
+At each linkage refresh the magnitude graph is max-normalized,
+$W = G_{\mathrm{abs}}/\max G_{\mathrm{abs}}$.  A row-wise adjacency keeps, for
+each dimension $j$, the edges $W_{jk}\ge \max\!\left(\varphi,\ \tfrac12\max_k
+W_{jk}\right)$ with floor $\varphi=10^{-4}$ and at most $b_{\max}-1$ neighbors;
+it is symmetrized and its connected components are taken.  Components smaller
+than $b_{\min}=2$ are discarded, those with at most $b_{\max}=10$ members are
+kept whole, and larger components are split greedily (highest row-sum seed plus
+its strongest neighbors).  A block feeds the linkage crossover only when the
+graph is \emph{ready}: at least $10$ updates and $2$ refreshes have accrued, at
+least $4$ dimensions are non-trivial, and the overall confidence
+\begin{equation}\label{eq:opspec-conf}
+\kappa(G) = \left(\frac{\sum_b \lvert b\rvert\,c_b}{\sum_b \lvert b\rvert}\right)
+\sqrt{\mathrm{cov}},
+\qquad
+c_b = \rho_b\,\sqrt{\max\!\left(0,\ \sigma_b\,\omega_b\right)}\,
+\bigl(0.5 + 0.5\,\tau_b\bigr),
+\end{equation}
+reaches the floor $\kappa_{\min}$ (the linkage gate: $0.55$ by default,
+$0.35$ at $D\ge 50$; the separate local-search gate uses $0.45$).
+Here $\mathrm{cov}$ is the fraction of non-trivial dimensions, $\rho_b$ is the
+mean of the normalized block's upper triangle, $\sigma_b=1-e^{-\bar m_b}$ and
+$\omega_b=1-e^{-\bar s_b}$ measure the block's mean raw magnitude and support,
+and $\tau_b$ is the Jaccard stability of the block against the previous refresh.
+At $D\ge 50$ the fixed floor is replaced by an adaptive threshold: the median of
+the last $30$ recorded confidences, floored at $0.12$, with a static warm-up
+over the first $5$ refreshes.  Because this adaptive floor is relative to the
+recent confidence history, it can settle below the static $\kappa_{\min}$ --- as
+low as the $0.12$ hard floor --- and the separate absolute-minimum safeguard is
+disabled in the frozen configuration; at $D\ge 50$ a linkage block may therefore
+be committed at a lower nominal confidence than the $D<50$ gate would admit,
+trading precision for earlier structural commitment in the larger upper-tier
+populations.
+% BIND: ig_extract_blocks interaction_graph.py:552-674; ig_ready :678-694; ig_adaptive_threshold :697-790; edge_floor / block sizes _dt_profiles.py:125-127
+
+\paragraph{Eigenframe polish (main-text Equation~(12)) and residual constants.}
+The one-shot final polish (active at $D\ge 50$, armed at budget fraction $0.96$
+under a budget cap of $0.02\,\mathrm{MaxFES}$; the base-configuration defaults
+are $0.985$, full budget and disabled) builds its basis $V$ from the
+eigenvectors of the symmetrized signed graph $G_{\mathrm{signed}}$ ordered by
+descending $\lvert\text{eigenvalue}\rvert$ (coordinate axes when the graph
+carries no signal).  Unlike the crossover and local-search consumers, this polish
+is gated only on the presence of a non-zero signed signal and does \emph{not}
+require the graph-readiness condition of Equation~\eqref{eq:opspec-conf}, so it can
+act on $G_{\mathrm{signed}}$ before the confidence gate $\kappa_{\min}$ would admit
+a linkage block.  It then runs a deterministic, RNG-free compass search along one
+basis direction per iteration: the step (initialized at $0.05$ of the box span,
+$0.02$ by default) grows by a factor $1.3$ after an improving probe --- capped at
+half the box span --- and halves after a full non-improving sweep, terminating at
+the budget cap or when the step falls below $10^{-12}$ of the span.  The polish
+operates on the working incumbent, re-materialized atomically from the current
+population best at entry to the final slice, so the incumbent vector and its fitness
+always refer to the same individual; because a probe is accepted only
+when it is strictly better (greedy compass search), the stage cannot corrupt
+the returned solution, and the
+budget-exact evaluation accounting is unaffected.  This endgame
+invokes no external solver; the SciPy SLSQP refinement used by the \egsk{} port
+and the optional SciPy Nelder--Mead local-search methods are distinct mechanisms
+and are not part of the eigenframe polish.  The budget-safe escape of
+main-text Equation~(10) perturbs the worst $\operatorname{round}(0.10\,NP)$ rows by
+$s\cdot D^{-1/2}\cdot\mathrm{span}\cdot\mathcal{C}(0,1)$, with scale
+$s=0.04$ at $D\ge 20$ and $s=0.05$ at $D<20$; the escape is active at all
+tiers (the $D<20$ tier enables it through the low-dimension escape
+overrides).  Finally, the RNG substream
+modulus of main-text Equation~(13) is $M = 2\,147\,483\,646$: stream~$0$ is the run seed
+verbatim and streams $1$--$12$ use $s_k=(\text{seed}+1\,000\,003\,(k{+}1))\bmod
+M + 1$.
+% BIND: _final_polish_basis _dt_core.py:1882-1904; _final_polish_compass :1907-1966; polish fracs _dt_profiles.py:179-182 / defaults _dt_core.py:427-431; bse_cauchy scale 0.04 _dt_profiles.py:87-88,108-109 (default 0.05 _dt_core.py:296); egsk SLSQP egsk.py:199-205; _dt_rng.py:178-188
+
+\paragraph{Junior/senior partition, crossover mask, and coverage floor (main-text Equations~(3) and~(5)).}
+The number of junior coordinates follows the decaying schedule
+$D_{\mathrm{jun}} = \operatorname{clip}\!\bigl(\lceil D\,(1-x)^{K_{\exp}}\rceil,\,0,\,D\bigr)$
+with $x$ the consumed-budget fraction, but it is applied as a \emph{per-coordinate
+probability} $p_{\mathrm{jun}} = D_{\mathrm{jun}}/D$ rather than an exact count: each
+coordinate is independently assigned to the junior rule with probability
+$p_{\mathrm{jun}}$ and to the senior rule otherwise, so the realized junior count is
+$\mathrm{Binomial}(D,\,p_{\mathrm{jun}})$ and equals $D_{\mathrm{jun}}$ only in
+expectation.  The crossover is then a two-stage composition rather than a single
+Bernoulli$(K_R)$ mask: each junior (resp.\ senior) candidate is admitted only if it
+also passes an \emph{independent} crossover draw at rate $K_R$ (separate uniform
+streams for the two partitions), and a coordinate failing its draw keeps its parent
+value.  When a learned linkage block is active for a row --- which occurs with the
+tier mix probability $0.70/0.40/0.70/0.70$ --- the junior/senior choice and the $K_R$
+gate are taken once for the whole block (block granularity), copying the block
+together; a force-nonzero guarantee sets one random coordinate whenever a row would
+otherwise be left unchanged.  Finally $K_R$ is floored at
+$\min\!\bigl(1,\,\kappa_{\dim}/D\bigr)$ with $\kappa_{\dim}=0/20/40/40$ by tier, i.e.\
+an effective floor of $0/0.667/0.80/0.40$; this raises the operative crossover rate of
+the low-$K_R$ arms (arms~1 and~2 of the ACE table) at $D\ge 20$, so those arms' listed
+$K_R$ values are lower bounds, not the executed rates, above $D=20$.
+% BIND: D_jun/p_jun _dt_core.py:2909-2913; two-stage mask _numba_accel.py:505-659 / _dt_core.py:986-1161; force-nonzero _dt_core.py:3204-3229; kr floor _dt_core.py:2889-2892 / kr_min_dims _dt_profiles.py:62,80,100
+
+\paragraph{Senior widening and the differential-evolution trial.}
+The senior mixing rate is $p_{\mathrm{sen}}=0.05$ ($0.15$ at $20\le D<50$).  At
+$D\ge 50$ it is subject to a \emph{conditional} bottom-half widening: when the rolling
+mean acceptance over the last $10$ generations falls to at most the escape acceptance
+floor $0.10$, the population is partitioned by fitness rank and the worse-ranked half
+draws its senior partners at a widened $p=0.10$ while the better-ranked half keeps
+$0.05$; when acceptance is above the floor the single-rate call is used unchanged.
+When the optional differential-evolution arm introduced above is drawn for a row, its
+trial is built as DE/rand/1 from three \emph{distinct} donors,
+$m = x_{r_1} + F\,(x_{r_2}-x_{r_3})$ with $F=0.5$, followed by binomial crossover at
+$CR=0.9$ with one forced coordinate; crucially the crossover base is not the parent but
+the \emph{GSK trial already constructed for that row}, into which the surviving DE
+mutant coordinates are spliced, with midpoint bound repair.  Because each arm's credit
+is the \emph{summed} (not averaged) accepted improvement of the individuals that drew
+it and the number of draws is proportional to the arm's current probability, credit
+accrual is exposure-dependent: a widely drawn arm accumulates proportionally more total
+credit for the same per-capita effect --- a positive-feedback coupling bounded only by
+the improving-arm credit restriction and the simplex floor $\pi_{\min}=0.05$.
+% BIND: senior split _dt_core.py:2808-2841 / p_senior_bottom_wide _dt_profiles.py; DE/rand/1 splice _dt_core.py:3249-3306; d_m sum bincount _dt_core.py:3641-3645
+
+\paragraph{Arm retirement and recovery.}
+Beyond the credit update, the selector applies a recoverable retirement rule.  After a
+warm-up of $0.15$ of the budget it maintains a rolling window of the last $30$
+\emph{generations} of per-arm acceptance (one row pushed per generation, not per
+decision).  An arm whose windowed acceptance falls below the tier threshold
+$\tau_{\mathrm{argp}}$ ($0.02$ for $D<50$, $0.010$ for $D\ge 50$) is soft-frozen to the
+probability floor $p_{\min}=0.05$ --- not removed --- provided at least two arms remain
+active, and the residual probability mass is renormalized over the active arms.  A
+frozen arm is \emph{re-activated} as soon as its windowed acceptance recovers to
+$\tau_{\mathrm{argp}}$ or above, so the retirement is reversible rather than a permanent
+prune.
+% BIND: argp ring/window/recovery _dt_core.py:3663-3795; argp_window 30 / thresholds _dt_profiles.py
+
+\paragraph{Budget-safe escape (main-text Equation~(10)), full trajectory.}
+The escape of main-text Equation~(10) is armed only when a triple stagnation condition
+holds (objective stall $\wedge$ low acceptance $\wedge$ low diversity, using the
+scale-aware $\varepsilon=10^{-8}$ stall test), within the restart budget (at most $4$
+restarts for $D<20$ and $50\le D<100$, else $2$), before the stop fraction $0.95$, and
+after a per-restart cooldown of $0.05\,\mathrm{MaxFES}$.  It carries a further
+\emph{population module gate}: it may fire only when the ACE probability mass on the
+module-active arms is at least $0.30$.  Because the GSK-canonical arm (arm~3) and the
+differential-evolution arm are module-inactive, a selector that has concentrated on
+GSK-pure behaviour suppresses the escape for that generation.  When it does fire, the
+top $\operatorname{round}(0.05\,NP)$ rows by fitness are frozen and excluded from both
+rescue and restart.  A Cauchy rescue then perturbs the worst
+$\operatorname{round}(0.10\,NP)$ non-frozen rows (scale $s=0.04$ at $D\ge 20$, $0.05$ at
+$D<20$, as above) and is accepted \emph{greedily per row}; a successful rescue cancels
+the restart for that generation.  Otherwise $\operatorname{round}(0.10\,NP)$ rows are
+reseeded, each drawn from the diversity archive with probability $0.5$ (jittered by
+$0.1\cdot\mathrm{span}$), else from a basin-novelty pool of $4\,NP$ candidates, else
+uniformly at random, all repaired to bounds; every row count is clamped to the
+remaining evaluation budget so that MaxFES is met exactly.
+% BIND: escape trigger _dt_core.py:3819-3851 / module gate :3035-3055; elite freeze :3856-3862; cauchy rescue :3868-3894; reseed/archive/basin :3900-3950; stop_frac 0.95 :3847; cooldown 0.05 :3989-3990
+
+\paragraph{Charged coordinate local search.}
+The active local search uses the \emph{coordinate} method (the subspace variant is
+implemented but not enabled in the frozen configuration).  In the endgame it is admitted
+by the joint of a time gate (consumed fraction $\ge$ \texttt{start\_frac}), an
+evaluation-budget cap ($\texttt{eval\_budget\_frac}\cdot\mathrm{MaxFES}$), a call period,
+a post-search cooldown, and the local-search confidence gate $\kappa=0.45$.  When it runs
+it selects the \texttt{elite\_count} best individuals, orders axes by descending
+population standard deviation, and --- round-robin from a cursor that persists across
+local-search generations --- probes one coordinate per elite at
+$x_0 \pm \delta\,e_{\text{coord}}$ with
+$\delta = \texttt{step\_scale}\cdot\sigma_{\text{coord}}\cdot\texttt{step\_decay}$, where
+\texttt{step\_decay} shrinks linearly from $1.0$ to $0.25$ over the endgame window;
+probes are batch-evaluated and accepted greedily.  The tier constants are:
+\begin{center}
+\small
+\begin{tabular}{lcccc}
+\toprule
+constant & $D<20$ & $20\le D<50$ & $50\le D<100$ & $D\ge 100$\\
+\midrule
+\texttt{start\_frac}        & 0.80 & 0.80 & 0.70 & 0.70\\
+\texttt{eval\_budget\_frac} & 0.02 & 0.01 & 0.05 & 0.02\\
+\texttt{elite\_count}       & 2    & 3    & 5    & 2\\
+\texttt{step\_scale}        & 0.20 & 0.20 & 0.10 & 0.10\\
+period                      & 1    & 1    & 1    & 2\\
+post-search cooldown (gens) & 6    & 6    & 6    & 3\\
+\bottomrule
+\end{tabular}
+\end{center}
+The minimum probe step is $10^{-3}$ of each coordinate's population scale at all tiers.
+% BIND: coordinate LS branch _dt_core.py:4431-4519; gates :4047-4065; constants _dt_profiles.py:69-72,90-93,112-115,177,201-204 / defaults _dt_core.py:305-321
+
+\paragraph{Scale-dependent late-stage guards.}
+Two endgame guards share a single \emph{absolute-scale} signal: the exponential moving
+average (rate $0.3$) of $\log_{10}$ of the raw best-fitness drop between successive
+generations.  The late-accept clip activates once the consumed fraction is $\ge 0.85$ and
+the log-drop EMA falls below $-2.0$ while rolling acceptance stays $\ge 0.3$ for $5$
+consecutive generations, after which accepted improvements are clipped to a relative
+$10^{-3}\lvert f\rvert$ band.  The frozen-broaden guard activates when the log-drop EMA
+falls below $-3.0$ and acceptance stays below $0.05$ for $10$ generations, opening a
+$20$-generation window that multiplies $K_R$ by $1.5$.  Because both activation gates
+read the \emph{absolute} log-drop --- not normalized by $\lvert f\rvert$, span, or the
+initial drop --- they are objective-scale-dependent: rescaling $f\mapsto c\,f$ shifts each
+trigger by $\log_{10} c$.  This is a deliberate asymmetry with the escape stall test,
+which uses the scale-aware $\varepsilon=10^{-8}$; on the shifted-and-scaled CEC functions
+these guards therefore act as tuned late-stage heuristics rather than scale-invariant
+rules.
+% BIND: shared log-drop EMA _dt_core.py:3544-3552; A1 late-accept :3335-3346,3553-3561; A2 frozen-broaden :3562-3587,2903-2904
+
+\paragraph{Population-size floor and callback coupling.}
+The NLPSR population schedule carries a minimum-size floor governor
+(\texttt{SPNlpsrState} in the source): it raises the reduction floor $N_{\min}$ (for
+example from $25$ to $32$ at $D=100$) until either the budget fraction reaches $0.70$ or
+$64$ linkage-commit generations have accrued.  The quantity it counts is a per-generation
+linkage-commit decision, \emph{not} an objective-evaluation sample, so despite the source
+label (``sample-protected'') it protects population diversity, not evaluation samples ---
+it merely slows the L-SHADE-style population reduction.  One reproducibility coupling is
+worth stating explicitly: the fitness-affecting link-lift EMA read-back that feeds the
+senior-widening and broaden gates is updated inside the per-generation callback path, and
+the released driver's adapter always supplies that callback, so the read-back is active in
+every reported run; a callback-less direct invocation of the core would omit it and
+diverge at $D\ge 100$, but no released configuration does so.
+% BIND: SPNlpsrState budget_policy.py:14-82 / clamp _dt_core.py:2734-2735; record_subspace_decision :2974-2977; link-lift callback _dt_core.py:2988-2999,4665,4726 / adapter dt_gsk.py:226,281
+
+\subsection{Evidence Release, Checksums, and Promotion Pipeline}\label{sec:repro:release}
+
+All empirical values in the main paper and in this Supplementary
+Material derive from the promoted, read-only evidence release accompanying this
+article (release \texttt{rel-2026-07-20-67d9345f9}, anchor commit
+\texttt{67d9345f9502a9a584e645fa8948f60a61d70e29}), whose manifest
+records a SHA-256 checksum for every one of its 3{,}403 files (per-run
+CSVs, seed schedules, per-generation checkpoint logs, summary CSVs, and
+environment/verification records for all 21 (suite, optimizer) cells).
+% BIND: evidence_release_manifest.json (release_id; anchor_commit; totals.files=3403; hash_algorithm SHA-256)
+The derived statistical artifacts behind every table and figure ---
+descriptive statistics, Wilcoxon/Holm, Friedman/Iman--Davenport,
+Nemenyi, effect sizes, and bootstrap outputs --- are versioned as a
+checksummed analysis bundle in the repository, and every exhibit is
+bound to its authoritative CSV
+sources, generator command, and output checksum in
+the artifact-binding manifest (\texttt{artifact\_binding.csv}).
+% BIND: artifact_binding.csv (schema; analysis bundle paths)
+Seeded stochastic analyses are themselves reproducible: the bootstrap
+BCa rank-stability intervals of Table~\ref{tab:bca-ci} use
+$n_{\text{boot}} = 10{,}000$ replicates under
+base seed $20{,}260{,}422$ and re-derive byte-identically.
+% BIND: TAB-T16-BCA (validation status: byte-identical seeded re-derivation)
+
+The software state itself is attested rather than asserted.  The full test
+suite (474 tests) and every release gate --- build hygiene,
+provenance-claim consistency, cross-format parity, and both Word validators ---
+were executed twice and completed with zero failures, on an interpreter
+(Python~3.10.11) and dependency set verified to lie inside the support
+envelope declared in \texttt{pyproject.toml}; a green suite on an
+out-of-envelope stack would attest nothing about the supported configuration.
+The record, with both JUnit XML reports and the resolved package versions, is
+\texttt{papers/governance/environment\_attestation/}, and is regenerated by
+\texttt{papers/scripts/make\_environment\_attestation.py}, which refuses to
+emit a green record unless all three conditions hold.
+% BIND: environment_attestation/attestation.json (green; envelope_check; test_runs); M-030 / EXP-004
+
+Two pipeline rules govern what may be cited.  First, the
+\emph{promotion rule}: new or independently reproduced runs land in the
+\texttt{results/} staging area, which is never citable; staging data
+enters evidence only through the controlled promotion tool
+(\texttt{scripts/promote\_evidence.py}), which mints a new versioned
+release identifier, so the released tree is immutable and every number
+is traceable to exactly one release.
+% BIND: terminology register Section 5 (staging/promotion); promotion_tool_test.md
+Second, the \emph{strict-source rule}: per-run quantities may be read
+only from the release's \texttt{per\_run.csv} files, with a single
+sanctioned, audited exception --- for \apgsk{} on CEC2017 at
+$D = 10/30/50$, where the per-run sidecar was overwritten by a later
+$D = 100$-only invocation, the per-run source is the final-checkpoint
+column of the corresponding per-generation logs, whose equivalence was
+verified during the evidence audit (all 580 recomputed summary
+statistics and all 5{,}916 recomputed seeds match).
+% BIND: seed_and_pairing_audit.md Section 6 (anomaly A1: 580/580 statistics; 5,916/5,916 seeds); APGSK-GAP
+No missing value was ever imputed, and no evidence file was hand-edited.
+% BIND: APGSK-GAP (never imputed); evidence_release_manifest.json immutability_note
+
+One provenance qualification is restated from the main paper: the
+\egsk{} panel cells are produced in-repository by the runnable \egsk{}
+port, whose late local polish substitutes a SciPy-SLSQP solver for the
+published MATLAB \texttt{fmincon} polish, with no numerical-equivalence
+claim between the two backends; cross-implementation runtime and
+environment comparability is therefore limited, and no
+runtime-superiority claim involving \egsk{} is made anywhere in this paper.
+% BIND: LM-04
+
+%==================================================================
+% S6 -- Component-contribution study (Phase-12 scaffold ablation, X-ABL-01).
+% Supplement-only. Bound to the immutable ablation release abl-rel-2026-07-20
+% (benchmarks/cec_reference_results/_ablation; the release id is a logical
+% identifier, not a directory level), which is
+% separate from the primary release rel-2026-07-20-67d9345f9. No primary
+% number, claim, equation, label, or figure is altered by this section.
+% X-ABL-02 (ISM overlay) is a SEPARATE design, now REPORTED as the direct
+% isolation in Section~\ref{sec:supp:ablation:sgsm} (CEC2017 D50/D100 + CEC2013
+% D50; overlay evidence under _ablation/overlay). No primary number is altered.
+% BIND: AB-01 (X-ABL-01 scaffold); AB-03 partial (local-search cell only);
+%       AB-02/X-ABL-02 REPORTED (S6.5 direct isolation, Phase A3).
+%==================================================================
+\section{Component-Contribution Study: Scaffold Remove-One Ablation}\label{sec:supp:ablation}
+
+This section reports the component-level study that the main text reserves
+for a follow-up supplement after the final algorithm freeze.  It is a
+deferred, supplement-only analysis: its design was prespecified before any
+ablation was run, and it is reported here only after the primary manuscript
+and its evidence release were frozen.  It
+changes no primary number, claim, equation, label, or figure; it adds a new,
+separately released body of evidence.  Every value below derives from the
+single immutable ablation release \texttt{abl-rel-2026-07-20}, which is
+distinct from --- and held separately in the repository from --- the primary
+evidence release, and is read under the same strict-source discipline.
+
+\subsection{Remove-One Design}\label{sec:supp:ablation:design}
+
+The study removes one scaffold component at a time from the full frozen
+configuration and measures the resulting change in performance, with the
+interaction-structure memory (ISM) held \emph{off} in every cell.  Seven
+cells are compared: a \texttt{baseline} full-scaffold cell and six remove-one
+cells that each disable exactly one component --- ACE operator control
+(\texttt{no\_ace}), NLPSR population reduction (\texttt{no\_psr}),
+budget-safe escape (\texttt{no\_bse}), linkage-aware block crossover
+(\texttt{no\_linkage}), the charged coordinate local search
+(\texttt{no\_localsearch}), and the distance-filtered diversity archive
+(\texttt{no\_arch}).
+
+% BIND: PR-04 (frozen protocol constants); seed_and_pairing_audit.md Section 1
+%   (base seed 20240620); AB-01 cell roster; abl-rel-2026-07-20
+All seven cells share one frozen protocol: CEC2017 with the 29 scored
+functions (F1, F3--F30; F2 excluded), $D \in \{10, 30, 50, 100\}$,
+$\mathrm{MaxFES} = 10^{4}\cdot D$~\cite{awad2016problem}, and $51$ runs per
+(cell, function, dimension), matching the primary panel's run count.  The
+base seed is $20240620$ under the unified/threefry schedule; because the seed
+schedule contains no cell or algorithm term, all seven cells share identical
+seeds and identical initial populations per (dimension, function, run), so
+every full-vs-cell contrast is paired by construction (common random
+numbers).  Identical evaluator, environment, and floating-point regime hold
+across cells; equality of the objective-call budget across cells is a
+validity gate, not a result.
+
+\paragraph{Scope: ISM is off in every cell.}
+The interaction-structure memory is disabled
+(\texttt{interaction\_graph\_enabled = false}) in all seven cells, including
+\texttt{baseline}.  \textbf{This study therefore cannot establish the effect
+of the ISM overlay}; the direct ISM contribution is a separate design
+(Section~\ref{sec:supp:ablation:sgsm}).  Every delta reported here is
+conditional on ISM off.
+
+\paragraph{Mandatory coupling and exclusion disclosures.}
+Two documented couplings qualify the cells.  First, disabling the archive
+(\texttt{no\_arch}) also removes the archive-injection seed source that
+budget-safe escape draws on, although BSE still fires its Cauchy rescue; the
+\texttt{no\_arch} delta is thus the archive \emph{together with} its role as a
+restart seed pool, a real algorithmic dependency rather than a toggle leak.
+Second, disabling BSE (\texttt{no\_bse}) does \emph{not} disable the separate
+deep-stall restart, which remains active in that cell, so \texttt{no\_bse} is
+not a ``no-escape'' condition.  Three further frozen flags are prespecified
+exclusions from this matrix --- the ARGP pool-pruning control, the
+ISM-dependent final polish (whose contribution belongs to the ISM-overlay
+design, Section~\ref{sec:supp:ablation:sgsm}), and the deep-stall restart
+(which overlaps BSE) --- and no contribution of any sign is claimed for those
+three from this scaffold matrix.
+
+\subsection{Statistical Treatment}\label{sec:supp:ablation:stats}
+
+Per dimension, the seven cells are ranked over the common 29-function set by
+the Friedman test~\cite{friedman1937use, demsar2006statistical} on the
+per-function mean final error (lower rank is better);
+Table~\ref{tab:abl-scaffold} reports the resulting mean-rank matrix and
+Figure~\ref{fig:abl-rankdelta} the rank change from the baseline.  The
+inferential weight is carried by the full-vs-cell paired Wilcoxon signed-rank
+test across functions~\cite{wilcoxon1945individual}, Holm-corrected%
+~\cite{holm1979simple} within each dimension's family of six disabled-cell
+comparisons at $\alpha = 0.05$; Table~\ref{tab:abl-wilcoxon} reports the raw
+and Holm-adjusted $p$-values.
+
+\paragraph{Interpretation boundary.}
+Each delta is a \emph{conditional remove-one contribution}: the effect of
+disabling one component given all other scaffold components enabled and ISM
+off.  These are not independent causal effects, they do not decompose
+additively, and --- because several mechanisms flip sign across dimensions ---
+they are never averaged across dimensions.  No result is generalized beyond
+CEC2017 or beyond the tested dimensions.  A geometric-mean error ratio can be
+inflated by a few near-optimum functions and is read only alongside the
+win/tie/loss split and the rank delta.
+
+\begin{table}[H]
+\caption{Scaffold remove-one ablation on CEC2017: mean Friedman rank of each
+cell per dimension, with the change $\Delta$ versus the full-scaffold
+\texttt{baseline} in parentheses (positive $=$ removing the component degrades
+rank; lower rank is better).  Seven cells, 29 functions, 51 runs per
+(cell, function, dimension), \textbf{ISM off in every cell}.  Each $\Delta$
+is a \emph{conditional} remove-one contribution (conditional on all other
+components enabled and ISM off), not an independent causal effect; signs
+differ across dimensions, so no value is averaged over dimensions.
+$^{\ast}$ marks a contrast that is Holm-significant within its dimension
+($\alpha = 0.05$; Table~\ref{tab:abl-wilcoxon}).  }\label{tab:abl-scaffold}
+% BIND: X-ABL-01 (AB-01); ablation_matrix_rank_summary_cec2017_D{10,30,50,100}.csv; abl-rel-2026-07-20
+\centering
+\tablesize{\footnotesize}
+\input{tables/SA01}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.92\textwidth]{figures/ablation/abl_rank_delta}
+\caption{Conditional rank degradation from removing each scaffold component on
+CEC2017 (\textbf{ISM off in every cell}; 51 runs; 29 functions).  Bars show
+the change in mean Friedman rank versus the full-scaffold baseline; positive
+means removing the component degrades rank.  Colours follow the frozen
+per-cell palette; $\ast$ marks Holm-significant contrasts within a dimension
+($\alpha = 0.05$).  Each bar is a conditional remove-one contribution, not an
+independent causal effect, and bars are not averaged across dimensions.
+}\label{fig:abl-rankdelta}
+% BIND: X-ABL-01 (AB-01); ablation_matrix_rank_summary_cec2017_D{10,30,50,100}.csv; abl-rel-2026-07-20
+\end{figure}
+
+\begin{table}[H]
+\caption{Scaffold remove-one ablation on CEC2017: full-vs-cell paired Wilcoxon
+signed-rank test across the 29 functions~\cite{wilcoxon1945individual} with
+Holm correction~\cite{holm1979simple} within each dimension's six-comparison
+family ($\alpha = 0.05$), ordered by ascending raw $p$ within each dimension.
+$\Delta$rank repeats the mean-rank change from Table~\ref{tab:abl-scaffold}.
+Every contrast is a \emph{conditional} remove-one comparison with ISM off in
+both cells and 51 runs per cell; the four Holm-significant results are all
+\emph{favorable} (removing the component degrades performance).  }\label{tab:abl-wilcoxon}
+% BIND: X-ABL-03 statistical family for X-ABL-01 (AB-01); Wilcoxon+Holm within dimension; abl-rel-2026-07-20
+\centering
+\tablesize{\footnotesize}
+\input{tables/SA02}
+\end{table}
+
+\subsection{Findings (Conditional, ISM Off)}\label{sec:supp:ablation:findings}
+
+% BIND: X-ABL-01 (AB-01); X-ABL-03 (Wilcoxon+Holm within dimension);
+%   ablation_matrix_rank_summary_cec2017_D{10,30,50,100}.csv; abl-rel-2026-07-20
+Across the four dimensions, only four of the twenty-four (cell, dimension)
+contrasts survive Holm correction, and all four are \emph{favorable} ---
+removing the named component degrades performance: ACE at $D=10$
+(Holm $p = 1.1\times10^{-3}$) and, at $D=30$, the local search
+(Holm $p = 1.4\times10^{-3}$), NLPSR (Holm $p = 4.4\times10^{-3}$), and the
+budget-safe escape (Holm $p = 3.4\times10^{-2}$).  The per-mechanism
+reading is dimension-structured:
+
+% BIND: X-ABL-03 statistical family for X-ABL-01 (AB-01); per-mechanism rank
+%   changes from ablation_matrix_rank_summary_cec2017_D{10,30,50,100}.csv; abl-rel-2026-07-20
+\begin{itemize}
+\item \textbf{ACE} is the low-dimensional backbone: the dominant and only
+Holm-significant effect at $D=10$ (rank change $+2.84$), fading at mid
+dimension and mildly \emph{negative} (non-significant) at $D=100$, where the
+conditional delta's sign reverses.
+\item \textbf{NLPSR} is the mid/upper-tier population backbone: the
+largest and a Holm-significant degradation at $D=30$ (rank change $+2.90$)
+and the second-largest at $D=50$ and $D=100$, though not Holm-significant
+beyond $D=30$.
+\item \textbf{Local search} is the most consistent mid/upper-tier
+contributor: Holm-significant at $D=30$ and the single largest
+degradation at both $D=50$ and $D=100$ (non-significant at either), but
+negligible at $D=10$.
+\item \textbf{BSE} yields a positive delta at every dimension ($+0.48$
+to $+1.31$), Holm-significant at $D=30$.
+\item \textbf{Linkage} and the \textbf{archive} are aggregate rank-neutral or
+sign-mixed across dimensions (removing the linkage slightly \emph{improves}
+rank at $D=100$); their conditional contribution has no stable sign, which is
+why per-dimension reporting is mandatory and no dimension-averaged number is
+quoted.
+\end{itemize}
+
+% BIND: X-ABL-01 (AB-01) D100 omnibus; X-ABL-03 (no contrast survives Holm at D100);
+%   ablation_matrix_rank_summary_cec2017_D100.csv; abl-rel-2026-07-20
+At $D=100$ the Friedman omnibus signal is weakest ($p = 3.5\times10^{-2}$) and
+no contrast survives Holm; the $D=100$ ordering is descriptive only.  All six
+disabled cells changed at least one function's per-run trajectory at every
+dimension (active on 20--29 of 29 functions), so there are no null-contrast
+cells and every contrast is identifiable.
+
+\subsection{What This Study Does Not Establish}\label{sec:supp:ablation:limits}
+
+The scaffold study is bounded on five axes, restated so that no reader
+over-extends it.  (i)~It is ISM-off throughout and says nothing about the
+interaction-structure memory.  (ii)~Its deltas are conditional, not causal,
+and not additive.  (iii)~It covers one suite (CEC2017) and the four tested
+dimensions only.  (iv)~The \texttt{no\_arch} and \texttt{no\_bse} couplings
+above qualify two cells, and ARGP, the final polish, and the deep-stall
+restart are untested here.  (v)~Aggregate ratios can be dominated by a few
+functions and are never read alone.  Under the prespecified one-directional
+correction guard, every favorable component result here is supplement-only and
+does \emph{not} upgrade, strengthen, or convert any frozen main-text claim
+(the main text defers all per-component attribution); no primary claim is
+contradicted, and none is amended.
+
+\subsection{ISM-Overlay Isolation: Direct Component Study}\label{sec:supp:ablation:sgsm}
+
+The direct contribution of the interaction-structure memory --- the isolation
+reviewers requested --- is a \emph{separate} experimental design from the
+scaffold matrix above, and is reported here.  Four ISM-active configurations
+share one seed schedule (paired, common random numbers): the full overlay and
+three single-toggle variants that disable, in turn, the interaction-structure
+memory itself (\texttt{no\_sgsm}), its adaptive confidence gate
+(\texttt{no\_adaptive}), and the ISM-dependent final polish
+(\texttt{no\_finalpolish}).  Each cell runs $51$ paired repetitions ---
+matching the primary panel's run count --- at the
+overlay's active tiers, $D \in \{50, 100\}$, on the primary CEC2017 suite (and,
+as a second suite, CEC2013 at $D = 50$).  Cells are compared on per-function
+mean final error by a paired Wilcoxon signed-rank test across functions,
+Holm-corrected over the prespecified three-comparison family, with Friedman
+ranks over the four cells and Vargha--Delaney $A_{12}$ effect sizes on the raw
+runs; the four cells differ overall (Friedman $p = 2.4\times10^{-3}$,
+$5.2\times10^{-3}$, and $3.8\times10^{-3}$ for CEC2017 $D50$, CEC2017 $D100$,
+and CEC2013 $D50$).  These component-study omnibus $p$-values are the
+tie-corrected Friedman chi-square approximation, not the Iman--Davenport $F$
+that serves as the omnibus decision criterion for the primary suites in the
+main text.  The two statistics are not interchangeable, so these figures
+should not be read against main-text omnibus values.
+% BIND: X-ABL-02 overlay isolation; generate_ablation_matrix.py; _ablation/overlay evidence
+
+\begin{table}[H]
+\caption{Direct ISM-overlay isolation: the full overlay versus each
+single-toggle cell, paired across functions and Holm-corrected. $\Delta$rank is
+the Friedman mean-rank change when the mechanism is removed (lower rank is
+better, so positive means removal \emph{hurts}); $A_{12} > 0.5$ favors the full
+overlay.  Bold Holm $p < 0.05$.}\label{tab:ism-isolation}
+\small\centering
+\begin{tabular}{llccc}
+\toprule
+Suite ($D$) & Isolated mechanism & $\Delta$rank vs full & Holm $p$ & mean $A_{12}$\\
+\midrule
+CEC2017 ($50$)  & interaction-structure memory & $+0.05$ & $0.983$          & $0.51$\\
+                & adaptive confidence gate     & $+0.47$ & $0.283$          & $0.51$\\
+                & ISM-dependent final polish   & $+1.14$ & $\mathbf{0.002}$ & $0.59$\\
+\addlinespace
+CEC2017 ($100$) & interaction-structure memory & $+0.16$ & $0.897$          & $0.50$\\
+                & adaptive confidence gate     & $+0.86$ & $0.079$          & $0.54$\\
+                & ISM-dependent final polish   & $+0.98$ & $\mathbf{0.005}$ & $0.53$\\
+\addlinespace
+CEC2013 ($50$)  & interaction-structure memory & $+0.20$ & $0.647$          & $0.42$\\
+                & adaptive confidence gate     & $+0.48$ & $0.235$          & $0.52$\\
+                & ISM-dependent final polish   & $+1.18$ & $\mathbf{0.002}$ & $0.64$\\
+\bottomrule
+\end{tabular}
+\end{table}
+% BIND: benchmarks/cec_reference_results/_ablation/overlay/analysis/ablation_overlay_rank_summary_cec2017_D{50,100}.csv (CEC2017 D50/D100) + ablation_overlay_rank_summary_cec2013_D50.csv (CEC2013 D50); immutable release abl-rel-2026-07-20 (51-run rerun promoted 2026-07-16)
+
+% BIND: X-ABL-02 overlay isolation; ablation_overlay_rank_summary_cec2017_D{50,100}.csv
+%   + ablation_overlay_rank_summary_cec2013_D50.csv; ism_isolation_effects_cec2017.csv
+%   + ism_isolation_effects_cec2013.csv (mean_a12; ism_runtime_overhead_pct); abl-rel-2026-07-20
+Two findings are consistent across both tiers of the primary suite and the
+second suite (Table~\ref{tab:ism-isolation}).  First, \textbf{the
+interaction-structure memory shows no
+significant standalone benefit at its active tiers}: disabling it moves the mean
+rank negligibly (CEC2017 $\Delta$rank $= +0.05$ at $D50$ and $+0.16$ at $D100$),
+the paired test is far from significance (Holm $p = 0.98$ and $0.90$), and the
+effect size is essentially null ($A_{12} = 0.51$ and $0.50$); on CEC2013 the
+rank delta is similarly negligible ($+0.20$) while the raw-run effect size
+leans slightly toward the memory being off ($A_{12} = 0.42$).  Measured on the
+corrected compiled backend (Section~\ref{sec:supp:ablation:caveats}), the
+memory's wall-time cost is substantial at every active tier:
+$\mathbf{{+}57.3\%}$ at CEC2017 $D50$, $\mathbf{{+}36.3\%}$ at $D100$, and
+$+30.3\%$ on CEC2013 $D50$ --- so it costs a third to well over half again in
+wall-clock and buys no measurable accuracy return.  Second,
+\textbf{removing the complete final-polish phase changed performance
+significantly in these cells} (Holm $p = 0.002$, $0.005$, $0.002$;
+$A_{12} = 0.59$, $0.53$, $0.64$); the contrast removes the whole phase, so which
+of its parts carries the effect---and in particular whether the learned
+eigenbasis outperforms coordinate axes---remains unidentified, while the adaptive confidence gate helps directionally but not
+significantly.  This corroborates the bundled-tier reading of the main text: the
+high-dimension behavior is a property of the full tier configuration rather
+than of the interaction-structure memory in isolation, and \dtgsk{}'s
+family-best standing rests on the complete dimension-tiered system --- of whose
+added mechanisms only the final polish carries an isolated, statistically
+significant effect at these tiers (and the \texttt{no\_sgsm} row, in which the
+polish runs on coordinate axes rather than the learned eigenbasis, is itself
+null, so the significant effect is the compass endgame, not the learned basis
+specifically).  The interaction-structure memory's isolated
+utility at $D \le 100$ therefore remains unestablished; whether its
+structure-building role becomes decisive at larger scales is left to future work.
+%==================================================================
+
+%==================================================================
+%==================================================================
+\subsection{Conditional-Benefit Analysis by Function Class (Post-Hoc)}\label{sec:supp:ablation:subset}
+
+The direct isolation above (Table~\ref{tab:ism-isolation}) returns a null for the
+interaction-structure memory \emph{aggregated} over the CEC2017 functions.  Because a
+coordinate-pair interaction memory should, if it helps at all, help most on functions
+with genuine variable interaction, we ask \emph{post hoc} (this analysis was not
+pre-registered) whether the aggregate null conceals a conditional benefit on those
+functions.  We partition the 29 scored CEC2017 functions into the four standard
+CEC2017 classes~\cite{awad2016problem} --- unimodal (F1, F3), simple multimodal
+(F4--F10), hybrid (F11--F20), and composition (F21--F30) --- and, within each class,
+count the per-function win/tie/loss of the full overlay against the memory-off
+(\texttt{no\_sgsm}) cell (a win is a lower per-function mean error with the
+interaction-structure memory on; tie at $|\Delta| < 10^{-8}$).  The hybrid and
+composition functions, whose sub-component and rotation structure make variable
+interaction explicit, are where such a memory should most plausibly help.
+
+% BIND: Path-1 subset re-analysis of overlay_per_function_means_cec2017_D{50,100}.csv
+%   (full vs no_sgsm), grouped by CEC2017 function class; read-only, no rerun; abl-rel-2026-07-20
+\begin{table}[H]
+\caption{Post-hoc conditional-benefit analysis: per-function win/tie/loss of the full
+overlay versus the memory-off (\texttt{no\_sgsm}) cell, by CEC2017 function class, at
+$D=50$ and $D=100$ (51 paired runs; a win is a lower per-function mean error with the
+interaction-structure memory on).  Exploratory; not part of the pre-registered
+isolation.}\label{tab:ism-subset}
+\centering
+\footnotesize
+\begin{tabular}{lccc}
+\toprule
+\textbf{Function class} & \textbf{$n$} & \textbf{$D{=}50$ W/T/L (win-rate)} & \textbf{$D{=}100$ W/T/L (win-rate)}\\
+\midrule
+Unimodal (F1, F3)            & 2  & 2/0/0 (1.00) & 1/0/1 (0.50)\\
+Simple multimodal (F4--F10)  & 7  & 3/0/4 (0.43) & 4/0/3 (0.57)\\
+Hybrid (F11--F20)            & 10 & 7/0/3 (0.70) & 4/0/6 (0.40)\\
+Composition (F21--F30)       & 10 & 3/0/7 (0.30) & 5/0/5 (0.50)\\
+\midrule
+Interacting (F11--F30)       & 20 & 10/0/10 (0.50) & 9/0/11 (0.45)\\
+Non-interacting (F1--F10)    & 9  & 5/0/4 (0.56) & 5/0/4 (0.56)\\
+All 29 (aggregate)           & 29 & 15/0/14 (0.52) & 14/0/15 (0.48)\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+No class shows a benefit that survives even a nominal sign test (all subset
+$p > 0.3$; the interacting-vs-non-interacting contrast is $0.50$ vs $0.56$ at $D=50$
+and $0.45$ vs $0.56$ at $D=100$ --- the interacting classes never lead).  The only
+favourable lean is on the
+$D=50$ hybrids (win-rate $0.70$, median per-function $\log_{10}$-error gain $+0.026$),
+and it reverses at $D=100$ (win-rate $0.40$, median $-0.002$); the
+composition functions lean the other way at $D=50$ (win-rate $0.30$) and are flat
+at $D=100$.  Together with the aggregate
+Vargha--Delaney $A_{12}\approx 0.50$, the point estimates cluster on \emph{no}
+average effect rather than on a small one --- though, absent a formal equivalence
+test, this evidence is consistent with zero rather than establishing it.  The aggregate null is therefore not explained by the separable-problem
+subset: no standalone benefit is detected even on the categories where variable
+interaction is present by construction. This is a failure to detect an effect
+under this design, not a demonstration that none exists.  We accordingly report the
+interaction-structure memory as a controlled negative result on cheap accepted-move
+structure-learning --- a boundary we believe is itself informative for the GSK family.
+% BIND: Path-1 subset re-analysis of overlay_per_function_means_cec2017_D{50,100}.csv (full vs no_sgsm); read-only, no rerun
+
+
+%==================================================================
+\subsection{Implementation Caveats: Two Corrected Defects and Their Evidence Trail}\label{sec:supp:ablation:caveats}
+
+A post-freeze code audit identified two implementation defects in the released
+optimizer.  Both were disclosed, then \emph{fixed in the source} (each locked by a
+regression test that fails on the pre-fix code), and the primary-panel, scaffold, and
+overlay evidence in this paper was \textbf{fully regenerated with the corrected
+binary at 51 runs per cell}; every number in the current release therefore reflects
+the corrected implementation.  The two defects and their measured consequences are
+recorded here for provenance.
+
+% BIND: M038 (numba import path); ism_isolation_effects_cec2017.csv +
+%   ism_isolation_effects_cec2013.csv, column ism_runtime_overhead_pct
+%   (cec2017 D50 +57.3, D100 +36.3; cec2013 D50 +30.3) from
+%   ablation_overlay_effects.py over the 51-run overlay per_run.csv runtime_seconds;
+%   the pre-fix +54%/+37% are historical and superseded. Backend FP-identity: M040.
+\paragraph{The interaction graph's compiled kernels were silently disabled in the
+pre-fix runs.}
+The interaction graph ships compiled (\texttt{numba}) kernels alongside \textsc{NumPy}
+reference implementations, guarded by an import that silently falls back to
+\textsc{NumPy} if the compiled module is unavailable.  In the pre-fix configuration
+that import named the wrong module path, so the earlier runs executed the
+\textsc{NumPy} path throughout.  The compiled kernels are built without fast-math and
+without thread-parallel reduction precisely so that they reproduce the \textsc{NumPy}
+arithmetic exactly, and we confirmed bit-identical optimization results across both
+backends --- the defect inflated wall-clock only.  The overhead and runtime figures
+in this paper (Section~\ref{sec:supp:ablation:sgsm} and the main-text runtime table)
+were re-measured with the compiled kernels active over the full 51-run overlay:
+the memory's wall-time cost is $+57.3\%$ at CEC2017 $D50$, $+36.3\%$ at $D100$,
+and $+30.3\%$ on CEC2013 $D50$. These are close to the $+54\%$/$+37\%$ recorded
+before the backend fix, which is expected rather than surprising: the compiled
+kernels accelerated the memory-on and memory-off arms alike, so the \emph{ratio}
+between them barely moved. The fix removed a wall-clock inflation common to both
+arms; it did not make the interaction-structure memory cheaper relative to
+running without it.
+
+\paragraph{The final polish previously refined a one-generation-stale incumbent.}
+In the pre-fix binary, the eigenframe polish was invoked with the incumbent
+materialized at the end of the \emph{previous} generation, and its accept test
+compared against that same stale value --- so the polish could start from, and
+accept against, a point the current generation had already improved upon.  Reported
+results were protected throughout by a best-ever shadow (no run could report a value
+worse than the best it found), so this was a loss of polish \emph{effectiveness},
+never a correctness defect.  The fix re-materializes the incumbent atomically at
+polish entry.  The isolation reported above therefore measures the polish
+\emph{un-handicapped}; its contribution remains Holm-significant on every suite and
+tier, and the headline panel ranks are unchanged relative to the pre-fix release ---
+the correction altered $D \geq 50$ trajectories without flipping any per-function
+panel ordering.
+%==================================================================
+%==================================================================
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\reftitle{References}
+\externalbibliography{yes}
+\bibliography{references}
+
+\end{document}

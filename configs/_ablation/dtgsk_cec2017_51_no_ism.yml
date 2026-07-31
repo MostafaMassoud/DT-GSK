@@ -1,0 +1,41 @@
+# DT-GSK full CEC2017 panel at 51 runs with ISM OFF — the removal decision.
+#
+# PAIRING: no ISM-ON arm is needed. The frozen reference leg
+# (benchmarks/cec_reference_results/cec2017/dt-gsk) IS the ISM-ON profile at the
+# identical seed schedule (seed 20240620, unified, threefry, 51 runs), and the
+# runner auto-compares against it. Validated on CEC2011: the ISM-ON arm
+# reproduced the reference to ~1e-8 on all 7 functions.
+#
+# ALL FOUR DIMS ON PURPOSE. ISM is gated at D>=50, so D10/D30 MUST come back
+# byte-identical to the reference ("= Same"). That is a free correctness check on
+# the toggle and the harness: any D10/D30 difference means something other than
+# ISM moved, and the D50/D100 result cannot be trusted. Only D50/D100 can
+# legitimately differ.
+#
+# Prior (from the CEC2011 isolation, 2026-07-17): expect a null. ISM measured
+# null on CEC2017 D50/D100 (S6.5, Holm ~0.98/0.90), null on CEC2013 D50, and
+# null-to-harmful on CEC2011 (family p=0.47; F9 Holm-significant WORSE +0.67%).
+# Its learned basis == coordinate axes to 5e-05, i.e. the estimator carries no
+# information. If this run is also null, ISM is null on every primary suite and
+# the removal case is complete.
+optimizers:
+- dt-gsk
+suite: cec2017
+functions: default
+dimensions:
+- 10
+- 30
+- 50
+- 100
+runs: 51
+seed: 20240620
+seed_policy: unified
+rand_generator: threefry
+parallel: true
+workers: 15
+generation_logs: false
+convergence_graphs: false
+overwrite: true
+output_root: results/_no_ism_cec2017_51
+optimizer_options:
+  interaction_graph_enabled: false

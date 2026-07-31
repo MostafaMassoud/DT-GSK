@@ -1,0 +1,22 @@
+# SGSM-overlay ablation (X-ABL-02, Phase 12 §12.4) — cell: full (SGSM ON).
+# Hand-authored per pre-registration: run_ablation.py cannot produce an SGSM-on
+# cell (it merges _SGSM_OFF). CEC2013 D50 is the SGSM-active dim for CEC2013
+# (interaction_graph_min_dim=50). 4 cells share identical seed/runs/suite/dim.
+optimizers:
+- dt-gsk
+suite: cec2013
+functions: default
+dimensions:
+- 50
+runs: 25
+seed: 20240620
+seed_policy: unified
+rand_generator: threefry
+parallel: true
+workers: 12
+generation_logs: false
+convergence_graphs: false
+overwrite: true
+output_root: results/_ablation_sgsm/full
+optimizer_options:
+  interaction_graph_enabled: true

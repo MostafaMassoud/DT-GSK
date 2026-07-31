@@ -1,0 +1,43 @@
+
+========================================================================
+DETAILED CONFIGURATION
+========================================================================
+optimizer       : fdb-agsk
+suite           : CEC2020
+funcs_to_run    : [1 2 3 4 5 6 7 8 9 10]
+excluded        : []
+dimensions      : [5 10 15 20]
+runs            : 30
+base_seed       : 20240620
+seed_policy     : unified
+rand_generator  : threefry
+use_parallel    : true
+parallel_backend: process
+workers         : 14 (explicit)
+numba_threads   : 1
+generation_logs : true
+graphs          : false
+benchmark_fp    : default
+benchmark_backend: python (requested=auto)
+max_nfes        : suite default
+statistics      : error vs known optimum
+project_root    : 02-GSK_Family_Python_v1.1
+output_dir      : results\_run_all\fdb-agsk\cec2020
+========================================================================
+
++----------------------------------------------------------+
+| fdb-agsk - CEC2020 - D=20                           |
++----------------------------------------------------------+
+| 1 functions x 30 runs | Budget: 10,000,000 NFEs          |
+| NP_init=100  min_pop_size=12                             |
+| Bounds: (-100.0, 100.0)   Target error: 1e-08            |
++----------------------------------------------------------+
+
++--------+--------------+--------------+--------------+--------------+--------------+-------------+
+|  Func  |     Best     |    Median    |     Mean     |    Worst     |      SD      |   Time/s    |
++--------+--------------+--------------+--------------+--------------+--------------+-------------+
+|  F01   |    0.00E+00  |    0.00E+00  |    0.00E+00  |    0.00E+00  |    0.00E+00  |     656.3s  |
++--------+--------------+--------------+--------------+--------------+--------------+-------------+
+
+[OK] Updated 1 function(s); wrote 30 new run(s)
+

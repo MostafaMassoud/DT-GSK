@@ -1,0 +1,55 @@
+% ============================================================================
+% DT-GSK notation table -- SCAFFOLD SUBSYSTEMS (main text, Section 3.3).
+% Canonical source: papers/build_prompt_phases/phase_03/notation_table.md
+% Label: tab:notation-scaffold.
+%
+% Split out of notation_table.tex under ticket N-015. Carries the symbols for
+% the dimension-tiered adaptive scaffold (Contribution C2): ACE/ARGP, NLPSR,
+% and the budget-safe escape / diversity archive / restart machinery. Placed
+% with Section 3.3 so each symbol is introduced at or before its first use.
+% Kept as a single tabular for the native Word w:tbl conversion.
+% ============================================================================
+\begin{table}[t]
+\caption{Scaffold notation (Contribution C2): symbols for the ACE/ARGP
+operator controllers (Sections~\ref{sec:alg:ace}--\ref{sec:alg:argp}), the
+tier-floored population schedule (Section~\ref{sec:alg:nlpsr}), and the
+budget-safe escape, diversity archive, and restart machinery
+(Sections~\ref{sec:alg:bse}--\ref{sec:alg:deepstall}). Constants take the
+frozen-configuration values (Table~\ref{tab:parameters}).}
+\label{tab:notation-scaffold}
+\centering
+\footnotesize
+\begin{tabular}{@{}l@{\hspace{1.2em}}p{0.62\textwidth}@{}}
+\toprule
+\textbf{Symbol} & \textbf{Meaning}\\
+\midrule
+\multicolumn{2}{l}{\emph{ACE / ARGP}}\\
+\midrule
+$\mathcal{A}=\{a_m=(KF_m,KR_m,K_{\exp,m})\}_{m=1}^{M}$ &
+  ACE arm pool ($M\in\{5,6\}$; arm 3 = GSK-pure); the optional 6th arm is the DE/rand/1 operator, active at $20{\le}D{<}100$\\
+$\pi_m$ & ACE selection probability of arm $m$ (EMA state)\\
+$d_m$ & arm-$m$ aggregate improvement $\sum_{i:s_i=m}(f(x_i){-}f(v_i))$ this generation\\
+$\tau_m$ & improving-arm normalized share (EMA target for $\pi$)\\
+$c=0.10$ & ACE learning rate\\
+$\pi_{\min}=0.05$ & ACE probability floor\\
+$W_{\text{argp}}=30$ & ARGP acceptance window\\
+$\tau_{\text{argp}}$ & ARGP prune threshold ($0.02$ / $0.010$ tier)\\
+\midrule
+\multicolumn{2}{l}{\emph{NLPSR}}\\
+\midrule
+$NP(x)=NP_{\text{init}}+(N_{\min}-NP_{\text{init}})\,x^{(1-x)}$ &
+  tier-floored nonlinear reduction (rounded half-up)\\
+\midrule
+\multicolumn{2}{l}{\emph{BSE / archive / restart}}\\
+\midrule
+$W$ & BSE stagnation window\\
+$\epsilon=10^{-8}$ & scale-aware stagnation tolerance\\
+$r_{c}=0.10$ & BSE Cauchy-perturbation fraction\\
+$r_{\text{rst}}$ & BSE restart (archive-reseed) fraction ($0.30$ low-$D$, $0.10$ otherwise; see Table~\ref{tab:parameters})\\
+$R_{\max}$ & maximum BSE restarts ($4/2/4/2$ by tier)\\
+$\mathcal{C}(0,1)$ & standard Cauchy draws; rescue scale $\gamma=r_s(u{-}\ell)/\sqrt{D}$ ($r_s$ tier-dependent)\\
+$A$ & distance-filtered diversity archive ($|A| = 200$ fixed; L2 admit/replace threshold 0.05; no fitness gate)\\
+$\rho_{\text{ds}}=0.25$ & deep-stall frozen-fraction trigger\\
+\bottomrule
+\end{tabular}
+\end{table}

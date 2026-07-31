@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Python API documentation for gsk_family.optimizers.external.ebowithcmar">
+  <title>gsk_family.optimizers.external.ebowithcmar | GSK Family Python Documentation</title>
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+  <div class="site-shell">
+    <aside class="sidebar">
+<div class="brand"><a href="../index.html">GSK Family Python</a></div>
+<input class="nav-search" type="search" placeholder="Filter docs" aria-label="Filter docs">
+<nav class="nav-list" aria-label="Documentation">
+<section><h2>Getting Started</h2>
+<a class="nav-link" href="../getting-started_configuration.html">Configuration</a>
+<a class="nav-link" href="../getting-started_explainer.html">Explainer</a>
+<a class="nav-link" href="../getting-started_runbook.html">Runbook</a>
+<a class="nav-link" href="../getting-started_troubleshooting.html">Troubleshooting</a>
+<a class="nav-link" href="../getting-started_tutorial.html">Tutorial</a>
+<a class="nav-link" href="../getting-started_user_guide.html">User Guide</a>
+</section>
+<section><h2>Reference</h2>
+<a class="nav-link" href="../reference_api.html">API Reference</a>
+<a class="nav-link" href="../reference_architecture.html">Architecture</a>
+<a class="nav-link" href="../reference_benchmark_mapping.html">Benchmark Mapping</a>
+<a class="nav-link" href="../reference_benchmark_protocol.html">Benchmark Protocol</a>
+<a class="nav-link" href="../reference_cec2011_cpp_python_equivalence_review.html">CEC2011 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="../reference_cec2013_cpp_python_equivalence_review.html">CEC2013 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="../reference_cec2013lsgo_cpp_python_equivalence_review.html">CEC2013LSGO C++ to Python Equivalence Review</a>
+<a class="nav-link" href="../reference_cec2017_cpp_python_equivalence_review.html">CEC2017 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="../reference_cec2020_cpp_python_equivalence_review.html">CEC2020 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="../index.html">Documentation Index</a>
+<a class="nav-link" href="../reference_fp_regime.html">Floating-Point Regime Verification</a>
+<a class="nav-link" href="../reference_diagrams.html">Flowcharts And Diagrams</a>
+<a class="nav-link" href="../reference_glossary.html">Glossary</a>
+<a class="nav-link" href="../LICENSES.html">Licenses</a>
+<a class="nav-link" href="../reference_module_dependencies.html">Module Dependencies</a>
+<a class="nav-link" href="../reference_project_structure.html">Project Structure</a>
+<a class="nav-link" href="../reference_python_optimizer_interface.html">Python Optimizer Interface</a>
+<a class="nav-link" href="../reference_result_schema.html">Result Schema</a>
+<a class="nav-link" href="../reference_seed_policy.html">Seed Policy</a>
+<a class="nav-link" href="../reference_workflows.html">Workflows</a>
+</section>
+<section><h2>Algorithm Guides</h2>
+<a class="nav-link" href="../algorithms_agsk.html">AGSK — Adaptive Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="../algorithms_apgsk.html">APGSK — Adaptive-Parameters Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="../algorithms_atmals-gsk.html">ATMALS-GSK — Adaptive Tuning, Memory, Adaptive Local Search</a>
+<a class="nav-link" href="../algorithms_dt-gsk.html">DT-GSK — Dimension-Tiered Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="../algorithms_egsk.html">EGSK — Enhanced Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="../algorithms_fdb-agsk.html">FDB-AGSK — Fitness-Distance-Balance AGSK</a>
+<a class="nav-link" href="../algorithms_gsk.html">GSK — Gaining-Sharing Knowledge</a>
+</section>
+<section><h2>Development</h2>
+<a class="nav-link" href="../development_BUG_resume_summary_truncation.html">BUG-RESUME-01 — resume mode truncates (and mis-computes) the per-dimension summary CSV</a>
+<a class="nav-link" href="../development_LSGO_ACCELERATION_PLAN.html">CEC2013LSGO Acceleration Plan — all 7 GSK-family algorithms, bit-identically</a>
+<a class="nav-link" href="../development_LSGO_INTEGRATION_CAMPAIGN.html">CEC2013LSGO Integration — Campaign Plan</a>
+<a class="nav-link" href="../development_CEC2017_PREC_adjudication.html">CEC2017-PREC — adjudication (CLOSED 2026-07-25)</a>
+<a class="nav-link" href="../development_code_reading_guide.html">Code Reading Guide</a>
+<a class="nav-link" href="../development_contributor_guide.html">Contributor Guide</a>
+<a class="nav-link" href="../development_DECC_G_port_record.html">DECC-G port — fidelity and validation record</a>
+<a class="nav-link" href="../development_developer_guide.html">Developer Guide</a>
+<a class="nav-link" href="../development_README.html">Development Docs</a>
+<a class="nav-link" href="../development_dt_gsk_core_reference.html">DT-GSK Core Reference — the vendored core and its byte-identity lock</a>
+<a class="nav-link" href="../development_evidence_rerun_runbook.html">DT-GSK re-run runbook — corrected implementation (C006 + graph backend)</a>
+<a class="nav-link" href="../development_egsk_port_spec.html">EGSK — Algorithm Spec &amp; Porting Verdict</a>
+<a class="nav-link" href="../development_extension_guide.html">Extension Guide</a>
+<a class="nav-link" href="../development_FAMILY_ACCELERATION_PLAN.html">Family-wide acceleration plan — 7 algorithms x 5 suites, bit-identical only</a>
+<a class="nav-link" href="../development_FINAL_PUBLICATION_PLAN.html">FINAL PUBLICATION PLAN — DT-GSK, Four(/Five)-Suite Scope</a>
+<a class="nav-link" href="../development_ACCELERATION_CAMPAIGN_PROMPT.html">GSK-Family Acceleration Campaign — Execution Prompt</a>
+<a class="nav-link" href="../development_maintenance_guide.html">Maintenance Guide</a>
+<a class="nav-link" href="../development_PORT_05_TUNING_TRIAGE.html">Porting project-05 tuning into 02 — Phase 1 audit and triage</a>
+<a class="nav-link" href="../development_REFERENCE_PROMOTION_PLAN.html">Reference Promotion Plan — CEC2013LSGO now, CEC2020 behind its completeness gate</a>
+<a class="nav-link" href="../development_SIBLING_CAMPAIGN_TRANSFER.html">Sibling-Campaign Transfer — every tuning that can make the GSK family fast</a>
+</section>
+<section><h2>Research</h2>
+<a class="nav-link" href="../research_egsk_validation_appendix.html">EGSK Validation Appendix — Paired Port-vs-Reference Equivalence</a>
+<a class="nav-link" href="../research_numerical_examples.html">Numerical Examples</a>
+<a class="nav-link" href="../research_performance.html">Performance</a>
+<a class="nav-link" href="../research_reproducibility.html">Reproducibility</a>
+<a class="nav-link" href="../research_researcher_handbook.html">Researcher Handbook</a>
+<a class="nav-link" href="../research_statistical_analysis.html">Statistical Analysis (GSK-family comparison)</a>
+<a class="nav-link" href="../research_validation_report.html">Validation Report</a>
+</section>
+<section><h2>Prompts</h2>
+<a class="nav-link" href="../prompt_documentation-deep-upgrade.html">Deep Documentation Review &amp; Upgrade Prompt — GSK Family Python</a>
+<a class="nav-link" href="../prompt_project-review.html">Deep Expert Review Prompt For GSK Family Python</a>
+<a class="nav-link" href="../prompt_documentation-review.html">Documentation Review Prompt</a>
+<a class="nav-link" href="../prompt_publication-polish.html">Final Publication Prompt — Production-Ready Q1 Release of GSK Family Python v1.1</a>
+</section>
+<section><h2>Python API</h2>
+<a class="nav-link" href="../api_index.html">API Module Index</a>
+<a class="nav-link api-link" href="../api/gsk_family.__init__.html">gsk_family.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.__init__.html">gsk_family.analysis.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.family_report.html">gsk_family.analysis.family_report</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.figures.html">gsk_family.analysis.figures</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.latex_tables.html">gsk_family.analysis.latex_tables</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.project_policy.html">gsk_family.analysis.project_policy</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.result_loader.html">gsk_family.analysis.result_loader</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.statistical_tests.html">gsk_family.analysis.statistical_tests</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.statistics.html">gsk_family.analysis.statistics</a>
+<a class="nav-link api-link" href="../api/gsk_family.benchmark_adapter.__init__.html">gsk_family.benchmark_adapter.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.benchmark_adapter.factory.html">gsk_family.benchmark_adapter.factory</a>
+<a class="nav-link api-link" href="../api/gsk_family.benchmark_adapter.problem.html">gsk_family.benchmark_adapter.problem</a>
+<a class="nav-link api-link" href="../api/gsk_family.benchmark_adapter.protocol.html">gsk_family.benchmark_adapter.protocol</a>
+<a class="nav-link api-link" href="../api/gsk_family.cli.__init__.html">gsk_family.cli.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.cli.list.html">gsk_family.cli.list</a>
+<a class="nav-link api-link" href="../api/gsk_family.cli.run.html">gsk_family.cli.run</a>
+<a class="nav-link api-link" href="../api/gsk_family.cli.stats.html">gsk_family.cli.stats</a>
+<a class="nav-link api-link" href="../api/gsk_family.cli.validate.html">gsk_family.cli.validate</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.__init__.html">gsk_family.common.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.bounds.html">gsk_family.common.bounds</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.donors.html">gsk_family.common.donors</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.numeric_compat.html">gsk_family.common.numeric_compat</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.population.html">gsk_family.common.population</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.reduction.html">gsk_family.common.reduction</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.reference_rng.html">gsk_family.common.reference_rng</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.rng.html">gsk_family.common.rng</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.threefry_rng.html">gsk_family.common.threefry_rng</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.__init__.html">gsk_family.optimizers.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers._dt_profiles.html">gsk_family.optimizers._dt_profiles</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers._dt_rng.html">gsk_family.optimizers._dt_rng</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers._kernels.html">gsk_family.optimizers._kernels</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.agsk.html">gsk_family.optimizers.agsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.apgsk.html">gsk_family.optimizers.apgsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.atmals_gsk.html">gsk_family.optimizers.atmals_gsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.atmals_helpers.html">gsk_family.optimizers.atmals_helpers</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.dt_gsk.html">gsk_family.optimizers.dt_gsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.egsk.html">gsk_family.optimizers.egsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.__init__.html">gsk_family.optimizers.external.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external._base.html">gsk_family.optimizers.external._base</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external._telemetry_shim.html">gsk_family.optimizers.external._telemetry_shim</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.cmaes.html">gsk_family.optimizers.external.cmaes</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.decc_g.html">gsk_family.optimizers.external.decc_g</a>
+<a class="nav-link api-link active" href="../api/gsk_family.optimizers.external.ebowithcmar.html">gsk_family.optimizers.external.ebowithcmar</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.jso.html">gsk_family.optimizers.external.jso</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.lshade.html">gsk_family.optimizers.external.lshade</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.lshade_spacma.html">gsk_family.optimizers.external.lshade_spacma</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.mos_cec2013lsgo.html">gsk_family.optimizers.external.mos_cec2013lsgo</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.shade_ils.html">gsk_family.optimizers.external.shade_ils</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.fdb_agsk.html">gsk_family.optimizers.fdb_agsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.fdb_scores.html">gsk_family.optimizers.fdb_scores</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.gsk.html">gsk_family.optimizers.gsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.__init__.html">gsk_family.runners.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.config.html">gsk_family.runners.config</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.fp_regime.html">gsk_family.runners.fp_regime</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.output.html">gsk_family.runners.output</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.parallel.html">gsk_family.runners.parallel</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.performance.html">gsk_family.runners.performance</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.run_experiment.html">gsk_family.runners.run_experiment</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.seed_policy.html">gsk_family.runners.seed_policy</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.verification.html">gsk_family.runners.verification</a>
+<a class="nav-link api-link" href="../api/gsk_family.stats.html">gsk_family.stats</a>
+<a class="nav-link api-link" href="../api/gsk_family.types.html">gsk_family.types</a>
+</section>
+</nav></aside>
+    <main class="content">
+      <article class="doc-card">
+        <h1>gsk_family.optimizers.external.ebowithcmar</h1>
+<p class="source-path">Source: <code>src/gsk_family/optimizers/external/ebowithcmar.py</code></p>
+<p>EBOwithCMAR — source-faithful, Kumar, Misra &amp; Singh 2017 (CEC), DOI 10.1109/CEC.2017.7969524.</p>
+<p>The **CEC-2017 single-objective bound-constrained winner**. Its paper is LOW-confidence
+(CMA machinery delegated to a citation; several equations degenerate), so this is a
+**code-first port of the official MATLAB** staged in
+``reference_code/external_baseline_algorithms/ebowithcmar/`` (EBO.m, EBO_BIN.m, Scout.m,
+init_cma_par.m, LS2.m, han_boun.m, updateArchive.m, gnR1R2.m, bestt.m, Introd_Par.m).
+Every UNRESOLVED item in the VERSION_FREEZE record is resolved by the MATLAB (tier-1).</p>
+<p>**Dual-population hybrid**, run under the UMOEAs-II multi-operator framework:
+  • **EA_1 (EBO / DE engine)** — ``PS1 = 18·D`` with **LPSR** toward 4; two mutation ops
+    (criss-cross ``op_1`` / towards-best ``op_2``) chosen per-individual by an adaptive
+    ``probDE1``; per-individual F (Cauchy memory + a tan-scheduled override in the first
+    half), and a **per-dimension crossover rate** shaped by adaptive ``CR`` and ``T``
+    (a circularly-shifted decaying-exponential profile). Success-history memories for
+    F/CR/T/freq (weighted-Lehmer). Towards-best index via ``bestt`` (min of D random ranks).
+  • **EA_2 (CMAR / CMA-ES &quot;Scout&quot;)** — ``PS2 = 4+⌊3·ln D⌋``; modern CMA-ES (rank-one +
+    rank-μ + CSA) with the paper&#x27;s **custom bell samplers** ``M1/M2`` (asin-based variates,
+    50/50) instead of Gaussian, and fitness-proportional recombination weights. Boundary
+    handling only after 50 % of the budget (reflection ``2·lb − x``).</p>
+<p>Per outer iteration: an adaptive ``[prob_DE, prob_CMAR]`` (from normalized quality +
+diversity of the two sub-populations) gates which engine(s) run; a **cycle** of length
+``CS`` recomputes the probabilities at ``CS+1`` and **shares information** at ``2·CS``
+(EBO-best → reseed CMAR; CMAR-best → inject into EA_1). In the last 25 % of the budget a
+**SQP local search** (``scipy`` SLSQP, the paper&#x27;s ``fmincon(&#x27;sqp&#x27;)``) refines the best,
+with a self-adjusting ``prob_ls`` (0.1 on success / 0.01 on failure).</p>
+<p>Fidelity notes: the custom ``asin``/tan variates are reproduced exactly on the family&#x27;s
+uniform stream (they ARE the algorithm&#x27;s sampling, not a Gaussian substitute); the
+CMA fitness-weights (best→smallest weight, ~uniform on CEC-2017) and the memory-index
+off-by-one between F/CR and T/freq are replicated verbatim from EBO.m. The reported best
+is the algorithm&#x27;s **feasible** ``bestx`` (the MATLAB gates the incumbent on bounds even
+though out-of-bounds CMA samples are still evaluated in the first half).</p>
+<p>Suites: cec2017 (D=10/30/50/100) + cec2011. Family RNG (``_base``) + budget-exact (every
+batch truncated to the remaining budget) + native GISR telemetry from BOTH engines (§3.7).</p>
+<h2 id="members">Members</h2>
+<section class="api-member" id="class-stopls-72">
+<div class="member-kind">class</div>
+<h2>_StopLS</h2>
+<pre><code>_StopLS(Exception)</code></pre>
+<p>Unwind the SQP call once its budget (or the global budget) is spent.</p>
+</section>
+<section class="api-member" id="function-cs-gmax-76">
+<div class="member-kind">function</div>
+<h2>_cs_gmax</h2>
+<pre><code>_cs_gmax(n: int) -&gt; tuple[int, int]</code></pre>
+<p>Cycle length CS and generation cap Gmax by dimension (Introd_Par.m; code values).</p>
+</section>
+<section class="api-member" id="function-asin-bell-87">
+<div class="member-kind">function</div>
+<h2>_asin_bell</h2>
+<pre><code>_asin_bell(rng, shape) -&gt; np.ndarray</code></pre>
+<p>``sqrt(pi)·(asin(U1) − asin(U2))`` — the symmetric asin-difference bell (EBO.m/Scout.m).</p>
+</section>
+<section class="api-member" id="function-lehmer-w-94">
+<div class="member-kind">function</div>
+<h2>_lehmer_w</h2>
+<pre><code>_lehmer_w(s: np.ndarray, w: np.ndarray) -&gt; float</code></pre>
+<p>Weighted Lehmer (power-2) mean: Σw·s² / Σw·s (EBO.m memory update).</p>
+</section>
+<section class="api-member" id="class-cma-104">
+<div class="member-kind">class</div>
+<h2>_Cma</h2>
+<pre><code>_Cma</code></pre>
+<p>Modern CMA-ES (&quot;Scout&quot;) state: mean, step size, paths, covariance + eigen-basis.</p>
+</section>
+<section class="api-member" id="function-init-cma-par-128">
+<div class="member-kind">function</div>
+<h2>_init_cma_par</h2>
+<pre><code>_init_cma_par(ea2: np.ndarray, n: int, n2: int) -&gt; _Cma</code></pre>
+<p>Port of init_cma_par.m — CMA parameters seeded on the mean of EA_2.</p>
+</section>
+<section class="api-member" id="class-st-157">
+<div class="member-kind">class</div>
+<h2>_St</h2>
+<pre><code>_St</code></pre>
+<p>Whole-run mutable state shared by the EBO and Scout phases (populations, memories, archive, best).</p>
+</section>
+<section class="api-member" id="function-han-boun-de-183">
+<div class="member-kind">function</div>
+<h2>_han_boun_de</h2>
+<pre><code>_han_boun_de(vi, lb, ub, x)</code></pre>
+<p>Boundary repair for DE (han_boun.m case 1): midpoint with the parent x.</p>
+</section>
+<section class="api-member" id="function-han-boun-cma-190">
+<div class="member-kind">function</div>
+<h2>_han_boun_cma</h2>
+<pre><code>_han_boun_cma(arx, lb, ub, xref)</code></pre>
+<p>Boundary repair for CMA (han_boun.m case 2): reflect 2·bound − x, clamped.</p>
+</section>
+<section class="api-member" id="function-round-half-away-199">
+<div class="member-kind">function</div>
+<h2>_round_half_away</h2>
+<pre><code>_round_half_away(x: float) -&gt; int</code></pre>
+<p>MATLAB ``round`` — half away from zero (Python&#x27;s ``round`` is half to even).</p>
+</section>
+<section class="api-member" id="function-bestt-cdf-207">
+<div class="member-kind">function</div>
+<h2>_bestt_cdf</h2>
+<pre><code>_bestt_cdf(m: int, dd: int) -&gt; np.ndarray</code></pre>
+<p>CDF of ``min(randperm(m, dd)) − 1`` (0-based rank), for inverse-transform sampling.</p>
+<p>``randperm`` draws ``dd`` **distinct** ranks, so the minimum follows the
+hypergeometric-style law ``P(rank ≥ k) = C(m−k, dd)/C(m, dd)`` — NOT the
+min-of-``dd``-iid-uniforms law. Built from the exact recurrence
+``S(0)=1, S(k+1) = S(k)·(m−k−dd)/(m−k)``; ``cdf[k] = 1 − S(k+1)``.
+Cached per ``(m, dd)``: both change only when LPSR shrinks PS1.</p>
+</section>
+<section class="api-member" id="function-bestt-231">
+<div class="member-kind">function</div>
+<h2>_bestt</h2>
+<pre><code>_bestt(rng, pop_size: int, D: int) -&gt; np.ndarray</code></pre>
+<p>Port of bestt.m — per-individual towards-best index into the sorted EA_1.</p>
+<p>MATLAB (bestt.m:8) draws ``min(randperm(m, Dd))``: the minimum of ``Dd``
+**distinct** ranks. Sampling ``Dd`` **iid** ranks instead (the closed-form
+``floor(m·(1−u^{1/Dd}))``) shifts the expected donor rank by ``Dd/(Dd+1)`` —
+about one rank, persistently less greedy for the whole run — so draw from the
+exact without-replacement law by inverse transform on the cached CDF.</p>
+</section>
+<section class="api-member" id="function-update-archive-250">
+<div class="member-kind">function</div>
+<h2>_update_archive</h2>
+<pre><code>_update_archive(st: _St, rng, added: np.ndarray) -&gt; None</code></pre>
+<p>Port of updateArchive.m — add replaced parents, dedup rows, random-trim to arc_NP.</p>
+</section>
+<section class="api-member" id="function-gnr1r2-263">
+<div class="member-kind">function</div>
+<h2>_gnr1r2</h2>
+<pre><code>_gnr1r2(rng, ps1: int, npall: int)</code></pre>
+<p>Port of gnR1R2.m — r1,r3 ∈ [0,PS1), r2 ∈ [0,npall); r1≠r0, r2≠{r0,r1}, r3≠{r0,r1,r2}.</p>
+</section>
+<section class="api-member" id="function-ebo-phase-290">
+<div class="member-kind">function</div>
+<h2>_ebo_phase</h2>
+<pre><code>_ebo_phase(st, ev, rng, lb, ub, recorder, n, iter_, gmax, max_nfes)</code></pre>
+<p>One EBO/DE generation on EA_1 (port of EBO.m): mutate, adaptive crossover, select, adapt memories.</p>
+</section>
+<section class="api-member" id="function-scout-phase-435">
+<div class="member-kind">function</div>
+<h2>_scout_phase</h2>
+<pre><code>_scout_phase(st, ev, rng, lb, ub, recorder, n, iter_, max_nfes)</code></pre>
+<p>One modified-CMA-ES generation on EA_2 (port of Scout.m): asin-bell sample, evaluate, adapt m/C/sigma.</p>
+</section>
+<section class="api-member" id="function-ls2-553">
+<div class="member-kind">function</div>
+<h2>_ls2</h2>
+<pre><code>_ls2(st, ev, rng, lb, ub, n, max_nfes)</code></pre>
+<p>Terminal SQP local search on the best (port of LS2.m: fmincon &#x27;sqp&#x27; -&gt; scipy SLSQP).</p>
+</section>
+<section class="api-member" id="function-optimize-617">
+<div class="member-kind">function</div>
+<h2>optimize</h2>
+<pre><code>optimize(problem, options: OptimizerOptions) -&gt; OptimizerResult</code></pre>
+<p>Run EBOwithCMAR under the family contract.</p>
+</section>
+      </article>
+    </main>
+    <aside class="page-toc" aria-label="On this page">
+<h2>On This Page</h2>
+<a class="toc-level-1" href="#gsk-family-optimizers-external-ebowithcmar">gsk_family.optimizers.external.ebowithcmar</a>
+<a class="toc-level-2" href="#members">Members</a>
+<a class="toc-level-2" href="#class-stopls-72">_StopLS</a>
+<a class="toc-level-2" href="#function-cs-gmax-76">_cs_gmax</a>
+<a class="toc-level-2" href="#function-asin-bell-87">_asin_bell</a>
+<a class="toc-level-2" href="#function-lehmer-w-94">_lehmer_w</a>
+<a class="toc-level-2" href="#class-cma-104">_Cma</a>
+<a class="toc-level-2" href="#function-init-cma-par-128">_init_cma_par</a>
+<a class="toc-level-2" href="#class-st-157">_St</a>
+<a class="toc-level-2" href="#function-han-boun-de-183">_han_boun_de</a>
+<a class="toc-level-2" href="#function-han-boun-cma-190">_han_boun_cma</a>
+<a class="toc-level-2" href="#function-round-half-away-199">_round_half_away</a>
+<a class="toc-level-2" href="#function-bestt-cdf-207">_bestt_cdf</a>
+<a class="toc-level-2" href="#function-bestt-231">_bestt</a>
+<a class="toc-level-2" href="#function-update-archive-250">_update_archive</a>
+<a class="toc-level-2" href="#function-gnr1r2-263">_gnr1r2</a>
+<a class="toc-level-2" href="#function-ebo-phase-290">_ebo_phase</a>
+<a class="toc-level-2" href="#function-scout-phase-435">_scout_phase</a>
+<a class="toc-level-2" href="#function-ls2-553">_ls2</a>
+<a class="toc-level-2" href="#function-optimize-617">optimize</a>
+</aside>
+  </div>
+  <script src="../assets/search.js"></script>
+</body>
+</html>

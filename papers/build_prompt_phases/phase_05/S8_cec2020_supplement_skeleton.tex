@@ -1,0 +1,174 @@
+% =====================================================================
+% S8 -- CEC2020 supplement skeleton (PRE-REGISTERED SHELL, NO RESULTS)
+%
+% Committed as part of the pre-registration commit that carries
+% statistical_analysis_plan_addendum_cec2020_lsgo.md, BEFORE any CEC2020
+% result exists. Its purpose is to fix the reporting surface -- which
+% exhibits exist, what each one shows, and which sentence templates may be
+% used -- while the outcome is still unknown.
+%
+% NOT \input anywhere yet. Phase 5.2 wires it into papers/supplementary.tex
+% after S7 (LSGO), with S1--S6 (and S6.5/S6.6/S6.7) never renumbered.
+%
+% RULES FOR WHOEVER FILLS THIS IN:
+%   * Every "% FILL:" slot is populated from pipeline output only. No value
+%     is typed by hand, computed in prose, or rounded by eye.
+%   * No exhibit may be added, dropped, or re-scoped without a dated
+%     amendment to the SAP addendum (its Section 13 is append-only).
+%   * The outcome sentence in S8.1 is CHOSEN from the three pre-written
+%     variants below; the wording is not re-drafted after seeing the data.
+%   * Non-significance is worded "no separation demonstrated" -- never
+%     "equivalent" and never "no difference" (addendum Section 7).
+% =====================================================================
+
+\section{CEC2020 Bound-Constrained Suite}\label{sec:supp:cec2020}
+
+% ---------------------------------------------------------------------
+% Protocol paragraph. Every fact here is known BEFORE the campaign and is
+% therefore already final; only the exhibits below await data.
+% ---------------------------------------------------------------------
+\noindent CEC2020 is reported as a pre-registered confirmatory suite: the
+statistical analysis plan for it was committed, with its SHA-256 recorded in
+the decision log, before a single result existed.  The protocol is the
+competition's own~\cite{yue2020cec2020}: 10 functions at
+$D \in \{5, 10, 15, 20\}$, with F6 and F7 undefined at $D = 5$, giving 38
+scored (function, dimension) cells; 30 runs per cell; and a
+dimension-dependent budget of $\mathrm{MaxFES} = 5 \times 10^{4}$,
+$10^{6}$, $3 \times 10^{6}$ and $10^{7}$ at $D = 5, 10, 15, 20$
+respectively.  Statistics are errors against the known optimum, floored to
+zero below $10^{-8}$, on the same seven-algorithm family panel and the same
+unified seed schedule (base seed 20240620) used throughout this paper, so
+runs are paired across algorithms within each (dimension, function, run).
+% BIND: PR-XX (assigned in Phase 4); addendum Sections 2 and 12
+
+% ---------------------------------------------------------------------
+% Conflict-adjacency disclosure. PRE-COMMITTED TEXT -- do not soften.
+% (addendum Section 10; stated by the authors, not found by reviewers)
+% ---------------------------------------------------------------------
+\paragraph{Declared adjacency.}
+AGSK won the CEC2020 competition, and the CEC2020 AGSK paper is a
+co-author's work.  This suite is therefore a comparator's home regime, and
+is reported as such.  Every dimension-gated \dtgsk{} subsystem is inactive
+at $D \le 20$, so \dtgsk{} runs its adaptive scaffold tier only on this
+suite; a non-leading result here is a predicted boundary condition of the
+dimension-tiering thesis stated in the main text, and is reported as a
+finding rather than discounted.
+
+\subsection{Descriptive Standing}\label{sec:supp:cec2020:standing}
+
+% OUTCOME SENTENCE -- select EXACTLY ONE of the three pre-written variants
+% from addendum Section 9. Delete the other two. Do not re-draft.
+%
+%   [DT-GSK first] "DT-GSK attains the best descriptive family rank on
+%   CEC2020; per-dimension pairwise tests are reported in S8."
+%
+%   [AGSK first] "On AGSK's strongest suite -- the CEC2020 competition it
+%   won -- DT-GSK places <ordinal>; the family panel corroborates AGSK's
+%   published strength in this regime, consistent with the tiering thesis:
+%   every dimension-gated DT-GSK subsystem is inactive at D<=20."
+%
+%   [tie] "DT-GSK and AGSK share the best descriptive family rank on
+%   CEC2020; paired tests (S8) do not separate them."
+%
+% FILL: chosen outcome sentence.
+
+\begin{table}[htbp]
+  \centering
+  \caption{% FILL: caption from the caption registry. MUST disclose that the
+  % $D=5$ task set is reduced (8 functions; F6/F7 undefined) and that
+  % MaxFES changes with dimension. No test is attached to this aggregate.
+  }\label{tab:supp:cec2020:ranks}
+  % FILL: tie-corrected Friedman mean ranks, one column per dimension plus
+  % the descriptive unweighted mean of the four per-dimension mean ranks.
+  % Rows = the seven family algorithms. Source: AN-OMNI-2020-D5..D20 and
+  % AN-RANKAGG-2020-OVERALL.
+\end{table}
+
+\subsection{Omnibus Tests by Dimension}\label{sec:supp:cec2020:omnibus}
+
+% FILL: per dimension -- Friedman statistic, Iman-Davenport F, df, p, and
+% the seeded Monte-Carlo permutation p (B=100000). N=8 blocks at D=5, N=10
+% otherwise. Where the two criteria disagree at the boundary, the row
+% discloses it. Report n_eff after zero-discard.
+%
+% Power note (pre-committed, addendum Section 7): at k=7 the Nemenyi
+% critical distance is 3.185 (N=8) and 2.849 (N=10) against 1.673 at N=29,
+% so these families are low-powered BY CONSTRUCTION. State this whether or
+% not the omnibus reaches significance.
+
+\begin{table}[htbp]
+  \centering
+  \caption{% FILL:
+  }\label{tab:supp:cec2020:omnibus}
+  % FILL: AN-OMNI-2020-D5/D10/D15/D20.
+\end{table}
+
+\subsection{Pairwise Comparisons Against \dtgsk{}}\label{sec:supp:cec2020:pairwise}
+
+% FILL: two layers, both Holm-corrected across the m=6 comparators,
+% two-sided, alpha=0.05:
+%   (a) AN-PW-2020-D*  : across-function Wilcoxon on per-function mean
+%       errors, n=8 at D=5 and n=10 otherwise, decided by EXACT sign-flip
+%       enumeration (2^n), with the normal-approximation p also recorded
+%       for continuity with the frozen suites; method recorded per row.
+%       Zero differences |d| < 1e-8 are discarded. If n_eff < 6 the row
+%       reports VERBATIM: "not decidable at alpha=0.05 (exact two-sided
+%       floor 2/2^5 = 0.0625)".
+%   (b) AN-PWRUN-2020-D*: per-function run-level Wilcoxon over the 30
+%       paired runs, Holm across functions per (dimension, comparator).
+
+\begin{table}[htbp]
+  \centering
+  \caption{% FILL:
+  }\label{tab:supp:cec2020:pairwise}
+  % FILL: AN-PW-2020-D5..D20.
+\end{table}
+
+\begin{table}[htbp]
+  \centering
+  \caption{% FILL:
+  }\label{tab:supp:cec2020:pairwise-run}
+  % FILL: AN-PWRUN-2020-D5..D20.
+\end{table}
+
+\subsection{Effect Sizes}\label{sec:supp:cec2020:effects}
+
+% FILL: AN-EFF-2020-D* -- A12 and Cliff's delta at run level with BCa 95%
+% confidence intervals (B=10000) on paired mean-error differences.
+% Degenerate cells reuse the SAP Section 7 disclosure strings VERBATIM;
+% they are never silently omitted and never reported as a point estimate
+% without their disclosure.
+
+\begin{table}[htbp]
+  \centering
+  \caption{% FILL:
+  }\label{tab:supp:cec2020:effects}
+  % FILL: AN-EFF-2020-D5..D20.
+\end{table}
+
+\subsection{Robustness}\label{sec:supp:cec2020:robustness}
+
+% FILL: AN-ROB-2020, all three registered variants:
+%   (1) mean-vs-median re-rank;
+%   (2) across-dimension aggregate variants -- D10/15/20-only mean AND the
+%       common-8-function-subset mean at all four dimensions;
+%   (3) floor sensitivity, 1e-6 against 1e-8.
+%
+% BINDING RULE (addendum Section 4, SAP Section 10): if EITHER aggregate
+% variant flips \dtgsk{}'s ordinal relative to the primary aggregate, the
+% main-text headline carries the instability disclosure. This is not
+% optional and is not a supplement-only remark.
+
+\begin{table}[htbp]
+  \centering
+  \caption{% FILL:
+  }\label{tab:supp:cec2020:robustness}
+  % FILL: AN-ROB-2020.
+\end{table}
+
+\subsection{Per-Function Detail}\label{sec:supp:cec2020:detail}
+
+% FILL: best/median/mean/worst/SD of error per algorithm for all 38 cells,
+% one table per dimension. Source: the promoted per-dimension summary CSVs
+% of the cec2020 evidence release; row counts 1,140 per algorithm
+% (38 cells x 30 runs).

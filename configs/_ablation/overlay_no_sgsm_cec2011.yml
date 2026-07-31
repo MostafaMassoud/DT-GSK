@@ -1,0 +1,32 @@
+# SGSM/ISM-overlay direct isolation on CEC2011 — cell: no_sgsm (ISM OFF).
+#
+# Single-toggle contrast against overlay_full_cec2011.yml: identical seed, runs,
+# suite, functions, dimensions and worker count; ONLY interaction_graph_enabled
+# differs. Any per-function difference between the two output trees is therefore
+# attributable to ISM alone.
+#
+# See overlay_full_cec2011.yml for scope rationale and the honest prior.
+optimizers:
+- dt-gsk
+suite: cec2011
+functions:
+- 9
+- 11
+- 12
+- 17
+- 18
+- 19
+- 20
+dimensions: native
+runs: 25
+seed: 20240620
+seed_policy: unified
+rand_generator: threefry
+parallel: true
+workers: 15
+generation_logs: false
+convergence_graphs: false
+overwrite: true
+output_root: results/_ablation_sgsm_cec2011/no_sgsm
+optimizer_options:
+  interaction_graph_enabled: false

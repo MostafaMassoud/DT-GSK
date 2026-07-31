@@ -1,0 +1,27 @@
+# Complete the ONE missing piece of the family evidence: the full D10 scored
+# campaign for DT-GSK (all 29 CEC2017 functions, F2 excluded, 51 runs), under
+# the canonical unified Threefry seed schedule. Today the scored tree has only
+# F30 at D10; every comparator already has full D10. Once this lands, the family
+# Friedman / CD-diagram / Wilcoxon report can be computed across all 4 dimensions
+# and the "best GSK family" claim is rigorously provable.
+#
+# Writes to a STAGING root (not the committed results/_run_all) so the existing
+# D30/D50/D100 summaries are untouched until you promote/verify. Flag OFF
+# (default pub behaviour) -- this is the canonical scored run, not an experiment.
+#
+# Runtime: D10 is the cheapest dimension; ~1 hour at 8 workers.
+optimizers:
+  - dt-gsk
+suite: cec2017
+functions: default        # all scored funcs (F1, F3..F30); F2 excluded by protocol
+dimensions: [10]
+runs: 51
+seed: 20240620
+seed_policy: unified
+rand_generator: threefry
+parallel: true
+workers: 15
+generation_logs: false
+convergence_graphs: false
+overwrite: true
+output_root: results/_staging_d10

@@ -1,0 +1,32 @@
+optimizers:
+  - gsk
+  - agsk
+  - apgsk
+  - atmals-gsk
+  - fdb-agsk
+suite: cec2017
+functions:
+  - 1
+dimensions:
+  - 10
+runs: 1
+seed: 20240620
+seed_policy: unified
+rand_generator: threefry
+max_evaluations: 1000
+overwrite: true
+parallel: true
+parallel_backend: process
+workers: 2
+warmup: true
+profile: true
+convergence_graphs: true
+data_root: benchmarks/cec_suite
+reference_root: benchmarks/cec_reference_results
+output_root: results/_run_all
+optimizer_options:
+  np: 20
+  np_init: 20
+  min_pop_size: 12
+  fdb_case: 1
+  protocol: cec2017

@@ -1,0 +1,59 @@
+# GSK family on CEC2020
+#
+# The seven-method panel every statistical claim in the manuscript is computed over.
+# Do not add external baselines here -- the panel definition is what the statistics assume.
+#
+# Usage:
+#   python run.py --config configs/family_cec2020.yml --workers 14
+#
+# Resume is automatic and safe: re-running the same line skips every completed
+# (function, run, seed) cell. Do NOT add `overwrite: true` unless you intend to
+# discard existing runs -- it is scoped per optimizer, so it would clear exactly
+# the optimizers listed below.
+#
+# Protocol is identical across family and baselines so the cells are directly
+# comparable and fold into one cross-optimizer analysis: same seed schedule,
+# same generator, same budget, same output tree.
+
+optimizers:
+  - gsk
+  - agsk
+  - apgsk
+  - fdb-agsk
+  - atmals-gsk
+  - egsk
+  - dt-gsk
+
+suite: cec2020
+functions: all          # all 10 functions
+# DIMENSION SCOPE. All four protocol dimensions. F6/F7 at D=5 are undefined by
+# the protocol (Yue et al. 2019 SS2.1) and are dropped from the schedule
+# automatically; F1/F8 at D=5/D=15 were validated against the in-repo C++
+# oracle on 2026-07-26 (worst rel 1.258e-15 vs the committed 1e-12 criterion)
+# and are now runnable -- see tests/regression/test_cec2020_restored_cells.py.
+dimensions:
+  - 5
+  - 10
+  - 15
+  - 20
+runs: 30                # CEC2020 convention (Yue et al. 2020 problem definitions);
+                        # author-confirmed 2026-07-26 and corroborated by Mohamed et al.
+                        # (2020) AGSK, itself a CEC2020 paper, which reports 30 runs.
+                        # Corrects an unsourced 25 inherited from the sibling project.
+
+seed: 20240620
+seed_policy: unified
+rand_generator: threefry
+max_evaluations: 0          # 0 = the suite's own protocol budget
+
+overwrite: false
+parallel: true
+parallel_backend: process
+numba_threads: 1
+generation_logs: true
+convergence_graphs: false
+benchmark_fp_mode: default
+benchmark_backend: auto
+data_root: benchmarks/cec_suite_python
+reference_root: benchmarks/cec_reference_results
+output_root: results/_run_all

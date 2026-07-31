@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Project Structure - GSK Family Python Documentation">
+  <title>Project Structure | GSK Family Python Documentation</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <div class="site-shell">
+    <aside class="sidebar">
+<div class="brand"><a href="index.html">GSK Family Python</a></div>
+<input class="nav-search" type="search" placeholder="Filter docs" aria-label="Filter docs">
+<nav class="nav-list" aria-label="Documentation">
+<section><h2>Getting Started</h2>
+<a class="nav-link" href="getting-started_configuration.html">Configuration</a>
+<a class="nav-link" href="getting-started_explainer.html">Explainer</a>
+<a class="nav-link" href="getting-started_runbook.html">Runbook</a>
+<a class="nav-link" href="getting-started_troubleshooting.html">Troubleshooting</a>
+<a class="nav-link" href="getting-started_tutorial.html">Tutorial</a>
+<a class="nav-link" href="getting-started_user_guide.html">User Guide</a>
+</section>
+<section><h2>Reference</h2>
+<a class="nav-link" href="reference_api.html">API Reference</a>
+<a class="nav-link" href="reference_architecture.html">Architecture</a>
+<a class="nav-link" href="reference_benchmark_mapping.html">Benchmark Mapping</a>
+<a class="nav-link" href="reference_benchmark_protocol.html">Benchmark Protocol</a>
+<a class="nav-link" href="reference_cec2011_cpp_python_equivalence_review.html">CEC2011 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013_cpp_python_equivalence_review.html">CEC2013 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013lsgo_cpp_python_equivalence_review.html">CEC2013LSGO C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2017_cpp_python_equivalence_review.html">CEC2017 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2020_cpp_python_equivalence_review.html">CEC2020 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="index.html">Documentation Index</a>
+<a class="nav-link" href="reference_fp_regime.html">Floating-Point Regime Verification</a>
+<a class="nav-link" href="reference_diagrams.html">Flowcharts And Diagrams</a>
+<a class="nav-link" href="reference_glossary.html">Glossary</a>
+<a class="nav-link" href="LICENSES.html">Licenses</a>
+<a class="nav-link" href="reference_module_dependencies.html">Module Dependencies</a>
+<a class="nav-link active" href="reference_project_structure.html">Project Structure</a>
+<a class="nav-link" href="reference_python_optimizer_interface.html">Python Optimizer Interface</a>
+<a class="nav-link" href="reference_result_schema.html">Result Schema</a>
+<a class="nav-link" href="reference_seed_policy.html">Seed Policy</a>
+<a class="nav-link" href="reference_workflows.html">Workflows</a>
+</section>
+<section><h2>Algorithm Guides</h2>
+<a class="nav-link" href="algorithms_agsk.html">AGSK — Adaptive Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_apgsk.html">APGSK — Adaptive-Parameters Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_atmals-gsk.html">ATMALS-GSK — Adaptive Tuning, Memory, Adaptive Local Search</a>
+<a class="nav-link" href="algorithms_dt-gsk.html">DT-GSK — Dimension-Tiered Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_egsk.html">EGSK — Enhanced Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_fdb-agsk.html">FDB-AGSK — Fitness-Distance-Balance AGSK</a>
+<a class="nav-link" href="algorithms_gsk.html">GSK — Gaining-Sharing Knowledge</a>
+</section>
+<section><h2>Development</h2>
+<a class="nav-link" href="development_BUG_resume_summary_truncation.html">BUG-RESUME-01 — resume mode truncates (and mis-computes) the per-dimension summary CSV</a>
+<a class="nav-link" href="development_LSGO_ACCELERATION_PLAN.html">CEC2013LSGO Acceleration Plan — all 7 GSK-family algorithms, bit-identically</a>
+<a class="nav-link" href="development_LSGO_INTEGRATION_CAMPAIGN.html">CEC2013LSGO Integration — Campaign Plan</a>
+<a class="nav-link" href="development_CEC2017_PREC_adjudication.html">CEC2017-PREC — adjudication (CLOSED 2026-07-25)</a>
+<a class="nav-link" href="development_code_reading_guide.html">Code Reading Guide</a>
+<a class="nav-link" href="development_contributor_guide.html">Contributor Guide</a>
+<a class="nav-link" href="development_DECC_G_port_record.html">DECC-G port — fidelity and validation record</a>
+<a class="nav-link" href="development_developer_guide.html">Developer Guide</a>
+<a class="nav-link" href="development_README.html">Development Docs</a>
+<a class="nav-link" href="development_dt_gsk_core_reference.html">DT-GSK Core Reference — the vendored core and its byte-identity lock</a>
+<a class="nav-link" href="development_evidence_rerun_runbook.html">DT-GSK re-run runbook — corrected implementation (C006 + graph backend)</a>
+<a class="nav-link" href="development_egsk_port_spec.html">EGSK — Algorithm Spec &amp; Porting Verdict</a>
+<a class="nav-link" href="development_extension_guide.html">Extension Guide</a>
+<a class="nav-link" href="development_FAMILY_ACCELERATION_PLAN.html">Family-wide acceleration plan — 7 algorithms x 5 suites, bit-identical only</a>
+<a class="nav-link" href="development_FINAL_PUBLICATION_PLAN.html">FINAL PUBLICATION PLAN — DT-GSK, Four(/Five)-Suite Scope</a>
+<a class="nav-link" href="development_ACCELERATION_CAMPAIGN_PROMPT.html">GSK-Family Acceleration Campaign — Execution Prompt</a>
+<a class="nav-link" href="development_maintenance_guide.html">Maintenance Guide</a>
+<a class="nav-link" href="development_PORT_05_TUNING_TRIAGE.html">Porting project-05 tuning into 02 — Phase 1 audit and triage</a>
+<a class="nav-link" href="development_REFERENCE_PROMOTION_PLAN.html">Reference Promotion Plan — CEC2013LSGO now, CEC2020 behind its completeness gate</a>
+<a class="nav-link" href="development_SIBLING_CAMPAIGN_TRANSFER.html">Sibling-Campaign Transfer — every tuning that can make the GSK family fast</a>
+</section>
+<section><h2>Research</h2>
+<a class="nav-link" href="research_egsk_validation_appendix.html">EGSK Validation Appendix — Paired Port-vs-Reference Equivalence</a>
+<a class="nav-link" href="research_numerical_examples.html">Numerical Examples</a>
+<a class="nav-link" href="research_performance.html">Performance</a>
+<a class="nav-link" href="research_reproducibility.html">Reproducibility</a>
+<a class="nav-link" href="research_researcher_handbook.html">Researcher Handbook</a>
+<a class="nav-link" href="research_statistical_analysis.html">Statistical Analysis (GSK-family comparison)</a>
+<a class="nav-link" href="research_validation_report.html">Validation Report</a>
+</section>
+<section><h2>Prompts</h2>
+<a class="nav-link" href="prompt_documentation-deep-upgrade.html">Deep Documentation Review &amp; Upgrade Prompt — GSK Family Python</a>
+<a class="nav-link" href="prompt_project-review.html">Deep Expert Review Prompt For GSK Family Python</a>
+<a class="nav-link" href="prompt_documentation-review.html">Documentation Review Prompt</a>
+<a class="nav-link" href="prompt_publication-polish.html">Final Publication Prompt — Production-Ready Q1 Release of GSK Family Python v1.1</a>
+</section>
+<section><h2>Python API</h2>
+<a class="nav-link" href="api_index.html">API Module Index</a>
+<a class="nav-link api-link" href="api/gsk_family.__init__.html">gsk_family.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.__init__.html">gsk_family.analysis.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.family_report.html">gsk_family.analysis.family_report</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.figures.html">gsk_family.analysis.figures</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.latex_tables.html">gsk_family.analysis.latex_tables</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.project_policy.html">gsk_family.analysis.project_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.result_loader.html">gsk_family.analysis.result_loader</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistical_tests.html">gsk_family.analysis.statistical_tests</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistics.html">gsk_family.analysis.statistics</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.__init__.html">gsk_family.benchmark_adapter.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.factory.html">gsk_family.benchmark_adapter.factory</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.problem.html">gsk_family.benchmark_adapter.problem</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.protocol.html">gsk_family.benchmark_adapter.protocol</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.__init__.html">gsk_family.cli.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.list.html">gsk_family.cli.list</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.run.html">gsk_family.cli.run</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.stats.html">gsk_family.cli.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.validate.html">gsk_family.cli.validate</a>
+<a class="nav-link api-link" href="api/gsk_family.common.__init__.html">gsk_family.common.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.common.bounds.html">gsk_family.common.bounds</a>
+<a class="nav-link api-link" href="api/gsk_family.common.donors.html">gsk_family.common.donors</a>
+<a class="nav-link api-link" href="api/gsk_family.common.numeric_compat.html">gsk_family.common.numeric_compat</a>
+<a class="nav-link api-link" href="api/gsk_family.common.population.html">gsk_family.common.population</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reduction.html">gsk_family.common.reduction</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reference_rng.html">gsk_family.common.reference_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.rng.html">gsk_family.common.rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.threefry_rng.html">gsk_family.common.threefry_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.__init__.html">gsk_family.optimizers.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_profiles.html">gsk_family.optimizers._dt_profiles</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_rng.html">gsk_family.optimizers._dt_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._kernels.html">gsk_family.optimizers._kernels</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.agsk.html">gsk_family.optimizers.agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.apgsk.html">gsk_family.optimizers.apgsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_gsk.html">gsk_family.optimizers.atmals_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_helpers.html">gsk_family.optimizers.atmals_helpers</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.dt_gsk.html">gsk_family.optimizers.dt_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.egsk.html">gsk_family.optimizers.egsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.__init__.html">gsk_family.optimizers.external.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._base.html">gsk_family.optimizers.external._base</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._telemetry_shim.html">gsk_family.optimizers.external._telemetry_shim</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.cmaes.html">gsk_family.optimizers.external.cmaes</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.decc_g.html">gsk_family.optimizers.external.decc_g</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.ebowithcmar.html">gsk_family.optimizers.external.ebowithcmar</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.jso.html">gsk_family.optimizers.external.jso</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade.html">gsk_family.optimizers.external.lshade</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade_spacma.html">gsk_family.optimizers.external.lshade_spacma</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.mos_cec2013lsgo.html">gsk_family.optimizers.external.mos_cec2013lsgo</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.shade_ils.html">gsk_family.optimizers.external.shade_ils</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_agsk.html">gsk_family.optimizers.fdb_agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_scores.html">gsk_family.optimizers.fdb_scores</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.gsk.html">gsk_family.optimizers.gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.__init__.html">gsk_family.runners.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.config.html">gsk_family.runners.config</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.fp_regime.html">gsk_family.runners.fp_regime</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.output.html">gsk_family.runners.output</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.parallel.html">gsk_family.runners.parallel</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.performance.html">gsk_family.runners.performance</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.run_experiment.html">gsk_family.runners.run_experiment</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.seed_policy.html">gsk_family.runners.seed_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.verification.html">gsk_family.runners.verification</a>
+<a class="nav-link api-link" href="api/gsk_family.stats.html">gsk_family.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.types.html">gsk_family.types</a>
+</section>
+</nav></aside>
+    <main class="content">
+      <article class="doc-card">
+        <h1 id="project-structure">Project Structure</h1>
+<blockquote><strong>What this page is.</strong> A directory-by-directory map of the repository — what</blockquote>
+<blockquote>every maintained area holds. <strong>Who it is for.</strong> Developers orienting in the</blockquote>
+<blockquote>codebase. <strong>See also.</strong> <a href="reference_architecture.html">Architecture</a> for the runtime layout</blockquote>
+<blockquote>and <a href="reference_module_dependencies.html">Module Dependencies</a> for dependency direction.</blockquote>
+<p>This document describes every maintained project area. Large numeric benchmark data and imported reference evidence are summarized by directory because they contain many generated or third-party files; use <code>gsk-list --references</code> and <code>Get-ChildItem -Recurse benchmarks</code> for exhaustive local enumeration.</p>
+<h2 id="root-files">Root Files</h2>
+<div class="table-wrap"><table><thead><tr><th>Path</th><th>Purpose</th></tr></thead><tbody><tr><td><code>.gitignore</code></td><td>Ignore generated caches, build output, and experiment results.</td></tr><tr><td><code>ARCHITECTURE.md</code></td><td>Authoritative structural map of the system (layers, contracts, ownership); the reference-folder <a href="reference_architecture.html">architecture.md</a> summarizes it.</td></tr><tr><td><code>CITATION.cff</code></td><td>Citation metadata for research use.</td></tr><tr><td><code>MANIFEST.in</code></td><td>Source-distribution inclusion rules for docs, configs, scripts, tests, and package data.</td></tr><tr><td><code>pyproject.toml</code></td><td>Build metadata, dependencies, package discovery, and console scripts.</td></tr><tr><td><code>README.md</code></td><td>Detailed root landing page with commands, documentation map, validation, reproducibility, and maintenance guidance.</td></tr><tr><td><code>REPO_MAP.md</code></td><td>One-screen newcomer orientation to the repository&#x27;s three cooperating parts.</td></tr><tr><td><code>requirements.txt</code></td><td>Runtime dependency pins mirroring <code>pyproject.toml</code> for plain-<code>pip</code> installs.</td></tr><tr><td><code>requirements-dev.txt</code></td><td>Development dependency pins (runtime plus test/lint/build tooling).</td></tr><tr><td><code>run.py</code></td><td>Canonical source-checkout runner for direct campaign execution.</td></tr><tr><td><code>runbook.md</code></td><td>Quick copy-paste operational command reference.</td></tr><tr><td><code>SKILL.md</code></td><td>Project-specific agent operating contract.</td></tr><tr><td><code>PROJECT_RULES.md</code></td><td>The project &quot;constitution&quot;: binding engineering rules for the codebase.</td></tr><tr><td><code>CODING_STANDARD.md</code></td><td>Python coding standard for the package.</td></tr><tr><td><code>DESIGN_GUIDE.md</code></td><td>Design principles and the guide to extending the system.</td></tr><tr><td><code>BENCHMARK_RULES.md</code></td><td>Rules governing benchmark evaluation and protocol fidelity.</td></tr><tr><td><code>PERFORMANCE_RULES.md</code></td><td>Rules governing performance and parallel-execution work.</td></tr><tr><td><code>FINAL_RELEASE_REPORT.md</code></td><td>DT-GSK final release report (CEC2017).</td></tr></tbody></table></div>
+<p>The root Markdown operating documents are <code>README.md</code> (landing page), <code>SKILL.md</code> (agent operating contract), and <code>runbook.md</code> (command reference). The full documentation package lives under <code>docs/</code>, organized into themed subfolders (<code>getting-started/</code>, <code>reference/</code>, <code>algorithms/</code>, <code>development/</code>, <code>research/</code>, <code>prompt/</code>) with <code>docs/index.md</code> as the entry point; the review and audit prompts live in <code>docs/prompt/</code>.</p>
+<h2 id="directories">Directories</h2>
+<div class="table-wrap"><table><thead><tr><th>Path</th><th>Purpose</th></tr></thead><tbody><tr><td><code>benchmarks/</code></td><td>Python CEC evaluator and imported reference evidence.</td></tr><tr><td><code>configs/</code></td><td>YAML experiment configurations.</td></tr><tr><td><code>docs/</code></td><td>Canonical documentation in themed subfolders (getting-started, reference, algorithms, development, research, prompt) with <code>docs/index.md</code> as the entry point.</td></tr><tr><td><code>docs/html/</code></td><td>Generated browsable HTML documentation site.</td></tr><tr><td><code>papers/</code></td><td>Manuscript sources (<code>main.tex</code>), the matplotlib review pack (<code>scripts/generate_review_pack.py</code> -&gt; <code>DT-GSK-CEC2017-review.pdf</code>), figure/table generators (<code>scripts/generate_latex_tables.py</code>, <code>scripts/generate_ablation_matrix.py</code>, the <code>scripts/generate_*_convergence.py</code> grids, and more), and bibliography.</td></tr><tr><td><code>reference_papers/</code></td><td>Acquisition bundle for the manuscript&#x27;s citations: <code>references.bib</code>, a grouped index (<code>README.md</code>), a flat checklist (<code>PAPERS_LIST.md</code>), and the 57 cited PDFs named <code>&lt;bibkey&gt;.pdf</code> (gitignored, copyrighted).</td></tr><tr><td><code>results/</code></td><td>Generated experiment output: <code>_run_all/</code> (campaign trees plus the <code>_analysis/</code> statistics output), <code>_ablation/</code> (per-cell DT-GSK ablation runs), and <code>ablation/</code> (aggregated ablation rank-summary matrices). This directory is not source evidence.</td></tr><tr><td><code>scripts/</code></td><td>CEC suite launchers, the documentation builder, and developer utilities.</td></tr><tr><td><code>src/gsk_family/</code></td><td>Importable Python package.</td></tr><tr><td><code>tests/</code></td><td>Pytest unit, smoke, regression, and performance checks.</td></tr></tbody></table></div>
+<h3 id="reference-results">Reference Results</h3>
+<p><code>benchmarks/cec_reference_results/&lt;suite&gt;/&lt;optimizer&gt;/</code> is the committed reference panel — the paper&#x27;s single source of truth for all data and statistics. Each optimizer directory is flat (no <code>summary/</code> subdirectory): per-dimension summary CSVs <code>&lt;opt&gt;_&lt;suite&gt;_D&lt;dim&gt;.csv</code> (plus a <code>&lt;opt&gt;_cec2011.csv</code> all-functions rollup for cec2011), <code>per_run.csv</code>, the provenance files (<code>environment.json</code>, <code>run_config.json</code>, <code>seed_schedule.csv</code>, <code>verification.json</code>, <code>phase0_protocol.json</code>), <code>curves/</code> (per-run convergence CSVs), and <code>gen_logs/</code> (<code>CheckpointErrors_*.csv</code>). The full 7-optimizer panel (<code>gsk</code>, <code>agsk</code>, <code>apgsk</code>, <code>fdb-agsk</code>, <code>atmals-gsk</code>, <code>egsk</code>, <code>dt-gsk</code>) exists for exactly the three suites that carry committed reference evidence: <code>cec2017</code>, <code>cec2011</code>, and <code>cec2013</code>. The <code>cec2020</code> and <code>cec2013lsgo</code> suites are runnable in code but ship no committed reference statistics here. Rendered PNGs and <code>*_log_*.txt</code> reports are not committed (both are regenerable). Two sibling trees sit beside the suite folders: <code>_ablation/</code> (DT-GSK scaffold and SGSM-overlay ablation cells, with a <code>manifest.json</code>) and <code>_paper_tables/</code> (the frozen <code>T*.csv</code> manuscript tables).</p>
+<h2 id="source-package">Source Package</h2>
+<div class="table-wrap"><table><thead><tr><th>Path</th><th>Purpose</th></tr></thead><tbody><tr><td><code>src/gsk_family/__init__.py</code></td><td>Package marker and version surface.</td></tr><tr><td><code>src/gsk_family/types.py</code></td><td>Shared dataclasses for optimizer and run records.</td></tr><tr><td><code>src/gsk_family/stats.py</code></td><td>Error, summary, and formatting helpers.</td></tr><tr><td><code>src/gsk_family/analysis/</code></td><td>Post-run statistical comparison: Friedman/Wilcoxon/Holm tests, Vargha-Delaney/Cliff effect sizes, BCa bootstrap, Nemenyi CD and rank figures, and LaTeX tables.</td></tr><tr><td><code>src/gsk_family/benchmark_adapter/</code></td><td>Suite protocol metadata, problem factory, and shape validation.</td></tr><tr><td><code>src/gsk_family/cli/</code></td><td><code>gsk-list</code>, <code>gsk-run</code>, <code>gsk-validate</code>, and <code>gsk-stats</code> entry points.</td></tr><tr><td><code>src/gsk_family/common/</code></td><td>reference-compatible RNG, rounding, donor, bounds, population, and reduction helpers.</td></tr><tr><td><code>src/gsk_family/optimizers/</code></td><td>GSK family optimizer kernels and optimizer-local helper modules.</td></tr><tr><td><code>src/gsk_family/runners/</code></td><td>Config parsing, seed policy, execution, output writers, parallel dispatch, profiling, floating-point-regime verification (<code>fp_regime.py</code>), and reference verification.</td></tr></tbody></table></div>
+<h3 id="analysis-package">Analysis Package</h3>
+<p>The <code>analysis/</code> package is the post-run statistical layer behind <code>gsk-stats</code>:</p>
+<div class="table-wrap"><table><thead><tr><th>Path</th><th>Purpose</th></tr></thead><tbody><tr><td><code>analysis/family_report.py</code></td><td>Orchestrator (<code>generate_family_report</code>, <code>analyze_family</code>, <code>write_report</code>) tying the loaders, tests, figures, and tables together.</td></tr><tr><td><code>analysis/statistics.py</code></td><td>Test kernel: paired Wilcoxon, Friedman ranks, Holm/Benjamini-Hochberg/Bonferroni corrections, Vargha-Delaney A12, win/tie/loss, and <code>bootstrap_bca_ci</code>.</td></tr><tr><td><code>analysis/statistical_tests.py</code></td><td>Higher-level Wilcoxon/Friedman result records and table formatting used by the live <code>--stats</code> pass.</td></tr><tr><td><code>analysis/result_loader.py</code></td><td>Discover and load reference and reproduced summary tables — reference-first: the committed panel is the single source of truth, a locally reproduced run is only a fallback; suite/dimension defaults.</td></tr><tr><td><code>analysis/project_policy.py</code></td><td>Single source of truth for <code>RUNNABLE_OPTIMIZERS</code> and the <code>REFERENCE_COMPARATORS</code> panel.</td></tr><tr><td><code>analysis/figures.py</code></td><td>Nemenyi critical-difference and rank-chart PNG rendering.</td></tr><tr><td><code>analysis/latex_tables.py</code></td><td>Friedman-rank and Wilcoxon-summary LaTeX fragments.</td></tr></tbody></table></div>
+<h2 id="configs">Configs</h2>
+<div class="table-wrap"><table><thead><tr><th>Path</th><th>Purpose</th></tr></thead><tbody><tr><td><code>configs/smoke.yml</code></td><td>Fast smoke experiment.</td></tr><tr><td><code>configs/all_optimizers_smoke.yml</code></td><td>Fast all-optimizer sphere smoke experiment with profiling metadata.</td></tr><tr><td><code>configs/all_optimizers_cec2017_reduced.yml</code></td><td>Reduced all-optimizer CEC2017 parity experiment.</td></tr><tr><td><code>configs/golden_validation_smoke.yml</code></td><td>Reduced reference-backed validation campaign.</td></tr><tr><td><code>configs/performance_campaign_smoke.yml</code></td><td>Serial-versus-parallel performance smoke campaign.</td></tr><tr><td><code>configs/all_cec2011.yml</code></td><td>CEC2011 suite campaign template.</td></tr><tr><td><code>configs/all_cec2017.yml</code></td><td>CEC2017 suite campaign template.</td></tr><tr><td><code>configs/agsk_cec2020.yml</code></td><td>AGSK CEC2020 campaign template.</td></tr><tr><td><code>configs/_ablation/</code></td><td>Generated per-cell ablation configs written by <code>scripts/run_ablation.py</code>.</td></tr><tr><td><code>configs/_recover/</code></td><td>Recovery configs for regenerating lost reference cells (e.g. <code>apgsk_cec2017_recover.yml</code>).</td></tr><tr><td><code>configs/experimental/</code></td><td>Opt-in experimental and diagnostic campaign configs.</td></tr><tr><td><code>configs/publish/</code></td><td>Publication campaign configs (e.g. <code>dt_gsk_cec2017_final.yml</code>).</td></tr><tr><td><code>configs/README.md</code></td><td>Notes on the config files.</td></tr></tbody></table></div>
+<h2 id="scripts">Scripts</h2>
+<div class="table-wrap"><table><thead><tr><th>Path</th><th>Purpose</th></tr></thead><tbody><tr><td><code>scripts/run_all_cec2011.py</code></td><td>Launch CEC2011 campaign through <code>gsk-run</code>.</td></tr><tr><td><code>scripts/run_all_cec2013.py</code></td><td>Launch CEC2013 campaign through <code>gsk-run</code>.</td></tr><tr><td><code>scripts/run_all_cec2013lsgo.py</code></td><td>Launch CEC2013LSGO campaign through <code>gsk-run</code>.</td></tr><tr><td><code>scripts/run_all_cec2017.py</code></td><td>Launch CEC2017 campaign through <code>gsk-run</code>.</td></tr><tr><td><code>scripts/run_all_cec2020.py</code></td><td>Launch CEC2020 campaign through <code>gsk-run</code>.</td></tr><tr><td><code>scripts/run_gsk_family.py</code></td><td>Source-checkout run wrapper for direct campaign execution.</td></tr><tr><td><code>scripts/run_ablation.py</code></td><td>DT-GSK scaffold ablation launcher (remove-one/add-one cells on <code>cec2017</code>/<code>cec2011</code>/<code>cec2013</code>); writes <code>configs/_ablation/&lt;cell&gt;.yml</code> and <code>results/_ablation/&lt;cell&gt;/</code>.</td></tr><tr><td><code>scripts/build_docs_html.py</code></td><td>Generate the browsable HTML documentation package from Markdown and Python docstrings.</td></tr><tr><td><code>scripts/validate_profile_lock.py</code></td><td>CI profile-lock check guarding the published parameter profiles.</td></tr><tr><td><code>scripts/validate_egsk_vs_reference.py</code></td><td>Paired per-run validation of the Python EGSK port against the imported MATLAB reference checkpoint logs.</td></tr><tr><td><code>scripts/parity_trace.py</code></td><td>Reference-parity diagnostic for tracing optimizer streams.</td></tr><tr><td><code>scripts/wilcoxon_reference.py</code></td><td>Standalone Wilcoxon reference-comparison diagnostic.</td></tr><tr><td><code>scripts/analyze_dt_diagnostics.py</code></td><td>Offline reader that aggregates opt-in DT-GSK per-generation diagnostic traces into summary CSVs.</td></tr><tr><td><code>scripts/plot_convergence_from_curves.py</code></td><td>Render convergence-graph PNGs from already-committed curve CSVs, without re-running an optimizer.</td></tr><tr><td><code>scripts/run_campaign.py</code></td><td>One-command, resumable driver for the whole post-fix evidence campaign; runs everything still missing, in order, and never overwrites completed work.</td></tr><tr><td><code>scripts/retime_comparators.py</code></td><td>Re-time the six comparator algorithms on CEC2017 on one idle machine, for a single-environment runtime table (RT-001).</td></tr><tr><td><code>scripts/promote_evidence.py</code></td><td>Promote an accepted staging bundle into the immutable <code>benchmarks/cec_reference_results/</code> evidence tree.</td></tr><tr><td><code>scripts/recover_apgsk_perrun.py</code></td><td>One-off recovery of the lost apgsk CEC2017 D10/30/50 per-run rows into the reference tree (anomaly A2-004).</td></tr><tr><td><code>scripts/run_overlay_ablation_51.py</code></td><td>Run the SGSM-overlay direct-isolation ablation at 51 runs per cell for CEC2017 (D50/D100) and CEC2013 (D50).</td></tr><tr><td><code>scripts/README.md</code></td><td>Notes on the scripts.</td></tr></tbody></table></div>
+<h2 id="documentation">Documentation</h2>
+<p><code>docs/index.md</code> is the maintained index. The canonical guides are grouped into themed subfolders: <code>getting-started/</code>, <code>reference/</code>, <code>algorithms/</code>, <code>development/</code>, <code>research/</code>, and <code>prompt/</code> (the review and audit prompts). Rich workflow diagrams and numerical examples live in <code>docs/reference/diagrams.md</code> and <code>docs/research/numerical_examples.md</code>.</p>
+<h2 id="tests">Tests</h2>
+<div class="table-wrap"><table><thead><tr><th>Path</th><th>Purpose</th></tr></thead><tbody><tr><td><code>tests/unit/</code></td><td>Focused helper, algorithm, stats, seed, and API tests.</td></tr><tr><td><code>tests/smoke/</code></td><td>Fast optimizer and runner smoke tests.</td></tr><tr><td><code>tests/regression/</code></td><td>End-to-end and validation-ladder regression tests.</td></tr><tr><td><code>tests/performance/</code></td><td>Parallel-runner and performance checks.</td></tr><tr><td><code>tests/test_imports.py</code></td><td>Top-level smoke check that the package and its scaffold modules import.</td></tr></tbody></table></div>
+      </article>
+    </main>
+    <aside class="page-toc" aria-label="On this page">
+<h2>On This Page</h2>
+<a class="toc-level-1" href="#project-structure">Project Structure</a>
+<a class="toc-level-2" href="#root-files">Root Files</a>
+<a class="toc-level-2" href="#directories">Directories</a>
+<a class="toc-level-3" href="#reference-results">Reference Results</a>
+<a class="toc-level-2" href="#source-package">Source Package</a>
+<a class="toc-level-3" href="#analysis-package">Analysis Package</a>
+<a class="toc-level-2" href="#configs">Configs</a>
+<a class="toc-level-2" href="#scripts">Scripts</a>
+<a class="toc-level-2" href="#documentation">Documentation</a>
+<a class="toc-level-2" href="#tests">Tests</a>
+</aside>
+  </div>
+  <script src="assets/search.js"></script>
+</body>
+</html>

@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="CEC2020 C++ to Python Equivalence Review - GSK Family Python Documentation">
+  <title>CEC2020 C++ to Python Equivalence Review | GSK Family Python Documentation</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <div class="site-shell">
+    <aside class="sidebar">
+<div class="brand"><a href="index.html">GSK Family Python</a></div>
+<input class="nav-search" type="search" placeholder="Filter docs" aria-label="Filter docs">
+<nav class="nav-list" aria-label="Documentation">
+<section><h2>Getting Started</h2>
+<a class="nav-link" href="getting-started_configuration.html">Configuration</a>
+<a class="nav-link" href="getting-started_explainer.html">Explainer</a>
+<a class="nav-link" href="getting-started_runbook.html">Runbook</a>
+<a class="nav-link" href="getting-started_troubleshooting.html">Troubleshooting</a>
+<a class="nav-link" href="getting-started_tutorial.html">Tutorial</a>
+<a class="nav-link" href="getting-started_user_guide.html">User Guide</a>
+</section>
+<section><h2>Reference</h2>
+<a class="nav-link" href="reference_api.html">API Reference</a>
+<a class="nav-link" href="reference_architecture.html">Architecture</a>
+<a class="nav-link" href="reference_benchmark_mapping.html">Benchmark Mapping</a>
+<a class="nav-link" href="reference_benchmark_protocol.html">Benchmark Protocol</a>
+<a class="nav-link" href="reference_cec2011_cpp_python_equivalence_review.html">CEC2011 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013_cpp_python_equivalence_review.html">CEC2013 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013lsgo_cpp_python_equivalence_review.html">CEC2013LSGO C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2017_cpp_python_equivalence_review.html">CEC2017 C++ vs Python Equivalence Review</a>
+<a class="nav-link active" href="reference_cec2020_cpp_python_equivalence_review.html">CEC2020 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="index.html">Documentation Index</a>
+<a class="nav-link" href="reference_fp_regime.html">Floating-Point Regime Verification</a>
+<a class="nav-link" href="reference_diagrams.html">Flowcharts And Diagrams</a>
+<a class="nav-link" href="reference_glossary.html">Glossary</a>
+<a class="nav-link" href="LICENSES.html">Licenses</a>
+<a class="nav-link" href="reference_module_dependencies.html">Module Dependencies</a>
+<a class="nav-link" href="reference_project_structure.html">Project Structure</a>
+<a class="nav-link" href="reference_python_optimizer_interface.html">Python Optimizer Interface</a>
+<a class="nav-link" href="reference_result_schema.html">Result Schema</a>
+<a class="nav-link" href="reference_seed_policy.html">Seed Policy</a>
+<a class="nav-link" href="reference_workflows.html">Workflows</a>
+</section>
+<section><h2>Algorithm Guides</h2>
+<a class="nav-link" href="algorithms_agsk.html">AGSK — Adaptive Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_apgsk.html">APGSK — Adaptive-Parameters Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_atmals-gsk.html">ATMALS-GSK — Adaptive Tuning, Memory, Adaptive Local Search</a>
+<a class="nav-link" href="algorithms_dt-gsk.html">DT-GSK — Dimension-Tiered Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_egsk.html">EGSK — Enhanced Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_fdb-agsk.html">FDB-AGSK — Fitness-Distance-Balance AGSK</a>
+<a class="nav-link" href="algorithms_gsk.html">GSK — Gaining-Sharing Knowledge</a>
+</section>
+<section><h2>Development</h2>
+<a class="nav-link" href="development_BUG_resume_summary_truncation.html">BUG-RESUME-01 — resume mode truncates (and mis-computes) the per-dimension summary CSV</a>
+<a class="nav-link" href="development_LSGO_ACCELERATION_PLAN.html">CEC2013LSGO Acceleration Plan — all 7 GSK-family algorithms, bit-identically</a>
+<a class="nav-link" href="development_LSGO_INTEGRATION_CAMPAIGN.html">CEC2013LSGO Integration — Campaign Plan</a>
+<a class="nav-link" href="development_CEC2017_PREC_adjudication.html">CEC2017-PREC — adjudication (CLOSED 2026-07-25)</a>
+<a class="nav-link" href="development_code_reading_guide.html">Code Reading Guide</a>
+<a class="nav-link" href="development_contributor_guide.html">Contributor Guide</a>
+<a class="nav-link" href="development_DECC_G_port_record.html">DECC-G port — fidelity and validation record</a>
+<a class="nav-link" href="development_developer_guide.html">Developer Guide</a>
+<a class="nav-link" href="development_README.html">Development Docs</a>
+<a class="nav-link" href="development_dt_gsk_core_reference.html">DT-GSK Core Reference — the vendored core and its byte-identity lock</a>
+<a class="nav-link" href="development_evidence_rerun_runbook.html">DT-GSK re-run runbook — corrected implementation (C006 + graph backend)</a>
+<a class="nav-link" href="development_egsk_port_spec.html">EGSK — Algorithm Spec &amp; Porting Verdict</a>
+<a class="nav-link" href="development_extension_guide.html">Extension Guide</a>
+<a class="nav-link" href="development_FAMILY_ACCELERATION_PLAN.html">Family-wide acceleration plan — 7 algorithms x 5 suites, bit-identical only</a>
+<a class="nav-link" href="development_FINAL_PUBLICATION_PLAN.html">FINAL PUBLICATION PLAN — DT-GSK, Four(/Five)-Suite Scope</a>
+<a class="nav-link" href="development_ACCELERATION_CAMPAIGN_PROMPT.html">GSK-Family Acceleration Campaign — Execution Prompt</a>
+<a class="nav-link" href="development_maintenance_guide.html">Maintenance Guide</a>
+<a class="nav-link" href="development_PORT_05_TUNING_TRIAGE.html">Porting project-05 tuning into 02 — Phase 1 audit and triage</a>
+<a class="nav-link" href="development_REFERENCE_PROMOTION_PLAN.html">Reference Promotion Plan — CEC2013LSGO now, CEC2020 behind its completeness gate</a>
+<a class="nav-link" href="development_SIBLING_CAMPAIGN_TRANSFER.html">Sibling-Campaign Transfer — every tuning that can make the GSK family fast</a>
+</section>
+<section><h2>Research</h2>
+<a class="nav-link" href="research_egsk_validation_appendix.html">EGSK Validation Appendix — Paired Port-vs-Reference Equivalence</a>
+<a class="nav-link" href="research_numerical_examples.html">Numerical Examples</a>
+<a class="nav-link" href="research_performance.html">Performance</a>
+<a class="nav-link" href="research_reproducibility.html">Reproducibility</a>
+<a class="nav-link" href="research_researcher_handbook.html">Researcher Handbook</a>
+<a class="nav-link" href="research_statistical_analysis.html">Statistical Analysis (GSK-family comparison)</a>
+<a class="nav-link" href="research_validation_report.html">Validation Report</a>
+</section>
+<section><h2>Prompts</h2>
+<a class="nav-link" href="prompt_documentation-deep-upgrade.html">Deep Documentation Review &amp; Upgrade Prompt — GSK Family Python</a>
+<a class="nav-link" href="prompt_project-review.html">Deep Expert Review Prompt For GSK Family Python</a>
+<a class="nav-link" href="prompt_documentation-review.html">Documentation Review Prompt</a>
+<a class="nav-link" href="prompt_publication-polish.html">Final Publication Prompt — Production-Ready Q1 Release of GSK Family Python v1.1</a>
+</section>
+<section><h2>Python API</h2>
+<a class="nav-link" href="api_index.html">API Module Index</a>
+<a class="nav-link api-link" href="api/gsk_family.__init__.html">gsk_family.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.__init__.html">gsk_family.analysis.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.family_report.html">gsk_family.analysis.family_report</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.figures.html">gsk_family.analysis.figures</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.latex_tables.html">gsk_family.analysis.latex_tables</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.project_policy.html">gsk_family.analysis.project_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.result_loader.html">gsk_family.analysis.result_loader</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistical_tests.html">gsk_family.analysis.statistical_tests</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistics.html">gsk_family.analysis.statistics</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.__init__.html">gsk_family.benchmark_adapter.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.factory.html">gsk_family.benchmark_adapter.factory</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.problem.html">gsk_family.benchmark_adapter.problem</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.protocol.html">gsk_family.benchmark_adapter.protocol</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.__init__.html">gsk_family.cli.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.list.html">gsk_family.cli.list</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.run.html">gsk_family.cli.run</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.stats.html">gsk_family.cli.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.validate.html">gsk_family.cli.validate</a>
+<a class="nav-link api-link" href="api/gsk_family.common.__init__.html">gsk_family.common.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.common.bounds.html">gsk_family.common.bounds</a>
+<a class="nav-link api-link" href="api/gsk_family.common.donors.html">gsk_family.common.donors</a>
+<a class="nav-link api-link" href="api/gsk_family.common.numeric_compat.html">gsk_family.common.numeric_compat</a>
+<a class="nav-link api-link" href="api/gsk_family.common.population.html">gsk_family.common.population</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reduction.html">gsk_family.common.reduction</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reference_rng.html">gsk_family.common.reference_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.rng.html">gsk_family.common.rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.threefry_rng.html">gsk_family.common.threefry_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.__init__.html">gsk_family.optimizers.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_profiles.html">gsk_family.optimizers._dt_profiles</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_rng.html">gsk_family.optimizers._dt_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._kernels.html">gsk_family.optimizers._kernels</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.agsk.html">gsk_family.optimizers.agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.apgsk.html">gsk_family.optimizers.apgsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_gsk.html">gsk_family.optimizers.atmals_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_helpers.html">gsk_family.optimizers.atmals_helpers</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.dt_gsk.html">gsk_family.optimizers.dt_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.egsk.html">gsk_family.optimizers.egsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.__init__.html">gsk_family.optimizers.external.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._base.html">gsk_family.optimizers.external._base</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._telemetry_shim.html">gsk_family.optimizers.external._telemetry_shim</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.cmaes.html">gsk_family.optimizers.external.cmaes</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.decc_g.html">gsk_family.optimizers.external.decc_g</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.ebowithcmar.html">gsk_family.optimizers.external.ebowithcmar</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.jso.html">gsk_family.optimizers.external.jso</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade.html">gsk_family.optimizers.external.lshade</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade_spacma.html">gsk_family.optimizers.external.lshade_spacma</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.mos_cec2013lsgo.html">gsk_family.optimizers.external.mos_cec2013lsgo</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.shade_ils.html">gsk_family.optimizers.external.shade_ils</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_agsk.html">gsk_family.optimizers.fdb_agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_scores.html">gsk_family.optimizers.fdb_scores</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.gsk.html">gsk_family.optimizers.gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.__init__.html">gsk_family.runners.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.config.html">gsk_family.runners.config</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.fp_regime.html">gsk_family.runners.fp_regime</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.output.html">gsk_family.runners.output</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.parallel.html">gsk_family.runners.parallel</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.performance.html">gsk_family.runners.performance</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.run_experiment.html">gsk_family.runners.run_experiment</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.seed_policy.html">gsk_family.runners.seed_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.verification.html">gsk_family.runners.verification</a>
+<a class="nav-link api-link" href="api/gsk_family.stats.html">gsk_family.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.types.html">gsk_family.types</a>
+</section>
+</nav></aside>
+    <main class="content">
+      <article class="doc-card">
+        <h1 id="cec2020-c-to-python-equivalence-review">CEC2020 C++ to Python Equivalence Review</h1>
+<h2 id="scope">Scope</h2>
+<p>This review audits the bundled Python CEC2020 evaluator against the staged C++ CEC2020 reference implementation and its committed fixed-vector oracle. The audit covers:</p>
+<ul>
+<li>public function mapping <code>F1..F10</code>;</li>
+<li>runner-facing dimensions <code>{5, 10, 15, 20}</code>;</li>
+<li>data-driven unavailable cells;</li>
+<li>shift, rotation, shuffle, and composition data layout;</li>
+<li>fixed-vector objective values from <code>cec_tools/tests/data/cec2020_expected.csv</code>;</li>
+<li>adapter behavior exposed through <code>make_problem(&quot;cec2020&quot;, ...)</code>.</li>
+</ul>
+<h2 id="suite-protocol-context">Suite Protocol Context</h2>
+<p>The benchmark adapter registers CEC2020 in <code>src/gsk_family/benchmark_adapter/protocol.py</code>:</p>
+<ul>
+<li>10 functions (<code>function_ids = 1..10</code>), runner dimensions `D ∈ {5, 10, 15,</li>
+<p>20}<code>, error-vs-optimum statistics (CEC2020 is a member of </code>ERROR_VS_OPTIMUM_SUITES = {cec2013, cec2017, cec2020}<code>), and </code>target_error = 1e-8<code>. The optima are the per-function biases </code>BIASES = (100, 1100, 700, 1900, 1700, 1600, 2100, 2200, 2400, 2500)<code> in </code>functions.py<code> (</code>cec2020_fopt<code>); e.g. F2 at D5 has optimum </code>1100.0<code>, asserted by </code>test_known_optimum_suites_use_error_statistics<code> in </code>tests/unit/test_benchmark_adapter.py`.</p>
+<li><strong>No committed reference-results tree.</strong> CEC2020 is in code (<code>CEC_SUITES</code>) and</li>
+<p>constructible through <code>make_problem</code>, but <code>benchmarks/cec_reference_results/</code> contains only <code>cec2011</code>, <code>cec2013</code>, and <code>cec2017</code> — there is no <code>cec_reference_results/cec2020/</code>. The suite is wired and evaluator-audited but is not part of the committed optimizer reference evidence.</p>
+<li>The in-repo guards are</li>
+<p><code>test_cec2020_composition_zero_vector_matches_cpp_oracle</code> (F8–F10 at D5/D10/D15/D20 where constructible, <code>rel=1e-12</code>) and the unavailable-cell rejections in <code>test_validation_rejects_bad_suite_function_dimension_and_budget</code>. The 180-probe oracle sweep in *Evidence* below was a review-time script against the external staged C++/MEX archive, which is not committed here.</p>
+</ul>
+<h2 id="reference-protocol">Reference Protocol</h2>
+<p>The C++ implementation maps public CEC2020 ids to internal data-file ids:</p>
+<div class="table-wrap"><table><thead><tr><th>Public id</th><th>Internal id</th><th>Role</th></tr></thead><tbody><tr><td>F1</td><td>1</td><td>Bent Cigar</td></tr><tr><td>F2</td><td>2</td><td>Schwefel</td></tr><tr><td>F3</td><td>3</td><td>Lunacek Bi-Rastrigin</td></tr><tr><td>F4</td><td>7</td><td>Griewank-Rosenbrock, unshifted/unrotated</td></tr><tr><td>F5</td><td>4</td><td>Hybrid 1</td></tr><tr><td>F6</td><td>16</td><td>Hybrid 6</td></tr><tr><td>F7</td><td>6</td><td>Hybrid 5</td></tr><tr><td>F8</td><td>22</td><td>Composition 2</td></tr><tr><td>F9</td><td>24</td><td>Composition 4</td></tr><tr><td>F10</td><td>25</td><td>Composition 5</td></tr></tbody></table></div>
+<p>The *Internal id* column is the staged C++/MEX data-file id. For the composition trio it is confirmed directly in the current Python source: <code>composition.py</code> documents &quot;Public CEC2020 F8 is staged-MEX internal id 22 ... matches the CEC2017 F22 composition kernel&quot; (and likewise ids 24/25 for F9/F10). The *Role* column matches <code>_FUNCTION_NAMES</code> in <code>functions.py</code> (F5 = &quot;Hybrid 1&quot;, F6 = &quot;Hybrid 6&quot;, F7 = &quot;Hybrid 5&quot;, F8 = &quot;Composition 2&quot;, F9 = &quot;Composition 4&quot;, F10 = &quot;Composition 5&quot;); F4 is evaluated unshifted and unrotated (<code>s_flag=0, r_flag=0</code>, per the <code>functions.py</code> docstring).</p>
+<p>The composition trio is the load-bearing part of this mapping — it is delegated wholesale to the already-validated CEC2017 kernels:</p>
+<pre class="mermaid">flowchart LR
+    A[&quot;cec2020_func(F8 / F9 / F10)&quot;] --&gt; B[&quot;f8_cf02 / f9_cf04 / f10_cf05&lt;br/&gt;cec2020/composition.py&quot;]
+    B --&gt;|&quot;CEC2020 shift + rotation&lt;br/&gt;data overrides&quot;| C[&quot;cec2017.composition&lt;br/&gt;f22 / f24 / f25&quot;]
+    C --&gt; D[&quot;objective value&quot;]</pre>
+<p>The reference dimensions are <code>{5, 10, 15, 20}</code>. Public F1 and F8 are refused at D5 and D15 because <strong>no C++ oracle output was ever generated for those cells</strong> — the dispatcher&#x27;s own message says &quot;the staged C++/MEX protocol has no ground truth for this cell&quot;. An earlier revision of this paragraph attributed it to missing shuffle marker files; that was incorrect (F1 is unimodal, F8 is a composition — neither uses shuffle data, which exists only for the hybrids F5–F7). The required shift and rotation inputs ARE present and finite at every dimension, so this is a validation gap, not a data gap. The dispatcher encodes it as <code>_UNAVAILABLE_REFERENCE_CELLS = {(1, 5), (1, 15), (8, 5), (8, 15)}</code> in <code>functions.py</code>.</p>
+<h2 id="findings">Findings</h2>
+<h3 id="fixed">Fixed</h3>
+<ol>
+<li><strong>Composition functions F8-F10 followed the wrong Python path.</strong></li>
+</ol>
+<p>The initial Python CEC2020 composition implementation used a local raw CEC2020 leaf-kernel path. The C++ oracle showed that public F8-F10 match the already-validated CEC2017 composition kernels when those kernels are fed the CEC2020 internal-id data for ids 22, 24, and 25.</p>
+<p>Resolution: Python F8/F9/F10 now delegate to the CEC2017 F22/F24/F25 composition kernels with explicit CEC2020 shift and rotation data overrides. In source, <code>composition.py</code> imports <code>f22 as _cec2017_cf02</code>, <code>f24 as _cec2017_cf04</code>, <code>f25 as _cec2017_cf05</code> from <code>cec2017.composition</code>, and <code>f8_cf02</code> / <code>f9_cf04</code> / <code>f10_cf05</code> return those kernels directly (e.g. <code>return _cec2017_cf02(x, shift=Os_cf, rotation=Mr_cf)</code>).</p>
+<p>Worked verification (from the committed tests, no external archive needed): the delegation is observable as an equality between two independently committed test tables at the D10 zero vector.</p>
+<div class="table-wrap"><table><thead><tr><th>Function</th><th>CEC2020 guard value</th><th>CEC2017 guard value</th></tr></thead><tbody><tr><td>F8 ↔ F22</td><td><code>5302.4980403395475</code></td><td><code>5302.4980403395475</code></td></tr><tr><td>F9 ↔ F24</td><td><code>3392.2088309135484</code></td><td><code>3392.2088309135484</code></td></tr><tr><td>F10 ↔ F25</td><td><code>4820.812334105729</code></td><td><code>4820.812334105729</code></td></tr></tbody></table></div>
+<p>The CEC2020 column is from <code>test_cec2020_composition_zero_vector_matches_cpp_oracle</code>; the CEC2017 column is from <code>test_cec2017_d10_zero_vector_matches_cpp_oracle_all_functions</code>. Because the two constant sets were committed independently, their bit-for-bit agreement is direct in-repo evidence that F8/F9/F10 evaluate exactly the CEC2017 F22/F24/F25 kernels.</p>
+<ol>
+<li><strong>Hybrid F7 at D5 missed the zero-width <code>escaffer6</code> guard-slot term.</strong></li>
+</ol>
+<p>In the reference, F7 at D5 gives the first partition zero width. The C++ scratch-buffer behavior still contributes the wrap-around term from the guard slot and the previous transformed first coordinate. Python previously returned zero for that empty partition.</p>
+<p>Resolution: F7 now reproduces the documented guard-slot contribution when the first <code>escaffer6</code> partition is empty. In <code>hybrid.py</code>, <code>f7_hf05</code> uses the <code>oddball_first=True</code> partition scheme and, when <code>parts[0].shape[-1] == 0</code>, substitutes <code>_escaffer6_empty_guard(z)</code> for the normal <code>escaffer6</code> partition term.</p>
+<ol>
+<li><strong>Unavailable reference cells were constructible in Python.</strong></li>
+</ol>
+<p>Python previously allowed CEC2020 F1/F8 at D5/D15 even though the C++ reference constructor rejects them.</p>
+<p>Resolution: both the dispatcher and benchmark adapter reject <code>(F1,D5)</code>, <code>(F1,D15)</code>, <code>(F8,D5)</code>, and <code>(F8,D15)</code> with a clear unavailable-reference-data error. This is guarded by <code>test_validation_rejects_bad_suite_function_dimension_and_budget</code>, which asserts both <code>make_problem(&quot;cec2020&quot;, 1, 5)</code> and <code>cec2020_func(8, zeros(15))</code> raise a <code>ValueError</code> matching <code>unavailable</code>.</p>
+<h2 id="evidence">Evidence</h2>
+<h3 id="data-parity">Data Parity</h3>
+<p>Python <code>data.pkl</code> was compared against the C++ input text files:</p>
+<ul>
+<li>simple shift rows for public F1-F7: maximum absolute error <code>0.0</code>;</li>
+<li>composition row-wise shifts for internal ids 22, 24, 25 at D5/D10/D15/D20:</li>
+<p>maximum absolute error <code>0.0</code>;</p>
+<li>composition rotation blocks for internal ids 22, 24, 25 at D5/D10/D15/D20:</li>
+<p>maximum absolute error <code>0.0</code>.</p>
+</ul>
+<h3 id="oracle-before-fix">Oracle Before Fix</h3>
+<p>The fixed-vector oracle initially reported:</p>
+<ul>
+<li><code>checked=180</code>;</li>
+<li><code>failures=53</code>;</li>
+<li>maximum relative error <code>1.873e+00</code>;</li>
+<li>failures concentrated in public F8-F10, plus the F7/D5 guard-slot edge.</li>
+</ul>
+<h3 id="oracle-after-fix">Oracle After Fix</h3>
+<p>After the fixes:</p>
+<pre><code class="code-block language-text">CEC2020 checked 180 failures 0 max_rel 6.262e-16</code></pre>
+<h2 id="regression-coverage">Regression Coverage</h2>
+<p>Added unit coverage in <code>tests/unit/test_benchmark_adapter.py</code>:</p>
+<ul>
+<li><code>test_cec2020_composition_zero_vector_matches_cpp_oracle</code> — representative</li>
+<p>CEC2020 F8–F10 zero-vector oracle values across D5/D10/D15/D20 where constructible (<code>rel=1e-12</code>); this is the 10-cell table that also cross-checks the CEC2017 delegation (see *Findings → Fixed → 1*);</p>
+<li><code>test_validation_rejects_bad_suite_function_dimension_and_budget</code> —</li>
+<p>unavailable-cell rejection through both <code>make_problem</code> and direct <code>cec2020_func</code>;</p>
+<li>existing adapter metadata tests now use constructible CEC2020 F2/D5 instead</li>
+<p>of unavailable F1/D5.</p>
+</ul>
+<h2 id="residual-risk">Residual Risk</h2>
+<p>CEC2020 is now clean against the committed C++ fixed-vector oracle. Remaining risk is limited to cells that the C++ reference itself does not construct; the Python project now rejects those cells rather than inventing unsupported values.</p>
+<h2 id="addendum-2026-07-26-the-four-withheld-cells-are-closed">Addendum (2026-07-26): the four withheld cells are closed</h2>
+<p><strong>RESTORED 2026-07-26.</strong> The four cells were validated against the in-repo C++ oracle and the guard lifted. Method: the loader&#x27;s missing files are pure per-dimension availability MARKERS (the loader opens one for every function; only hybrids consume the content), so the oracle was built with dummy markers and its output proven bit-identical under two different marker contents. Against it, F1/F8 at D5/D15 agreed with the Python suite to worst relative error 1.258e-15 -- three orders inside the committed rel=1e-12 criterion -- with the already-trusted D10/D20 cells reproducing the same profile as controls. The AGSK paper&#x27;s own 5D tables always did include F1 and F8, so the competition itself ran these cells. Pinned by <code>tests/regression/test_cec2020_restored_cells.py</code>; the schedule now covers all four dimensions, dropping only F6/F7 at D=5 (protocol-undefined).</p>
+      </article>
+    </main>
+    <aside class="page-toc" aria-label="On this page">
+<h2>On This Page</h2>
+<a class="toc-level-1" href="#cec2020-c-to-python-equivalence-review">CEC2020 C++ to Python Equivalence Review</a>
+<a class="toc-level-2" href="#scope">Scope</a>
+<a class="toc-level-2" href="#suite-protocol-context">Suite Protocol Context</a>
+<a class="toc-level-2" href="#reference-protocol">Reference Protocol</a>
+<a class="toc-level-2" href="#findings">Findings</a>
+<a class="toc-level-3" href="#fixed">Fixed</a>
+<a class="toc-level-2" href="#evidence">Evidence</a>
+<a class="toc-level-3" href="#data-parity">Data Parity</a>
+<a class="toc-level-3" href="#oracle-before-fix">Oracle Before Fix</a>
+<a class="toc-level-3" href="#oracle-after-fix">Oracle After Fix</a>
+<a class="toc-level-2" href="#regression-coverage">Regression Coverage</a>
+<a class="toc-level-2" href="#residual-risk">Residual Risk</a>
+<a class="toc-level-2" href="#addendum-2026-07-26-the-four-withheld-cells-are-closed">Addendum (2026-07-26): the four withheld cells are closed</a>
+</aside>
+  </div>
+  <script src="assets/search.js"></script>
+  <script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs'; mermaid.initialize({ startOnLoad: true, securityLevel: 'loose', theme: 'neutral' });</script>
+</body>
+</html>

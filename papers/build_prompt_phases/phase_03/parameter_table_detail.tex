@@ -1,0 +1,76 @@
+% ============================================================================
+% DT-GSK frozen parameter table -- PER-SUBSYSTEM DETAIL (supplement).
+% Split out of parameter_table.tex under ticket N-013: the combined 48-row
+% table had to be scaled to 5.3 pt to fit the main-text block, below the
+% journal's 8 pt table guidance. Canonical source is unchanged:
+% papers/build_prompt_phases/phase_03/parameter_table.md
+% Label: tab:parameters-detail.
+% ============================================================================
+\begin{table}[H]
+\caption{Frozen run parameters of the shipped configuration (per-subsystem
+detail). Companion to the main-text frozen-parameter table, which carries the
+run-level and core-operator settings. Where a value varies by dimension tier the
+four tiers $D{<}20$ / $20$--$49$ / $50$--$99$ / ${\ge}100$ are shown. No tuning
+is required or permitted at run time; hash-frozen in
+algorithm\_freeze\_manifest.json.}
+\label{tab:parameters-detail}
+\centering
+\small
+% All three columns are wrapping p{} columns. As bare `l' columns the longest
+% Value/Parameter/Notes rows ran up to 219 pt past the portrait text block and
+% clipped at the page edge (panel review, 2026-07-23); a first pass wrapped only
+% Notes and still left a 147 pt overrun from the wide Parameter/Value rows
+% (e.g. the D>=100 controller list). Fixed widths (3.0+5.4+4.8 cm plus column
+% separation) keep every row inside the ~15.7 cm portrait text block.
+\begin{tabular}{p{2.9cm} p{5.8cm} p{4.8cm}}
+\toprule
+\textbf{Parameter} & \textbf{Value} & \textbf{Notes}\\
+\midrule
+\multicolumn{3}{l}{\emph{ACE / ARGP}}\\
+\midrule
+arm pool & 5 arms $(KF,KR,K_{\exp})$; arm 3 = GSK-pure $(0.5,0.9,10)$ & \\
+init probs & $(0.05,0.05,0.45,0.05,0.40)$ & \\
+learning rate $c$ & 0.10 & \\
+probability floor $\pi_{\min}$ & 0.05 & \\
+memory mode & single ($D{<}20$) $\to$ top\_bottom ($D\ge20$) & \\
+DE arm & off ($D{<}20$, $D\ge100$) / on ($20{\le}D{<}100$) & \\
+ARGP window / threshold & 30 / 0.02 (0.010 at $D\ge50$), warmup 0.15 & \\
+\midrule
+\multicolumn{3}{l}{\emph{Linkage crossover}}\\
+\midrule
+block size & 5 ($D{<}50$) / 10 ($D\ge50$) & \\
+mix probability & 0.70 ($D{<}20$) / 0.40 (mid) / 0.70 ($D\ge50$) & \\
+refresh period & 20 gen.\ ($D{<}50$) / 10 ($D\ge50$) & \\
+\midrule
+\multicolumn{3}{l}{\emph{BSE / archive / deep-stall}}\\
+\midrule
+trigger mode & stagnation ($D{<}20$) / triple ($D\ge20$) & \\
+window $W$ & 50; signal window 10 & \\
+$\epsilon$ & $10^{-8}$ & \\
+restart fraction $r_{\text{rst}}$ & $0.30$ ($D{<}50$) / $0.10$ ($D\ge50$) & \\
+max restarts $R_{\max}$ & 4 ($D{<}20$, $50{\le}D{<}100$) / 2 (otherwise) & \\
+acceptance / diversity floor & 0.10 / 0.35 & \\
+archive size / distance & fixed cap 200 (all $D$), L2 0.05 & $1.5\,NP_{\text{init}}$ fallback inert (cap set)\\
+deep-stall & on; frac 0.25; min-budget 20\,000; & cooldown 0.15; stop 0.9\\
+\midrule
+\multicolumn{3}{l}{\emph{ISM / eigenframe polish ($D\ge50$)}}\\
+\midrule
+enabled & $D\ge50$ & interaction\_graph\_min\_dim=50\\
+decay $\lambda$ & 0.95 & interaction\_graph\_decay\\
+learning rate $\eta$ & 1.0 & interaction\_graph\_lr\\
+refresh period / warmup & 5 gen.\ ($D{<}100$) / 20 ($D\ge100$); warmup 0.10 & \\
+confidence gate $\kappa_{\min}$ & 0.35 (linkage 0.35, LS 0.45) & adaptive at $D\ge50$: window 30, percentile 0.50, floor 0.12\\
+block size range & 2--10 & \\
+final polish start & $0.96$ & final\_polish\_start\_frac\\
+restart response & matrix decay 0.50 (interaction\_restart\_decay); post-restart cooldown 5 gen.\ & applied on each BSE/deep-stall restart\\
+\midrule
+\multicolumn{3}{l}{\emph{$D\ge100$ controllers}}\\
+\midrule
+A1 late-accept clip & $\tau$-floor 0.85; high-acc 0.30; log-drop $\epsilon$ $-2.0$; streak $k{=}5$; strict $\epsilon$ $10^{-3}$; log-drop EMA $\alpha$ 0.30 & tightens elitist acceptance late in budget\\
+A2 frozen-streak broaden & acc-floor 0.05; log-drop $\epsilon$ $-3.0$; streak $k{=}10$; window/cooldown 20/10 gen.; $KR$ factor 1.5 & broadens $KR$ during frozen streaks\\
+FC4 late linkage random-mix & $\tau$-floor 0.50; negative-lift $-0.05$; severe-lift $-0.20$; strength 0.5; lift-EMA $\alpha$ 0.20 & reverts to random linkage when learned-block lift turns negative\\
+basin memory / subspace-sampling floor & enabled & \\
+trust-region budget policy & present, runtime-inert & redundant guard; not an active mechanism\\
+\bottomrule
+\end{tabular}
+\end{table}

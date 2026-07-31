@@ -1,0 +1,97 @@
+cff-version: 1.2.0
+title: GSK Family Python
+message: "If you use this package, cite the original GSK-family algorithm sources and the relevant CEC benchmark suites."
+type: software
+version: 0.1.0
+authors:
+  - family-names: Masoud
+    given-names: Mostafa
+    email: moustafa.masoud@gmail.com
+abstract: "Python implementation of the GSK optimizer family using bundled Python CEC benchmark suites."
+references:
+  - type: article
+    authors:
+      - family-names: Mohamed
+        given-names: A. W.
+      - family-names: Hadi
+        given-names: A. A.
+      - family-names: Mohamed
+        given-names: A. K.
+    title: "Gaining-sharing knowledge based algorithm for solving optimization problems: a novel nature-inspired algorithm"
+    journal: "International Journal of Machine Learning and Cybernetics"
+    volume: 11
+    start: 1501
+    end: 1529
+    year: 2020
+    doi: 10.1007/s13042-019-01053-x
+  - type: conference-paper
+    authors:
+      - family-names: Mohamed
+        given-names: A. W.
+      - family-names: Hadi
+        given-names: A. A.
+      - family-names: Mohamed
+        given-names: A. K.
+      - family-names: Awad
+        given-names: N. H.
+    title: "Evaluating the performance of adaptive gaining-sharing knowledge based algorithm on CEC 2020 benchmark problems"
+    conference: "2020 IEEE Congress on Evolutionary Computation (CEC)"
+    start: 1
+    end: 8
+    year: 2020
+    doi: 10.1109/CEC48606.2020.9185901
+  - type: article
+    authors:
+      - family-names: Mohamed
+        given-names: A. W.
+      - family-names: Abutarboush
+        given-names: H. F.
+      - family-names: Hadi
+        given-names: A. A.
+      - family-names: Mohamed
+        given-names: A. K.
+    title: "Gaining-sharing knowledge based algorithm with adaptive parameters for engineering optimization"
+    journal: "IEEE Access"
+    volume: 9
+    start: 65934
+    end: 65946
+    year: 2021
+    doi: 10.1109/ACCESS.2021.3076091
+  - type: article
+    authors:
+      - family-names: Bakir
+        given-names: H.
+      - family-names: Duman
+        given-names: S.
+      - family-names: Guvenc
+        given-names: U.
+      - family-names: Kahraman
+        given-names: H. T.
+    title: "Improved adaptive gaining-sharing knowledge algorithm with FDB-based guiding mechanism for optimization of optimal reactive power flow problem"
+    journal: "Electrical Engineering"
+    volume: 105
+    start: 3121
+    end: 3160
+    year: 2023
+    doi: 10.1007/s00202-023-01803-9
+  - type: article
+    authors:
+      - family-names: Alfadli
+        given-names: N. M.
+      - family-names: Oun
+        given-names: E. M.
+      - family-names: Mohamed
+        given-names: A. W.
+    title: "Auto-Tuning Memory-Based Adaptive Local Search Gaining-Sharing Knowledge-Based Algorithm for Solving Optimization Problems"
+    journal: "Algorithms"
+    volume: 18
+    issue: 7
+    year: 2025
+    doi: 10.3390/a18070398
+  - type: unpublished
+    authors:
+      - family-names: Masoud
+        given-names: Mostafa
+        email: moustafa.masoud@gmail.com
+    title: "DT-GSK: Dimension-Tiered Adaptive Control and Deterministic Refinement for Gaining-Sharing Knowledge Optimization"
+    notes: "DT-GSK (Dimension-Tiered Gaining-Sharing Knowledge Optimization), this project's proposed method. Forthcoming; cite this software metadata until the paper is published."

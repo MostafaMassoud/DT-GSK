@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ATMALS-GSK — Adaptive Tuning, Memory, Adaptive Local Search - GSK Family Python Documentation">
+  <title>ATMALS-GSK — Adaptive Tuning, Memory, Adaptive Local Search | GSK Family Python Documentation</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <div class="site-shell">
+    <aside class="sidebar">
+<div class="brand"><a href="index.html">GSK Family Python</a></div>
+<input class="nav-search" type="search" placeholder="Filter docs" aria-label="Filter docs">
+<nav class="nav-list" aria-label="Documentation">
+<section><h2>Getting Started</h2>
+<a class="nav-link" href="getting-started_configuration.html">Configuration</a>
+<a class="nav-link" href="getting-started_explainer.html">Explainer</a>
+<a class="nav-link" href="getting-started_runbook.html">Runbook</a>
+<a class="nav-link" href="getting-started_troubleshooting.html">Troubleshooting</a>
+<a class="nav-link" href="getting-started_tutorial.html">Tutorial</a>
+<a class="nav-link" href="getting-started_user_guide.html">User Guide</a>
+</section>
+<section><h2>Reference</h2>
+<a class="nav-link" href="reference_api.html">API Reference</a>
+<a class="nav-link" href="reference_architecture.html">Architecture</a>
+<a class="nav-link" href="reference_benchmark_mapping.html">Benchmark Mapping</a>
+<a class="nav-link" href="reference_benchmark_protocol.html">Benchmark Protocol</a>
+<a class="nav-link" href="reference_cec2011_cpp_python_equivalence_review.html">CEC2011 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013_cpp_python_equivalence_review.html">CEC2013 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013lsgo_cpp_python_equivalence_review.html">CEC2013LSGO C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2017_cpp_python_equivalence_review.html">CEC2017 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2020_cpp_python_equivalence_review.html">CEC2020 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="index.html">Documentation Index</a>
+<a class="nav-link" href="reference_fp_regime.html">Floating-Point Regime Verification</a>
+<a class="nav-link" href="reference_diagrams.html">Flowcharts And Diagrams</a>
+<a class="nav-link" href="reference_glossary.html">Glossary</a>
+<a class="nav-link" href="LICENSES.html">Licenses</a>
+<a class="nav-link" href="reference_module_dependencies.html">Module Dependencies</a>
+<a class="nav-link" href="reference_project_structure.html">Project Structure</a>
+<a class="nav-link" href="reference_python_optimizer_interface.html">Python Optimizer Interface</a>
+<a class="nav-link" href="reference_result_schema.html">Result Schema</a>
+<a class="nav-link" href="reference_seed_policy.html">Seed Policy</a>
+<a class="nav-link" href="reference_workflows.html">Workflows</a>
+</section>
+<section><h2>Algorithm Guides</h2>
+<a class="nav-link" href="algorithms_agsk.html">AGSK — Adaptive Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_apgsk.html">APGSK — Adaptive-Parameters Gaining-Sharing Knowledge</a>
+<a class="nav-link active" href="algorithms_atmals-gsk.html">ATMALS-GSK — Adaptive Tuning, Memory, Adaptive Local Search</a>
+<a class="nav-link" href="algorithms_dt-gsk.html">DT-GSK — Dimension-Tiered Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_egsk.html">EGSK — Enhanced Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_fdb-agsk.html">FDB-AGSK — Fitness-Distance-Balance AGSK</a>
+<a class="nav-link" href="algorithms_gsk.html">GSK — Gaining-Sharing Knowledge</a>
+</section>
+<section><h2>Development</h2>
+<a class="nav-link" href="development_BUG_resume_summary_truncation.html">BUG-RESUME-01 — resume mode truncates (and mis-computes) the per-dimension summary CSV</a>
+<a class="nav-link" href="development_LSGO_ACCELERATION_PLAN.html">CEC2013LSGO Acceleration Plan — all 7 GSK-family algorithms, bit-identically</a>
+<a class="nav-link" href="development_LSGO_INTEGRATION_CAMPAIGN.html">CEC2013LSGO Integration — Campaign Plan</a>
+<a class="nav-link" href="development_CEC2017_PREC_adjudication.html">CEC2017-PREC — adjudication (CLOSED 2026-07-25)</a>
+<a class="nav-link" href="development_code_reading_guide.html">Code Reading Guide</a>
+<a class="nav-link" href="development_contributor_guide.html">Contributor Guide</a>
+<a class="nav-link" href="development_DECC_G_port_record.html">DECC-G port — fidelity and validation record</a>
+<a class="nav-link" href="development_developer_guide.html">Developer Guide</a>
+<a class="nav-link" href="development_README.html">Development Docs</a>
+<a class="nav-link" href="development_dt_gsk_core_reference.html">DT-GSK Core Reference — the vendored core and its byte-identity lock</a>
+<a class="nav-link" href="development_evidence_rerun_runbook.html">DT-GSK re-run runbook — corrected implementation (C006 + graph backend)</a>
+<a class="nav-link" href="development_egsk_port_spec.html">EGSK — Algorithm Spec &amp; Porting Verdict</a>
+<a class="nav-link" href="development_extension_guide.html">Extension Guide</a>
+<a class="nav-link" href="development_FAMILY_ACCELERATION_PLAN.html">Family-wide acceleration plan — 7 algorithms x 5 suites, bit-identical only</a>
+<a class="nav-link" href="development_FINAL_PUBLICATION_PLAN.html">FINAL PUBLICATION PLAN — DT-GSK, Four(/Five)-Suite Scope</a>
+<a class="nav-link" href="development_ACCELERATION_CAMPAIGN_PROMPT.html">GSK-Family Acceleration Campaign — Execution Prompt</a>
+<a class="nav-link" href="development_maintenance_guide.html">Maintenance Guide</a>
+<a class="nav-link" href="development_PORT_05_TUNING_TRIAGE.html">Porting project-05 tuning into 02 — Phase 1 audit and triage</a>
+<a class="nav-link" href="development_REFERENCE_PROMOTION_PLAN.html">Reference Promotion Plan — CEC2013LSGO now, CEC2020 behind its completeness gate</a>
+<a class="nav-link" href="development_SIBLING_CAMPAIGN_TRANSFER.html">Sibling-Campaign Transfer — every tuning that can make the GSK family fast</a>
+</section>
+<section><h2>Research</h2>
+<a class="nav-link" href="research_egsk_validation_appendix.html">EGSK Validation Appendix — Paired Port-vs-Reference Equivalence</a>
+<a class="nav-link" href="research_numerical_examples.html">Numerical Examples</a>
+<a class="nav-link" href="research_performance.html">Performance</a>
+<a class="nav-link" href="research_reproducibility.html">Reproducibility</a>
+<a class="nav-link" href="research_researcher_handbook.html">Researcher Handbook</a>
+<a class="nav-link" href="research_statistical_analysis.html">Statistical Analysis (GSK-family comparison)</a>
+<a class="nav-link" href="research_validation_report.html">Validation Report</a>
+</section>
+<section><h2>Prompts</h2>
+<a class="nav-link" href="prompt_documentation-deep-upgrade.html">Deep Documentation Review &amp; Upgrade Prompt — GSK Family Python</a>
+<a class="nav-link" href="prompt_project-review.html">Deep Expert Review Prompt For GSK Family Python</a>
+<a class="nav-link" href="prompt_documentation-review.html">Documentation Review Prompt</a>
+<a class="nav-link" href="prompt_publication-polish.html">Final Publication Prompt — Production-Ready Q1 Release of GSK Family Python v1.1</a>
+</section>
+<section><h2>Python API</h2>
+<a class="nav-link" href="api_index.html">API Module Index</a>
+<a class="nav-link api-link" href="api/gsk_family.__init__.html">gsk_family.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.__init__.html">gsk_family.analysis.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.family_report.html">gsk_family.analysis.family_report</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.figures.html">gsk_family.analysis.figures</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.latex_tables.html">gsk_family.analysis.latex_tables</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.project_policy.html">gsk_family.analysis.project_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.result_loader.html">gsk_family.analysis.result_loader</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistical_tests.html">gsk_family.analysis.statistical_tests</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistics.html">gsk_family.analysis.statistics</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.__init__.html">gsk_family.benchmark_adapter.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.factory.html">gsk_family.benchmark_adapter.factory</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.problem.html">gsk_family.benchmark_adapter.problem</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.protocol.html">gsk_family.benchmark_adapter.protocol</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.__init__.html">gsk_family.cli.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.list.html">gsk_family.cli.list</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.run.html">gsk_family.cli.run</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.stats.html">gsk_family.cli.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.validate.html">gsk_family.cli.validate</a>
+<a class="nav-link api-link" href="api/gsk_family.common.__init__.html">gsk_family.common.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.common.bounds.html">gsk_family.common.bounds</a>
+<a class="nav-link api-link" href="api/gsk_family.common.donors.html">gsk_family.common.donors</a>
+<a class="nav-link api-link" href="api/gsk_family.common.numeric_compat.html">gsk_family.common.numeric_compat</a>
+<a class="nav-link api-link" href="api/gsk_family.common.population.html">gsk_family.common.population</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reduction.html">gsk_family.common.reduction</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reference_rng.html">gsk_family.common.reference_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.rng.html">gsk_family.common.rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.threefry_rng.html">gsk_family.common.threefry_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.__init__.html">gsk_family.optimizers.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_profiles.html">gsk_family.optimizers._dt_profiles</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_rng.html">gsk_family.optimizers._dt_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._kernels.html">gsk_family.optimizers._kernels</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.agsk.html">gsk_family.optimizers.agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.apgsk.html">gsk_family.optimizers.apgsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_gsk.html">gsk_family.optimizers.atmals_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_helpers.html">gsk_family.optimizers.atmals_helpers</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.dt_gsk.html">gsk_family.optimizers.dt_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.egsk.html">gsk_family.optimizers.egsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.__init__.html">gsk_family.optimizers.external.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._base.html">gsk_family.optimizers.external._base</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._telemetry_shim.html">gsk_family.optimizers.external._telemetry_shim</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.cmaes.html">gsk_family.optimizers.external.cmaes</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.decc_g.html">gsk_family.optimizers.external.decc_g</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.ebowithcmar.html">gsk_family.optimizers.external.ebowithcmar</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.jso.html">gsk_family.optimizers.external.jso</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade.html">gsk_family.optimizers.external.lshade</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade_spacma.html">gsk_family.optimizers.external.lshade_spacma</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.mos_cec2013lsgo.html">gsk_family.optimizers.external.mos_cec2013lsgo</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.shade_ils.html">gsk_family.optimizers.external.shade_ils</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_agsk.html">gsk_family.optimizers.fdb_agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_scores.html">gsk_family.optimizers.fdb_scores</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.gsk.html">gsk_family.optimizers.gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.__init__.html">gsk_family.runners.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.config.html">gsk_family.runners.config</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.fp_regime.html">gsk_family.runners.fp_regime</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.output.html">gsk_family.runners.output</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.parallel.html">gsk_family.runners.parallel</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.performance.html">gsk_family.runners.performance</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.run_experiment.html">gsk_family.runners.run_experiment</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.seed_policy.html">gsk_family.runners.seed_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.verification.html">gsk_family.runners.verification</a>
+<a class="nav-link api-link" href="api/gsk_family.stats.html">gsk_family.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.types.html">gsk_family.types</a>
+</section>
+</nav></aside>
+    <main class="content">
+      <article class="doc-card">
+        <h1 id="atmals-gsk-adaptive-tuning-memory-adaptive-local-search">ATMALS-GSK — Adaptive Tuning, Memory, Adaptive Local Search</h1>
+<blockquote><strong>What this is:</strong> the most heavily self-tuning member of the family — it keeps</blockquote>
+<blockquote>the gaining-sharing core of <a href="algorithms_gsk.html">GSK</a> but drives <strong>five</strong> parameters from</blockquote>
+<blockquote>success-weighted memory and bolts an <strong>adaptive local search</strong> onto the best</blockquote>
+<blockquote>vector each generation. <strong>For:</strong> readers who already know the junior/senior</blockquote>
+<blockquote>core and want the ATMALS additions. <strong>Prerequisites:</strong> <a href="algorithms_gsk.html">GSK</a> (core,</blockquote>
+<blockquote>midpoint repair, KR mask) and <a href="algorithms_agsk.html">AGSK</a> (the idea of parameter pools).</blockquote>
+<blockquote><strong>After reading</strong> you can trace one memory-roulette selection and one</blockquote>
+<blockquote>local-search step by hand and map each to <code>atmals_gsk.py</code> /</blockquote>
+<blockquote><code>atmals_helpers.py</code>.</blockquote>
+<h2 id="intuition">Intuition</h2>
+<p>ATMALS-GSK (&quot;Adaptive Tuning + Memory + Adaptive Local Search&quot;) reuses the exact GSK trial builder — junior/senior gained vectors, midpoint bound repair, the split-by-<code>junior_prob</code> then gate-by-<code>kr</code> mask — without changing a line of it (<code>atmals_gsk.py:137-156</code> calls the shared <code>gsk_build_trial</code>). Three things are new:</p>
+<ul>
+<li><strong>Five adaptive pools, not four.</strong> GSK&#x27;s <code>kf</code>, <code>kr</code>, <code>k</code>, and the senior</li>
+<p>fraction <code>p</code> each become a *grid* of candidate values, and a fifth pool <code>pls</code> is added to steer the local search. Every generation picks one value from each grid (<code>atmals_gsk.py:208-212</code>, <code>:324-328</code>).</p>
+<li><strong>Memory-based roulette.</strong> A per-pool weight vector accumulates over the whole</li>
+<p>run. Slots that were chosen on improving generations gain weight; slots chosen on worsening generations lose it. The vector is raised to a growing power <code>rp</code> before each spin, so as the run matures the wheel concentrates on the slots that have paid off (<code>atmals_helpers.py:22-79</code>, <code>atmals_gsk.py:317,324-328</code>).</p>
+<li><strong>Adaptive local search.</strong> After the GSK trials are built, a few rows are</li>
+<p>overwritten with perturbations of the <strong>current best</strong> vector. The perturbation *probability per coordinate* is set by <code>pls/D</code>, and the *amplitude* <code>range_ls</code> shrinks across the run, so the search starts coarse and ends fine (<code>atmals_gsk.py:71-108,293-305</code>).</p>
+</ul>
+<p>The signal that drives all of this is the <strong>mean of the best half</strong> of the population&#x27;s error each generation — a smoother, less greedy progress measure than the single best (<code>atmals_gsk.py:50-68</code>).</p>
+<h2 id="mathematical-formulation">Mathematical formulation</h2>
+<p>The gaining-sharing core is identical to <a href="algorithms_gsk.html">GSK</a>; the donor blocks are drawn by ATMALS-local helpers that match the reference exactly (a CEC2017 split at <code>p=0.1</code> in <code>atmals_helpers.py:159-174</code>, or a fixed 10 % / 90 % split for CEC2011 in <code>:177-192</code>). Only the additions are derived here.</p>
+<p><strong>Progress signal (best-half mean)</strong> (<code>atmals_gsk.py:50-68</code>). With the population&#x27;s per-individual error <code>e</code> (for CEC2017 that is <code>|f - f*|</code>; for CEC2011, or an unknown optimum, the raw fitness):</p>
+<pre><code class="code-block language-text">e_sorted = sort(e) ascending
+m        = mean( e_sorted[0 : max(1, floor(NP/2))] )</code></pre>
+<p><code>mean_fit</code> is <code>m</code> before a generation; <code>mean_fit_new</code> is <code>m</code> recomputed from the children.</p>
+<p><strong>Per-pool weight update</strong> (<code>atmals_gaussmf</code> + <code>_atmals_reward_row</code>, <code>atmals_helpers.py:14-49</code>, ported from the reference <code>ProbUpdate.m</code>). Let a pool hold values <code>v</code> (length <code>L</code>); let the slot chosen last generation be at 1-based position <code>c</code> (its value matched in <code>v</code>). A Gaussian membership over the *pool values* peaks at the position index <code>c</code>:</p>
+<pre><code class="code-block language-text">sigma = 0.05 * ( max(v) - min(v) )
+yy    = exp( -( v - c )^2 / (2*sigma^2) )            # gaussmf(v, sigma, c)
+denom = max( |mean_fit|, eps )
+improved:  row =  yy        * exp( -(mean_fit_new - mean_fit)/denom )
+worsened:  row = (1 - yy)*0.1* exp( -(mean_fit_new - mean_fit)/denom )
+tie:       row =  0</code></pre>
+<p>The reference update appends the new <code>row</code> onto the pool&#x27;s history, then collapses the history with a geometric forgetting factor <code>alpha = 0.98</code>. The optimizer stores the equivalent compact weighted sum in <code>AtmalsProbabilityMemory</code>, because old rows keep the same weight forever and only one new weighted row is added per generation. The *oldest* logical row is weighted <code>alpha^1</code> (the largest weight) and the *newest* logical row <code>alpha^(row_count)</code> (the smallest), so newer rows count less and older rows more as the history accumulates and decays:</p>
+<pre><code class="code-block language-text">prob = sum over history rows r (oldest first, index = 1..row_count) of  alpha^(index) * row_r</code></pre>
+<p>With <code>alpha = 0.98</code> the weight halves about every 34 rows (<code>0.98^34 ≈ 0.5</code>), so a contribution&#x27;s influence is roughly halved every ~34 generations.</p>
+<p>(Because <code>c</code> is the *index* 1..L while <code>v</code> holds the actual grid values, the Gaussian is centred far outside the value range; with <code>sigma</code> so small, <code>yy</code> underflows toward 0 for most grids — a faithful quirk of the reference. The worsened branch&#x27;s <code>(1 - yy)*0.1</code> term is therefore what keeps weight alive. The update is reproduced verbatim so results match the reference.)</p>
+<p><strong>Memory roulette with sharpening</strong> (<code>atmals_helpers.py:131-156</code>, <code>atmals_gsk.py:317,324-328</code>). The selection weight is <code>prob</code> raised to a power <code>rp</code> that grows with the run:</p>
+<pre><code class="code-block language-text">rp = rp_min + (range_ls_max - range_ls_min) * (g / G_max)     # ~3.0 -&gt; ~3.2
+w  = prob ^ rp
+p_sel = w / sum(w)
+draw threshold u ~ U(0,1)
+slot = searchsorted(cumsum(p_sel), u, side=&quot;left&quot;)   # clamped to L-1
+value = pool[slot]</code></pre>
+<p>(<code>rp_min = 3.0</code>, <code>range_ls_max = 0.2</code>, <code>range_ls_min = 1e-10</code> at <code>atmals_gsk.py:228-230</code>; so <code>rp</code> rises only from 3.0 to ~3.2 over the run. A <code>rp_max:5.0</code> appears in the result <code>params</code> block but is not used by the loop — <code>atmals_gsk.py:392</code>.)</p>
+<p><strong>Adaptive local search</strong> (<code>atmals_gsk.py:71-108,293-305</code>). The amplitude decays linearly each generation:</p>
+<pre><code class="code-block language-text">range_ls = range_ls_max - (range_ls_max - range_ls_min) * (g / G_max)   # 0.2 -&gt; ~0
+nls      = round(0.05 * NP)                                             # rows touched</code></pre>
+<p><code>nls</code> rows of the freshly built trial population are replaced by a perturbed copy of the current best vector <code>x_best</code>. For each touched row and each coordinate <code>col</code>:</p>
+<pre><code class="code-block language-text">with probability pls/D:
+    x[row,col] = x_best[col] + (2*U(0,1) - 1) * range_ls * (ub_col - lb_col)
+    clip to [lb_col, ub_col]      # CEC2017: hard clip; CEC2011: clip to bound -/+ eps
+otherwise:
+    x[row,col] = x_best[col]      # coordinate copied from the best vector</code></pre>
+<p>So a touched row is &quot;best vector, with a sparse coarse-to-fine jitter.&quot; The larger <code>pls</code> is, the more coordinates get jittered.</p>
+<p><strong>Selection</strong> is the same strictly-greedy replacement as GSK (<code>atmals_gsk.py:341-344</code>): a child replaces its parent only where <code>f(child) &lt; f(parent)</code>. ATMALS-GSK does <strong>not</strong> reduce the population (unlike <a href="algorithms_agsk.html">AGSK</a>&#x27;s LPSR); <code>NP</code> is constant.</p>
+<h2 id="pseudocode">Pseudocode</h2>
+<pre><code class="code-block language-text">G_max = (cec2011 ? max_nfes/NP : fix(max_nfes/NP))          # atmals_gsk.py:219
+kf,kr,k,p,pls = 0.5, 0.9, 10.0, 0.1, 1.0                    # initial picks :221-226
+prob_* = ones(len(pool))   for each of the 5 pools          # :232-236
+initialize population, evaluate, mean_fit = best_half_mean  # :238-257
+record best-so-far; nfes += NP                              # :262-268
+for g = 1, 2, ... until nfes &gt;= max_nfes:                   # :271
+    trial = GSK_generation(pop, fit, kf, kr, k, p, g)       # shared core :280
+    range_ls = range_ls_max - (range_ls_max-range_ls_min)*g/G_max   # :293
+    trial = local_search(trial, x_best, nls, pls, range_ls) # :296
+    child_fit = evaluate(trial); nfes += n_count            # :307
+    mean_fit_new = best_half_mean(child_fit)                # :315
+    rp = rp_min + (range_ls_max-range_ls_min)*g/G_max       # :317
+    for each pool (kf, kr, k, p, pls):                      # :318-328
+        prob = prob_update(history, pool, chosen, mean_fit, mean_fit_new, alpha)
+        chosen = pool[ roulette(prob^rp) ]                  # :324-328
+    mean_fit = mean_fit_new
+    greedy replace: parent &lt;- child where f(child) &lt; f(parent)   # :341-344
+    append (nfes, best_so_far) to the convergence trace     # :346</code></pre>
+<h2 id="parameters">Parameters</h2>
+<div class="table-wrap"><table><thead><tr><th>Option</th><th>Symbol</th><th>Default</th><th>Valid range</th><th>Meaning</th><th>Code</th></tr></thead><tbody><tr><td><code>np</code></td><td>NP</td><td><code>100</code></td><td>integer ≥ 12</td><td>Fixed population size (no reduction); guard rejects <code>NP &lt; 12</code>.</td><td><code>atmals_gsk.py:202-204</code></td></tr><tr><td><code>protocol</code></td><td>—</td><td><code>&quot;cec2017&quot;</code></td><td><code>&quot;cec2017&quot;</code> \</td><td><code>&quot;cec2011&quot;</code></td><td>Selects donor split, <code>G_max</code> rounding, error metric, and bound-clip eps.</td><td><code>atmals_gsk.py:201</code>, <code>:42-47</code></td></tr><tr><td><code>kf_pool</code></td><td>kf grid</td><td><code>arange(0.2, 0.8, 0.1)</code> → 7 values</td><td>non-empty float vector</td><td>Knowledge-factor candidates (step scale). Controls <code>kf</code>.</td><td><code>atmals_gsk.py:208</code></td></tr><tr><td><code>kr_pool</code></td><td>kr grid</td><td><code>arange(0.85, 1.0, 0.01)</code> → 16 values</td><td>non-empty float vector</td><td>Knowledge-ratio candidates (per-dim update prob). Controls <code>kr</code>.</td><td><code>atmals_gsk.py:209</code></td></tr><tr><td><code>k_pool</code></td><td>k grid</td><td><code>arange(8, 30, 1)</code> → 23 values</td><td>non-empty float vector</td><td>Junior-schedule exponent candidates (handover sharpness). Controls <code>k_rate</code>.</td><td><code>atmals_gsk.py:210</code></td></tr><tr><td><code>p_pool</code></td><td>p grid</td><td><code>arange(0.05, 0.15, 0.01)</code> → 11 values</td><td>non-empty float vector</td><td>Senior partition-fraction candidates. <code>p_value</code> is roulette-selected and tracked/adapted in the parameter memory (<code>atmals_gsk.py:321,327</code>), but the CEC2017 senior split is <strong>hardcoded to 0.1</strong> (<code>atmals_gsk.py:132</code>), so in this port <code>p</code> is recorded but does <strong>not</strong> resize the senior best/worst blocks.</td><td><code>atmals_gsk.py:211</code></td></tr><tr><td><code>pls_pool</code></td><td>pls grid</td><td><code>arange(1.0, 2.0, 0.1)</code> → 11 values</td><td>non-empty float vector</td><td>Local-search density candidates; per-coordinate jitter prob is <code>pls/D</code>.</td><td><code>atmals_gsk.py:212</code></td></tr><tr><td><code>seed</code></td><td>—</td><td>required</td><td>integer</td><td>RNG seed; fixes the whole draw order.</td><td><code>atmals_gsk.py:199</code></td></tr></tbody></table></div>
+<p>Internal constants (not options, fixed in the loop): initial picks <code>kf=0.5, kr=0.9, k=10.0, p=0.1, pls=1.0</code> (<code>atmals_gsk.py:221-226</code>); <code>alpha=0.98</code> (<code>:225</code>); <code>nls = round(0.05·NP)</code> (<code>:227</code>); <code>rp_min=3.0</code> (<code>:228</code>); <code>range_ls_max=0.2</code>, <code>range_ls_min=1e-10</code> (<code>:229-230</code>). There is <strong>no</strong> <code>use_local_search</code> flag — the local search always runs (with <code>nls=0</code> it is a no-op, <code>atmals_gsk.py:84</code>). There is <strong>no</strong> explicit <code>probability_memory</code> option; the memory lives in five compact <code>AtmalsProbabilityMemory</code> states seeded with the all-ones first logical row so the first spin is uniform. Results record <code>probability_memory=&quot;compact_weighted_sum&quot;</code> and <code>probability_memory_rows</code>.</p>
+<blockquote>Defaults use a half-open upper bound in code (<code>arange(0.2, 0.8000001, 0.1)</code>):</blockquote>
+<blockquote>the tiny <code>…0001</code> epsilon makes the endpoint inclusive, so <code>kf_pool</code> really</blockquote>
+<blockquote>does end at <code>0.8</code>, <code>kr_pool</code> at <code>1.0</code>, <code>k_pool</code> at <code>30</code>, <code>p_pool</code> at <code>0.15</code>,</blockquote>
+<blockquote>and <code>pls_pool</code> at <code>2.0</code>.</blockquote>
+<h2 id="worked-example">Worked example</h2>
+<p>Two hand-checkable pieces: one memory-roulette selection, and one local-search coordinate.</p>
+<p><strong>1) Memory roulette with sharpening</strong> (<code>atmals_helpers.py:131-156</code>). Take a small 3-slot pool with accumulated weights <code>prob = [0.2, 0.5, 0.3]</code> and an early-run <code>rp = 3.0</code> (<code>atmals_gsk.py:317</code>, <code>:324</code>). The selection weight is <code>prob^rp</code>:</p>
+<pre><code class="code-block language-text">prob^3   = [0.2^3, 0.5^3, 0.3^3] = [0.008, 0.125, 0.027]
+sum      = 0.160
+p_sel    = [0.0500, 0.78125, 0.16875]
+cumsum   = [0.0500, 0.83125, 1.0]</code></pre>
+<p>The cubing has sharpened a 0.50 lead into a 0.78 share. Now spin:</p>
+<pre><code class="code-block language-text">u = 0.10 -&gt; searchsorted(cumsum, 0.10) = slot 1   (0.05 &lt; 0.10 &lt;= 0.83125)
+u = 0.50 -&gt; slot 1
+u = 0.90 -&gt; slot 2   (0.83125 &lt; 0.90)</code></pre>
+<p>So the historically-best slot 1 is chosen for two of these three draws — and the gap widens as <code>rp</code> grows later in the run.</p>
+<p><strong>2) One local-search coordinate</strong> (<code>atmals_gsk.py:95-107</code>). Suppose <code>D = 30</code>, <code>pls = 1.5</code> (so per-coord prob <code>pls/D = 0.05</code>), bounds <code>lb=-100, ub=100</code>, current best <code>x_best[col] = 12.0</code>, and this is a mid-run generation with <code>range_ls = 0.1</code> (<code>atmals_gsk.py:293</code>). The row is first set to <code>x_best</code>, then for one coordinate the RNG draws <code>r1 = 0.03</code> (<code>&lt; 0.05</code>, so jitter fires) and <code>r2 = 0.7</code>:</p>
+<pre><code class="code-block language-text">delta = (2*r2 - 1) * range_ls * (ub - lb)
+      = (2*0.7 - 1) * 0.1 * (100 - (-100))
+      = 0.4 * 0.1 * 200 = 8.0
+x[row,col] = x_best[col] + delta = 12.0 + 8.0 = 20.0   (inside [-100,100])</code></pre>
+<p>A coordinate where the gate draw is <code>&gt;= 0.05</code> keeps <code>x_best[col] = 12.0</code> unchanged. Early in the run <code>range_ls = 0.2</code> would have doubled <code>delta</code> to 16.0; late in the run <code>range_ls → 0</code> collapses the jitter to nearly zero, fine-tuning the best vector.</p>
+<p><strong>3) One weight-update step (structure)</strong> (<code>atmals_helpers.py:41-49</code>). If the children improved (<code>mean_fit_new &lt; mean_fit</code>), the chosen slot&#x27;s row is <code>yy * exp(-(Δ)/|mean_fit|)</code> with <code>Δ &lt; 0</code>, so the exponential is <code>&gt; 1</code> and that slot gains weight; a worsening generation routes weight to the *non-chosen* slots via <code>(1 - yy)*0.1</code>. All rows are then folded with a geometric series that weights <strong>newer rows less</strong> — the oldest row by <code>0.98^1</code> (the largest weight) down to the newest by <code>0.98^(row_count)</code> — matching the derivation above, so a row&#x27;s influence halves about every 34 rows.</p>
+<h2 id="update-cycle">Update cycle</h2>
+<pre class="mermaid">flowchart TD
+  A[&quot;Build GSK trial population (shared core): junior/senior gained, repair, KR mask&quot;] --&gt; B[&quot;range_ls = range_ls_max - (range_ls_max-range_ls_min)*g/G_max&quot;]
+  B --&gt; C[&quot;Local search: overwrite nls rows with jittered x_best (per-coord prob pls/D)&quot;]
+  C --&gt; D[&quot;Evaluate children; mean_fit_new = best-half mean&quot;]
+  D --&gt; E[&quot;rp = rp_min + (range_ls_max-range_ls_min)*g/G_max&quot;]
+  E --&gt; F[&quot;For each of 5 pools: prob = prob_update(history, mean_fit, mean_fit_new, alpha=0.98)&quot;]
+  F --&gt; G[&quot;Roulette over prob^rp -&gt; new kf, kr, k, p, pls&quot;]
+  G --&gt; H[&quot;mean_fit &lt;- mean_fit_new&quot;]
+  H --&gt; I[&quot;Greedy: child replaces parent if strictly better&quot;]
+  I --&gt; J{&quot;nfes &lt; max_nfes?&quot;}
+  J -- yes --&gt; A
+  J -- no --&gt; K[&quot;Return best-so-far and convergence trace&quot;]</pre>
+<h2 id="bounds-budget-and-determinism">Bounds, budget, and determinism</h2>
+<ul>
+<li><strong>Bound repair</strong> in the GSK core is the same midpoint pull toward the parent</li>
+<p>as <a href="algorithms_gsk.html">GSK</a>. The <strong>local search</strong> clips independently: CEC2017 hard-clips to <code>[lb, ub]</code>; CEC2011 clips to <code>lb+eps</code> / <code>ub-eps</code> (<code>atmals_gsk.py:104-107</code>).</p>
+<li><strong>Budget.</strong> <code>G_max = fix(max_nfes/NP)</code> for CEC2017 (CEC2011 keeps the exact</li>
+<p>ratio) (<code>atmals_gsk.py:219</code>); the last generation is partially counted via <code>n_count = min(NP, max_nfes - nfes)</code> (<code>atmals_gsk.py:331</code>). Best-so-far is monotone non-increasing.</p>
+<li><strong>Determinism.</strong> Every random draw goes through the caller&#x27;s <code>RandomContext</code></li>
+<p>in a fixed order: the GSK <code>(3, NP, D)</code> block (<code>atmals_gsk.py:136</code>), the local search&#x27;s <code>permutation</code> + per-cell <code>random()</code> draws (<code>atmals_gsk.py:90,98,100</code>), then the five roulette spins (<code>atmals_gsk.py:324-328</code>). Same seed → identical result, serial or parallel. See <a href="reference_seed_policy.html">Seed Policy</a>.</p>
+<li><strong>CEC2011, D=1</strong> takes a senior-only fallback generation</li>
+<p>(<code>atmals_gsk.py:159-194</code>) that skips the junior path; the rest of the loop is unchanged.</p>
+</ul>
+<h2 id="complexity">Complexity</h2>
+<p>Per generation: <code>O(NP log NP)</code> to sort, <code>O(NP*D)</code> to build trials, plus <code>O(nls*D)</code> for the local search (<code>nls = round(0.05*NP)</code>), and <code>O(L)</code> per pool for the five compact memory updates and roulettes (<code>L &lt;= 23</code>). The pool work is dominated by <code>O(NP*D)</code>. Over <code>G_max ~= max_nfes/NP</code> generations: <code>O(max_nfes*D)</code> time. Memory is <code>O(NP*D)</code> for the population plus <code>O(L)</code> per adaptive pool; it no longer grows with the number of generations.</p>
+<h2 id="when-to-use">When to use</h2>
+<p>ATMALS-GSK is the choice when you want maximum self-tuning and a built-in local-refinement stage, and you are willing to spend a little overhead on the memory bookkeeping. It keeps <code>NP</code> fixed, so on budgets where population reduction helps, compare against <a href="algorithms_agsk.html">AGSK</a> (LPSR) or <a href="algorithms_apgsk.html">APGSK</a>/<a href="algorithms_fdb-agsk.html">FDB-AGSK</a>. For the un-tuned baseline that every variant extends, see <a href="algorithms_gsk.html">GSK</a>; for the family&#x27;s headline, high-dimensional method, see <a href="algorithms_dt-gsk.html">DT-GSK</a>, which adds dimension-aware interaction-structure memory to the same scaffold.</p>
+<h2 id="in-the-7-algorithm-panel">In the 7-algorithm panel</h2>
+<p>ATMALS-GSK is one of the six <strong>reference comparators</strong> in the family&#x27;s headline comparison (with GSK, AGSK, APGSK, FDB-AGSK, and eGSK), against which the proposed <a href="algorithms_dt-gsk.html">DT-GSK</a> is benchmarked. In the <strong>7-algorithm GSK-family panel</strong> built per dimension by <code>gsk-stats</code>, ATMALS-GSK is the most heavily self-tuning of the *reference* comparators — five memory-roulette pools plus an adaptive local search — so it is typically among the tougher baselines for the proposed method to beat (the strongest *comparator* is <a href="algorithms_egsk.html">EGSK</a>; DT-GSK leads the family overall) and a useful upper reference for &quot;how far does self-tuning alone get you without interaction-structure memory?&quot;. Unlike the AGSK family, ATMALS-GSK keeps <code>NP</code> fixed (no LPSR), which can matter on budgets where population reduction helps. The panel reports Friedman ranks, Nemenyi critical-difference diagrams, Holm-corrected Wilcoxon, A12 / Cliff&#x27;s delta effect sizes, win/tie/loss, and 7-curve convergence grids under <code>results/_run_all/_analysis/&lt;suite&gt;/</code>; ATMALS-GSK is included in the runner&#x27;s live <code>--stats</code> stream. See <a href="research_statistical_analysis.html">Statistical Analysis</a>.</p>
+<h2 id="source-and-validation">Source and validation</h2>
+<ul>
+<li>Kernel: <code>src/gsk_family/optimizers/atmals_gsk.py</code>; ATMALS helpers</li>
+<p>(<code>prob_update</code>, <code>roulette_select</code>, senior donors, Gaussian membership) <code>src/gsk_family/optimizers/atmals_helpers.py</code>; shared trial builder <code>src/gsk_family/optimizers/_kernels.py</code>; rounding/truncation <code>src/gsk_family/common/numeric_compat.py</code>. Ported from the reference ATMALS driver and its <code>ProbUpdate.m</code> with identical pool grids, draw order, and the index-vs-value Gaussian quirk preserved.</p>
+<li>Canonical results land in <code>results/_run_all/atmals-gsk/cec2017/</code>. Run for</li>
+<p>example:</p>
+</ul>
+<pre><code class="code-block language-bash">  python -m gsk_family.cli.run \
+    --optimizer atmals-gsk \
+    --suite cec2017 \
+    --dimension 30 \
+    --function 1 \
+    --runs 1 \
+    --seed 20240620 \
+    --max-evaluations 300000 \
+    --output-root results/_run_all</code></pre>
+<ul>
+<li>Tested for deterministic replay, fair-start reuse, pool selection,</li>
+<p>memory-weighted roulette, local-search application, budget crossing, and runner execution. See <a href="research_validation_report.html">Validation Report</a> and <a href="research_numerical_examples.html">Numerical Examples</a>.</p>
+</ul>
+      </article>
+    </main>
+    <aside class="page-toc" aria-label="On this page">
+<h2>On This Page</h2>
+<a class="toc-level-1" href="#atmals-gsk-adaptive-tuning-memory-adaptive-local-search">ATMALS-GSK — Adaptive Tuning, Memory, Adaptive Local Search</a>
+<a class="toc-level-2" href="#intuition">Intuition</a>
+<a class="toc-level-2" href="#mathematical-formulation">Mathematical formulation</a>
+<a class="toc-level-2" href="#pseudocode">Pseudocode</a>
+<a class="toc-level-2" href="#parameters">Parameters</a>
+<a class="toc-level-2" href="#worked-example">Worked example</a>
+<a class="toc-level-2" href="#update-cycle">Update cycle</a>
+<a class="toc-level-2" href="#bounds-budget-and-determinism">Bounds, budget, and determinism</a>
+<a class="toc-level-2" href="#complexity">Complexity</a>
+<a class="toc-level-2" href="#when-to-use">When to use</a>
+<a class="toc-level-2" href="#in-the-7-algorithm-panel">In the 7-algorithm panel</a>
+<a class="toc-level-2" href="#source-and-validation">Source and validation</a>
+</aside>
+  </div>
+  <script src="assets/search.js"></script>
+  <script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs'; mermaid.initialize({ startOnLoad: true, securityLevel: 'loose', theme: 'neutral' });</script>
+</body>
+</html>

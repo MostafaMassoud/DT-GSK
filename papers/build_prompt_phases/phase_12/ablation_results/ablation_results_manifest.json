@@ -1,0 +1,107 @@
+{
+ "schema": "ablation_results_manifest/v1",
+ "study_id": "abl-rel-2026-07-20",
+ "created_utc": "2026-07-20T18:56:46+00:00",
+ "git_head": "67d9345f9502a9a584e645fa8948f60a61d70e29",
+ "suite": "cec2017",
+ "dims": [
+  10,
+  30,
+  50,
+  100
+ ],
+ "runs": 51,
+ "n_funcs": 29,
+ "immutable_release": {
+  "root": "benchmarks/cec_reference_results/_ablation/scaffold",
+  "evidence_manifest": "benchmarks/cec_reference_results/_ablation/manifest.json",
+  "evidence_manifest_sha256": "dfc121ca1e8dd089cf272e5bec3a29aafbb1f8e8126acb11f27936979896a3e6"
+ },
+ "analysis_tools": {
+  "rank_matrix": "papers/scripts/generate_ablation_matrix.py (Friedman mean-rank + full-vs-cell paired Wilcoxon, Holm within dimension)",
+  "descriptive_and_identifiability": "papers/scripts/finalize_evidence.py (_regen_descriptive_deltas; same semantics as the retired phase-12 descriptive_deltas.py, recorded in the deltas JSON)"
+ },
+ "sgsm_scope": "interaction_graph_enabled=false in every cell (SGSM OFF); conditional remove-one deltas; not independent causal effects; no cross-dimension averaging where signs differ; Holm correction within dimension.",
+ "friedman_p_by_dimension": {
+  "D10": 1.79e-06,
+  "D30": 2.51e-08,
+  "D50": 0.00577,
+  "D100": 0.0346
+ },
+ "holm_significant_contrasts": [
+  {
+   "dimension": 10,
+   "cell": "no_ace",
+   "delta_rank_vs_full": 2.8448,
+   "holm_p": 0.001104
+  },
+  {
+   "dimension": 30,
+   "cell": "no_bse",
+   "delta_rank_vs_full": 1.3103,
+   "holm_p": 0.03406
+  },
+  {
+   "dimension": 30,
+   "cell": "no_localsearch",
+   "delta_rank_vs_full": 2.0345,
+   "holm_p": 0.001448
+  },
+  {
+   "dimension": 30,
+   "cell": "no_psr",
+   "delta_rank_vs_full": 2.8966,
+   "holm_p": 0.004383
+  }
+ ],
+ "headline_largest_conditional_degradation_by_dim": {
+  "D10": "no_ace (+2.84, Holm-significant)",
+  "D30": "no_psr (+2.90, Holm-significant)",
+  "D50": "no_localsearch (+1.69, not significant)",
+  "D100": "no_localsearch (+1.38, not significant)"
+ },
+ "identifiability": "all disabled cells engaged >=1 function per dimension (n_active 20-29 of 29); no null-contrast cells.",
+ "correction_exception_G0": "NOT TRIGGERED - all Holm-significant deltas favorable (removal degrades); manuscript run-count/values update is part of this 51-run finalization campaign (see finalize_report.md).",
+ "files": [
+  {
+   "path": "ablation_results/ablation_matrix_rank_summary_cec2017_D10.csv",
+   "sha256": "51160dfcca68789c48f91be3d85549260a74073706efc24bf9500a4be93a0e02",
+   "size_bytes": 394
+  },
+  {
+   "path": "ablation_results/ablation_matrix_rank_summary_cec2017_D30.csv",
+   "sha256": "1b4018b239d18d52fcef590491c61643e9c898f81f7a2fb467902f374fcbe962",
+   "size_bytes": 400
+  },
+  {
+   "path": "ablation_results/ablation_matrix_rank_summary_cec2017_D50.csv",
+   "sha256": "db229e7ad74f949516f0b08e5a0747e58f4dd8f95a4bd81bea8b904ced55c037",
+   "size_bytes": 401
+  },
+  {
+   "path": "ablation_results/ablation_matrix_rank_summary_cec2017_D100.csv",
+   "sha256": "25632c5ef4ad26455f521dfc5dcac86ad575ebeb12d5164be3379fbdbde635d5",
+   "size_bytes": 387
+  },
+  {
+   "path": "ablation_results/ablation_descriptive_deltas_cec2017.csv",
+   "sha256": "5058e7fba1a8c0acc5cdef67b9d3ab3d1cc57a7dba4d0848cdbd2a55a52e4a75",
+   "size_bytes": 2645
+  },
+  {
+   "path": "ablation_results/ablation_descriptive_deltas_cec2017.json",
+   "sha256": "14db324fa16c8107439c30d25de3d84530f48220cdebe795e69fb0f8c0e06dbe",
+   "size_bytes": 12527
+  },
+  {
+   "path": "ablation_findings.md",
+   "sha256": "1c8a9fd270b389645a7a0a7a9a4dc35841bdb636806051052792723e5d3d8ea3",
+   "size_bytes": 8828
+  },
+  {
+   "path": "ablation_execution_manifest.json",
+   "sha256": "111053d8788f5ecabf4e7ae63ebfdb820a6d8b315f71a7b38bc6bdf1292341b9",
+   "size_bytes": 8034
+  }
+ ]
+}

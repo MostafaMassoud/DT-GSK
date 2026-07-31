@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Python API documentation for gsk_family.optimizers.external._base">
+  <title>gsk_family.optimizers.external._base | GSK Family Python Documentation</title>
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+  <div class="site-shell">
+    <aside class="sidebar">
+<div class="brand"><a href="../index.html">GSK Family Python</a></div>
+<input class="nav-search" type="search" placeholder="Filter docs" aria-label="Filter docs">
+<nav class="nav-list" aria-label="Documentation">
+<section><h2>Getting Started</h2>
+<a class="nav-link" href="../getting-started_configuration.html">Configuration</a>
+<a class="nav-link" href="../getting-started_explainer.html">Explainer</a>
+<a class="nav-link" href="../getting-started_runbook.html">Runbook</a>
+<a class="nav-link" href="../getting-started_troubleshooting.html">Troubleshooting</a>
+<a class="nav-link" href="../getting-started_tutorial.html">Tutorial</a>
+<a class="nav-link" href="../getting-started_user_guide.html">User Guide</a>
+</section>
+<section><h2>Reference</h2>
+<a class="nav-link" href="../reference_api.html">API Reference</a>
+<a class="nav-link" href="../reference_architecture.html">Architecture</a>
+<a class="nav-link" href="../reference_benchmark_mapping.html">Benchmark Mapping</a>
+<a class="nav-link" href="../reference_benchmark_protocol.html">Benchmark Protocol</a>
+<a class="nav-link" href="../reference_cec2011_cpp_python_equivalence_review.html">CEC2011 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="../reference_cec2013_cpp_python_equivalence_review.html">CEC2013 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="../reference_cec2013lsgo_cpp_python_equivalence_review.html">CEC2013LSGO C++ to Python Equivalence Review</a>
+<a class="nav-link" href="../reference_cec2017_cpp_python_equivalence_review.html">CEC2017 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="../reference_cec2020_cpp_python_equivalence_review.html">CEC2020 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="../index.html">Documentation Index</a>
+<a class="nav-link" href="../reference_fp_regime.html">Floating-Point Regime Verification</a>
+<a class="nav-link" href="../reference_diagrams.html">Flowcharts And Diagrams</a>
+<a class="nav-link" href="../reference_glossary.html">Glossary</a>
+<a class="nav-link" href="../LICENSES.html">Licenses</a>
+<a class="nav-link" href="../reference_module_dependencies.html">Module Dependencies</a>
+<a class="nav-link" href="../reference_project_structure.html">Project Structure</a>
+<a class="nav-link" href="../reference_python_optimizer_interface.html">Python Optimizer Interface</a>
+<a class="nav-link" href="../reference_result_schema.html">Result Schema</a>
+<a class="nav-link" href="../reference_seed_policy.html">Seed Policy</a>
+<a class="nav-link" href="../reference_workflows.html">Workflows</a>
+</section>
+<section><h2>Algorithm Guides</h2>
+<a class="nav-link" href="../algorithms_agsk.html">AGSK — Adaptive Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="../algorithms_apgsk.html">APGSK — Adaptive-Parameters Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="../algorithms_atmals-gsk.html">ATMALS-GSK — Adaptive Tuning, Memory, Adaptive Local Search</a>
+<a class="nav-link" href="../algorithms_dt-gsk.html">DT-GSK — Dimension-Tiered Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="../algorithms_egsk.html">EGSK — Enhanced Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="../algorithms_fdb-agsk.html">FDB-AGSK — Fitness-Distance-Balance AGSK</a>
+<a class="nav-link" href="../algorithms_gsk.html">GSK — Gaining-Sharing Knowledge</a>
+</section>
+<section><h2>Development</h2>
+<a class="nav-link" href="../development_BUG_resume_summary_truncation.html">BUG-RESUME-01 — resume mode truncates (and mis-computes) the per-dimension summary CSV</a>
+<a class="nav-link" href="../development_LSGO_ACCELERATION_PLAN.html">CEC2013LSGO Acceleration Plan — all 7 GSK-family algorithms, bit-identically</a>
+<a class="nav-link" href="../development_LSGO_INTEGRATION_CAMPAIGN.html">CEC2013LSGO Integration — Campaign Plan</a>
+<a class="nav-link" href="../development_CEC2017_PREC_adjudication.html">CEC2017-PREC — adjudication (CLOSED 2026-07-25)</a>
+<a class="nav-link" href="../development_code_reading_guide.html">Code Reading Guide</a>
+<a class="nav-link" href="../development_contributor_guide.html">Contributor Guide</a>
+<a class="nav-link" href="../development_DECC_G_port_record.html">DECC-G port — fidelity and validation record</a>
+<a class="nav-link" href="../development_developer_guide.html">Developer Guide</a>
+<a class="nav-link" href="../development_README.html">Development Docs</a>
+<a class="nav-link" href="../development_dt_gsk_core_reference.html">DT-GSK Core Reference — the vendored core and its byte-identity lock</a>
+<a class="nav-link" href="../development_evidence_rerun_runbook.html">DT-GSK re-run runbook — corrected implementation (C006 + graph backend)</a>
+<a class="nav-link" href="../development_egsk_port_spec.html">EGSK — Algorithm Spec &amp; Porting Verdict</a>
+<a class="nav-link" href="../development_extension_guide.html">Extension Guide</a>
+<a class="nav-link" href="../development_FAMILY_ACCELERATION_PLAN.html">Family-wide acceleration plan — 7 algorithms x 5 suites, bit-identical only</a>
+<a class="nav-link" href="../development_FINAL_PUBLICATION_PLAN.html">FINAL PUBLICATION PLAN — DT-GSK, Four(/Five)-Suite Scope</a>
+<a class="nav-link" href="../development_ACCELERATION_CAMPAIGN_PROMPT.html">GSK-Family Acceleration Campaign — Execution Prompt</a>
+<a class="nav-link" href="../development_maintenance_guide.html">Maintenance Guide</a>
+<a class="nav-link" href="../development_PORT_05_TUNING_TRIAGE.html">Porting project-05 tuning into 02 — Phase 1 audit and triage</a>
+<a class="nav-link" href="../development_REFERENCE_PROMOTION_PLAN.html">Reference Promotion Plan — CEC2013LSGO now, CEC2020 behind its completeness gate</a>
+<a class="nav-link" href="../development_SIBLING_CAMPAIGN_TRANSFER.html">Sibling-Campaign Transfer — every tuning that can make the GSK family fast</a>
+</section>
+<section><h2>Research</h2>
+<a class="nav-link" href="../research_egsk_validation_appendix.html">EGSK Validation Appendix — Paired Port-vs-Reference Equivalence</a>
+<a class="nav-link" href="../research_numerical_examples.html">Numerical Examples</a>
+<a class="nav-link" href="../research_performance.html">Performance</a>
+<a class="nav-link" href="../research_reproducibility.html">Reproducibility</a>
+<a class="nav-link" href="../research_researcher_handbook.html">Researcher Handbook</a>
+<a class="nav-link" href="../research_statistical_analysis.html">Statistical Analysis (GSK-family comparison)</a>
+<a class="nav-link" href="../research_validation_report.html">Validation Report</a>
+</section>
+<section><h2>Prompts</h2>
+<a class="nav-link" href="../prompt_documentation-deep-upgrade.html">Deep Documentation Review &amp; Upgrade Prompt — GSK Family Python</a>
+<a class="nav-link" href="../prompt_project-review.html">Deep Expert Review Prompt For GSK Family Python</a>
+<a class="nav-link" href="../prompt_documentation-review.html">Documentation Review Prompt</a>
+<a class="nav-link" href="../prompt_publication-polish.html">Final Publication Prompt — Production-Ready Q1 Release of GSK Family Python v1.1</a>
+</section>
+<section><h2>Python API</h2>
+<a class="nav-link" href="../api_index.html">API Module Index</a>
+<a class="nav-link api-link" href="../api/gsk_family.__init__.html">gsk_family.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.__init__.html">gsk_family.analysis.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.family_report.html">gsk_family.analysis.family_report</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.figures.html">gsk_family.analysis.figures</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.latex_tables.html">gsk_family.analysis.latex_tables</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.project_policy.html">gsk_family.analysis.project_policy</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.result_loader.html">gsk_family.analysis.result_loader</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.statistical_tests.html">gsk_family.analysis.statistical_tests</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.statistics.html">gsk_family.analysis.statistics</a>
+<a class="nav-link api-link" href="../api/gsk_family.benchmark_adapter.__init__.html">gsk_family.benchmark_adapter.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.benchmark_adapter.factory.html">gsk_family.benchmark_adapter.factory</a>
+<a class="nav-link api-link" href="../api/gsk_family.benchmark_adapter.problem.html">gsk_family.benchmark_adapter.problem</a>
+<a class="nav-link api-link" href="../api/gsk_family.benchmark_adapter.protocol.html">gsk_family.benchmark_adapter.protocol</a>
+<a class="nav-link api-link" href="../api/gsk_family.cli.__init__.html">gsk_family.cli.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.cli.list.html">gsk_family.cli.list</a>
+<a class="nav-link api-link" href="../api/gsk_family.cli.run.html">gsk_family.cli.run</a>
+<a class="nav-link api-link" href="../api/gsk_family.cli.stats.html">gsk_family.cli.stats</a>
+<a class="nav-link api-link" href="../api/gsk_family.cli.validate.html">gsk_family.cli.validate</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.__init__.html">gsk_family.common.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.bounds.html">gsk_family.common.bounds</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.donors.html">gsk_family.common.donors</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.numeric_compat.html">gsk_family.common.numeric_compat</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.population.html">gsk_family.common.population</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.reduction.html">gsk_family.common.reduction</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.reference_rng.html">gsk_family.common.reference_rng</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.rng.html">gsk_family.common.rng</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.threefry_rng.html">gsk_family.common.threefry_rng</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.__init__.html">gsk_family.optimizers.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers._dt_profiles.html">gsk_family.optimizers._dt_profiles</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers._dt_rng.html">gsk_family.optimizers._dt_rng</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers._kernels.html">gsk_family.optimizers._kernels</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.agsk.html">gsk_family.optimizers.agsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.apgsk.html">gsk_family.optimizers.apgsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.atmals_gsk.html">gsk_family.optimizers.atmals_gsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.atmals_helpers.html">gsk_family.optimizers.atmals_helpers</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.dt_gsk.html">gsk_family.optimizers.dt_gsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.egsk.html">gsk_family.optimizers.egsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.__init__.html">gsk_family.optimizers.external.__init__</a>
+<a class="nav-link api-link active" href="../api/gsk_family.optimizers.external._base.html">gsk_family.optimizers.external._base</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external._telemetry_shim.html">gsk_family.optimizers.external._telemetry_shim</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.cmaes.html">gsk_family.optimizers.external.cmaes</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.decc_g.html">gsk_family.optimizers.external.decc_g</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.ebowithcmar.html">gsk_family.optimizers.external.ebowithcmar</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.jso.html">gsk_family.optimizers.external.jso</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.lshade.html">gsk_family.optimizers.external.lshade</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.lshade_spacma.html">gsk_family.optimizers.external.lshade_spacma</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.mos_cec2013lsgo.html">gsk_family.optimizers.external.mos_cec2013lsgo</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.shade_ils.html">gsk_family.optimizers.external.shade_ils</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.fdb_agsk.html">gsk_family.optimizers.fdb_agsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.fdb_scores.html">gsk_family.optimizers.fdb_scores</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.gsk.html">gsk_family.optimizers.gsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.__init__.html">gsk_family.runners.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.config.html">gsk_family.runners.config</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.fp_regime.html">gsk_family.runners.fp_regime</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.output.html">gsk_family.runners.output</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.parallel.html">gsk_family.runners.parallel</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.performance.html">gsk_family.runners.performance</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.run_experiment.html">gsk_family.runners.run_experiment</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.seed_policy.html">gsk_family.runners.seed_policy</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.verification.html">gsk_family.runners.verification</a>
+<a class="nav-link api-link" href="../api/gsk_family.stats.html">gsk_family.stats</a>
+<a class="nav-link api-link" href="../api/gsk_family.types.html">gsk_family.types</a>
+</section>
+</nav></aside>
+    <main class="content">
+      <article class="doc-card">
+        <h1>gsk_family.optimizers.external._base</h1>
+<p class="source-path">Source: <code>src/gsk_family/optimizers/external/_base.py</code></p>
+<p>Shared substrate for the seven external baseline optimizers.</p>
+<p>Every external baseline plugs into the project&#x27;s optimizer contract through this
+module. It provides, once, the three things all of them need and that the
+master plan makes non-negotiable:</p>
+<p>1. **Family-identical RNG ownership.** Randomness is drawn ONLY through the
+   family&#x27;s :class:`~gsk_family.common.rng.RandomContext` (the same
+   threefry/twister generators, the same ``seed_policy`` seed, and the runner&#x27;s
+   &quot;fair start&quot; post-initialization RNG state). The Gaussian and Cauchy variates
+   the DE/ES baselines need — which ``RandomContext`` does not expose natively —
+   are synthesized *from the family&#x27;s own uniform stream* here (inverse-CDF), so
+   each baseline run is reproducible and replayable on the identical seed streams
+   as the 24 family algorithms. The reference code&#x27;s native RNG is never used for
+   the campaign; it is consulted only for ``reference_parity`` cross-checks.</p>
+<p>2. **Budget-exact evaluation accounting.** :class:`BudgetEvaluator` counts every
+   single objective call (population batches AND single-point local-search
+   probes), tracks the best-so-far, records a bounded convergence trace, and
+   exposes ``remaining()`` so an algorithm truncates its final batch exactly —
+   the family&#x27;s own budget discipline.</p>
+<p>3. **Family-schema results.** :func:`build_result` returns an
+   :class:`~gsk_family.types.OptimizerResult` identical in shape to the
+   family&#x27;s, so the existing analysis/statistics compare family-vs-baseline with
+   no special-casing.</p>
+<p>Design invariant: this module and the baselines under it are additive. They read
+the family contract but mutate nothing the family owns.</p>
+<h2 id="members">Members</h2>
+<section class="api-member" id="function-resolve-profile-67">
+<div class="member-kind">function</div>
+<h2>resolve_profile</h2>
+<pre><code>resolve_profile(options: OptimizerOptions) -&gt; Profile</code></pre>
+<p>Return the active profile from ``options.values`` (default ``publication``).</p>
+</section>
+<section class="api-member" id="function-values-75">
+<div class="member-kind">function</div>
+<h2>_values</h2>
+<pre><code>_values(options: OptimizerOptions | dict[str, Any]) -&gt; dict[str, Any]</code></pre>
+<p>Options ``values`` mapping, tolerating a bare dict (parity harness convenience).</p>
+</section>
+<section class="api-member" id="function-param-82">
+<div class="member-kind">function</div>
+<h2>param</h2>
+<pre><code>param(options: OptimizerOptions | dict[str, Any], name: str, default: Any) -&gt; Any</code></pre>
+<p>Read a per-algorithm parameter override from ``options.values`` (else default).</p>
+</section>
+<section class="api-member" id="function-fair-start-size-87">
+<div class="member-kind">function</div>
+<h2>fair_start_size</h2>
+<pre><code>fair_start_size(optimizer_id: str, dim: int) -&gt; int | None</code></pre>
+<p>Native initial-population size each external draws through the family fair start.</p>
+<p>Single source of truth: the runner draws exactly this many rows for the fair-start
+``initial_population`` (so every optimizer — family and external — draws its native
+population from the *same* seeded ``RandomContext`` at stream position 0, sharing the
+identical leading uniforms), and each baseline consumes them as its initial state.
+These MUST match the size each baseline computes internally on the no-``initial_population``
+(smoke) path. Returns ``None`` for non-external ids (runner falls back to its default).</p>
+</section>
+<section class="api-member" id="function-make-rng-114">
+<div class="member-kind">function</div>
+<h2>make_rng</h2>
+<pre><code>make_rng(options: OptimizerOptions) -&gt; RandomContext</code></pre>
+<p>Create the family RNG for this run and honor the runner&#x27;s fair start.</p>
+<p>Uses ``options.seed`` + ``options.rand_generator`` (the ``seed_policy`` choice)
+and restores the post-initialization RNG state the runner captured, so the
+baseline consumes the identical seed stream the family would after a fair start.</p>
+</section>
+<section class="api-member" id="function-standard-normal-133">
+<div class="member-kind">function</div>
+<h2>standard_normal</h2>
+<pre><code>standard_normal(rng: RandomContext, size: int | tuple[int, ...] | None = None) -&gt; np.ndarray | float</code></pre>
+<p>Draw N(0, 1) from the family&#x27;s uniform stream (inverse-CDF; 1 uniform -&gt; 1 normal).</p>
+<p>Using the inverse standard-normal CDF keeps a clean 1:1 draw accounting and
+keeps every bit of randomness inside the seeded family stream. The endpoints
+0 and 1 (which map to ±inf) are nudged into the open interval.</p>
+<p>The ``size=None`` scalar path skips the array round-trip (asarray/np.clip on a
+0-d array) that dominated the GA-mutation retry loops at D=1000 — same single
+``rng.random(None)`` stream consumption, same clamp comparisons, and ``ndtri``
+is the identical scipy ufunc kernel for scalars and arrays, so the returned
+double is bit-identical to the previous path.</p>
+</section>
+<section class="api-member" id="class-normalstream-159">
+<div class="member-kind">class</div>
+<h2>NormalStream</h2>
+<pre><code>NormalStream</code></pre>
+<p>Chunked N(0,1) source for rejection loops — bit-identical to scalar draws.</p>
+<p>Loops that draw &quot;one normal, retry if rejected&quot; (the GA Gaussian mutation at
+D=1000 issues &gt;1.5M such draws per run, ~15% of MOS wall time) pay a Python
+call plus a scalar ``ndtri`` ufunc dispatch per draw. This peeks a chunk of
+uniforms, converts them with ONE vectorized ``ndtri``, hands them out in
+order, and consumes from the generator exactly the number actually used
+(``close()``), so the stream position and every returned double match the
+scalar path exactly. Falls back to scalar draws on generators without
+look-ahead.</p>
+<p>Use as a context manager so the consumption is always settled::</p>
+<p>with NormalStream(rng) as draw:
+        value = draw()</p>
+<div class="method-list"><h3>Methods</h3>
+<section class="api-member" id="method-init-179">
+<div class="member-kind">method</div>
+<h2>__init__</h2>
+<pre><code>__init__(self, rng: RandomContext, chunk: int = 32) -&gt; None</code></pre>
+<p>Bind to ``rng``; ``chunk`` uniforms are converted per refill.</p>
+</section>
+<section class="api-member" id="method-enter-188">
+<div class="member-kind">method</div>
+<h2>__enter__</h2>
+<pre><code>__enter__(self) -&gt; &#x27;NormalStream&#x27;</code></pre>
+<p>Enter the batched-draw scope.</p>
+</section>
+<section class="api-member" id="method-exit-192">
+<div class="member-kind">method</div>
+<h2>__exit__</h2>
+<pre><code>__exit__(self, exc_type: object, exc: object, tb: object) -&gt; None</code></pre>
+<p>Consume exactly the draws that were handed out.</p>
+</section>
+<section class="api-member" id="method-call-196">
+<div class="member-kind">method</div>
+<h2>__call__</h2>
+<pre><code>__call__(self) -&gt; float</code></pre>
+<p>Return the next N(0,1) value from the family stream.</p>
+</section>
+<section class="api-member" id="method-close-222">
+<div class="member-kind">method</div>
+<h2>close</h2>
+<pre><code>close(self) -&gt; None</code></pre>
+<p>Consume the draws handed out so far; safe to call more than once.</p>
+</section>
+</div>
+</section>
+<section class="api-member" id="function-normal-230">
+<div class="member-kind">function</div>
+<h2>normal</h2>
+<pre><code>normal(rng: RandomContext, loc: float, scale: float, size: int | tuple[int, ...] | None = None)</code></pre>
+<p>Draw N(loc, scale²) from the family stream.</p>
+</section>
+<section class="api-member" id="function-cauchy-235">
+<div class="member-kind">function</div>
+<h2>cauchy</h2>
+<pre><code>cauchy(rng: RandomContext, loc: float, scale: float, size: int | tuple[int, ...] | None = None)</code></pre>
+<p>Draw Cauchy(loc, scale) from the family stream (inverse-CDF; 1 uniform each).</p>
+<p>This is the F-memory sampler for the SHADE lineage: ``F = randc(M_F, 0.1)``.</p>
+</section>
+<section class="api-member" id="class-budgetexhausted-255">
+<div class="member-kind">class</div>
+<h2>BudgetExhausted</h2>
+<pre><code>BudgetExhausted(Exception)</code></pre>
+<p>Raised when an evaluation is attempted with no remaining budget.</p>
+</section>
+<section class="api-member" id="class-budgetevaluator-266">
+<div class="member-kind">class</div>
+<h2>BudgetEvaluator</h2>
+<pre><code>BudgetEvaluator</code></pre>
+<p>Count every objective call, track best-so-far, record a bounded trace.</p>
+<p>The algorithm owns budget control (checks :meth:`remaining` and truncates its
+final batch); this evaluator enforces exactness defensively and records the
+convergence trace on a log-spaced NFE grid so local-search-heavy baselines
+(SHADE-ILS, MOS) cannot blow up memory at ``D=1000``.</p>
+<div class="method-list"><h3>Methods</h3>
+<section class="api-member" id="method-post-init-293">
+<div class="member-kind">method</div>
+<h2>__post_init__</h2>
+<pre><code>__post_init__(self) -&gt; None</code></pre>
+<p>Build the log-spaced NFE checkpoint grid (first + last always kept).</p>
+</section>
+<section class="api-member" id="method-remaining-305">
+<div class="member-kind">method</div>
+<h2>remaining</h2>
+<pre><code>remaining(self) -&gt; int</code></pre>
+<p>Objective evaluations left in the budget (&gt;= 0).</p>
+</section>
+<section class="api-member" id="method-is-exhausted-309">
+<div class="member-kind">method</div>
+<h2>is_exhausted</h2>
+<pre><code>is_exhausted(self) -&gt; bool</code></pre>
+<p>True once the evaluation budget is fully spent.</p>
+</section>
+<section class="api-member" id="method-evaluate-315">
+<div class="member-kind">method</div>
+<h2>evaluate</h2>
+<pre><code>evaluate(self, population: np.ndarray) -&gt; np.ndarray</code></pre>
+<p>Evaluate a ``(N, D)`` population; count N calls; update best + trace.</p>
+</section>
+<section class="api-member" id="method-evaluate-one-343">
+<div class="member-kind">method</div>
+<h2>evaluate_one</h2>
+<pre><code>evaluate_one(self, x: np.ndarray) -&gt; float</code></pre>
+<p>Evaluate a single ``(D,)`` point (local-search probe). Counts one call.</p>
+<p>Inlines the ``n == 1`` bookkeeping of :meth:`evaluate` (the LS probe
+pattern: millions of calls at ``D=1000``), skipping the redundant
+atleast_2d/shape/branch dispatch of the batch path. Same coercion (so
+``problem.evaluate`` receives the identical array object), same check
+order, same compares/updates/records — the run is bit-identical.</p>
+</section>
+<section class="api-member" id="method-maybe-record-366">
+<div class="member-kind">method</div>
+<h2>_maybe_record</h2>
+<pre><code>_maybe_record(self) -&gt; None</code></pre>
+<p>Append the best-so-far whenever nfes crosses the next log-spaced checkpoint.</p>
+</section>
+<section class="api-member" id="method-convergence-382">
+<div class="member-kind">method</div>
+<h2>convergence</h2>
+<pre><code>convergence(self) -&gt; ConvergenceTrace</code></pre>
+<p>Return the recorded trace, guaranteeing a final point at the true nfes.</p>
+</section>
+</div>
+</section>
+<section class="api-member" id="function-build-result-398">
+<div class="member-kind">function</div>
+<h2>build_result</h2>
+<pre><code>build_result(optimizer_id: str, problem: Any, options: OptimizerOptions, ev: BudgetEvaluator, *, start_time: float, termination: str = &#x27;max_evaluations&#x27;, params: dict[str, Any] | None = None, notes: str = &#x27;&#x27;, telemetry: Any | None = None) -&gt; OptimizerResult</code></pre>
+<p>Assemble an ``OptimizerResult`` in the exact family schema.</p>
+<p>``telemetry`` is accepted for signature parity with the project-05 original
+but is DROPPED here: this project&#x27;s
+:class:`~gsk_family.types.OptimizerResult` has no ``telemetry`` field (the
+GSK family exposes per-generation state through ``generation_callback``
+instead). The parameter is kept so the vendored algorithm bodies need no
+edit; see ``_telemetry_shim``. This is the only behavioural adaptation.</p>
+</section>
+<section class="api-member" id="function-make-recorder-440">
+<div class="member-kind">function</div>
+<h2>make_recorder</h2>
+<pre><code>make_recorder(problem: Any, options: OptimizerOptions, counting_rule: str) -&gt; TelemetryRecorder</code></pre>
+<p>Create the family ``TelemetryRecorder`` for a baseline run (data parity §3.7).</p>
+<p>Baselines feed this recorder (``record_initial`` then per-generation
+``record_generation``) so their GISR / diversity / per-generation records — and
+thus the cross-optimizer RLSR/GISR/diversity/convergence analysis — are produced
+exactly as for the family. ``diversity_points`` is threaded from ``options`` like
+the family (0 = dense; &gt;0 thins the per-generation snapshot for LSGO).</p>
+</section>
+<section class="api-member" id="function-start-run-458">
+<div class="member-kind">function</div>
+<h2>start_run</h2>
+<pre><code>start_run(problem: Any, options: OptimizerOptions) -&gt; tuple[RandomContext, BudgetEvaluator, float]</code></pre>
+<p>Common run preamble: validate, build the family RNG, and the evaluator.</p>
+</section>
+      </article>
+    </main>
+    <aside class="page-toc" aria-label="On this page">
+<h2>On This Page</h2>
+<a class="toc-level-1" href="#gsk-family-optimizers-external-base">gsk_family.optimizers.external._base</a>
+<a class="toc-level-2" href="#members">Members</a>
+<a class="toc-level-2" href="#function-resolve-profile-67">resolve_profile</a>
+<a class="toc-level-2" href="#function-values-75">_values</a>
+<a class="toc-level-2" href="#function-param-82">param</a>
+<a class="toc-level-2" href="#function-fair-start-size-87">fair_start_size</a>
+<a class="toc-level-2" href="#function-make-rng-114">make_rng</a>
+<a class="toc-level-2" href="#function-standard-normal-133">standard_normal</a>
+<a class="toc-level-2" href="#class-normalstream-159">NormalStream</a>
+<a class="toc-level-2" href="#function-normal-230">normal</a>
+<a class="toc-level-2" href="#function-cauchy-235">cauchy</a>
+<a class="toc-level-2" href="#class-budgetexhausted-255">BudgetExhausted</a>
+<a class="toc-level-2" href="#class-budgetevaluator-266">BudgetEvaluator</a>
+<a class="toc-level-2" href="#function-build-result-398">build_result</a>
+<a class="toc-level-2" href="#function-make-recorder-440">make_recorder</a>
+<a class="toc-level-2" href="#function-start-run-458">start_run</a>
+</aside>
+  </div>
+  <script src="../assets/search.js"></script>
+</body>
+</html>

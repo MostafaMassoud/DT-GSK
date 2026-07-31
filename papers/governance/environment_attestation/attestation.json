@@ -1,0 +1,130 @@
+{
+  "schema": "dtgsk-environment-attestation/1",
+  "ticket": "M-030 (EXP-004)",
+  "generated_utc": "2026-07-31T13:07:35+00:00",
+  "green": true,
+  "green_requires": "installed stack inside the declared envelope; two identical all-green suite runs; every release gate exit 0",
+  "envelope_check": {
+    "python": {
+      "installed": "3.10.11",
+      "declared": ">=3.10,<3.14",
+      "in_envelope": true
+    },
+    "numpy": {
+      "installed": "2.2.6",
+      "declared": ">=1.24,<2.4",
+      "in_envelope": true
+    },
+    "scipy": {
+      "installed": "1.15.3",
+      "declared": ">=1.10,<1.16",
+      "in_envelope": true
+    },
+    "pandas": {
+      "installed": "2.3.3",
+      "declared": ">=2.0,<2.4",
+      "in_envelope": true
+    },
+    "matplotlib": {
+      "installed": "3.10.8",
+      "declared": ">=3.7,<3.11",
+      "in_envelope": true
+    }
+  },
+  "interpreter": {
+    "version": "3.10.11",
+    "executable": "C:\\AI\\Python\\Python310\\python.exe",
+    "implementation": "CPython"
+  },
+  "platform": {
+    "system": "Windows",
+    "release": "10",
+    "machine": "AMD64",
+    "node": "HUAWEI-MMASOUD"
+  },
+  "git": {
+    "head": "6c4d70148d566372687d4f04401f12731ce38b72",
+    "branch": "main",
+    "dirty": true
+  },
+  "test_runs": [
+    {
+      "exit_code": 0,
+      "xml": "junit-run1.xml",
+      "summary": "601 passed, 2 skipped, 3 warnings in 92.21s (0:01:32)",
+      "tests": 603,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 2,
+      "seconds": 92.2
+    },
+    {
+      "exit_code": 0,
+      "xml": "junit-run2.xml",
+      "summary": "601 passed, 2 skipped, 3 warnings in 91.07s (0:01:31)",
+      "tests": 603,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 2,
+      "seconds": 91.05
+    }
+  ],
+  "runs_agree_on_test_count": true,
+  "gates": [
+    {
+      "gate": "build-hygiene",
+      "command": "python papers/scripts/validate_build_hygiene.py",
+      "exit_code": 0,
+      "accepted_exit_codes": [
+        0
+      ],
+      "ok": true
+    },
+    {
+      "gate": "provenance-claims",
+      "command": "python papers/scripts/validate_provenance_claims.py",
+      "exit_code": 0,
+      "accepted_exit_codes": [
+        0
+      ],
+      "ok": true
+    },
+    {
+      "gate": "cross-format-parity",
+      "command": "python papers/scripts/validate_cross_format_parity.py",
+      "exit_code": 0,
+      "accepted_exit_codes": [
+        0
+      ],
+      "ok": true
+    },
+    {
+      "gate": "document-consistency",
+      "command": "python papers/scripts/validate_document_consistency.py",
+      "exit_code": 0,
+      "accepted_exit_codes": [
+        0,
+        2
+      ],
+      "ok": true
+    },
+    {
+      "gate": "docx-main",
+      "command": "python papers/scripts/validate_docx.py papers/DT-GSK.docx",
+      "exit_code": 0,
+      "accepted_exit_codes": [
+        0
+      ],
+      "ok": true
+    },
+    {
+      "gate": "docx-supplementary",
+      "command": "python papers/scripts/validate_docx.py papers/supplementary.docx",
+      "exit_code": 0,
+      "accepted_exit_codes": [
+        0
+      ],
+      "ok": true
+    }
+  ]
+}

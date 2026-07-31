@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Family-wide acceleration plan — 7 algorithms x 5 suites, bit-identical only - GSK Family Python Documentation">
+  <title>Family-wide acceleration plan — 7 algorithms x 5 suites, bit-identical only | GSK Family Python Documentation</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <div class="site-shell">
+    <aside class="sidebar">
+<div class="brand"><a href="index.html">GSK Family Python</a></div>
+<input class="nav-search" type="search" placeholder="Filter docs" aria-label="Filter docs">
+<nav class="nav-list" aria-label="Documentation">
+<section><h2>Getting Started</h2>
+<a class="nav-link" href="getting-started_configuration.html">Configuration</a>
+<a class="nav-link" href="getting-started_explainer.html">Explainer</a>
+<a class="nav-link" href="getting-started_runbook.html">Runbook</a>
+<a class="nav-link" href="getting-started_troubleshooting.html">Troubleshooting</a>
+<a class="nav-link" href="getting-started_tutorial.html">Tutorial</a>
+<a class="nav-link" href="getting-started_user_guide.html">User Guide</a>
+</section>
+<section><h2>Reference</h2>
+<a class="nav-link" href="reference_api.html">API Reference</a>
+<a class="nav-link" href="reference_architecture.html">Architecture</a>
+<a class="nav-link" href="reference_benchmark_mapping.html">Benchmark Mapping</a>
+<a class="nav-link" href="reference_benchmark_protocol.html">Benchmark Protocol</a>
+<a class="nav-link" href="reference_cec2011_cpp_python_equivalence_review.html">CEC2011 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013_cpp_python_equivalence_review.html">CEC2013 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013lsgo_cpp_python_equivalence_review.html">CEC2013LSGO C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2017_cpp_python_equivalence_review.html">CEC2017 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2020_cpp_python_equivalence_review.html">CEC2020 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="index.html">Documentation Index</a>
+<a class="nav-link" href="reference_fp_regime.html">Floating-Point Regime Verification</a>
+<a class="nav-link" href="reference_diagrams.html">Flowcharts And Diagrams</a>
+<a class="nav-link" href="reference_glossary.html">Glossary</a>
+<a class="nav-link" href="LICENSES.html">Licenses</a>
+<a class="nav-link" href="reference_module_dependencies.html">Module Dependencies</a>
+<a class="nav-link" href="reference_project_structure.html">Project Structure</a>
+<a class="nav-link" href="reference_python_optimizer_interface.html">Python Optimizer Interface</a>
+<a class="nav-link" href="reference_result_schema.html">Result Schema</a>
+<a class="nav-link" href="reference_seed_policy.html">Seed Policy</a>
+<a class="nav-link" href="reference_workflows.html">Workflows</a>
+</section>
+<section><h2>Algorithm Guides</h2>
+<a class="nav-link" href="algorithms_agsk.html">AGSK — Adaptive Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_apgsk.html">APGSK — Adaptive-Parameters Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_atmals-gsk.html">ATMALS-GSK — Adaptive Tuning, Memory, Adaptive Local Search</a>
+<a class="nav-link" href="algorithms_dt-gsk.html">DT-GSK — Dimension-Tiered Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_egsk.html">EGSK — Enhanced Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_fdb-agsk.html">FDB-AGSK — Fitness-Distance-Balance AGSK</a>
+<a class="nav-link" href="algorithms_gsk.html">GSK — Gaining-Sharing Knowledge</a>
+</section>
+<section><h2>Development</h2>
+<a class="nav-link" href="development_BUG_resume_summary_truncation.html">BUG-RESUME-01 — resume mode truncates (and mis-computes) the per-dimension summary CSV</a>
+<a class="nav-link" href="development_LSGO_ACCELERATION_PLAN.html">CEC2013LSGO Acceleration Plan — all 7 GSK-family algorithms, bit-identically</a>
+<a class="nav-link" href="development_LSGO_INTEGRATION_CAMPAIGN.html">CEC2013LSGO Integration — Campaign Plan</a>
+<a class="nav-link" href="development_CEC2017_PREC_adjudication.html">CEC2017-PREC — adjudication (CLOSED 2026-07-25)</a>
+<a class="nav-link" href="development_code_reading_guide.html">Code Reading Guide</a>
+<a class="nav-link" href="development_contributor_guide.html">Contributor Guide</a>
+<a class="nav-link" href="development_DECC_G_port_record.html">DECC-G port — fidelity and validation record</a>
+<a class="nav-link" href="development_developer_guide.html">Developer Guide</a>
+<a class="nav-link" href="development_README.html">Development Docs</a>
+<a class="nav-link" href="development_dt_gsk_core_reference.html">DT-GSK Core Reference — the vendored core and its byte-identity lock</a>
+<a class="nav-link" href="development_evidence_rerun_runbook.html">DT-GSK re-run runbook — corrected implementation (C006 + graph backend)</a>
+<a class="nav-link" href="development_egsk_port_spec.html">EGSK — Algorithm Spec &amp; Porting Verdict</a>
+<a class="nav-link" href="development_extension_guide.html">Extension Guide</a>
+<a class="nav-link active" href="development_FAMILY_ACCELERATION_PLAN.html">Family-wide acceleration plan — 7 algorithms x 5 suites, bit-identical only</a>
+<a class="nav-link" href="development_FINAL_PUBLICATION_PLAN.html">FINAL PUBLICATION PLAN — DT-GSK, Four(/Five)-Suite Scope</a>
+<a class="nav-link" href="development_ACCELERATION_CAMPAIGN_PROMPT.html">GSK-Family Acceleration Campaign — Execution Prompt</a>
+<a class="nav-link" href="development_maintenance_guide.html">Maintenance Guide</a>
+<a class="nav-link" href="development_PORT_05_TUNING_TRIAGE.html">Porting project-05 tuning into 02 — Phase 1 audit and triage</a>
+<a class="nav-link" href="development_REFERENCE_PROMOTION_PLAN.html">Reference Promotion Plan — CEC2013LSGO now, CEC2020 behind its completeness gate</a>
+<a class="nav-link" href="development_SIBLING_CAMPAIGN_TRANSFER.html">Sibling-Campaign Transfer — every tuning that can make the GSK family fast</a>
+</section>
+<section><h2>Research</h2>
+<a class="nav-link" href="research_egsk_validation_appendix.html">EGSK Validation Appendix — Paired Port-vs-Reference Equivalence</a>
+<a class="nav-link" href="research_numerical_examples.html">Numerical Examples</a>
+<a class="nav-link" href="research_performance.html">Performance</a>
+<a class="nav-link" href="research_reproducibility.html">Reproducibility</a>
+<a class="nav-link" href="research_researcher_handbook.html">Researcher Handbook</a>
+<a class="nav-link" href="research_statistical_analysis.html">Statistical Analysis (GSK-family comparison)</a>
+<a class="nav-link" href="research_validation_report.html">Validation Report</a>
+</section>
+<section><h2>Prompts</h2>
+<a class="nav-link" href="prompt_documentation-deep-upgrade.html">Deep Documentation Review &amp; Upgrade Prompt — GSK Family Python</a>
+<a class="nav-link" href="prompt_project-review.html">Deep Expert Review Prompt For GSK Family Python</a>
+<a class="nav-link" href="prompt_documentation-review.html">Documentation Review Prompt</a>
+<a class="nav-link" href="prompt_publication-polish.html">Final Publication Prompt — Production-Ready Q1 Release of GSK Family Python v1.1</a>
+</section>
+<section><h2>Python API</h2>
+<a class="nav-link" href="api_index.html">API Module Index</a>
+<a class="nav-link api-link" href="api/gsk_family.__init__.html">gsk_family.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.__init__.html">gsk_family.analysis.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.family_report.html">gsk_family.analysis.family_report</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.figures.html">gsk_family.analysis.figures</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.latex_tables.html">gsk_family.analysis.latex_tables</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.project_policy.html">gsk_family.analysis.project_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.result_loader.html">gsk_family.analysis.result_loader</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistical_tests.html">gsk_family.analysis.statistical_tests</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistics.html">gsk_family.analysis.statistics</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.__init__.html">gsk_family.benchmark_adapter.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.factory.html">gsk_family.benchmark_adapter.factory</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.problem.html">gsk_family.benchmark_adapter.problem</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.protocol.html">gsk_family.benchmark_adapter.protocol</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.__init__.html">gsk_family.cli.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.list.html">gsk_family.cli.list</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.run.html">gsk_family.cli.run</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.stats.html">gsk_family.cli.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.validate.html">gsk_family.cli.validate</a>
+<a class="nav-link api-link" href="api/gsk_family.common.__init__.html">gsk_family.common.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.common.bounds.html">gsk_family.common.bounds</a>
+<a class="nav-link api-link" href="api/gsk_family.common.donors.html">gsk_family.common.donors</a>
+<a class="nav-link api-link" href="api/gsk_family.common.numeric_compat.html">gsk_family.common.numeric_compat</a>
+<a class="nav-link api-link" href="api/gsk_family.common.population.html">gsk_family.common.population</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reduction.html">gsk_family.common.reduction</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reference_rng.html">gsk_family.common.reference_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.rng.html">gsk_family.common.rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.threefry_rng.html">gsk_family.common.threefry_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.__init__.html">gsk_family.optimizers.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_profiles.html">gsk_family.optimizers._dt_profiles</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_rng.html">gsk_family.optimizers._dt_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._kernels.html">gsk_family.optimizers._kernels</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.agsk.html">gsk_family.optimizers.agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.apgsk.html">gsk_family.optimizers.apgsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_gsk.html">gsk_family.optimizers.atmals_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_helpers.html">gsk_family.optimizers.atmals_helpers</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.dt_gsk.html">gsk_family.optimizers.dt_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.egsk.html">gsk_family.optimizers.egsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.__init__.html">gsk_family.optimizers.external.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._base.html">gsk_family.optimizers.external._base</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._telemetry_shim.html">gsk_family.optimizers.external._telemetry_shim</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.cmaes.html">gsk_family.optimizers.external.cmaes</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.decc_g.html">gsk_family.optimizers.external.decc_g</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.ebowithcmar.html">gsk_family.optimizers.external.ebowithcmar</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.jso.html">gsk_family.optimizers.external.jso</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade.html">gsk_family.optimizers.external.lshade</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade_spacma.html">gsk_family.optimizers.external.lshade_spacma</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.mos_cec2013lsgo.html">gsk_family.optimizers.external.mos_cec2013lsgo</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.shade_ils.html">gsk_family.optimizers.external.shade_ils</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_agsk.html">gsk_family.optimizers.fdb_agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_scores.html">gsk_family.optimizers.fdb_scores</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.gsk.html">gsk_family.optimizers.gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.__init__.html">gsk_family.runners.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.config.html">gsk_family.runners.config</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.fp_regime.html">gsk_family.runners.fp_regime</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.output.html">gsk_family.runners.output</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.parallel.html">gsk_family.runners.parallel</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.performance.html">gsk_family.runners.performance</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.run_experiment.html">gsk_family.runners.run_experiment</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.seed_policy.html">gsk_family.runners.seed_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.verification.html">gsk_family.runners.verification</a>
+<a class="nav-link api-link" href="api/gsk_family.stats.html">gsk_family.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.types.html">gsk_family.types</a>
+</section>
+</nav></aside>
+    <main class="content">
+      <article class="doc-card">
+        <h1 id="family-wide-acceleration-plan-7-algorithms-x-5-suites-bit-identical-only">Family-wide acceleration plan — 7 algorithms x 5 suites, bit-identical only</h1>
+<p><strong>Status:</strong> ACTIVE. Supersedes the campaign-state sections of <code>LSGO_ACCELERATION_PLAN.md</code> (whose measured lessons — T1 rejection, budget-scaling, worker knee, probe traps — remain authoritative). <strong>Opened:</strong> 2026-07-25.</p>
+<p><strong>Hard constraint:</strong> every change bit-identical — same arithmetic, same operation order, same RNG stream consumption, same seeded <code>best_fitness</code>. Result-changing levers are flagged in §5 and never silently applied.</p>
+<p><strong>Evidence base:</strong> 6-agent static-analysis workflow (<code>wf_607c2359-7a3</code>, 47 findings, full detail in <code>scratchpad/wf_findings.json</code> and the workflow transcript) + the cross-suite attribution ledger (<code>scratchpad/ledger_all_suites.json</code>, 84 cells: 7 algs x {cec2017 D10/30/50/100, cec2013 D10/50, cec2020 D10/20, cec2011 native x3, lsgo D1000}; each cell records ss µs/FE, category shares, and hex <code>best_fitness</code>).</p>
+<p>---</p>
+<h2 id="0-resume-point">0. RESUME POINT</h2>
+<div class="table-wrap"><table><thead><tr><th>Step</th><th>State</th></tr></thead><tbody><tr><td>Static analysis, 6 lenses, 47 findings</td><td><strong>DONE</strong></td></tr><tr><td>Attribution ledger, 84 cells</td><td><strong>DONE</strong> — 84/84 good (<code>ledger_all_suites.json</code>; pass 1 voided by a <code>create_stats</code> bug, rerun clean)</td></tr><tr><td>Golden-values matrix (Wave 0)</td><td><strong>DONE — 42 hex pins minted from pre-Wave-1 HEAD, green twice</strong></td></tr><tr><td><strong>Wave 1 (W1.1–W1.4) — CR-0013</strong></td><td><strong>DONE, bit-identical certified</strong> (42 goldens + full-budget hex + 575-test suite). Interleaved A/B: 1.07× median, variance sharply reduced; microbenched ~15 µs/FE removed at D=1000</td></tr><tr><td><strong>W2.1 <code>_rng_3buf</code> fused draw — CR-0014</strong></td><td><strong>DONE, bit-identical certified</strong> (13-substream KAT + 42 goldens + full-budget hex at D50/D100/LSGO; interleaved A/B 1.07×; dead buffer plumbing removed — the old out= path would have filled C-order, so the guard it deleted was load-bearing)</td></tr><tr><td><strong>W2.3/2.4/2.6 — CR-0015</strong></td><td><strong>DONE, bit-identical certified</strong> (consumer claims re-verified in source; 124 targeted tests + full-budget hex at D10/D50/LSGO + 575 suite). Note: the lens&#x27;s &quot;telemetry-only&quot; claim for coverage_i needed NARROWING — mean_dim_coverage is consumed whenever generation_callback is set, so the gate is <code>ace_coverage_weighted or generation_callback</code></td></tr><tr><td><strong>W2.2 fused trial assembly — CR-0016</strong></td><td><strong>DONE, bit-identical certified.</strong> Real-data microbench 71.5% of the assembly surface (436→124 µs/gen at production densities D_J 0.1%/D_S 76.6%); ~2% whole-run at LSGO so the interleave was correctly unresolvable — claimed from isolated measurement</td></tr><tr><td>~~W2.5 linkage-flatten cache~~</td><td><strong>REJECTED by inspection</strong> — &lt;0.5% surface, identity-caching medium-risk; ceiling line</td></tr><tr><td>Wave 2</td><td><strong>CLOSED</strong></td></tr><tr><td>~~Wave 3~~</td><td><strong>REJECTED by measurement (CR-0017)</strong> — W3.1 delta 1.7 µs/gen (~0.1%); W3.2&#x27;s whole evaluate is 0.44–2.81 µs/FE. Ceiling lines</td></tr><tr><td><strong>Classics leftovers — CR-0017</strong></td><td><strong>DONE</strong> — atmals dead snapshot (~506 µs/gen at D=1000) + egsk single buffer/complement scatter + egsk rand buffer; ~~W1.5~~ rejected (~2 µs/gen)</td></tr><tr><td><strong>CAMPAIGN COMPLETE</strong></td><td><strong>CLOSED (CR-0013..0017).</strong> 84/84 cells hex-identical; paired A/B <strong>1.280× median</strong> (the sequential re-measure&#x27;s 0.79-0.90× was machine drift — proven by fixed workloads slowing 1.43× in the same period). Result + ceiling proof in §7</td></tr></tbody></table></div>
+<p><strong>Ledger headline (pre-Wave-1 baseline, µs/FE):</strong> dt-gsk is slowest everywhere (37–155); classics 3–48; <code>dt_subsystems</code> = 47–55% of dt-gsk at D30/D100; &quot;other&quot; (numpy alloc/copy internals — the Wave-1/2 surfaces) = 27–42% for the classics. Anomaly noted: <code>egsk|cec2013|D50</code> ss = −0.8 µs/FE (early-termination differencing artifact).</p>
+<p><strong>Execution law:</strong> goldens are minted from PRE-fix HEAD and must stay green after every wave. Every candidate is <strong>microbenchmarked before coding</strong> (T1 rule). A fix that cannot state its bit-identity argument *by construction* is out of scope.</p>
+<h2 id="1-certification-backbone-wave-0">1. Certification backbone (Wave 0)</h2>
+<p><code>test_family_golden_values.py</code>: 7 optimizers x 6 cells (sphere F1 D10, cec2017 F5 D10, cec2013 F1 D10, cec2020 F2 D10, cec2011 F1 native, cec2013lsgo F1 D1000), seed 20240620, threefry, budget 3000, <strong>hex-exact</strong> <code>best_fitness</code> pins. Mint: <code>python tests/regression/test_family_golden_values.py --mint</code>. Re-mint only on a deliberate result-changing release, recorded in the CR register. Acceptance for every campaign CR: goldens + <code>test_dt_gsk_byte_stable</code> + <code>test_rng</code> + <code>test_dt_rng</code> green, fixtures untouched.</p>
+<p>Certification gaps the CERT lens found (fix opportunistically): the CR-0010 scalar-reservoir path has no KAT pinning mixed scalar/batch interleaving; the trial kernel <code>gsk_build_trial</code> has no numeric gate; the FP sentinel is tolerance-based, never hex-pinned.</p>
+<h2 id="2-wave-1-shared-rng-the-six-classics">2. Wave 1 — shared RNG + the six classics</h2>
+<div class="table-wrap"><table><thead><tr><th>ID</th><th>Fix</th><th>Surface</th><th>Class</th><th>Breadth</th></tr></thead><tbody><tr><td>W1.1</td><td><code>_draw</code> direct-fill: generate full blocks straight into <code>out</code>, only the partial tail via a 4-double temp that becomes the reservoir</td><td><code>threefry_rng.py:377-401</code></td><td>removes 1 redundant alloc + 1 <strong>full-size memcpy on every large draw</strong> (~4.8 GB/run classic cec2020, ~70 GB/run dt-gsk LSGO)</td><td>all 7 algs, all suites</td></tr><tr><td>W1.2</td><td>Persistent (3,NP,D) C-buffer + <code>np.copyto</code> per plane; pass contiguous prefix slices so <code>ascontiguousarray</code> passes through</td><td><code>_kernels.py:208-210</code> + 4 call sites</td><td>kills 3 strided NP*D allocs/gen (copies retained — inherent to column-major reference order)</td><td>gsk/agsk/apgsk/fdb-agsk (+egsk boundary)</td></tr><tr><td>W1.3</td><td>pop/popold single-buffer: delete the two byte-identical full copies/gen; end-of-gen in-place masked <code>copyto</code></td><td><code>gsk.py:150,203-204</code>; <code>agsk.py:282,331-332</code>; <code>apgsk.py:166,215-216</code>; <code>fdb_agsk.py:276,333-334</code>; egsk/atmals selection variants</td><td>2 full NP*D copies + 2 allocs per gen</td><td>6 classics</td></tr><tr><td>W1.4</td><td>Reduction helper dead values: stop gathering <code>pop[survivors]</code> (dead at all call sites), drop the discarded arange, apgsk&#x27;s never-read <code>k_vec</code></td><td><code>agsk.py:160-192</code></td><td>~0.8 MB dead gather per reducing gen</td><td>agsk/apgsk/fdb-agsk</td></tr><tr><td>W1.5</td><td>Senior-donor 3 NP-draws -&gt; 1 batched 3*NP draw (concatenation-consistency argument, same as W2.1)</td><td>classics donor helper</td><td>2 dispatch round-trips/gen</td><td>classics</td></tr></tbody></table></div>
+<p>Bit-identity arguments: W1.1/W1.5 by stream-position invariance (block index -&gt; fixed quadruple; <code>_draw(a)+_draw(b) == _draw(a+b)</code> split, reservoir tail byte-identical). W1.2 by layout-only change (same doubles, same (i,j) mapping). W1.3 by dead-copy proof (no writer between the copies; kernel and <code>_scan_best</code> read-only; <code>trial</code> freshly allocated so no aliasing). W1.4 by dead-value proof.</p>
+<h2 id="3-wave-2-dt-gsk-dt-core-py">3. Wave 2 — dt-gsk (<code>_dt_core.py</code>)</h2>
+<div class="table-wrap"><table><thead><tr><th>ID</th><th>Fix</th><th>Surface</th></tr></thead><tbody><tr><td>W2.1</td><td><strong>Realize <code>_rng_3buf</code> (author-authorized):</strong> replace 3 separate (NP,D) draws with one flat <code>random(3*n)</code> + three <code>reshape(D,NP).T</code> segment views. Full by-construction argument in the DTGSK lens finding #1 (segment k occupies exactly draw k&#x27;s absolute stream positions; generator end-state and reservoir tail identical; NLPSR shrink safe because n is recomputed per gen)</td><td><code>:992-1001, 1064-1077, 2566-2573</code></td></tr><tr><td>W2.2</td><td>Fuse trial assembly (<code>copyto</code> + 2 disjoint boolean scatters -&gt; 1 numba pass)</td><td><code>:3233-3236</code></td></tr><tr><td>W2.3</td><td>Delete dead <code>dim_updated_mask</code> O(NP*D) OR when the numba coverage kernel is active</td><td><code>:3273-3278</code></td></tr><tr><td>W2.4</td><td>Gate <code>dim_coverage</code> kernel + DE coverage write on telemetry (coverage_i is telemetry-only in every shipped profile)</td><td><code>:3275-3278, 3339</code></td></tr><tr><td>W2.5</td><td>Cache <code>_link_flat/_link_offsets</code> on refresh instead of rebuilding from Python lists every gen</td><td><code>:3037-3059</code></td></tr><tr><td>W2.6</td><td>ISM-off tiers: skip <code>accepted_displacements</code> construction (no consumer below D50)</td><td><code>:3405-3408</code></td></tr></tbody></table></div>
+<p>W2.3/W2.4/W2.6 are dead-code/telemetry gates — verify the &quot;no consumer&quot; claims against source before applying (the lens cites consumers; re-check).</p>
+<h2 id="4-wave-3-suites">4. Wave 3 — suites</h2>
+<div class="table-wrap"><table><thead><tr><th>ID</th><th>Fix</th><th>Surface</th></tr></thead><tbody><tr><td>W3.1</td><td>Hoist construction-time-constant dispatcher ceremony (arg-order sniff, fp_mode normalization) out of the per-call path, all 5 suites</td><td>each <code>functions.py</code></td></tr><tr><td>W3.2</td><td>cec2013 transform pipeline: reuse (NP,D) temporaries (5-9 fresh allocs per evaluate; GEMM out= where applicable) — <strong>microbench first</strong>, medium risk</td><td><code>cec2013/*</code></td></tr></tbody></table></div>
+<h2 id="5-flagged-not-in-scope-result-changing">5. Flagged, NOT in scope (result-changing)</h2>
+<ul>
+<li>cec2017 serial-kernel twins (wired, dormant, R2: 93.20% rows bitwise, worst 13</li>
+<p>ULP). cec2020/cec2013 have no twin infrastructure at all.</p>
+<li>Row-major rand fill (removes the transpose entirely but remaps stream-&gt;cell).</li>
+<li>dt-gsk archive scan restructuring; ISM gating; archive shrink.</li>
+<li>Anything requiring the evidence rerun — batch into ONE campaign if ever taken.</li>
+</ul>
+<h2 id="6-per-wave-procedure">6. Per-wave procedure</h2>
+<ol>
+<li>Microbench the candidate in isolation (T1 rule; whole-run A/B unreliable &lt;1.3x).</li>
+<li>Apply; state the by-construction argument in the commit/CR text.</li>
+<li>`pytest tests/regression/test_family_golden_values.py tests/unit/test_rng.py</li>
+<p>tests/unit/test_dt_rng.py tests/regression -q` — green, fixtures untouched.</p>
+<li>Full suite green. 5. Ledger spot re-measure. 6. CR register entry.</li>
+</ol>
+<p>---</p>
+<h1 id="7-campaign-result-and-ceiling-proof-2026-07-25">7. CAMPAIGN RESULT AND CEILING PROOF (2026-07-25)</h1>
+<h2 id="7-1-certification-the-primary-claim">7.1 Certification — the primary claim</h2>
+<p><strong>84 of 84 ledger cells reproduce their pre-campaign <code>best_fitness</code> bit-for-bit.</strong> 7 algorithms × 12 cells (cec2017 D10/30/50/100, cec2013 D10/50, cec2020 D10/20, cec2011 native ×3, cec2013lsgo D1000), hex-compared. <strong>Zero breaks.</strong> Plus: 42-pin golden matrix, threefry + 13-substream KATs, dt byte-stable pins, 575-test suite — green after every one of CR-0013…CR-0017.</p>
+<p>The frozen evidence release <code>rel-2026-07-20-67d9345f9</code> is untouched and still reproduces. <strong>No rerun was incurred; the full unfreeze was never spent.</strong></p>
+<h2 id="7-2-measured-speedup-and-why-the-naive-comparison-was-wrong">7.2 Measured speedup — and why the naive comparison was wrong</h2>
+<p><strong>Paired interleaved A/B, campaign tree vs baseline <code>428cf02e6</code>, alternating arms in one time window (n=12):</strong></p>
+<div class="table-wrap"><table><thead><tr><th>cell</th><th>baseline µs/FE</th><th>campaign µs/FE</th><th>paired ratio</th></tr></thead><tbody><tr><td>gsk cec2013lsgo D1000</td><td>64.4</td><td>44.9</td><td><strong>1.718×</strong></td></tr><tr><td>dt-gsk cec2013lsgo D1000</td><td>101.3</td><td>75.9</td><td><strong>1.440×</strong></td></tr><tr><td>agsk cec2013lsgo D1000</td><td>52.8</td><td>49.7</td><td><strong>1.205×</strong></td></tr><tr><td>gsk cec2017 D100</td><td>8.0</td><td>7.5</td><td><strong>1.076×</strong></td></tr><tr><td><strong>overall paired median</strong></td><td></td><td></td><td><strong>1.280×</strong></td></tr></tbody></table></div>
+<p>⚠ <strong>The sequential 84-cell re-measure said 0.79–0.90× — that reading is invalid.</strong> It was contaminated by machine drift, proven independently: over the same period *fixed* workloads slowed by the same factor — the unchanged 575-test suite went <strong>77.0 s → 110.0 s (1.43×)</strong> and the unchanged 42-pin golden test <strong>3.6 s → 7.1 s</strong>. No edit to the optimizers can slow a test suite dominated by non-optimizer tests. Uniformity across cells the campaign never touches was the tell.</p>
+<p><strong>Methodological rule, now load-bearing for this repo: on this machine, only paired/interleaved designs can resolve optimizer speedups. Sequential before/after ledgers separated by hours measure the machine, not the code.</strong></p>
+<h2 id="7-3-what-landed">7.3 What landed</h2>
+<div class="table-wrap"><table><thead><tr><th>CR</th><th>Change</th><th>Isolated measurement</th></tr></thead><tbody><tr><td>CR-0013</td><td>W1.1 <code>_draw</code> direct-fill; W1.3 single population buffer (4 classics); W1.2 persistent rand-plane buffer; W1.4 dead reduction values</td><td>56% of large-draw cost; 471 + 331 µs/gen of copies at D=1000</td></tr><tr><td>CR-0014</td><td>W2.1 fused <code>_rng_3buf</code> draw (authorized)</td><td>2 dispatches + 2 allocs/gen</td></tr><tr><td>CR-0015</td><td>W2.3 dead <code>logical_or</code>; W2.4 coverage gating; W2.6 displacement-gather gating</td><td>O(NP·D)/gen scans + O(K·D) gather</td></tr><tr><td>CR-0016</td><td>W2.2 fused trial assembly (new numba kernel)</td><td>71.5% of assembly surface on <strong>real</strong> captured densities (436→124 µs/gen)</td></tr><tr><td>CR-0017</td><td>atmals dead snapshot; egsk single buffer + complement scatter + rand buffer</td><td>~506 µs/gen at D=1000</td></tr></tbody></table></div>
+<p>Plus <strong>Wave 0</strong>: the golden-values matrix — certification is now one pytest run, where before the campaign 6 of 7 algorithms had <strong>no pinned end-to-end value at all</strong>.</p>
+<h2 id="7-4-ceiling-proof-what-remains-and-why-it-is-irreducible">7.4 Ceiling proof — what remains, and why it is irreducible</h2>
+<p><strong>Rejected by measurement (static analysis proposed all of these; numbers killed them):</strong></p>
+<div class="table-wrap"><table><thead><tr><th>Candidate</th><th>Measured</th><th>Why it cannot pay</th></tr></thead><tbody><tr><td>T1 wrapper ceremony</td><td>0.03 s/run (~0.1%)</td><td>cProfile&#x27;s 5–10.5% share was call-count instrumentation, not cost</td></tr><tr><td>W3.1 dispatcher hoisting</td><td>1.7 µs/gen (cec2013 D50), ≈0 (cec2017 D100)</td><td>ceremony is already thin post-CR-0011</td></tr><tr><td>W3.2 cec2013 transform reuse</td><td>whole <code>evaluate</code> is 0.44–2.81 µs/FE</td><td>full capture of the surface still under the bar; KAT-locked FP pipeline</td></tr><tr><td>W1.5 senior-donor batching</td><td>~2 µs/gen</td><td>2 dispatches only</td></tr><tr><td>W2.5 linkage-flatten cache</td><td>&lt;0.5% surface</td><td>identity-caching risk for nothing</td></tr></tbody></table></div>
+<p><strong>Structural floors (bit-identity forbids touching these):</strong></p>
+<ul>
+<li><strong>BSE archive distance scan</strong> (<code>_archive_consider_batch_nb</code>, ~29% of dt-gsk):</li>
+<p>naive-order O(K·|A|·D), <strong>order-dependent by construction</strong> — each candidate sees the archive as mutated by earlier ones. Already numba, <code>fastmath=False</code>.</p>
+<li><strong>CR-0009 row-sum kernel</strong> (~12% of dt-gsk): inherent FLOPs of the reference</li>
+<p>block extraction.</p>
+<li><strong>Threefry fill kernel</strong>: already unrolled 4.19× (<code>61dc84bd8</code>).</li>
+<li><strong>Objective kernels</strong>: 4–28% depending on suite/D, already JIT-compiled.</li>
+<li><strong>The column-major reference draw order</strong>: forces one strided transpose per</li>
+<p>plane per generation. Removing it (row-major fill) remaps stream→cell and changes every masked decision — result-changing, flagged in §5.</p>
+</ul>
+<p><strong>Conclusion.</strong> The bit-identical surface is <strong>exhausted</strong>. Every remaining candidate is either measured below the noise floor of this machine or protected by an order-dependence/reference-fidelity constraint that bit-identity forbids relaxing. Further speedup requires accepting result changes (serial-kernel twins R2, row-major fill, ISM gating, archive resizing) and paying the full evidence rerun — batched into ONE campaign if ever taken.</p>
+<p><strong>Stopping here is the deliverable.</strong></p>
+      </article>
+    </main>
+    <aside class="page-toc" aria-label="On this page">
+<h2>On This Page</h2>
+<a class="toc-level-1" href="#family-wide-acceleration-plan-7-algorithms-x-5-suites-bit-identical-only">Family-wide acceleration plan — 7 algorithms x 5 suites, bit-identical only</a>
+<a class="toc-level-2" href="#0-resume-point">0. RESUME POINT</a>
+<a class="toc-level-2" href="#1-certification-backbone-wave-0">1. Certification backbone (Wave 0)</a>
+<a class="toc-level-2" href="#2-wave-1-shared-rng-the-six-classics">2. Wave 1 — shared RNG + the six classics</a>
+<a class="toc-level-2" href="#3-wave-2-dt-gsk-dt-core-py">3. Wave 2 — dt-gsk (`_dt_core.py`)</a>
+<a class="toc-level-2" href="#4-wave-3-suites">4. Wave 3 — suites</a>
+<a class="toc-level-2" href="#5-flagged-not-in-scope-result-changing">5. Flagged, NOT in scope (result-changing)</a>
+<a class="toc-level-2" href="#6-per-wave-procedure">6. Per-wave procedure</a>
+<a class="toc-level-1" href="#7-campaign-result-and-ceiling-proof-2026-07-25">7. CAMPAIGN RESULT AND CEILING PROOF (2026-07-25)</a>
+<a class="toc-level-2" href="#7-1-certification-the-primary-claim">7.1 Certification — the primary claim</a>
+<a class="toc-level-2" href="#7-2-measured-speedup-and-why-the-naive-comparison-was-wrong">7.2 Measured speedup — and why the naive comparison was wrong</a>
+<a class="toc-level-2" href="#7-3-what-landed">7.3 What landed</a>
+<a class="toc-level-2" href="#7-4-ceiling-proof-what-remains-and-why-it-is-irreducible">7.4 Ceiling proof — what remains, and why it is irreducible</a>
+</aside>
+  </div>
+  <script src="assets/search.js"></script>
+</body>
+</html>

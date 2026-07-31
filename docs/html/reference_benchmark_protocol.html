@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Benchmark Protocol - GSK Family Python Documentation">
+  <title>Benchmark Protocol | GSK Family Python Documentation</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <div class="site-shell">
+    <aside class="sidebar">
+<div class="brand"><a href="index.html">GSK Family Python</a></div>
+<input class="nav-search" type="search" placeholder="Filter docs" aria-label="Filter docs">
+<nav class="nav-list" aria-label="Documentation">
+<section><h2>Getting Started</h2>
+<a class="nav-link" href="getting-started_configuration.html">Configuration</a>
+<a class="nav-link" href="getting-started_explainer.html">Explainer</a>
+<a class="nav-link" href="getting-started_runbook.html">Runbook</a>
+<a class="nav-link" href="getting-started_troubleshooting.html">Troubleshooting</a>
+<a class="nav-link" href="getting-started_tutorial.html">Tutorial</a>
+<a class="nav-link" href="getting-started_user_guide.html">User Guide</a>
+</section>
+<section><h2>Reference</h2>
+<a class="nav-link" href="reference_api.html">API Reference</a>
+<a class="nav-link" href="reference_architecture.html">Architecture</a>
+<a class="nav-link" href="reference_benchmark_mapping.html">Benchmark Mapping</a>
+<a class="nav-link active" href="reference_benchmark_protocol.html">Benchmark Protocol</a>
+<a class="nav-link" href="reference_cec2011_cpp_python_equivalence_review.html">CEC2011 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013_cpp_python_equivalence_review.html">CEC2013 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013lsgo_cpp_python_equivalence_review.html">CEC2013LSGO C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2017_cpp_python_equivalence_review.html">CEC2017 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2020_cpp_python_equivalence_review.html">CEC2020 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="index.html">Documentation Index</a>
+<a class="nav-link" href="reference_fp_regime.html">Floating-Point Regime Verification</a>
+<a class="nav-link" href="reference_diagrams.html">Flowcharts And Diagrams</a>
+<a class="nav-link" href="reference_glossary.html">Glossary</a>
+<a class="nav-link" href="LICENSES.html">Licenses</a>
+<a class="nav-link" href="reference_module_dependencies.html">Module Dependencies</a>
+<a class="nav-link" href="reference_project_structure.html">Project Structure</a>
+<a class="nav-link" href="reference_python_optimizer_interface.html">Python Optimizer Interface</a>
+<a class="nav-link" href="reference_result_schema.html">Result Schema</a>
+<a class="nav-link" href="reference_seed_policy.html">Seed Policy</a>
+<a class="nav-link" href="reference_workflows.html">Workflows</a>
+</section>
+<section><h2>Algorithm Guides</h2>
+<a class="nav-link" href="algorithms_agsk.html">AGSK — Adaptive Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_apgsk.html">APGSK — Adaptive-Parameters Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_atmals-gsk.html">ATMALS-GSK — Adaptive Tuning, Memory, Adaptive Local Search</a>
+<a class="nav-link" href="algorithms_dt-gsk.html">DT-GSK — Dimension-Tiered Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_egsk.html">EGSK — Enhanced Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_fdb-agsk.html">FDB-AGSK — Fitness-Distance-Balance AGSK</a>
+<a class="nav-link" href="algorithms_gsk.html">GSK — Gaining-Sharing Knowledge</a>
+</section>
+<section><h2>Development</h2>
+<a class="nav-link" href="development_BUG_resume_summary_truncation.html">BUG-RESUME-01 — resume mode truncates (and mis-computes) the per-dimension summary CSV</a>
+<a class="nav-link" href="development_LSGO_ACCELERATION_PLAN.html">CEC2013LSGO Acceleration Plan — all 7 GSK-family algorithms, bit-identically</a>
+<a class="nav-link" href="development_LSGO_INTEGRATION_CAMPAIGN.html">CEC2013LSGO Integration — Campaign Plan</a>
+<a class="nav-link" href="development_CEC2017_PREC_adjudication.html">CEC2017-PREC — adjudication (CLOSED 2026-07-25)</a>
+<a class="nav-link" href="development_code_reading_guide.html">Code Reading Guide</a>
+<a class="nav-link" href="development_contributor_guide.html">Contributor Guide</a>
+<a class="nav-link" href="development_DECC_G_port_record.html">DECC-G port — fidelity and validation record</a>
+<a class="nav-link" href="development_developer_guide.html">Developer Guide</a>
+<a class="nav-link" href="development_README.html">Development Docs</a>
+<a class="nav-link" href="development_dt_gsk_core_reference.html">DT-GSK Core Reference — the vendored core and its byte-identity lock</a>
+<a class="nav-link" href="development_evidence_rerun_runbook.html">DT-GSK re-run runbook — corrected implementation (C006 + graph backend)</a>
+<a class="nav-link" href="development_egsk_port_spec.html">EGSK — Algorithm Spec &amp; Porting Verdict</a>
+<a class="nav-link" href="development_extension_guide.html">Extension Guide</a>
+<a class="nav-link" href="development_FAMILY_ACCELERATION_PLAN.html">Family-wide acceleration plan — 7 algorithms x 5 suites, bit-identical only</a>
+<a class="nav-link" href="development_FINAL_PUBLICATION_PLAN.html">FINAL PUBLICATION PLAN — DT-GSK, Four(/Five)-Suite Scope</a>
+<a class="nav-link" href="development_ACCELERATION_CAMPAIGN_PROMPT.html">GSK-Family Acceleration Campaign — Execution Prompt</a>
+<a class="nav-link" href="development_maintenance_guide.html">Maintenance Guide</a>
+<a class="nav-link" href="development_PORT_05_TUNING_TRIAGE.html">Porting project-05 tuning into 02 — Phase 1 audit and triage</a>
+<a class="nav-link" href="development_REFERENCE_PROMOTION_PLAN.html">Reference Promotion Plan — CEC2013LSGO now, CEC2020 behind its completeness gate</a>
+<a class="nav-link" href="development_SIBLING_CAMPAIGN_TRANSFER.html">Sibling-Campaign Transfer — every tuning that can make the GSK family fast</a>
+</section>
+<section><h2>Research</h2>
+<a class="nav-link" href="research_egsk_validation_appendix.html">EGSK Validation Appendix — Paired Port-vs-Reference Equivalence</a>
+<a class="nav-link" href="research_numerical_examples.html">Numerical Examples</a>
+<a class="nav-link" href="research_performance.html">Performance</a>
+<a class="nav-link" href="research_reproducibility.html">Reproducibility</a>
+<a class="nav-link" href="research_researcher_handbook.html">Researcher Handbook</a>
+<a class="nav-link" href="research_statistical_analysis.html">Statistical Analysis (GSK-family comparison)</a>
+<a class="nav-link" href="research_validation_report.html">Validation Report</a>
+</section>
+<section><h2>Prompts</h2>
+<a class="nav-link" href="prompt_documentation-deep-upgrade.html">Deep Documentation Review &amp; Upgrade Prompt — GSK Family Python</a>
+<a class="nav-link" href="prompt_project-review.html">Deep Expert Review Prompt For GSK Family Python</a>
+<a class="nav-link" href="prompt_documentation-review.html">Documentation Review Prompt</a>
+<a class="nav-link" href="prompt_publication-polish.html">Final Publication Prompt — Production-Ready Q1 Release of GSK Family Python v1.1</a>
+</section>
+<section><h2>Python API</h2>
+<a class="nav-link" href="api_index.html">API Module Index</a>
+<a class="nav-link api-link" href="api/gsk_family.__init__.html">gsk_family.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.__init__.html">gsk_family.analysis.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.family_report.html">gsk_family.analysis.family_report</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.figures.html">gsk_family.analysis.figures</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.latex_tables.html">gsk_family.analysis.latex_tables</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.project_policy.html">gsk_family.analysis.project_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.result_loader.html">gsk_family.analysis.result_loader</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistical_tests.html">gsk_family.analysis.statistical_tests</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistics.html">gsk_family.analysis.statistics</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.__init__.html">gsk_family.benchmark_adapter.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.factory.html">gsk_family.benchmark_adapter.factory</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.problem.html">gsk_family.benchmark_adapter.problem</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.protocol.html">gsk_family.benchmark_adapter.protocol</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.__init__.html">gsk_family.cli.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.list.html">gsk_family.cli.list</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.run.html">gsk_family.cli.run</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.stats.html">gsk_family.cli.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.validate.html">gsk_family.cli.validate</a>
+<a class="nav-link api-link" href="api/gsk_family.common.__init__.html">gsk_family.common.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.common.bounds.html">gsk_family.common.bounds</a>
+<a class="nav-link api-link" href="api/gsk_family.common.donors.html">gsk_family.common.donors</a>
+<a class="nav-link api-link" href="api/gsk_family.common.numeric_compat.html">gsk_family.common.numeric_compat</a>
+<a class="nav-link api-link" href="api/gsk_family.common.population.html">gsk_family.common.population</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reduction.html">gsk_family.common.reduction</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reference_rng.html">gsk_family.common.reference_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.rng.html">gsk_family.common.rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.threefry_rng.html">gsk_family.common.threefry_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.__init__.html">gsk_family.optimizers.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_profiles.html">gsk_family.optimizers._dt_profiles</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_rng.html">gsk_family.optimizers._dt_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._kernels.html">gsk_family.optimizers._kernels</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.agsk.html">gsk_family.optimizers.agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.apgsk.html">gsk_family.optimizers.apgsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_gsk.html">gsk_family.optimizers.atmals_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_helpers.html">gsk_family.optimizers.atmals_helpers</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.dt_gsk.html">gsk_family.optimizers.dt_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.egsk.html">gsk_family.optimizers.egsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.__init__.html">gsk_family.optimizers.external.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._base.html">gsk_family.optimizers.external._base</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._telemetry_shim.html">gsk_family.optimizers.external._telemetry_shim</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.cmaes.html">gsk_family.optimizers.external.cmaes</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.decc_g.html">gsk_family.optimizers.external.decc_g</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.ebowithcmar.html">gsk_family.optimizers.external.ebowithcmar</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.jso.html">gsk_family.optimizers.external.jso</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade.html">gsk_family.optimizers.external.lshade</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade_spacma.html">gsk_family.optimizers.external.lshade_spacma</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.mos_cec2013lsgo.html">gsk_family.optimizers.external.mos_cec2013lsgo</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.shade_ils.html">gsk_family.optimizers.external.shade_ils</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_agsk.html">gsk_family.optimizers.fdb_agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_scores.html">gsk_family.optimizers.fdb_scores</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.gsk.html">gsk_family.optimizers.gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.__init__.html">gsk_family.runners.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.config.html">gsk_family.runners.config</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.fp_regime.html">gsk_family.runners.fp_regime</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.output.html">gsk_family.runners.output</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.parallel.html">gsk_family.runners.parallel</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.performance.html">gsk_family.runners.performance</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.run_experiment.html">gsk_family.runners.run_experiment</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.seed_policy.html">gsk_family.runners.seed_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.verification.html">gsk_family.runners.verification</a>
+<a class="nav-link api-link" href="api/gsk_family.stats.html">gsk_family.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.types.html">gsk_family.types</a>
+</section>
+</nav></aside>
+    <main class="content">
+      <article class="doc-card">
+        <h1 id="benchmark-protocol">Benchmark Protocol</h1>
+<blockquote><strong>What this is.</strong> The rules every benchmark suite follows: which functions and</blockquote>
+<blockquote>dimensions exist, how big the evaluation budget is, and how results are scored.</blockquote>
+<blockquote><strong>Who it is for.</strong> Anyone choosing a suite to run, validating output, or adding</blockquote>
+<blockquote>a suite. <strong>Prerequisites.</strong> The terms in <a href="reference_glossary.html">the glossary</a> (function</blockquote>
+<blockquote>id, known optimum, budget). <strong>After reading</strong> you can pick a valid</blockquote>
+<blockquote><code>(suite, function, dimension)</code> triple, predict its budget, and know whether its</blockquote>
+<blockquote>statistics are errors or raw objectives. The object that enforces these rules is</blockquote>
+<blockquote><code>BenchmarkProblem</code> (see <a href="reference_api.html">api.md</a>).</blockquote>
+<p>All benchmark suites are accessed through the uniform <code>BenchmarkProblem</code> contract, so an optimizer never imports a CEC module directly — it receives an already-built problem. The metadata below comes from <code>gsk_family.benchmark_adapter.protocol</code>.</p>
+<h2 id="supported-suites">Supported Suites</h2>
+<pre><code class="code-block language-text">sphere
+cec2011
+cec2013
+cec2013lsgo
+cec2017
+cec2020</code></pre>
+<p><code>sphere</code> is a pure-Python smoke-test problem (used by tests and quick checks). The CEC suites are provided by the bundled Python evaluator package:</p>
+<ul>
+<li><code>benchmarks/cec_suite_python/</code>: Python/Numba evaluator used in normal <code>auto</code></li>
+<p>mode.</p>
+</ul>
+<p>The runner records both the requested backend (<code>auto</code> or <code>python</code>) and the actual backend selected for each optimizer in <code>run_config.json</code>, <code>phase0_protocol.json</code>, <code>environment.json</code>, and <code>profile.json</code> when profiling is enabled.</p>
+<h2 id="function-and-dimension-rules">Function and Dimension Rules</h2>
+<p>Pick a function id from the suite&#x27;s range and a dimension it allows. &quot;Native&quot; means the dimension is fixed per function (you cannot choose it).</p>
+<div class="table-wrap"><table><thead><tr><th>Suite</th><th>Functions</th><th>Dimensions</th><th>Statistics</th></tr></thead><tbody><tr><td><code>sphere</code></td><td>1</td><td>positive integer, default 10</td><td>error vs optimum</td></tr><tr><td><code>cec2011</code></td><td>1..22</td><td>native per function</td><td>raw objective</td></tr><tr><td><code>cec2013</code></td><td>1..28</td><td>10, 30, 50 (default; also accepts 2,5,10,20,30,40,50,60,70,80,90,100)</td><td>error vs optimum</td></tr><tr><td><code>cec2013lsgo</code></td><td>1..15</td><td>native per function</td><td>raw objective</td></tr><tr><td><code>cec2017</code></td><td>1..30</td><td>10, 30, 50, 100</td><td>error vs optimum</td></tr><tr><td><code>cec2020</code></td><td>1..10</td><td>5, 10, 15, 20</td><td>error vs optimum</td></tr></tbody></table></div>
+<p>CEC2017 F2 is implemented but excluded from default comparisons because the suite protocol marks it as non-default (its default function list is <code>1, 3, 4, ..., 30</code>). Request it explicitly when needed, e.g. <code>make_problem(&quot;cec2017&quot;, 2, dim=10)</code> or <code>--function 2</code> on the CLI.</p>
+<p>The CEC2017 <strong>scored set</strong> is therefore the 29 functions <code>F1, F3-F30</code> evaluated at <code>D = 10, 30, 50, 100</code>. F2 is widely reported as numerically unstable in high dimension, so excluding it is standard CEC2017 practice and keeps the statistical panel comparable to the published GSK-family tables. The function-by-function equivalence of the Python evaluator against the C++ reference is documented in <a href="reference_cec2017_cpp_python_equivalence_review.html">cec2017_cpp_python_equivalence_review.md</a> (and the sibling per-suite review files).</p>
+<p><code>cec2013</code> is the paper&#x27;s <strong>second comparison suite</strong>: the full 28 functions at <code>D = 10, 30, 50</code> with 51 runs per cell, covered by the same 7-optimizer reference panel as <code>cec2017</code> and <code>cec2011</code>.</p>
+<h2 id="evaluation-budgets">Evaluation Budgets</h2>
+<p>The budget is the maximum number of objective evaluations (<code>max_nfes</code>) per run. Defaults:</p>
+<ul>
+<li><code>sphere</code>: <code>10000 * D</code></li>
+<li><code>cec2011</code>: <code>150000</code></li>
+<li><code>cec2013</code>: <code>10000 * D</code></li>
+<li><code>cec2013lsgo</code>: <code>3000000</code></li>
+<li><code>cec2017</code>: <code>10000 * D</code></li>
+<li><code>cec2020</code>: <code>50000</code> for D5, <code>1000000</code> for D10, <code>3000000</code> for D15,</li>
+<p><code>10000000</code> for D20</p>
+</ul>
+<p>Use <code>max_nfes_override</code> in Python, or <code>--max-evaluations</code> / <code>max_evaluations</code> from the runner, to create reduced-budget smoke or validation runs. An override of <code>0</code> (or omitted) keeps the suite default.</p>
+<p>Worked budgets for the dimension-scaled suites (<code>10000 * D</code>):</p>
+<div class="table-wrap"><table><thead><tr><th>Suite</th><th>D=10</th><th>D=30</th><th>D=50</th><th>D=100</th></tr></thead><tbody><tr><td><code>cec2017</code></td><td>100000</td><td>300000</td><td>500000</td><td>1000000</td></tr><tr><td><code>cec2013</code></td><td>100000</td><td>300000</td><td>500000</td><td>1000000</td></tr><tr><td><code>sphere</code></td><td>100000</td><td>300000</td><td>500000</td><td>1000000</td></tr></tbody></table></div>
+<p>The native-dimension suites use fixed totals instead: <code>cec2011 = 150000</code> and <code>cec2013lsgo = 3000000</code> per run, independent of the function&#x27;s dimension. CEC2020 is the one suite whose budget is keyed to the chosen dimension rather than <code>10000 * D</code> (see the per-dimension list above).</p>
+<p>CEC2020 historically refused four cells — <strong>F1 and F8 at D5 and D15</strong> — via <code>CEC2020_UNAVAILABLE_CELLS</code> (<code>benchmark_adapter/factory.py</code>) and <code>_UNAVAILABLE_REFERENCE_CELLS</code> (<code>cec2020/functions.py</code>). Both sets are <strong>empty since 2026-07-26</strong>; the history is kept here because the explanation went through two corrections. The original docs said &quot;missing shuffle marker files&quot; — loader-level true (the MEX-faithful loader opens a shuffle file for *every* function as a per-dimension availability marker, and the official distribution ships none for ids 1/22 at D5/D15) but math-level misleading, since only the hybrids F5–F7 consume shuffle content. An interim correction here over-swung and called the marker claim simply wrong. The complete account:</p>
+<p><strong>RESTORED 2026-07-26.</strong> The four cells were validated against the in-repo C++ oracle and the guard lifted. Method: the loader&#x27;s missing files are pure per-dimension availability MARKERS (the loader opens one for every function; only hybrids consume the content), so the oracle was built with dummy markers and its output proven bit-identical under two different marker contents. Against it, F1/F8 at D5/D15 agreed with the Python suite to worst relative error 1.258e-15 -- three orders inside the committed rel=1e-12 criterion -- with the already-trusted D10/D20 cells reproducing the same profile as controls. The AGSK paper&#x27;s own 5D tables always did include F1 and F8, so the competition itself ran these cells. Pinned by <code>tests/regression/test_cec2020_restored_cells.py</code>; the schedule now covers all four dimensions, dropping only F6/F7 at D=5 (protocol-undefined).</p>
+<p>Distinct from this, and permanent: <strong>F6 and F7 are undefined at D5</strong> by the protocol itself (Yue et al. 2019 §2.1), enforced separately by <code>CEC2020_PROTOCOL_EXCLUDED_CELLS</code>.</p>
+<h3 id="protocol-run-counts">Protocol Run Counts</h3>
+<p>The full campaign protocol uses <strong>51 runs</strong> per cell for <code>cec2017</code> and <code>cec2013</code>, <strong>25 runs</strong> per cell for <code>cec2011</code> and <code>cec2013lsgo</code>, and <strong>30 runs</strong> per cell for <code>cec2020</code> (Yue et al. 2019 §2.1, corroborated by the authors&#x27; own <code>Adaptive_GSK_ALI.m</code>; corrected 2026-07-26 from an unsourced 25). The DT-GSK ablation cells (<code>scripts/run_ablation.py</code>) default to 25 runs, the paper&#x27;s stated ablation design.</p>
+<h2 id="statistics-basis">Statistics Basis</h2>
+<p>Each suite reports either error-vs-optimum or raw objective values; this choice decides what goes into the summary tables and curves. The classification is the <code>ERROR_VS_OPTIMUM_SUITES</code> (<code>cec2013</code>, <code>cec2017</code>, <code>cec2020</code>) and <code>RAW_OBJECTIVE_SUITES</code> (<code>cec2011</code>, <code>cec2013lsgo</code>) sets in <code>benchmark_adapter.protocol</code>; <code>sphere</code> also reports error-vs-optimum as a known-optimum smoke problem.</p>
+<p>Suites with a known optimum report <code>error_vs_optimum</code>. For each run the error is computed (in <code>gsk_family.stats.compute_error</code>) as the difference from the optimum, then <strong>floored to zero</strong> once it falls below the suite&#x27;s target:</p>
+<pre><code class="code-block language-text">diff  = best_fitness - optimum
+error = 0.0           if diff &lt; target_error      (target_error is 1e-8 for the CEC suites)
+        diff          otherwise</code></pre>
+<p>So a run that reaches the optimum within <code>1e-8</code> records an error of exactly <code>0</code>, which is why solved functions show all-zero summary rows.</p>
+<p>Raw-objective suites (<code>cec2011</code>, <code>cec2013lsgo</code>) report best objective values directly, because the adapter exposes no unified optimum for them (their <code>optimum</code> is <code>NaN</code> and <code>error</code> is reported as <code>NaN</code>).</p>
+<h3 id="worked-walk-through-one-cec2017-cell">Worked walk-through — one CEC2017 cell</h3>
+<p>A concrete trace of the rules above for <code>cec2017</code>, function 5, D=30:</p>
+<ul>
+<li>Valid function? F5 is in <code>1..30</code> and is in the default list — yes.</li>
+<li>Valid dimension? D=30 is in <code>{10, 30, 50, 100}</code> — yes.</li>
+<li>Budget: <code>max_nfes = 10000 * 30 = 300000</code> evaluations per run.</li>
+<li>Statistics basis: <code>error_vs_optimum</code>, with <code>target_error = 1e-8</code>.</li>
+<li>A run ending at <code>best_fitness = optimum + 4.2e-9</code> records <code>error = 0.0</code></li>
+<p>(below <code>1e-8</code>); a run ending at <code>optimum + 92.4</code> records <code>error = 92.4</code>.</p>
+<li>The summary row aggregates those per-run errors into Best/Median/Mean/Worst/SD.</li>
+</ul>
+<p>Build the same problem in Python with <code>make_problem(&quot;cec2017&quot;, 5, dim=30)</code>.</p>
+<h2 id="reference-comparisons">Reference Comparisons</h2>
+<p>Imported reference evidence lives under:</p>
+<pre><code class="code-block language-text">benchmarks/cec_reference_results/</code></pre>
+<p>Generated output lives under:</p>
+<pre><code class="code-block language-text">results/_run_all/&lt;optimizer&gt;/&lt;suite&gt;/</code></pre>
+<p>Compare them with:</p>
+<pre><code class="code-block language-powershell">gsk-validate --compare results/_run_all/gsk/cec2017 benchmarks/cec_reference_results</code></pre>
+<p>Reduced-budget runs are allowed to underperform full-budget references. The verification step still checks for malformed values, impossible negative errors, missing reference rows, and gross deviations when a full-budget comparison is requested. The verdict and thresholds are detailed in <a href="reference_result_schema.html">result_schema.md</a>.</p>
+<h2 id="reference-comparison-coverage">Reference-Comparison Coverage</h2>
+<p>Reference summary tables under <code>benchmarks/cec_reference_results</code> carry the full 7-optimizer GSK-family panel (<code>gsk</code>, <code>agsk</code>, <code>apgsk</code>, <code>fdb-agsk</code>, <code>atmals-gsk</code>, <code>egsk</code>, <code>dt-gsk</code>) for <strong>four</strong> suites: <code>cec2017</code>, <code>cec2011</code>, and <code>cec2013</code> (imported with the frozen primary release <code>rel-2026-07-20-67d9345f9</code>), and <code>cec2013lsgo</code> (promoted 2026-07-28 from the campaign staging banks as the separate, non-superseding release <code>lsgo-rel-2026-07-28-ff1a046ef</code>; manifest <code>papers/governance/evidence_release_manifest_cec2013lsgo.json</code>). The remaining in-code suites (<code>cec2020</code> and <code>sphere</code>) ship <strong>no</strong> committed reference tables yet — <code>cec2020</code>&#x27;s banks are promoted by the same tool (<code>papers/scripts/promote_suite.py</code>) once its campaign passes the completeness gate — so for those <code>gsk-validate --compare</code> finds no reference and reports missing references rather than a consistency verdict.</p>
+<h2 id="benchmark-backend-policy">Benchmark Backend Policy</h2>
+<p>The default runner setting is <code>benchmark_backend=auto</code>. In that mode the runner uses the Python/Numba evaluator. Selecting <code>benchmark_backend=python</code> records the same evaluator choice explicitly; optimizer logic, seeds, fair starts, evaluation budgets, summary schemas, and validation paths remain unchanged.</p>
+<p>The related <code>benchmark_fp_mode</code> setting (<code>default</code>/<code>strict</code>, CLI <code>--benchmark-fp-mode</code>) selects the CEC2017 evaluator&#x27;s floating-point summation order for the order-sensitive functions F1/F12/F13. It defaults to <code>default</code> (the mode the committed references were produced under) and is a no-op for every other suite. See <a href="reference_fp_regime.html">Floating-Point Regime Verification</a> for the full contract.</p>
+      </article>
+    </main>
+    <aside class="page-toc" aria-label="On this page">
+<h2>On This Page</h2>
+<a class="toc-level-1" href="#benchmark-protocol">Benchmark Protocol</a>
+<a class="toc-level-2" href="#supported-suites">Supported Suites</a>
+<a class="toc-level-2" href="#function-and-dimension-rules">Function and Dimension Rules</a>
+<a class="toc-level-2" href="#evaluation-budgets">Evaluation Budgets</a>
+<a class="toc-level-3" href="#protocol-run-counts">Protocol Run Counts</a>
+<a class="toc-level-2" href="#statistics-basis">Statistics Basis</a>
+<a class="toc-level-3" href="#worked-walk-through-one-cec2017-cell">Worked walk-through — one CEC2017 cell</a>
+<a class="toc-level-2" href="#reference-comparisons">Reference Comparisons</a>
+<a class="toc-level-2" href="#reference-comparison-coverage">Reference-Comparison Coverage</a>
+<a class="toc-level-2" href="#benchmark-backend-policy">Benchmark Backend Policy</a>
+</aside>
+  </div>
+  <script src="assets/search.js"></script>
+</body>
+</html>

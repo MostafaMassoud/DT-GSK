@@ -1,0 +1,119 @@
+{
+ "release_id": "rel-2026-07-10-262fc16c9",
+ "anchor_commit": "262fc16c91fbe5608a1a0b0c5df3cbcd009edc21",
+ "host_environment": {
+  "environment_id": "phase0-preflight-host",
+  "os": "Windows-10-10.0.26200-SP0",
+  "machine": "AMD64",
+  "python": "3.10.11",
+  "python_executable": "C:\\AI\\Python\\Python310\\python.exe",
+  "toolchain": {
+   "python": {
+    "version_line": "Python 3.10.11",
+    "exit_code": 0
+   },
+   "pip": {
+    "version_line": "pip 26.1.2 from C:\\AI\\Python\\Python310\\lib\\site-packages\\pip (python 3.10)",
+    "exit_code": 0
+   },
+   "git": {
+    "version_line": "git version 2.49.0.windows.1",
+    "exit_code": 0
+   },
+   "pdflatex": {
+    "version_line": "MiKTeX-pdfTeX 4.27 (MiKTeX 26.5)",
+    "exit_code": 0
+   },
+   "latexmk": {
+    "version_line": "Latexmk, John Collins, 9 March 2026. Version 4.88",
+    "exit_code": 0
+   },
+   "xelatex": {
+    "version_line": "MiKTeX-XeTeX 4.18 (MiKTeX 26.5)",
+    "exit_code": 0
+   },
+   "bibtex": {
+    "version_line": "MiKTeX-BibTeX 4.2 (MiKTeX 26.5)",
+    "exit_code": 0
+   },
+   "biber": {
+    "version_line": "biber version: 2.21",
+    "exit_code": 0
+   },
+   "pandoc": {
+    "version_line": "pandoc 3.9.0.2",
+    "exit_code": 0
+   },
+   "tar": {
+    "version_line": "bsdtar 3.8.4 - libarchive 3.8.4 zlib/1.2.13.1-motley liblzma/5.8.1 bz2lib/1.0.8 libzstd/1.5.7 cng/2.0 libb2/bundled",
+    "exit_code": 0
+   },
+   "certutil": {
+    "version_line": "CertUtil (Windows built-in); -hashfile SHA256 verified working",
+    "exit_code": 0
+   },
+   "Get-FileHash": {
+    "version_line": "PowerShell 5.1 cmdlet present",
+    "exit_code": 0
+   },
+   "7z": {
+    "version_line": "[tool not found]",
+    "exit_code": null
+   },
+   "python_module_docx": {
+    "version_line": "1.2.0",
+    "exit_code": 0
+   },
+   "python_module_pypandoc": {
+    "version_line": "[not importable]",
+    "exit_code": 1
+   }
+  },
+  "fp_sentinel": "not yet bound (Phase 2/6 responsibility)"
+ },
+ "runtime_versions": {
+  "numpy": "2.2.6",
+  "scipy": "1.15.3",
+  "pandas": "2.3.3"
+ },
+ "command": "python papers/scripts/phase6_run_analysis.py",
+ "script": "papers/scripts/phase6_run_analysis.py",
+ "git_head_at_run": "35d3ced368baf21597af8d2719bd488d9643ee2b",
+ "conventions": [
+  "floats C-locale %.6e; integers plain; disclosed-unavailable cells literal n/a",
+  "sort: suite, dimension asc, function asc, algorithm/comparator in P1 order (gsk, agsk, apgsk, fdb-agsk, atmals-gsk, egsk, dt-gsk)",
+  "cec2011 endpoint = best_fitness (error NaN by design, A2-017); native dims in dimension columns; dimension=0 sentinel for suite-level rows",
+  "BCa: B=10000, default_rng(SeedSequence([20240620, suite_ordinal, dimension, function, comparator_P1_index])); cec2011 uses the problem's native dimension",
+  "degenerate BCa cells (all paired differences identical): point estimate kept, ci cells n/a, availability='no CI (degenerate cell)' per SAP Sec.7",
+  "Nemenyi q_0.05(k=7)=2.949 (Demsar 2006 Table 5a); CD emitted only when the Iman-Davenport omnibus p<0.05",
+  "Wilcoxon: two-sided; |d|<1e-8 treated as zero-difference and discarded (zero_method='wilcox'); p via statistics.wilcoxon_paired (normal approximation with continuity correction) - method recorded per test",
+  "W/T/L tie rule: pure |delta|<1e-8 (SAP Sec.4); the repo win_tie_loss relative-band variant is NOT used (SAP governs)",
+  "A12 ties counted half within |d|<1e-8 (SAP Sec.7 explicit formula)",
+  "cost SD uses ddof=1; cost file carries cec2017+cec2013+cec2011 rows (suite order cec2017, cec2013, cec2011)",
+  "apgsk cec2017 D10/D30/D50 run-level cells (Wilcoxon/A12/Cliff/BCa) recovered under CR-0006 (A2-004 resolved; per_run.csv restored to full four-dimension coverage, validated against the frozen apgsk summaries) and computed here"
+ ],
+ "curve_selection": {
+  "selected": {
+   "30": {
+    "composition": 26,
+    "hybrid": 12,
+    "simple_multimodal": 10,
+    "unimodal": 3
+   },
+   "100": {
+    "composition": 26,
+    "hybrid": 12,
+    "simple_multimodal": 5,
+    "unimodal": 1
+   }
+  },
+  "joint_constraint": {
+   "has_hard": true,
+   "has_weak": true,
+   "repairs": []
+  }
+ },
+ "checkpoint_grid_mismatches": "none",
+ "notes": "none",
+ "suite": "cec2017"
+}

@@ -1,0 +1,19 @@
+# SGSM-overlay ablation (X-ABL-02) — cell: no_sgsm (single toggle only).
+optimizers:
+- dt-gsk
+suite: cec2013
+functions: default
+dimensions:
+- 50
+runs: 25
+seed: 20240620
+seed_policy: unified
+rand_generator: threefry
+parallel: true
+workers: 12
+generation_logs: false
+convergence_graphs: false
+overwrite: true
+output_root: results/_ablation_sgsm/no_sgsm
+optimizer_options:
+  interaction_graph_enabled: false

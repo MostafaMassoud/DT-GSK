@@ -1,0 +1,205 @@
+{
+ "release_id": "rel-2026-07-20-67d9345f9",
+ "items": [
+  {
+   "check": "friedman",
+   "cell": "cec2017/D10",
+   "ranks_agree_exact": true,
+   "chi2_ours_tie_corrected": 46.63806228373703,
+   "chi2_scipy_tie_corrected": 46.638062283736936,
+   "corrected_agree": true,
+   "chi2_ours_uncorrected": 41.49753694581281,
+   "chi2_direct_formula": 41.49753694581281,
+   "uncorrected_agree": true,
+   "tie_correction_C": 0.8897783251231527,
+   "p_scipy": 2.209376368866021e-08,
+   "decision_agree_alpha_0.05": true,
+   "agree": true,
+   "note": "reported chi2 is tie-corrected and must match scipy.stats.friedmanchisquare; the retained uncorrected companion must match the classical 1937 direct formula; ranks and the alpha=0.05 decision must agree"
+  },
+  {
+   "check": "friedman",
+   "cell": "cec2017/D100",
+   "ranks_agree_exact": true,
+   "chi2_ours_tie_corrected": 56.94088669950739,
+   "chi2_scipy_tie_corrected": 56.94088669950736,
+   "corrected_agree": true,
+   "chi2_ours_uncorrected": 56.94088669950739,
+   "chi2_direct_formula": 56.94088669950739,
+   "uncorrected_agree": true,
+   "tie_correction_C": 1.0,
+   "p_scipy": 1.8779613870729386e-10,
+   "decision_agree_alpha_0.05": true,
+   "agree": true,
+   "note": "reported chi2 is tie-corrected and must match scipy.stats.friedmanchisquare; the retained uncorrected companion must match the classical 1937 direct formula; ranks and the alpha=0.05 decision must agree"
+  },
+  {
+   "check": "friedman",
+   "cell": "cec2013/D30",
+   "ranks_agree_exact": true,
+   "chi2_ours_tie_corrected": 21.320027529249817,
+   "chi2_scipy_tie_corrected": 21.32002752924978,
+   "corrected_agree": true,
+   "chi2_ours_uncorrected": 19.7563775510204,
+   "chi2_direct_formula": 19.7563775510204,
+   "uncorrected_agree": true,
+   "tie_correction_C": 0.9266581632653061,
+   "p_scipy": 0.0016068142037924669,
+   "decision_agree_alpha_0.05": true,
+   "agree": true,
+   "note": "reported chi2 is tie-corrected and must match scipy.stats.friedmanchisquare; the retained uncorrected companion must match the classical 1937 direct formula; ranks and the alpha=0.05 decision must agree"
+  },
+  {
+   "check": "friedman",
+   "cell": "cec2011/D0",
+   "ranks_agree_exact": true,
+   "chi2_ours_tie_corrected": 22.291244239631332,
+   "chi2_scipy_tie_corrected": 22.29124423963131,
+   "corrected_agree": true,
+   "chi2_ours_uncorrected": 19.631493506493502,
+   "chi2_direct_formula": 19.631493506493502,
+   "uncorrected_agree": true,
+   "tie_correction_C": 0.8806818181818181,
+   "p_scipy": 0.001072164599787465,
+   "decision_agree_alpha_0.05": true,
+   "agree": true,
+   "note": "reported chi2 is tie-corrected and must match scipy.stats.friedmanchisquare; the retained uncorrected companion must match the classical 1937 direct formula; ranks and the alpha=0.05 decision must agree"
+  },
+  {
+   "check": "holm",
+   "cell": "cec2017/D30/AN-PW family",
+   "ours": [
+    0.029493672237902446,
+    0.01020495342304617,
+    0.006368765239908036,
+    0.005100014145728027,
+    0.010475519172608916,
+    0.198674526860406
+   ],
+   "direct": [
+    0.029493672237902446,
+    0.01020495342304617,
+    0.006368765239908036,
+    0.005100014145728027,
+    0.010475519172608916,
+    0.198674526860406
+   ],
+   "agree": true
+  },
+  {
+   "check": "holm",
+   "cell": "cec2013/D10/AN-PW family",
+   "ours": [
+    0.00018670319110336564,
+    0.24089911952722742,
+    0.24089911952722742,
+    0.24089911952722742,
+    0.0017274575485409782,
+    0.0017274575485409782
+   ],
+   "direct": [
+    0.00018670319110336564,
+    0.24089911952722742,
+    0.24089911952722742,
+    0.24089911952722742,
+    0.0017274575485409782,
+    0.0017274575485409782
+   ],
+   "agree": true
+  },
+  {
+   "check": "holm",
+   "cell": "cec2011/D0/AN-PW family",
+   "ours": [
+    0.13737810346734614,
+    0.015921024116998916,
+    0.13737810346734614,
+    0.042448170253345796,
+    0.32250869410607075,
+    0.042448170253345796
+   ],
+   "direct": [
+    0.13737810346734614,
+    0.015921024116998916,
+    0.13737810346734614,
+    0.042448170253345796,
+    0.32250869410607075,
+    0.042448170253345796
+   ],
+   "agree": true
+  },
+  {
+   "check": "a12",
+   "cell": "cec2017/D100/F5/vs gsk",
+   "ours": 0.7062668204536716,
+   "direct_formula_band": 0.7062668204536716,
+   "repo_exact_tie_variant": 0.7062668204536716,
+   "agree": true,
+   "note": "record uses the SAP Sec.7 tie band |d|<1e-8 counted half; repo vargha_delaney counts exact-equality ties only"
+  },
+  {
+   "check": "a12",
+   "cell": "cec2013/D30/F10/vs agsk",
+   "ours": 0.012687427912341407,
+   "direct_formula_band": 0.012687427912341407,
+   "repo_exact_tie_variant": 0.012687427912341407,
+   "agree": true,
+   "note": "record uses the SAP Sec.7 tie band |d|<1e-8 counted half; repo vargha_delaney counts exact-equality ties only"
+  },
+  {
+   "check": "a12",
+   "cell": "cec2011/D0/F5/vs egsk",
+   "ours": 0.344,
+   "direct_formula_band": 0.344,
+   "repo_exact_tie_variant": 0.344,
+   "agree": true,
+   "note": "record uses the SAP Sec.7 tie band |d|<1e-8 counted half; repo vargha_delaney counts exact-equality ties only"
+  },
+  {
+   "check": "bca",
+   "cell": "cec2017/D30/F17/vs gsk",
+   "ours": [
+    -149.99995509416615,
+    -102.52844234734783
+   ],
+   "independent_scipy_norm": [
+    -149.99994975951955,
+    -102.52845481691132
+   ],
+   "agree": true,
+   "note": "identical resample indices from the pre-registered seeded stream; z0/acceleration recomputed with scipy.stats.norm"
+  },
+  {
+   "check": "wilcoxon",
+   "cell": "cec2017/D30/across-functions vs gsk",
+   "W_ours": 87.0,
+   "W_scipy": 87.0,
+   "p_ours": 0.014746836118951223,
+   "p_scipy": 0.014746832668385479,
+   "statistic_agree": true,
+   "decision_agree_alpha_0.05": true,
+   "agree": true,
+   "note": "repo p uses normal approximation with continuity correction, no tie-variance correction; scipy approx applies tie correction; W and alpha=0.05 decision must agree"
+  },
+  {
+   "check": "wilcoxon",
+   "cell": "cec2017/D100/F1 run-level vs agsk",
+   "W_ours": 314.0,
+   "W_scipy": 314.0,
+   "p_ours": 0.0010883900386058354,
+   "p_scipy": 0.0010882690532397472,
+   "statistic_agree": true,
+   "decision_agree_alpha_0.05": true,
+   "agree": true,
+   "note": "repo p uses normal approximation with continuity correction, no tie-variance correction; scipy approx applies tie correction; W and alpha=0.05 decision must agree"
+  },
+  {
+   "check": "wilcoxon",
+   "cell": "cec2011/D0/F3 run-level vs gsk",
+   "agree": true,
+   "note": "all differences below tie tolerance; p=1 by convention"
+  }
+ ],
+ "hard_disagreements": [],
+ "overall": "agree"
+}

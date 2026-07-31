@@ -1,0 +1,637 @@
+[
+  {
+    "group": "Algorithm Guides",
+    "href": "algorithms_agsk.html",
+    "title": "AGSK \u2014 Adaptive Gaining-Sharing Knowledge"
+  },
+  {
+    "group": "Algorithm Guides",
+    "href": "algorithms_apgsk.html",
+    "title": "APGSK \u2014 Adaptive-Parameters Gaining-Sharing Knowledge"
+  },
+  {
+    "group": "Reference",
+    "href": "reference_api.html",
+    "title": "API Reference"
+  },
+  {
+    "group": "Reference",
+    "href": "reference_architecture.html",
+    "title": "Architecture"
+  },
+  {
+    "group": "Algorithm Guides",
+    "href": "algorithms_atmals-gsk.html",
+    "title": "ATMALS-GSK \u2014 Adaptive Tuning, Memory, Adaptive Local Search"
+  },
+  {
+    "group": "Reference",
+    "href": "reference_benchmark_mapping.html",
+    "title": "Benchmark Mapping"
+  },
+  {
+    "group": "Reference",
+    "href": "reference_benchmark_protocol.html",
+    "title": "Benchmark Protocol"
+  },
+  {
+    "group": "Development",
+    "href": "development_BUG_resume_summary_truncation.html",
+    "title": "BUG-RESUME-01 \u2014 resume mode truncates (and mis-computes) the per-dimension summary CSV"
+  },
+  {
+    "group": "Reference",
+    "href": "reference_cec2011_cpp_python_equivalence_review.html",
+    "title": "CEC2011 C++ vs Python Equivalence Review"
+  },
+  {
+    "group": "Reference",
+    "href": "reference_cec2013_cpp_python_equivalence_review.html",
+    "title": "CEC2013 C++ to Python Equivalence Review"
+  },
+  {
+    "group": "Development",
+    "href": "development_LSGO_ACCELERATION_PLAN.html",
+    "title": "CEC2013LSGO Acceleration Plan \u2014 all 7 GSK-family algorithms, bit-identically"
+  },
+  {
+    "group": "Reference",
+    "href": "reference_cec2013lsgo_cpp_python_equivalence_review.html",
+    "title": "CEC2013LSGO C++ to Python Equivalence Review"
+  },
+  {
+    "group": "Development",
+    "href": "development_LSGO_INTEGRATION_CAMPAIGN.html",
+    "title": "CEC2013LSGO Integration \u2014 Campaign Plan"
+  },
+  {
+    "group": "Reference",
+    "href": "reference_cec2017_cpp_python_equivalence_review.html",
+    "title": "CEC2017 C++ vs Python Equivalence Review"
+  },
+  {
+    "group": "Development",
+    "href": "development_CEC2017_PREC_adjudication.html",
+    "title": "CEC2017-PREC \u2014 adjudication (CLOSED 2026-07-25)"
+  },
+  {
+    "group": "Reference",
+    "href": "reference_cec2020_cpp_python_equivalence_review.html",
+    "title": "CEC2020 C++ to Python Equivalence Review"
+  },
+  {
+    "group": "Development",
+    "href": "development_code_reading_guide.html",
+    "title": "Code Reading Guide"
+  },
+  {
+    "group": "Getting Started",
+    "href": "getting-started_configuration.html",
+    "title": "Configuration"
+  },
+  {
+    "group": "Development",
+    "href": "development_contributor_guide.html",
+    "title": "Contributor Guide"
+  },
+  {
+    "group": "Development",
+    "href": "development_DECC_G_port_record.html",
+    "title": "DECC-G port \u2014 fidelity and validation record"
+  },
+  {
+    "group": "Prompts",
+    "href": "prompt_documentation-deep-upgrade.html",
+    "title": "Deep Documentation Review & Upgrade Prompt \u2014 GSK Family Python"
+  },
+  {
+    "group": "Prompts",
+    "href": "prompt_project-review.html",
+    "title": "Deep Expert Review Prompt For GSK Family Python"
+  },
+  {
+    "group": "Development",
+    "href": "development_developer_guide.html",
+    "title": "Developer Guide"
+  },
+  {
+    "group": "Development",
+    "href": "development_README.html",
+    "title": "Development Docs"
+  },
+  {
+    "group": "Reference",
+    "href": "index.html",
+    "title": "Documentation Index"
+  },
+  {
+    "group": "Prompts",
+    "href": "prompt_documentation-review.html",
+    "title": "Documentation Review Prompt"
+  },
+  {
+    "group": "Development",
+    "href": "development_dt_gsk_core_reference.html",
+    "title": "DT-GSK Core Reference \u2014 the vendored core and its byte-identity lock"
+  },
+  {
+    "group": "Development",
+    "href": "development_evidence_rerun_runbook.html",
+    "title": "DT-GSK re-run runbook \u2014 corrected implementation (C006 + graph backend)"
+  },
+  {
+    "group": "Algorithm Guides",
+    "href": "algorithms_dt-gsk.html",
+    "title": "DT-GSK \u2014 Dimension-Tiered Gaining-Sharing Knowledge"
+  },
+  {
+    "group": "Research",
+    "href": "research_egsk_validation_appendix.html",
+    "title": "EGSK Validation Appendix \u2014 Paired Port-vs-Reference Equivalence"
+  },
+  {
+    "group": "Development",
+    "href": "development_egsk_port_spec.html",
+    "title": "EGSK \u2014 Algorithm Spec & Porting Verdict"
+  },
+  {
+    "group": "Algorithm Guides",
+    "href": "algorithms_egsk.html",
+    "title": "EGSK \u2014 Enhanced Gaining-Sharing Knowledge"
+  },
+  {
+    "group": "Getting Started",
+    "href": "getting-started_explainer.html",
+    "title": "Explainer"
+  },
+  {
+    "group": "Development",
+    "href": "development_extension_guide.html",
+    "title": "Extension Guide"
+  },
+  {
+    "group": "Development",
+    "href": "development_FAMILY_ACCELERATION_PLAN.html",
+    "title": "Family-wide acceleration plan \u2014 7 algorithms x 5 suites, bit-identical only"
+  },
+  {
+    "group": "Algorithm Guides",
+    "href": "algorithms_fdb-agsk.html",
+    "title": "FDB-AGSK \u2014 Fitness-Distance-Balance AGSK"
+  },
+  {
+    "group": "Development",
+    "href": "development_FINAL_PUBLICATION_PLAN.html",
+    "title": "FINAL PUBLICATION PLAN \u2014 DT-GSK, Four(/Five)-Suite Scope"
+  },
+  {
+    "group": "Prompts",
+    "href": "prompt_publication-polish.html",
+    "title": "Final Publication Prompt \u2014 Production-Ready Q1 Release of GSK Family Python v1.1"
+  },
+  {
+    "group": "Reference",
+    "href": "reference_fp_regime.html",
+    "title": "Floating-Point Regime Verification"
+  },
+  {
+    "group": "Reference",
+    "href": "reference_diagrams.html",
+    "title": "Flowcharts And Diagrams"
+  },
+  {
+    "group": "Reference",
+    "href": "reference_glossary.html",
+    "title": "Glossary"
+  },
+  {
+    "group": "Algorithm Guides",
+    "href": "algorithms_gsk.html",
+    "title": "GSK \u2014 Gaining-Sharing Knowledge"
+  },
+  {
+    "group": "Development",
+    "href": "development_ACCELERATION_CAMPAIGN_PROMPT.html",
+    "title": "GSK-Family Acceleration Campaign \u2014 Execution Prompt"
+  },
+  {
+    "group": "Reference",
+    "href": "LICENSES.html",
+    "title": "Licenses"
+  },
+  {
+    "group": "Development",
+    "href": "development_maintenance_guide.html",
+    "title": "Maintenance Guide"
+  },
+  {
+    "group": "Reference",
+    "href": "reference_module_dependencies.html",
+    "title": "Module Dependencies"
+  },
+  {
+    "group": "Research",
+    "href": "research_numerical_examples.html",
+    "title": "Numerical Examples"
+  },
+  {
+    "group": "Research",
+    "href": "research_performance.html",
+    "title": "Performance"
+  },
+  {
+    "group": "Development",
+    "href": "development_PORT_05_TUNING_TRIAGE.html",
+    "title": "Porting project-05 tuning into 02 \u2014 Phase 1 audit and triage"
+  },
+  {
+    "group": "Reference",
+    "href": "reference_project_structure.html",
+    "title": "Project Structure"
+  },
+  {
+    "group": "Reference",
+    "href": "reference_python_optimizer_interface.html",
+    "title": "Python Optimizer Interface"
+  },
+  {
+    "group": "Development",
+    "href": "development_REFERENCE_PROMOTION_PLAN.html",
+    "title": "Reference Promotion Plan \u2014 CEC2013LSGO now, CEC2020 behind its completeness gate"
+  },
+  {
+    "group": "Research",
+    "href": "research_reproducibility.html",
+    "title": "Reproducibility"
+  },
+  {
+    "group": "Research",
+    "href": "research_researcher_handbook.html",
+    "title": "Researcher Handbook"
+  },
+  {
+    "group": "Reference",
+    "href": "reference_result_schema.html",
+    "title": "Result Schema"
+  },
+  {
+    "group": "Getting Started",
+    "href": "getting-started_runbook.html",
+    "title": "Runbook"
+  },
+  {
+    "group": "Reference",
+    "href": "reference_seed_policy.html",
+    "title": "Seed Policy"
+  },
+  {
+    "group": "Development",
+    "href": "development_SIBLING_CAMPAIGN_TRANSFER.html",
+    "title": "Sibling-Campaign Transfer \u2014 every tuning that can make the GSK family fast"
+  },
+  {
+    "group": "Research",
+    "href": "research_statistical_analysis.html",
+    "title": "Statistical Analysis (GSK-family comparison)"
+  },
+  {
+    "group": "Getting Started",
+    "href": "getting-started_troubleshooting.html",
+    "title": "Troubleshooting"
+  },
+  {
+    "group": "Getting Started",
+    "href": "getting-started_tutorial.html",
+    "title": "Tutorial"
+  },
+  {
+    "group": "Getting Started",
+    "href": "getting-started_user_guide.html",
+    "title": "User Guide"
+  },
+  {
+    "group": "Research",
+    "href": "research_validation_report.html",
+    "title": "Validation Report"
+  },
+  {
+    "group": "Reference",
+    "href": "reference_workflows.html",
+    "title": "Workflows"
+  },
+  {
+    "group": "Python API",
+    "href": "api_index.html",
+    "title": "Python API Module Index"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.__init__.html",
+    "title": "gsk_family.__init__"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.analysis.__init__.html",
+    "title": "gsk_family.analysis.__init__"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.analysis.family_report.html",
+    "title": "gsk_family.analysis.family_report"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.analysis.figures.html",
+    "title": "gsk_family.analysis.figures"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.analysis.latex_tables.html",
+    "title": "gsk_family.analysis.latex_tables"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.analysis.project_policy.html",
+    "title": "gsk_family.analysis.project_policy"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.analysis.result_loader.html",
+    "title": "gsk_family.analysis.result_loader"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.analysis.statistical_tests.html",
+    "title": "gsk_family.analysis.statistical_tests"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.analysis.statistics.html",
+    "title": "gsk_family.analysis.statistics"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.benchmark_adapter.__init__.html",
+    "title": "gsk_family.benchmark_adapter.__init__"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.benchmark_adapter.factory.html",
+    "title": "gsk_family.benchmark_adapter.factory"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.benchmark_adapter.problem.html",
+    "title": "gsk_family.benchmark_adapter.problem"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.benchmark_adapter.protocol.html",
+    "title": "gsk_family.benchmark_adapter.protocol"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.cli.__init__.html",
+    "title": "gsk_family.cli.__init__"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.cli.list.html",
+    "title": "gsk_family.cli.list"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.cli.run.html",
+    "title": "gsk_family.cli.run"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.cli.stats.html",
+    "title": "gsk_family.cli.stats"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.cli.validate.html",
+    "title": "gsk_family.cli.validate"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.common.__init__.html",
+    "title": "gsk_family.common.__init__"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.common.bounds.html",
+    "title": "gsk_family.common.bounds"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.common.donors.html",
+    "title": "gsk_family.common.donors"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.common.numeric_compat.html",
+    "title": "gsk_family.common.numeric_compat"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.common.population.html",
+    "title": "gsk_family.common.population"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.common.reduction.html",
+    "title": "gsk_family.common.reduction"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.common.reference_rng.html",
+    "title": "gsk_family.common.reference_rng"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.common.rng.html",
+    "title": "gsk_family.common.rng"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.common.threefry_rng.html",
+    "title": "gsk_family.common.threefry_rng"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.optimizers.__init__.html",
+    "title": "gsk_family.optimizers.__init__"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.optimizers._dt_profiles.html",
+    "title": "gsk_family.optimizers._dt_profiles"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.optimizers._dt_rng.html",
+    "title": "gsk_family.optimizers._dt_rng"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.optimizers._kernels.html",
+    "title": "gsk_family.optimizers._kernels"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.optimizers.agsk.html",
+    "title": "gsk_family.optimizers.agsk"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.optimizers.apgsk.html",
+    "title": "gsk_family.optimizers.apgsk"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.optimizers.atmals_gsk.html",
+    "title": "gsk_family.optimizers.atmals_gsk"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.optimizers.atmals_helpers.html",
+    "title": "gsk_family.optimizers.atmals_helpers"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.optimizers.dt_gsk.html",
+    "title": "gsk_family.optimizers.dt_gsk"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.optimizers.egsk.html",
+    "title": "gsk_family.optimizers.egsk"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.optimizers.external.__init__.html",
+    "title": "gsk_family.optimizers.external.__init__"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.optimizers.external._base.html",
+    "title": "gsk_family.optimizers.external._base"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.optimizers.external._telemetry_shim.html",
+    "title": "gsk_family.optimizers.external._telemetry_shim"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.optimizers.external.cmaes.html",
+    "title": "gsk_family.optimizers.external.cmaes"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.optimizers.external.decc_g.html",
+    "title": "gsk_family.optimizers.external.decc_g"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.optimizers.external.ebowithcmar.html",
+    "title": "gsk_family.optimizers.external.ebowithcmar"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.optimizers.external.jso.html",
+    "title": "gsk_family.optimizers.external.jso"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.optimizers.external.lshade.html",
+    "title": "gsk_family.optimizers.external.lshade"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.optimizers.external.lshade_spacma.html",
+    "title": "gsk_family.optimizers.external.lshade_spacma"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.optimizers.external.mos_cec2013lsgo.html",
+    "title": "gsk_family.optimizers.external.mos_cec2013lsgo"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.optimizers.external.shade_ils.html",
+    "title": "gsk_family.optimizers.external.shade_ils"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.optimizers.fdb_agsk.html",
+    "title": "gsk_family.optimizers.fdb_agsk"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.optimizers.fdb_scores.html",
+    "title": "gsk_family.optimizers.fdb_scores"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.optimizers.gsk.html",
+    "title": "gsk_family.optimizers.gsk"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.runners.__init__.html",
+    "title": "gsk_family.runners.__init__"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.runners.config.html",
+    "title": "gsk_family.runners.config"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.runners.fp_regime.html",
+    "title": "gsk_family.runners.fp_regime"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.runners.output.html",
+    "title": "gsk_family.runners.output"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.runners.parallel.html",
+    "title": "gsk_family.runners.parallel"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.runners.performance.html",
+    "title": "gsk_family.runners.performance"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.runners.run_experiment.html",
+    "title": "gsk_family.runners.run_experiment"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.runners.seed_policy.html",
+    "title": "gsk_family.runners.seed_policy"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.runners.verification.html",
+    "title": "gsk_family.runners.verification"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.stats.html",
+    "title": "gsk_family.stats"
+  },
+  {
+    "group": "Python API",
+    "href": "api/gsk_family.types.html",
+    "title": "gsk_family.types"
+  }
+]

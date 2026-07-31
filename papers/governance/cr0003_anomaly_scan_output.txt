@@ -1,0 +1,159 @@
+==============================================================================
+[1] EVIDENCE-TREE LAYOUT AUDIT
+==============================================================================
+root entries: ['README.md', 'cec2011', 'cec2013', 'cec2013lsgo', 'cec2017', 'cec2020']
+doubled-suite directories: NONE
+zero-byte files: NONE
+suite     optimizer    files  curves  gen_logs  summary_files
+cec2017   agsk            10     116       116  4
+cec2017   apgsk           10     116       116  4
+cec2017   atmals-gsk      10     116       116  4
+cec2017   egsk            10     116       116  4
+cec2017   fdb-agsk        10     116       116  4
+cec2017   gsk             10     116       116  4
+cec2017   dt-gsk         10     116       116  4
+cec2011   agsk            23      22        22  17
+cec2011   apgsk           23      22        22  17
+cec2011   atmals-gsk      23      22        22  17
+cec2011   egsk            23      22        22  17
+cec2011   fdb-agsk        23      22        22  17
+cec2011   gsk             23      22        22  17
+cec2011   dt-gsk         23      22        22  17
+cec2013   agsk             9      84        84  3
+cec2013   apgsk            9      84        84  3
+cec2013   atmals-gsk       9      84        84  3
+cec2013   egsk             9      84        84  3
+cec2013   fdb-agsk         9      84        84  3
+cec2013   gsk              9      84        84  3
+cec2013   dt-gsk          9      84        84  3
+
+context suites:
+  cec2020/agsk: ['agsk_cec2020_D05.csv', 'agsk_cec2020_D10.csv', 'agsk_cec2020_D15.csv', 'agsk_cec2020_D20.csv']
+  cec2013lsgo/decc-g: ['decc-g_cec2013lsgo.csv']
+  cec2013lsgo/mos: ['mos_cec2013lsgo.csv']
+
+csv census: total=3324 breakdown={'summary': 174, 'per_run.csv': 21, 'seed_schedule.csv': 21, 'curves': 1554, 'gen_logs': 1554}
+
+==============================================================================
+[2] COVERAGE + CR-0003 ANOMALY TAXONOMY (primary suites)
+==============================================================================
+cec2017/agsk           per_run 5916/5916  seeds 5916/5916  cells 116/116  runs_ok=True  xcell_seed_coll=0  nan_err=0
+cec2017/apgsk          per_run 1479/5916  seeds 1479/5916  cells 29/116  runs_ok=True  xcell_seed_coll=0  nan_err=0
+cec2017/atmals-gsk     per_run 5916/5916  seeds 5916/5916  cells 116/116  runs_ok=True  xcell_seed_coll=0  nan_err=0
+cec2017/egsk           per_run 5916/5916  seeds 5916/5916  cells 116/116  runs_ok=True  xcell_seed_coll=0  nan_err=0
+cec2017/fdb-agsk       per_run 5916/5916  seeds 5916/5916  cells 116/116  runs_ok=True  xcell_seed_coll=0  nan_err=0
+cec2017/gsk            per_run 5916/5916  seeds 5916/5916  cells 116/116  runs_ok=True  xcell_seed_coll=0  nan_err=0
+cec2017/dt-gsk        per_run 5916/5916  seeds 5916/5916  cells 116/116  runs_ok=True  xcell_seed_coll=0  nan_err=0
+cec2011/agsk           per_run 550/550  seeds 550/550  cells 22/22  runs_ok=True  xcell_seed_coll=0  nan_err=550
+cec2011/apgsk          per_run 550/550  seeds 550/550  cells 22/22  runs_ok=True  xcell_seed_coll=0  nan_err=550
+cec2011/atmals-gsk     per_run 550/550  seeds 550/550  cells 22/22  runs_ok=True  xcell_seed_coll=0  nan_err=550
+cec2011/egsk           per_run 550/550  seeds 550/550  cells 22/22  runs_ok=True  xcell_seed_coll=0  nan_err=550
+cec2011/fdb-agsk       per_run 550/550  seeds 550/550  cells 22/22  runs_ok=True  xcell_seed_coll=0  nan_err=550
+cec2011/gsk            per_run 550/550  seeds 550/550  cells 22/22  runs_ok=True  xcell_seed_coll=0  nan_err=550
+cec2011/dt-gsk        per_run 550/550  seeds 550/550  cells 22/22  runs_ok=True  xcell_seed_coll=0  nan_err=550
+cec2013/agsk           per_run 4284/4284  seeds 4284/4284  cells 84/84  runs_ok=True  xcell_seed_coll=0  nan_err=0
+cec2013/apgsk          per_run 4284/4284  seeds 4284/4284  cells 84/84  runs_ok=True  xcell_seed_coll=0  nan_err=0
+cec2013/atmals-gsk     per_run 4284/4284  seeds 4284/4284  cells 84/84  runs_ok=True  xcell_seed_coll=0  nan_err=0
+cec2013/egsk           per_run 4284/4284  seeds 4284/4284  cells 84/84  runs_ok=True  xcell_seed_coll=0  nan_err=0
+cec2013/fdb-agsk       per_run 4284/4284  seeds 4284/4284  cells 84/84  runs_ok=True  xcell_seed_coll=0  nan_err=0
+cec2013/gsk            per_run 4284/4284  seeds 4284/4284  cells 84/84  runs_ok=True  xcell_seed_coll=0  nan_err=0
+cec2013/dt-gsk        per_run 4284/4284  seeds 4284/4284  cells 84/84  runs_ok=True  xcell_seed_coll=0  nan_err=0
+
+cec2011 native dim map (consistent across all 7 optimizers): {1: 6, 2: 30, 3: 1, 4: 1, 5: 30, 6: 30, 7: 20, 8: 7, 9: 126, 10: 12, 11: 120, 12: 240, 13: 6, 14: 13, 15: 15, 16: 40, 17: 140, 18: 96, 19: 96, 20: 96, 21: 26, 22: 22}
+cec2017: seed schedules identical across 7 optimizers = False
+cec2011: seed schedules identical across 7 optimizers = True
+cec2013: seed schedules identical across 7 optimizers = True
+
+termination values observed: {'target_error_reached': 1507, 'max_evaluations': 69306}
+
+context-suite content scan:
+  cec2020/agsk/agsk_cec2020_D05.csv: rows=10 issues={'non_numeric_token[N/A]': 10}
+  cec2020/agsk/agsk_cec2020_D10.csv: rows=10 issues=none
+  cec2020/agsk/agsk_cec2020_D15.csv: rows=10 issues=none
+  cec2020/agsk/agsk_cec2020_D20.csv: rows=10 issues=none
+  cec2013lsgo/decc-g/decc-g_cec2013lsgo.csv: rows=15 issues=none
+  cec2013lsgo/mos/mos_cec2013lsgo.csv: rows=15 issues=none
+
+verification.json verdicts:
+  cec2017/agsk: CONSISTENT checked=116 hard_failures=0 missing_ref=0
+  cec2017/apgsk: CONSISTENT checked=116 hard_failures=0 missing_ref=0
+  cec2017/atmals-gsk: CONSISTENT checked=116 hard_failures=0 missing_ref=0
+  cec2017/egsk: CONSISTENT checked=116 hard_failures=0 missing_ref=0
+  cec2017/fdb-agsk: CONSISTENT checked=116 hard_failures=0 missing_ref=0
+  cec2017/gsk: CONSISTENT checked=116 hard_failures=0 missing_ref=0
+  cec2017/dt-gsk: CONSISTENT checked=116 hard_failures=0 missing_ref=0
+  cec2011/agsk: CONSISTENT checked=22 hard_failures=0 missing_ref=0
+  cec2011/apgsk: CONSISTENT checked=22 hard_failures=0 missing_ref=0
+  cec2011/atmals-gsk: CONSISTENT checked=22 hard_failures=0 missing_ref=0
+  cec2011/egsk: CONSISTENT checked=22 hard_failures=0 missing_ref=0
+  cec2011/fdb-agsk: CONSISTENT checked=22 hard_failures=0 missing_ref=0
+  cec2011/gsk: CONSISTENT checked=22 hard_failures=0 missing_ref=0
+  cec2011/dt-gsk: CONSISTENT checked=22 hard_failures=0 missing_ref=0
+  cec2013/agsk: CONSISTENT checked=0 hard_failures=0 missing_ref=84
+  cec2013/apgsk: CONSISTENT checked=0 hard_failures=0 missing_ref=84
+  cec2013/atmals-gsk: CONSISTENT checked=0 hard_failures=0 missing_ref=84
+  cec2013/egsk: CONSISTENT checked=0 hard_failures=0 missing_ref=84
+  cec2013/fdb-agsk: CONSISTENT checked=0 hard_failures=0 missing_ref=84
+  cec2013/gsk: CONSISTENT checked=0 hard_failures=0 missing_ref=84
+  cec2013/dt-gsk: CONSISTENT checked=0 hard_failures=0 missing_ref=84
+
+fp_regime sentinel (audit target only):
+  cec2017: unique=True value_prefix=8bda40d80d1671fe cec2017_prefix_ok=True
+  cec2011: unique=True value_prefix=10fef05901ee7763 cec2017_prefix_ok=True
+  cec2013: unique=True value_prefix=16a3e3095b606c5b cec2017_prefix_ok=True
+
+==============================================================================
+[3] ANOMALY REGISTER
+==============================================================================
+A2-001 [INFO] PROTOCOL_OBSERVATION       cec2017/agsk: target_error_reached early stops: 404 runs (protocol-legitimate stopping rule; nfes<MaxFES by design) (n=404)
+A2-002 [INFO] PROTOCOL_OBSERVATION       cec2017/agsk: 8 curve files leave Log10Error empty where BestError<=0 (log10 undefined); systematic writer convention (n=8)
+A2-003 [SOFT] TRUNCATED_CONVERGENCE      cec2017/agsk: curve issue last_eval_ne_maxfes: 8 files (n=8)
+A2-004 [HARD] COVERAGE_MISMATCH          cec2017/apgsk: per_run rows 1479/5916, cells 29/116; dims present=[100] (n=1)
+A2-005 [HARD] COVERAGE_MISMATCH          cec2017/apgsk: seed_schedule rows 1479/5916 (n=1)
+A2-006 [HARD] METADATA_INCONSISTENT      cec2017/apgsk: environment/run_config dims [100]/100 != protocol [10, 30, 50, 100]; env timestamp=2026-07-08T21:53:10 git=20cfed0a (n=1)
+A2-007 [HARD] COVERAGE_MISMATCH          cec2017/apgsk: gen_log run seeds for 4437 (dim,func,run) keys absent from this cell's seed_schedule; 4437/4437 match the family unified schedule (n=4437)
+A2-008 [INFO] PROTOCOL_OBSERVATION       cec2017/apgsk: 5 curve files leave Log10Error empty where BestError<=0 (log10 undefined); systematic writer convention (n=5)
+A2-009 [SOFT] TRUNCATED_CONVERGENCE      cec2017/apgsk: curve issue last_eval_ne_maxfes: 5 files (n=5)
+A2-010 [INFO] PROTOCOL_OBSERVATION       cec2017/atmals-gsk: 9 curve files leave Log10Error empty where BestError<=0 (log10 undefined); systematic writer convention (n=9)
+A2-011 [INFO] PROTOCOL_OBSERVATION       cec2017/egsk: 10 curve files leave Log10Error empty where BestError<=0 (log10 undefined); systematic writer convention (n=10)
+A2-012 [INFO] PROTOCOL_OBSERVATION       cec2017/fdb-agsk: 7 curve files leave Log10Error empty where BestError<=0 (log10 undefined); systematic writer convention (n=7)
+A2-013 [INFO] PROTOCOL_OBSERVATION       cec2017/gsk: 9 curve files leave Log10Error empty where BestError<=0 (log10 undefined); systematic writer convention (n=9)
+A2-014 [INFO] PROTOCOL_OBSERVATION       cec2017/dt-gsk: 12 curve files leave Log10Error empty where BestError<=0 (log10 undefined); systematic writer convention (n=12)
+A2-015 [INFO] NAN_INF                    cec2011/agsk: error=NaN on all 550 rows: real-world suite carries no defined-optimum error in per_run; by design (n=550)
+A2-016 [INFO] PROTOCOL_OBSERVATION       cec2011/agsk: 5 curve files leave Log10Error empty where BestError<=0 (log10 undefined); systematic writer convention (n=5)
+A2-017 [INFO] NAN_INF                    cec2011/apgsk: error=NaN on all 550 rows: real-world suite carries no defined-optimum error in per_run; by design (n=550)
+A2-018 [INFO] PROTOCOL_OBSERVATION       cec2011/apgsk: 5 curve files leave Log10Error empty where BestError<=0 (log10 undefined); systematic writer convention (n=5)
+A2-019 [INFO] NAN_INF                    cec2011/atmals-gsk: error=NaN on all 550 rows: real-world suite carries no defined-optimum error in per_run; by design (n=550)
+A2-020 [INFO] PROTOCOL_OBSERVATION       cec2011/atmals-gsk: 5 curve files leave Log10Error empty where BestError<=0 (log10 undefined); systematic writer convention (n=5)
+A2-021 [INFO] NAN_INF                    cec2011/egsk: error=NaN on all 550 rows: real-world suite carries no defined-optimum error in per_run; by design (n=550)
+A2-022 [INFO] PROTOCOL_OBSERVATION       cec2011/egsk: 5 curve files leave Log10Error empty where BestError<=0 (log10 undefined); systematic writer convention (n=5)
+A2-023 [INFO] NAN_INF                    cec2011/fdb-agsk: error=NaN on all 550 rows: real-world suite carries no defined-optimum error in per_run; by design (n=550)
+A2-024 [INFO] PROTOCOL_OBSERVATION       cec2011/fdb-agsk: 5 curve files leave Log10Error empty where BestError<=0 (log10 undefined); systematic writer convention (n=5)
+A2-025 [INFO] NAN_INF                    cec2011/gsk: error=NaN on all 550 rows: real-world suite carries no defined-optimum error in per_run; by design (n=550)
+A2-026 [INFO] PROTOCOL_OBSERVATION       cec2011/gsk: 5 curve files leave Log10Error empty where BestError<=0 (log10 undefined); systematic writer convention (n=5)
+A2-027 [INFO] NAN_INF                    cec2011/dt-gsk: error=NaN on all 550 rows: real-world suite carries no defined-optimum error in per_run; by design (n=550)
+A2-028 [INFO] PROTOCOL_OBSERVATION       cec2011/dt-gsk: 6 curve files leave Log10Error empty where BestError<=0 (log10 undefined); systematic writer convention (n=6)
+A2-029 [INFO] PROTOCOL_OBSERVATION       cec2013/agsk: target_error_reached early stops: 558 runs (protocol-legitimate stopping rule; nfes<MaxFES by design) (n=558)
+A2-030 [INFO] PROTOCOL_OBSERVATION       cec2013/agsk: 11 curve files leave Log10Error empty where BestError<=0 (log10 undefined); systematic writer convention (n=11)
+A2-031 [SOFT] TRUNCATED_CONVERGENCE      cec2013/agsk: curve issue last_eval_ne_maxfes: 11 files (n=11)
+A2-032 [INFO] PROTOCOL_OBSERVATION       cec2013/apgsk: target_error_reached early stops: 545 runs (protocol-legitimate stopping rule; nfes<MaxFES by design) (n=545)
+A2-033 [INFO] PROTOCOL_OBSERVATION       cec2013/apgsk: 10 curve files leave Log10Error empty where BestError<=0 (log10 undefined); systematic writer convention (n=10)
+A2-034 [SOFT] TRUNCATED_CONVERGENCE      cec2013/apgsk: curve issue last_eval_ne_maxfes: 10 files (n=10)
+A2-035 [INFO] PROTOCOL_OBSERVATION       cec2013/atmals-gsk: 8 curve files leave Log10Error empty where BestError<=0 (log10 undefined); systematic writer convention (n=8)
+A2-036 [INFO] PROTOCOL_OBSERVATION       cec2013/egsk: 6 curve files leave Log10Error empty where BestError<=0 (log10 undefined); systematic writer convention (n=6)
+A2-037 [INFO] PROTOCOL_OBSERVATION       cec2013/fdb-agsk: 11 curve files leave Log10Error empty where BestError<=0 (log10 undefined); systematic writer convention (n=11)
+A2-038 [INFO] PROTOCOL_OBSERVATION       cec2013/gsk: 6 curve files leave Log10Error empty where BestError<=0 (log10 undefined); systematic writer convention (n=6)
+A2-039 [INFO] PROTOCOL_OBSERVATION       cec2013/dt-gsk: 10 curve files leave Log10Error empty where BestError<=0 (log10 undefined); systematic writer convention (n=10)
+A2-040 [HARD] DUPLICATE_SEED             cec2017/apgsk: seed schedules differ across optimizers despite unified policy (n=1)
+A2-041 [SOFT] NAN_INF                    cec2020/agsk: non_numeric_token[N/A]: 10 (n=10)
+A2-042 [INFO] VERIFICATION_VACUOUS       cec2013/agsk: verification checked 0 functions (missing_reference=84); verdict vacuously CONSISTENT (n=1)
+A2-043 [INFO] VERIFICATION_VACUOUS       cec2013/apgsk: verification checked 0 functions (missing_reference=84); verdict vacuously CONSISTENT (n=1)
+A2-044 [INFO] VERIFICATION_VACUOUS       cec2013/atmals-gsk: verification checked 0 functions (missing_reference=84); verdict vacuously CONSISTENT (n=1)
+A2-045 [INFO] VERIFICATION_VACUOUS       cec2013/egsk: verification checked 0 functions (missing_reference=84); verdict vacuously CONSISTENT (n=1)
+A2-046 [INFO] VERIFICATION_VACUOUS       cec2013/fdb-agsk: verification checked 0 functions (missing_reference=84); verdict vacuously CONSISTENT (n=1)
+A2-047 [INFO] VERIFICATION_VACUOUS       cec2013/gsk: verification checked 0 functions (missing_reference=84); verdict vacuously CONSISTENT (n=1)
+A2-048 [INFO] VERIFICATION_VACUOUS       cec2013/dt-gsk: verification checked 0 functions (missing_reference=84); verdict vacuously CONSISTENT (n=1)
+
+TOTALS: hard=5 soft=5 info=38
+
+wrote C:\Users\moust\AppData\Local\Temp\claude\D--AI-PhD-Projects-00-GSK-Family-02-GSK-Family-Python-v1-1\936aad4c-083b-4d56-9c2a-2238bd8a85b8\scratchpad\phase2_audit_report.json and C:\Users\moust\AppData\Local\Temp\claude\D--AI-PhD-Projects-00-GSK-Family-02-GSK-Family-Python-v1-1\936aad4c-083b-4d56-9c2a-2238bd8a85b8\scratchpad\phase2_anomaly_register.csv

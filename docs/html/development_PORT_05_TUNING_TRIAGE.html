@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Porting project-05 tuning into 02 — Phase 1 audit and triage - GSK Family Python Documentation">
+  <title>Porting project-05 tuning into 02 — Phase 1 audit and triage | GSK Family Python Documentation</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <div class="site-shell">
+    <aside class="sidebar">
+<div class="brand"><a href="index.html">GSK Family Python</a></div>
+<input class="nav-search" type="search" placeholder="Filter docs" aria-label="Filter docs">
+<nav class="nav-list" aria-label="Documentation">
+<section><h2>Getting Started</h2>
+<a class="nav-link" href="getting-started_configuration.html">Configuration</a>
+<a class="nav-link" href="getting-started_explainer.html">Explainer</a>
+<a class="nav-link" href="getting-started_runbook.html">Runbook</a>
+<a class="nav-link" href="getting-started_troubleshooting.html">Troubleshooting</a>
+<a class="nav-link" href="getting-started_tutorial.html">Tutorial</a>
+<a class="nav-link" href="getting-started_user_guide.html">User Guide</a>
+</section>
+<section><h2>Reference</h2>
+<a class="nav-link" href="reference_api.html">API Reference</a>
+<a class="nav-link" href="reference_architecture.html">Architecture</a>
+<a class="nav-link" href="reference_benchmark_mapping.html">Benchmark Mapping</a>
+<a class="nav-link" href="reference_benchmark_protocol.html">Benchmark Protocol</a>
+<a class="nav-link" href="reference_cec2011_cpp_python_equivalence_review.html">CEC2011 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013_cpp_python_equivalence_review.html">CEC2013 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013lsgo_cpp_python_equivalence_review.html">CEC2013LSGO C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2017_cpp_python_equivalence_review.html">CEC2017 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2020_cpp_python_equivalence_review.html">CEC2020 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="index.html">Documentation Index</a>
+<a class="nav-link" href="reference_fp_regime.html">Floating-Point Regime Verification</a>
+<a class="nav-link" href="reference_diagrams.html">Flowcharts And Diagrams</a>
+<a class="nav-link" href="reference_glossary.html">Glossary</a>
+<a class="nav-link" href="LICENSES.html">Licenses</a>
+<a class="nav-link" href="reference_module_dependencies.html">Module Dependencies</a>
+<a class="nav-link" href="reference_project_structure.html">Project Structure</a>
+<a class="nav-link" href="reference_python_optimizer_interface.html">Python Optimizer Interface</a>
+<a class="nav-link" href="reference_result_schema.html">Result Schema</a>
+<a class="nav-link" href="reference_seed_policy.html">Seed Policy</a>
+<a class="nav-link" href="reference_workflows.html">Workflows</a>
+</section>
+<section><h2>Algorithm Guides</h2>
+<a class="nav-link" href="algorithms_agsk.html">AGSK — Adaptive Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_apgsk.html">APGSK — Adaptive-Parameters Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_atmals-gsk.html">ATMALS-GSK — Adaptive Tuning, Memory, Adaptive Local Search</a>
+<a class="nav-link" href="algorithms_dt-gsk.html">DT-GSK — Dimension-Tiered Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_egsk.html">EGSK — Enhanced Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_fdb-agsk.html">FDB-AGSK — Fitness-Distance-Balance AGSK</a>
+<a class="nav-link" href="algorithms_gsk.html">GSK — Gaining-Sharing Knowledge</a>
+</section>
+<section><h2>Development</h2>
+<a class="nav-link" href="development_BUG_resume_summary_truncation.html">BUG-RESUME-01 — resume mode truncates (and mis-computes) the per-dimension summary CSV</a>
+<a class="nav-link" href="development_LSGO_ACCELERATION_PLAN.html">CEC2013LSGO Acceleration Plan — all 7 GSK-family algorithms, bit-identically</a>
+<a class="nav-link" href="development_LSGO_INTEGRATION_CAMPAIGN.html">CEC2013LSGO Integration — Campaign Plan</a>
+<a class="nav-link" href="development_CEC2017_PREC_adjudication.html">CEC2017-PREC — adjudication (CLOSED 2026-07-25)</a>
+<a class="nav-link" href="development_code_reading_guide.html">Code Reading Guide</a>
+<a class="nav-link" href="development_contributor_guide.html">Contributor Guide</a>
+<a class="nav-link" href="development_DECC_G_port_record.html">DECC-G port — fidelity and validation record</a>
+<a class="nav-link" href="development_developer_guide.html">Developer Guide</a>
+<a class="nav-link" href="development_README.html">Development Docs</a>
+<a class="nav-link" href="development_dt_gsk_core_reference.html">DT-GSK Core Reference — the vendored core and its byte-identity lock</a>
+<a class="nav-link" href="development_evidence_rerun_runbook.html">DT-GSK re-run runbook — corrected implementation (C006 + graph backend)</a>
+<a class="nav-link" href="development_egsk_port_spec.html">EGSK — Algorithm Spec &amp; Porting Verdict</a>
+<a class="nav-link" href="development_extension_guide.html">Extension Guide</a>
+<a class="nav-link" href="development_FAMILY_ACCELERATION_PLAN.html">Family-wide acceleration plan — 7 algorithms x 5 suites, bit-identical only</a>
+<a class="nav-link" href="development_FINAL_PUBLICATION_PLAN.html">FINAL PUBLICATION PLAN — DT-GSK, Four(/Five)-Suite Scope</a>
+<a class="nav-link" href="development_ACCELERATION_CAMPAIGN_PROMPT.html">GSK-Family Acceleration Campaign — Execution Prompt</a>
+<a class="nav-link" href="development_maintenance_guide.html">Maintenance Guide</a>
+<a class="nav-link active" href="development_PORT_05_TUNING_TRIAGE.html">Porting project-05 tuning into 02 — Phase 1 audit and triage</a>
+<a class="nav-link" href="development_REFERENCE_PROMOTION_PLAN.html">Reference Promotion Plan — CEC2013LSGO now, CEC2020 behind its completeness gate</a>
+<a class="nav-link" href="development_SIBLING_CAMPAIGN_TRANSFER.html">Sibling-Campaign Transfer — every tuning that can make the GSK family fast</a>
+</section>
+<section><h2>Research</h2>
+<a class="nav-link" href="research_egsk_validation_appendix.html">EGSK Validation Appendix — Paired Port-vs-Reference Equivalence</a>
+<a class="nav-link" href="research_numerical_examples.html">Numerical Examples</a>
+<a class="nav-link" href="research_performance.html">Performance</a>
+<a class="nav-link" href="research_reproducibility.html">Reproducibility</a>
+<a class="nav-link" href="research_researcher_handbook.html">Researcher Handbook</a>
+<a class="nav-link" href="research_statistical_analysis.html">Statistical Analysis (GSK-family comparison)</a>
+<a class="nav-link" href="research_validation_report.html">Validation Report</a>
+</section>
+<section><h2>Prompts</h2>
+<a class="nav-link" href="prompt_documentation-deep-upgrade.html">Deep Documentation Review &amp; Upgrade Prompt — GSK Family Python</a>
+<a class="nav-link" href="prompt_project-review.html">Deep Expert Review Prompt For GSK Family Python</a>
+<a class="nav-link" href="prompt_documentation-review.html">Documentation Review Prompt</a>
+<a class="nav-link" href="prompt_publication-polish.html">Final Publication Prompt — Production-Ready Q1 Release of GSK Family Python v1.1</a>
+</section>
+<section><h2>Python API</h2>
+<a class="nav-link" href="api_index.html">API Module Index</a>
+<a class="nav-link api-link" href="api/gsk_family.__init__.html">gsk_family.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.__init__.html">gsk_family.analysis.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.family_report.html">gsk_family.analysis.family_report</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.figures.html">gsk_family.analysis.figures</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.latex_tables.html">gsk_family.analysis.latex_tables</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.project_policy.html">gsk_family.analysis.project_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.result_loader.html">gsk_family.analysis.result_loader</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistical_tests.html">gsk_family.analysis.statistical_tests</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistics.html">gsk_family.analysis.statistics</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.__init__.html">gsk_family.benchmark_adapter.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.factory.html">gsk_family.benchmark_adapter.factory</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.problem.html">gsk_family.benchmark_adapter.problem</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.protocol.html">gsk_family.benchmark_adapter.protocol</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.__init__.html">gsk_family.cli.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.list.html">gsk_family.cli.list</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.run.html">gsk_family.cli.run</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.stats.html">gsk_family.cli.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.validate.html">gsk_family.cli.validate</a>
+<a class="nav-link api-link" href="api/gsk_family.common.__init__.html">gsk_family.common.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.common.bounds.html">gsk_family.common.bounds</a>
+<a class="nav-link api-link" href="api/gsk_family.common.donors.html">gsk_family.common.donors</a>
+<a class="nav-link api-link" href="api/gsk_family.common.numeric_compat.html">gsk_family.common.numeric_compat</a>
+<a class="nav-link api-link" href="api/gsk_family.common.population.html">gsk_family.common.population</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reduction.html">gsk_family.common.reduction</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reference_rng.html">gsk_family.common.reference_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.rng.html">gsk_family.common.rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.threefry_rng.html">gsk_family.common.threefry_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.__init__.html">gsk_family.optimizers.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_profiles.html">gsk_family.optimizers._dt_profiles</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_rng.html">gsk_family.optimizers._dt_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._kernels.html">gsk_family.optimizers._kernels</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.agsk.html">gsk_family.optimizers.agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.apgsk.html">gsk_family.optimizers.apgsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_gsk.html">gsk_family.optimizers.atmals_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_helpers.html">gsk_family.optimizers.atmals_helpers</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.dt_gsk.html">gsk_family.optimizers.dt_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.egsk.html">gsk_family.optimizers.egsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.__init__.html">gsk_family.optimizers.external.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._base.html">gsk_family.optimizers.external._base</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._telemetry_shim.html">gsk_family.optimizers.external._telemetry_shim</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.cmaes.html">gsk_family.optimizers.external.cmaes</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.decc_g.html">gsk_family.optimizers.external.decc_g</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.ebowithcmar.html">gsk_family.optimizers.external.ebowithcmar</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.jso.html">gsk_family.optimizers.external.jso</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade.html">gsk_family.optimizers.external.lshade</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade_spacma.html">gsk_family.optimizers.external.lshade_spacma</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.mos_cec2013lsgo.html">gsk_family.optimizers.external.mos_cec2013lsgo</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.shade_ils.html">gsk_family.optimizers.external.shade_ils</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_agsk.html">gsk_family.optimizers.fdb_agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_scores.html">gsk_family.optimizers.fdb_scores</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.gsk.html">gsk_family.optimizers.gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.__init__.html">gsk_family.runners.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.config.html">gsk_family.runners.config</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.fp_regime.html">gsk_family.runners.fp_regime</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.output.html">gsk_family.runners.output</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.parallel.html">gsk_family.runners.parallel</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.performance.html">gsk_family.runners.performance</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.run_experiment.html">gsk_family.runners.run_experiment</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.seed_policy.html">gsk_family.runners.seed_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.verification.html">gsk_family.runners.verification</a>
+<a class="nav-link api-link" href="api/gsk_family.stats.html">gsk_family.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.types.html">gsk_family.types</a>
+</section>
+</nav></aside>
+    <main class="content">
+      <article class="doc-card">
+        <h1 id="porting-project-05-tuning-into-02-phase-1-audit-and-triage">Porting project-05 tuning into 02 — Phase 1 audit and triage</h1>
+<p>Read-only audit, 2026-07-26. No code changed. Establishes what is actually portable before anything is moved, because the headline claim (&quot;all suites and algorithms tuned in 05&quot;) turns out to be mostly already present here.</p>
+<h2 id="finding-1-the-suite-kernels-are-not-behind">Finding 1 — the suite kernels are NOT behind</h2>
+<p>Kernel inventories are <strong>identical</strong> between the projects on every suite:</p>
+<div class="table-wrap"><table><thead><tr><th>Suite</th><th>02 kernels</th><th>05 kernels</th></tr></thead><tbody><tr><td>cec2011</td><td>13</td><td>13</td></tr><tr><td>cec2013</td><td>22</td><td>22</td></tr><tr><td>cec2017</td><td>25</td><td>25</td></tr><tr><td>cec2020</td><td>19</td><td>19</td></tr><tr><td>cec2013lsgo</td><td>26</td><td>26</td></tr></tbody></table></div>
+<p><code>cec2013lsgo/_numba.py</code> is byte-identical. The other four differ only in <strong>module docstrings</strong> (cross-reference wording, warm-up prose) — no functional drift. <code>optimizers/_kernels.py</code> is 214 lines in both.</p>
+<p><strong>Triage: nothing to port.</strong> 02&#x27;s own acceleration campaign (CR-0009…CR-0018) already closed this ground.</p>
+<h2 id="finding-2-the-serial-twin-layer-differs-in-style-not-coverage-cec2017">Finding 2 — the serial-twin layer differs in style, not coverage (cec2017)</h2>
+<p>02 wraps kernels <strong>lazily</strong> through a module <code>__getattr__</code> + <code>_twin</code> helper (6 defs). 05 wraps them <strong>eagerly</strong> via a <code>_serial_twin(dispatcher)</code> factory applied to 25 kernels. Both re-jit <code>dispatcher.py_func</code> with <code>parallel=False</code> while inheriting per-kernel <code>targetoptions</code>.</p>
+<p>Coverage is equivalent; 02&#x27;s lazy form arguably better, since it pays no compile cost for kernels a run never touches.</p>
+<p><strong>Triage: do not port.</strong> Swapping an equivalent mechanism for a different one risks regression for no measurable gain.</p>
+<h2 id="finding-3-the-real-gap-cec2013-and-cec2020-have-no-serial-layer">Finding 3 — the real gap: cec2013 and cec2020 have NO serial layer</h2>
+<p>Confirmed absent in 02: neither <code>_kernel_mode.py</code> nor <code>_numba_serial.py</code> exists for either suite. 05 has both for both.</p>
+<p>This is the whole portable delta.</p>
+<h2 id="finding-4-the-fidelity-class-differs-by-suite-and-it-is-decisive">Finding 4 — the fidelity class differs by suite, and it is decisive</h2>
+<p>02&#x27;s own <code>cec2017/_numba_serial.py</code> carries a measured numerical contract (94,240 rows, 19 kernels × dims {10,30,50,100} × K {1,3,8,50}):</p>
+<ul>
+<li><strong>cec2017: 93.20% bitwise identical, worst 13 ULP</strong> (<code>katsuura_nb</code>, then egpr 9,</li>
+<p>esf6 7, schaffer_F7 6). Divergence tracks <code>fastmath</code> <strong>and nothing else</strong> — the one <code>fastmath=False</code> kernel is 100.00% bitwise. → <strong>class (b)</strong>, and independently reproduced here: F10 D30 differed by 1 ULP in 40 evaluations.</p>
+<li><strong>cec2013, cec2020, cec2013lsgo: 100.0000% bitwise, 0 ULP.</strong> 05&#x27;s</li>
+<p><code>cec2013/_numba_serial.py</code> states the same, &quot;bit-identical by construction&quot;. → <strong>class (a)</strong>.</p>
+</ul>
+<p><strong>This is the key result of the audit.</strong> The two suites 02 is missing twins for are exactly the two whose twins are *bit-identical*. Porting them is therefore a class (a) change that is safe on the default path — unlike cec2017&#x27;s twins, which must remain opt-in for a frozen project.</p>
+<h2 id="finding-5-02-cites-a-parity-harness-it-does-not-contain">Finding 5 — 02 cites a parity harness it does not contain</h2>
+<p><code>cec2017/_numba_serial.py</code> attributes its contract to <code>benchmarks/perf/cec2017_twin_parity.py</code>. <strong>That directory does not exist in 02</strong>, and 05&#x27;s <code>benchmarks/perf/</code> is empty. The numbers are quoted from a harness neither project currently ships, so they cannot be re-derived on demand. Any claim resting on them must either re-measure or be labelled as inherited.</p>
+<h2 id="plan-that-follows-from-this-audit">Plan that follows from this audit</h2>
+<ol>
+<li>Port <code>_kernel_mode.py</code> + <code>_numba_serial.py</code> for <strong>cec2013</strong> and <strong>cec2020</strong></li>
+<p>only, following 02&#x27;s existing lazy pattern rather than 05&#x27;s eager one, keeping the suite-local thread-local flag rule (&quot;a cec2017 scope can never route LSGO kernels&quot;).</p>
+<li>Re-derive the parity contract instead of inheriting it: write the missing</li>
+<p><code>benchmarks/perf/</code> harness and measure bitwise/ULP agreement for every suite that has twins, publishing the table.</p>
+<li>Keep twins <strong>opt-in and default-off everywhere</strong>, including the class (a)</li>
+<p>suites — the frozen release was produced on the default path, and the cheapest way to keep that true is to never change what the default does.</p>
+<li>Verify with the 42-pin golden matrix and the full gate sweep; measure any</li>
+<p>speed claim with a paired interleaved design, never sequential ledgers.</p>
+</ol>
+<h2 id="phase-2-4-result-2026-07-26-ported-verified-and-it-does-not-pay-off">Phase 2–4 result (2026-07-26): ported, verified, and it does NOT pay off</h2>
+<p>The two missing serial layers were built (<code>cec2013/</code> and <code>cec2020/</code>, <code>_kernel_mode.py</code> + <code>_numba_serial.py</code>, following 02&#x27;s lazy <code>__getattr__</code> pattern) and wired into <code>make_problem(..., serial_kernels=True)</code>, default off.</p>
+<p><strong>Fidelity — measured here, not inherited.</strong> A replacement harness was written (<code>benchmarks/perf/twin_parity.py</code>; the cited <code>cec2017_twin_parity.py</code> does not exist in either project). Identical inputs to both kernels:</p>
+<div class="table-wrap"><table><thead><tr><th>Suite</th><th>Bitwise identical</th><th>Worst ULP</th><th>Class</th></tr></thead><tbody><tr><td>cec2013</td><td>2,400/2,400 (100.0000%)</td><td>0</td><td><strong>(a) bit-identical</strong></td></tr><tr><td>cec2020</td><td>480/480 (100.0000%)</td><td>0</td><td><strong>(a) bit-identical</strong></td></tr><tr><td>cec2017</td><td>1,858/1,888 (98.4110%)</td><td>5 (<code>egpr_nb</code>)</td><td>(b) float-reassociation</td></tr></tbody></table></div>
+<p>The prediction from the fastmath rule held exactly, and cec2017 reproduced its own documented divergent kernels (egpr, schaffer_F7, esf6, katsuura, happycat), which validates the harness against a known result. End-to-end, problem-level: <strong>40/40 hex-identical for cec2013 and cec2020</strong>.</p>
+<p>*A harness bug worth recording:* the first version drew fresh randoms inside the call helper, so the two kernels received <strong>different inputs</strong>. It reported ULP distances near 9.2e18 — the entire float64 range — and pronounced both suites class (b). Comparing two implementations requires giving them the same numbers; an &quot;impossibly large&quot; disagreement is a harness defect until proven otherwise.</p>
+<p><strong>Speed — the port does not help, and the first number was an artefact.</strong> A naive before/after showed &quot;325×&quot; for cec2013. That was JIT compilation, not evaluation. Measured properly (warm, repeated, by batch size) on cec2013 F14 D=30:</p>
+<div class="table-wrap"><table><thead><tr><th>rows</th><th>default µs/eval</th><th>serial µs/eval</th><th>speedup</th></tr></thead><tbody><tr><td>1</td><td>75.1</td><td>67.8</td><td>1.11×</td></tr><tr><td>2</td><td>46.1</td><td>47.8</td><td>0.97×</td></tr><tr><td>8</td><td>51.5</td><td>57.3</td><td>0.90×</td></tr><tr><td>25</td><td>61.1</td><td>59.5</td><td>1.03×</td></tr><tr><td>100</td><td>70.9</td><td>72.6</td><td>0.98×</td></tr></tbody></table></div>
+<p>At the family&#x27;s population size (NP = 100) the twin is <strong>0.98×</strong> — no gain. The launch-tax argument requires the kernel to be cheap relative to the ~60 µs launch, which holds at D = 1000 with single-row local-search probes (the regime project 05&#x27;s guide targets) and does not hold for cec2013/cec2020 at D ≤ 50 with full-population batches.</p>
+<p><strong>Disposition.</strong> The layers are kept: they are correct, bit-identical, default-off, and cost nothing when unused; they will pay off for any future single-row consumer (a local-search-heavy external baseline on these suites). But <strong>no campaign should enable them expecting a speedup</strong>, and no claim of &quot;50–170× faster&quot; transfers from project 05 to cec2013/cec2020 in this project&#x27;s usage pattern.</p>
+<h2 id="addendum-the-serial-kernel-lever-is-dead-in-this-project-at-every-batch-size">Addendum — the serial-kernel lever is dead in THIS project, at every batch size</h2>
+<p>The one regime where twins should have paid is single-row evaluation at D = 1000: the LSGO externals (MOS&#x27;s Solis-Wets and MTS-LS1-Reduced, SHADE-ILS&#x27;s MTS-LS1 and L-BFGS-B probes) evaluate one row at a time for half their budget, and that is exactly what project 05&#x27;s guide targets with its 50–170× claim.</p>
+<p>Measured on cec2013lsgo D = 1000, warm, repeated:</p>
+<div class="table-wrap"><table><thead><tr><th>func</th><th>rows</th><th>default µs/eval</th><th>serial µs/eval</th><th>speedup</th></tr></thead><tbody><tr><td>1</td><td>1</td><td>61.8</td><td>60.4</td><td>1.02×</td></tr><tr><td>4</td><td>1</td><td>129.8</td><td>140.5</td><td>0.92×</td></tr><tr><td>8</td><td>1</td><td>147.9</td><td>154.7</td><td>0.96×</td></tr><tr><td>1</td><td>100</td><td>629.3</td><td>576.8</td><td>1.09×</td></tr><tr><td>8</td><td>100</td><td>1239.1</td><td>1158.5</td><td>1.07×</td></tr></tbody></table></div>
+<p><strong>Single-row mean across F1/F4/F8: 0.95× — slower.</strong> The launch tax the mechanism exists to remove is not measurable here. The most likely reason is that 02&#x27;s own campaign already removed the cost the twins were meant to recover (CR-0009&#x27;s row-sum kernel gave 2.3–3× on this suite), so there is nothing left for them to take.</p>
+<p>Also relevant: <code>serial_kernels</code> is reachable only through <code>make_problem(serial_kernels=True)</code> and is <strong>not wired into the runner or the CLI at all</strong>. No campaign has ever used it, and on this evidence none should. Wiring it would add a configuration surface with a measured negative return.</p>
+<p><strong>Conclusion: the serial-kernel avenue is closed for this project on measurement, not on opinion.</strong> Project 05&#x27;s 50–170× does not reproduce here at any batch size or dimension tested.</p>
+<h2 id="what-this-audit-rules-out">What this audit rules out</h2>
+<p>The premise that &quot;all algorithms and all CEC suites in 05 are tuned and 02 is behind&quot; is <strong>not supported</strong>. On kernels the projects are equal; on optimizers 02 has its own completed campaign; the only genuine gap is two missing serial layers whose expected benefit is confined to the single-row evaluation path. Expect a narrow, well-scoped win — not a broad speedup.</p>
+      </article>
+    </main>
+    <aside class="page-toc" aria-label="On this page">
+<h2>On This Page</h2>
+<a class="toc-level-1" href="#porting-project-05-tuning-into-02-phase-1-audit-and-triage">Porting project-05 tuning into 02 — Phase 1 audit and triage</a>
+<a class="toc-level-2" href="#finding-1-the-suite-kernels-are-not-behind">Finding 1 — the suite kernels are NOT behind</a>
+<a class="toc-level-2" href="#finding-2-the-serial-twin-layer-differs-in-style-not-coverage-cec2017">Finding 2 — the serial-twin layer differs in style, not coverage (cec2017)</a>
+<a class="toc-level-2" href="#finding-3-the-real-gap-cec2013-and-cec2020-have-no-serial-layer">Finding 3 — the real gap: cec2013 and cec2020 have NO serial layer</a>
+<a class="toc-level-2" href="#finding-4-the-fidelity-class-differs-by-suite-and-it-is-decisive">Finding 4 — the fidelity class differs by suite, and it is decisive</a>
+<a class="toc-level-2" href="#finding-5-02-cites-a-parity-harness-it-does-not-contain">Finding 5 — 02 cites a parity harness it does not contain</a>
+<a class="toc-level-2" href="#plan-that-follows-from-this-audit">Plan that follows from this audit</a>
+<a class="toc-level-2" href="#phase-2-4-result-2026-07-26-ported-verified-and-it-does-not-pay-off">Phase 2–4 result (2026-07-26): ported, verified, and it does NOT pay off</a>
+<a class="toc-level-2" href="#addendum-the-serial-kernel-lever-is-dead-in-this-project-at-every-batch-size">Addendum — the serial-kernel lever is dead in THIS project, at every batch size</a>
+<a class="toc-level-2" href="#what-this-audit-rules-out">What this audit rules out</a>
+</aside>
+  </div>
+  <script src="assets/search.js"></script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+{
+  "schema": "external_baseline_provenance/EV-09",
+  "suite": "cec2013lsgo",
+  "status": "out_of_paper_scope",
+  "authority": "CR-0019 (papers/governance/change_request_register.csv); FINAL_PUBLICATION_PLAN.md ruling R7",
+  "comparability": "context-only; NOT admissible for the seven-method panel; no comparability audit claimed (see data_ledger.csv rows)",
+  "content": "summary-only table (no per-run data, no environment/seed records); 3-4 significant figures consistent with a published-results transcription; transcription NOT re-verified against the source table in this repository",
+  "previous_path_before_2026_07_28": "benchmarks/cec_reference_results/cec2013lsgo/decc-g/",
+  "protocol_attributed": "15 functions, D=1000 (F13/F14 at 905); suite convention 25 runs / 3e6 FES -- attributed, not verified from these files",
+  "algorithm": "decc-g",
+  "related_publication": {
+    "citation_key": "yang2008large",
+    "note": "DECC-G lineage paper (Yang, Tang, Yao 2008); the CEC2013LSGO summary column's original source table was never adjudicated in this repository -- recorded as unverified summary-only (decision: follow-the-paper DECC-G port ruling)"
+  },
+  "objective_variant_flag": "variant of the transcribed results UNKNOWN/unverified; treat F3/F6/F10 as non-comparable by default",
+  "import_history_git": [
+    {
+      "commit": "296c36036",
+      "date": "2026-06-27",
+      "note": "initial import"
+    },
+    {
+      "commit": "0d2f291fd",
+      "date": "2026-07-18"
+    },
+    {
+      "commit": "a1bb33497",
+      "date": "2026-07-22"
+    }
+  ],
+  "file": "decc-g_cec2013lsgo.csv",
+  "sha256": "426c793165bd0b3ce3f2cb4f89d99a3c3b3b7417c272d46180484396d2075bd4",
+  "bytes": 837
+}

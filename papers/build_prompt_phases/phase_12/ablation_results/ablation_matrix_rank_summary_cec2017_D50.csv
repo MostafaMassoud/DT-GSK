@@ -1,0 +1,8 @@
+cell,mean_rank,delta_rank_vs_full,best_count,n_funcs,wilcoxon_p,holm_p,significant
+baseline,3.2586,0.0000,3,29,,,
+no_linkage,3.2759,+0.0172,7,29,0.7132,0.7132,no
+no_arch,3.4310,+0.1724,5,29,0.2373,0.4746,no
+no_bse,3.9828,+0.7241,0,29,0.0181,0.1086,no
+no_ace,4.4483,+1.1897,10,29,0.0543,0.1629,no
+no_psr,4.6552,+1.3966,2,29,0.02452,0.1226,no
+no_localsearch,4.9483,+1.6897,2,29,0.0249,0.1226,no

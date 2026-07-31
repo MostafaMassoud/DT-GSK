@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Configuration - GSK Family Python Documentation">
+  <title>Configuration | GSK Family Python Documentation</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <div class="site-shell">
+    <aside class="sidebar">
+<div class="brand"><a href="index.html">GSK Family Python</a></div>
+<input class="nav-search" type="search" placeholder="Filter docs" aria-label="Filter docs">
+<nav class="nav-list" aria-label="Documentation">
+<section><h2>Getting Started</h2>
+<a class="nav-link active" href="getting-started_configuration.html">Configuration</a>
+<a class="nav-link" href="getting-started_explainer.html">Explainer</a>
+<a class="nav-link" href="getting-started_runbook.html">Runbook</a>
+<a class="nav-link" href="getting-started_troubleshooting.html">Troubleshooting</a>
+<a class="nav-link" href="getting-started_tutorial.html">Tutorial</a>
+<a class="nav-link" href="getting-started_user_guide.html">User Guide</a>
+</section>
+<section><h2>Reference</h2>
+<a class="nav-link" href="reference_api.html">API Reference</a>
+<a class="nav-link" href="reference_architecture.html">Architecture</a>
+<a class="nav-link" href="reference_benchmark_mapping.html">Benchmark Mapping</a>
+<a class="nav-link" href="reference_benchmark_protocol.html">Benchmark Protocol</a>
+<a class="nav-link" href="reference_cec2011_cpp_python_equivalence_review.html">CEC2011 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013_cpp_python_equivalence_review.html">CEC2013 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013lsgo_cpp_python_equivalence_review.html">CEC2013LSGO C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2017_cpp_python_equivalence_review.html">CEC2017 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2020_cpp_python_equivalence_review.html">CEC2020 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="index.html">Documentation Index</a>
+<a class="nav-link" href="reference_fp_regime.html">Floating-Point Regime Verification</a>
+<a class="nav-link" href="reference_diagrams.html">Flowcharts And Diagrams</a>
+<a class="nav-link" href="reference_glossary.html">Glossary</a>
+<a class="nav-link" href="LICENSES.html">Licenses</a>
+<a class="nav-link" href="reference_module_dependencies.html">Module Dependencies</a>
+<a class="nav-link" href="reference_project_structure.html">Project Structure</a>
+<a class="nav-link" href="reference_python_optimizer_interface.html">Python Optimizer Interface</a>
+<a class="nav-link" href="reference_result_schema.html">Result Schema</a>
+<a class="nav-link" href="reference_seed_policy.html">Seed Policy</a>
+<a class="nav-link" href="reference_workflows.html">Workflows</a>
+</section>
+<section><h2>Algorithm Guides</h2>
+<a class="nav-link" href="algorithms_agsk.html">AGSK — Adaptive Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_apgsk.html">APGSK — Adaptive-Parameters Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_atmals-gsk.html">ATMALS-GSK — Adaptive Tuning, Memory, Adaptive Local Search</a>
+<a class="nav-link" href="algorithms_dt-gsk.html">DT-GSK — Dimension-Tiered Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_egsk.html">EGSK — Enhanced Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_fdb-agsk.html">FDB-AGSK — Fitness-Distance-Balance AGSK</a>
+<a class="nav-link" href="algorithms_gsk.html">GSK — Gaining-Sharing Knowledge</a>
+</section>
+<section><h2>Development</h2>
+<a class="nav-link" href="development_BUG_resume_summary_truncation.html">BUG-RESUME-01 — resume mode truncates (and mis-computes) the per-dimension summary CSV</a>
+<a class="nav-link" href="development_LSGO_ACCELERATION_PLAN.html">CEC2013LSGO Acceleration Plan — all 7 GSK-family algorithms, bit-identically</a>
+<a class="nav-link" href="development_LSGO_INTEGRATION_CAMPAIGN.html">CEC2013LSGO Integration — Campaign Plan</a>
+<a class="nav-link" href="development_CEC2017_PREC_adjudication.html">CEC2017-PREC — adjudication (CLOSED 2026-07-25)</a>
+<a class="nav-link" href="development_code_reading_guide.html">Code Reading Guide</a>
+<a class="nav-link" href="development_contributor_guide.html">Contributor Guide</a>
+<a class="nav-link" href="development_DECC_G_port_record.html">DECC-G port — fidelity and validation record</a>
+<a class="nav-link" href="development_developer_guide.html">Developer Guide</a>
+<a class="nav-link" href="development_README.html">Development Docs</a>
+<a class="nav-link" href="development_dt_gsk_core_reference.html">DT-GSK Core Reference — the vendored core and its byte-identity lock</a>
+<a class="nav-link" href="development_evidence_rerun_runbook.html">DT-GSK re-run runbook — corrected implementation (C006 + graph backend)</a>
+<a class="nav-link" href="development_egsk_port_spec.html">EGSK — Algorithm Spec &amp; Porting Verdict</a>
+<a class="nav-link" href="development_extension_guide.html">Extension Guide</a>
+<a class="nav-link" href="development_FAMILY_ACCELERATION_PLAN.html">Family-wide acceleration plan — 7 algorithms x 5 suites, bit-identical only</a>
+<a class="nav-link" href="development_FINAL_PUBLICATION_PLAN.html">FINAL PUBLICATION PLAN — DT-GSK, Four(/Five)-Suite Scope</a>
+<a class="nav-link" href="development_ACCELERATION_CAMPAIGN_PROMPT.html">GSK-Family Acceleration Campaign — Execution Prompt</a>
+<a class="nav-link" href="development_maintenance_guide.html">Maintenance Guide</a>
+<a class="nav-link" href="development_PORT_05_TUNING_TRIAGE.html">Porting project-05 tuning into 02 — Phase 1 audit and triage</a>
+<a class="nav-link" href="development_REFERENCE_PROMOTION_PLAN.html">Reference Promotion Plan — CEC2013LSGO now, CEC2020 behind its completeness gate</a>
+<a class="nav-link" href="development_SIBLING_CAMPAIGN_TRANSFER.html">Sibling-Campaign Transfer — every tuning that can make the GSK family fast</a>
+</section>
+<section><h2>Research</h2>
+<a class="nav-link" href="research_egsk_validation_appendix.html">EGSK Validation Appendix — Paired Port-vs-Reference Equivalence</a>
+<a class="nav-link" href="research_numerical_examples.html">Numerical Examples</a>
+<a class="nav-link" href="research_performance.html">Performance</a>
+<a class="nav-link" href="research_reproducibility.html">Reproducibility</a>
+<a class="nav-link" href="research_researcher_handbook.html">Researcher Handbook</a>
+<a class="nav-link" href="research_statistical_analysis.html">Statistical Analysis (GSK-family comparison)</a>
+<a class="nav-link" href="research_validation_report.html">Validation Report</a>
+</section>
+<section><h2>Prompts</h2>
+<a class="nav-link" href="prompt_documentation-deep-upgrade.html">Deep Documentation Review &amp; Upgrade Prompt — GSK Family Python</a>
+<a class="nav-link" href="prompt_project-review.html">Deep Expert Review Prompt For GSK Family Python</a>
+<a class="nav-link" href="prompt_documentation-review.html">Documentation Review Prompt</a>
+<a class="nav-link" href="prompt_publication-polish.html">Final Publication Prompt — Production-Ready Q1 Release of GSK Family Python v1.1</a>
+</section>
+<section><h2>Python API</h2>
+<a class="nav-link" href="api_index.html">API Module Index</a>
+<a class="nav-link api-link" href="api/gsk_family.__init__.html">gsk_family.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.__init__.html">gsk_family.analysis.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.family_report.html">gsk_family.analysis.family_report</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.figures.html">gsk_family.analysis.figures</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.latex_tables.html">gsk_family.analysis.latex_tables</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.project_policy.html">gsk_family.analysis.project_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.result_loader.html">gsk_family.analysis.result_loader</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistical_tests.html">gsk_family.analysis.statistical_tests</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistics.html">gsk_family.analysis.statistics</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.__init__.html">gsk_family.benchmark_adapter.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.factory.html">gsk_family.benchmark_adapter.factory</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.problem.html">gsk_family.benchmark_adapter.problem</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.protocol.html">gsk_family.benchmark_adapter.protocol</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.__init__.html">gsk_family.cli.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.list.html">gsk_family.cli.list</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.run.html">gsk_family.cli.run</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.stats.html">gsk_family.cli.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.validate.html">gsk_family.cli.validate</a>
+<a class="nav-link api-link" href="api/gsk_family.common.__init__.html">gsk_family.common.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.common.bounds.html">gsk_family.common.bounds</a>
+<a class="nav-link api-link" href="api/gsk_family.common.donors.html">gsk_family.common.donors</a>
+<a class="nav-link api-link" href="api/gsk_family.common.numeric_compat.html">gsk_family.common.numeric_compat</a>
+<a class="nav-link api-link" href="api/gsk_family.common.population.html">gsk_family.common.population</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reduction.html">gsk_family.common.reduction</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reference_rng.html">gsk_family.common.reference_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.rng.html">gsk_family.common.rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.threefry_rng.html">gsk_family.common.threefry_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.__init__.html">gsk_family.optimizers.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_profiles.html">gsk_family.optimizers._dt_profiles</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_rng.html">gsk_family.optimizers._dt_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._kernels.html">gsk_family.optimizers._kernels</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.agsk.html">gsk_family.optimizers.agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.apgsk.html">gsk_family.optimizers.apgsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_gsk.html">gsk_family.optimizers.atmals_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_helpers.html">gsk_family.optimizers.atmals_helpers</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.dt_gsk.html">gsk_family.optimizers.dt_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.egsk.html">gsk_family.optimizers.egsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.__init__.html">gsk_family.optimizers.external.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._base.html">gsk_family.optimizers.external._base</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._telemetry_shim.html">gsk_family.optimizers.external._telemetry_shim</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.cmaes.html">gsk_family.optimizers.external.cmaes</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.decc_g.html">gsk_family.optimizers.external.decc_g</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.ebowithcmar.html">gsk_family.optimizers.external.ebowithcmar</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.jso.html">gsk_family.optimizers.external.jso</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade.html">gsk_family.optimizers.external.lshade</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade_spacma.html">gsk_family.optimizers.external.lshade_spacma</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.mos_cec2013lsgo.html">gsk_family.optimizers.external.mos_cec2013lsgo</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.shade_ils.html">gsk_family.optimizers.external.shade_ils</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_agsk.html">gsk_family.optimizers.fdb_agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_scores.html">gsk_family.optimizers.fdb_scores</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.gsk.html">gsk_family.optimizers.gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.__init__.html">gsk_family.runners.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.config.html">gsk_family.runners.config</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.fp_regime.html">gsk_family.runners.fp_regime</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.output.html">gsk_family.runners.output</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.parallel.html">gsk_family.runners.parallel</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.performance.html">gsk_family.runners.performance</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.run_experiment.html">gsk_family.runners.run_experiment</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.seed_policy.html">gsk_family.runners.seed_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.verification.html">gsk_family.runners.verification</a>
+<a class="nav-link api-link" href="api/gsk_family.stats.html">gsk_family.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.types.html">gsk_family.types</a>
+</section>
+</nav></aside>
+    <main class="content">
+      <article class="doc-card">
+        <h1 id="configuration">Configuration</h1>
+<blockquote><strong>What this page is.</strong> A reference for configuring a run — every YAML field,</blockquote>
+<blockquote>its default, and the equivalent command-line flag.</blockquote>
+<blockquote><strong>Who it is for.</strong> Anyone setting up a repeatable experiment campaign or</blockquote>
+<blockquote>tuning a single run.</blockquote>
+<blockquote><strong>After reading</strong>, you will be able to write a valid config, understand each</blockquote>
+<blockquote>field&#x27;s effect and default, and know when to override parallel execution.</blockquote>
+<blockquote><strong>Prerequisites:</strong> you can already run the project (see the</blockquote>
+<blockquote><a href="getting-started_tutorial.html">Tutorial</a>). Terms are defined in the</blockquote>
+<blockquote><a href="reference_glossary.html">Glossary</a>; seed behaviour is detailed in the</blockquote>
+<blockquote><a href="reference_seed_policy.html">Seed Policy reference</a>.</blockquote>
+<p><code>gsk-run</code> accepts either a YAML configuration file or direct command-line arguments. <strong>Prefer YAML for campaigns</strong> — it keeps every parameter in versioned text, so a run is reproducible and reviewable. Use direct CLI flags for quick one-off cells.</p>
+<h2 id="minimal-yaml">Minimal YAML</h2>
+<p>A complete, valid config needs only a <code>suite</code>; everything else — including the cells to run — has a default. This illustrative example runs one optimizer on the tiny <code>sphere</code> problem:</p>
+<pre><code class="code-block language-yaml">optimizers: [gsk]
+suite: sphere
+functions: [1]
+dimensions: [4]
+runs: 1
+seed: 20240620
+seed_policy: unified
+rand_generator: threefry
+max_evaluations: 120
+output_root: results/_run_all
+reference_root: benchmarks/cec_reference_results
+data_root: benchmarks/cec_suite_python
+benchmark_backend: auto
+overwrite: true
+convergence_graphs: false</code></pre>
+<p>Run a saved config file with:</p>
+<pre><code class="code-block language-powershell">gsk-run --config configs/smoke.yml --root .</code></pre>
+<p><code>--root .</code> rewrites relative <code>output_root</code>, <code>reference_root</code>, and <code>data_root</code> values under the project root, so configs move between machines cleanly. (The shipped <code>configs/smoke.yml</code> is a CEC2017 example and sets <code>parallel: false</code> for a deterministic single-thread smoke; the block above is only a field illustration.)</p>
+<h3 id="worked-example-a-reduced-multi-optimizer-config">Worked example: a reduced multi-optimizer config</h3>
+<p>The committed <code>configs/all_optimizers_cec2017_reduced.yml</code> shows the shape of a real-but-fast campaign — several optimizers on one CEC2017 cell at a small budget, with warmup, profiling, parallel <code>process</code> workers, and a shared <code>optimizer_options</code> block:</p>
+<pre><code class="code-block language-yaml">optimizers: [gsk, agsk, apgsk, atmals-gsk, fdb-agsk]
+suite: cec2017
+functions: [1]
+dimensions: [10]
+runs: 1
+max_evaluations: 1000      # reduced budget; not a full-protocol claim
+parallel: true
+parallel_backend: process
+workers: 2
+warmup: true
+profile: true
+convergence_graphs: true
+optimizer_options:
+  np: 20
+  np_init: 20
+  min_pop_size: 12
+  fdb_case: 1
+  protocol: cec2017</code></pre>
+<pre><code class="code-block language-powershell">gsk-run --config configs/all_optimizers_cec2017_reduced.yml --root .</code></pre>
+<p>To include the proposed method, add <code>dt-gsk</code> to the <code>optimizers</code> list (it self-initializes a <code>np_init_mult * D</code> population as a documented fair-start exception, so it ignores the shared initial population rather than sharing it). Full-budget statistics require the suite&#x27;s full protocol budget — drop <code>max_evaluations</code> (or set it to <code>0</code>) for a paper-grade run.</p>
+<h2 id="fields">Fields</h2>
+<p>The table lists each accepted key, its default, and what it does. Any key not listed here is rejected, so typos fail fast rather than being silently ignored. A mistyped key or a missing required <code>suite</code> is caught at load time with a precise message instead of running a wrong configuration:</p>
+<pre><code class="code-block language-text">ValueError: Unknown config key(s): optimzers.
+ValueError: Config key &#x27;suite&#x27; is required.</code></pre>
+<div class="table-wrap"><table><thead><tr><th>Field</th><th>Default</th><th>Meaning</th></tr></thead><tbody><tr><td><code>optimizers</code></td><td><code>[gsk]</code></td><td>Optimizer ids to run. Use ids from <code>gsk-list --optimizers</code>.</td></tr><tr><td><code>suite</code></td><td>*(required)*</td><td>Benchmark suite id: <code>sphere</code>, <code>cec2011</code>, <code>cec2013</code>, <code>cec2013lsgo</code>, <code>cec2017</code>, or <code>cec2020</code>.</td></tr><tr><td><code>functions</code></td><td>suite default</td><td>Function ids, or <code>all</code>. For CEC2017 the run-all default (1:30) excludes withdrawn F2.</td></tr><tr><td><code>dimensions</code></td><td>suite default</td><td>Dimension ids, or <code>native</code> for native-dimension suites.</td></tr><tr><td><code>runs</code></td><td><code>1</code></td><td>Independent runs per <code>(optimizer, dimension, function)</code> cell.</td></tr><tr><td><code>seed</code></td><td><code>20240620</code></td><td>Base integer seed.</td></tr><tr><td><code>seed_policy</code></td><td><code>unified</code></td><td><code>unified</code> (default, fair cross-optimizer starts) or <code>reference</code> (reproduce published tables). Diagnostic values <code>native</code>/<code>derived</code> exist; see the <a href="reference_seed_policy.html">Seed Policy reference</a>.</td></tr><tr><td><code>rand_generator</code></td><td><code>threefry</code></td><td>RNG backend label, usually <code>threefry</code> or <code>twister</code>.</td></tr><tr><td><code>max_evaluations</code></td><td>suite default</td><td>Optional reduced budget in NFEs. <code>0</code>/omitted uses the suite&#x27;s full protocol budget.</td></tr><tr><td><code>output_root</code></td><td><code>results/_run_all</code></td><td>Generated result root. Must not be inside the reference tree.</td></tr><tr><td><code>reference_root</code></td><td><code>benchmarks/cec_reference_results</code></td><td>Imported reference-table root used by validation.</td></tr><tr><td><code>data_root</code></td><td><code>benchmarks/cec_suite_python</code></td><td>Python benchmark evaluator/data root.</td></tr><tr><td><code>benchmark_backend</code></td><td><code>auto</code></td><td>Evaluator backend. <code>auto</code> and <code>python</code> both use the Python/Numba evaluator.</td></tr><tr><td><code>benchmark_fp_mode</code></td><td><code>default</code></td><td>Benchmark floating-point regime: <code>default</code> or <code>strict</code> (see the <a href="reference_fp_regime.html">FP Regime reference</a>).</td></tr><tr><td><code>overwrite</code></td><td><code>false</code></td><td>Replace existing per-run rows for the same cells.</td></tr><tr><td><code>parallel</code></td><td><code>true</code></td><td>Dispatch independent run tasks across workers.</td></tr><tr><td><code>parallel_backend</code></td><td><code>process</code></td><td><code>process</code> (default, true multi-core) or <code>thread</code> (GIL-bound; tiny/debug runs).</td></tr><tr><td><code>workers</code></td><td><code>2</code> (<code>1</code> on a one-core machine)</td><td>Worker count for parallel runs; campaign commands should spell out <code>--parallel --workers 2</code>, and users can raise <code>N</code> explicitly when the machine has enough headroom.</td></tr><tr><td><code>workers_auto</code></td><td><code>true</code> (<code>false</code> once <code>workers</code> is set)</td><td>Whether the worker count was auto-chosen; only automatic CEC2017 F21–F30 process runs are capped at 8 workers.</td></tr><tr><td><code>numba_threads</code></td><td><code>0</code> (auto)</td><td>Numba threads per process. <code>0</code>/omitted auto-caps threads for parallel runs.</td></tr><tr><td><code>warmup</code></td><td><code>false</code></td><td>Preload benchmark cells before timed execution.</td></tr><tr><td><code>warmup_scope</code></td><td><code>selected</code></td><td><code>selected</code> warms requested cells; <code>suite</code> warms the suite default grid.</td></tr><tr><td><code>profile</code></td><td><code>false</code></td><td>Write profile metadata.</td></tr><tr><td><code>console_log</code></td><td><code>true</code></td><td>Print progress to the console.</td></tr><tr><td><code>generation_logs</code></td><td><code>true</code></td><td>Write checkpoint generation-log CSV files.</td></tr><tr><td><code>convergence_graphs</code></td><td><code>false</code></td><td>Render convergence graph PNG files under <code>curves/graphs/</code> when true; curve CSV files are still written when this is false.</td></tr><tr><td><code>statistical_analysis</code></td><td><code>false</code></td><td>Stream the live per-dimension Wilcoxon + Friedman panel during the run (CLI: <code>--stats</code>).</td></tr><tr><td><code>optimizer_options</code></td><td><code>{}</code></td><td>Shared optimizer-specific options (see below).</td></tr></tbody></table></div>
+<p>The defaults above are the dataclass defaults in <code>src/gsk_family/runners/config.py</code>. The default backend is the <strong>process</strong> pool and the automatic worker count is deliberately small: <code>2</code> when at least two logical cores are available, otherwise <code>1</code>. The runbooks still show <code>--parallel --workers 2</code> explicitly so copied campaign commands cannot unexpectedly consume a shared workstation. For CEC2017 composition cells (<code>F21</code>-<code>F30</code>) on the default process backend, automatic runs retain an upper cap of 8 workers to reduce spawned-worker Numba/LLVM memory pressure if the code default is increased in the future. The bundled smoke and validation profiles may pin the <code>thread</code> backend (with a small worker count) for deterministic CI artifacts.</p>
+<p><code>benchmark_backend: auto</code> is also the normal default. In that mode the runner uses the Python/Numba evaluator. Set <code>benchmark_backend: python</code> only when you want the choice recorded explicitly.</p>
+<h2 id="optimizer-options">Optimizer options</h2>
+<p><code>optimizer_options</code> is a single shared block. Each optimizer reads only the keys it understands and ignores the rest, which lets one all-optimizer config stay simple while each optimizer keeps its own defaults.</p>
+<pre><code class="code-block language-yaml">optimizer_options:
+  np: 100
+  np_init: 100
+  min_pop_size: 12
+  fdb_case: 1
+  protocol: cec2017
+  use_local_search: false</code></pre>
+<p>For the per-optimizer option schema and which keys each optimizer reads, see the <a href="reference_python_optimizer_interface.html">Python Optimizer Interface</a>.</p>
+<h3 id="dt-gsk-mechanism-toggles-scaffold-ablation">DT-GSK mechanism toggles (scaffold ablation)</h3>
+<p>Every DT-GSK scaffold mechanism defaults to <code>true</code> in the locked <code>pub</code> profile (the SGSM interaction graph only in the <code>D&gt;=50</code> tier), and each can be disabled per run through <code>optimizer_options</code> — the sanctioned, code-untouching way the scaffold ablation (<code>scripts/run_ablation.py</code>) builds its cells: each cell sets exactly one of these to <code>false</code> (plus a baseline cell with all of them on), and SGSM is held off in every cell.</p>
+<div class="table-wrap"><table><thead><tr><th><code>optimizer_options</code> key</th><th>Mechanism disabled when <code>false</code></th></tr></thead><tbody><tr><td><code>ace_enabled</code></td><td>ACE knowledge control</td></tr><tr><td><code>psr_enabled</code></td><td>NLPSR population-size reduction</td></tr><tr><td><code>bse_enabled</code></td><td>Budget-Safe Escape</td></tr><tr><td><code>linkage_blockwise_enabled</code></td><td>Linkage-aware block crossover</td></tr><tr><td><code>local_search_enabled</code></td><td>Endgame local search (coordinate-wise in the locked <code>pub</code> profile)</td></tr><tr><td><code>arch_enabled</code></td><td>Elite archive</td></tr><tr><td><code>interaction_graph_enabled</code></td><td>SGSM interaction graph (activates at <code>D&gt;=50</code>; off in every scaffold-ablation cell)</td></tr></tbody></table></div>
+<p>The ablation script writes one YAML per cell under <code>configs/_ablation/</code> — those files are ordinary run configs whose only non-default block is <code>optimizer_options</code>. See the <a href="getting-started_runbook.html#dt-gsk-ablation">Runbook</a> for the end-to-end ablation pipeline.</p>
+<h2 id="dt-gsk-deep-stall-full-restart-multi-start">DT-GSK deep-stall full restart (multi-start)</h2>
+<p>DT-GSK ships with a <strong>deep-stall full restart</strong> as a standard, default-on mechanism. It is on by default in the optimizer itself — no <code>optimizer_options</code> entry is needed, so a normal run already includes it (though, like the ablation switches above, each field can still be overridden per run via <code>optimizer_options</code>); the fields below are the dataclass defaults in <code>DTGSKConfig</code> (<code>src/gsk_family/optimizers/_dt_core.py</code>).</p>
+<p>At the end of each generation DT-GSK updates a separate <strong>global best</strong> and checks whether the working incumbent has been frozen for too long. When the incumbent has not improved for at least <code>deep_stall_frac</code> of the budget, the budget is at least <code>deep_stall_min_budget</code> NFEs, the per-restart cooldown has elapsed, and the run is still before <code>deep_stall_stop_frac</code> of the budget, the <strong>entire working population is re-initialised uniformly</strong> — a true multi-start. The preserved global best means a restart can never lose ground (it is also what <code>optimize()</code> returns), and it can escape a basin the budget-safe escape (BSE) restart cannot, because BSE always keeps the incumbent elite — which, in a trap, *is* the trapped solution. The mechanism draws RNG only when it actually fires, so non-stalling runs are byte-identical to a run without it.</p>
+<div class="table-wrap"><table><thead><tr><th>Field</th><th>Default</th><th>Meaning</th></tr></thead><tbody><tr><td><code>deep_stall_restart_enabled</code></td><td><code>True</code></td><td>Master switch for the deep-stall multi-start.</td></tr><tr><td><code>deep_stall_frac</code></td><td><code>0.25</code></td><td>Stall length (as a fraction of the budget) before a restart is allowed to fire.</td></tr><tr><td><code>deep_stall_cooldown_frac</code></td><td><code>0.15</code></td><td>Minimum gap between consecutive restarts, as a fraction of the budget.</td></tr><tr><td><code>deep_stall_stop_frac</code></td><td><code>0.9</code></td><td>Budget fraction past which restarts are suppressed (endgame protection).</td></tr><tr><td><code>deep_stall_min_budget</code></td><td><code>20000</code></td><td>Restarts are inert below this NFE budget, so tiny smoke/byte-stability runs stay unaffected. All real CEC budgets (10000·D for CEC2013/CEC2017, a fixed 150,000 for CEC2011, 3,000,000 for CEC2013-LSGO, and 50,000–10,000,000 per dimension for CEC2020) are far above it.</td></tr></tbody></table></div>
+<p>This is why DT-GSK is robust to catastrophic basin traps (for example CEC2017 F30 at D10) while staying #1 in the GSK family overall. Applying the restart uniformly carries a disclosed D30 trade-off — it prematurely restarts a handful of slow-converging multimodal functions — but DT-GSK at D30 is led only by the strong <code>egsk</code> baseline (the runner-up overall).</p>
+<h2 id="direct-cli-equivalent">Direct CLI equivalent</h2>
+<p>Direct CLI arguments build the same in-memory config as a YAML file. This is convenient for a single cell:</p>
+<pre><code class="code-block language-powershell">gsk-run --optimizer agsk --suite cec2020 --dimension 10 --function 1 --runs 1 --seed 20240620 --max-evaluations 1000 --overwrite</code></pre>
+<p>Selectors are flexible: <code>--function</code> and <code>--dimension</code> accept a single value (<code>7</code>), a comma-separated list (<code>1,3,5</code>), a repeated flag, or an inclusive <code>START:STOP</code> range (<code>1:30</code>).</p>
+<p>A few flags toggle common behaviours:</p>
+<div class="table-wrap"><table><thead><tr><th>Behaviour</th><th>Default</th><th>Turn off with</th><th>Force on with</th></tr></thead><tbody><tr><td>Console progress logging</td><td>on</td><td><code>--quiet</code> (or <code>console_log: false</code>)</td><td><code>--console-log</code></td></tr><tr><td>Checkpoint generation logs</td><td>on</td><td><code>--no-generation-logs</code> (or <code>generation_logs: false</code>)</td><td><code>--generation-logs</code></td></tr><tr><td>Convergence graph PNGs</td><td>off</td><td><code>--no-convergence-graphs</code> (or <code>convergence_graphs: false</code>)</td><td><code>--convergence-graphs</code></td></tr><tr><td>Parallel execution</td><td>on</td><td><code>--serial</code> (or <code>parallel: false</code>)</td><td><code>--parallel</code></td></tr><tr><td>Live statistical analysis</td><td>off</td><td>*(omit <code>--stats</code>)*</td><td><code>--stats</code></td></tr></tbody></table></div>
+<p><code>--console-log</code> / <code>--quiet</code> and <code>--convergence-graphs</code> / <code>--no-convergence-graphs</code> are mutually exclusive pairs; passing both members of a pair (or both <code>--parallel</code> and <code>--serial</code>) is rejected by the CLI. The <code>--stats</code> flag is the CLI spelling of the <code>statistical_analysis</code> YAML field (default <code>false</code>), and the live panel deliberately skips the <code>gsk</code> baseline; the native-dimension <code>cec2011</code> suite is supported and emits a single per-suite rollup panel (see <a href="research_statistical_analysis.html">Statistical Analysis</a>).</p>
+<p>Console logging prints the campaign header, per-optimizer sections, the detailed configuration before dispatch, per-function summary rows, final summary tables, <code>[finalize]</code> progress bars while reports and metadata are written, and a pass/warn status. Use <code>--quiet</code>/<code>console_log: false</code> only when output should be suppressed.</p>
+<p>Checkpoint generation logs produce the <code>gen_logs/CheckpointErrors_*</code> CSV files. Disable them only for temporary runs that do not need those tables.</p>
+<p>Convergence graph PNGs are rendered from the median-run curve CSV files into <code>curves/graphs/</code> only when <code>--convergence-graphs</code> or <code>convergence_graphs: true</code> is set. Without that opt-in, the median-run <code>curves/*.csv</code> files are still written.</p>
+<p>When parallel, the runner reports Numba availability and the active Numba thread count at startup. Auto mode caps Numba&#x27;s internal thread pool so multiple worker processes do not oversubscribe the CPU. Set <code>--numba-threads N</code> / <code>numba_threads: N</code> only when benchmarking a different worker/thread split; see <a href="research_performance.html">Performance</a> for the rationale.</p>
+<h2 id="disabling-parallel-execution">Disabling parallel execution</h2>
+<p>Parallel is the default. Disable it only for serial debugging or a strict single-thread reproducibility check.</p>
+<p>In YAML:</p>
+<pre><code class="code-block language-yaml">parallel: false
+workers: 1</code></pre>
+<p>Or from the CLI:</p>
+<pre><code class="code-block language-powershell">gsk-run --config configs/smoke.yml --root . --serial</code></pre>
+<p>Note that <code>--parallel</code> and <code>--serial</code> cannot be combined — the CLI rejects that pairing.</p>
+      </article>
+    </main>
+    <aside class="page-toc" aria-label="On this page">
+<h2>On This Page</h2>
+<a class="toc-level-1" href="#configuration">Configuration</a>
+<a class="toc-level-2" href="#minimal-yaml">Minimal YAML</a>
+<a class="toc-level-3" href="#worked-example-a-reduced-multi-optimizer-config">Worked example: a reduced multi-optimizer config</a>
+<a class="toc-level-2" href="#fields">Fields</a>
+<a class="toc-level-2" href="#optimizer-options">Optimizer options</a>
+<a class="toc-level-3" href="#dt-gsk-mechanism-toggles-scaffold-ablation">DT-GSK mechanism toggles (scaffold ablation)</a>
+<a class="toc-level-2" href="#dt-gsk-deep-stall-full-restart-multi-start">DT-GSK deep-stall full restart (multi-start)</a>
+<a class="toc-level-2" href="#direct-cli-equivalent">Direct CLI equivalent</a>
+<a class="toc-level-2" href="#disabling-parallel-execution">Disabling parallel execution</a>
+</aside>
+  </div>
+  <script src="assets/search.js"></script>
+</body>
+</html>

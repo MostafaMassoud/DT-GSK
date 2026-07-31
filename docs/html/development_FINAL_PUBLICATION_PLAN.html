@@ -1,0 +1,631 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="FINAL PUBLICATION PLAN — DT-GSK, Four(/Five)-Suite Scope - GSK Family Python Documentation">
+  <title>FINAL PUBLICATION PLAN — DT-GSK, Four(/Five)-Suite Scope | GSK Family Python Documentation</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <div class="site-shell">
+    <aside class="sidebar">
+<div class="brand"><a href="index.html">GSK Family Python</a></div>
+<input class="nav-search" type="search" placeholder="Filter docs" aria-label="Filter docs">
+<nav class="nav-list" aria-label="Documentation">
+<section><h2>Getting Started</h2>
+<a class="nav-link" href="getting-started_configuration.html">Configuration</a>
+<a class="nav-link" href="getting-started_explainer.html">Explainer</a>
+<a class="nav-link" href="getting-started_runbook.html">Runbook</a>
+<a class="nav-link" href="getting-started_troubleshooting.html">Troubleshooting</a>
+<a class="nav-link" href="getting-started_tutorial.html">Tutorial</a>
+<a class="nav-link" href="getting-started_user_guide.html">User Guide</a>
+</section>
+<section><h2>Reference</h2>
+<a class="nav-link" href="reference_api.html">API Reference</a>
+<a class="nav-link" href="reference_architecture.html">Architecture</a>
+<a class="nav-link" href="reference_benchmark_mapping.html">Benchmark Mapping</a>
+<a class="nav-link" href="reference_benchmark_protocol.html">Benchmark Protocol</a>
+<a class="nav-link" href="reference_cec2011_cpp_python_equivalence_review.html">CEC2011 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013_cpp_python_equivalence_review.html">CEC2013 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013lsgo_cpp_python_equivalence_review.html">CEC2013LSGO C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2017_cpp_python_equivalence_review.html">CEC2017 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2020_cpp_python_equivalence_review.html">CEC2020 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="index.html">Documentation Index</a>
+<a class="nav-link" href="reference_fp_regime.html">Floating-Point Regime Verification</a>
+<a class="nav-link" href="reference_diagrams.html">Flowcharts And Diagrams</a>
+<a class="nav-link" href="reference_glossary.html">Glossary</a>
+<a class="nav-link" href="LICENSES.html">Licenses</a>
+<a class="nav-link" href="reference_module_dependencies.html">Module Dependencies</a>
+<a class="nav-link" href="reference_project_structure.html">Project Structure</a>
+<a class="nav-link" href="reference_python_optimizer_interface.html">Python Optimizer Interface</a>
+<a class="nav-link" href="reference_result_schema.html">Result Schema</a>
+<a class="nav-link" href="reference_seed_policy.html">Seed Policy</a>
+<a class="nav-link" href="reference_workflows.html">Workflows</a>
+</section>
+<section><h2>Algorithm Guides</h2>
+<a class="nav-link" href="algorithms_agsk.html">AGSK — Adaptive Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_apgsk.html">APGSK — Adaptive-Parameters Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_atmals-gsk.html">ATMALS-GSK — Adaptive Tuning, Memory, Adaptive Local Search</a>
+<a class="nav-link" href="algorithms_dt-gsk.html">DT-GSK — Dimension-Tiered Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_egsk.html">EGSK — Enhanced Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_fdb-agsk.html">FDB-AGSK — Fitness-Distance-Balance AGSK</a>
+<a class="nav-link" href="algorithms_gsk.html">GSK — Gaining-Sharing Knowledge</a>
+</section>
+<section><h2>Development</h2>
+<a class="nav-link" href="development_BUG_resume_summary_truncation.html">BUG-RESUME-01 — resume mode truncates (and mis-computes) the per-dimension summary CSV</a>
+<a class="nav-link" href="development_LSGO_ACCELERATION_PLAN.html">CEC2013LSGO Acceleration Plan — all 7 GSK-family algorithms, bit-identically</a>
+<a class="nav-link" href="development_LSGO_INTEGRATION_CAMPAIGN.html">CEC2013LSGO Integration — Campaign Plan</a>
+<a class="nav-link" href="development_CEC2017_PREC_adjudication.html">CEC2017-PREC — adjudication (CLOSED 2026-07-25)</a>
+<a class="nav-link" href="development_code_reading_guide.html">Code Reading Guide</a>
+<a class="nav-link" href="development_contributor_guide.html">Contributor Guide</a>
+<a class="nav-link" href="development_DECC_G_port_record.html">DECC-G port — fidelity and validation record</a>
+<a class="nav-link" href="development_developer_guide.html">Developer Guide</a>
+<a class="nav-link" href="development_README.html">Development Docs</a>
+<a class="nav-link" href="development_dt_gsk_core_reference.html">DT-GSK Core Reference — the vendored core and its byte-identity lock</a>
+<a class="nav-link" href="development_evidence_rerun_runbook.html">DT-GSK re-run runbook — corrected implementation (C006 + graph backend)</a>
+<a class="nav-link" href="development_egsk_port_spec.html">EGSK — Algorithm Spec &amp; Porting Verdict</a>
+<a class="nav-link" href="development_extension_guide.html">Extension Guide</a>
+<a class="nav-link" href="development_FAMILY_ACCELERATION_PLAN.html">Family-wide acceleration plan — 7 algorithms x 5 suites, bit-identical only</a>
+<a class="nav-link active" href="development_FINAL_PUBLICATION_PLAN.html">FINAL PUBLICATION PLAN — DT-GSK, Four(/Five)-Suite Scope</a>
+<a class="nav-link" href="development_ACCELERATION_CAMPAIGN_PROMPT.html">GSK-Family Acceleration Campaign — Execution Prompt</a>
+<a class="nav-link" href="development_maintenance_guide.html">Maintenance Guide</a>
+<a class="nav-link" href="development_PORT_05_TUNING_TRIAGE.html">Porting project-05 tuning into 02 — Phase 1 audit and triage</a>
+<a class="nav-link" href="development_REFERENCE_PROMOTION_PLAN.html">Reference Promotion Plan — CEC2013LSGO now, CEC2020 behind its completeness gate</a>
+<a class="nav-link" href="development_SIBLING_CAMPAIGN_TRANSFER.html">Sibling-Campaign Transfer — every tuning that can make the GSK family fast</a>
+</section>
+<section><h2>Research</h2>
+<a class="nav-link" href="research_egsk_validation_appendix.html">EGSK Validation Appendix — Paired Port-vs-Reference Equivalence</a>
+<a class="nav-link" href="research_numerical_examples.html">Numerical Examples</a>
+<a class="nav-link" href="research_performance.html">Performance</a>
+<a class="nav-link" href="research_reproducibility.html">Reproducibility</a>
+<a class="nav-link" href="research_researcher_handbook.html">Researcher Handbook</a>
+<a class="nav-link" href="research_statistical_analysis.html">Statistical Analysis (GSK-family comparison)</a>
+<a class="nav-link" href="research_validation_report.html">Validation Report</a>
+</section>
+<section><h2>Prompts</h2>
+<a class="nav-link" href="prompt_documentation-deep-upgrade.html">Deep Documentation Review &amp; Upgrade Prompt — GSK Family Python</a>
+<a class="nav-link" href="prompt_project-review.html">Deep Expert Review Prompt For GSK Family Python</a>
+<a class="nav-link" href="prompt_documentation-review.html">Documentation Review Prompt</a>
+<a class="nav-link" href="prompt_publication-polish.html">Final Publication Prompt — Production-Ready Q1 Release of GSK Family Python v1.1</a>
+</section>
+<section><h2>Python API</h2>
+<a class="nav-link" href="api_index.html">API Module Index</a>
+<a class="nav-link api-link" href="api/gsk_family.__init__.html">gsk_family.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.__init__.html">gsk_family.analysis.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.family_report.html">gsk_family.analysis.family_report</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.figures.html">gsk_family.analysis.figures</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.latex_tables.html">gsk_family.analysis.latex_tables</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.project_policy.html">gsk_family.analysis.project_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.result_loader.html">gsk_family.analysis.result_loader</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistical_tests.html">gsk_family.analysis.statistical_tests</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistics.html">gsk_family.analysis.statistics</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.__init__.html">gsk_family.benchmark_adapter.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.factory.html">gsk_family.benchmark_adapter.factory</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.problem.html">gsk_family.benchmark_adapter.problem</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.protocol.html">gsk_family.benchmark_adapter.protocol</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.__init__.html">gsk_family.cli.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.list.html">gsk_family.cli.list</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.run.html">gsk_family.cli.run</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.stats.html">gsk_family.cli.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.validate.html">gsk_family.cli.validate</a>
+<a class="nav-link api-link" href="api/gsk_family.common.__init__.html">gsk_family.common.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.common.bounds.html">gsk_family.common.bounds</a>
+<a class="nav-link api-link" href="api/gsk_family.common.donors.html">gsk_family.common.donors</a>
+<a class="nav-link api-link" href="api/gsk_family.common.numeric_compat.html">gsk_family.common.numeric_compat</a>
+<a class="nav-link api-link" href="api/gsk_family.common.population.html">gsk_family.common.population</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reduction.html">gsk_family.common.reduction</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reference_rng.html">gsk_family.common.reference_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.rng.html">gsk_family.common.rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.threefry_rng.html">gsk_family.common.threefry_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.__init__.html">gsk_family.optimizers.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_profiles.html">gsk_family.optimizers._dt_profiles</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_rng.html">gsk_family.optimizers._dt_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._kernels.html">gsk_family.optimizers._kernels</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.agsk.html">gsk_family.optimizers.agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.apgsk.html">gsk_family.optimizers.apgsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_gsk.html">gsk_family.optimizers.atmals_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_helpers.html">gsk_family.optimizers.atmals_helpers</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.dt_gsk.html">gsk_family.optimizers.dt_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.egsk.html">gsk_family.optimizers.egsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.__init__.html">gsk_family.optimizers.external.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._base.html">gsk_family.optimizers.external._base</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._telemetry_shim.html">gsk_family.optimizers.external._telemetry_shim</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.cmaes.html">gsk_family.optimizers.external.cmaes</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.decc_g.html">gsk_family.optimizers.external.decc_g</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.ebowithcmar.html">gsk_family.optimizers.external.ebowithcmar</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.jso.html">gsk_family.optimizers.external.jso</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade.html">gsk_family.optimizers.external.lshade</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade_spacma.html">gsk_family.optimizers.external.lshade_spacma</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.mos_cec2013lsgo.html">gsk_family.optimizers.external.mos_cec2013lsgo</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.shade_ils.html">gsk_family.optimizers.external.shade_ils</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_agsk.html">gsk_family.optimizers.fdb_agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_scores.html">gsk_family.optimizers.fdb_scores</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.gsk.html">gsk_family.optimizers.gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.__init__.html">gsk_family.runners.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.config.html">gsk_family.runners.config</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.fp_regime.html">gsk_family.runners.fp_regime</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.output.html">gsk_family.runners.output</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.parallel.html">gsk_family.runners.parallel</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.performance.html">gsk_family.runners.performance</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.run_experiment.html">gsk_family.runners.run_experiment</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.seed_policy.html">gsk_family.runners.seed_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.verification.html">gsk_family.runners.verification</a>
+<a class="nav-link api-link" href="api/gsk_family.stats.html">gsk_family.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.types.html">gsk_family.types</a>
+</section>
+</nav></aside>
+    <main class="content">
+      <article class="doc-card">
+        <p>&lt;!-- Provenance: produced 2026-07-28 by a six-lens expert panel (campaign engineering, statistics, evidence/governance, manuscript architecture, adversarial integrity, build pipeline) + synthesis, grounded in the repository at commit 45b1d35e8. Verified first-hand before installation: (1) scripts/run_all_cec2020.py hard-points at configs/agsk_cec2020.yml whose seed_policy is <code>reference</code>, NOT <code>unified</code> -- one accidental invocation poisons the paired design. Confirmed at run_all_cec2020.py:9 and agsk_cec2020.yml:19. (2) configs/family_cec2020.yml has no workers key and default_worker_count() returns 2 -- the --workers 14 flag is mandatory or the campaign runs ~7x longer. (3) Campaign cost independently measured (150k-eval probes, extrapolated): gsk ~10.7 CPU-h; dt-gsk 10.2x gsk (fixed per-generation subsystem cost dominates at cheap evals); 7-algorithm total ~250-270 CPU-h, ~20-30 h wall at 14 workers -- consistent with the panel&#x27;s independent estimate from frozen CEC2017 runtime banks. Everything else carries the panel&#x27;s own confidence. --&gt;</p>
+<h1 id="final-publication-plan-dt-gsk-four-five-suite-scope">FINAL PUBLICATION PLAN — DT-GSK, Four(/Five)-Suite Scope</h1>
+<p><strong>Document:</strong> <code>docs/development/FINAL_PUBLICATION_PLAN.md</code> <strong>Programme baseline:</strong> clean tree at <code>45b1d35e8e54b4daf0fc0caeab148305fc563e14</code> (verified 2026-07-28). Manuscript frozen at tag <code>dtgsk-submission-v1.0-2026-07-25</code> (commit <code>41726c544</code>), pass 23. Primary evidence release <code>rel-2026-07-20-67d9345f9</code> (3,403 files, digests verified) — <strong>never re-run, never re-minted, never superseded</strong>. CEC2020: zero result banks. CEC2013LSGO: family banks 375/375 complete in <code>results/_run_all/</code>, unpromoted. CR register ends at CR-0018. <strong>Authority:</strong> the three author scope decisions of 2026-07-27 (externals out of the paper; seven family algorithms on CEC2017/CEC2011/CEC2020/CEC2013LSGO; transformed Ackley only) plus the Decision Gate 0 outcome recorded in Phase 0. <strong>Standing constraints (absolute):</strong> the author runs all campaigns (agent provides commands, never launches); never re-run cec2017/cec2011/cec2013 frozen banks; <code>overwrite: false</code> everywhere; never fabricate reviewer names/DOIs/metrics; the author commits/pushes (agent commits only when explicitly authorized); never run <code>finalize_evidence.py</code> end-to-end against the primary release.</p>
+<p>---</p>
+<h2 id="how-to-read-this-plan">How to read this plan</h2>
+<p>Nine phases, 0–8. Each phase lists objective, entry criteria, exit criteria, and numbered tasks with owner (<strong>author</strong> / <strong>agent</strong> / either), effort, and dependencies. Tasks marked <strong>[PARALLEL]</strong> may run concurrently with the campaign compute window in Phase 1. Tasks marked <strong>[HARD-HONESTY]</strong> implement adversarial-lens rulings and are non-negotiable: they may not be weakened, deferred past their stated gate, or cut for page budget.</p>
+<p>Branch notation: <strong>[KEEP]</strong> = CEC2013 stays (five-suite paper); <strong>[DROP]</strong> = CEC2013 removed (four-suite paper); unmarked = both branches.</p>
+<p>---</p>
+<h2 id="inter-lens-conflict-rulings-binding-for-the-rest-of-this-document">Inter-lens conflict rulings (binding for the rest of this document)</h2>
+<p>The six lenses disagreed on nine points. Programme-lead rulings, with reasoning:</p>
+<p><strong>R1 — Gate 0 recommendation: KEEP CEC2013 (five suites).</strong> Manuscript-architecture, evidence-governance, and the adversarial lens favor keep; only the build lens prices drop as cheaper (word budget). Ruling: keep. The drop branch&#x27;s sole benefit — ~1.2pp/word relief — is achievable in the keep branch by the harvest list (Phase 4.2) plus, if needed, a CR raising the internal cap (CR-0008 precedent). Drop costs ~14 extra rewrite sites, surrenders a <strong>favorable</strong> first-place suite (DT-GSK 2.80 best-of-7 overall), weakens the headline from first-on-two to first-on-one, forces a public-facing rationale because the cited immutable release permanently ships the CEC2013 banks, and orphans the X-ABL-02 CEC2013-D50 ablation panel. Both branches remain fully priced below; the author decides.</p>
+<p><strong>R2 — Campaign command: <code>python run.py --config configs/family_cec2020.yml --workers 14</code>.</strong> The build lens&#x27;s <code>scripts/run_all_cec2020.py</code> is <strong>overruled</strong>: verified this session, that wrapper hard-points at <code>configs/agsk_cec2020.yml</code> (<code>scripts/run_all_cec2020.py:9</code>) — AGSK-only, <code>seed_policy: reference</code> (not unified), workers 2, stale data root. One accidental invocation injects reference-schedule seeds into <code>results/_run_all/agsk/cec2020/per_run.csv</code> and silently breaks the paired design. The wrapper is neutralized in Phase 0 (task 0.7). <code>--workers 14</code> is mandatory (<code>src/gsk_family/runners/parallel.py:54-64</code> defaults to 2).</p>
+<p><strong>R3 — Analysis driver: a physically separate <code>phase6b</code>, not in-place extension of <code>phase6_run_analysis.py</code>.</strong> The statistics lens wins over EG-08/T11. Verified: <code>phase6_run_analysis.py:74</code> defaults <code>GSK_REL_ID</code> to the <strong>stale</strong> <code>rel-2026-07-16-78f075cb0</code>, and lines 84–95 hardcode the three frozen suites — a bare invocation is a live footgun. A sibling driver (<code>papers/scripts/phase6b_run_analysis_newsuites.py</code>) that imports <code>src/gsk_family/analysis/statistics.py</code> primitives <strong>without editing them</strong>, cannot write under any <code>rel-2026-07-20</code> path, and carries the k-parameterized Nemenyi plus exact/permutation additions, eliminates the frozen-suite regression channel by construction. The byte-identity guard (task 0.5) still runs after every phase as defense in depth. <code>phase6_run_analysis.py</code> is never edited.</p>
+<p><strong>R4 — Re-freeze tag: <code>dtgsk-submission-v2.0-&lt;date&gt;</code>.</strong> EG-17 over T17&#x27;s v1.1. A scope change (suites added, external baselines removed from the paper, headline recomputed) is a major version; v1.0 is retained as historical, never moved or deleted. Zenodo gets a <strong>new DOI version</strong> via a new GitHub Release; the v1.0 DOI is never re-pointed.</p>
+<p><strong>R5 — <code>skipped_runs.csv</code> (dt-gsk LSGO, 443 MemoryError rows): promoted under an explicit <code>deviation_record</code> file class</strong> (EG-06), overruling CE-7&#x27;s exclusion. Erasing the file while promoting the per_run rows it explains would recreate a discoverable gap. Sequence: adjudicate first (Phase 2.3), record in <code>production_deviation_record.md</code>, then promote with in-manifest annotation. The author ratifies this disposition (author decision A9).</p>
+<p><strong>R6 — One pre-registration artifact, not four.</strong> S1, EG-04, INT-01/INT-02, PREREG-01 and T03 merge into a single file: <code>papers/build_prompt_phases/phase_05/statistical_analysis_plan_addendum_cec2020_lsgo.md</code> (frozen SAP body untouched; governed as a Section-13 confirmatory amendment). Its SHA-256 and commit hash are recorded in <code>decision_log.md</code>; both future release manifests carry a <code>preregistration</code> field binding that hash. The same commit carries the S8 supplement skeleton and the PENDING claims-matrix rows. Verbatim text in Phase 0.3.</p>
+<p><strong>R7 — External-baseline relocation target: <code>benchmarks/cec_reference_results/_external_baselines/cec2013lsgo/&lt;alg&gt;/</code></strong> (EG-02 naming wins over T08&#x27;s <code>_external_context/</code>), with EV-09 provenance sidecars and a status README. One name, used everywhere.</p>
+<p><strong>R8 — Citation keys: SHADE-ILS and MOS keys ARE admitted.</strong> EG-01 left this conditional (&quot;only if the limitations sentence cites them&quot;); the adversarial lens&#x27;s INT-03(a) <strong>mandates</strong> citing published SHADE-ILS/MOS results (never our banks). The condition therefore resolves to yes. Corpus reopens 57 → 61: (1) CEC2013LSGO suite definition (Li/Tang/Omidvar/Yang/Qin 2013 — no key exists; <code>liang2013cec2013</code> is the wrong suite), (2) <code>yue2020cec2020</code> (in <code>references.bib:694</code>, not in the allowed set), (3) SHADE-ILS (Molina et al.), (4) MOS (LaTorre et al.). DECC-G is <strong>not</strong> admitted (not named in the disclosure sentence). Each key costs the full lockstep (bib + PDF + evidence card + 4 CSV maps + <code>allowed_citation_keys.txt</code> + PAPER_BUILD_PROMPT Appendix A/B.4).</p>
+<p><strong>R9 — LSGO evidential status (binding tier assignment).</strong> The family Friedman (3.133 tie, p=0.0372) and per-function means were inspected before any registration: they are <strong>descriptive-after-inspection</strong>, disclosed as such, never confirmatory, never headline. The never-computed run-level Wilcoxon+Holm + A12 + BCa layer is <strong>confirmatory-with-disclosure</strong>; the across-function Wilcoxon is <strong>supporting-with-disclosure</strong> (inputs seen, p-values not). Statistics and adversarial lenses aligned; adopted verbatim.</p>
+<p>Also settled without conflict: two separate non-superseding underscore releases (<code>_cec2013lsgo/</code> mintable now, <code>_cec2020/</code> after the campaign) — never one combined release, never a primary re-mint; the 1.5.0-N review-prompt supersession layer lands in <strong>Phase 0</strong> (adversarial sequencing) with only its populated variables updated in Phase 6; S7 = LSGO and S8 = CEC2020 are <strong>appended</strong> after S6, S1–S6 and S6.5/S6.6/S6.7 never renumbered.</p>
+<p>---</p>
+<h2 id="phase-0-decision-gate-0-pre-commitment-and-campaign-preflight">PHASE 0 — Decision Gate 0, pre-commitment, and campaign preflight</h2>
+<p><strong>Objective:</strong> rule keep/drop for CEC2013; land every artifact that must exist <strong>before</strong> the first CEC2020 run — above all the pre-registration commit, whose timestamp is the single cheapest credibility purchase in the project and which expires the instant the campaign starts; open the parallel forensic and citation tracks.</p>
+<p><strong>Entry:</strong> clean tree at <code>45b1d35e8</code>; this plan approved. <strong>Exit:</strong> Gate 0 recorded; pre-registration commit pushed with hash logged; preflight checklist green; parallel tracks (0.8–0.10) opened. <strong>The campaign may not launch until exit criteria 0.2–0.7 are met.</strong></p>
+<h3 id="0-1-decision-gate-0-cec2013-keep-vs-drop-owner-author-effort-trivial-blocking-for-phase-4-wording-only-does-not-block-the-campaign">0.1 — Decision Gate 0: CEC2013 keep vs drop (owner: <strong>author</strong>; effort: trivial; blocking for Phase 4 wording only — does NOT block the campaign)</h3>
+<p>Zero compute either way: the frozen bank <code>benchmarks/cec_reference_results/cec2013/</code> stays inside the immutable release in <strong>both</strong> branches (a release may legitimately be a superset of the paper). Priced side by side:</p>
+<div class="table-wrap"><table><thead><tr><th>Dimension</th><th>KEEP (five suites)</th><th>DROP (four suites)</th></tr></thead><tbody><tr><td>Compute</td><td>0</td><td>0</td></tr><tr><td>Evidence-tree ops</td><td>0</td><td>0 (release never re-minted)</td></tr><tr><td>Rewrite sites</td><td>~35 shared scope sites only</td><td>shared sites <strong>+ ~14 more</strong>: delete <code>performance.tex:649-725</code> (subsection 4.4 + <code>tab:friedman-cec2013</code>), supplement S2.3 (<code>supplementary.tex:421-510</code>) and S3.3 (<code>942-997</code>), T11–T14 + SA03 fragments and word_sources, <code>conclusions.tex:54-57</code>/<code>71-73</code>, early-stop tally rescope (<code>performance.tex:173-175</code>), every AN-\*-2013 BIND id</td></tr><tr><td>Claims matrix</td><td>rows untouched</td><td>PR-03, RS-11 → <code>RETIRED_SCOPE</code> with date (never deleted); MT-02/MT-06/AB-02 rewordings</td></tr><tr><td>Headline</td><td>&quot;first overall on CEC2017 and CEC2013&quot; survives; recounted over five suites</td><td>strictly weaker (&quot;first overall on CEC2017&quot;); note CEC2013 <strong>favors</strong> DT-GSK (2.80 best-of-7) so drop is against-interest, not cherry-picking</td></tr><tr><td>Page/word budget</td><td>~+0.5pp over the 40pp cap after full harvest → harvest a second figure or CR the cap</td><td>~−1.2pp relief; abstract frees ~2 words</td></tr><tr><td>Public optics</td><td>none</td><td><strong>mandatory</strong> stated-rationale sentence in Data Availability (the cited release permanently contains the CEC2013 banks; the public v1.0 tag claims first-overall on it) — silent drop is <strong>vetoed</strong> by the adversarial lens</td></tr><tr><td>Ablation coupling</td><td>S6.5 CEC2013-D50 panels untouched</td><td>S6.5 panels kept but need a local CEC2013 protocol note inside S6</td></tr></tbody></table></div>
+<p><strong>Recommendation (R1): KEEP.</strong> If the author rules DROP, the drop-only tasks are 4.7-D and 5.1-D below, plus the vetoed-unless-present disclosure sentence in 4.6.</p>
+<h3 id="0-2-governance-reopening-owner-agent-drafts-author-approves-effort-small-blocking">0.2 — Governance reopening (owner: agent drafts, author approves; effort: small; blocking)</h3>
+<ol>
+<li>Register <strong>CR-0019</strong> in <code>papers/governance/change_request_register.csv</code> (register verified ending at CR-0018): final empirical scope = 7 family algorithms × 4(/5) suites; the eight vendored externals appear in no panel/table/claim and remain in-repo as validated tooling; CEC2013LSGO transformed-Ackley only (the raw kernels exist behind <code>ackley_raw_scope</code> but are never activated; <code>ackley_raw_active()</code> is False for every bank); records the Gate 0 outcome. This CR formally <strong>supersedes</strong> LSGO campaign ruling A-4 (external descriptive-context layer) and amends <code>comparability_audit.md</code> §3 and the <code>data_ledger.csv</code> context rows to &quot;out of paper scope&quot;.</li>
+<li>Register <strong>CR-0020</strong>: citation corpus reopened for exactly the four keys of ruling R8.</li>
+<li>Write <strong>PAPER_REVIEW_PROMPT.md layer 1.5.0-N</strong> now (adversarial sequencing): supersedes 1.5.0-M(i) (<code>papers/PAPER_REVIEW_PROMPT.md:1277-1285</code>, which currently *vetoes* family-internal-only ranks) and 1.5.0-M&#x27;s external-baseline mandate; records the compensating mechanism (the 0.4 disclosure sentences + the <code>_external_baselines/</code> status package); marks 1.5.0-M partially superseded. Populated variables (1.5.1) are updated later, in Phase 6.4.</li>
+<li>Reopen <code>papers/governance/_pending_refreeze.json</code> (currently CLOSED) with standing constraints: no optimizer-core edit; no re-run of frozen banks; frozen-suite analysis outputs byte-identical. Move <code>phase_gate_register.csv</code> rows FROZEN → reopened. <code>decision_log.md</code> entries for all of the above.</li>
+</ol>
+<h3 id="0-3-the-pre-registration-commit-owner-agent-drafts-author-signs-and-commits-effort-medium-hard-ordering-constraint-must-precede-the-first-run-py-invocation-worthless-once-a-single-per-run-csv-row-exists">0.3 — The pre-registration commit (owner: agent drafts, <strong>author signs and commits</strong>; effort: medium; <strong>HARD ordering constraint: must precede the first <code>run.py</code> invocation — worthless once a single <code>per_run.csv</code> row exists</strong>)</h3>
+<p>One commit containing: (a) the SAP addendum below, verbatim; (b) the S8 supplement skeleton with empty result slots (Phase 5.2 shape); (c) PENDING rows RS-13 and LM-07 in <code>claims_evidence_matrix.csv</code> carrying the wording-bank templates; (d) <code>configs/family_cec2020.yml</code> untouched as-is at the pinned commit. Record the addendum file&#x27;s SHA-256 + the commit hash in <code>decision_log.md</code>. The commit timestamp <strong>is</strong> the pre-registration evidence.</p>
+<p><strong>Verbatim addendum text, ready to commit as <code>papers/build_prompt_phases/phase_05/statistical_analysis_plan_addendum_cec2020_lsgo.md</code>:</strong></p>
+<pre><code class="code-block language-markdown"># Statistical Analysis Plan — Addendum 1 (pre-registered):
+# CEC2020 and CEC2013LSGO suites
+
+Status: CONFIRMATORY AMENDMENT under SAP Section 13. The frozen SAP body is
+untouched; this addendum extends it by strict analogy. This file is committed
+BEFORE any CEC2020 result exists; its commit hash and SHA-256 are recorded in
+decision_log.md and bound into the manifests of both future evidence releases.
+
+## 0. Declaration of data state at signing
+At the commit carrying this file: (i) ZERO CEC2020 result banks exist anywhere
+in the repository or on any machine used by this project — every CEC2020
+hypothesis, family definition, and wording template below is therefore
+outcome-blind; (ii) CEC2013LSGO family banks are complete (7 algorithms x 15
+functions x 25 runs) and HAVE been partially inspected — the exact prior
+exposure is declared in Section 6 and governs the evidential tier of every
+LSGO analysis.
+
+## 1. Scope and suite roles
+Panel: the seven GSK-family algorithms (gsk, agsk, apgsk, fdb-agsk,
+atmals-gsk, egsk, dt-gsk); proposed = dt-gsk; comparators m=6. External
+(non-GSK) optimizers appear in no analysis under this addendum. Suite roles:
+CEC2017 remains PRIMARY (development); CEC2011[, CEC2013] corroborative;
+CEC2020 = secondary, pre-registered confirmatory (budget-scaling breadth);
+CEC2013LSGO = secondary, large-scale, family-internal only, post-hoc
+exploratory/confirmatory per Section 6. No suite is ever labeled &quot;validation&quot;.
+
+## 2. Endpoints and bases
+CEC2020: error = f(x_best) - f* with floor 1e-8; error basis throughout;
+protocol = 10 functions, dims 5/10/15/20, F6/F7 undefined at D5 (38 protocol
+cells), runs = 30 (Yue et al. 2019, Sec. 2.1), MaxFES 50,000 / 1,000,000 /
+3,000,000 / 10,000,000 by dimension, unified seed policy, base seed 20240620.
+CEC2013LSGO: raw best_fitness basis (CEC2011-style; the error column is not
+populated on this suite); 15 functions, D=1000 (F13/F14 overlapping at 905),
+runs = 25, budget 3e6 FES; F3/F6/F10 use the TRANSFORMED Ackley variant —
+results on those functions are NOT comparable to published values obtained on
+the raw variant, and no such comparison will be drawn.
+
+## 3. Hypotheses
+H1 (CEC2020, per dimension): the k=7 family members differ in central rank
+    (four families, one per dimension).
+H2 (CEC2020): DT-GSK vs each comparator, per dimension — across-function
+    Wilcoxon and run-level paired Wilcoxon, Holm-corrected, two-sided,
+    alpha = 0.05.
+H3 (LSGO): family omnibus — DEMOTED to descriptive-after-inspection
+    (Section 6); reported, never treated as confirmatory.
+H4 (LSGO): DT-GSK vs each comparator, run-level paired Wilcoxon + Holm over
+    the 25 unified-seed runs — never yet computed; CONFIRMATORY-WITH-
+    DISCLOSURE; this layer alone can support or refute any family-standing
+    sentence about LSGO.
+Directional expectation stated in advance for CEC2020: AGSK and APGSK are
+favored on their home regime (AGSK won the CEC2020 competition; Mohamed et
+al. 2020 is a co-author&#x27;s paper). All of DT-GSK&#x27;s dimension-gated subsystems
+(ISM channels, eigenframe polish, raised floor) are structurally OFF at
+D&lt;=20, so DT-GSK runs its adaptive scaffold tier only; a non-leading CEC2020
+result is a predicted boundary finding of the dimension-tiering thesis, and
+will be reported as such — never as &quot;does not count&quot;.
+
+## 4. Analysis families (registered ids)
+CEC2020 —
+AN-OMNI-2020-D5/D10/D15/D20: tie-corrected Friedman (M-026) + Iman-Davenport;
+  N=8 blocks at D5 (F1-F5, F8-F10), N=10 at D10/15/20; decision criterion =
+  Iman-Davenport at alpha=.05 PLUS a seeded within-block Monte-Carlo
+  permutation p, B=100000, rng SeedSequence([20240620, 2020, dim, 0, 99]);
+  the permutation p governs boundary disagreements (disclosed per row).
+AN-RANKAGG-2020-OVERALL: descriptive unweighted mean of the four
+  per-dimension mean ranks; caption MUST disclose the D5 reduced task set and
+  the MaxFES regime change; no test is ever attached.
+AN-PW-2020-D5..D20: across-function Wilcoxon on per-function mean errors,
+  n=8/10; decision p = EXACT sign-flip enumeration (2^n); the normal-
+  approximation value is also recorded for continuity with the frozen suites;
+  method recorded per row (SAP 6a). Zero differences |d| &lt; 1e-8 discarded;
+  if n_eff &lt; 6 the row reports verbatim: &quot;not decidable at alpha=0.05 (exact
+  two-sided floor 2/2^5 = 0.0625)&quot;.
+AN-PWRUN-2020-D*: per-function run-level Wilcoxon over the 30 unified-seed
+  paired runs; Holm across functions per (dimension, comparator), m=8 at D5,
+  m=10 otherwise; supplement exhibit.
+AN-EFF-2020-D*: A12/Cliff&#x27;s delta (run level) + BCa 95% CIs, B=10000, on
+  paired mean-error differences; rng SeedSequence([20240620, 2020, dim, func,
+  comparator_P1_index]). Suite ordinal 2020 is pinned here.
+AN-ROB-2020: (1) mean-vs-median re-rank; (2) across-dimension aggregate
+  variants — D10/15/20-only mean AND common-8-function-subset mean at all
+  four dims; if either flips DT-GSK&#x27;s ordinal vs the primary aggregate, the
+  headline carries the instability disclosure (SAP Section 10 binding rule);
+  (3) floor sensitivity 1e-6 vs 1e-8.
+CEC2013LSGO —
+AN-OMNI-LSGO-NATIVE: tie-corrected Friedman over 15 function blocks;
+  DESCRIPTIVE-AFTER-INSPECTION (Section 6).
+AN-PW-LSGO-NATIVE: across-function Wilcoxon, n=15, exact 2^15 enumeration,
+  Holm m=6; SUPPORTING-WITH-DISCLOSURE.
+AN-PWRUN-LSGO-NATIVE: run-level paired Wilcoxon over 25 unified-seed runs,
+  Holm m=15 per comparator; CONFIRMATORY-WITH-DISCLOSURE (never computed
+  before this addendum).
+AN-EFF-LSGO-NATIVE: A12/Cliff + BCa B=10000; suite ordinal pinned = 2113
+  (documented: &quot;cec2013lsgo, distinct from 2013&quot;).
+AN-ROB-LSGO: mean-vs-median; relative vs absolute tie band on the raw basis;
+  leave-one-function-out Friedman (the F7/F15 deletions are inspection-
+  informed and labeled exploratory).
+Explicitly NOT registered, now or ever: AN-RANKAGG-LSGO; any cross-suite
+pooled statistic. AN-RANKAGG-2017-OVERALL remains CEC2017-only.
+
+## 5. Tie and degeneracy rules
+Tie band |d| &lt; 1e-8 absolute everywhere (SAP Section 4 consistency); LSGO raw
+magnitudes additionally get the pre-registered relative-band robustness
+variant. Fully-tied Friedman blocks are RETAINED (midrank to all; M-026
+absorbs them); a fully-tied family reports &quot;statistic undefined&quot;, never a
+fabricated value. Degenerate BCa cells reuse the SAP Section 7 disclosure
+strings verbatim. n_eff is reported after zero-discard for every test.
+
+## 6. LSGO prior-inspection disclosure (verbatim, dated at signing)
+Before this addendum was written, the following LSGO quantities were
+inspected informally: family-only Friedman mean ranks — dt-gsk 3.133 (tied
+with agsk 3.133), atmals-gsk 3.533, gsk 3.867, fdb-agsk 3.933, apgsk 4.933,
+egsk 5.467; omnibus p = 0.0372; Nemenyi CD separating only egsk; per-function
+means showing dt-gsk winning F4 and F8 outright and placing last on F7 and
+F15. Additionally, an all-native Friedman including three external LSGO
+specialists was inspected (shade-ils 1.600, mos 2.467, dt-gsk 5.133 best of
+the family). CONSEQUENCES: AN-OMNI-LSGO-NATIVE and all LSGO W/T/L
+descriptives are DESCRIPTIVE-AFTER-INSPECTION — they may be reported with
+this disclosure but carry no confirmatory weight and never enter a headline;
+AN-PWRUN-LSGO-NATIVE and AN-EFF-LSGO-NATIVE have never been computed and are
+registered here, before computation, as the confirmatory LSGO layer.
+
+## 7. Power disclosure
+At k=7 the Nemenyi critical distance is 3.185 (N=8), 2.849 (N=10), 2.327
+(N=15) versus 1.673 at N=29: the CEC2020 and LSGO omnibus families are
+low-powered by construction. Non-significance is worded &quot;no separation
+demonstrated&quot;, never &quot;equivalent&quot; or &quot;no difference&quot;.
+
+## 8. Pooling prohibition (absolute)
+No statistic pools suites. No cross-suite Friedman, no pooled runs, no
+cross-suite rank averaging, no cross-suite multiplicity family, no
+&quot;Holm-significant on k suites&quot; arithmetic. Run-count heterogeneity
+(51/[51]/25/30/25) and basis heterogeneity (error vs raw) therefore never
+enter any test. The ONLY cross-suite statement permitted anywhere in the
+manuscript is the count of independent per-suite descriptive standings.
+
+## 9. Wording bank (pre-committed before any CEC2020 datum exists)
+Suite standing = strictly lowest descriptive aggregate rank -&gt; &quot;first&quot;.
+Exact tie -&gt; &quot;tied-first&quot;, a SEPARATE category never absorbed into &quot;first on
+X of Y&quot;. Headline template: &quot;first on n1, tied-first on n2, second on n3 of
+the Y suites&#x27; descriptive family-rank aggregates&quot;, with counts filled only
+from pipeline output and per-suite inferential results enumerated suite by
+suite. CEC2020 outcome sentences, all three pre-written:
+  [DT-GSK first] &quot;DT-GSK attains the best descriptive family rank on
+  CEC2020; per-dimension pairwise tests are reported in S8.&quot;
+  [AGSK first] &quot;On AGSK&#x27;s strongest suite — the CEC2020 competition it won —
+  DT-GSK places &lt;ordinal&gt;; the family panel corroborates AGSK&#x27;s published
+  strength in this regime, consistent with the tiering thesis: every
+  dimension-gated DT-GSK subsystem is inactive at D&lt;=20.&quot;
+  [tie] &quot;DT-GSK and AGSK share the best descriptive family rank on CEC2020;
+  paired tests (S8) do not separate them.&quot;
+LSGO claim ceiling (regardless of how the confirmatory layer falls):
+&quot;DT-GSK and AGSK share the best descriptive family mean rank; no member
+except eGSK (worse) is separable by the omnibus procedure; DT-GSK is last on
+F7 and F15.&quot; Prohibited on LSGO: &quot;leads&quot;, &quot;first&quot;, &quot;scales to D=1000&quot;,
+&quot;competitive&quot; without a named supporting test, and any statement of the
+F4/F8 wins unaccompanied by the F7/F15 last places. If the paired layer does
+NOT yield Holm-significant separations in DT-GSK&#x27;s favor, the binding
+wording is: &quot;tied-first descriptive rank; paired tests do not separate
+DT-GSK from AGSK.&quot;
+
+## 10. Conflict-adjacency disclosure
+AGSK won the CEC2020 competition and Mohamed et al. (2020) is a co-author&#x27;s
+paper. This adjacency is disclosed here, in the manuscript wherever CEC2020
+results are interpreted, and in the conflicts block — stated by the authors,
+not discovered by reviewers.
+
+## 11. Promotion and file-class policy (both future releases)
+Promoted per cell: per_run.csv, per-dimension summary CSVs, the five
+provenance files (environment.json, phase0_protocol.json, run_config.json,
+seed_schedule.csv, verification.json), gen_logs/. Curves EXCLUDED with the
+exclusion recorded in-manifest. dt-gsk&#x27;s LSGO skipped_runs.csv is promoted
+under the explicit file class &quot;deviation_record&quot;, cross-referenced to
+production_deviation_record.md. Expected row counts enforced: LSGO 375 per
+cell; CEC2020 1,140 per cell (38 protocol cells x 30). Releases are separate,
+non-superseding, underscore-prefixed; the primary release
+rel-2026-07-20-67d9345f9 is never touched. CEC2020 verification.json entries
+without a reference table report NOT_VERIFIED/NO_REFERENCE, never a vacuous
+CONSISTENT.
+
+## 12. Seeds and provenance
+Unified seed policy, base seed 20240620, seed = get_cec_seed(20240620, dim,
+func, run), identical across the seven algorithms per (dim, func, run) —
+this identity is what makes every run-level test paired — and injective
+within each algorithm. runs=30 for CEC2020 per Yue et al. 2019 Sec. 2.1;
+runs=25 for LSGO per the campaign config. A pairing audit replicating
+seed_and_pairing_audit.md Sections 1-4 over the native banks is a
+precondition for every paired statistic on both suites.
+
+## 13. Amendment integrity
+This file is append-only after the signing commit. Any later change is a new,
+dated, separately justified amendment; silent edits void the pre-registration.</code></pre>
+<h3 id="0-4-hard-honesty-author-approval-of-the-three-disclosure-sentences-owner-author-effort-trivial-blocking-for-phase-4">0.4 — [HARD-HONESTY] Author approval of the three disclosure sentences (owner: <strong>author</strong>; effort: trivial; blocking for Phase 4)</h3>
+<p>Exact text (adversarial lens INT-03; load-bearing, must survive every page harvest):</p>
+<ul>
+<li><strong>(a) LSGO subsection scope sentence</strong> (main text, S7 echo): *&quot;The CEC2013LSGO analysis in this paper is family-internal: it ranks the seven GSK-family variants against one another under a common protocol. Dedicated large-scale optimizers — for example SHADE-ILS \cite{&lt;shadeils-key&gt;} and MOS \cite{&lt;mos-key&gt;} — report substantially stronger published results on this suite than any GSK-family member, and no competitiveness with such specialists is claimed here; cross-paradigm comparison is outside this paper&#x27;s scope.&quot;* (Cites <strong>published</strong> results only — our transformed-Ackley F3/F6/F10 banks are not comparable to published MOS and are never cited as comparators.)</li>
+<li><strong>(b) Conclusions limitation sentence:</strong> *&quot;At D = 1000 no member of the family, DT-GSK included, approaches the performance that dedicated large-scale specialists report in the literature; the family&#x27;s evidence of competitiveness therefore ends at the dimensionalities of the bound-constrained suites.&quot;*</li>
+<li><strong>(c) Data Availability / supplement S5 sentence</strong> (reworded 2026-07-28 after the external crossover audit; &quot;validated&quot; was not defensible — see decision_log D-0025): *&quot;Beyond the analyzed suites, the repository also contains runnable implementations of eight non-GSK baseline optimizers and, for three of them (SHADE-ILS, MOS and DECC-G), complete result banks on CEC2013LSGO produced under this paper’s protocol. These implementations carry no validation evidence checkable within this repository: the vendored ports are byte-faithful copies whose author-code parity records reside in a separate project, and DECC-G is first-party code written from its source paper with no author-code oracle. They fall outside this paper’s analyzed scope, enter no panel, table, figure or claim, and no comparability audit against the family is claimed for them.&quot;*</li>
+<li><strong>[DROP only] Data Availability rationale sentence:</strong> *&quot;The archived evidence release additionally contains the complete CEC2013 (bound-constrained) result banks for all seven algorithms; that suite falls outside this paper&#x27;s analyzed scope and was removed to reduce same-paradigm redundancy with CEC2017 in favor of regime breadth.&quot;*</li>
+</ul>
+<p>Also fix, in Phase 4, the two sentences <strong>already false today</strong>: <code>supplementary.tex:1879</code> (&quot;no evidence file was hand-edited&quot;) and the stale <code>rel-2026-07-16</code> ids in <code>BENCHMARK_EVIDENCE_INDEX.md</code>&#x27;s ledger.</p>
+<h3 id="0-5-byte-identity-guard-on-frozen-analysis-outputs-owner-agent-effort-small-blocking">0.5 — Byte-identity guard on frozen analysis outputs (owner: agent; effort: small; blocking)</h3>
+<p>Snapshot SHA-256 of every file under <code>papers/analysis/rel-2026-07-20-67d9345f9/<strong></code> into a manifest plus a standalone read-only re-check script. Re-run after </strong>every** subsequent phase. This is the executable protection for the abstract&#x27;s 2.48 (<code>main.tex:162</code>, AN-RANKAGG-2017-OVERALL), the ~599-row parity table, and the verbatim release id at <code>main.tex:267</code>.</p>
+<h3 id="0-6-campaign-preflight-hygiene-owner-either-effort-small-blocking-for-launch">0.6 — Campaign preflight hygiene (owner: either; effort: small; blocking for launch)</h3>
+<p>On the campaign machine, in order:</p>
+<ol>
+<li><code>git status</code> clean; record <code>git rev-parse HEAD</code> — the <strong>entire</strong> 7-algorithm campaign runs at this single commit (never repeat the LSGO six-commit spread).</li>
+<li><strong>Numba cache purge</strong> (documented trap — CEC2020 files were restored by copy on 2026-07-26 and <code>fp_regime.py:64</code> routes cec2020 through the numba backend): <code>find benchmarks/cec_suite_python -name __pycache__ -exec rm -rf {} +</code></li>
+<li><code>python -m pytest tests/regression/test_family_golden_values.py tests/regression/test_cec2020_restored_cells.py -q</code> — expect 42/42 hex-identical + the F1/F8 D5/D15 oracle pins green.</li>
+<li>Grid dry-check: <code>configs/family_cec2020.yml</code> resolves exactly 38 cells (8 at D5; (F6,D5)/(F7,D5) absent), budgets 50k/1M/3M/10M, runs=30, unified seed 20240620, <code>overwrite: false</code>, output root <code>results/_run_all</code> (writes only to <code>results/_run_all/&lt;alg&gt;/cec2020/</code>, which must not exist yet; <code>benchmarks/cec_reference_results</code> is write-refused by <code>ensure_output_root_allowed</code>).</li>
+<li>~2 GB free disk; Windows power plan set to never sleep.</li>
+</ol>
+<h3 id="0-7-neutralize-scripts-run-all-cec2020-py-owner-author-decides-disposition-agent-executes-effort-trivial-blocking-for-launch">0.7 — Neutralize <code>scripts/run_all_cec2020.py</code> (owner: <strong>author</strong> decides disposition, agent executes; effort: trivial; blocking for launch)</h3>
+<p>Verified: the wrapper invokes <code>configs/agsk_cec2020.yml</code> (reference seed policy, workers 2, stale data root). Repoint it at <code>configs/family_cec2020.yml</code> or rename/guard it so an accidental invocation cannot contaminate the AGSK bank with reference-schedule seeds. Record the change under CR-0019&#x27;s umbrella.</p>
+<h3 id="0-8-parallel-lsgo-prebugfix-forensics-track-0c-1-closure-owner-either-effort-medium-blocks-phase-2-lsgo-promotion-and-every-lsgo-claim-start-immediately-it-can-invalidate-the-whole-lsgo-leg">0.8 — [PARALLEL] LSGO <code>.prebugfix</code> forensics — Track 0C-1 closure (owner: either; effort: medium; <strong>blocks Phase 2 LSGO promotion and every LSGO claim; start immediately — it can invalidate the whole LSGO leg</strong>)</h3>
+<p>Adjudicate the four <code>*.csv.prebugfix</code> siblings (<code>results/_run_all/atmals-gsk/cec2013lsgo/summary/</code>, <code>.../egsk/.../summary/</code>; the atmals F8/D1000 mean moved +29.6% across the fix). Identify the defect by name and commit; determine whether it touches the four pre-fix banks (gsk/agsk/apgsk/fdb-agsk, run 2026-07-22/23, never re-run); record the finding <strong>either way</strong> in <code>papers/governance/production_deviation_record.md</code>. If contamination is found: the LSGO leg is NO-GO pending an author-authorized &gt;100 h re-run or the leg is dropped (author decision A7). Also in this task: the Track 0C-2 code-identity attestation (the seven family banks span six commits — re-verify one exact <code>best_fitness</code> triple per algorithm at HEAD, or scope the &quot;one code base, one harness&quot; claim to exclude the LSGO leg) and the <code>skipped_runs.csv</code> adjudication feeding ruling R5.</p>
+<h3 id="0-9-parallel-citation-corpus-lockstep-the-long-pole-owner-author-supplies-pdfs-agent-does-lockstep-effort-medium-blocks-phase-4">0.9 — [PARALLEL] Citation corpus lockstep — the long pole (owner: <strong>author</strong> supplies PDFs, agent does lockstep; effort: medium; blocks Phase 4)</h3>
+<p>Start in hour 1. Four keys per ruling R8. The CEC2013LSGO suite-definition PDF (Li/Tang/Omidvar/Yang/Qin 2013) is the critical item: the corpus is closed at 57 keys, <code>liang2013cec2013</code> (<code>references.bib:497-502</code>) is the <strong>wrong</strong> suite, and metadata must never be reconstructed from memory. If that PDF is genuinely unobtainable, the LSGO leg drops to deferred-with-disclosure while CEC2020 proceeds. <code>validate_citation_controls</code> C1–C5 gates all admissions.</p>
+<h3 id="0-10-parallel-evidence-namespace-hygiene-the-four-unlisted-files-owner-agent-effort-small-blocks-any-mint-phase-2">0.10 — [PARALLEL] Evidence-namespace hygiene: the four unlisted files (owner: agent; effort: small; <strong>blocks any mint, Phase 2</strong>)</h3>
+<p>Verified live: <code>check_manifest.py --strict-inventory</code> reports exactly 4 unlisted files in the primary namespace. (1) Move <code>benchmarks/cec_reference_results/cec2013lsgo/{mos,decc-g,shade-ils}/*.csv</code> → <code>benchmarks/cec_reference_results/_external_baselines/cec2013lsgo/&lt;alg&gt;/</code> (ruling R7), each with an EV-09 provenance sidecar (publication + citation key, table/page, run count, FES budget, dims, objective-variant flag — MOS&#x27;s published table is raw-Ackley — upstream SHA-256, source path) and a README: validated tooling, out of paper scope per CR-0019, transformed-Ackley non-comparability caveat, no comparability audit claimed. This simultaneously empties the plain <code>cec2013lsgo/</code> name that <code>finalize_evidence.py</code> P6 (<code>:1048-1049</code>) would silently absorb, removes the collision with the future promoted suite, and creates the disclosure surface. (2) Move <code>BENCHMARK_EVIDENCE_INDEX.md</code> → <code>benchmarks/cec_reference_results/_index/</code>; update the ~10 referencing files; fix its stale <code>rel-2026-07-16</code> ledger ids. (3) Exit gate: <code>python papers/scripts/check_manifest.py --manifest papers/governance/evidence_release_manifest.json --strict-inventory</code> → 3403/3403, <strong>zero unlisted</strong>; primary manifest untouched.</p>
+<h3 id="0-11-parallel-executable-never-remint-guard-owner-agent-effort-trivial">0.11 — [PARALLEL] Executable never-remint guard (owner: agent; effort: trivial)</h3>
+<p>Add a hard abort at the top of <code>phase_P2</code> and <code>phase_P6</code> in <code>papers/scripts/finalize_evidence.py</code>: refuse unless <code>GSK_ALLOW_PRIMARY_REMINT=1</code>, message naming <code>rel-2026-07-20-67d9345f9</code> as frozen-and-cited (P6 re-mints with a NEW release id at <code>:1118-1121</code> and its drift guard <code>:1091-1109</code> iterates old files only). Record in <code>docs/development/evidence_rerun_runbook.md</code>.</p>
+<h3 id="0-12-parallel-config-lock-gate-owner-agent-effort-small-blocking-for-launch">0.12 — [PARALLEL] Config lock gate (owner: agent; effort: small; blocking for launch)</h3>
+<p>Extend <code>scripts/validate_profile_lock.py</code> REQUIRED_LOCKS with <code>configs/family_cec2020.yml</code> pins (runs 30; dims [5,10,15,20]; budget map 50k/1M/3M/10M; <code>overwrite: false</code>; unified seed policy; protocol-aware F6/F7@D5 drop) plus the retroactive <code>configs/family_cec2013lsgo.yml</code> / <code>configs/dtgsk_cec2013lsgo.yml</code> locks (Track 0H, including the 22-key <code>linkage_block_size_by_dim</code> table). Nothing else prevents a silent edit between pre-registration and run.</p>
+<p>---</p>
+<h2 id="phase-1-cec2020-campaign-execution-author-run">PHASE 1 — CEC2020 campaign execution (author-run)</h2>
+<p><strong>Objective:</strong> produce the only missing compute in the entire scope: 7 algorithms × 38 protocol cells × 30 runs = 7,980 runs, ~2.95e10 evaluations.</p>
+<p><strong>Entry:</strong> Phase 0 tasks 0.2–0.7 and 0.12 complete; <strong>pre-registration commit pushed</strong>. <strong>Exit:</strong> all seven banks complete and mechanically verified (1.6); heritage audit passed (1.7).</p>
+<h3 id="1-1-launch-owner-author-effort-large-20-30-h-wall">1.1 — Launch (owner: <strong>author</strong>; effort: large — ~20–30 h wall)</h3>
+<p>From <code>D:/AI/PhD-Projects/00-GSK-Family/02-GSK_Family_Python_v1.1</code>, single command (ruling R2):</p>
+<pre><code class="code-block">python run.py --config configs/family_cec2020.yml --workers 14</code></pre>
+<p><code>--workers 14</code> is <strong>mandatory</strong> (harness default is 2). Optional tranche split — same bank, resume-safe, gives sanity data within ~2 h before committing to the long tranche:</p>
+<pre><code class="code-block">python run.py --config configs/family_cec2020.yml --workers 14 --dimension 5,10   # ~1.5–2 h,  ~7% of compute
+python run.py --config configs/family_cec2020.yml --workers 14 --dimension 15     # ~4–5 h
+python run.py --config configs/family_cec2020.yml --workers 14 --dimension 20     # ~13–18 h, ~72% — run overnight/weekend</code></pre>
+<p><strong>Cost model</strong> (from frozen CEC2017 runtime banks on this machine, cross-checked by a 36-run serial probe): per-algorithm core-hours gsk 9.0, agsk 34.3, apgsk 50.6, fdb-agsk 30.2, atmals-gsk 23.4, egsk 44.8, dt-gsk 54.9; <strong>total 247–265 core-h ≈ 18–19 h ideal at 14 workers; plan 20–30 h</strong> (JIT compiles, pool restarts; dt-gsk&#x27;s fixed ISM cost may stretch toward 40 h worst case — a scheduling inconvenience, not a data risk). Disk ~0.5–1.5 GB (dominated by the unconditional median-run <code>Figure_F*_D*_Run#N.csv</code> per cell). Memory is a non-issue at D≤20.</p>
+<h3 id="1-2-interruption-resume-protocol-owner-author-effort-trivial">1.2 — Interruption/resume protocol (owner: author; effort: trivial)</h3>
+<p>On sleep/crash/stop: <strong>re-issue the identical command</strong>. Resume is keyed on (function, dimension, run, seed) against <code>per_run.csv</code> (<code>run_experiment.py:1424-1434</code>), flushed after every cell (<code>:1695</code>); maximum loss = the in-flight cell (worst ~17 min). <strong>Never</strong> add <code>--overwrite</code>; never run a second <code>run.py</code> against <code>results/_run_all</code> while one writes; if the console reports repeated pool rebuilds (built-in recovery, <code>:1598-1655</code>), note it for the QA record and let it finish. If an interruption forces a code change mid-campaign: stop, record a deviation, re-run the affected algorithms entirely at the new commit.</p>
+<h3 id="1-3-prohibitions-during-the-window">1.3 — Prohibitions during the window</h3>
+<p>Do not invoke <code>scripts/run_all_cec2020.py</code> (even after 0.7&#x27;s neutralization, prefer the direct command). Do not run <code>configs/baselines_cec2020.yml</code> — fresh external CEC2020 banks after the externals-out decision would manufacture new undisclosed public comparisons.</p>
+<h3 id="1-4-parallel-agent-work-during-the-compute-window">1.4 — [PARALLEL] Agent work during the compute window</h3>
+<p>Close 0.8–0.12 if still open; build the promotion tool (2.4); build the <code>phase6b</code> skeleton (3.1); run the LSGO pairing audit (2.5); draft S7 protocol prose and the Phase 4 claims surgery (nothing binding numbers).</p>
+<h3 id="1-5-post-run-completeness-verification-owner-agent-writes-40-line-read-only-script-author-runs-effort-small-blocking">1.5 — Post-run completeness verification (owner: agent writes ~40-line read-only script, author runs; effort: small; blocking)</h3>
+<p>Assert over <code>results/_run_all/&lt;alg&gt;/cec2020/</code> for all seven algorithms: (1) <code>per_run.csv</code> exactly 1,140 rows/alg, 7,980 total; (2) exactly 30 runs per cell, no duplicate (function,dimension,run) keys; (3) <strong>zero</strong> rows for (F6,D5)/(F7,D5); (4) every row <code>nfes</code> equals its dimension budget and <code>termination == &#x27;max_evaluations&#x27;</code>; (5) <code>best_fitness</code> and <code>error</code> finite, <code>error &gt;= 0</code>; (6) seeds match <code>seed_schedule.csv</code> and <code>get_cec_seed(20240620, dim, func, run)</code> (<code>seed_policy.py:31-38</code>), <strong>identical across the 7 algorithms per (dim,func,run)</strong> and injective within each — this is the paired-design guarantee; (7) <strong>no</strong> <code>skipped_runs.csv</code> in any cec2020 summary dir; (8) five provenance files per bank; (9) <code>environment.json</code> <code>git_commit</code> identical across all 7 banks and equal to the 0.6 pinned commit; (10) four summary tables per alg (<code>&lt;alg&gt;_cec2020_D{5,10,15,20}.csv</code>, 8/10/10/10 functions).</p>
+<h3 id="1-6-bug-resume-01-heritage-audit-owner-agent-effort-small-blocking">1.6 — BUG-RESUME-01 heritage audit (owner: agent; effort: small; blocking)</h3>
+<p>Recompute Best/Median/Mean/Worst/SD per (dim, function) from <code>per_run.csv</code> and compare to the summary tables: Best/Median/Worst exact; Mean/SD within rel 1e-8 (the 0C-3 precedent tolerance — resumed sessions summarize from <code>%.10e</code>-rounded values; pre-declare the tolerance so a habitual exact-match standard doesn&#x27;t fail correct data). Record pass/fail per algorithm; only if a cell exceeds tolerance, regenerate that summary from <code>per_run.csv</code> and document the deviation — never silently rewrite.</p>
+<p>---</p>
+<h2 id="phase-2-evidence-promotion-two-separate-immutable-releases">PHASE 2 — Evidence promotion: two separate immutable releases</h2>
+<p><strong>Objective:</strong> promote the LSGO family banks (available now) and the CEC2020 banks (after Phase 1) into two non-superseding underscore-prefixed releases beside — never inside — the frozen primary.</p>
+<p><strong>Entry (LSGO half):</strong> 0.8 forensics closed clean; 0.10 hygiene green; 0.11 guard in place. <strong>Entry (CEC2020 half):</strong> Phase 1 exit. <strong>Exit:</strong> both releases minted and digest-verified; <code>check_manifest --strict-inventory</code> green on the primary <strong>and</strong> both new manifests; <code>validate_provenance_claims.py --self-test</code> confirms the primary is not reclassified; documented-but-unpromoted package (2.8) complete.</p>
+<h3 id="2-1-release-architecture-settled-no-conflict">2.1 — Release architecture (settled; no conflict)</h3>
+<p>Two releases: <code>lsgo-rel-&lt;date&gt;-&lt;anchor9&gt;</code> under <code>benchmarks/cec_reference_results/_cec2013lsgo/</code> and <code>cec2020-rel-&lt;date&gt;-&lt;anchor9&gt;</code> under <code>.../_cec2020/</code>. Ids deliberately do <strong>not</strong> match the glob <code>rel-*</code> — <code>validate_provenance_claims.py</code> builds its superseded set from <code>(papers/analysis).glob(&#x27;rel-*&#x27;)</code> (<code>:148-155</code>); a <code>rel-*</code> name would reclassify the primary as superseded. <code>supersedes_release: null</code> in both. Rationale for two, not one: LSGO is promotable today while CEC2020 does not yet exist; a combined release either blocks LSGO for weeks or forces a re-mint violating release-id immutability; the <code>_ablation/</code> precedent already establishes one manifest per evidence body.</p>
+<h3 id="2-2-lsgo-staging-ledger-closure-owner-either-effort-folded-into-0-8-blocking-for-2-6">2.2 — LSGO staging-ledger closure (owner: either; effort: folded into 0.8; blocking for 2.6)</h3>
+<p>Confirm on record: prebugfix adjudication finding (0.8), <code>skipped_runs.csv</code> disposition per ruling R5 (author ratifies), six-commit code-identity attestation (0.8), and the <code>production_deviation_record.md</code> entries for all three.</p>
+<h3 id="2-3-pairing-audits-owner-agent-effort-small-each-block-every-paired-statistic">2.3 — Pairing audits (owner: agent; effort: small each; block every paired statistic)</h3>
+<p><code>seed_and_pairing_audit.md:67</code> currently places cec2013lsgo <strong>outside</strong> the pairing framework (text refers to the old imported reference summaries). Replicate the audit&#x27;s Sections 1–4 over the native banks: (a) <strong>LSGO now</strong> — 7 algs × 15 funcs × 25 runs: recompute <code>get_cec_seed</code>, verify injectivity, shared runner-generated X0, identical function sets, 0 mismatches; (b) <strong>CEC2020 after Phase 1</strong> — same over 38 cells × 30 runs. Publish both as audit addenda.</p>
+<h3 id="2-4-build-papers-scripts-promote-suite-py-owner-agent-effort-medium-blocking">2.4 — Build <code>papers/scripts/promote_suite.py</code> (owner: agent; effort: medium; blocking)</h3>
+<p>One generic, suite-parameterized promotion tool; <code>phase_P2</code>/<code>phase_P6</code> untouched. It: stages cells from <code>results/_run_all/&lt;alg&gt;/&lt;suite&gt;/</code> into the underscore tree; whitelists exactly the Section-11 file classes of the pre-registration (per_run, per-dim summaries, five provenance files, seed_schedule, gen_logs); <strong>excludes</strong> <code>curves/</code> (~360 MB, ruling A-11 — exclusion recorded in-manifest), runner <code>.txt</code> logs, and every <code>*.prebugfix</code>; promotes dt-gsk&#x27;s <code>skipped_runs.csv</code> under the explicit <code>deviation_record</code> class (R5); enforces per_run row counts (LSGO 375 = 325@D1000 + 50@D905; CEC2020 1,140 protocol-aware — never a naive 40×30); refuses to run if the target tree already holds a manifest; writes manifests LF + indent-2 + trailing newline (the in-tree <code>_ablation</code> convention — CRLF/2-space belongs only to the three <code>papers/governance</code> freeze manifests).</p>
+<h3 id="2-5-manifest-field-spec-both-releases">2.5 — Manifest field spec (both releases)</h3>
+<p>Beyond the frozen schema: <code>evidence_root</code> (the <code>_ablation</code> manifest lacks one and is invisible to <code>check_manifest --manifest</code>; deliberate improvement), <code>preregistration</code> (hash from 0.3), <code>per_cell_run_commit</code>, curve-exclusion record with rationale, and per-suite fields — LSGO: schema <code>lsgo_evidence_manifest/v1</code>, <code>objective_variant: ackley_transformed</code>, <code>endpoint_column: best_fitness</code>, <code>statistics_basis: raw_objective</code>, <code>runs: 25</code>; CEC2020: schema <code>cec2020_evidence_manifest/v1</code>, <code>statistics_basis: error</code>, <code>runs: 30</code>, budget map, <code>protocol_cells: 38</code> with (F6,D5)/(F7,D5) explicitly recorded as undefined. CEC2020 <code>verification.json</code> entries without a reference table report <code>NOT_VERIFIED/NO_REFERENCE</code> (the 0D-2 lesson); optionally (author decision A10) wire AGSK&#x27;s published Mohamed et al. 2020 tables as a real reference for the one algorithm that has them.</p>
+<h3 id="2-6-mint-lsgo-rel-owner-either-effort-medium-can-complete-during-phase-1">2.6 — Mint <code>lsgo-rel-*</code> (owner: either; effort: medium; can complete <strong>during</strong> Phase 1)</h3>
+<p>Promote the <strong>seven family cells only</strong> — externals are never promoted (2.8). Post-mint gates: <code>check_manifest --manifest _cec2013lsgo/manifest.json</code> green; <code>--strict-inventory</code> on the primary still 3403/3403 zero-unlisted; <code>validate_provenance_claims.py --self-test</code>. Update the <code>_index/BENCHMARK_EVIDENCE_INDEX.md</code> §0 ledger; add 7 <code>data_ledger.csv</code> rows carrying <code>evidence_release_id lsgo-rel-*</code>.</p>
+<h3 id="2-7-mint-cec2020-rel-owner-either-effort-medium-after-1-6">2.7 — Mint <code>cec2020-rel-*</code> (owner: either; effort: medium; after 1.6)</h3>
+<p>Same path, same gates, same ledger updates.</p>
+<h3 id="2-8-hard-honesty-external-lsgo-banks-documented-but-unpromoted-owner-agent-effort-small-blocking-for-submission">2.8 — [HARD-HONESTY] External LSGO banks: documented-but-unpromoted (owner: agent; effort: small; blocking for submission)</h3>
+<p>Ruling (evidence-governance + adversarial, aligned): (a) do <strong>not</strong> promote the three native external banks (<code>results/_run_all/{shade-ils,mos-cec2013lsgo,decc-g}/cec2013lsgo</code>, 375/375 each, git-tracked and public) — a &quot;context release&quot; of an unfavorable comparison reads as prepared-then-buried; (b) do <strong>not</strong> delete or untrack them — removing public unfavorable data is the one move worse than either alternative; (c) formalize their status: an <code>_index</code> section listing paths, completeness, provenance, an explicit out-of-paper-scope declaration citing CR-0019, and the honest one-line direction of the informal result — *&quot;an informal all-native Friedman places the two LSGO specialists (SHADE-ILS 1.600, MOS 2.467) decisively ahead of every family member (best family rank: DT-GSK 5.133)&quot;*; (d) complete the two <code>data_ledger.csv</code> rows currently MISSING/PENDING-RELEASE-ID and add shade-ils, all marked <code>source_type context / comparability out-of-scope / evidence_release_id &quot;none (unpromoted, CR-0019)&quot;</code>; (e) a status README beside the banks; (f) the paper-side sentences of 0.4 point readers at the repository <strong>before</strong> a reviewer runs <code>ls</code>.</p>
+<p>---</p>
+<h2 id="phase-3-formal-statistics">PHASE 3 — Formal statistics</h2>
+<p><strong>Objective:</strong> compute, for the first time, the confirmatory layers of both new suites exactly as pre-registered, from promoted releases only.</p>
+<p><strong>Entry:</strong> Phase 2 exit (both releases); 2.3 pairing audits green; 0.5 byte-guard baseline in place. <strong>Exit:</strong> both analysis bundles complete under <code>papers/analysis/lsgo-rel-*/</code> and <code>papers/analysis/cec2020-rel-*/</code>; byte-guard re-check green; registries wired; exhibit fragments generated.</p>
+<h3 id="3-1-build-papers-scripts-phase6b-run-analysis-newsuites-py-owner-agent-effort-large-blocking-skeleton-buildable-during-phase-1">3.1 — Build <code>papers/scripts/phase6b_run_analysis_newsuites.py</code> (owner: agent; effort: large; blocking; skeleton buildable during Phase 1)</h3>
+<p>Per ruling R3. Reuse <code>statistics.py</code> primitives untouched: <code>friedman_rank</code> (M-026, <code>:650-766</code>), <code>holm_correction</code> (<code>:462</code>), <code>wilcoxon_paired</code> (<code>:304</code>, method string <code>normal_approx_continuity</code> as recorded at <code>phase6_run_analysis.py:428</code>). Add: exact sign-flip enumeration for across-function tests (n = 8/10/15; 2^15 trivial); the seeded permutation-Friedman companion (Section 4 seeds); Nemenyi parameterized by k with an assertion (phase6&#x27;s k=7/q=2.949 hardcode is a silent wrong-direction error if panel size changes); the exact-Wilcoxon docstring/code contradiction (<code>statistics.py:332-334</code> vs <code>:379-398</code>) resolved by the addendum&#x27;s per-row method recording. Mirror phase6 determinism: C-locale, <code>%.6e</code>, fixed sort orders, no timestamps. Hardcode PANEL/COMPARATORS identical to <code>phase6:84-86</code>; <code>SUITE_DIMS {&#x27;cec2020&#x27;:[5,10,15,20],&#x27;cec2013lsgo&#x27;:[native 1000/905]}</code>; CEC2020 D5 function list [1,2,3,4,5,8,9,10]; suite ordinals 2020/2113; two-summary-CSV loader for the LSGO D1000/D905 split. Runs only in strict-source mode (<code>GSK_STRICT_SOURCE=1</code>) against the Phase 2 releases; <strong>cannot write into any <code>rel-2026-07-20</code> path</strong>. Extend the orphan check to audit both <code>statistical_results.csv</code> files against the frozen <code>analysis_registry.csv</code> (81 lines, never edited) <strong>plus</strong> a new addendum registry file.</p>
+<h3 id="3-2-execute-the-confirmatory-batteries-owner-agent-effort-medium">3.2 — Execute the confirmatory batteries (owner: agent; effort: medium)</h3>
+<p>(a) <strong>LSGO decisive layer:</strong> AN-PWRUN-LSGO-NATIVE (25 paired runs, Holm m=15 per comparator) + AN-EFF-LSGO-NATIVE — the only analysis that can support or refute the 3.133/3.133 tie; the pre-committed wording of addendum Section 9 binds the outcome either way. Plus AN-OMNI/AN-PW-LSGO-NATIVE at their disclosed tiers. (b) <strong>Full CEC2020 battery:</strong> all AN-\*-2020-\* families; expect heavy exact-zero cells at low dims — report n_eff after zero-discard, use the SAP Section 7 degenerate-cell strings verbatim, let M-026 absorb tied blocks. (c) Robustness: AN-ROB-2020 and AN-ROB-LSGO as registered — the mandatory median-basis re-rank (<code>performance.tex:548-560</code> makes it mandatory for every rank statement; the LSGO family order is already known <strong>not</strong> to be fully robust under it and must be reported as such). (d) Immediately re-run the 0.5 byte-guard and <code>validate_provenance_claims.py --self-test</code>.</p>
+<h3 id="3-3-registry-and-matrix-wiring-owner-agent-effort-medium">3.3 — Registry and matrix wiring (owner: agent; effort: medium)</h3>
+<p>Register all new AN ids (addendum registry; LSGO descriptives at their disclosed tier); flip the 0.3 PENDING claims rows to READY with bound evidence ids; regenerate <code>artifact_binding.csv</code> <strong>passing <code>GSK_REL_ID</code> explicitly per release</strong> (<code>generate_artifact_binding.py</code> defaults to the stale <code>rel-2026-07-16-78f075cb0</code>; grep all governance CSVs for the stale id afterwards); new rows in <code>requirements_traceability_matrix.csv</code>, <code>experiment_matrix.csv</code>, <code>table_figure_source_map.csv</code>; <code>benchmark_protocol_audit.md</code> §6.2 rows for both suites (correcting part2:120&#x27;s &quot;(context) not used by the primary panel&quot; mislabel of the 3e6 budget).</p>
+<h3 id="3-4-exhibit-fragment-generation-owner-agent-effort-medium">3.4 — Exhibit fragment generation (owner: agent; effort: medium)</h3>
+<p>Clone <code>generate_cec2013_pairwise.py</code> / <code>gen_wilcoxon_cec2011|cec2013</code> patterns (<code>generate_latex_tables.py:421/450</code>): CEC2020 per-dimension rank tables (D5-asymmetry + budget footnotes), Wilcoxon/Holm tables, W/T/L; LSGO native tables; <code>generate_nemenyi_cd.py</code> calls <strong>only</strong> for families whose omnibus is significant (pre-registered display condition — with CD 2.85–3.19 expect &quot;CD diagram omitted&quot; cells, and say so); <code>lsgo_ranks</code> / <code>cec2020_mean_ranks</code> figures via the <code>generate_rank_charts.py</code> pattern. All fragments read <strong>only</strong> the new underscore releases, never <code>results/</code> staging. Six-point registration completes in Phase 5.4.</p>
+<p>---</p>
+<h2 id="phase-4-manuscript-surgery-main-text">PHASE 4 — Manuscript surgery (main text)</h2>
+<p><strong>Objective:</strong> rewrite the main text to the new scope with every claim bound to pipeline output, both branches specified.</p>
+<p><strong>Entry:</strong> Phase 3 exit (numbers exist); Gate 0 ruled; 0.9 citation keys admitted; 0.4 sentences approved. <strong>Exit:</strong> all ~35 shared scope sites (plus 14 drop-branch sites if DROP) rewritten; claims matrix consistent; disclosure sentences placed; no templated placeholder remains.</p>
+<p><strong>Ordering rule:</strong> claims-matrix surgery (4.1) strictly first — three existing rows currently make <strong>any</strong> LSGO sentence a governance violation.</p>
+<h3 id="4-1-claims-matrix-surgery-owner-agent-effort-medium-blocking-everything-below">4.1 — Claims-matrix surgery (owner: agent; effort: medium; blocking everything below)</h3>
+<p>Repair the rows broken in <strong>both</strong> branches: LM-05 (row 43: &quot;Evidence tops out at D=100… no LSGO claim is made&quot;; blocked &quot;Any LSGO or n~1000 claim&quot;), MT-08 (row 15 blocked &quot;LSGO claim&quot;), IN-01 (row 36 blocked &quot;any LSGO claim&quot; + &quot;Extrapolation beyond D=100&quot;) — re-scope the prohibitions to extrapolation beyond *tested* dimensions. New rows: PR-07 (LSGO protocol incl. transformed-Ackley disclosure), PR-08 (CEC2020 protocol, 38 cells), RS-12 (LSGO family-internal standing; blocked: any MOS/DECC-G comparison on F3/F6/F10, any published-value comparison presented as comparable, any &quot;competitive at D=1000&quot; without a supporting test), RS-13 + LM-07 (from 0.3, now READY), LM-06 (repo-bank disclosure), IN-04 (tiering thesis vs the D=1000 finding). Unchanged: RS-01 (2.48), LM-03, BG-05; AB-02 kept in both branches.</p>
+<h3 id="4-2-section-4-1-protocol-heterogeneity-page-budget-owner-agent-effort-medium">4.2 — Section 4.1 protocol + heterogeneity + page budget (owner: agent; effort: medium)</h3>
+<p>(a) Transpose <code>tab:protocol</code> (<code>performance.tex:85-98</code>) to suite-per-row (5(/4) rows × problems/dims/runs/MaxFES/endpoint columns; shared seed/pairing block below). (b) Add the heterogeneity-and-pooling paragraph: runs 51/[51]/25/30/25; error vs raw bases; budget conventions (10^4·D vs 150k vs 50k–10M vs 3e6); the absolute no-pooling rule; AN-RANKAGG-2017-OVERALL stays CEC2017-only. (c) Extend the evidence taxonomy (<code>performance.tex:107-112</code>) to four categories: development (CEC2017), corroborative (CEC2011[, CEC2013]), <strong>pre-registered confirmatory</strong> (CEC2020 — name it as the paper&#x27;s strongest methodological card, citing the 0.3 commit), post-hoc exploratory (LSGO). (d) Update <code>proposed_algorithm.tex:813</code> budget enumeration. (e) Rescope the early-stop tally (<code>performance.tex:173-175</code>) explicitly to the primary release. (f) <strong>Page budget</strong> (41pp vs 40pp cap): new subsections 4.5 LSGO + 4.6 CEC2020 (~0.75pp prose + ONE table each: T17 LSGO family Friedman + scope sentence; T18 CEC2020 per-dimension Friedman). Harvest in priority order: <code>fig:conv-cec2017-d30</code> (<code>:776-793</code>) → S3 (~−1pp); <code>tab:runtime</code> (<code>:842-866</code>) → prose (~−0.4pp); [KEEP] <code>tab:friedman-cec2013</code> (<code>:667-693</code>) → S2.3 keeping the two-sentence summary (~−0.5pp). If still over in KEEP: harvest the second convergence figure or CR the cap (author decision A8) — never cut disclosure prose.</p>
+<h3 id="4-3-synthesis-abstract-introduction-conclusions-cover-letter-owner-agent-effort-medium">4.3 — Synthesis, abstract, introduction, conclusions, cover letter (owner: agent; effort: medium)</h3>
+<p>Headline (<code>performance.tex:953-974</code>) recomputed by the addendum Section 9 template — strict-first count over per-suite descriptive standings, ties reported as tied-first, never absorbed; counts filled <strong>only</strong> from Phase 3 output. Abstract (<code>main.tex:148-174</code>): 2.48 stays the ONE bound number, CEC2017-fenced; suite enumeration at 159–161/166 rewritten; at most one qualitative sentence per new suite (LSGO sentence written only after 3.2(a) exists; CEC2020 from the wording bank). Introduction: C3 bullet (<code>introduction.tex:129-144</code>) + roadmap (<code>157-159</code>). Conclusions: findings paragraph extended with unfavorable cells stated first-class; limitation <code>conclusions.tex:83</code> rewritten (evidence ceiling now D=1000, caveated to the LSGO protocol); <code>89-93</code> external sentence → sentence 0.4(b) + LM-06; future work <code>125-133</code> (D=100-ceiling motivation stale — INT-11: report the D=1000 standing as <strong>consistent with</strong> the S6.5 ISM null, never as a new measured isolation; isolation evidence explicitly stops at D≤100; no ISM/eigenframe attribution at D=1000 in either direction). Cover letter (<code>cover_letter.tex:55</code>): new suite count + LSGO honesty clause, bound by CL-01/CL-02. Related work (<code>related_work.tex:56-59, 65-69, 154-162, 288-291</code>): defuse the boomerang <strong>before results are known</strong> — reframe the AGSK/APGSK &quot;regime-limited&quot; critique as &quot;their published evidence is confined to that regime; we now evaluate the whole family at home and away, including that regime.&quot;</p>
+<h3 id="4-4-false-sentence-sweep-owner-agent-effort-large">4.4 — False-sentence sweep (owner: agent; effort: large)</h3>
+<p>Complete file:line checklist (both branches): <code>main.tex:159-161, 166, 213-227, 261-270, 273-274, 289</code>; <code>introduction.tex:134-137, 157-159</code>; <code>performance.tex:9, 70-74, 85-98, 103-116, 173-175, 649-725 [branch-dependent], 747-749, 832-834, 880-882, 953-974</code>; <code>conclusions.tex:50-57, 71-73, 83, 89-93, 125-133</code>; <code>proposed_algorithm.tex:813</code>; <code>supplementary.tex:119-138, 175-190, 1829-1836 [add companion sentence naming the new releases; &quot;21 (suite,optimizer) cells&quot; stays true of the primary], 1879 [reworded — currently literally false]</code>; <code>cover_letter.tex:55</code>. Data Availability (<code>main.tex:261-270</code>) enumerates <strong>four</strong> release ids — primary (verbatim, unchanged), <code>abl-rel-2026-07-20</code>, <code>lsgo-rel-*</code>, <code>cec2020-rel-*</code> — reusing the &quot;distinct from — and held separately in the repository from — the primary evidence release&quot; pattern already validated at <code>supplementary.tex:~1904-1917</code>. Every new empirical sentence carries a BIND comment to an AN id minted in Phase 3 (never invented in prose); verify with <code>phase_08/audit_manuscript.py validate_bind_token</code> using <strong>explicit</strong> ids (the compact-expansion regex can&#x27;t parse 2013LSGO infixes or non-10/30/50/100 dims). Title: unchanged in both branches. Author all LaTeX with Write/Edit, never a bash heredoc (the literal-&quot;oindent&quot; incident).</p>
+<h3 id="4-5-hard-honesty-disclosure-placement-owner-agent-effort-trivial-sentences-verbatim-from-0-4">4.5 — [HARD-HONESTY] Disclosure placement (owner: agent; effort: trivial; sentences verbatim from 0.4)</h3>
+<p>(a) in the LSGO main-text subsection; (b) in conclusions; (c) in Data Availability and supplement S5; [DROP] the rationale sentence in Data Availability. These survive every harvest.</p>
+<h3 id="4-6-keep-branch-delta-owner-agent-effort-small">4.6 — [KEEP] branch delta (owner: agent; effort: small)</h3>
+<p><code>performance.tex:959</code> recounted arithmetically over five suites (numerator from Phase 3 only); SA03 and AN-\*-2013 ids untouched; &quot;CEC2013 (bound-constrained)&quot; vs &quot;CEC2013LSGO&quot; disambiguation applied everywhere (two suites named CEC2013 otherwise collide); <code>tab:friedman-cec2013</code> harvested to S2.3 per 4.2(f).</p>
+<h3 id="4-7-d-drop-branch-delta-owner-agent-effort-large">4.7-D — [DROP] branch delta (owner: agent; effort: large)</h3>
+<p>Execute the full excision of Gate 0&#x27;s DROP column: delete subsection 4.4 + SA03 + supplement S2.3/S3.3 (S2.4–S2.6 auto-renumber verified safe — only S6.x is hard-coded anywhere); retire PR-03/RS-11 by status <code>RETIRED_SCOPE</code> with date; rewrite the headline and every AN-\*-2013 citation; recount the early-stop tally CEC2017-only (recount from released banks, no rerun); keep S6.5&#x27;s CEC2013-D50 cells and add a local one-paragraph CEC2013 protocol note inside S6; re-check LM-01 so the D30 concession reads correctly with CEC2017 alone; the mandatory Data Availability rationale sentence (0.4); evidence tree untouched (the release legitimately remains a superset of the paper); parity/count snapshots shrink — reconcile in Phase 6.</p>
+<p>---</p>
+<h2 id="phase-5-supplement-construction-s7-s8-and-cross-format-plumbing">PHASE 5 — Supplement construction (S7, S8) and cross-format plumbing</h2>
+<p><strong>Objective:</strong> build the two new supplement sections and wire every exhibit through the dual-format chain.</p>
+<p><strong>Entry:</strong> Phase 3 fragments exist; Phase 4 main-text state stable. <strong>Exit:</strong> S7/S8 complete; <code>\supplementary{}</code> block S1..S8; M-003 and no_ablation_scan green; word_sources/parity rows regenerated.</p>
+<h3 id="5-1-s7-cec2013lsgo-owner-agent-effort-large">5.1 — S7: CEC2013LSGO (owner: agent; effort: large)</h3>
+<p>Append <code>\section</code> after <code>supplementary.tex:2286ff</code> — <strong>never renumber S1–S6, never insert before S6.5/S6.6/S6.7</strong> (hard-coded at <code>main.tex:227</code>, <code>introduction.tex:147</code>, <code>performance.tex:831-834/925-927</code>, <code>conclusions.tex:104</code>). Contents: (1) protocol statement incl. transformed-Ackley + explicit not-comparable-to-published-MOS/DECC-G statement + <strong>post-hoc protocol disclosure in those words</strong> (per 1.5.0-M(f)); (2) per-function 7-algorithm mean±SD as two portrait half-tables (F1–F8 | F9–F15) — the zero-landscape mandate holds (1.5.0-K); (3) family Friedman table + <code>lsgo_ranks</code> figure, at the descriptive-after-inspection tier with the Section-6 disclosure; (4) the <strong>new</strong> paired Wilcoxon+Holm matrix (the confirmatory layer); (5) rank-biserial/A12 + W/T/L; (6) the honesty block: the repository&#x27;s complete external banks, the informal direction (specialists decisively ahead), family-internal scope and why. Add the companion release-id sentence at <code>supplementary.tex:1829-1833</code>.</p>
+<h3 id="5-2-s8-cec2020-owner-agent-effort-large">5.2 — S8: CEC2020 (owner: agent; effort: large)</h3>
+<p>Populate the 0.3 skeleton: (1) protocol statement (38 cells, runs=30 per Yue et al. §2.1, budgets, error basis, F1/F8 D5/D15 restoration note pinned by <code>tests/regression/test_cec2020_restored_cells.py</code>); (2) per-dimension mean±SD as two portrait pairs (D5|D10, D15|D20); (3) Friedman per dimension + descriptive overall column (tab:friedman-cec2017 convention) + Nemenyi where significant; (4) Wilcoxon+Holm matrices per dimension; (5) <strong>the pre-registered framing paragraphs verbatim</strong> — AGSK home-suite disclosure and scaffold-tier interpretation, so the framing provably predates the data; (6) convergence optional — if included, prespecify the dimension before rendering (S3 frozen-selection precedent).</p>
+<h3 id="5-3-supplementary-block-and-gate-discipline-owner-agent-effort-small">5.3 — <code>\supplementary{}</code> block and gate discipline (owner: agent; effort: small)</h3>
+<p><code>main.tex:213-227</code> → S1..S8 ([DROP]: also revise the S2/S3 clauses); <code>validate_document_consistency.py:100-122</code> (M-003) requires contiguous S1..SN matching actual sections — both files change in the same pass. <strong>Reflow discipline:</strong> after every <code>\supplementary{}</code> touch, rebuild the main PDF and run no_ablation_scan <strong>first</strong> — no line in the main PDF may begin with &quot;S6&quot; (<code>main.tex:210-212</code>). Update the supplement abstract (<code>supplementary.tex:119-138</code>) and shared protocol block (<code>175-190</code>); supplement grows ~10–16pp → ~70–80pp (unconstrained by B1).</p>
+<h3 id="5-4-six-point-exhibit-registration-cross-format-regeneration-owner-agent-effort-medium-atomic">5.4 — Six-point exhibit registration + cross-format regeneration (owner: agent; effort: medium; atomic)</h3>
+<p>For every new exhibit: (1) <code>build_docx.py:1250</code> <code>_RESULTS_TEX_IDS</code> gains every new main-text T-id (T17, T18) — omission makes the DOCX silently render a raw word_sources dump (ruling A-9; no gate names it); (2) <code>generate_word_sources.py</code> TABLES dict; (3) <code>generate_latex_tables.py</code>; (4) <code>generate_artifact_binding.py</code> table_spec with explicit <code>GSK_REL_ID</code>; (5) <code>_paper_tables</code> provenance chain; (6) <code>artifact_binding.csv</code> rows (<code>validate_artifact_labels</code> resolves every label). Layout law: portrait only; real <code>table</code>+<code>tabular</code> envs (never bare longtable — <code>build_docx:437</code> walks table envs only); zero <code>\texttt</code>; overfull hbox ≤ 2.0 pt; captions_registry entries; DOCX figure variants (<code>*.docx.png</code>); parity rows regenerated.</p>
+<p>---</p>
+<h2 id="phase-6-build-gates-governance-layers">PHASE 6 — Build, gates, governance layers</h2>
+<p><strong>Objective:</strong> two consecutive identical green sweeps of the full gate battery at the correct epochs.</p>
+<p><strong>Entry:</strong> Phases 4–5 exit. <strong>Exit:</strong> all gates green twice; all four artifacts byte-identical across double builds; count snapshots reconciled; adversarial re-sweep clean.</p>
+<h3 id="6-1-build-chain-owner-agent-effort-medium">6.1 — Build chain (owner: agent; effort: medium)</h3>
+<p>Order: table/figure generators → <code>generate_word_sources</code> → <code>build_supplementary.py</code> → <code>build_pdf.py</code> (self-gates <code>validate_build_hygiene --logs-only</code>) → <code>build_docx.py</code> and <code>build_docx.py --supplementary</code> → cover letter. <strong>Epoch discipline:</strong> PDF <code>SOURCE_DATE_EPOCH=1783468800</code> + <code>FORCE_SOURCE_DATE=1</code>; DOCX <code>SOURCE_DATE_EPOCH=1783641600</code> set <strong>explicitly in the DOCX shell</strong> (a persisted PDF-epoch variable yields a non-reproducible DOCX that still passes every gate); hash-compare both DOCX artifacts <strong>twice</strong> before trusting <code>check_manifest</code>.</p>
+<h3 id="6-2-gate-sweep-owner-agent-effort-medium">6.2 — Gate sweep (owner: agent; effort: medium)</h3>
+<p><code>validate_build_hygiene</code> (full) → <code>validate_cross_format_parity</code> (<strong>no_ablation_scan first</strong>; regenerates <code>cross_format_consistency.csv</code> — row count moves off the ~599/615 snapshot family; update ALL disagreeing snapshots in the same pass: freeze manifest, PAPER_REVIEW_PROMPT §1.5 ×2 + §1.5.6, PAPER_BUILD_PROMPT §15.0) → <code>validate_docx</code> → <code>validate_document_consistency</code> (<strong>expected terminal exit 2</strong> = author-pending; not red) → <code>validate_evidence_bindings</code> (every changed count is a dual-format obligation; M-029 precedent was 20 failures) → <code>validate_citation_controls</code> (61-key corpus) → <code>validate_artifact_labels</code> → <code>validate_provenance_claims --self-test</code> → <code>validate_runtime_provenance</code> → <code>check_manifest</code> (N/15 until Phase 7 re-mint, then N/N + <code>--strict-inventory</code> over primary + both new manifests) → the 0.5 byte-guard once more.</p>
+<h3 id="6-3-hard-honesty-adversarial-re-sweep-owner-agent-effort-medium-blocking">6.3 — [HARD-HONESTY] Adversarial re-sweep (owner: agent; effort: medium; blocking)</h3>
+<p>Grep the built manuscript for prohibited wordings: &quot;leads at D=1000&quot;, &quot;competitive&quot; (unsupported), [DROP] &quot;first overall on … CEC2013&quot;, un-scoped &quot;three suites&quot;, any MOS/SHADE-ILS/DECC-G <strong>number from our banks</strong> in a table or claim, any LSGO comparative not scoped &quot;within the GSK family&quot;, any F4/F8 win without the F7/F15 lasts. Verify: abstract carries exactly one bound number and it is CEC2017-scoped; the AGSK adjacency disclosure appears wherever CEC2020 results are interpreted; the three 0.4 sentences are present verbatim; claims matrix has a row for every CEC2020/LSGO sentence; D5&#x27;s 8-block count is stated wherever CEC2020 Friedman appears.</p>
+<h3 id="6-4-governance-doc-closure-owner-agent-effort-small">6.4 — Governance doc closure (owner: agent; effort: small)</h3>
+<p>1.5.0-N populated variables (§1.5.1: EMPIRICAL_SCOPE rewritten to the executed scope, page/word counts re-measured, release-id table extended to four ids); PAPER_BUILD_PROMPT: §2.2 corpus 57→61, §4.2/4.3 expected inventory, §15.0 parity snapshot, Appendix A/B.4; <code>captions_registry.md</code>; the [DROP] <code>cross_format_consistency.csv</code> reconciliation if applicable.</p>
+<p>---</p>
+<h2 id="phase-7-re-freeze-freeze-statement-tag">PHASE 7 — Re-freeze, freeze statement, tag</h2>
+<p><strong>Objective:</strong> re-freeze the manuscript state, write the first freeze pass in project history that owns changed numbers, and tag v2.0.</p>
+<p><strong>Entry:</strong> Phase 6 exit (two identical green sweeps). <strong>Exit:</strong> tag <code>dtgsk-submission-v2.0-&lt;date&gt;</code> pushed at the freeze anchor; all manifests verified.</p>
+<ol>
+<li><strong>(agent)</strong> Byte-surgically re-mint <code>papers/governance/main_manuscript_freeze_manifest.json</code>: CRLF + 2-space indent; update <strong>both</strong> <code>sha256</code> and <code>bytes</code> per file (<code>check_manifest.py:70-77</code> gates both); read/write <strong>bytes</strong>, never <code>sed -i</code> or <code>read_text()/write_text()</code> (they normalize EOLs and break every hash); preserve each file&#x27;s own trailing-byte convention (reproducibility + primary-freeze end with a trailing CRLF newline; main-manuscript + submission-package do not).</li>
+<li><strong>(agent)</strong> Append <strong>freeze pass 24</strong> — unlike all 23 predecessors it must NOT claim &quot;no reported number changed&quot;. It records: the re-opening and CR-0019/CR-0020 authority; the Gate 0 outcome; the two new release ids and their pre-registration hash; the externals-out decision <strong>with</strong> the public-banks disclosure posture; the actual CEC2020 and LSGO results, favorable or not; both build epochs. <code>scientific_content_status</code> transitions out of and back into a frozen value; <code>validator_outputs_at_freeze</code> rewritten wholesale from the Phase 6 sweep.</li>
+<li><strong>(agent)</strong> Update <code>reproducibility_manifest.json</code> + <code>submission_package_manifest.json</code> naming all four releases without dropping the primary id; bump <code>manuscript_version_id</code>; close <code>_pending_refreeze.json</code> against its exit criteria; return phase-gate rows to FROZEN with fresh evidence.</li>
+<li><strong>(either)</strong> Reconcile the three authorities to ONE commit: freeze-manifest <code>anchor_commit</code> == submission-package commit == the commit the tag resolves to (the v1.0 state had three different &quot;authoritative&quot; commits cross-checked by no gate).</li>
+<li><strong>(agent)</strong> Final <code>check_manifest</code> N/N + <code>--strict-inventory</code> green on every manifest; <code>validate_docx</code>; double-build verification once more.</li>
+<li><strong>(author)</strong> Commit, tag <code>dtgsk-submission-v2.0-&lt;date&gt;</code> at exactly the anchor commit (ruling R4), retain v1.0 as historical (recorded as superseded in the freeze statement; never deleted or moved), push branch + tag; verify <code>git ls-remote --tags</code> shows the tag at the anchor.</li>
+</ol>
+<p>---</p>
+<h2 id="phase-8-author-side-post-tag-checklist-in-order">PHASE 8 — Author-side post-tag checklist (in order)</h2>
+<ol>
+<li>Confirm the pushed tag resolves to the freeze anchor.</li>
+<li>Cut a <strong>GitHub Release from the v2.0 tag</strong> so the Zenodo integration mints a <strong>new DOI version</strong> (COMP-001b). Never re-point the existing DOI. No manuscript rebuild is needed (AG-0006/R-0004: the manuscript deliberately prints no identifier; locators are supplied with the submission).</li>
+<li>Record the DOI in governance, not in any <code>.tex</code>.</li>
+<li>SuSy submission (per AG-0006, account <code>moustafa.masoud@gmail.com</code>): MDPI Algorithms / Article; abstract + keywords pasted from the rebuilt <code>main.tex</code>; upload DT-GSK.pdf, DT-GSK.docx, supplementary.pdf/.docx, cover_letter.pdf; mailing address + telephone entered directly in the portal (deliberately not in the public repo); APC with personal invoice, affiliation unchanged (Giza 12613); repository URL + new DOI in the data-availability fields; <strong>never fabricate reviewer names, DOIs, or journal metrics</strong> in the suggested-reviewer fields.</li>
+</ol>
+<p>---</p>
+<h2 id="risk-register-severity-ordered-deduplicated-across-lenses">Risk register (severity-ordered, deduplicated across lenses)</h2>
+<div class="table-wrap"><table><thead><tr><th>#</th><th>Sev</th><th>Risk</th><th>Mitigation (task)</th></tr></thead><tbody><tr><td>1</td><td>CRITICAL</td><td>End-to-end <code>finalize_evidence.py</code> run re-mints the primary (P6 new id at <code>:1118-1121</code>), absorbs stray files (drift guard <code>:1091-1109</code> checks old files only), voids <code>rel-2026-07-20-67d9345f9</code> cited at ten sites</td><td>0.10 hygiene first; 0.11 executable abort guard; all promotion via <code>promote_suite.py</code>; strict-inventory at every phase boundary</td></tr><tr><td>2</td><td>CRITICAL</td><td>Campaign launches before the pre-registration commit — the only genuine pre-outcome moment, on AGSK&#x27;s home suite, is destroyed forever</td><td>0.3 is a hard ordering gate; commit hash logged; manifests bind the hash</td></tr><tr><td>3</td><td>CRITICAL</td><td><code>.prebugfix</code> forensics finds the defect touched the four pre-fix LSGO banks → the six-comparator ranking under the tie claim is invalid</td><td>0.8 blocking closure with recorded finding either way; NO-GO for the LSGO leg until resolved; author decision A7 on the re-run</td></tr><tr><td>4</td><td>CRITICAL</td><td>Public adverse external banks (shade-ils 1.600 / mos 2.467 vs dt-gsk 5.133) + family-only paper with no acknowledgment = concealment discoverable in one <code>ls</code>; retroactively discredits the ISM null and eGSK-loss honesty record</td><td>0.4 sentences (HARD) + 2.8 documented-but-unpromoted package + 5.1(6) honesty block + 6.3 re-sweep</td></tr><tr><td>5</td><td>CRITICAL</td><td>Regeneration/absorption of frozen analysis outputs breaks the abstract&#x27;s 2.48, the parity table, the verbatim release id (phase6&#x27;s stale default rel id makes a bare invocation live)</td><td>0.5 byte-guard after every phase; R3 separate driver; phase6 never invoked without explicit env overrides</td></tr><tr><td>6</td><td>HIGH</td><td><code>run_all_cec2020.py</code>/<code>agsk_cec2020.yml</code> injects reference-policy seeds into the AGSK bank → mixed-schedule rows silently break the paired design</td><td>0.7 neutralization; R2 single command; 1.5 check (6) catches contamination after the fact</td></tr><tr><td>7</td><td>HIGH</td><td>Campaign spans multiple commits / dirty tree (LSGO precedent: six commits + mid-window acceleration)</td><td>0.6 single pinned commit; 1.5 check (9); mid-campaign code change ⇒ stop, deviation, full re-run of affected algorithms</td></tr><tr><td>8</td><td>HIGH</td><td>Numba cache poisoning (suite files restored by copy 2026-07-26; the 2026-07-27 incident faked 7/42 pin failures)</td><td>0.6 purge + 42/42 pins before launch and after any future suite-file copy</td></tr><tr><td>9</td><td>HIGH</td><td>DOCX epoch trap: persisted PDF epoch → non-reproducible DOCX that passes every gate</td><td>6.1 explicit epochs; double-build hash compare ×2; both epochs in pass 24</td></tr><tr><td>10</td><td>HIGH</td><td>Manifest byte-convention corruption (CRLF/2-space, per-file trailing bytes; <code>sed</code>/<code>read_text</code> normalize and break all hashes while JSON parses green)</td><td>7.1 byte-surgical edits only; <code>check_manifest</code> immediately after each manifest touch; new manifests written only by <code>promote_suite.py</code></td></tr><tr><td>11</td><td>HIGH</td><td>Page/word budget collision (41pp vs 40pp cap; 197/200-word abstract; two suites of new prose)</td><td>4.2(f) harvest ledger; CR raising the cap (A8) rather than cutting disclosure prose; [DROP] frees ~1.2pp</td></tr><tr><td>12</td><td>HIGH</td><td>LSGO suite-definition PDF unobtainable → suite cannot be cited → LSGO leg blocked</td><td>0.9 starts hour 1; fallback: LSGO deferred-with-disclosure while CEC2020 proceeds</td></tr><tr><td>13</td><td>HIGH</td><td>LSGO overclaim: tie + p=0.0372 + egsk-only separation supports only the descriptive ceiling; formal unrounded pipeline could flip the informal tie</td><td>Addendum §9 claim ladder pre-committed; confirmatory weight only on the never-run paired layer; 6.3 wording grep</td></tr><tr><td>14</td><td>HIGH</td><td>Cross-suite heterogeneity attack (51/25/30/25 runs, error-vs-raw, budget regimes)</td><td>Addendum §8 absolute pooling ban; 4.2 heterogeneity paragraph + four-category taxonomy; headline = descriptive per-suite count only</td></tr><tr><td>15</td><td>MEDIUM</td><td>Wall-time underestimate (dt-gsk probe rate above model; JIT overhead) → 20–30 h stretches toward 40 h</td><td>Tranche split; D20 overnight; resume-safe — scheduling risk only</td></tr><tr><td>16</td><td>MEDIUM</td><td>CR-0012 resumed-session Mean/SD drift fails a habitual exact-match audit</td><td>1.6 pre-declared rel 1e-8 tolerance (0C-3 precedent), exact only for Best/Median/Worst</td></tr><tr><td>17</td><td>MEDIUM</td><td>Promotion debris: <code>.prebugfix</code> siblings, stale <code>skipped_runs.csv</code>, runner <code>.txt</code> logs ride into an immutable tree</td><td>2.4 whitelist + explicit exclusions + <code>deviation_record</code> class (R5); strict-inventory before/after each mint</td></tr><tr><td>18</td><td>MEDIUM</td><td><code>rel-*</code> glob trap: an analysis bundle named <code>rel-*</code> reclassifies the primary as superseded (<code>validate_provenance_claims.py:155</code>)</td><td>Bundle names <code>lsgo-rel-*</code>/<code>cec2020-rel-*</code>; <code>--self-test</code> immediately after each bundle dir is created</td></tr><tr><td>19</td><td>MEDIUM</td><td>Stale default release ids in generators (<code>generate_artifact_binding.py</code> → <code>rel-2026-07-16-78f075cb0</code>) bind new artifacts to a dead release</td><td>3.3 explicit <code>GSK_REL_ID</code> per invocation + post-regeneration grep</td></tr><tr><td>20</td><td>MEDIUM</td><td>New T-id missing from <code>_RESULTS_TEX_IDS</code> → DOCX silently diverges from PDF; no gate names it</td><td>5.4 atomic six-point registration; parity + <code>validate_docx</code> right after first DOCX build</td></tr><tr><td>21</td><td>MEDIUM</td><td><code>\supplementary{}</code> reflow pushes &quot;S6&quot; to a line start (no_ablation_scan); M-003 contiguity break</td><td>5.3 edit→rebuild→scan-first discipline; both files in one pass; append-only sections</td></tr><tr><td>22</td><td>MEDIUM</td><td>[DROP] optics: cited release ships CEC2013 banks; public v1.0 tag claims first-overall on it</td><td>0.4 [DROP] rationale sentence (vetoed if absent); rows retired by status, never deleted</td></tr><tr><td>23</td><td>MEDIUM</td><td>ISM-null scope creep to D=1000; stale &quot;D=100 evidence ceiling&quot; sentence (<code>conclusions.tex:127-129</code>)</td><td>4.3 consistency framing; isolation scope explicit</td></tr><tr><td>24</td><td>MEDIUM</td><td>Governance self-contradiction: 1.5.0-M(i) mandates the external context the new scope removes</td><td>0.2(3) 1.5.0-N supersession <strong>before</strong> any manuscript edit + CR-0019 + comparability/data-ledger re-adjudication</td></tr><tr><td>25</td><td>LOW</td><td>Gate-status misreads (validate_document_consistency exit 2 is expected; five historical parity-count snapshots disagree)</td><td>6.2 documents expected exit codes; all snapshots updated in one pass</td></tr><tr><td>26</td><td>LOW</td><td>Vacuous CONSISTENT verification verdicts on CEC2020 (no reference tables for 6/7 algorithms)</td><td>2.5 <code>NOT_VERIFIED/NO_REFERENCE</code>; optional AGSK published-table wiring (A10)</td></tr><tr><td>27</td><td>LOW</td><td>[DROP] S6.5 references a suite the paper no longer defines</td><td>4.7-D local protocol note inside S6; AB-02 unchanged</td></tr></tbody></table></div>
+<p>---</p>
+<h2 id="decisions-only-the-author-can-make">Decisions ONLY the author can make</h2>
+<ul>
+<li><strong>A1 — Gate 0:</strong> keep or drop CEC2013 (recommendation: KEEP, ruling R1). Wording-blocking only; does not delay the campaign.</li>
+<li><strong>A2 — Sign and commit the pre-registration</strong> (0.3). The commit timestamp is the evidence; hard expiry at first run.</li>
+<li><strong>A3 — Approve the three disclosure sentences + wording bank verbatim</strong> (0.4). Adversarial-veto items.</li>
+<li><strong>A4 — Launch the campaign and drive resume decisions</strong> (1.1/1.2). Agent never launches.</li>
+<li><strong>A5 — Disposition of <code>scripts/run_all_cec2020.py</code></strong> (0.7): repoint vs guard vs delete.</li>
+<li><strong>A6 — Supply the four citation PDFs</strong> and ratify the corpus admissions (0.9/R8) — the LSGO suite-definition PDF is the schedule long pole.</li>
+<li><strong>A7 — If 0.8 finds pre-fix contamination:</strong> authorize the &gt;100 h LSGO re-run, or drop the LSGO leg to deferred-with-disclosure.</li>
+<li><strong>A8 — Page-cap CR</strong> if the KEEP branch still exceeds 40pp after the full harvest.</li>
+<li><strong>A9 — Ratify the <code>skipped_runs.csv</code> <code>deviation_record</code> promotion</strong> (ruling R5).</li>
+<li><strong>A10 — Optional:</strong> wire AGSK&#x27;s published Mohamed et al. 2020 tables as a real CEC2020 verification reference.</li>
+<li><strong>A11 — Commit, tag <code>dtgsk-submission-v2.0-&lt;date&gt;</code>, push</strong> (7.6); cut the GitHub Release → new Zenodo DOI version (8.2).</li>
+<li><strong>A12 — SuSy submission</strong> with portal-only personal data (8.4).</li>
+</ul>
+<p>---</p>
+<h2 id="calendar-estimate">Calendar estimate</h2>
+<p>Assumes one campaign machine (22 logical cores), agent sessions of a working half-day, author available for decisions/launches daily.</p>
+<div class="table-wrap"><table><thead><tr><th>Window</th><th>Work</th><th>Wall time</th></tr></thead><tbody><tr><td>Day 1</td><td>Phase 0 core (Gate 0, CR-0019/20, 1.5.0-N, pre-registration drafted+signed+committed, byte-guard, preflight, config lock, wrapper neutralized); parallel tracks 0.8–0.10 opened</td><td>1 day (2 sessions)</td></tr><tr><td>Days 2–3</td><td><strong>Phase 1 compute: 247–265 core-h ≈ 20–30 h wall</strong> (D5/D10 sanity ~2 h, D15 ~4–5 h, D20 overnight). In parallel: forensics closure, namespace hygiene, promote-tool build, phase6b skeleton, LSGO pairing audit, LSGO mint (2.6), citation lockstep</td><td>1.5–2 days</td></tr><tr><td>Day 4</td><td>1.5 completeness verification + 1.6 heritage audit; CEC2020 pairing audit; 2.7 cec2020-rel mint; 2.8 disclosure package</td><td>1 day (2 sessions)</td></tr><tr><td>Days 5–6</td><td>Phase 3: phase6b completion, confirmatory batteries, robustness, registries, exhibit fragments</td><td>2 days (3–4 sessions)</td></tr><tr><td>Days 7–9</td><td>Phase 4 manuscript surgery (claims first) + Phase 5 supplement S7/S8 + cross-format plumbing ([DROP] adds ~1 day)</td><td>2.5–3.5 days (4–6 sessions)</td></tr><tr><td>Day 10</td><td>Phase 6 build + double gate sweep + adversarial re-sweep + snapshot reconciliation</td><td>1 day (1–2 sessions)</td></tr><tr><td>Day 11</td><td>Phase 7 re-freeze, pass-24 statement, tag v2.0, push</td><td>0.5 day</td></tr><tr><td>Day 11+</td><td>Phase 8: GitHub Release → Zenodo DOI (minutes + Zenodo latency), SuSy submission</td><td>0.5 day</td></tr></tbody></table></div>
+<p><strong>Totals:</strong> ~13–17 agent/author working sessions over <strong>10–12 working days at steady pace; 2–3 calendar weeks realistic</strong> with author availability slack. Compute: one resumable 247–265 core-hour campaign (~20–30 h wall, worst case ~40 h) — the only compute in the entire endgame; everything else is analysis, prose, and governance. The critical path is: pre-registration commit → CEC2020 D20 tranche → phase6b confirmatory output → headline/abstract wording → gate sweep → re-freeze. The schedule long poles outside compute are the LSGO suite-definition PDF (A6) and the <code>.prebugfix</code> adjudication (0.8) — both start on Day 1.</p>
+      </article>
+    </main>
+    <aside class="page-toc" aria-label="On this page">
+<h2>On This Page</h2>
+<a class="toc-level-1" href="#final-publication-plan-dt-gsk-four-five-suite-scope">FINAL PUBLICATION PLAN — DT-GSK, Four(/Five)-Suite Scope</a>
+<a class="toc-level-2" href="#how-to-read-this-plan">How to read this plan</a>
+<a class="toc-level-2" href="#inter-lens-conflict-rulings-binding-for-the-rest-of-this-document">Inter-lens conflict rulings (binding for the rest of this document)</a>
+<a class="toc-level-2" href="#phase-0-decision-gate-0-pre-commitment-and-campaign-preflight">PHASE 0 — Decision Gate 0, pre-commitment, and campaign preflight</a>
+<a class="toc-level-3" href="#0-1-decision-gate-0-cec2013-keep-vs-drop-owner-author-effort-trivial-blocking-for-phase-4-wording-only-does-not-block-the-campaign">0.1 — Decision Gate 0: CEC2013 keep vs drop (owner: **author**; effort: trivial; blocking for Phase 4 wording only — does NOT block the campaign)</a>
+<a class="toc-level-3" href="#0-2-governance-reopening-owner-agent-drafts-author-approves-effort-small-blocking">0.2 — Governance reopening (owner: agent drafts, author approves; effort: small; blocking)</a>
+<a class="toc-level-3" href="#0-3-the-pre-registration-commit-owner-agent-drafts-author-signs-and-commits-effort-medium-hard-ordering-constraint-must-precede-the-first-run-py-invocation-worthless-once-a-single-per-run-csv-row-exists">0.3 — The pre-registration commit (owner: agent drafts, **author signs and commits**; effort: medium; **HARD ordering constraint: must precede the first `run.py` invocation — worthless once a single `per_run.csv` row exists**)</a>
+<a class="toc-level-3" href="#0-4-hard-honesty-author-approval-of-the-three-disclosure-sentences-owner-author-effort-trivial-blocking-for-phase-4">0.4 — [HARD-HONESTY] Author approval of the three disclosure sentences (owner: **author**; effort: trivial; blocking for Phase 4)</a>
+<a class="toc-level-3" href="#0-5-byte-identity-guard-on-frozen-analysis-outputs-owner-agent-effort-small-blocking">0.5 — Byte-identity guard on frozen analysis outputs (owner: agent; effort: small; blocking)</a>
+<a class="toc-level-3" href="#0-6-campaign-preflight-hygiene-owner-either-effort-small-blocking-for-launch">0.6 — Campaign preflight hygiene (owner: either; effort: small; blocking for launch)</a>
+<a class="toc-level-3" href="#0-7-neutralize-scripts-run-all-cec2020-py-owner-author-decides-disposition-agent-executes-effort-trivial-blocking-for-launch">0.7 — Neutralize `scripts/run_all_cec2020.py` (owner: **author** decides disposition, agent executes; effort: trivial; blocking for launch)</a>
+<a class="toc-level-3" href="#0-8-parallel-lsgo-prebugfix-forensics-track-0c-1-closure-owner-either-effort-medium-blocks-phase-2-lsgo-promotion-and-every-lsgo-claim-start-immediately-it-can-invalidate-the-whole-lsgo-leg">0.8 — [PARALLEL] LSGO `.prebugfix` forensics — Track 0C-1 closure (owner: either; effort: medium; **blocks Phase 2 LSGO promotion and every LSGO claim; start immediately — it can invalidate the whole LSGO leg**)</a>
+<a class="toc-level-3" href="#0-9-parallel-citation-corpus-lockstep-the-long-pole-owner-author-supplies-pdfs-agent-does-lockstep-effort-medium-blocks-phase-4">0.9 — [PARALLEL] Citation corpus lockstep — the long pole (owner: **author** supplies PDFs, agent does lockstep; effort: medium; blocks Phase 4)</a>
+<a class="toc-level-3" href="#0-10-parallel-evidence-namespace-hygiene-the-four-unlisted-files-owner-agent-effort-small-blocks-any-mint-phase-2">0.10 — [PARALLEL] Evidence-namespace hygiene: the four unlisted files (owner: agent; effort: small; **blocks any mint, Phase 2**)</a>
+<a class="toc-level-3" href="#0-11-parallel-executable-never-remint-guard-owner-agent-effort-trivial">0.11 — [PARALLEL] Executable never-remint guard (owner: agent; effort: trivial)</a>
+<a class="toc-level-3" href="#0-12-parallel-config-lock-gate-owner-agent-effort-small-blocking-for-launch">0.12 — [PARALLEL] Config lock gate (owner: agent; effort: small; blocking for launch)</a>
+<a class="toc-level-2" href="#phase-1-cec2020-campaign-execution-author-run">PHASE 1 — CEC2020 campaign execution (author-run)</a>
+<a class="toc-level-3" href="#1-1-launch-owner-author-effort-large-20-30-h-wall">1.1 — Launch (owner: **author**; effort: large — ~20–30 h wall)</a>
+<a class="toc-level-3" href="#1-2-interruption-resume-protocol-owner-author-effort-trivial">1.2 — Interruption/resume protocol (owner: author; effort: trivial)</a>
+<a class="toc-level-3" href="#1-3-prohibitions-during-the-window">1.3 — Prohibitions during the window</a>
+<a class="toc-level-3" href="#1-4-parallel-agent-work-during-the-compute-window">1.4 — [PARALLEL] Agent work during the compute window</a>
+<a class="toc-level-3" href="#1-5-post-run-completeness-verification-owner-agent-writes-40-line-read-only-script-author-runs-effort-small-blocking">1.5 — Post-run completeness verification (owner: agent writes ~40-line read-only script, author runs; effort: small; blocking)</a>
+<a class="toc-level-3" href="#1-6-bug-resume-01-heritage-audit-owner-agent-effort-small-blocking">1.6 — BUG-RESUME-01 heritage audit (owner: agent; effort: small; blocking)</a>
+<a class="toc-level-2" href="#phase-2-evidence-promotion-two-separate-immutable-releases">PHASE 2 — Evidence promotion: two separate immutable releases</a>
+<a class="toc-level-3" href="#2-1-release-architecture-settled-no-conflict">2.1 — Release architecture (settled; no conflict)</a>
+<a class="toc-level-3" href="#2-2-lsgo-staging-ledger-closure-owner-either-effort-folded-into-0-8-blocking-for-2-6">2.2 — LSGO staging-ledger closure (owner: either; effort: folded into 0.8; blocking for 2.6)</a>
+<a class="toc-level-3" href="#2-3-pairing-audits-owner-agent-effort-small-each-block-every-paired-statistic">2.3 — Pairing audits (owner: agent; effort: small each; block every paired statistic)</a>
+<a class="toc-level-3" href="#2-4-build-papers-scripts-promote-suite-py-owner-agent-effort-medium-blocking">2.4 — Build `papers/scripts/promote_suite.py` (owner: agent; effort: medium; blocking)</a>
+<a class="toc-level-3" href="#2-5-manifest-field-spec-both-releases">2.5 — Manifest field spec (both releases)</a>
+<a class="toc-level-3" href="#2-6-mint-lsgo-rel-owner-either-effort-medium-can-complete-during-phase-1">2.6 — Mint `lsgo-rel-*` (owner: either; effort: medium; can complete **during** Phase 1)</a>
+<a class="toc-level-3" href="#2-7-mint-cec2020-rel-owner-either-effort-medium-after-1-6">2.7 — Mint `cec2020-rel-*` (owner: either; effort: medium; after 1.6)</a>
+<a class="toc-level-3" href="#2-8-hard-honesty-external-lsgo-banks-documented-but-unpromoted-owner-agent-effort-small-blocking-for-submission">2.8 — [HARD-HONESTY] External LSGO banks: documented-but-unpromoted (owner: agent; effort: small; blocking for submission)</a>
+<a class="toc-level-2" href="#phase-3-formal-statistics">PHASE 3 — Formal statistics</a>
+<a class="toc-level-3" href="#3-1-build-papers-scripts-phase6b-run-analysis-newsuites-py-owner-agent-effort-large-blocking-skeleton-buildable-during-phase-1">3.1 — Build `papers/scripts/phase6b_run_analysis_newsuites.py` (owner: agent; effort: large; blocking; skeleton buildable during Phase 1)</a>
+<a class="toc-level-3" href="#3-2-execute-the-confirmatory-batteries-owner-agent-effort-medium">3.2 — Execute the confirmatory batteries (owner: agent; effort: medium)</a>
+<a class="toc-level-3" href="#3-3-registry-and-matrix-wiring-owner-agent-effort-medium">3.3 — Registry and matrix wiring (owner: agent; effort: medium)</a>
+<a class="toc-level-3" href="#3-4-exhibit-fragment-generation-owner-agent-effort-medium">3.4 — Exhibit fragment generation (owner: agent; effort: medium)</a>
+<a class="toc-level-2" href="#phase-4-manuscript-surgery-main-text">PHASE 4 — Manuscript surgery (main text)</a>
+<a class="toc-level-3" href="#4-1-claims-matrix-surgery-owner-agent-effort-medium-blocking-everything-below">4.1 — Claims-matrix surgery (owner: agent; effort: medium; blocking everything below)</a>
+<a class="toc-level-3" href="#4-2-section-4-1-protocol-heterogeneity-page-budget-owner-agent-effort-medium">4.2 — Section 4.1 protocol + heterogeneity + page budget (owner: agent; effort: medium)</a>
+<a class="toc-level-3" href="#4-3-synthesis-abstract-introduction-conclusions-cover-letter-owner-agent-effort-medium">4.3 — Synthesis, abstract, introduction, conclusions, cover letter (owner: agent; effort: medium)</a>
+<a class="toc-level-3" href="#4-4-false-sentence-sweep-owner-agent-effort-large">4.4 — False-sentence sweep (owner: agent; effort: large)</a>
+<a class="toc-level-3" href="#4-5-hard-honesty-disclosure-placement-owner-agent-effort-trivial-sentences-verbatim-from-0-4">4.5 — [HARD-HONESTY] Disclosure placement (owner: agent; effort: trivial; sentences verbatim from 0.4)</a>
+<a class="toc-level-3" href="#4-6-keep-branch-delta-owner-agent-effort-small">4.6 — [KEEP] branch delta (owner: agent; effort: small)</a>
+<a class="toc-level-3" href="#4-7-d-drop-branch-delta-owner-agent-effort-large">4.7-D — [DROP] branch delta (owner: agent; effort: large)</a>
+<a class="toc-level-2" href="#phase-5-supplement-construction-s7-s8-and-cross-format-plumbing">PHASE 5 — Supplement construction (S7, S8) and cross-format plumbing</a>
+<a class="toc-level-3" href="#5-1-s7-cec2013lsgo-owner-agent-effort-large">5.1 — S7: CEC2013LSGO (owner: agent; effort: large)</a>
+<a class="toc-level-3" href="#5-2-s8-cec2020-owner-agent-effort-large">5.2 — S8: CEC2020 (owner: agent; effort: large)</a>
+<a class="toc-level-3" href="#5-3-supplementary-block-and-gate-discipline-owner-agent-effort-small">5.3 — `\supplementary{}` block and gate discipline (owner: agent; effort: small)</a>
+<a class="toc-level-3" href="#5-4-six-point-exhibit-registration-cross-format-regeneration-owner-agent-effort-medium-atomic">5.4 — Six-point exhibit registration + cross-format regeneration (owner: agent; effort: medium; atomic)</a>
+<a class="toc-level-2" href="#phase-6-build-gates-governance-layers">PHASE 6 — Build, gates, governance layers</a>
+<a class="toc-level-3" href="#6-1-build-chain-owner-agent-effort-medium">6.1 — Build chain (owner: agent; effort: medium)</a>
+<a class="toc-level-3" href="#6-2-gate-sweep-owner-agent-effort-medium">6.2 — Gate sweep (owner: agent; effort: medium)</a>
+<a class="toc-level-3" href="#6-3-hard-honesty-adversarial-re-sweep-owner-agent-effort-medium-blocking">6.3 — [HARD-HONESTY] Adversarial re-sweep (owner: agent; effort: medium; blocking)</a>
+<a class="toc-level-3" href="#6-4-governance-doc-closure-owner-agent-effort-small">6.4 — Governance doc closure (owner: agent; effort: small)</a>
+<a class="toc-level-2" href="#phase-7-re-freeze-freeze-statement-tag">PHASE 7 — Re-freeze, freeze statement, tag</a>
+<a class="toc-level-2" href="#phase-8-author-side-post-tag-checklist-in-order">PHASE 8 — Author-side post-tag checklist (in order)</a>
+<a class="toc-level-2" href="#risk-register-severity-ordered-deduplicated-across-lenses">Risk register (severity-ordered, deduplicated across lenses)</a>
+<a class="toc-level-2" href="#decisions-only-the-author-can-make">Decisions ONLY the author can make</a>
+<a class="toc-level-2" href="#calendar-estimate">Calendar estimate</a>
+</aside>
+  </div>
+  <script src="assets/search.js"></script>
+</body>
+</html>

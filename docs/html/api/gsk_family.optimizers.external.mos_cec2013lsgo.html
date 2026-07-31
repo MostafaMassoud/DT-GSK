@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Python API documentation for gsk_family.optimizers.external.mos_cec2013lsgo">
+  <title>gsk_family.optimizers.external.mos_cec2013lsgo | GSK Family Python Documentation</title>
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+  <div class="site-shell">
+    <aside class="sidebar">
+<div class="brand"><a href="../index.html">GSK Family Python</a></div>
+<input class="nav-search" type="search" placeholder="Filter docs" aria-label="Filter docs">
+<nav class="nav-list" aria-label="Documentation">
+<section><h2>Getting Started</h2>
+<a class="nav-link" href="../getting-started_configuration.html">Configuration</a>
+<a class="nav-link" href="../getting-started_explainer.html">Explainer</a>
+<a class="nav-link" href="../getting-started_runbook.html">Runbook</a>
+<a class="nav-link" href="../getting-started_troubleshooting.html">Troubleshooting</a>
+<a class="nav-link" href="../getting-started_tutorial.html">Tutorial</a>
+<a class="nav-link" href="../getting-started_user_guide.html">User Guide</a>
+</section>
+<section><h2>Reference</h2>
+<a class="nav-link" href="../reference_api.html">API Reference</a>
+<a class="nav-link" href="../reference_architecture.html">Architecture</a>
+<a class="nav-link" href="../reference_benchmark_mapping.html">Benchmark Mapping</a>
+<a class="nav-link" href="../reference_benchmark_protocol.html">Benchmark Protocol</a>
+<a class="nav-link" href="../reference_cec2011_cpp_python_equivalence_review.html">CEC2011 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="../reference_cec2013_cpp_python_equivalence_review.html">CEC2013 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="../reference_cec2013lsgo_cpp_python_equivalence_review.html">CEC2013LSGO C++ to Python Equivalence Review</a>
+<a class="nav-link" href="../reference_cec2017_cpp_python_equivalence_review.html">CEC2017 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="../reference_cec2020_cpp_python_equivalence_review.html">CEC2020 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="../index.html">Documentation Index</a>
+<a class="nav-link" href="../reference_fp_regime.html">Floating-Point Regime Verification</a>
+<a class="nav-link" href="../reference_diagrams.html">Flowcharts And Diagrams</a>
+<a class="nav-link" href="../reference_glossary.html">Glossary</a>
+<a class="nav-link" href="../LICENSES.html">Licenses</a>
+<a class="nav-link" href="../reference_module_dependencies.html">Module Dependencies</a>
+<a class="nav-link" href="../reference_project_structure.html">Project Structure</a>
+<a class="nav-link" href="../reference_python_optimizer_interface.html">Python Optimizer Interface</a>
+<a class="nav-link" href="../reference_result_schema.html">Result Schema</a>
+<a class="nav-link" href="../reference_seed_policy.html">Seed Policy</a>
+<a class="nav-link" href="../reference_workflows.html">Workflows</a>
+</section>
+<section><h2>Algorithm Guides</h2>
+<a class="nav-link" href="../algorithms_agsk.html">AGSK — Adaptive Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="../algorithms_apgsk.html">APGSK — Adaptive-Parameters Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="../algorithms_atmals-gsk.html">ATMALS-GSK — Adaptive Tuning, Memory, Adaptive Local Search</a>
+<a class="nav-link" href="../algorithms_dt-gsk.html">DT-GSK — Dimension-Tiered Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="../algorithms_egsk.html">EGSK — Enhanced Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="../algorithms_fdb-agsk.html">FDB-AGSK — Fitness-Distance-Balance AGSK</a>
+<a class="nav-link" href="../algorithms_gsk.html">GSK — Gaining-Sharing Knowledge</a>
+</section>
+<section><h2>Development</h2>
+<a class="nav-link" href="../development_BUG_resume_summary_truncation.html">BUG-RESUME-01 — resume mode truncates (and mis-computes) the per-dimension summary CSV</a>
+<a class="nav-link" href="../development_LSGO_ACCELERATION_PLAN.html">CEC2013LSGO Acceleration Plan — all 7 GSK-family algorithms, bit-identically</a>
+<a class="nav-link" href="../development_LSGO_INTEGRATION_CAMPAIGN.html">CEC2013LSGO Integration — Campaign Plan</a>
+<a class="nav-link" href="../development_CEC2017_PREC_adjudication.html">CEC2017-PREC — adjudication (CLOSED 2026-07-25)</a>
+<a class="nav-link" href="../development_code_reading_guide.html">Code Reading Guide</a>
+<a class="nav-link" href="../development_contributor_guide.html">Contributor Guide</a>
+<a class="nav-link" href="../development_DECC_G_port_record.html">DECC-G port — fidelity and validation record</a>
+<a class="nav-link" href="../development_developer_guide.html">Developer Guide</a>
+<a class="nav-link" href="../development_README.html">Development Docs</a>
+<a class="nav-link" href="../development_dt_gsk_core_reference.html">DT-GSK Core Reference — the vendored core and its byte-identity lock</a>
+<a class="nav-link" href="../development_evidence_rerun_runbook.html">DT-GSK re-run runbook — corrected implementation (C006 + graph backend)</a>
+<a class="nav-link" href="../development_egsk_port_spec.html">EGSK — Algorithm Spec &amp; Porting Verdict</a>
+<a class="nav-link" href="../development_extension_guide.html">Extension Guide</a>
+<a class="nav-link" href="../development_FAMILY_ACCELERATION_PLAN.html">Family-wide acceleration plan — 7 algorithms x 5 suites, bit-identical only</a>
+<a class="nav-link" href="../development_FINAL_PUBLICATION_PLAN.html">FINAL PUBLICATION PLAN — DT-GSK, Four(/Five)-Suite Scope</a>
+<a class="nav-link" href="../development_ACCELERATION_CAMPAIGN_PROMPT.html">GSK-Family Acceleration Campaign — Execution Prompt</a>
+<a class="nav-link" href="../development_maintenance_guide.html">Maintenance Guide</a>
+<a class="nav-link" href="../development_PORT_05_TUNING_TRIAGE.html">Porting project-05 tuning into 02 — Phase 1 audit and triage</a>
+<a class="nav-link" href="../development_REFERENCE_PROMOTION_PLAN.html">Reference Promotion Plan — CEC2013LSGO now, CEC2020 behind its completeness gate</a>
+<a class="nav-link" href="../development_SIBLING_CAMPAIGN_TRANSFER.html">Sibling-Campaign Transfer — every tuning that can make the GSK family fast</a>
+</section>
+<section><h2>Research</h2>
+<a class="nav-link" href="../research_egsk_validation_appendix.html">EGSK Validation Appendix — Paired Port-vs-Reference Equivalence</a>
+<a class="nav-link" href="../research_numerical_examples.html">Numerical Examples</a>
+<a class="nav-link" href="../research_performance.html">Performance</a>
+<a class="nav-link" href="../research_reproducibility.html">Reproducibility</a>
+<a class="nav-link" href="../research_researcher_handbook.html">Researcher Handbook</a>
+<a class="nav-link" href="../research_statistical_analysis.html">Statistical Analysis (GSK-family comparison)</a>
+<a class="nav-link" href="../research_validation_report.html">Validation Report</a>
+</section>
+<section><h2>Prompts</h2>
+<a class="nav-link" href="../prompt_documentation-deep-upgrade.html">Deep Documentation Review &amp; Upgrade Prompt — GSK Family Python</a>
+<a class="nav-link" href="../prompt_project-review.html">Deep Expert Review Prompt For GSK Family Python</a>
+<a class="nav-link" href="../prompt_documentation-review.html">Documentation Review Prompt</a>
+<a class="nav-link" href="../prompt_publication-polish.html">Final Publication Prompt — Production-Ready Q1 Release of GSK Family Python v1.1</a>
+</section>
+<section><h2>Python API</h2>
+<a class="nav-link" href="../api_index.html">API Module Index</a>
+<a class="nav-link api-link" href="../api/gsk_family.__init__.html">gsk_family.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.__init__.html">gsk_family.analysis.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.family_report.html">gsk_family.analysis.family_report</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.figures.html">gsk_family.analysis.figures</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.latex_tables.html">gsk_family.analysis.latex_tables</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.project_policy.html">gsk_family.analysis.project_policy</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.result_loader.html">gsk_family.analysis.result_loader</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.statistical_tests.html">gsk_family.analysis.statistical_tests</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.statistics.html">gsk_family.analysis.statistics</a>
+<a class="nav-link api-link" href="../api/gsk_family.benchmark_adapter.__init__.html">gsk_family.benchmark_adapter.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.benchmark_adapter.factory.html">gsk_family.benchmark_adapter.factory</a>
+<a class="nav-link api-link" href="../api/gsk_family.benchmark_adapter.problem.html">gsk_family.benchmark_adapter.problem</a>
+<a class="nav-link api-link" href="../api/gsk_family.benchmark_adapter.protocol.html">gsk_family.benchmark_adapter.protocol</a>
+<a class="nav-link api-link" href="../api/gsk_family.cli.__init__.html">gsk_family.cli.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.cli.list.html">gsk_family.cli.list</a>
+<a class="nav-link api-link" href="../api/gsk_family.cli.run.html">gsk_family.cli.run</a>
+<a class="nav-link api-link" href="../api/gsk_family.cli.stats.html">gsk_family.cli.stats</a>
+<a class="nav-link api-link" href="../api/gsk_family.cli.validate.html">gsk_family.cli.validate</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.__init__.html">gsk_family.common.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.bounds.html">gsk_family.common.bounds</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.donors.html">gsk_family.common.donors</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.numeric_compat.html">gsk_family.common.numeric_compat</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.population.html">gsk_family.common.population</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.reduction.html">gsk_family.common.reduction</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.reference_rng.html">gsk_family.common.reference_rng</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.rng.html">gsk_family.common.rng</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.threefry_rng.html">gsk_family.common.threefry_rng</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.__init__.html">gsk_family.optimizers.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers._dt_profiles.html">gsk_family.optimizers._dt_profiles</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers._dt_rng.html">gsk_family.optimizers._dt_rng</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers._kernels.html">gsk_family.optimizers._kernels</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.agsk.html">gsk_family.optimizers.agsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.apgsk.html">gsk_family.optimizers.apgsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.atmals_gsk.html">gsk_family.optimizers.atmals_gsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.atmals_helpers.html">gsk_family.optimizers.atmals_helpers</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.dt_gsk.html">gsk_family.optimizers.dt_gsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.egsk.html">gsk_family.optimizers.egsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.__init__.html">gsk_family.optimizers.external.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external._base.html">gsk_family.optimizers.external._base</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external._telemetry_shim.html">gsk_family.optimizers.external._telemetry_shim</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.cmaes.html">gsk_family.optimizers.external.cmaes</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.decc_g.html">gsk_family.optimizers.external.decc_g</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.ebowithcmar.html">gsk_family.optimizers.external.ebowithcmar</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.jso.html">gsk_family.optimizers.external.jso</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.lshade.html">gsk_family.optimizers.external.lshade</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.lshade_spacma.html">gsk_family.optimizers.external.lshade_spacma</a>
+<a class="nav-link api-link active" href="../api/gsk_family.optimizers.external.mos_cec2013lsgo.html">gsk_family.optimizers.external.mos_cec2013lsgo</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.shade_ils.html">gsk_family.optimizers.external.shade_ils</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.fdb_agsk.html">gsk_family.optimizers.fdb_agsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.fdb_scores.html">gsk_family.optimizers.fdb_scores</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.gsk.html">gsk_family.optimizers.gsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.__init__.html">gsk_family.runners.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.config.html">gsk_family.runners.config</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.fp_regime.html">gsk_family.runners.fp_regime</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.output.html">gsk_family.runners.output</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.parallel.html">gsk_family.runners.parallel</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.performance.html">gsk_family.runners.performance</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.run_experiment.html">gsk_family.runners.run_experiment</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.seed_policy.html">gsk_family.runners.seed_policy</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.verification.html">gsk_family.runners.verification</a>
+<a class="nav-link api-link" href="../api/gsk_family.stats.html">gsk_family.stats</a>
+<a class="nav-link api-link" href="../api/gsk_family.types.html">gsk_family.types</a>
+</section>
+</nav></aside>
+    <main class="content">
+      <article class="doc-card">
+        <h1>gsk_family.optimizers.external.mos_cec2013lsgo</h1>
+<p class="source-path">Source: <code>src/gsk_family/optimizers/external/mos_cec2013lsgo.py</code></p>
+<p>MOS (CEC2013-LSGO winner) — source-faithful, LaTorre, Muelas &amp; Peña 2013 (CEC).</p>
+<p>The **CEC2013-LSGO competition winner**: an HRH Multiple-Offspring-Sampling hybrid of THREE
+techniques on one shared population under the MOS participation/quality/allocation loop —
+the CEC2013-LSGO-competition-winning MOS instantiation. Ported **code-first** from the reference
+GAEDA C++ (github.com/arthurmrodriguez/Advanced-Metaheuristics-LSGO, MOS_CEC2013:
+``cec2013.cfg`` / ``techs_cec2013.cfg`` + ``GARealOps.cc`` / ``solis.cc`` /
+``ImprovPerDimManager.cc``) resolved against the paper (E-1460).</p>
+<p>PARAMETER AUTHORITY (adjudicated 2026-07-24 vs the STAGED winner tree, SHA 3208074): the
+``# mts-…``/``# sw-…`` lines in ``cec2013.cfg`` are COMMENTS — boost ``parse_config_file``
+(GAEDAConfig.cc:469) never reads them — so the winner ran on the ``default_value`` constants
+in **GAEDAConfig.cc:326-354**, which are the values below. Do not &quot;fix&quot; them back from the
+cfg comments.</p>
+<p>Techniques (``use-tech`` order = HRH relay GA → Solis-Wets → MTS-LS1-Reduced), on a shared
+population of **400**:
+  • **GA** (``GA_t1``): tournament-2 selection, **BLX-α** crossover (α=0.5, ``pcx=0.9``),
+    **Gaussian mutation** (``pmut=0.01``; ~``pmut·D`` genes, each perturbed by
+    ``N(0,1)·(ub−lb)`` with bound rejection); survivor selection = **PopElitism μ+λ**
+    (population ∪ children, keep best N — PopElitism.cc:15-29; applied to fractional
+    chunks too).
+  • **Solis-Wets** (``LS_t1``): ``dif~N(0,δ)``; try ``x+(bias+dif)`` then ``x−(bias+dif)``;
+    bias ``0.2·bias+0.4·(dif+bias)`` / ``bias−0.4·(dif+bias)`` / ``0.5·bias``; step
+    ``δ×adjustSuccess(2.0)`` after 5 successes, ``δ×adjustFailed(0.5)`` after **3** failures;
+    ``δ₀=1.2``. State (bias/δ/streaks) persists for the WHOLE RUN — never reset on incumbent
+    adoption (C++ ``_swparams`` created once, MOSTechniqueLSObj.cc:172).
+  • **MTS-LS1-Reduced** (``MTS_t1``): dimension subset covering ``searchProb=0.9`` of the
+    RL improvement mass + ``minProb=0.05·D`` random others (**RLImprovPerDimManager**: values
+    init 1.0, unexplored dims outrank all explored until every dim is touched, then EMA
+    ``0.7·old+0.3·new``); dims swept in ASCENDING index order; probes ``x−1.0·SR`` /
+    ``x+0.5·SR``; ``SR×=0.5`` on a stalled sweep, reset to ``0.4·range`` below 1e-14; SR +
+    improve flag persist across blocks (per-genome ``_SR``/``_improve`` carried by lineage
+    copies, GA1DArrayGenome.cc:268/342 — improve starts True); whole sweeps only (the C++
+    per-call eval cap is dead code — budget enforced between sweeps).</p>
+<p>MOS framework (``mos2`` driver = MOSEA2.cc): ``pop=400``, static ``stepFactor φ=36000``,
+**Average Fitness Increment** quality, dynamic participation ``ξ=0.05``, ``minPart=0.2``,
+plus the **improvement override** (MOSTechniqueSet.cc:471-523): after generation 10, when
+the AFI-best set ≠ the most-improved set (``times_improved/(1500·participation)``; GA never
+improves → can never win), the transfer runs on improvement ratios instead of AFI. NO
+population restart exists in the winner config (restartRequired() ≡ false; MOSEA2.cc:138).
+tournament-2 selection, budget 3e6.</p>
+<p>Suite: cec2013lsgo (D=1000). Family RNG (``_base``) + budget-exact + native GISR telemetry
+from the GA generations (§3.7). The two local searches are one-eval-at-a-time (faithful; the
+LS share of the D=1000 budget is sequential, like the other LSGO baselines).</p>
+<h2 id="members">Members</h2>
+<section class="api-member" id="function-rel-inc-72">
+<div class="member-kind">function</div>
+<h2>_rel_inc</h2>
+<pre><code>_rel_inc(new: float, old: float) -&gt; float</code></pre>
+<p>AFI per-individual increment: |Δf/f_before| if improved, else 0 (computeFitnessIncrement).</p>
+</section>
+<section class="api-member" id="function-update-participation-79">
+<div class="member-kind">function</div>
+<h2>_update_participation</h2>
+<pre><code>_update_participation(part: np.ndarray, qual: np.ndarray, xi: float, min_part: float) -&gt; None</code></pre>
+<p>DynamicParticipation.update — transfer participation loser→winner (in place).</p>
+</section>
+<section class="api-member" id="function-tournament-112">
+<div class="member-kind">function</div>
+<h2>_tournament</h2>
+<pre><code>_tournament(fitness: np.ndarray, rng, n: int) -&gt; int</code></pre>
+<p>unif_tournament:2 — the better of two uniformly-random individuals among ``n``.</p>
+</section>
+<section class="api-member" id="function-ga-evolve-122">
+<div class="member-kind">function</div>
+<h2>_ga_evolve</h2>
+<pre><code>_ga_evolve(pop, fitness, sr_arr, imp_arr, max_evals, ev, rng, lb, ub, recorder, pcx, pmut, alpha = 0.5)</code></pre>
+<p>Run the GA technique for max_evals FEs; return (pop, fitness, sr_arr, imp_arr, AFI-quality).</p>
+<p>Per-genome SR/improve carriage (GA1DArrayGenome copy semantics): a child in aux slot k
+is a clone of pop[k] with only its GENES overwritten (GARealOps.cc:180-181), so it
+CARRIES pop[k]&#x27;s _SR/_improve into the mu+lambda pool.</p>
+</section>
+<section class="api-member" id="class-sw-219">
+<div class="member-kind">class</div>
+<h2>_SW</h2>
+<pre><code>_SW</code></pre>
+<p>Persistent Solis-Wets state (bias vector, step, success/failure streaks, incumbent).</p>
+<p>carried_SR/carried_imp = the incumbent genome&#x27;s per-genome _SR/_improve, transported as
+CARGO only (soliswets never touches them) — the SW relay is how MTS&#x27;s annealed SR
+travels through the population in the C++ (copy() carries _SR; LSElitism installs it).</p>
+</section>
+<section class="api-member" id="function-sw-block-236">
+<div class="member-kind">function</div>
+<h2>_sw_block</h2>
+<pre><code>_sw_block(x, f, sw, max_iters, ev, rng, lb, ub, max_succ, max_fail, adj_succ, adj_fail)</code></pre>
+<p>One Solis-Wets budget block; returns (fit_inc, evals, n_improved, x, f). Mutates ``sw``.</p>
+</section>
+<section class="api-member" id="function-sw-evolve-296">
+<div class="member-kind">function</div>
+<h2>_sw_evolve</h2>
+<pre><code>_sw_evolve(pop, fitness, sr_arr, imp_arr, max_evals, sw, ev, rng, lb, ub, delta0, mx_s, mx_f, a_s, a_f)</code></pre>
+<p>Run Solis-Wets on the incumbent for max_evals FEs; return
+(pop, fitness, sr_arr, imp_arr, AFI-quality, n_improved).</p>
+<p>Incumbent rule (MOSTechniqueLSObj.cc:161-168): adopt the population best only when it is
+STRICTLY better than the lineage incumbent — adopting genes/fitness AND the genome&#x27;s
+per-genome SR/improve cargo (copy() carries _SR/_improve). bias/delta/streaks are NEVER
+reset (C++ ``_swparams`` created once for the whole run, MOSTechniqueLSObj.cc:172).
+The SW product is installed back with its carried SR/improve (LSElitism).</p>
+</section>
+<section class="api-member" id="class-mtsr-344">
+<div class="member-kind">class</div>
+<h2>_MTSR</h2>
+<pre><code>_MTSR</code></pre>
+<p>Persistent MTS-LS1-Reduced state.</p>
+<p>SR + improve model the C++ per-genome ``_SR``/``_improve`` of the technique&#x27;s lineage
+genome (GA1DArrayGenome.cc:268-271 init SR=range/2, improve=1; :342-345 copy carries
+both): they persist across blocks, and on adoption of a STRICTLY-better pop best they
+are OVERWRITTEN by that genome&#x27;s carried values (g.copy(pop-&gt;best()) copies _SR too) —
+see _mtsr_evolve. values/explored = the run-global RLImprovPerDimManager (values init
+1.0; first touch replaces, then EMA 0.7·old+0.3·new; unexplored dims outrank all
+explored — RLImprovPerDimManager.cc:11-40, alpha=0.7).</p>
+</section>
+<section class="api-member" id="function-select-dims-363">
+<div class="member-kind">function</div>
+<h2>_select_dims</h2>
+<pre><code>_select_dims(values, explored, search_prob, num_other, rng)</code></pre>
+<p>RLImprovPerDimManager.dimPerfValues + getDimsWhichProbSumAThreshold: unexplored dims
+boosted above all explored (max+1); dims covering search_prob of the mass (highest
+first) + num_other random lower-mass dims (floor 1); returned ascending-sorted
+(GARealOps.cc:825).</p>
+</section>
+<section class="api-member" id="function-mtsr-sweep-395">
+<div class="member-kind">function</div>
+<h2>_mtsr_sweep</h2>
+<pre><code>_mtsr_sweep(x, score, m, ev, rng, lb0, ub0, adj_f, adj_min, m_l, m_r, s_prob, min_prob)</code></pre>
+<p>One COMPLETE MTS-LS1-Reduced sweep over the selected dims; returns
+(fit_inc, evals, n_improved, x, score). Mutates ``m``.</p>
+<p>The C++ per-call eval cap is dead code (6-arg extern-C called through a 7-arg pointer —
+ConfigFileParser.h:828/860, GARealOps.h:76/82 — so ``evals == maxIters`` never fires);
+each LS call is a full sweep and the block budget is enforced BETWEEN sweeps
+(MOSTechniqueLS.cc:187). Mid-sweep exit happens only on true global budget exhaustion
+(the family budget contract).</p>
+</section>
+<section class="api-member" id="function-mtsr-evolve-469">
+<div class="member-kind">function</div>
+<h2>_mtsr_evolve</h2>
+<pre><code>_mtsr_evolve(pop, fitness, sr_arr, imp_arr, max_evals, m, ev, rng, lb0, ub0, adj_f, adj_min, m_l, m_r, s_prob, min_prob)</code></pre>
+<p>Run MTS-LS1-Reduced on the incumbent for max_evals FEs; return
+(pop, fitness, sr_arr, imp_arr, AFI-quality, n_improved).</p>
+<p>Incumbent rule (MOSTechniqueLS.cc:160-167): ``g.copy(pop-&gt;best())`` adopts the pop
+best&#x27;s genes/fitness AND its per-genome ``_SR``/``_improve`` (copy carries both); only
+when the pop best is NOT strictly better does ``g.copy(*_currentGenome)`` restore the
+lineage&#x27;s annealed state. So on adoption of a GA-born best, SR re-seeds at that
+genome&#x27;s carried value (ctor default range/2 for most slots) — the mechanism that
+re-opens the coarse SR ladder; the SW relay preserves annealed SR through the pop.
+Whole sweeps only; block allocation enforced BETWEEN sweeps (MOSTechniqueLS.cc:187).</p>
+</section>
+<section class="api-member" id="function-optimize-517">
+<div class="member-kind">function</div>
+<h2>optimize</h2>
+<pre><code>optimize(problem, options: OptimizerOptions) -&gt; OptimizerResult</code></pre>
+<p>Run the CEC2013-winner MOS (GA + Solis-Wets + MTS-LS1-Reduced) under the family contract.</p>
+</section>
+      </article>
+    </main>
+    <aside class="page-toc" aria-label="On this page">
+<h2>On This Page</h2>
+<a class="toc-level-1" href="#gsk-family-optimizers-external-mos-cec2013lsgo">gsk_family.optimizers.external.mos_cec2013lsgo</a>
+<a class="toc-level-2" href="#members">Members</a>
+<a class="toc-level-2" href="#function-rel-inc-72">_rel_inc</a>
+<a class="toc-level-2" href="#function-update-participation-79">_update_participation</a>
+<a class="toc-level-2" href="#function-tournament-112">_tournament</a>
+<a class="toc-level-2" href="#function-ga-evolve-122">_ga_evolve</a>
+<a class="toc-level-2" href="#class-sw-219">_SW</a>
+<a class="toc-level-2" href="#function-sw-block-236">_sw_block</a>
+<a class="toc-level-2" href="#function-sw-evolve-296">_sw_evolve</a>
+<a class="toc-level-2" href="#class-mtsr-344">_MTSR</a>
+<a class="toc-level-2" href="#function-select-dims-363">_select_dims</a>
+<a class="toc-level-2" href="#function-mtsr-sweep-395">_mtsr_sweep</a>
+<a class="toc-level-2" href="#function-mtsr-evolve-469">_mtsr_evolve</a>
+<a class="toc-level-2" href="#function-optimize-517">optimize</a>
+</aside>
+  </div>
+  <script src="../assets/search.js"></script>
+</body>
+</html>

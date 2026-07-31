@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Python API documentation for gsk_family.optimizers.external.shade_ils">
+  <title>gsk_family.optimizers.external.shade_ils | GSK Family Python Documentation</title>
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+  <div class="site-shell">
+    <aside class="sidebar">
+<div class="brand"><a href="../index.html">GSK Family Python</a></div>
+<input class="nav-search" type="search" placeholder="Filter docs" aria-label="Filter docs">
+<nav class="nav-list" aria-label="Documentation">
+<section><h2>Getting Started</h2>
+<a class="nav-link" href="../getting-started_configuration.html">Configuration</a>
+<a class="nav-link" href="../getting-started_explainer.html">Explainer</a>
+<a class="nav-link" href="../getting-started_runbook.html">Runbook</a>
+<a class="nav-link" href="../getting-started_troubleshooting.html">Troubleshooting</a>
+<a class="nav-link" href="../getting-started_tutorial.html">Tutorial</a>
+<a class="nav-link" href="../getting-started_user_guide.html">User Guide</a>
+</section>
+<section><h2>Reference</h2>
+<a class="nav-link" href="../reference_api.html">API Reference</a>
+<a class="nav-link" href="../reference_architecture.html">Architecture</a>
+<a class="nav-link" href="../reference_benchmark_mapping.html">Benchmark Mapping</a>
+<a class="nav-link" href="../reference_benchmark_protocol.html">Benchmark Protocol</a>
+<a class="nav-link" href="../reference_cec2011_cpp_python_equivalence_review.html">CEC2011 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="../reference_cec2013_cpp_python_equivalence_review.html">CEC2013 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="../reference_cec2013lsgo_cpp_python_equivalence_review.html">CEC2013LSGO C++ to Python Equivalence Review</a>
+<a class="nav-link" href="../reference_cec2017_cpp_python_equivalence_review.html">CEC2017 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="../reference_cec2020_cpp_python_equivalence_review.html">CEC2020 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="../index.html">Documentation Index</a>
+<a class="nav-link" href="../reference_fp_regime.html">Floating-Point Regime Verification</a>
+<a class="nav-link" href="../reference_diagrams.html">Flowcharts And Diagrams</a>
+<a class="nav-link" href="../reference_glossary.html">Glossary</a>
+<a class="nav-link" href="../LICENSES.html">Licenses</a>
+<a class="nav-link" href="../reference_module_dependencies.html">Module Dependencies</a>
+<a class="nav-link" href="../reference_project_structure.html">Project Structure</a>
+<a class="nav-link" href="../reference_python_optimizer_interface.html">Python Optimizer Interface</a>
+<a class="nav-link" href="../reference_result_schema.html">Result Schema</a>
+<a class="nav-link" href="../reference_seed_policy.html">Seed Policy</a>
+<a class="nav-link" href="../reference_workflows.html">Workflows</a>
+</section>
+<section><h2>Algorithm Guides</h2>
+<a class="nav-link" href="../algorithms_agsk.html">AGSK — Adaptive Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="../algorithms_apgsk.html">APGSK — Adaptive-Parameters Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="../algorithms_atmals-gsk.html">ATMALS-GSK — Adaptive Tuning, Memory, Adaptive Local Search</a>
+<a class="nav-link" href="../algorithms_dt-gsk.html">DT-GSK — Dimension-Tiered Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="../algorithms_egsk.html">EGSK — Enhanced Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="../algorithms_fdb-agsk.html">FDB-AGSK — Fitness-Distance-Balance AGSK</a>
+<a class="nav-link" href="../algorithms_gsk.html">GSK — Gaining-Sharing Knowledge</a>
+</section>
+<section><h2>Development</h2>
+<a class="nav-link" href="../development_BUG_resume_summary_truncation.html">BUG-RESUME-01 — resume mode truncates (and mis-computes) the per-dimension summary CSV</a>
+<a class="nav-link" href="../development_LSGO_ACCELERATION_PLAN.html">CEC2013LSGO Acceleration Plan — all 7 GSK-family algorithms, bit-identically</a>
+<a class="nav-link" href="../development_LSGO_INTEGRATION_CAMPAIGN.html">CEC2013LSGO Integration — Campaign Plan</a>
+<a class="nav-link" href="../development_CEC2017_PREC_adjudication.html">CEC2017-PREC — adjudication (CLOSED 2026-07-25)</a>
+<a class="nav-link" href="../development_code_reading_guide.html">Code Reading Guide</a>
+<a class="nav-link" href="../development_contributor_guide.html">Contributor Guide</a>
+<a class="nav-link" href="../development_DECC_G_port_record.html">DECC-G port — fidelity and validation record</a>
+<a class="nav-link" href="../development_developer_guide.html">Developer Guide</a>
+<a class="nav-link" href="../development_README.html">Development Docs</a>
+<a class="nav-link" href="../development_dt_gsk_core_reference.html">DT-GSK Core Reference — the vendored core and its byte-identity lock</a>
+<a class="nav-link" href="../development_evidence_rerun_runbook.html">DT-GSK re-run runbook — corrected implementation (C006 + graph backend)</a>
+<a class="nav-link" href="../development_egsk_port_spec.html">EGSK — Algorithm Spec &amp; Porting Verdict</a>
+<a class="nav-link" href="../development_extension_guide.html">Extension Guide</a>
+<a class="nav-link" href="../development_FAMILY_ACCELERATION_PLAN.html">Family-wide acceleration plan — 7 algorithms x 5 suites, bit-identical only</a>
+<a class="nav-link" href="../development_FINAL_PUBLICATION_PLAN.html">FINAL PUBLICATION PLAN — DT-GSK, Four(/Five)-Suite Scope</a>
+<a class="nav-link" href="../development_ACCELERATION_CAMPAIGN_PROMPT.html">GSK-Family Acceleration Campaign — Execution Prompt</a>
+<a class="nav-link" href="../development_maintenance_guide.html">Maintenance Guide</a>
+<a class="nav-link" href="../development_PORT_05_TUNING_TRIAGE.html">Porting project-05 tuning into 02 — Phase 1 audit and triage</a>
+<a class="nav-link" href="../development_REFERENCE_PROMOTION_PLAN.html">Reference Promotion Plan — CEC2013LSGO now, CEC2020 behind its completeness gate</a>
+<a class="nav-link" href="../development_SIBLING_CAMPAIGN_TRANSFER.html">Sibling-Campaign Transfer — every tuning that can make the GSK family fast</a>
+</section>
+<section><h2>Research</h2>
+<a class="nav-link" href="../research_egsk_validation_appendix.html">EGSK Validation Appendix — Paired Port-vs-Reference Equivalence</a>
+<a class="nav-link" href="../research_numerical_examples.html">Numerical Examples</a>
+<a class="nav-link" href="../research_performance.html">Performance</a>
+<a class="nav-link" href="../research_reproducibility.html">Reproducibility</a>
+<a class="nav-link" href="../research_researcher_handbook.html">Researcher Handbook</a>
+<a class="nav-link" href="../research_statistical_analysis.html">Statistical Analysis (GSK-family comparison)</a>
+<a class="nav-link" href="../research_validation_report.html">Validation Report</a>
+</section>
+<section><h2>Prompts</h2>
+<a class="nav-link" href="../prompt_documentation-deep-upgrade.html">Deep Documentation Review &amp; Upgrade Prompt — GSK Family Python</a>
+<a class="nav-link" href="../prompt_project-review.html">Deep Expert Review Prompt For GSK Family Python</a>
+<a class="nav-link" href="../prompt_documentation-review.html">Documentation Review Prompt</a>
+<a class="nav-link" href="../prompt_publication-polish.html">Final Publication Prompt — Production-Ready Q1 Release of GSK Family Python v1.1</a>
+</section>
+<section><h2>Python API</h2>
+<a class="nav-link" href="../api_index.html">API Module Index</a>
+<a class="nav-link api-link" href="../api/gsk_family.__init__.html">gsk_family.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.__init__.html">gsk_family.analysis.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.family_report.html">gsk_family.analysis.family_report</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.figures.html">gsk_family.analysis.figures</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.latex_tables.html">gsk_family.analysis.latex_tables</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.project_policy.html">gsk_family.analysis.project_policy</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.result_loader.html">gsk_family.analysis.result_loader</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.statistical_tests.html">gsk_family.analysis.statistical_tests</a>
+<a class="nav-link api-link" href="../api/gsk_family.analysis.statistics.html">gsk_family.analysis.statistics</a>
+<a class="nav-link api-link" href="../api/gsk_family.benchmark_adapter.__init__.html">gsk_family.benchmark_adapter.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.benchmark_adapter.factory.html">gsk_family.benchmark_adapter.factory</a>
+<a class="nav-link api-link" href="../api/gsk_family.benchmark_adapter.problem.html">gsk_family.benchmark_adapter.problem</a>
+<a class="nav-link api-link" href="../api/gsk_family.benchmark_adapter.protocol.html">gsk_family.benchmark_adapter.protocol</a>
+<a class="nav-link api-link" href="../api/gsk_family.cli.__init__.html">gsk_family.cli.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.cli.list.html">gsk_family.cli.list</a>
+<a class="nav-link api-link" href="../api/gsk_family.cli.run.html">gsk_family.cli.run</a>
+<a class="nav-link api-link" href="../api/gsk_family.cli.stats.html">gsk_family.cli.stats</a>
+<a class="nav-link api-link" href="../api/gsk_family.cli.validate.html">gsk_family.cli.validate</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.__init__.html">gsk_family.common.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.bounds.html">gsk_family.common.bounds</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.donors.html">gsk_family.common.donors</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.numeric_compat.html">gsk_family.common.numeric_compat</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.population.html">gsk_family.common.population</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.reduction.html">gsk_family.common.reduction</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.reference_rng.html">gsk_family.common.reference_rng</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.rng.html">gsk_family.common.rng</a>
+<a class="nav-link api-link" href="../api/gsk_family.common.threefry_rng.html">gsk_family.common.threefry_rng</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.__init__.html">gsk_family.optimizers.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers._dt_profiles.html">gsk_family.optimizers._dt_profiles</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers._dt_rng.html">gsk_family.optimizers._dt_rng</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers._kernels.html">gsk_family.optimizers._kernels</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.agsk.html">gsk_family.optimizers.agsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.apgsk.html">gsk_family.optimizers.apgsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.atmals_gsk.html">gsk_family.optimizers.atmals_gsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.atmals_helpers.html">gsk_family.optimizers.atmals_helpers</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.dt_gsk.html">gsk_family.optimizers.dt_gsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.egsk.html">gsk_family.optimizers.egsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.__init__.html">gsk_family.optimizers.external.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external._base.html">gsk_family.optimizers.external._base</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external._telemetry_shim.html">gsk_family.optimizers.external._telemetry_shim</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.cmaes.html">gsk_family.optimizers.external.cmaes</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.decc_g.html">gsk_family.optimizers.external.decc_g</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.ebowithcmar.html">gsk_family.optimizers.external.ebowithcmar</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.jso.html">gsk_family.optimizers.external.jso</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.lshade.html">gsk_family.optimizers.external.lshade</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.lshade_spacma.html">gsk_family.optimizers.external.lshade_spacma</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.external.mos_cec2013lsgo.html">gsk_family.optimizers.external.mos_cec2013lsgo</a>
+<a class="nav-link api-link active" href="../api/gsk_family.optimizers.external.shade_ils.html">gsk_family.optimizers.external.shade_ils</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.fdb_agsk.html">gsk_family.optimizers.fdb_agsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.fdb_scores.html">gsk_family.optimizers.fdb_scores</a>
+<a class="nav-link api-link" href="../api/gsk_family.optimizers.gsk.html">gsk_family.optimizers.gsk</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.__init__.html">gsk_family.runners.__init__</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.config.html">gsk_family.runners.config</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.fp_regime.html">gsk_family.runners.fp_regime</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.output.html">gsk_family.runners.output</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.parallel.html">gsk_family.runners.parallel</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.performance.html">gsk_family.runners.performance</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.run_experiment.html">gsk_family.runners.run_experiment</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.seed_policy.html">gsk_family.runners.seed_policy</a>
+<a class="nav-link api-link" href="../api/gsk_family.runners.verification.html">gsk_family.runners.verification</a>
+<a class="nav-link api-link" href="../api/gsk_family.stats.html">gsk_family.stats</a>
+<a class="nav-link api-link" href="../api/gsk_family.types.html">gsk_family.types</a>
+</section>
+</nav></aside>
+    <main class="content">
+      <article class="doc-card">
+        <h1>gsk_family.optimizers.external.shade_ils</h1>
+<p class="source-path">Source: <code>src/gsk_family/optimizers/external/shade_ils.py</code></p>
+<p>SHADE-ILS — SHIPPED-CODE-ALIGNED port of Molina&#x27;s shadeils (CEC/WCCI 2018, DOI 10.1109/CEC.2018.8477755).</p>
+<p>ALIGNED 2026-07-25 to the author&#x27;s shipped artifact
+``reference_code/external_baseline_algorithms/shadeils-master/`` (shadeils.py + SHADE.py +
+mts.py + DE.py), per ``docs/development/matlab_parity/shadeils_alignment_spec.md`` (22-delta
+line-map, adversarially completeness-checked). This replaces the earlier deliberate PAPER
+reconstruction (Cauchy F, forced jrand, 0.1·range SR, one-sided 0.1 restart, 2-phase loop) —
+that variant is preserved in git history and its F15-reproduction property is documented in
+the freeze record.</p>
+<p>Shipped-iteration shape (3-phase, ihshadels, shadeils.py:289-386):
+  [Global LS: evals_gs] -&gt; [SHADE burst: evals_de] -&gt; [Local LS: evals_ls]
+with evals_gs/de/ls = min(50D,25000)/min(50D,25000)/min(10D,5000); restart after 3
+consecutive whole-iteration improvements &lt; threshold (default 0.05 = the artifact&#x27;s
+``ihshadels`` signature default; the shipped CLI default 0.01 is a documented ambiguity —
+``restart_threshold`` is an explicit parameter here).</p>
+<p>LS-POOL SEMANTICS — ``pool_mode`` parameter (&#x27;intent&#x27; default | &#x27;quirk&#x27;):
+The shipped ``PoolLast.update_prob`` contains ``np.argsort(dict.values())`` whose behavior is
+python-era dependent: under the py2-era environment that produced the paper it picks the
+LS with the LARGEST last improvement (ties -&gt; &#x27;grad&#x27;; the MATLAB oracle
+``shadeils_core.m:291-302`` ports this INTENT), while under any modern py3 it degenerates to
+always returning the first insertion-order key (&#x27;mts&#x27;) after warm-up (the QUIRK — embodied by
+both our author-python probe anchors and the independent IRRG re-run, arXiv:2206.04168).
+&#x27;intent&#x27; (campaign default) matches the MATLAB oracle and the paper-era executions; &#x27;quirk&#x27;
+reproduces shipped-as-executed-today and is used to validate against the probe anchors.</p>
+<p>Loose-vs-true accounting (oracle doctrine, spec C10): loop control uses the author&#x27;s LOOSE
+``totalevals`` ledger (center eval charged; init pop/second-center/post-Global re-eval/restart
+disturbance uncharged; mts charged its nominal block; grad charged scipy funcalls; SHADE
+charged numEvalFound = 24900 per full burst; restart charged 2*popsize). The TRUE 3e6-FE cap
+is enforced solely by ``_base.BudgetEvaluator`` raising ``BudgetExhausted``, caught here at
+the driver (MATLAB sentinel analog) — no per-phase truncation by remaining budget.</p>
+<p>Engine note: the L-BFGS-B is scipy&#x27;s (same engine as the shipped artifact — the fork is
+irreducible only vs the MATLAB oracle&#x27;s vendored C mex v3.0). Family RNG doctrine: threefry
+streams, distribution-equivalent draws, no bit-matching with the shipped MT19937.</p>
+<h2 id="members">Members</h2>
+<section class="api-member" id="class-poollast-74">
+<div class="member-kind">class</div>
+<h2>_PoolLast</h2>
+<pre><code>_PoolLast</code></pre>
+<p>Shipped ``PoolLast``: warm-up pair then a cached greedy pick.</p>
+<p>Warm-up: a shuffled copy of the options consumed from the END via ``pop()``
+(shadeils.py:44,66). Afterwards a CACHED pick ``self.new``, recomputed by
+``improvement()`` only when the fed account is 0 or worse than the previous
+one for that option (shadeils.py:100-103). ``is_empty()`` is constant False
+in BOTH python eras (``np.all(dict_values == 0)`` never yields True), so the
+Global phase always runs — ported as always-run at the call site.</p>
+<div class="method-list"><h3>Methods</h3>
+<section class="api-member" id="method-init-85">
+<div class="member-kind">method</div>
+<h2>__init__</h2>
+<pre><code>__init__(self, rng, options: list[str], mode: str) -&gt; None</code></pre>
+<p>Arm the pool with a shuffled warm-up over ``options`` (shadeils.py:32-47).</p>
+</section>
+<section class="api-member" id="method-reset-94">
+<div class="member-kind">method</div>
+<h2>reset</h2>
+<pre><code>reset(self) -&gt; None</code></pre>
+<p>Re-arm a fresh shuffled warm-up pair (shadeils.py:49-54).</p>
+</section>
+<section class="api-member" id="method-get-new-100">
+<div class="member-kind">method</div>
+<h2>get_new</h2>
+<pre><code>get_new(self) -&gt; str</code></pre>
+<p>Warm-up pops from the END; then the cached pick (shadeils.py:59-71).</p>
+</section>
+<section class="api-member" id="method-improvement-108">
+<div class="member-kind">method</div>
+<h2>improvement</h2>
+<pre><code>improvement(self, obj: str, account: float) -&gt; None</code></pre>
+<p>Record an improvement ratio; maybe refresh the cached pick (shadeils.py:77-103).</p>
+</section>
+<section class="api-member" id="method-update-prob-121">
+<div class="member-kind">method</div>
+<h2>_update_prob</h2>
+<pre><code>_update_prob(self) -&gt; str</code></pre>
+<p>Dual-mode pick — see the module docstring (spec C3 / D-1 + user decision).</p>
+<p>&#x27;quirk&#x27;: py3-executed shipped behavior — ``np.argsort(dict.values())``
+degenerates to ``[0]`` so the first insertion-order key (&#x27;mts&#x27;) is
+returned unconditionally (shadeils.py:120-123 as executed under py3).
+&#x27;intent&#x27;: py2-era behavior = the MATLAB oracle (shadeils_core.m:291-302)
+— the option with the largest last improvement, ties -&gt; &#x27;grad&#x27;.
+All-zero improvements: the shipped py3 path is an ipdb crash branch
+(never exercised on this suite); uniform pick per the oracle :296-298.</p>
+</section>
+</div>
+</section>
+<section class="api-member" id="function-ratio-142">
+<div class="member-kind">function</div>
+<h2>_ratio</h2>
+<pre><code>_ratio(previous: float, new: float) -&gt; float</code></pre>
+<p>Shipped ``get_ratio_improvement`` (shadeils.py:227-233): prev==0 -&gt; 0.</p>
+</section>
+<section class="api-member" id="function-eval-batch-exact-149">
+<div class="member-kind">function</div>
+<h2>_eval_batch_exact</h2>
+<pre><code>_eval_batch_exact(ev, x: np.ndarray) -&gt; np.ndarray</code></pre>
+<p>Batch-evaluate with a budget-exact cap (MATLAB sentinel doctrine).</p>
+<p>``BudgetEvaluator.evaluate`` counts the WHOLE batch and only refuses when
+already exhausted, so an uncapped 100-row generation near the cap would
+overrun the true budget. Here: if the batch no longer fits, consume exactly
+the remaining evaluations (ev still tracks any better best in the partial
+batch) and unwind via ``BudgetExhausted`` — nfes lands exactly on max_nfes.</p>
+</section>
+<section class="api-member" id="function-mtsls-169">
+<div class="member-kind">function</div>
+<h2>_mtsls</h2>
+<pre><code>_mtsls(ev, rng, lb, ub, sol, fitness, maxevals, sr)</code></pre>
+<p>Shipped mtsls: unconditional first sweep + improvement-sorted second phase.</p>
+<p>``sr`` is halved IN PLACE on every failed dimension; final underflow reset
+``sr[sr &lt; 1e-15] = 0.2*(ub-lb)`` (mts.py:99-101). ``maxevals`` is the LOOSE
+nominal block — the first sweep ignores it entirely (mts.py:61-77); the true
+3e6 cap unwinds via ``BudgetExhausted`` from the evaluator.</p>
+<p>The per-dimension probe (shipped improve_dim, mts.py:16-37: -SR; on strict
+worsening +0.5*SR; tie = 1 eval) is inlined on a pair of per-call buffers
+``cur``/``work`` that are equal except while coordinate ``i`` is being
+probed, replacing the shipped per-probe full-D copy+``np.clip`` with a
+scalar clamp of that coordinate. Bit-identical because every ``sol``
+reaching this function is in-bounds on every coordinate (init/restart rows,
+shade_clip trials, and grad/restart outputs are all constructed or clipped
+into [lb, ub]), so the shipped full-D clip only ever moved coordinate ``i``.
+PRECONDITION inherited from that invariant: a user-supplied
+``initial_population`` must be in-bounds (the fair-start runner guarantees
+this).</p>
+</section>
+<section class="api-member" id="function-shade-burst-282">
+<div class="member-kind">function</div>
+<h2>_shade_burst</h2>
+<pre><code>_shade_burst(pop, popfit, mem_f, mem_cr, H, ev, rng, lb, ub, recorder, cbest_x, evals_de)</code></pre>
+<p>One SHADE burst on the persistent population; returns (best_x, best_f, loose_charge).</p>
+<p>Shipped semantics (spec A1-A11): unclipped Normal F and CR; strict-&lt; crossover
+mask with NO forced jrand; per-individual p~U(2/N,0.2) with floor(p*N) heads;
+donor &#x27;memory&#x27; rebuilt from the population each burst, appended with the CHILD
+on strict improvement (same-generation appends never donate), capped at 2N by
+random permutation; slot pointer k resets to 0 EVERY burst (A6) while MemF/MemCR
+persist; ``pop[0] = current_best`` with STALE fitness (A9 quirk B); replacement
+on &lt;=, recording on &lt;; loose charge = numEvalFound = 24900 for a full burst (A8).</p>
+<p>Hot-path arrays (gathers, mutation temporaries, trial vectors, donor memory)
+live in per-burst preallocated buffers written with ``out=``/``copyto`` in
+the exact per-element operation order of the original expressions, and the
+shade_clip repair only touches the violating entries — bit-identical, no
+per-generation allocation. The donor memory is a capacity buffer of exactly
+3N rows (2N cap + at most N appends per generation) with tracked length
+``mlen``; ``mlen`` feeds the r2 draw and the trim exactly where
+``memory.shape[0]`` did.</p>
+</section>
+<section class="api-member" id="function-apply-ls-424">
+<div class="member-kind">function</div>
+<h2>_apply_ls</h2>
+<pre><code>_apply_ls(method, is_global, ev, rng, lb, ub, x, fx, maxevals, sr_state, bounds)</code></pre>
+<p>Run one LS block; accept iff fit &lt;= current; return (x, f, loose_charge).</p>
+<p>&#x27;mts&#x27; charges the NOMINAL block (funcalls = maxevals, shadeils.py:160) and,
+per the shipped aliasing, a Global call mutates SR_global in place and then
+REBINDS SR_local to that same array (shadeils.py:157); a Local call mutates
+only SR_local. &#x27;grad&#x27; = scipy fmin_l_bfgs_b with shipped options
+(approx_grad=1, maxfun=maxevals, everything else default; spec 1.3), charged
+its true funcalls; runs to scipy&#x27;s own termination — only the true 3e6 cap
+(BudgetExhausted) unwinds it early. ``bounds`` is the scipy bounds list
+built once per run in :func:`optimize` (lb/ub never change; scipy does not
+mutate the list).</p>
+</section>
+<section class="api-member" id="function-optimize-484">
+<div class="member-kind">function</div>
+<h2>optimize</h2>
+<pre><code>optimize(problem, options: OptimizerOptions) -&gt; OptimizerResult</code></pre>
+<p>Run shipped-code-aligned SHADE-ILS under the family contract.</p>
+</section>
+      </article>
+    </main>
+    <aside class="page-toc" aria-label="On this page">
+<h2>On This Page</h2>
+<a class="toc-level-1" href="#gsk-family-optimizers-external-shade-ils">gsk_family.optimizers.external.shade_ils</a>
+<a class="toc-level-2" href="#members">Members</a>
+<a class="toc-level-2" href="#class-poollast-74">_PoolLast</a>
+<a class="toc-level-2" href="#function-ratio-142">_ratio</a>
+<a class="toc-level-2" href="#function-eval-batch-exact-149">_eval_batch_exact</a>
+<a class="toc-level-2" href="#function-mtsls-169">_mtsls</a>
+<a class="toc-level-2" href="#function-shade-burst-282">_shade_burst</a>
+<a class="toc-level-2" href="#function-apply-ls-424">_apply_ls</a>
+<a class="toc-level-2" href="#function-optimize-484">optimize</a>
+</aside>
+  </div>
+  <script src="../assets/search.js"></script>
+</body>
+</html>
