@@ -1,0 +1,354 @@
+% Plain-language summary of DT-GSK -- standalone, five pages.
+% Audience: a reader with no optimization background who wants to understand
+% what was built, what was tested, what was found, and what it cannot do,
+% well enough to explain it to someone else.
+%
+% NOT part of the submission package and NOT hashed by
+% papers/governance/main_manuscript_freeze_manifest.json. Every number and
+% every scope statement here is read from the frozen analysis bundles under
+% papers/analysis/ or from the manuscript's own text -- none is restated from
+% recollection. A three-seat audit (fact accuracy / honesty balance / lay
+% readability) checked this document against those sources; where the audit
+% found the summary claiming more than the paper does, the paper wins.
+%
+% Build:  pdflatex -interaction=nonstopmode DT-GSK-plain-summary.tex  (x2)
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{lmodern}
+\usepackage[margin=0.92in]{geometry}
+\usepackage{microtype}
+\usepackage{parskip}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black,
+  pdftitle={DT-GSK in Plain Language}, pdfauthor={Mostafa Elsayed Masoud}}
+
+\setlength{\parindent}{0pt}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titlespacing*{\section}{0pt}{9pt}{3pt}
+\titleformat{\subsection}{\normalsize\bfseries}{}{0em}{}
+\titlespacing*{\subsection}{0pt}{7pt}{1pt}
+\newcommand{\hl}[1]{\textbf{#1}}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries DT-GSK in Plain Language}\\[3pt]
+{\large A five-page summary of what it is, how it works, and what it proves}\\[7pt]
+{\small Mostafa Elsayed Masoud \quad$\cdot$\quad Heba Sayed Mohamed Roshdy \quad$\cdot$\quad Ali Wagdy Mohamed}\\[2pt]
+{\small Operations Research Department, Faculty of Graduate Studies for Statistical Research, Cairo University}\\[5pt]
+{\footnotesize Companion to the manuscript \emph{DT-GSK: Dimension-Tiered Adaptive Control and
+Deterministic Refinement for Gaining-Sharing Knowledge Optimization}.\\
+Written for readers with no background in optimization. Where this summary
+could be read as claiming more than the paper does, the paper governs.}
+\end{center}
+
+\vspace{2pt}
+\hrule
+\vspace{6pt}
+
+\section{The problem being solved}
+
+Many practical questions are the same question in disguise: \emph{out of an
+enormous number of possibilities, which one is best?} How should a power network
+be configured to lose the least energy? What shape of a part is strongest for
+its weight? Which combination of inputs makes a model fit the data most closely?
+
+Such problems share an awkward property. No formula hands you the answer, and
+there are far too many possibilities to try them all. What you \emph{can} do is
+take a candidate answer, measure how good it is, and repeat. That measurement is
+usually expensive --- a simulation, an experiment, a long calculation --- so you
+get only a limited number of tries. This is \hl{black-box optimization}: you can
+score a candidate, but you cannot see inside the problem to reason about it.
+
+Throughout, \hl{``unknowns'' means the separate quantities you are free to
+adjust.} A problem with 30 unknowns has 30 dials; one with 1{,}000 has a
+thousand. This number --- what the field calls dimension --- is the pivot of
+this entire paper.
+
+Algorithms for this work like selective breeding. Keep a population of candidate
+answers, combine and adjust them, keep what scores better, discard what scores
+worse, repeat until the budget runs out. The skill is in \emph{how} you combine
+and adjust: too cautious and you never explore, too adventurous and you never
+settle down and refine.
+
+\subsection{The family this work belongs to}
+
+The project builds on \hl{Gaining-Sharing Knowledge} (GSK), a method modelled on
+how people learn. Early on you absorb knowledge from a small circle --- people
+slightly ahead of and behind you. Later you draw on the most experienced people
+you can reach. GSK gives its candidate answers the same two modes: a
+\emph{junior} phase learning from near neighbours, and a \emph{senior} phase
+learning from the best and worst in the population. Several improved versions
+have appeared in recent years, each adjusting how those phases are tuned.
+
+\subsection{The gap}
+
+Every published version shares one habit: it settles on how to behave at a
+single operating point. The same dials are used whether the problem has 10
+unknowns or 1{,}000.
+
+That is a real weakness, because problem size changes the situation
+qualitatively. With 10 unknowns you can afford to examine the landscape
+carefully. With 1{,}000 the space is so vast that the same careful machinery
+becomes wasted effort --- while different machinery, pointless at 10 unknowns,
+starts to pay off. One setting cannot be right for both.
+
+\section{What DT-GSK does differently}
+
+\hl{DT-GSK resolves its behaviour by problem size} --- hence
+\emph{Dimension-Tiered}. Think of a gearbox with four gears: under 20 unknowns,
+20--49, 50--99, and 100 or more. One important detail: \hl{the gear is chosen
+once, from the size of the problem, before the search starts, and never changes
+during the run.} A 60-unknown problem simply gets different machinery switched
+on than a 15-unknown one.
+
+\subsection{Idea 1: a scaffold that tunes itself}
+
+Instead of fixing its settings in advance, DT-GSK keeps several operating modes
+available and learns during the run which ones are producing improvements. Modes
+that work get chosen more often; modes that stop working are set aside --- never
+permanently, so one that becomes useful again can return. It also shrinks its
+population over time, spending early effort on breadth and later effort on
+depth, and if progress stalls badly it restarts the search while keeping the
+best answer found so far, so a restart can never lose ground.
+
+This scaffold runs \hl{at every problem size}, including the smallest.
+
+\subsection{Idea 2: a deterministic finish}
+
+Most methods in this family end as they began --- randomly. In its final
+stretch of budget DT-GSK instead runs a \hl{systematic, repeatable search}
+around its best answer: step one way, test, step another way, test, shrink the
+step, repeat. No randomness at all. \hl{This switches on only from 50 unknowns
+upward}, and fires once, in the last few percent of the budget.
+
+It matters practically as well as scientifically: a random finish gives a
+slightly different answer each run, while a deterministic one gives exactly the
+same answer every time --- \emph{provided you run it in the same computing
+setup the study used}. The paper is explicit that this is not a guarantee across
+different hardware or thread settings.
+
+\subsection{Idea 3: a memory of what worked (the honest one)}
+
+The third idea is exploratory. While searching, DT-GSK watches which \emph{pairs}
+of unknowns tend to improve together and builds a lightweight map of those
+relationships, used to decide which unknowns to change as a group and to orient
+the deterministic finish. Like the finish, it is active only from 50 unknowns up.
+
+It needs no extra measurements of the problem --- it is assembled from ones the
+algorithm was taking anyway. It is \emph{not} free in computing time, though:
+switching it on made runs roughly \hl{30 to 57 percent slower} in the paper's own
+timings. And here the paper says something unusual, worth stating plainly:
+\hl{tested in isolation, this memory produced no measurable benefit.} The
+authors ran the experiment to find out, got a negative answer, and reported it
+in the abstract and conclusions rather than burying it. So it cost real time and
+bought nothing detectable --- and that is published, not hidden.
+
+\section{How it was tested}
+
+\subsection{Who competed}
+
+Seven algorithms: DT-GSK and \hl{six published members of the same family}
+(GSK, AGSK, APGSK, FDB-AGSK, ATMALS-GSK, eGSK). The six were not compared using
+numbers copied from their original papers --- they were re-implemented and
+re-run inside this project, so every algorithm faced identical problems and
+budgets.
+
+\hl{A disclosure the paper makes and this summary repeats:} five of the six
+competing methods were written or co-written by two of this paper's own authors,
+including the original GSK. No method from outside the GSK family enters any
+comparison.
+
+\subsection{On what}
+
+Five standard benchmark collections --- 12{,}265 runs per algorithm, roughly
+\hl{86{,}000 runs in total}:
+
+\begin{center}
+\small
+\begin{tabular}{@{}llll@{}}
+\toprule
+\textbf{Collection} & \textbf{What it contains} & \textbf{Sizes} & \textbf{Runs each} \\
+\midrule
+CEC2017 & 29 mathematical test problems & 10--100 unknowns & 51 \\
+CEC2011 & 22 real-world problem formulations & as given & 25 \\
+CEC2013 & 28 mathematical test problems & 10--50 unknowns & 51 \\
+CEC2020 & 10 problems, small sizes & 5--20 unknowns & 30 \\
+CEC2013LSGO & 15 very large problems & 1{,}000 (two at 905) & 25 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Under what rules}
+
+\begin{itemize}[leftmargin=1.2em, itemsep=1pt, topsep=3pt]
+\item \hl{Equal budget.} Every algorithm was allowed exactly the same number of
+      measurements on every problem.
+\item \hl{Paired starting points.} On each problem every algorithm used the same
+      recorded random seed, and the six comparators shared an identical starting
+      set of candidates. \hl{DT-GSK is the one documented exception}: it builds
+      its own starting set from that same seed stream, because it uses a
+      different population size. The paper flags this as the comparison's one
+      fairness asymmetry.
+\item \hl{An analysis plan committed in advance --- for one collection.} For
+      CEC2020, the authors recorded exactly how they would analyse the results
+      before running them, so they could not afterwards pick the flattering
+      analysis. This covers CEC2020 only; the other four were analysed without a
+      pre-committed plan, and on the very large problems the authors state they
+      had already seen the standings before the plan was written.
+\end{itemize}
+
+\subsection{How results were scored}
+
+Rather than raw numbers, which vary wildly between problems, the study uses
+\hl{average rank}: on each problem the seven algorithms are placed 1st to 7th,
+and those places are averaged. 1.0 would mean winning everything, 4.0 is exactly
+mid-pack, 7.0 would mean losing everything. Separate statistical tests then ask
+whether a given gap is real or could plausibly be noise. \hl{The average ranks
+below are descriptive summaries --- no statistical test is attached to them.}
+
+\section{What was actually found}
+
+\begin{center}
+\small
+\begin{tabular}{@{}p{2.15cm}p{5.5cm}p{3.1cm}c@{}}
+\toprule
+\textbf{Collection} & \textbf{Role in the study} & \textbf{DT-GSK's place} & \textbf{Avg.\ rank} \\
+\midrule
+CEC2017 & the set the settings were chosen on --- so the least independent of the five & \hl{1st of 7} & 2.48 \\
+CEC2013 & corroborating check, not an independent benchmark & \hl{1st of 7} & 2.80 \\
+CEC2013LSGO & exploratory, added afterwards; standings examined before the plan was written & tied 1st with AGSK & 3.13 \\
+CEC2011 & real-world problem formulations & 2nd, behind eGSK & 3.36 \\
+CEC2020 & the one pre-registered confirmatory test & \hl{4th of 7} (AGSK 1st, 2.09) & 4.11 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+First on two collections, tied-first on one, second on one, fourth on one.
+
+\subsection{Reading the wins honestly}
+
+Three bounds apply. \hl{Scope:} DT-GSK is compared against its own family, not
+against the strongest optimization methods in the world; the paper makes no
+field-wide claim, and on the 1{,}000-unknown problems it says outright that
+specialist large-scale methods report substantially better published results than
+any member of this family, DT-GSK included. \hl{Statistics:} the first places are
+average-rank standings with no test attached --- against its nearest rival eGSK,
+DT-GSK's lead on the main collection is inside the margin the tests call noise at
+every problem size. \hl{Independence:} CEC2017, the source of the headline first
+place, is the collection the settings were chosen on (six candidate
+configurations were compared on it before one was frozen), so it should be read
+as development performance rather than a fresh test. The tied first on the very
+large problems is the weakest of the three: there the tests cannot separate six
+of the seven algorithms from one another at all.
+
+\subsection{Reading the losses honestly}
+
+\hl{Second on the real-world formulations.} On CEC2011, eGSK beat DT-GSK, and the
+statistical test confirms the gap is real. Note what CEC2011 is: engineering
+problems taken from practice and turned into a standard benchmark --- breadth of
+application, which the paper distinguishes from evidence of how a method performs
+in actual deployment.
+
+\hl{Fourth on the small problems.} On CEC2020, where every problem has 20 or
+fewer unknowns, DT-GSK finished fourth of seven. Its two size-gated components
+--- the interaction memory and the deterministic finish --- do not switch on
+until 50 unknowns, so here it competes without the machinery that earns its wins
+higher up; its self-tuning scaffold is still active, so this is a real result
+about the method as configured, not an artefact. Before running it the authors
+registered the expectation that DT-GSK would \emph{not} lead this collection, and
+that same plan required the outcome be reported as a real finding rather than
+written off.
+
+\hl{Three confirmed losses, not one.} The CEC2011 result is the only confirmed
+loss at the level of a whole collection, but it is not the only one: on the
+pre-registered CEC2020 set at 20 unknowns, the same test confirms that both AGSK
+and FDB-AGSK beat DT-GSK. Those two sit in the study's highest-weight evidence
+tier.
+
+\subsection{The shape of the strength}
+
+The advantage is \hl{tiered, and it is not ``bigger is always better''.} Across
+the two mathematical collections spanning 10--100 unknowns, DT-GSK leads at every
+size except 30, where it slips to second on CEC2017 and third on CEC2013. On the
+small-size collection it leads at none of the four sizes, and on the real-world
+set it is second. The strength is concentrated at 50 unknowns and above.
+
+\section{Limits, and why you can check all of this}
+
+\subsection{What the study does not claim}
+
+\begin{itemize}[leftmargin=1.2em, itemsep=1pt, topsep=3pt]
+\item It does not claim DT-GSK is the best optimizer available --- nor even the
+      best method in its own family overall. The paper reports its standing size
+      by size rather than as one verdict, and other family members beat it at
+      some sizes and on the real-world set.
+\item It does not claim the interaction memory works; the direct test came back
+      negative and is reported as such.
+\item It does not claim faster running times. One competitor, eGSK, could only be
+      re-implemented with a substituted internal solver for its final refinement.
+      That step spends part of the same budget and can change the answer returned,
+      so the eGSK results here are properties of this re-implementation rather
+      than of the published algorithm --- and eGSK is the method that beats
+      DT-GSK on the real-world set.
+\item It does not claim the settings are optimal. They were frozen and never
+      re-tuned per problem, with one disclosed exception: two values were added
+      for the very-large-problem collection after results on it already existed,
+      so that result is not claimed to be outcome-blind.
+\end{itemize}
+
+\subsection{Why the numbers can be checked}
+
+The unusual feature of this project is not the algorithm --- it is the paper
+trail:
+
+\begin{itemize}[leftmargin=1.2em, itemsep=1pt, topsep=3pt]
+\item \hl{Every run is kept}, in read-only frozen data sets, not summarized away.
+\item \hl{Results re-derive in the environment the authors specify.} Random
+      streams are pinned to recorded seeds, so re-running DT-GSK on a matching
+      setup returns the same numbers, not merely similar ones. This guarantee is
+      stated for DT-GSK and this project's own pipeline.
+\item \hl{Every reported number is traceable} to the data file it came from, with
+      automated checks confirming paper and data still agree.
+\item \hl{The negative results are published too} --- the component that did not
+      work, its compute cost, the loss on the real-world set, the fourth place,
+      and the confirmed losses at 20 unknowns.
+\end{itemize}
+
+\subsection{If you have to explain DT-GSK in thirty seconds}
+
+\begin{quote}
+It is a search method for hard problems where you can test an answer but cannot
+calculate the best one directly. Its distinguishing idea is that it picks its own
+machinery according to how big the problem is --- like choosing a gear before
+setting off --- rather than using one setting for everything, and above a size
+threshold it finishes with a systematic, repeatable polish instead of a random
+one. Tested against six other published members of \emph{its own algorithm
+family} --- not against the strongest optimizers in the field, a comparison the
+paper does not make --- across five standard benchmark collections under equal
+budgets, it came first on two, tied-first on one, second on one, and fourth on
+one. It is weakest on small problems, where its size-gated machinery is switched
+off by design, and it loses on the real-world benchmark set. One of its three
+components was tested on its own, cost 30--57\% more running time, and showed no
+measurable benefit --- and the authors published that result rather than omitting
+it.
+\end{quote}
+
+\vspace{2pt}
+\hrule
+\vspace{3pt}
+{\footnotesize
+\emph{Sources.} Standings are the descriptive average ranks in the project's
+frozen analysis files; protocol figures and every scope statement come from the
+manuscript's own text. This is a companion document, not part of the submitted
+package. For the full method, the statistical tests, and the complete results,
+see the manuscript and its Supplementary Material.}
+
+\end{document}
