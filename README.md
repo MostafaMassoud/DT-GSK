@@ -1,16 +1,22 @@
-﻿# GSK Family Python
+﻿# DT-GSK
 
-This repository is the Python implementation of the GSK-family optimization
-project. It contains optimizer implementations, benchmark adapters, experiment
-runners, validation tools, reproducibility controls, generated documentation,
-and reference-compatible benchmark evidence used for comparison.
+**Dimension-Tiered Gaining-Sharing Knowledge Optimization** -- the reference
+implementation, benchmark evidence, and reproducibility chain accompanying the
+manuscript *DT-GSK: Dimension-Tiered Adaptive Control and Deterministic
+Refinement for Gaining-Sharing Knowledge Optimization* (submitted to
+*Algorithms*, MDPI; not yet peer-reviewed).
 
-Work directly in this repository root -- the `02-GSK_Family_Python_v1.1` project
-folder.
+The repository ships seven runnable optimizers -- DT-GSK together with six
+re-implemented GSK-family baselines -- adapters for five CEC benchmark suites,
+the experiment runners and statistical pipeline used in the study, and the
+immutable evidence releases to which every reported number is bound.
 
-Do not create a separate generated workspace, mirror folder, or agent-only
-project tree. All normal coding, testing, documentation, benchmark, and review
-work should happen inside this repository.
+| | |
+|---|---|
+| License | MIT -- see [LICENSE](LICENSE) |
+| How to cite | [CITATION.cff](CITATION.cff) |
+| Run something | [Quick Start](#quick-start), then [runbook.md](runbook.md) |
+| Reproduce the study | [Reproducibility](#reproducibility) and [Statistical analysis](#statistical-analysis) |
 
 ## Quick Start
 
@@ -37,9 +43,11 @@ runs, validation, and the speed/memory backend guide -- see
 The project provides a Python-first implementation of the GSK optimizer family
 with CEC benchmark support and production-grade research tooling. Alongside the
 `gsk`, `agsk`, `apgsk`, `fdb-agsk`, `atmals-gsk`, and `egsk` baselines it ships
-`dt-gsk`, this project's own proposed method (Interaction-Structure Memory
-Gaining-Sharing Knowledge Optimization), which adds a dimension-aware
-interaction-structure memory to the gaining-sharing scaffold.
+`dt-gsk`, this project's own proposed method (Dimension-Tiered
+Gaining-Sharing Knowledge Optimization), which resolves control by dimension
+rather than at a single operating point and supplies its refinement basis from
+an exploratory interaction-structure memory (ISM) learned from accepted moves
+at no extra evaluations.
 
 Implemented optimizer IDs (seven runnable algorithms):
 
@@ -62,16 +70,45 @@ self-initializes a `5*D` population (`np_init_mult * dim`, with
 `np_init_mult = 5`) -- a documented fair-start exception described in
 [Seed Policy](docs/reference/seed_policy.md).
 
-On the CEC2017 family panel (51 runs, 29 functions with F2 excluded, error vs
-optimum), DT-GSK is **#1 in the GSK family by both mean and median** -- ranked
-#1 at D10/D50/D100 and #1 overall, with D30 led only by the strong `egsk`
-baseline (the runner-up overall). It ships
-the **deep-stall multi-start** (a default-on standard mechanism): when the
-incumbent stalls for a quarter of the budget the working population fully
-re-initializes while a preserved global-best can never lose ground, which fixes
-the lone catastrophic basin trap (CEC2017 F30 D10) and is byte-identical on
-non-stalling runs. See [FINAL_RELEASE_REPORT.md](FINAL_RELEASE_REPORT.md) for the
-per-dimension ranks and statistics.
+### Where DT-GSK stands
+
+Every standing below is **family-internal**: it compares the seven GSK-family
+members implemented here and claims nothing against specialist optimizers
+outside that panel. Figures are descriptive Friedman mean ranks over the seven
+members; the manuscript attaches the statistical tests and states their scope.
+
+| Suite | Role | DT-GSK standing | Mean rank |
+|---|---|---|---|
+| CEC2017 | primary, selection-exposed | **first** | 2.48 |
+| CEC2013 | corroborative | **first** | 2.80 |
+| CEC2013LSGO | post-hoc, family-internal | **tied-first** with AGSK; paired tests separate neither | 3.13 |
+| CEC2011 | corroborative, real-world | second, behind eGSK -- a Holm-significant loss | 3.36 |
+| CEC2020 | pre-registered confirmatory | fourth; AGSK first at 2.09 | 4.11 |
+
+That is first on two suites, tied-first on one, second on one, and fourth on
+one.
+
+The advantage is **dimension-tiered and not monotone in dimension** -- it does
+not simply grow as `D` grows. DT-GSK leads at every tier except `D = 30`, its
+weak tier on both general suites (CEC2017 D30: eGSK 2.293 vs DT-GSK 2.500;
+CEC2013 D30: eGSK 3.071, ATMALS-GSK 3.339, DT-GSK 3.375). A second and separate
+regime sits below `D` around 20, where every dimension-gated subsystem is
+structurally inactive and DT-GSK runs as base machinery -- which is why it
+places fourth on CEC2020, a boundary condition the pre-registration predicted
+in advance.
+
+A direct isolation of the interaction-structure memory finds **no detectable
+standalone benefit** at its active tiers. That controlled negative result is
+reported in the abstract and conclusions rather than confined to a supplement.
+
+DT-GSK also ships the **deep-stall multi-start** (a default-on standard
+mechanism): when the incumbent stalls for a quarter of the budget the working
+population fully re-initializes while a preserved global-best can never lose
+ground, which fixes the lone catastrophic basin trap (CEC2017 F30 D10) and is
+byte-identical on non-stalling runs.
+
+See [FINAL_RELEASE_REPORT.md](FINAL_RELEASE_REPORT.md) for per-dimension ranks
+and statistics; the per-suite rank CSVs live under `papers/analysis/`.
 
 > `egsk` is now a **runnable** optimizer ID -- it ships a real kernel
 > (`src/gsk_family/optimizers/egsk.py`, a faithful MATLAB port whose
@@ -160,15 +197,20 @@ Important root files:
 - `CITATION.cff`: citation metadata.
 - `.gitignore`: generated-output and cache ignore rules.
 
-## Code Author and Algorithm References
+## Authors and Algorithm References
 
-Code author:
+The software was written by **Mostafa Elsayed Masoud**
+(`moustafa.masoud@gmail.com`, ORCID
+[0009-0003-8415-2158](https://orcid.org/0009-0003-8415-2158)), who holds the
+CRediT *software* role on the accompanying paper.
 
-- **Mostafa Masoud**
-- Email: `moustafa.masoud@gmail.com`
+That paper is authored by **Mostafa Elsayed Masoud**, **Heba Sayed Mohamed
+Roshdy**, and **Ali Wagdy Mohamed**, all of the Operations Research Department,
+Faculty of Graduate Studies for Statistical Research, Cairo University, Giza
+12613, Egypt. The full CRediT role breakdown is recorded in the manuscript.
 
 When using this project in reports, papers, theses, or benchmark comparisons,
-cite the Python project metadata in [CITATION.cff](CITATION.cff) and cite the
+cite the software metadata in [CITATION.cff](CITATION.cff) and cite the
 original paper for each optimizer that appears in the experiment.
 
 | Optimizer ID | Algorithm reference |
@@ -178,12 +220,12 @@ original paper for each optimizer that appears in the experiment.
 | `apgsk` | Mohamed, A. W.; Abutarboush, H. F.; Hadi, A. A.; Mohamed, A. K. "Gaining-sharing knowledge based algorithm with adaptive parameters for engineering optimization." IEEE Access, 9, 65934-65946, 2021. DOI: [10.1109/ACCESS.2021.3076091](https://doi.org/10.1109/ACCESS.2021.3076091). |
 | `fdb-agsk` | Bakir, H.; Duman, S.; Guvenc, U.; Kahraman, H. T. "Improved adaptive gaining-sharing knowledge algorithm with FDB-based guiding mechanism for optimization of optimal reactive power flow problem." Electrical Engineering, 105, 3121-3160, 2023. DOI: [10.1007/s00202-023-01803-9](https://doi.org/10.1007/s00202-023-01803-9). |
 | `atmals-gsk` | Alfadli, N. M.; Oun, E. M.; Mohamed, A. W. "Auto-Tuning Memory-Based Adaptive Local Search Gaining-Sharing Knowledge-Based Algorithm for Solving Optimization Problems." Algorithms, 18(7), 398, 2025. DOI: [10.3390/a18070398](https://doi.org/10.3390/a18070398). |
-| `dt-gsk` | This project's proposed method (Dimension-Tiered Gaining-Sharing Knowledge Optimization) by Mostafa Masoud. Paper "DT-GSK: Dimension-Tiered Adaptive Control and Deterministic Refinement for Gaining-Sharing Knowledge Optimization" forthcoming; cite the project metadata in [CITATION.cff](CITATION.cff) until then. |
+| `dt-gsk` | This project's proposed method (Dimension-Tiered Gaining-Sharing Knowledge Optimization). Masoud, M. E.; Roshdy, H. S. M.; Mohamed, A. W. "DT-GSK: Dimension-Tiered Adaptive Control and Deterministic Refinement for Gaining-Sharing Knowledge Optimization." Submitted to *Algorithms* (MDPI), 2026; not yet peer-reviewed. Cite the software metadata in [CITATION.cff](CITATION.cff) until the article appears. |
 
 ## Repository Map
 
 ```text
-02-GSK_Family_Python_v1.1/
+DT-GSK/
   README.md
   SKILL.md
   runbook.md
@@ -706,11 +748,13 @@ When editing this project:
 - remove generated caches after broad test or lint runs;
 - preserve deterministic behavior during performance tuning.
 
-## Agent Operating Files
+## Contributor and Review Tooling
 
-Root agent files:
+The repository documents its own working conventions, so that a reviewer or
+contributor can reproduce the process as well as the numbers:
 
-- [SKILL.md](SKILL.md): project-specific agent operating contract.
+- [SKILL.md](SKILL.md): the project's operating contract -- the conventions any
+  contributor (human or automated) is expected to follow.
 - [runbook.md](runbook.md): copy-paste command reference for installs, smoke
   tests, full sweeps, and backend recovery.
 

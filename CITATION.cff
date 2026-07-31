@@ -1,13 +1,87 @@
 cff-version: 1.2.0
-title: GSK Family Python
-message: "If you use this package, cite the original GSK-family algorithm sources and the relevant CEC benchmark suites."
+title: "DT-GSK: Dimension-Tiered Gaining-Sharing Knowledge Optimization"
+message: >-
+  If you use this software or its benchmark evidence, please cite both the
+  software (this file) and the accompanying manuscript listed under
+  preferred-citation. If you use the GSK-family baselines re-implemented here,
+  please also cite their original sources, listed under references.
 type: software
-version: 0.1.0
+version: "2.1"
+date-released: 2026-07-31
+license: MIT
+repository-code: "https://github.com/MostafaMassoud/DT-GSK"
+# doi: added after the Zenodo archive of the v2.1 release is minted.
+abstract: >-
+  Reference Python implementation of DT-GSK (Dimension-Tiered Gaining-Sharing
+  Knowledge Optimization) together with six re-implemented GSK-family
+  baselines (GSK, AGSK, APGSK, FDB-AGSK, ATMALS-GSK, eGSK) and adapters for
+  five CEC benchmark suites (CEC2011, CEC2013, CEC2013LSGO, CEC2017, CEC2020).
+  DT-GSK resolves control by dimension rather than at a single operating
+  point: an adaptive scaffold serves every tier, a deterministic budget-exact
+  eigenframe refinement runs from D = 50 upward, and the GSK vector-update
+  equations are retained, with an exploratory interaction-structure memory
+  learned from accepted moves at no extra evaluations supplying the refinement
+  basis. The repository ships the full reproducibility chain used in the
+  accompanying study: pinned seed schedules, a unified Threefry random-number
+  stream, immutable evidence releases, a pre-registered statistical analysis
+  plan, and the validation and freeze tooling that binds every reported number
+  to a committed artifact. All reported standings are scoped to the
+  seven-member GSK-family panel.
+keywords:
+  - metaheuristic optimization
+  - gaining-sharing knowledge
+  - dimension-tiered adaptive control
+  - deterministic final refinement
+  - adaptive operator selection
+  - population-size reduction
+  - interaction-structure memory
+  - CEC benchmark suites
+  - nonparametric statistical comparison
+  - reproducibility
 authors:
   - family-names: Masoud
-    given-names: Mostafa
+    given-names: Mostafa Elsayed
     email: moustafa.masoud@gmail.com
-abstract: "Python implementation of the GSK optimizer family using bundled Python CEC benchmark suites."
+    orcid: "https://orcid.org/0009-0003-8415-2158"
+    affiliation: >-
+      Operations Research Department, Faculty of Graduate Studies for
+      Statistical Research, Cairo University, Giza 12613, Egypt
+  - family-names: Roshdy
+    given-names: Heba Sayed Mohamed
+    email: hmhmdss@yahoo.com
+    orcid: "https://orcid.org/0000-0003-0387-5876"
+    affiliation: >-
+      Operations Research Department, Faculty of Graduate Studies for
+      Statistical Research, Cairo University, Giza 12613, Egypt
+  - family-names: Mohamed
+    given-names: Ali Wagdy
+    email: aliwagdy@gmail.com
+    orcid: "https://orcid.org/0000-0002-5895-2632"
+    affiliation: >-
+      Operations Research Department, Faculty of Graduate Studies for
+      Statistical Research, Cairo University, Giza 12613, Egypt
+preferred-citation:
+  type: article
+  status: submitted
+  title: >-
+    DT-GSK: Dimension-Tiered Adaptive Control and Deterministic Refinement for
+    Gaining-Sharing Knowledge Optimization
+  journal: Algorithms
+  year: 2026
+  authors:
+    - family-names: Masoud
+      given-names: Mostafa Elsayed
+      email: moustafa.masoud@gmail.com
+      orcid: "https://orcid.org/0009-0003-8415-2158"
+    - family-names: Roshdy
+      given-names: Heba Sayed Mohamed
+      orcid: "https://orcid.org/0000-0003-0387-5876"
+    - family-names: Mohamed
+      given-names: Ali Wagdy
+      orcid: "https://orcid.org/0000-0002-5895-2632"
+  notes: >-
+    Submitted to Algorithms (MDPI); not yet peer-reviewed or accepted. Update
+    this entry with the volume, article number, and DOI on publication.
 references:
   - type: article
     authors:
@@ -88,10 +162,3 @@ references:
     issue: 7
     year: 2025
     doi: 10.3390/a18070398
-  - type: unpublished
-    authors:
-      - family-names: Masoud
-        given-names: Mostafa
-        email: moustafa.masoud@gmail.com
-    title: "DT-GSK: Dimension-Tiered Adaptive Control and Deterministic Refinement for Gaining-Sharing Knowledge Optimization"
-    notes: "DT-GSK (Dimension-Tiered Gaining-Sharing Knowledge Optimization), this project's proposed method. Forthcoming; cite this software metadata until the paper is published."
