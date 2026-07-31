@@ -1351,7 +1351,7 @@ earlier release had silently executed the bit-for-bit-equivalent
 affected timings were re-measured in the 51-run regeneration
 (Supplementary Material, Section~S6.7). % BIND: LM-04 (comparability_audit.md; AN-COST-2017); backend fixed + re-measured in the 2026-07-16 campaign
 Fifth, each suite's evidence stops at its own tested dimensions:
-$D \le 100$ on CEC2017 and CEC2013, native dimensions on CEC2011,
+$D \le 100$ on CEC2017, $D \le 50$ on CEC2013, native dimensions on CEC2011,
 $D \le 20$ on CEC2020, and $D = 1000$ (family-internal, post-hoc, 25 runs
 per cell) on CEC2013LSGO. The component-isolation evidence stops at
 $D \le 100$: no component contrast was run at the CEC2013LSGO scale, so
@@ -3576,6 +3576,11 @@ F10 & Best & 3.99E+02 & 3.99E+02 & 3.99E+02 & 3.99E+02 & 4.01E+02 & 3.99E+02 & 3
 %==================================================================
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Flush all deferred floats (the S8.6 per-function detail tables A39-A42)
+% BEFORE the bibliography opens, so the reference list renders as one
+% contiguous block instead of being interrupted mid-list by a four-page
+% float backlog (panel round-2 finding S6-PDF-001).
+\clearpage
 \reftitle{References}
 \externalbibliography{yes}
 \bibliography{references}

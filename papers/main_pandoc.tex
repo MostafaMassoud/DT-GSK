@@ -122,7 +122,7 @@ knowledge-transfer phases define the base operator family studied in
 this paper; every control parameter of the original algorithm is fixed
 for the whole run~@@CITE!mohamed2020gaining@@. 
 Its descendants attack that rigidity at the level of scalar parameters and
-donor or selection policy. \agsk{} draws its $(K_F, K_R)$ settings from a
+donor or selection policy. \agsk{} draws its $(KF, KR)$ settings from a
 pool updated by success history~@@CITE!mohamed2020agsk@@, and \apgsk{}
 extends those parameter-adaptation pools~@@CITE!apgsk2021@@. \fdbagsk{}
 replaces the senior-phase guide with fitness--distance-balance selection
@@ -479,7 +479,8 @@ dimensions: update trigger, evaluation cost, what is learned, and how it
 is exploited. ISM updates from strictly improving accepted moves at no extra objective
 evaluations (not ``free'': a per-generation $O(D^{2})$ decay plus an
 $O(\mathit{NP} \cdot D^{2})$ worst-case accumulation, with linkage blocks
-re-extracted every fifth generation). Authored from literature facts drawn from the cited sources
+re-extracted every fifth generation at $50 \le D \le 99$ and every
+twentieth at $D \ge 100$). Authored from literature facts drawn from the cited sources
 only.}
 \label{tab:taxonomy}
 \scriptsize
@@ -994,6 +995,8 @@ s_k &= (\text{seed} + 1{,}000{,}003\,(k{+}1)) \bmod M + 1,
 
 @@EQNUM!eq:rng-substreams@@
 
+where $M = 2\,147\,483\,646$ is the child-seed modulus (Supplementary
+Material, Section~S5); it is unrelated to the ACE arm count $m$.
 
 
 
@@ -1031,11 +1034,11 @@ best.}
 \toprule
 \textbf{Subsystem (Eq.)} & \textbf{Category} & \textbf{Tier} & \textbf{Role in the composition} \\
 \midrule
-Inherited GSK core (Eqs.~(@@REF!eq:junior-idx@@)--(@@REF!eq:gsk-update@@), (@@REF!eq:midpoint-repair@@)) & inherited & all & junior/senior gaining-sharing vector update and midpoint repair (numerics unchanged); the crossover mask and greedy-selection ties are modified (rows~3,~5; Eq.~(@@REF!eq:greedy-accept@@)) \\
+Inherited GSK core (Eqs.~(@@REF!eq:junior-idx@@)--(@@REF!eq:gsk-update@@), (@@REF!eq:midpoint-repair@@)) & inherited & all & junior/senior gaining-sharing vector update and midpoint repair (numerics unchanged); the crossover mask is modified (row~3; Eq.~(@@REF!eq:kr-mask@@)) and the selection rule accepts ties (Eq.~(@@REF!eq:greedy-accept@@)) \\
 1. NLPSR schedule (Eq.~(@@REF!eq:nlpsr@@)) & scaffold & all & tier-floored population-size reduction \\
 2. ACE selector + ARGP pruning (Eq.~(@@REF!eq:ace-update@@)) & scaffold & all & operator-pool control from aggregate fitness improvement; recoverably soft-freezes stalled arms to the probability floor \\
 3. Linkage-aware block crossover (Eq.~(@@REF!eq:kr-mask@@)) & scaffold & $D{\ge}10$ & block mask (arbitrary index subsets, \emph{not} contiguous ranges) on a tier-dependent fraction of rows (rest keep the $KR$ mask); ISM-fed blocks at $D{\ge}50$ \\
-4. ISM interaction-structure memory (Eq.~(@@REF!eq:sgsm-graph@@)) & gated & $D{\ge}50$ & strictly-improving-accepted-move EMA graph; acts when $\operatorname{conf}(G_{\mathrm{abs}})\ge\kappa_{\min}$ \\
+4. ISM interaction-structure memory (Eq.~(@@REF!eq:sgsm-graph@@)) & gated & $D{\ge}50$ & strictly-improving-accepted-move EMA graph; linkage blocks act when $\operatorname{conf}(G_{\mathrm{abs}})\ge\kappa_{\min}$; the signed-graph polish channel is ungated \\
 5. Local search (coordinate) & scaffold & all & charged axis-aligned coordinate search; an ISM-block \emph{subspace} variant is implemented but not enabled in the frozen configuration \\
 6. BSE budget-safe escape (Eq.~(@@REF!eq:bse-cauchy@@)) + diversity archive & scaffold & all & hard-capped stagnation escape; reseeds from the archive \\
 7. Upper-tier controllers (basin memory, subspace-sampling floor, late-accept clip, frozen-broaden, linkage random-mix) & gated & $D{\ge}100$ & method-level protections at upper tier \\
@@ -1045,9 +1048,11 @@ Inherited GSK core (Eqs.~(@@REF!eq:junior-idx@@)--(@@REF!eq:gsk-update@@), (@@RE
 \end{table}
 
 One configuration asymmetry follows from running each algorithm at its own
-published defaults rather than at a common population size. The six
-comparators use $NP=100$ at every dimension, as specified in their source
-papers, whereas \dtgsk{} initializes $NP=5D$ (Table~@@REF!tab:parameters@@)
+reference configuration rather than at a common population size. The six
+comparators use $NP=100$ at every dimension --- the setting of the family's
+shipped reference implementations re-executed here, which for some
+comparators differs from the dimension-scaled populations of their source
+papers --- whereas \dtgsk{} initializes $NP=5D$ (Table~@@REF!tab:parameters@@)
 before the NLPSR reduction; at $D=100$ that is $500$ against $100$. All seven
 receive the identical evaluation budget, so the difference lies in how each
 algorithm spends that budget rather than in how much it is given. We state it
@@ -1242,7 +1247,7 @@ additionally inactive at the CEC2020 $D=5$ cells.}
 \toprule
 \textbf{Subsystem (Eq.)} & \textbf{$D{<}20$} & \textbf{$20$--$49$} & \textbf{$50$--$99$} & \textbf{$D{\ge}100$} & \textbf{Key parameters (by tier)} \\
 \midrule
-Inherited GSK core (Eqs.~(@@REF!eq:junior-idx@@)--(@@REF!eq:kr-mask@@), (@@REF!eq:midpoint-repair@@), (@@REF!eq:greedy-accept@@)) & on & on & on & on & senior $p$ $0.05$ ($0.15$ at $20$--$49$), split-bottom $0.10$ at $D{\ge}50$ \\
+Inherited GSK core (Eqs.~(@@REF!eq:junior-idx@@)--(@@REF!eq:gsk-update@@), (@@REF!eq:midpoint-repair@@); (@@REF!eq:kr-mask@@), (@@REF!eq:greedy-accept@@) as modified) & on & on & on & on & senior $p$ $0.05$ ($0.15$ at $20$--$49$), split-bottom $0.10$ at $D{\ge}50$ \\
 NLPSR schedule (Eq.~(@@REF!eq:nlpsr@@)) & on & on & on & on & floor $N_{\min}$ $12$, then $25$ at $D{\ge}50$ \\
 ACE selector + ARGP (Eq.~(@@REF!eq:ace-update@@)) & on & on & on & on & single memory, then top/bottom at $D{\ge}20$; DE arm on for $20{\le}D{<}100$ \\
 Linkage block crossover (Eq.~(@@REF!eq:kr-mask@@)) & on & on & on & on & block $5$, then $10$; mix $0.70/0.40/0.70/0.70$; ISM-fed blocks at $D{\ge}50$ \\
@@ -1382,7 +1387,7 @@ dynamic exploration--exploitation
 problem~@@CITE!auer2002finite,fialho2010adaptive@@; ACE is not an
 instance of those algorithms, and no regret bound is claimed for it.
 ACE is control-plane only: it consumes no objective evaluations, and
-its per-generation cost is $O(NP + M)$ for $M\in\{5,6\}$ arms (five, or six
+its per-generation cost is $O(NP + m)$ for $m\in\{5,6\}$ arms (five, or six
 with the optional mid-tier DE arm). 
 
 \subsubsection{@@SECNUM!sec:alg:argp!3.3.2.@@ ARGP: Acceptance-Rate Gated Pruning}\label{sec:alg:argp}
@@ -1393,12 +1398,12 @@ ARGP resolves this. After a warm-up of 0.15 of
 the budget, any arm whose acceptance rate over a rolling window of
 $W_{\text{argp}}=30$ generations falls below the tier threshold
 $\tau_{\text{argp}}$ (0.02, tightened to 0.010 at $D\ge50$) is
-\emph{soft-frozen} to the probability floor $p_{\min}=0.05$ rather than removed,
+\emph{soft-frozen} to the probability floor $\pi_{\min}=0.05$ rather than removed,
 provided at least two arms remain active. Subsequent draws therefore
 concentrate on productive operators.  The freeze is recoverable: a frozen arm is re-activated
 as soon as its windowed acceptance climbs back to $\tau_{\text{argp}}$, so ARGP
 redistributes operator budget rather than permanently retiring it. 
-Its bookkeeping cost is $O(M\cdot W_{\text{argp}})$ per
+Its bookkeeping cost is $O(m\cdot W_{\text{argp}})$ per
 generation. 
 
 \subsubsection{@@SECNUM!sec:alg:nlpsr!3.3.3.@@ NLPSR: Tier-Floored Population-Size Reduction}\label{sec:alg:nlpsr}
@@ -1796,22 +1801,21 @@ are disclosed in Supplementary Section~S7.
 
 \begin{table}[t]
 \caption{@@TABLECAP!tab:parameters@@ Frozen run parameters of the shipped configuration (core).
-Where a value varies by
-dimension tier, the four tiers $D{<}20$ / $20$--$49$ / $50$--$99$ / ${\ge}100$
-are shown. No tuning is required or permitted at run time. Hash-frozen in
-algorithm\_freeze\_manifest.json.}
+Where a value varies by dimension tier, the tier-resolved values are given
+inline against the four tiers $D{<}20$ / $20$--$49$ / $50$--$99$ / ${\ge}100$.
+No tuning is required or permitted at run time.}
 \label{tab:parameters}
 \small
 \begin{tabular}{lll}
 \toprule
 \textbf{Parameter} & \textbf{Value} & \textbf{Notes}\\
 \midrule
-\multicolumn{3}{l}{\emph{Run-level (reserved; from problem/options)}}\\
+\multicolumn{3}{l}{\emph{Run-level (supplied by the benchmark problem and run options)}}\\
 \midrule
 generator & threefry, unified shared seed & seed policy\\
-MaxFES & $10^4 D$ & \\
+MaxFES & suite-dependent (Section~@@REF!sec:alg:complexity@@) & $10^4 D$ on CEC2017/CEC2013\\
 bounds & uniform scalar $(\ell,u)$ & per-coordinate on CEC2011\\
-$NP_{\text{init}}$ & $5D$ & np\_init\_mult=5\\
+$NP_{\text{init}}$ & $5D$ & population multiplier 5\\
 \midrule
 \multicolumn{3}{l}{\emph{Core GSK operator}}\\
 \midrule
@@ -1823,7 +1827,7 @@ $p$ (senior) & 0.05 ($0.15$ at $20$--$49$; split-bottom $0.10$ at $D\ge50$) & \\
 \multicolumn{3}{l}{\emph{NLPSR}}\\
 \midrule
 schedule & nonlinear $x^{(1-x)}$ & \\
-$N_{\min}$ & 25 at $D\ge50$ (12 bare) & tier floor\\
+$N_{\min}$ & 25 at $D\ge50$; 12 below that tier & tier floor\\
 $\alpha_{\text{psr}}$ & 1.0 & power-schedule exponent; inert (nlpsr shipped)\\
 \bottomrule
 \end{tabular}
@@ -1831,7 +1835,9 @@ $\alpha_{\text{psr}}$ & 1.0 & power-schedule exponent; inert (nlpsr shipped)\\
 \vspace{2pt}
 {\footnotesize Per-subsystem constants (ACE/ARGP, linkage crossover,
 BSE/archive/deep-stall, ISM and the eigenframe polish, and the upper-tier
-controllers) are listed in the Supplementary Materials, Section~S5.}
+controllers) are listed in the Supplementary Materials, Section~S5. The
+full configuration is hash-frozen in the repository's algorithm freeze
+manifest.}
 \end{table}
 
 
@@ -1861,13 +1867,13 @@ literature-copied numbers appear in any panel exhibit.}
 \toprule
 \textbf{Algorithm} & \textbf{Reference} & \textbf{Configuration in this study}\\
 \midrule
-GSK & @@CITE!mohamed2020gaining@@ & published constants, $NP=100$ at every $D$; in-repository re-run\\
-AGSK & @@CITE!mohamed2020agsk@@ & published constants, $NP=100$ at every $D$; in-repository re-run\\
-APGSK & @@CITE!apgsk2021@@ & published constants, $NP=100$ at every $D$; in-repository re-run\\
+GSK & @@CITE!mohamed2020gaining@@ & reference-implementation constants, $NP=100$ at every $D$; in-repository re-run\\
+AGSK & @@CITE!mohamed2020agsk@@ & reference-implementation constants, $NP=100$ at every $D$; in-repository re-run\\
+APGSK & @@CITE!apgsk2021@@ & reference-implementation constants, $NP=100$ at every $D$; in-repository re-run\\
 
 
-FDB-AGSK & @@CITE!fdbagsk2023@@ & published constants, $NP=100$ at every $D$; in-repository re-run\\
-ATMALS-GSK & @@CITE!alfadli2025atmals@@ & published constants, $NP=100$ at every $D$; in-repository re-run\\
+FDB-AGSK & @@CITE!fdbagsk2023@@ & reference-implementation constants, $NP=100$ at every $D$; in-repository re-run\\
+ATMALS-GSK & @@CITE!alfadli2025atmals@@ & reference-implementation constants, $NP=100$ at every $D$; in-repository re-run\\
 eGSK & @@CITE!jawad2024egsk@@ & Python port; SLSQP substitutes the published
 fmincon polish (disclosed)\\
 \dtgsk{} & this paper & frozen tier-resolved configuration
@@ -1886,8 +1892,9 @@ constants imported, runner-visible defaults extracted from source ---
 never hand-transcribed, and the frozen campaign configuration records an
 empty per-optimizer override set for every comparator, so these module
 defaults are the settings of record. Pools are written first:step:last.
-\dtgsk{} is omitted from this table because its complete frozen
-configuration is already given in Table~@@REF!tab:parameters@@; its single
+\dtgsk{} is omitted from this table because its core frozen
+configuration is given in Table~@@REF!tab:parameters@@ (per-subsystem
+constants: Supplementary Material, Section~S5); its single
 documented per-suite exception --- the two CEC2013LSGO linkage-block
 entries ($905 \to 50$, $1000 \to 50$) --- is disclosed in
 Section~@@REF!sec:exp:cec2013lsgo@@ and Supplementary Section~S7.
@@ -3112,8 +3119,8 @@ isolation removes that entire compass phase rather than the learned basis
 alone, so the advantage may rest on classical direct search rather than on
 anything learned during the run. Second, \dtgsk{} begins from
 $NP = 5D$ against the comparators' $NP = 100$ --- a five-fold difference at
-$D = 100$ --- which is a design choice inherited from each algorithm's own
-published defaults rather than a controlled variable. Third, CEC2017 is
+$D = 100$ --- which is a design choice inherited from the family's
+reference-implementation configuration rather than a controlled variable. Third, CEC2017 is
 development-exposed; CEC2011 and CEC2013 corroborate, but neither is
 independent of configuration selection --- the single configuration was fixed on
 CEC2017 before either suite was seen, so they were not consulted for selection yet

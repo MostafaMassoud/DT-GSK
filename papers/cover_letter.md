@@ -4,14 +4,15 @@
 **Manuscript:** *DT-GSK: Dimension-Tiered Adaptive Control and Deterministic Refinement for Gaining-Sharing Knowledge Optimization*
 **Authors:** Mostafa Elsayed Masoud (corresponding author), Heba Sayed Mohamed Roshdy, Ali Wagdy Mohamed
 **Corresponding author:** moustafa.masoud@gmail.com
-**Date:** 25 July 2026
+**Date:** 31 July 2026
 
 <!-- R-0004 clearance (2026-07-11): rewritten for the frozen target journal
      (MDPI Algorithms, decision D-0010). Scientific core is bound to the
      accepted claim set: CL-02 wording, contribution scopes C1-C3
      (phase_04/contribution_matrix.md), and the family-panel bound.
-     The prior Swarm-and-Evolutionary-Computation letter is superseded;
-     its PDF is retained as cover_letter_STALE_swevo.pdf for audit only. -->
+     The prior Swarm-and-Evolutionary-Computation letter is superseded and its
+     rendered PDF was removed from the tree; the retarget history survives in
+     these comments and in git history (round-2 finding S8-05). -->
 
 ---
 

@@ -9,10 +9,9 @@
 % ============================================================================
 \begin{table}[t]
 \caption{Frozen run parameters of the shipped configuration (core).
-Where a value varies by
-dimension tier, the four tiers $D{<}20$ / $20$--$49$ / $50$--$99$ / ${\ge}100$
-are shown. No tuning is required or permitted at run time. Hash-frozen in
-algorithm\_freeze\_manifest.json.}
+Where a value varies by dimension tier, the tier-resolved values are given
+inline against the four tiers $D{<}20$ / $20$--$49$ / $50$--$99$ / ${\ge}100$.
+No tuning is required or permitted at run time.}
 \label{tab:parameters}
 \centering
 \small
@@ -20,12 +19,12 @@ algorithm\_freeze\_manifest.json.}
 \toprule
 \textbf{Parameter} & \textbf{Value} & \textbf{Notes}\\
 \midrule
-\multicolumn{3}{l}{\emph{Run-level (reserved; from problem/options)}}\\
+\multicolumn{3}{l}{\emph{Run-level (supplied by the benchmark problem and run options)}}\\
 \midrule
 generator & threefry, unified shared seed & seed policy\\
-MaxFES & $10^4 D$ & \\
+MaxFES & suite-dependent (Section~\ref{sec:alg:complexity}) & $10^4 D$ on CEC2017/CEC2013\\
 bounds & uniform scalar $(\ell,u)$ & per-coordinate on CEC2011\\
-$NP_{\text{init}}$ & $5D$ & np\_init\_mult=5\\
+$NP_{\text{init}}$ & $5D$ & population multiplier 5\\
 \midrule
 \multicolumn{3}{l}{\emph{Core GSK operator}}\\
 \midrule
@@ -37,7 +36,7 @@ $p$ (senior) & 0.05 ($0.15$ at $20$--$49$; split-bottom $0.10$ at $D\ge50$) & \\
 \multicolumn{3}{l}{\emph{NLPSR}}\\
 \midrule
 schedule & nonlinear $x^{(1-x)}$ & \\
-$N_{\min}$ & 25 at $D\ge50$ (12 bare) & tier floor\\
+$N_{\min}$ & 25 at $D\ge50$; 12 below that tier & tier floor\\
 $\alpha_{\text{psr}}$ & 1.0 & power-schedule exponent; inert (nlpsr shipped)\\
 \bottomrule
 \end{tabular}
@@ -45,5 +44,7 @@ $\alpha_{\text{psr}}$ & 1.0 & power-schedule exponent; inert (nlpsr shipped)\\
 \vspace{2pt}
 {\footnotesize Per-subsystem constants (ACE/ARGP, linkage crossover,
 BSE/archive/deep-stall, ISM and the eigenframe polish, and the upper-tier
-controllers) are listed in the Supplementary Materials, Section~S5.}
+controllers) are listed in the Supplementary Materials, Section~S5. The
+full configuration is hash-frozen in the repository's algorithm freeze
+manifest.}
 \end{table}
