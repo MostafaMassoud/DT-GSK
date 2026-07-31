@@ -117,85 +117,74 @@ Never edit or reinterpret primary evidence merely to make it agree with the manu
 
 ## 1.5 Current-manuscript-status snapshot (current as of 2026-07-25)
 
-> **SCOPE CHANGE IN FLIGHT.** As of 2026-07-25 the author has decided to add the **CEC2013LSGO** suite to the paper and the Supplementary Material, which re-opens the submission freeze. Read **§1.5.0-O first** (the executed five-suite state), then **§1.5.0-N** and **§1.5.0-M** — it supersedes every earlier statement that the empirical scope is three suites, and it carries two blocking findings (an Ackley-variant non-comparability affecting F3/F6/F10, and an evidence-manifest inventory divergence) that a panel must enforce. Execution plan: `docs/development/LSGO_INTEGRATION_CAMPAIGN.md`.
+> **HISTORICAL BANNER (superseded).** The 2026-07-25 CEC2013LSGO scope change this banner once announced was EXECUTED in full (five-suite manuscript, sections S7/S8, two additional evidence releases) and the freeze has since advanced to pass-27. Read the DEFINITIVE CURRENT STATE block below, then the newest layer (currently **section 1.5.0-Q**); sections 1.5.0-M/N/O record how the scope change was executed and are historical.
 
-> ## DEFINITIVE CURRENT STATE — 2026-07-23 (read this first; it supersedes every layer below on any conflict)
+> ## DEFINITIVE CURRENT STATE — 2026-07-31 evening (pass-27 / v2.2) — read this first; it supersedes every layer below on any conflict
 >
-> This snapshot is maintained as dated provenance layers (§1.5.0 through §1.5.0-L). To spare
-> the reviewer from reconciling twelve layers, the **single authoritative current state** is stated
-> here; the layers below are kept only as the dated record of how it was reached. Where any layer,
-> §1.5.3 row, or §10.x profile item disagrees with this block, **this block governs**, and the
-> newest relevant layer governs among the rest (currently **§1.5.0-P**).
+> This snapshot is maintained as dated provenance layers (§1.5.0 through §1.5.0-Q). The single
+> authoritative current state is stated here; the layers below are the dated record of how it was
+> reached. Where any layer, §1.5.3 row, or §10.x profile item disagrees with this block, **this
+> block governs**, and the newest relevant layer governs among the rest (currently **§1.5.0-Q**).
 >
-> **Deliverables (all built, deterministic ×2):** `papers/DT-GSK.pdf` **41 pp** · `papers/DT-GSK.docx`
-> · `papers/supplementary.pdf` **56 pp** (S1–S6; **all portrait** — the wide per-function head-to-head
-> tables are **side-by-side** `GSK | DT-GSK (Proposed)` groups wrapped in `\resizebox{\textwidth}`, **no
-> landscape** — §1.5.0-K) · `papers/supplementary.docx` (**0 landscape sections**, **page-numbered on
-> every page** — §1.5.0-K) · `papers/cover_letter.pdf` **2 pp**.
+> **Deliverables (all committed, deterministic, byte-verified):** `papers/DT-GSK.pdf` (46 pp total;
+> B1 content pages = 41, back matter from p. 42 — CR-0021) · `papers/DT-GSK.docx` (997,338 B,
+> sha256 64c60b93…) · `papers/supplementary.pdf` (S1–S8, portrait-only) · `papers/supplementary.docx`
+> (9,609,617 B, sha256 7f8fef87…) · `papers/cover_letter.pdf` (2 pp; author-approved 2026-07-31,
+> R-0004 CLOSED). Production caps: CR-0021 (B1 44 pp / B2 24,000 words; measured 41 / 22,821 at filing).
 >
-> **Evidence release:** primary **`rel-2026-07-20-67d9345f9`** (anchor `67d9345f9`); ablation
-> **`abl-rel-2026-07-20`**. Resolve ids from the manifests, never hardcode. Older ids are historical.
+> **Freeze:** pass-27, anchor `2f9631eb7`, manifest 15/15, decision log through **D-0029**. The
+> pass-27 delta vs pass-26 is **DOCX-only** (supplement header order + affiliation superscripts in
+> both DOCX); all three PDFs are byte-identical to pass-26. Tags: standalone repo `v2.1`+`v2.2`
+> (both on origin `MostafaMassoud/DT-GSK`); monorepo `dtgsk-submission-v2.2-2026-07-31` (pushed).
+> The submission basis is **v2.2**. Any manuscript edit voids pass-27 → pass-28 re-mint + a new
+> superseding tag (v2.3-style; earlier tags stay).
 >
-> **Freeze:** committed anchor **`abd2fa2f2`**, then **re-minted 2026-07-23 (thirteenth pass, §1.5.0-H)**
-> after the applied-panel fixes (7 hashes: main.tex, proposed_algorithm.tex, both PDFs, both DOCX,
-> citation_usage_map.csv), then a **fourteenth pass** (tab:aliases cell + D-WORD-01 open-save +
-> citation-map correction) — all **COMMITTED by the author on 2026-07-23**. `check_manifest.py`
-> **15/15**; any mismatch is a DEFECT, not an administrative step. Terminal C-008/C-001 closed
-> 2026-07-21. The newest mint is the **fifteenth pass (§1.5.0-I, 33 findings fixed)** — its re-mint
-> is uncommitted pending the author's commit of that round; everything through the fourteenth pass
-> is committed.
+> **Repo topology:** TWO unlinked repositories. The standalone `D:/AI/Research-Lab/DT-GSK`
+> (origin `MostafaMassoud/DT-GSK`) is the public record: the GitHub Release and the Zenodo archive
+> are cut from ITS `v2.2`. The monorepo copy re-converged at `faf93dd8d` (byte-exact port of the
+> 14 drifted `papers/` files; root README/CITATION deliberately NOT synced — the standalone's are
+> public-facing). Each freeze manifest hashes only its own tree, so both can report 15/15 while
+> disagreeing — a review must recursive-diff before assuming equivalence.
 >
-> **Twelve gates, all exit 0 (re-verify against the current build — never assume):**
-> validate_build_hygiene (**now also fails on any Overfull `\hbox` > 2 pt in either log — §1.5.0-H**) ·
-> validate_cross_format_parity (**599 rows, 0 FAIL**) · validate_provenance_claims
-> (hardened; `--self-test`) · validate_runtime_provenance · validate_document_consistency ·
-> validate_evidence_bindings · **validate_citation_controls** (NEW, SE-025) · **validate_artifact_labels**
-> (NEW, SE-022) · audit_manuscript (2 `blocked_wording_hits`, both negations of "state-of-the-art" — accepted)
-> · validate_docx `<file>` (both DOCX **33 PASS / 0 FAIL**) · check_manifest (**15/15**).
+> **Gates, all green at pass-27 (re-verify — never assume):** check_manifest **15/15** ·
+> validate_build_hygiene (**FULL mode**, never only `--logs-only`) · cross_format_parity
+> (**724 rows / 0 FAIL**) · provenance_claims · document_consistency · citation_controls
+> (**C1–C5, 61 keys**) · evidence_bindings (**250 BIND comments / 1,135 tokens / 0 FAIL** — the
+> pow10 matcher was fixed 2026-07-31, commit `ea63486`; any "267 BIND / 721 tokens" figure is
+> three-suite-era and superseded) · validate_docx (**33 PASS / 0 FAIL both documents**) · tests
+> **601 passed + 2 skipped** · environment attestation green (603 tests ×2).
+> `word_validation_report.md` **§10** supersedes §9's hashes/counts and **CLOSES D-WORD-01**.
 >
-> **Reviews remediated to completion (all with ZERO rerun / evidence / numerical change):** the
-> 80-ticket ledger is **80/80 TERMINAL**; the 2026-07-22 full panel (56 tickets) is closed except the
-> author items (**48 fixed incl. SE-006** — its evidence-based rejection was **overturned in §1.5.0-H**:
-> the 219 pt supplement clip was real and is now fixed); the 2026-07-23 external ChatGPT review
-> (16 items) is closed except the author items (CR-001..013 fixed, W-001 self-withdrawn, W-002..005
-> rejected — §1.5.0-F); a **second ChatGPT review** (10 items) is likewise closed (METH-001/DOC-001/
-> WORD-001/TERM-001 fixed — they were table/docs/DOCX loci the CR round had missed; AI-001 and the
-> 'sync-failure' framing were stale-snapshot/packaging artifacts, not live defects — §1.5.0-G); and
-> **this prompt was then APPLIED as an eight-seat expert panel** (§1.5.0-H, and a THIRD time in
-> §1.5.0-I — 33 adversarially confirmed findings all fixed, incl. the FALSE §1.5.0-G(e) dismissal
-> of the cover-letter GenAI mismatch) which verified the live tree
-> and closed **9 findings — 2 of them defects the CR rounds had themselves introduced** (the DOCX `pgSz`
-> duplication and the ISM `10^{-8}` conflation) — and added the Overfull-`\hbox` regression gate.
-> **RT-001 is CLOSED** by narrowing Table 16 to DT-GSK-only after the re-timing
-> failed the determinism gate; do not review the runtime table as in-progress or request a re-timing.
+> **Committed-blob rule (new, from two live incidents):** `check_manifest` hashes the WORKING
+> TREE. On 2026-07-31 two commits (`fa613cf`, `7804150`) placed Word-resaved DOCX
+> (`docProps/app.xml` Application "Microsoft Office Word", AppVersion 16.0000) into git while the
+> gate stayed 15/15; both were superseded by deterministic rebuilds (`2f9631e`, `6a67c0b`). A
+> review must verify HEAD blobs against the manifest (`git rev-parse HEAD:<path>` →
+> `git cat-file -s`), not only the disk files. The deterministic build signature is
+> "Microsoft Word 12.0.0" with one more zip entry.
 >
-> **THE ONLY OPEN ITEMS ARE AUTHOR-SIDE (3):** **SE-035** (admin confirmations — suggested-reviewer
-> names, JCR/Scopus figures, benchmark access dates; author-supplied, never auto-generate) · **SE-049**
-> (similarity-screening record; iThenticate/Turnitin) · **D-WORD-01** (desktop-Word open-save-open).
-> Nothing else is open except the D-WORD-01 visual confirmation of the reopened document
-> (§1.5.0-I(g)). (§1.5.0-I is the definitive close of the third applied round; §1.5.0-H before it
-> closed 9 findings — including two defects the automated CR rounds had themselves introduced and one
-> false all-clear (SE-006) — and made the layout risk a permanent gate. §1.5.0-G before it swept the
-> table/docs/DOCX loci the CR round missed and recorded which review claims were stale-snapshot
-> artifacts, with evidence.) Do NOT manufacture scientific findings to fill a "major revision" quota —
-> the correct posture is independent verification of the closed items plus final polish.
+> **Registers:** change requests **21/21 APPROVED** (CR-0020 closed 2026-07-31) · risk register:
+> R-0004 **closed** (author approval), R-0001/2/3/5/6 open-monitored Phase-0 items ·
+> AG-0001..0007 all CLOSED · phase gates 0–12 all FROZEN · `_pending_refreeze.json` CLOSED ·
+> claims matrix: zero PENDING rows. Panel addendum rows **A-1** (accepted structural sub-D≈20
+> limitation) and **A-2** (post-submission CEC2011 research) are NOT manuscript defects.
 >
-> **Layer map (dated provenance, newest governs):** §1.5.0 (07-16 finalization, historical) · §1.5.0-B
-> (07-18 retitle + C1–C3 + oracle removal) · §1.5.0-C (07-20 release ids — still governs ids) · §1.5.0-D
-> (07-22/23 panel remediation) · §1.5.0-E (07-23 figure redesign) · §1.5.0-F (07-23 ChatGPT CR round) ·
-> §1.5.0-G (07-23 second ChatGPT review — completes the CR round) — CORRECTS §1.5.0-F ·
-> §1.5.0-H (07-23 this prompt APPLIED as an 8-seat panel — 9 findings incl. 2 self-introduced defects
-> + SE-006 overturned + overfull gate) ·
-> §1.5.0-I (07-23 THIRD applied panel — 33 findings fixed incl. the FALSE §1.5.0-G(e) record;
-> fifteenth-pass mint; supp 64 pp) ·
-> §1.5.0-J (07-24 ChatGPT R4 live-tree D2 — spec-fidelity pack fixed after code-trace, byte-gate added,
-> C2 narrowed; sixteenth-pass mint) ·
-> **§1.5.0-K (07-24 author layout request — portrait-only + DOCX page numbers, then wide comparison
-> tables re-laid side-by-side `GSK | DT-GSK (Proposed)`, then all values switched to E-notation
-> (`6.40E+02`) for consistency with the other tables; supp 60→56 pp; seventeenth–twentieth-pass mints) ·
-> **§1.5.0-L (07-24 comparative positioning vs ATMALS-GSK, the in-venue precedent — re-execution
-> provenance, statistical protocol and scope rationale made explicit; twenty-first-pass mint; newest,
-> governs)**.
+> **THE ONLY OPEN ITEMS ARE THE AUTHOR'S PUBLICATION CHAIN:** repo public → Zenodo toggle ON
+> (BEFORE the release, or no DOI) → GitHub Release from `v2.2` → capture DOI → SuSy upload of the
+> five committed artifacts (repo URL + DOI go in portal fields; the DAS deliberately prints
+> neither, so no rebuild). Known review-relevant residues a fresh round should adjudicate:
+> `CITATION.cff` `version:` field (written at v2.1, basis now v2.2) · SE-049 similarity-screening
+> record-or-deferral (no record in `papers/governance/` as of this snapshot) · `fdb_agsk.py`
+> source-attribution header (SE-035 residue, still absent). Do NOT manufacture findings to fill a
+> quota — the correct posture is independent verification of the closed items plus final polish.
+>
+> **Layer map (dated provenance, newest governs):** §1.5.0 (07-16, historical) · §1.5.0-B (07-18
+> retitle) · §1.5.0-C (07-20 release ids) · §1.5.0-D (07-22/23 panel remediation) · §1.5.0-E/F/G/H/I
+> (07-23 figure redesign, two ChatGPT rounds, two applied panels) · §1.5.0-J (07-24 R4 spec-fidelity) ·
+> §1.5.0-K (07-24 portrait layout) · §1.5.0-L (07-24 in-venue positioning) · §1.5.0-M/N (07-25/28
+> scope change, historical) · §1.5.0-O (07-29 five-suite executed) · §1.5.0-P (07-31 eight-seat
+> panel + Amendment 3 + pass-26) · **§1.5.0-Q (07-31 evening — pass-27 DOCX header restoration,
+> v2.2, D-WORD-01/R-0004/CR-0020 closures, repo split + hygiene; newest, governs)**.
 
 
 This snapshot is reconciled to the 2026-07-23 state: the final retitle, the C1–C3 contribution restructure with **ISM demoted to a supporting mechanism**, the **oracle-study REMOVAL**, and the **completed** C006/M038 fix + 51-run evidence regeneration, all carried by the CURRENT release **`rel-2026-07-20-67d9345f9`** (primary; anchor commit `67d9345f9`) / **`abl-rel-2026-07-20`** (ablation), plus the M049 cross-format disposition and the docs consolidation. The manuscript is **BUILT and in final pre-submission remediation**, not from-scratch construction: the 80-ticket remediation ledger (`papers/governance/remediation_2026_07_18/ticket_status.csv`) stands at **80/80 TERMINAL** (70 `closed_verified` + 10 `superseded_with_evidence`; C-001 closed at `383d7896b`, 2026-07-21), **all quality gates are GREEN**, and **no ledger items remain open**. RT-001 is CLOSED under Decision 7 Option 3: the six-comparator re-timing was executed, FAILED the determinism gate (3,772 diffs), and Table 16 (`tab:runtime`) was narrowed to a DT-GSK-only single-session table — do not review the runtime table as in-progress or request a re-timing. The 2026-07-22 full-panel review (56 tickets, `papers/review_2026_07_22/issue_register.csv`) is remediated to completion: 47 actionable tickets closed, SE-006 rejected on evidence; the 2026-07-23 external ChatGPT review (16 items) is likewise closed (CR-001..013 fixed) — leaving **only the three author-side items SE-035, SE-049, and D-WORD-01** open. See **§1.5.0-F** for the newest governing layer and the DEFINITIVE CURRENT STATE block above for the single-source summary. §1.5.0 records the (now-historical) 2026-07-16 finalization campaign; §1.5.0-B records the 2026-07-18 structural editorial changes; **§1.5.0-C records the 2026-07-20 remediation status and still governs release ids; §1.5.0-D records the 2026-07-22/23 panel remediation and governs current phase and status.** All state current facts, not pending work; where an older row in §1.5.3 conflicts, §1.5.0 / §1.5.0-B / §1.5.0-C govern.
@@ -1494,6 +1483,104 @@ Author-directed addendum rows A-1/A-2 in the panel register are
 algorithm-level limitations, NOT manuscript defects: A-2 (close the CEC2011
 eGSK gap) is post-submission research and must never alter this submission.
 
+### 1.5.0-Q Pass-27 DOCX header restoration; v2.2 basis; repo split, closures, and hygiene (2026-07-31 evening) — GOVERNS CURRENT STATE; SUPERSEDES §1.5.0-P's build-state facts; newest
+
+> **Read this first.** Same-day continuation of §1.5.0-P. The author requested
+> the MDPI header block (title / authors with affiliation superscripts /
+> numbered affiliation / correspondence) render correctly in BOTH formats of
+> the supplement; the PDF already complied, both DOCX did not. The fix batch
+> below re-minted the freeze as **pass-27** (anchor `2f9631eb7`, D-0029) and
+> the submission basis is now **tag `v2.2`**. Facts below supersede older
+> layers where they disagree.
+
+**(a) The DOCX header defects and their fix (a panel must verify, not
+re-raise).** Two independent defects, both DOCX-only: (i) the two
+post-processing passes that undo pandoc's metadata hoisting
+(`_hoist_article_label`, `_affiliations_before_abstract`) were gated to the
+main document — the first on the false premise that the supplement carries no
+article-type label — so `supplementary.docx` rendered title/authors/abstract/
+Article/affiliation, contradicted by its own PDF; (ii) pandoc builds the DOCX
+title block from document METADATA and silently DROPS math there, so the
+`$^{1,*}$` / `$^{1}$` affiliation superscripts vanished from the author and
+affiliation lines in BOTH documents (revision ticket R3-11 requires that
+mapping). Fix: gates removed; superscripts ride through pandoc as `@@SUP!X@@`
+markers rebuilt into real `w:vertAlign` runs by
+`PostProcessor._restore_header_superscripts` (each inheriting its source
+run's `w:rPr`); `make_run` gained a `superscript` keyword; an unconsumed
+marker aborts the build via `parts_document_residue`. Both DOCX verified
+byte-identical across THREE consecutive builds at
+`SOURCE_DATE_EPOCH=1783641600`. A reviewer must check the rendered header
+block in all four artifacts and must NOT flag the marker machinery, the
+`Microsoft Word 12.0.0` application signature, or the `^(1,*)`-style
+superscript runs as defects.
+
+**(b) Word-resave incidents and the committed-blob review rule.** Twice on
+2026-07-31 the author's prescribed D-WORD-01 open-save probe produced
+Word-rewritten packages that were then committed (`fa613cf`: main only;
+`7804150`: both, briefly on origin). `check_manifest` hashes the WORKING TREE
+and stayed 15/15 throughout — the substitution was invisible to every gate
+and only a fresh clone would have shipped the wrong bytes to SuSy. Both were
+superseded by deterministic rebuilds (`2f9631e`, `6a67c0b`) reproducing the
+exact pass-27 hashes (no re-mint needed). Standing rule for every future
+round: verify the HEAD blobs (`git rev-parse HEAD:<path>` → `git cat-file
+-s` / hash) against the manifest in addition to the disk files, and treat a
+DOCX whose `docProps/app.xml` reads Application "Microsoft Office Word" /
+AppVersion 16.0000 (26/46 zip entries) as a resave — the deterministic build
+reads "Microsoft Word 12.0.0" (27/47 entries).
+
+**(c) Governance closures (verify, don't re-raise).** CR-0020 closed
+2026-07-31 — register 21/21 APPROVED (61 citation keys, C1–C5 hold).
+D-WORD-01 CLOSED — `word_validation_report.md` §10.2: author open-saved both
+pass-27 documents without error and confirmed the §1 visual checklist
+(fields, cross-references, wide tables); the multi-source CITATION cosmetic
+form was not reported and the closure does not hang on it. R-0004 CLOSED —
+author reviewed and approved the MDPI Algorithms cover letter 2026-07-31.
+`word_validation_report.md` §10 also supersedes §9's artifact hashes/counts;
+the bindings figure is now **250 BIND comments / 1,135 tokens / 1,135 PASS /
+0 FAIL** after the pow10 spaced-channel fix (`ea63486`) — the squashed
+channel concatenates adjacent table cells, so exact scientific-notation
+matches ("1.8x10-11" followed by "4.3x10-10") failed the trailing-digit
+guard; three values were reported pdf=NO docx=NO while present in both
+formats. Any "267 BIND / 721 token" figure anywhere is three-suite-era.
+
+**(d) Repository split and hygiene (affects reproducibility review).** The
+project ships from the standalone repo `D:/AI/Research-Lab/DT-GSK` (origin
+`MostafaMassoud/DT-GSK`, single squashed history + this session's commits;
+tags `v2.1`, `v2.2` on origin). The monorepo copy re-converged at
+`faf93dd8d` with lineage tag `dtgsk-submission-v2.2-2026-07-31`; root
+`README.md`/`CITATION.cff` deliberately differ (public-facing vs workspace).
+`results/` was pruned of 477 family convergence-curve CSVs (1.606 GB) under
+ruling A-11 — the LSGO/CEC2020 release manifests record the exclusion
+explicitly (`curve_csvs_excluded`: 106 / 266) and the primary release's
+1,554 curve entries all live in the promoted `benchmarks/` tree; the three
+external-baseline banks (`shade-ils`, `mos-cec2013lsgo`, `decc-g`; 48 files
+each) are UNTOUCHED per FINAL_PUBLICATION_PLAN §2.8(b). Tracked tree is now
+1.306 GB, of which 1.21 GB is the immutable promoted evidence. README.md and
+CITATION.cff were rewritten for the public audience (three authors, real
+ORCIDs, five-suite standings table read from the release CSVs,
+submitted-to-Algorithms status).
+
+**(e) Known residues THIS round must adjudicate (pre-verified, not
+rumors).** (i) `CITATION.cff` line 9 reads `version: "2.1"` — written when
+v2.1 was the basis, now stale vs the v2.2 tag; repo-only fix, does not void
+pass-27. (ii) SE-049: no similarity-screening record OR explicit
+publisher-deferral note exists under `papers/governance/` — the 2026-07-22
+round accepted either as closure and neither was filed. (iii)
+`src/gsk_family/optimizers/fdb_agsk.py` still lacks the source-attribution
+header SE-035 required (egsk.py has one; fdb_agsk.py is the other
+third-party-derived comparator). (iv) The `.bak` file at the repo root
+(127 KB, 2026-07-23) ships in the public tree — decide keep/remove. None of
+these touches a manifest-tracked file.
+
+**(f) Review posture for this round.** Registered-vs-reported mode
+unchanged; Amendment 3's runner-up wording is the binding verbatim at its
+four loci; standings are NEVER restated from memory (read the release CSVs);
+frozen releases are never re-run; the pre-registration is append-only; a
+finding is CONFIRMED only after adversarial verification against the live
+tree. The marginal value of this round is final publication polish,
+regression-checking the pass-27 changes, and public-facing repo readiness —
+not rediscovery of resolved objections.
+
 ### 1.5.1 Populated review variables (current baseline)
 
 ```text
@@ -1514,7 +1601,8 @@ EMPIRICAL_SCOPE:         FIVE suites, family-only panel (7 GSK-family algorithms
                          paired separation). Registered outcomes in SAP Addendum 1
                          Amendments 1--2; review mode is registered-vs-reported
                          (1.5.0-O).
-MANUSCRIPT_FILE_OR_TEXT: papers/DT-GSK.pdf  +  papers/DT-GSK.docx  (41 pp)
+MANUSCRIPT_FILE_OR_TEXT: papers/DT-GSK.pdf  +  papers/DT-GSK.docx  (46 pp total;
+                         B1 content pages = 41, back matter from p. 42 -- CR-0021)
 SUPPLEMENTARY_FILE:      papers/supplementary.pdf (S1–S8; S7 = CEC2013LSGO,
                          S8 = CEC2020, appended 2026-07-29 with S1–S6 numbering
                          untouched; portrait-only) + papers/supplementary.docx
@@ -1555,28 +1643,24 @@ STATISTICAL_ANALYSIS_PLAN: papers/build_prompt_phases/phase_05/statistical_analy
                          commit 5c9bfae82, append-only) + its Amendments 1--2 (first
                          computations, corrections, and the data-resolved outcome wording)
 LATEX_SOURCE / PDF / WORD: present; builds are deterministic (see 1.5.4)
-ADMINISTRATIVE_METADATA: CRediT/GenAI-version/funding/submission-date CONFIRMED
-                         (2026-07-13); still-open author placeholders = H.S.M.R.
-                         e-mail, suggested reviewers, ORCID iDs, Zenodo/DOI (1.5.4)
+ADMINISTRATIVE_METADATA: CRediT/GenAI/funding/submission-date CONFIRMED; AG-0001..0007
+                         ALL CLOSED (H.S.M.R. e-mail + all three ORCID iDs supplied
+                         2026-07-25; GenAI pins Claude Opus 4.6/4.8/5.0). Remaining
+                         author-side: suggested reviewers (portal-only) and the
+                         Zenodo DOI (minted at the v2.2 Release; the DAS deliberately
+                         prints neither the DOI nor the repo URL -- no rebuild)
 DETERMINISM:             main PDF SOURCE_DATE_EPOCH=1783468800 FORCE_SOURCE_DATE=1;
                          DOCX SOURCE_DATE_EPOCH=1783641600; all four artifacts bit-identical ×2
-FREEZE_STATE:            Finalization COMPLETE and the terminal freeze COMMITTED.
-                         The CURRENT release rel-2026-07-20-67d9345f9 /
-                         abl-rel-2026-07-20 is promoted and the paper builds against
-                         it. C-008 and C-001 closed 2026-07-21 (commit 383d7896b);
-                         the manifest was then re-minted through the thirteen 2026-07-22/23
-                         remediation passes (committed anchor abd2fa2f2; CRLF + 2-space,
-                         edited in place — never read_text()/sed).
-                         check_manifest.py reports 15/15; the thirteenth- and
-                         fourteenth-pass re-mints (§1.5.0-H) were committed by the
-                         author on 2026-07-23; the FIFTEENTH pass (§1.5.0-I, 33
-                         findings) is minted and 15/15 but uncommitted pending the
-                         author's commit of that round. After it, ANY mismatch is
-                         a defect, not an administrative step.
-                         Evidence-side checks pass: validate_evidence_bindings.py all
-                         BINDs resolve; validate_docx.py 33 PASS / 0 FAIL on both DOCX.
-                         Abstract 204 rendered words (built PDF, 2026-07-31) — re-verify, do
-                         not assert a stale count.
+FREEZE_STATE:            Pass-27 (anchor 2f9631eb7, D-0029), check_manifest 15/15,
+                         COMMITTED AND PUSHED; submission basis = tag v2.2 (standalone
+                         repo; monorepo lineage tag dtgsk-submission-v2.2-2026-07-31).
+                         The manifest is CRLF + 2-space, edited surgically in place --
+                         never read_text()/sed/json.dump. Verify HEAD BLOBS against the
+                         manifest as well as disk files (Word-resave incidents fa613cf/
+                         7804150 -- see 1.5.0-Q(b)). Any mismatch is a DEFECT. Evidence
+                         checks: bindings 250/1,135/0-FAIL; validate_docx 33 PASS both;
+                         parity 724/0. Abstract 204 rendered words (2026-07-31) -- re-
+                         verify on the build, do not assert a stale count.
 ```
 
 ### 1.5.2 Manuscript identity — what the paper now claims (and does not)
