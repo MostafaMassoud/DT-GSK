@@ -57,6 +57,7 @@ import shutil
 import subprocess
 import sys
 import uuid
+from copy import deepcopy
 from pathlib import Path
 
 from lxml import etree
@@ -253,6 +254,24 @@ def _tidy_author(author_raw: str) -> str:
     # pandoc treat the names as separate author entries and render them on
     # separate lines, unlike the PDF's single author line (FM-01).
     return s.strip()
+
+
+def _sup_markers(s: str) -> str:
+    r"""Convert ``$^{X}$`` superscripts into ``@@SUP!X@@`` markers.
+
+    Pandoc builds the DOCX title block from document METADATA and silently
+    DROPS math there, so ``$^{1,*}$`` disappeared from the author line --
+    "Masoud $^{1,*}$, Roshdy" rendered as "Masoud , Roshdy", leaving the stray
+    space and no way to tie an author to a numbered affiliation. The same
+    happened to the leading ``$^{1}$`` on the centred affiliation line. R3-11
+    requires that mapping to survive into the DOCX, so the superscripts ride
+    through pandoc as plain-text markers and are rebuilt as real superscript
+    runs by ``PostProcessor._restore_header_superscripts``.
+
+    An unconsumed marker is not silent: ``parts_document_residue`` scans for
+    ``@@TAG@@`` shapes and the build raises before writing.
+    """
+    return re.sub(r"\$\^\{([^{}$]+)\}\$", r"@@SUP!\1@@", s)
 
 
 def _flatten_inputs(text: str, seen: set[Path] | None = None) -> str:
@@ -822,10 +841,10 @@ def build_shim(doc_kind: str) -> str:
     corres_raw, _, _ = _extract_block(src, "corres")
 
     title = _strip_trailing_pct(title_raw or "").replace("\n", " ")
-    author = _tidy_author(author_raw or "")
+    author = _sup_markers(_tidy_author(author_raw or ""))
     abstract = _strip_trailing_pct(abstract_raw or "")
     keyword = _strip_trailing_pct(keyword_raw or "")
-    address = _strip_trailing_pct(address_raw or "")
+    address = _sup_markers(_strip_trailing_pct(address_raw or ""))
     corres = _strip_trailing_pct(corres_raw or "")
 
     body_match = re.search(r"\\begin\{document\}(.*?)\\end\{document\}",
@@ -1808,6 +1827,7 @@ class PostProcessor:
         self._add_page_numbers()
         self._affiliations_before_abstract()
         self._hoist_article_label()
+        self._restore_header_superscripts()
         self._fix_math_alignment_markers()
         # No table of contents: the MDPI article PDF renders none, so the DOCX
         # omits it too for format parity with the PDF. (A native TOC field used
@@ -1822,6 +1842,51 @@ class PostProcessor:
         if residues:
             raise RuntimeError(f"unresolved markers remain: {residues[:5]}")
 
+    def _restore_header_superscripts(self) -> int:
+        """Rebuild ``@@SUP!X@@`` markers as real superscript runs.
+
+        See ``_sup_markers`` for why the superscripts arrive as markers rather
+        than as math: pandoc drops math from the metadata-built title block, so
+        the author line lost its affiliation/correspondence numbers and the
+        centred affiliation line lost its leading number.
+
+        Each new run inherits the original run's ``w:rPr``, so the footnotesize
+        affiliation block keeps its size and the author line its styling; only
+        ``w:vertAlign`` is added on the superscript segments.
+        """
+        n = 0
+        for p in list(self.body.iter(qn("w:p"))):
+            for r in list(p.findall(qn("w:r"))):
+                t = r.find(qn("w:t"))
+                if t is None or not t.text or "@@SUP!" not in t.text:
+                    continue
+                segments = re.split(r"@@SUP!([^@!]+)@@", t.text)
+                if len(segments) == 1:
+                    continue
+                rpr = r.find(qn("w:rPr"))
+                anchor = list(p).index(r)
+                p.remove(r)
+                offset = 0
+                for idx, seg in enumerate(segments):
+                    if not seg:
+                        continue
+                    is_sup = idx % 2 == 1
+                    run = make_run(seg, superscript=is_sup)
+                    if rpr is not None:
+                        base = deepcopy(rpr)
+                        if is_sup:
+                            va = etree.SubElement(base, qn("w:vertAlign"))
+                            va.set(qn("w:val"), "superscript")
+                        stale = run.find(qn("w:rPr"))
+                        if stale is not None:
+                            run.remove(stale)
+                        run.insert(0, base)
+                    p.insert(anchor + offset, run)
+                    offset += 1
+                    if is_sup:
+                        n += 1
+        return n
+
     def _hoist_article_label(self) -> None:
         """Move the MDPI article-type label above the title block.
 
@@ -1829,11 +1894,15 @@ class PostProcessor:
         builds the title block from document METADATA and hoists it to the top,
         so a body paragraph written before ``\\maketitle`` still lands after the
         title and abstract. Relocating it here puts it where the MDPI class puts
-        it in the PDF (first line of the title page). Main document only --
-        the supplement has no article-type label.
+        it in the PDF (first line of the title page).
+
+        Applies to BOTH documents. This was gated to the main document on the
+        stated grounds that "the supplement has no article-type label", but
+        ``build_shim`` emits ``\\textit{Article}`` unconditionally for either
+        doc_kind, and supplementary.pdf does carry the label as the first line
+        of its title page. The gate therefore left the supplement's label
+        stranded after the abstract, where the PDF has it above the title.
         """
-        if self.doc_kind != "main":
-            return
         for para in self.body.findall(qn("w:p")):
             text = "".join(node.text or "" for node in para.iter(qn("w:t")))
             if text.strip() == "Article":
@@ -1848,10 +1917,14 @@ class PostProcessor:
         of the body, so the centred affiliation block emitted after
         ``\\maketitle`` ends up BELOW the abstract -- the reverse of the MDPI
         class layout in the PDF (FM-02). Move those paragraphs back above the
-        abstract heading. Main document only.
+        abstract heading.
+
+        Applies to BOTH documents. The supplement carries the same centred
+        affiliation/correspondence block (supplementary.tex ``\\address`` and
+        ``\\corres``) and pandoc hoists its abstract identically, so gating
+        this to the main document left the supplement's header in the order
+        title / authors / abstract / affiliation, which its own PDF contradicts.
         """
-        if self.doc_kind != "main":
-            return
         paras = self.body.findall(qn("w:p"))
 
         def text_of(p) -> str:

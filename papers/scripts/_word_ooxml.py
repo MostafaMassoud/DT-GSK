@@ -93,9 +93,10 @@ def el(tag: str, attrib: dict[str, str] | None = None, text: str | None = None):
 
 
 def make_run(text: str, *, bold: bool = False, italic: bool = False,
-             rstyle: str | None = None, sz_half_pt: int | None = None):
+             rstyle: str | None = None, sz_half_pt: int | None = None,
+             superscript: bool = False):
     r = etree.Element(qn("w:r"))
-    if bold or italic or rstyle or sz_half_pt:
+    if bold or italic or rstyle or sz_half_pt or superscript:
         rpr = etree.SubElement(r, qn("w:rPr"))
         if rstyle:
             s = etree.SubElement(rpr, qn("w:rStyle"))
@@ -107,6 +108,9 @@ def make_run(text: str, *, bold: bool = False, italic: bool = False,
         if sz_half_pt:
             sz = etree.SubElement(rpr, qn("w:sz"))
             sz.set(qn("w:val"), str(sz_half_pt))
+        if superscript:
+            va = etree.SubElement(rpr, qn("w:vertAlign"))
+            va.set(qn("w:val"), "superscript")
     t = etree.SubElement(r, qn("w:t"))
     t.set("{http://www.w3.org/XML/1998/namespace}space", "preserve")
     t.text = text
