@@ -31,7 +31,7 @@ generated HTML docs. It currently covers:
 - all seven runnable optimizer smoke paths (`gsk`, `agsk`, `apgsk`, `fdb-agsk`,
   `atmals-gsk`, `egsk`, `dt-gsk`);
 - fair-start and deterministic replay behavior;
-- dt-gsk byte-for-byte parity with its source project (`01-Python/03-DT-GSK-v2.1`), locked by `tests/regression/test_dt_gsk_byte_stable.py` on sphere and CEC2017 at D=10 and D=30 (the lock deliberately stays below the `D>=50` SGSM/parallel-kernel tier, which is thread-sensitive; that tier is guarded instead by `test_dt_graph_backend_parity.py` and `test_dt_polish_incumbent_consistent.py`);
+- dt-gsk byte-for-byte parity with its originating development tree (the `03-DT-GSK-v2.1` workspace, predating this repository), locked by `tests/regression/test_dt_gsk_byte_stable.py` on sphere and CEC2017 at D=10 and D=30 (the lock deliberately stays below the `D>=50` SGSM/parallel-kernel tier, which is thread-sensitive; that tier is guarded instead by `test_dt_graph_backend_parity.py` and `test_dt_polish_incumbent_consistent.py`);
 - the statistical-analysis suite (Friedman/Wilcoxon, the result/reference
   loaders, figures, LaTeX, and the `gsk-stats` CLI);
 - runner output schema;

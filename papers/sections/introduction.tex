@@ -61,7 +61,8 @@ selection, the failure mode behind the family's escape and local-search
 additions, meets a hard-capped budget-safe escape and a restart
 that can never lose the global best. Late refinement that depends on a
 gradient-based solver or on randomized local search gives way to a
-deterministic, one-shot final polish. And the weakness that no
+deterministic, one-shot final polish --- the deterministic refinement of
+the title, realized as the eigenframe final polish (C1). And the weakness that no
 descendant addresses --- recombination that treats every coordinate
 independently of the run's own improvement history --- is targeted by the
 interaction-structure memory (ISM), which this paper evaluates as an
@@ -145,7 +146,7 @@ The contributions are:
   in origin, subject to those disclosed exceptions. % BIND: MT-10, CN-02 (C3; validation bullet carries no numbers)
 \end{itemize}
 
-The interaction-structure memory is an online, decaying, evidence-gated coordinate-pair graph learned from strictly improving accepted moves without additional objective evaluations. It provides candidate linkage blocks for blockwise crossover and a candidate eigenbasis for the eigenframe final polish (C1). However, the present component isolation does not establish a consistent standalone performance contribution from ISM at the dimensions where it is active, and the function-class analysis reveals no systematic advantage on the hybrid or composition categories (Supplementary Materials, Sections~S6.5 and S6.6). ISM is therefore positioned as a secondary exploratory mechanism rather than as the primary source of \dtgsk{}'s performance standing. Its inclusion provides a fully specified and reproducible investigation of structure learning from strictly improving accepted moves, while the paper's principal contributions remain the dimension-tiered adaptive scaffold (C2), the eigenframe final polish (C1), and the controlled, budget-fair evaluation framework (C3).
+The interaction-structure memory is an online, decaying, evidence-gated coordinate-pair graph learned from strictly improving accepted moves without additional objective evaluations. It provides candidate linkage blocks for blockwise crossover and a candidate eigenbasis for the eigenframe final polish (C1). However, the present component isolation does not establish a consistent standalone performance contribution from ISM at the dimensions where it is active, and the function-class analysis reveals no systematic advantage on the hybrid or composition categories (Supplementary Materials, Sections~S6.5 and S6.6). ISM is therefore positioned as a secondary exploratory mechanism rather than as the primary source of \dtgsk{}'s performance standing. Its inclusion provides a fully specified and reproducible investigation of structure learning from strictly improving accepted moves, while the paper's principal contributions remain the dimension-tiered adaptive scaffold (C2), the eigenframe final polish (C1), and the controlled, budget-fair family evaluation (C3).
 
 The remainder of the paper is organized as follows.
 Section~\ref{sec:related} reviews the GSK family, positions the

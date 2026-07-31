@@ -155,13 +155,13 @@ Gaining-Sharing Knowledge (DT-GSK) instead resolves control by
 dimension: an adaptive scaffold serves every tier, a deterministic,
 budget-exact eigenframe refinement runs once from $D = 50$ upward, and the
 GSK vector-update equations are retained; an exploratory
-interaction-structure memory, learned from accepted moves at no extra
-evaluations, supplies the refinement basis.
+interaction-structure memory, learned from strictly improving accepted
+moves at no extra evaluations, supplies the refinement basis.
 Against six GSK-family baselines re-executed in-repository on CEC2017
 (primary), CEC2011, CEC2013, CEC2020, and CEC2013LSGO under one
 budget-fair paired protocol, DT-GSK attains the best descriptive
 family-rank aggregate on CEC2017 (2.48) and CEC2013 (2.80); it is second
-behind eGSK at $D = 30$ and on CEC2011; the CEC2011 loss is
+behind eGSK at CEC2017's $D = 30$ and on CEC2011; the CEC2011 loss is
 Holm-significant. % BIND: AN-RANKAGG-2017-OVERALL (friedman_ranks_cec2017_overall.csv; RS-01 NARROWED); AN-RANKAGG-2013-OVERALL (friedman_ranks_cec2013_overall.csv); AN-OMNI-2011-NATIVE (friedman_ranks_cec2011.csv)
 On AGSK's strongest suite---the CEC2020 competition in which it was the
 runner-up---DT-GSK places fourth; the family panel corroborates AGSK's
@@ -380,7 +380,10 @@ interpretation of the CEC2020 results in the text.  These
 relationships are disclosed here and are also evident from the
 authorship line and the related-work review.  The comparator
 results do not rest on the conflicted authors' judgment: every
-comparator was re-executed from its published configuration under the
+comparator was re-executed from its reference-implementation
+configuration (Table~\ref{tab:comparator-params-main};
+Section~\ref{sec:alg:overview} discloses where these differ from the
+source papers) under the
 optimizer-independent seed schedule, and the released evidence and
 analysis pipeline permit any third party to re-derive every reported
 number.  No other conflicts of interest are

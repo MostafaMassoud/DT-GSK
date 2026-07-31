@@ -1,7 +1,7 @@
 # PERFORMANCE_RULES.md
 
 **Purpose.** This document is the authoritative standard for *performance and
-runtime determinism* in the `00-GSK_Family_Python` project: how Numba JIT is
+runtime determinism* in the DT-GSK repository: how Numba JIT is
 warmed and cached, how threads are pinned so the proposed `dt-gsk` optimizer
 stays byte-stable, how the self-healing parallel execution backend behaves, how
 to keep memory bounded, how interrupted campaigns resume, and how to measure and

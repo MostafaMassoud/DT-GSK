@@ -190,9 +190,9 @@ V = \operatorname{eig}(G_{\mathrm{signed}})\right)
 \text{stream}_0 &= \operatorname{threefry}(\text{seed}),
 \qquad
 \text{stream}_k = \operatorname{threefry}(s_k),\\
-s_k &= (\text{seed} + 1{,}000{,}003\,(k{+}1)) \bmod M + 1,
+s_k &= (\text{seed} + 1{,}000{,}003\,(k{+}1)) \bmod M_{\mathrm{seed}} + 1,
 \quad k \in \{1,\dots,12\}
 \end{aligned}
 \end{equation}
-where $M = 2\,147\,483\,646$ is the child-seed modulus (Supplementary
-Material, Section~S5); it is unrelated to the ACE arm count $m$.
+where $M_{\mathrm{seed}} = 2\,147\,483\,646$ is the child-seed modulus
+(Supplementary Material, Section~S5).

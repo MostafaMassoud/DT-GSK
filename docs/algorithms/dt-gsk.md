@@ -430,8 +430,8 @@ fully deterministic for a given seed.
 
 ## Byte-for-byte parity with the source project
 
-DT-GSK was migrated from the sibling project
-`01-Python/03-DT-GSK-v2.1` and reproduces
+DT-GSK was migrated from its originating development tree (the
+`03-DT-GSK-v2.1` workspace, predating this repository) and reproduces
 it **byte-for-byte**. The `_dt_profiles.py` `pub` builder is a faithful port of
 the source's `profiles.py` `pub` profile together with the
 `dt_gsk_`-prefix-strip mapping the source's `experiment._build_dt_gsk_config`

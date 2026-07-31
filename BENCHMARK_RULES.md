@@ -1,7 +1,7 @@
 # BENCHMARK_RULES.md
 
 **Purpose.** This document codifies the benchmark and experiment-protocol rules
-for the `00-GSK_Family_Python` project: which suites exist, the exact per-suite
+for the DT-GSK repository: which suites exist, the exact per-suite
 function/dimension/run/budget protocol, how bounds and the seed/RNG regime are
 fixed, how reference evidence is treated, the result CSV schema, and the
 7-algorithm GSK-family comparison panel. **Every number below is the repository's

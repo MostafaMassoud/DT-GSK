@@ -1,7 +1,7 @@
 # ARCHITECTURE.md -- Structural Map of the GSK-Family Python System
 
 **Purpose.** This document is the authoritative structural map of the
-`00-GSK_Family_Python` project: what the system is made of, how the pieces are
+DT-GSK repository: what the system is made of, how the pieces are
 layered, which way dependencies point, and how data flows from a command line
 through an optimization run into reproducible result tables, statistics, and
 papers. It is descriptive (the *shape* of the system) and normative only where
@@ -62,7 +62,7 @@ package were migrated byte-identically from the source DT-GSK v2.1 project and
 ### 2.1 Directory tree
 
 ```
-02-GSK_Family_Python_v1.1/
+DT-GSK/
 |-- run.py                          # canonical thin entry point -> cli.run:main
 |-- pyproject.toml                  # console scripts, packaging (src layout)
 |-- README.md  SKILL.md  runbook.md # landing / agent contract / commands

@@ -1,6 +1,6 @@
 ﻿---
 name: gsk-family-python
-description: Deep project operating contract for working directly inside the GSK Family Python repository (the 00-GSK_Family_Python project root). Use whenever a task modifies, reviews, runs, validates, documents, benchmarks, tunes, packages, audits, cleans, or explains this project: GSK-family optimizer work (gsk, agsk, apgsk, fdb-agsk, atmals-gsk, egsk, dt-gsk), CEC benchmark campaigns (sphere, cec2011, cec2013, cec2013lsgo, cec2017, cec2020), the canonical runner and parallel-backend behavior, reference-matching RNG streams, byte-format result parity, documentation generation with its themed docs/ tree and HTML twins, reproducibility evidence, release polish, and the review-prompt suite.
+description: Deep project operating contract for working directly inside the DT-GSK repository root. Use whenever a task modifies, reviews, runs, validates, documents, benchmarks, tunes, packages, audits, cleans, or explains this project: GSK-family optimizer work (gsk, agsk, apgsk, fdb-agsk, atmals-gsk, egsk, dt-gsk), CEC benchmark campaigns (sphere, cec2011, cec2013, cec2013lsgo, cec2017, cec2020), the canonical runner and parallel-backend behavior, reference-matching RNG streams, byte-format result parity, documentation generation with its themed docs/ tree and HTML twins, reproducibility evidence, release polish, and the review-prompt suite.
 ---
 
 # GSK Family Python — Operating Contract
@@ -68,7 +68,7 @@ produce the paper-grade statistical comparison that backs the proposed method
 
 ## 2. Absolute Workspace Contract
 
-Work **directly inside** the repository root — the `00-GSK_Family_Python`
+Work **directly inside** the repository root — the DT-GSK
 project folder.
 
 Hard workspace rules:

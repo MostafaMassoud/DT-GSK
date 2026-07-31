@@ -1,7 +1,7 @@
 # PROJECT_RULES.md — The GSK-Family Python Constitution
 
 **Purpose.** This is the top-level, non-negotiable rule set for the
-`00-GSK_Family_Python` project — the PhD research software backing the GSK
+DT-GSK repository — the PhD research software backing the GSK
 (Gaining-Sharing Knowledge) optimizer family and its proposed method `dt-gsk`
 (Dimension-Tiered Gaining-Sharing Knowledge). Every contributor, reviewer, and AI agent
 **MUST** follow these rules before any other guidance. They exist to protect the

@@ -34,7 +34,7 @@ maintenance, and Q1 journal publication standards.
 
 Your objective is **not** to add features, tune algorithms, or open another development
 iteration. Your objective is to transform this repository —
-`02-GSK_Family_Python_v1.1`, the Python implementation of the GSK optimizer family
+the DT-GSK repository, the Python implementation of the GSK optimizer family
 (seven runnable optimizers: `gsk`, `agsk`, `apgsk`, `fdb-agsk`, `atmals-gsk`, `egsk`,
 and the proposed `dt-gsk`) spanning five CEC benchmark suites in code (`cec2011`,
 `cec2013`, `cec2013lsgo`, `cec2017`, `cec2020`) — three of which (`cec2011`,

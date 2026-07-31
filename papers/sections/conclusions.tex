@@ -17,8 +17,8 @@ gaining-sharing vector-update equations and layers an adaptive control-and-budge
 scaffold, a deterministic final polish, and a controlled family evaluation on that
 core, with an interaction-structure memory as a supporting mechanism. % BIND: MT-01 (frozen contribution wording)
 That memory is a decaying, confidence- and evidence-gated
-coordinate-pair graph learned from the moves the run has already
-accepted. It is active at $D \geq 50$ and consumed
+coordinate-pair graph learned from the strictly improving moves the run
+has already accepted. It is active at $D \geq 50$ and consumed
 twice --- as linkage blocks for the block crossover, and as the eigenbasis of
 the one-shot, RNG-free final polish. An ISM-block subspace local search is
 implemented but not enabled in the frozen configuration. % BIND: MT-08, MT-09
@@ -100,7 +100,7 @@ the same seed-paired stream, the one documented departure from the shared
 $X_{0}$ used by the six comparators.
 Every comparative finding is panel-relative by design, with no claim against
 other metaheuristic families, and the \egsk{} cells derive from a port whose
-SLSQP polish substitutes the published fmincon solver, so no
+SLSQP polish substitutes the reference implementation's fmincon solver, so no
 runtime-superiority claim is made in either direction. At $D = 1000$ no
 member of the family, \dtgsk{} included, approaches the performance that
 dedicated large-scale specialists report in the literature; the family's

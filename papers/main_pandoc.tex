@@ -55,13 +55,13 @@ Gaining-Sharing Knowledge (DT-GSK) instead resolves control by
 dimension: an adaptive scaffold serves every tier, a deterministic,
 budget-exact eigenframe refinement runs once from $D = 50$ upward, and the
 GSK vector-update equations are retained; an exploratory
-interaction-structure memory, learned from accepted moves at no extra
-evaluations, supplies the refinement basis.
+interaction-structure memory, learned from strictly improving accepted
+moves at no extra evaluations, supplies the refinement basis.
 Against six GSK-family baselines re-executed in-repository on CEC2017
 (primary), CEC2011, CEC2013, CEC2020, and CEC2013LSGO under one
 budget-fair paired protocol, DT-GSK attains the best descriptive
 family-rank aggregate on CEC2017 (2.48) and CEC2013 (2.80); it is second
-behind eGSK at $D = 30$ and on CEC2011; the CEC2011 loss is
+behind eGSK at CEC2017's $D = 30$ and on CEC2011; the CEC2011 loss is
 Holm-significant. % BIND: AN-RANKAGG-2017-OVERALL (friedman_ranks_cec2017_overall.csv; RS-01 NARROWED); AN-RANKAGG-2013-OVERALL (friedman_ranks_cec2013_overall.csv); AN-OMNI-2011-NATIVE (friedman_ranks_cec2011.csv)
 On AGSK's strongest suite---the CEC2020 competition in which it was the
 runner-up---DT-GSK places fourth; the family panel corroborates AGSK's
@@ -142,7 +142,8 @@ selection, the failure mode behind the family's escape and local-search
 additions, meets a hard-capped budget-safe escape and a restart
 that can never lose the global best. Late refinement that depends on a
 gradient-based solver or on randomized local search gives way to a
-deterministic, one-shot final polish. And the weakness that no
+deterministic, one-shot final polish --- the deterministic refinement of
+the title, realized as the eigenframe final polish (C1). And the weakness that no
 descendant addresses --- recombination that treats every coordinate
 independently of the run's own improvement history --- is targeted by the
 interaction-structure memory (ISM), which this paper evaluates as an
@@ -226,7 +227,7 @@ The contributions are:
   in origin, subject to those disclosed exceptions. 
 \end{itemize}
 
-The interaction-structure memory is an online, decaying, evidence-gated coordinate-pair graph learned from strictly improving accepted moves without additional objective evaluations. It provides candidate linkage blocks for blockwise crossover and a candidate eigenbasis for the eigenframe final polish (C1). However, the present component isolation does not establish a consistent standalone performance contribution from ISM at the dimensions where it is active, and the function-class analysis reveals no systematic advantage on the hybrid or composition categories (Supplementary Materials, Sections~S6.5 and S6.6). ISM is therefore positioned as a secondary exploratory mechanism rather than as the primary source of \dtgsk{}'s performance standing. Its inclusion provides a fully specified and reproducible investigation of structure learning from strictly improving accepted moves, while the paper's principal contributions remain the dimension-tiered adaptive scaffold (C2), the eigenframe final polish (C1), and the controlled, budget-fair evaluation framework (C3).
+The interaction-structure memory is an online, decaying, evidence-gated coordinate-pair graph learned from strictly improving accepted moves without additional objective evaluations. It provides candidate linkage blocks for blockwise crossover and a candidate eigenbasis for the eigenframe final polish (C1). However, the present component isolation does not establish a consistent standalone performance contribution from ISM at the dimensions where it is active, and the function-class analysis reveals no systematic advantage on the hybrid or composition categories (Supplementary Materials, Sections~S6.5 and S6.6). ISM is therefore positioned as a secondary exploratory mechanism rather than as the primary source of \dtgsk{}'s performance standing. Its inclusion provides a fully specified and reproducible investigation of structure learning from strictly improving accepted moves, while the paper's principal contributions remain the dimension-tiered adaptive scaffold (C2), the eigenframe final polish (C1), and the controlled, budget-fair family evaluation (C3).
 
 The remainder of the paper is organized as follows.
 Section~@@REF!sec:related@@ reviews the GSK family, positions the
@@ -988,15 +989,15 @@ V = \operatorname{eig}(G_{\mathrm{signed}})\right)
 \text{stream}_0 &= \operatorname{threefry}(\text{seed}),
 \qquad
 \text{stream}_k = \operatorname{threefry}(s_k),\\
-s_k &= (\text{seed} + 1{,}000{,}003\,(k{+}1)) \bmod M + 1,
+s_k &= (\text{seed} + 1{,}000{,}003\,(k{+}1)) \bmod M_{\mathrm{seed}} + 1,
 \quad k \in \{1,\dots,12\}
 \end{aligned}
 \]
 
 @@EQNUM!eq:rng-substreams@@
 
-where $M = 2\,147\,483\,646$ is the child-seed modulus (Supplementary
-Material, Section~S5); it is unrelated to the ACE arm count $m$.
+where $M_{\mathrm{seed}} = 2\,147\,483\,646$ is the child-seed modulus
+(Supplementary Material, Section~S5).
 
 
 
@@ -1096,7 +1097,7 @@ fixed execution order are listed in Section~@@REF!sec:algorithm@@.
 
 @@ALGLINE!-!1@@ \emph{Initialization}
 
-@@ALGLINE!1!0@@ Initialize the interaction graphs $G_{\mathrm{abs}}, G_{\mathrm{signed}} \gets 0$
+@@ALGLINE!1!0@@ Initialize the interaction graphs $G_{\mathrm{abs}}, G_{\mathrm{signed}} \gets 0$ (allocated only at $D\ge50$)
 
 @@ALGLINE!2!0@@ Set $NP{=}5D$ and the GSK parameters $KF,\ KR,\ K_{\exp},\ p$
 
@@ -1387,7 +1388,7 @@ dynamic exploration--exploitation
 problem~@@CITE!auer2002finite,fialho2010adaptive@@; ACE is not an
 instance of those algorithms, and no regret bound is claimed for it.
 ACE is control-plane only: it consumes no objective evaluations, and
-its per-generation cost is $O(NP + m)$ for $m\in\{5,6\}$ arms (five, or six
+its per-generation cost is $O(NP + M)$ for $M\in\{5,6\}$ arms (five, or six
 with the optional mid-tier DE arm). 
 
 \subsubsection{@@SECNUM!sec:alg:argp!3.3.2.@@ ARGP: Acceptance-Rate Gated Pruning}\label{sec:alg:argp}
@@ -1403,7 +1404,7 @@ provided at least two arms remain active. Subsequent draws therefore
 concentrate on productive operators.  The freeze is recoverable: a frozen arm is re-activated
 as soon as its windowed acceptance climbs back to $\tau_{\text{argp}}$, so ARGP
 redistributes operator budget rather than permanently retiring it. 
-Its bookkeeping cost is $O(m\cdot W_{\text{argp}})$ per
+Its bookkeeping cost is $O(M\cdot W_{\text{argp}})$ per
 generation. 
 
 \subsubsection{@@SECNUM!sec:alg:nlpsr!3.3.3.@@ NLPSR: Tier-Floored Population-Size Reduction}\label{sec:alg:nlpsr}
@@ -1463,7 +1464,10 @@ diversity floor 0.35); below $D=20$ it falls back to a single
 stagnation trigger, for which the acceptance and diversity floors are
 inactive. When triggered it first perturbs the
 worst $r_{c}$ fraction of the population with heavy-tailed
-Cauchy draws, Eq.~(@@REF!eq:bse-cauchy@@); a successful rescue --- one that
+Cauchy draws, Eq.~(@@REF!eq:bse-cauchy@@), sparing the frozen elite ---
+the top $\operatorname{round}(0.05\,NP)$ rows by fitness, exempt from
+both the rescue and the restart (Supplementary Material, Section~S5),
+which anchors the equation's ``unfrozen'' qualifier; a successful rescue --- one that
 lowers the incumbent best --- cancels the restart for that generation, and
 only when the rescue fails does BSE then reseed part of the population from
 a diversity archive: a Cauchy-rescue-then-partial-restart design in the
@@ -1559,8 +1563,8 @@ learns or exploits the interaction structure of the moves a run has
 already accepted.
 Outside the family, structure learning is available, but at a different
 cost or mechanism. Differential grouping spends a dedicated offline
-budget of objective evaluations, of order $O(n^{2}/m)$, on pairwise
-probing before optimization starts~@@CITE!omidvar2014dg@@. Covariance
+budget of pairwise-probing objective evaluations --- quadratic in the
+dimension --- before optimization starts~@@CITE!omidvar2014dg@@. Covariance
 matrix adaptation learns a full sampling covariance from selected
 steps~@@CITE!hansen2001cmaes@@. Eigenvector-based crossover
 recomputes the population-covariance eigenbasis every
@@ -1636,8 +1640,8 @@ $D\ge50$ each blockwise row draws its blocks from the learned ISM graph
 with probability $0.5$, and from the random permutation partition
 otherwise (block size 10), so the learned structure supplies about half
 of the blockwise rows rather than all of them.
-The graph itself is active only for $D\ge50$ and is rebuilt every 5
-generations at $D=50$ and every 20 at $D=100$. 
+The graph itself is active only for $D\ge50$ and is re-extracted into
+blocks every 5 generations at $D=50$ and every 20 at $D=100$. 
 The graph's top-$k$ blocks could \emph{also} define a bounded subspace (at
 most 20 coordinates) for a structure-aware local search, but this ISM-block
 subspace variant is \emph{not enabled} in the frozen configuration, which
@@ -1846,9 +1850,9 @@ manifest.}
 Table~@@REF!tab:panel@@ records the comparator panel and its
 configuration provenance.
 All seven algorithms are run in-repository under one frozen protocol;
-the six comparators run their published reference constants, and eGSK
+the six comparators run their reference-implementation constants, and eGSK
 is the Python port in which the SciPy SLSQP solver substitutes the
-published MATLAB fmincon polish --- the panel column is
+reference implementation's MATLAB fmincon (SQP) polish --- the panel column is
 therefore ``eGSK (Python port, SLSQP polish)'', with no
 numerical-equivalence claim between the two
 backends. 
@@ -1874,8 +1878,8 @@ APGSK & @@CITE!apgsk2021@@ & reference-implementation constants, $NP=100$ at eve
 
 FDB-AGSK & @@CITE!fdbagsk2023@@ & reference-implementation constants, $NP=100$ at every $D$; in-repository re-run\\
 ATMALS-GSK & @@CITE!alfadli2025atmals@@ & reference-implementation constants, $NP=100$ at every $D$; in-repository re-run\\
-eGSK & @@CITE!jawad2024egsk@@ & Python port; SLSQP substitutes the published
-fmincon polish (disclosed)\\
+eGSK & @@CITE!jawad2024egsk@@ & Python port; SLSQP substitutes the
+reference implementation's fmincon polish (disclosed)\\
 \dtgsk{} & this paper & frozen tier-resolved configuration
 (Table~@@REF!tab:parameters@@); hash-locked\\
 \bottomrule
@@ -1884,7 +1888,7 @@ fmincon polish (disclosed)\\
 
 
 
-The exact numeric settings behind ``published constants'' are reproduced
+The exact numeric settings behind ``reference-implementation constants'' are reproduced
 in Table~@@REF!tab:comparator-params-main@@ so the main text is
 parameter-complete without the Supplementary Material: every value is
 read programmatically from the shipped optimizer modules --- module
@@ -2060,8 +2064,9 @@ presented as comparable.
 One provenance qualification applies: the \egsk{} panel cells derive
 from the committed reference results of the runnable \egsk{} port,
 whose late local polish uses SciPy-SLSQP, whereas the original
-reference implementation uses a fmincon-based SQP
-solver~@@CITE!jawad2024egsk@@. The substituted routine is a search
+algorithm's late refinement is a sequential-quadratic-programming
+polish~@@CITE!jawad2024egsk@@, realized as MATLAB fmincon in the family's
+reference implementation. The substituted routine is a search
 component rather than a cosmetic finishing step: it consumes part of the
 same evaluation budget and can move the returned solution, so the \egsk{}
 cells reported here are properties of this port and not of the published
@@ -2091,7 +2096,7 @@ is NaN by design on problems without published optima, where
 best-fitness is authoritative.
 Infeasible evaluations --- for instance a failed trajectory integration
 or an out-of-domain intermediate value on the orbital-mechanics problems
---- receive the suite's standard infeasibility penalty ($10^{30}$),
+--- receive the reference implementation's standard infeasibility penalty ($10^{30}$),
 applied identically for all seven algorithms, so a feasible candidate is
 always preferred to an infeasible one at selection.
 
@@ -2155,8 +2160,11 @@ Significance & \multicolumn{5}{c}{$\alpha = 0.05$; Holm at $m{=}6$ per dimension
 
 \paragraph{Panel, pairing, and seed-paired start.}
 The comparison panel is exactly the seven-algorithm GSK family of
-Table~@@REF!tab:panel@@; comparator configurations follow their original
-publications, and \dtgsk{} runs the single hash-frozen configuration
+Table~@@REF!tab:panel@@; comparator configurations follow the family's
+shipped reference implementations
+(Table~@@REF!tab:comparator-params-main@@;
+Section~@@REF!sec:alg:overview@@ discloses where these differ from the
+source papers), and \dtgsk{} runs the single hash-frozen configuration
 (Table~@@REF!tab:parameters@@), identical across the four bound-constrained
 suites with no per-suite tuning. On CEC2013LSGO alone it adds two
 linkage-block-size entries, for $D = 905$ and $D = 1000$, set to the
@@ -2992,8 +3000,9 @@ runs of that algorithm --- the identical aggregation basis for all
 seven curves in every panel, with no smoothing and no
 interpolation --- on a log-error axis whose display-only floor of
 $10^{-14}$ marks exact zeros and never enters any statistic. The
-complete function $\times$ dimension convergence sets for CEC2017,
-CEC2011 and CEC2013 are in the Supplementary Materials, Section~S3.
+complete convergence sets --- CEC2017 at all four dimensions, CEC2011
+at native dimensions, and CEC2013 at the prespecified $D = 30$ --- are
+in the Supplementary Materials, Section~S3.
 
 
 The unfavorable case is discussed rather than skipped. On F26 at
@@ -3118,12 +3127,13 @@ effect belongs to the deterministic endgame \emph{as a whole}, and the polish
 isolation removes that entire compass phase rather than the learned basis
 alone, so the advantage may rest on classical direct search rather than on
 anything learned during the run. Second, \dtgsk{} begins from
-$NP = 5D$ against the comparators' $NP = 100$ --- a five-fold difference at
-$D = 100$ --- which is a design choice inherited from the family's
-reference-implementation configuration rather than a controlled variable. Third, CEC2017 is
+$NP = 5D$ against the comparators' $NP = 100$ --- a five-fold difference
+at $D = 100$. The comparators' value is the family's
+reference-implementation setting, and the asymmetry was not a controlled
+variable. Third, CEC2017 is
 development-exposed; CEC2011 and CEC2013 corroborate, but neither is
 independent of configuration selection --- the single configuration was fixed on
-CEC2017 before either suite was seen, so they were not consulted for selection yet
+CEC2017 without consulting either suite, so they were not used for selection yet
 cannot be read as fully independent holdouts. None of the three is excluded by the
 evidence reported here, and each bounds how far the panel standing should be
 read as attributable to the tiered design itself. A fourth bound is
@@ -3263,8 +3273,8 @@ gaining-sharing vector-update equations and layers an adaptive control-and-budge
 scaffold, a deterministic final polish, and a controlled family evaluation on that
 core, with an interaction-structure memory as a supporting mechanism. 
 That memory is a decaying, confidence- and evidence-gated
-coordinate-pair graph learned from the moves the run has already
-accepted. It is active at $D \geq 50$ and consumed
+coordinate-pair graph learned from the strictly improving moves the run
+has already accepted. It is active at $D \geq 50$ and consumed
 twice --- as linkage blocks for the block crossover, and as the eigenbasis of
 the one-shot, RNG-free final polish. An ISM-block subspace local search is
 implemented but not enabled in the frozen configuration. 
@@ -3346,7 +3356,7 @@ the same seed-paired stream, the one documented departure from the shared
 $X_{0}$ used by the six comparators.
 Every comparative finding is panel-relative by design, with no claim against
 other metaheuristic families, and the \egsk{} cells derive from a port whose
-SLSQP polish substitutes the published fmincon solver, so no
+SLSQP polish substitutes the reference implementation's fmincon solver, so no
 runtime-superiority claim is made in either direction. At $D = 1000$ no
 member of the family, \dtgsk{} included, approaches the performance that
 dedicated large-scale specialists report in the literature; the family's
@@ -3618,7 +3628,10 @@ interpretation of the CEC2020 results in the text.  These
 relationships are disclosed here and are also evident from the
 authorship line and the related-work review.  The comparator
 results do not rest on the conflicted authors' judgment: every
-comparator was re-executed from its published configuration under the
+comparator was re-executed from its reference-implementation
+configuration (Table~@@REF!tab:comparator-params-main@@;
+Section~@@REF!sec:alg:overview@@ discloses where these differ from the
+source papers) under the
 optimizer-independent seed schedule, and the released evidence and
 analysis pipeline permit any third party to re-derive every reported
 number.  No other conflicts of interest are
@@ -3716,7 +3729,7 @@ SD       & Standard Deviation \\
 
 @@BIBENT!auer2002finite!26@@ Auer, P.; Cesa-Bianchi, N.; Fischer, P. Finite-Time Analysis of the Multiarmed Bandit Problem. \emph{Machine Learning} \textbf{2002}, \emph{47},~235--256. doi:{\href{https://doi.org/10.1023/A:1013689704352}{10.1023/A:1013689704352}}.
 
-@@BIBENT!kolda2003directsearch!27@@ Kolda, T.G.; Lewis, R.M.; Torczon, V. Optimization by Direct Search: New Perspectives on Some Classical and Modern Methods. \emph{SIAM Review} \textbf{2003}, \emph{45},~385--482. doi:{\href{https://doi.org/10.1137/S003614450242889}{10.1137/S003614450242889}}.
+@@BIBENT!kolda2003directsearch!27@@ Kolda, T.G.; Lewis, R.M.; Torczon, V. Optimization by Direct Search: New Perspectives on Some Classical and Modern Methods. \emph{SIAM Review} \textbf{2003}, \emph{45},~385--482. doi:{\href{https://doi.org/10.1137/S0036144502428893}{10.1137/S0036144502428893}}.
 
 @@BIBENT!nelder1965simplex!28@@ Nelder, J.A.; Mead, R. A Simplex Method for Function Minimization. \emph{The Computer Journal} \textbf{1965}, \emph{7},~308--313. doi:{\href{https://doi.org/10.1093/comjnl/7.4.308}{10.1093/comjnl/7.4.308}}.
 

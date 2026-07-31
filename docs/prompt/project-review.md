@@ -29,7 +29,7 @@ the imported reference evidence.
 0. CONTEXT THE REVIEWER MUST INTERNALIZE BEFORE STARTING
 ================================================================================
 
-Project root: the `02-GSK_Family_Python_v1.1` repository root. All paths in this
+Project root: the DT-GSK repository root. All paths in this
 prompt are relative to it.
 
 --------------------------------------------------------------------------------

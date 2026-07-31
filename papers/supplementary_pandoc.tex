@@ -98,7 +98,7 @@ objective value is authoritative~@@CITE!das2011cec2011@@.
 
 CEC2013 is the second comparison suite, reported for breadth of
 comparison: 28 functions, $D \in \{10, 30, 50\}$, 51 runs per
-cell~@@CITE!liang2013cec2013@@.
+cell, and $\mathrm{MaxFES} = 10^{4}\,D$~@@CITE!liang2013cec2013@@.
 
 CEC2020 is the pre-registered confirmatory suite: 10 functions at
 $D \in \{5, 10, 15, 20\}$, with F6 and F7 undefined at $D = 5$ (38 scored
@@ -1013,7 +1013,7 @@ seed; stream~0 is the run seed verbatim (self-init).}
 \midrule
 13 substreams & init, core, ace, kexp, div, bse, arch, link, de, control, flow, basin, trust (append-only, prefix-locked)\\
 $\text{init}=\operatorname{threefry}(\text{seed})$ & stream 0 = run seed verbatim (self-init)\\
-$M$ & maximum safe seed (child-seed modulus)\\
+$M_{\mathrm{seed}}$ & maximum safe seed (child-seed modulus)\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1236,7 +1236,7 @@ scope does buy is attribution: one code base, one protocol and one
 harness, so within-panel deltas reflect algorithmic differences up to the
 port and initialization asymmetries disclosed below. 
 Fourth, the \egsk{} panel cells derive from a port whose SLSQP polish
-substitutes the published fmincon-based solver. Cross-implementation
+substitutes the reference implementation's fmincon-based solver. Cross-implementation
 runtime and environment comparability is therefore limited, and no
 runtime-superiority claim is made anywhere in this paper. The main-text runtime table reports
 \dtgsk{}'s own per-run cost only --- comparator timings came from a separate
@@ -1296,6 +1296,12 @@ report how many evaluations each modifier consumed, nor how often the
 learned structure was actually exposed to its consumers; the standalone
 null is therefore ``no detectable benefit under this design'' and not a
 demonstration that the memory was active and neutral.
+
+Ninth, no parameter-sensitivity study was performed: the tier constants
+are frozen and hash-locked, and the individual influence of each is
+unmeasured; neither ARGP nor the deep-stall restart is isolated by the
+remove-one study, which excludes both by
+pre-specification (Section~S6.2).
 
 Beyond these, the statistical scope is itself bounded: inference rests
 on 29-function and 22-problem blocks under rank-based tests; run-level
@@ -1472,7 +1478,7 @@ refresh period / warmup & 5 gen.\ ($D{<}100$) / 20 ($D\ge100$); warmup 0.10 & \\
 confidence gate $\kappa_{\min}$ & 0.35 (linkage 0.35, LS 0.45) & adaptive at $D\ge50$: window 30, percentile 0.50, floor 0.12\\
 block size range & 2--10 & \\
 final polish start & $0.96$ & final\_polish\_start\_frac\\
-restart response & matrix decay 0.50 (interaction\_restart\_decay); post-restart cooldown 5 gen.\ & applied on each BSE/deep-stall restart\\
+restart response & matrix decay 0.50 (interaction\_restart\_decay); post-escape cooldown 5 gen.\ & applied on each BSE escape event (not on the deep-stall restart)\\
 \midrule
 \multicolumn{3}{l}{\emph{$D\ge100$ controllers}}\\
 \midrule
@@ -1599,7 +1605,7 @@ v^{\mathrm{sig}}_i = \frac{\Delta x_i}{\lVert \Delta x_i\rVert_1},
 @@EQNUM!-@@
 
 and the accumulators receive an improvement-weighted rank-one scatter of weight
-$w_i=\delta_i\,s_i$,
+$w_i=\delta_i\,\varsigma_i$,
 
 \[
 G_{\mathrm{abs}} \leftarrow \lambda\,G_{\mathrm{abs}}
@@ -1612,7 +1618,7 @@ G_{\mathrm{signed}} \leftarrow \lambda\,G_{\mathrm{signed}}
 @@EQNUM!-@@
 
 after which each graph is symmetrized and its diagonal zeroed (the self-weight
-is tracked separately).  The per-source weight $s_i$ is $0$ for
+is tracked separately).  The per-source weight $\varsigma_i$ is $0$ for
 differential-evolution-arm moves, $0.25$ for local-search moves and $1$
 otherwise; the decay is $\lambda=0.95$ and the commit rate is $\eta=1.0$ (the
 $\lambda,\eta$ of main-text Equation~(11)).  Updates begin after budget fraction $0.10$
@@ -1624,14 +1630,16 @@ correspondingly the per-update cost of $O(24\,D^2)$ is incurred once per ten
 generations, i.e.\ an amortized $\approx O(2.4\,D^2)$ per generation, against the
 $O(NP\,D^2)$ per-\emph{update} worst case at $D=50$--$99$, where every accepted move
 contributes an uncapped rank-one scatter each generation.
-\emph{Event-driven updates.} Two graph updates fall outside this steady cadence. First, whenever the charged coordinate local search improves at least one individual, that generation's accepted local-search displacements are injected a second time --- at the local-search source weight $0.25$ but \emph{without} the usual $\lambda=0.95$ fade (an injection at decay $1$) --- and the linkage blocks are re-extracted immediately rather than waiting for the next five-generation refresh. Second, after a deep-stall restart the retained graph is halved ($\times 0.50$) and a five-generation cooldown suppresses block re-use until the post-restart population has produced fresh evidence, after which blocks are re-extracted. Both transitions are frozen defaults of the shipped configuration.
+\emph{Event-driven updates.} Two graph updates fall outside this steady cadence. First, whenever the charged coordinate local search improves at least one individual, that generation's accepted local-search displacements are injected a second time --- at the local-search source weight $0.25$ but \emph{without} the usual $\lambda=0.95$ fade (an injection at decay $1$) --- and the linkage blocks are re-extracted immediately rather than waiting for the next five-generation refresh. Second, after a budget-safe-escape event --- a partial restart, or any Cauchy perturbation, including a successful rescue that cancels the restart --- the retained graph is halved ($\times 0.50$) and a five-generation cooldown suppresses block re-use until the post-escape population has produced fresh evidence, after which blocks are re-extracted; the deep-stall restart itself does not touch the graph. Both transitions are frozen defaults of the shipped configuration.
 
 
 \paragraph{Graph-to-block extraction and readiness.}
 At each linkage refresh the magnitude graph is max-normalized,
 $W = G_{\mathrm{abs}}/\max G_{\mathrm{abs}}$.  A row-wise adjacency keeps, for
 each dimension $j$, the edges $W_{jk}\ge \max\!\left(\varphi,\ \tfrac12\max_k
-W_{jk}\right)$ with floor $\varphi=10^{-4}$ and at most $b_{\max}-1$ neighbors;
+W_{jk}\right)$ with floor $\varphi=10^{-4}$ and at most $b_{\max}-1$ neighbors
+(a row with no edge above the floor retains its strongest positive edges, at
+most $b_{\max}-1$, as a fallback);
 it is symmetrized and its connected components are taken.  Components smaller
 than $b_{\min}=2$ are discarded, those with at most $b_{\max}=10$ members are
 kept whole, and larger components are split greedily (highest row-sum seed plus
@@ -1691,13 +1699,13 @@ invokes no external solver; the SciPy SLSQP refinement used by the \egsk{} port
 and the optional SciPy Nelder--Mead local-search methods are distinct mechanisms
 and are not part of the eigenframe polish.  The budget-safe escape of
 main-text Equation~(10) perturbs the worst $\operatorname{round}(0.10\,NP)$ rows by
-$s\cdot D^{-1/2}\cdot\mathrm{span}\cdot\mathcal{C}(0,1)$, with scale
-$s=0.04$ at $D\ge 20$ and $s=0.05$ at $D<20$; the escape is active at all
+$r_{s}\cdot D^{-1/2}\cdot\mathrm{span}\cdot\mathcal{C}(0,1)$, with scale
+$r_{s}=0.04$ at $D\ge 20$ and $r_{s}=0.05$ at $D<20$; the escape is active at all
 tiers (the $D<20$ tier enables it through the low-dimension escape
 overrides).  Finally, the RNG substream
-modulus of main-text Equation~(13) is $M = 2\,147\,483\,646$: stream~$0$ is the run seed
+modulus of main-text Equation~(13) is $M_{\mathrm{seed}} = 2\,147\,483\,646$: stream~$0$ is the run seed
 verbatim and streams $1$--$12$ use $s_k=(\text{seed}+1\,000\,003\,(k{+}1))\bmod
-M + 1$.
+M_{\mathrm{seed}} + 1$.
 
 
 \paragraph{Junior/senior partition, crossover mask, and coverage floor (main-text Equations~(3) and~(5)).}
@@ -1737,7 +1745,7 @@ $m = x_{r_1} + F\,(x_{r_2}-x_{r_3})$ with $F=0.5$, followed by binomial crossove
 $CR=0.9$ with one forced coordinate; crucially the crossover base is not the parent but
 the \emph{GSK trial already constructed for that row}, into which the surviving DE
 mutant coordinates are spliced, with midpoint bound repair.  Because each arm's credit
-is the \emph{summed} (not averaged) accepted improvement of the individuals that drew
+is the \emph{summed} (not averaged) signed fitness delta of the individuals that drew
 it and the number of draws is proportional to the arm's current probability, credit
 accrual is exposure-dependent: a widely drawn arm accumulates proportionally more total
 credit for the same per-capita effect --- a positive-feedback coupling bounded only by
@@ -1842,12 +1850,14 @@ example from $25$ to $32$ at $D=100$) until either the budget fraction reaches $
 $64$ linkage-commit generations have accrued.  The quantity it counts is a per-generation
 linkage-commit decision, \emph{not} an objective-evaluation sample, so despite the source
 label (``sample-protected'') it protects population diversity, not evaluation samples ---
-it merely slows the L-SHADE-style population reduction.  One reproducibility coupling is
+it merely slows the L-SHADE-style population reduction.  One reproducibility note is
 worth stating explicitly: the fitness-affecting link-lift EMA read-back that feeds the
-senior-widening and broaden gates is updated inside the per-generation callback path, and
-the released driver's adapter always supplies that callback, so the read-back is active in
-every reported run; a callback-less direct invocation of the core would omit it and
-diverge at $D\ge 100$, but no released configuration does so.
+senior-widening and broaden gates runs unconditionally in the per-generation loop of the
+shipped module (it was moved out of the telemetry-callback path during the
+bit-identical-certified performance campaign), so its effect is present in every run and
+no callback-presence divergence is possible; the release-producing revision carried the
+callback-path form with identical trajectories under the released driver, whose adapter
+always supplied the callback.
 
 
 \subsection{@@SECNUM!sec:repro:release!S5.10.@@ Evidence Release, Checksums, and Promotion Pipeline}\label{sec:repro:release}
@@ -1940,7 +1950,7 @@ every released file is minted by the pipeline's own tools.
 One provenance qualification is restated from the main paper: the
 \egsk{} panel cells are produced in-repository by the runnable \egsk{}
 port, whose late local polish substitutes a SciPy-SLSQP solver for the
-published MATLAB fmincon polish, with no numerical-equivalence
+reference implementation's MATLAB fmincon polish, with no numerical-equivalence
 claim between the two backends; cross-implementation runtime and
 environment comparability is therefore limited, and no
 runtime-superiority claim involving \egsk{} is made anywhere in this paper.

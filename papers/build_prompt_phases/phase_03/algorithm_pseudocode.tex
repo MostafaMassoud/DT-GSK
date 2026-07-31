@@ -32,7 +32,7 @@ fixed execution order are listed in Section~\ref{sec:algorithm}.}
 \Ensure global best solution $x^{gb}$
 \Statex
 \Statex \emph{Initialization}
-\State Initialize the interaction graphs $G_{\mathrm{abs}}, G_{\mathrm{signed}} \gets 0$
+\State Initialize the interaction graphs $G_{\mathrm{abs}}, G_{\mathrm{signed}} \gets 0$ (allocated only at $D\ge50$)
 \State Set $NP{=}5D$ and the GSK parameters $KF,\ KR,\ K_{\exp},\ p$
 \State Open the 13 RNG substreams for dimension $D$
 \State Create a random population $\{x_i\}_{i=1}^{NP}$ in $[\ell,u]$

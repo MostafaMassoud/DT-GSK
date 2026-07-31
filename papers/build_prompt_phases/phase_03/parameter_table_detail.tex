@@ -62,7 +62,7 @@ refresh period / warmup & 5 gen.\ ($D{<}100$) / 20 ($D\ge100$); warmup 0.10 & \\
 confidence gate $\kappa_{\min}$ & 0.35 (linkage 0.35, LS 0.45) & adaptive at $D\ge50$: window 30, percentile 0.50, floor 0.12\\
 block size range & 2--10 & \\
 final polish start & $0.96$ & final\_polish\_start\_frac\\
-restart response & matrix decay 0.50 (interaction\_restart\_decay); post-restart cooldown 5 gen.\ & applied on each BSE/deep-stall restart\\
+restart response & matrix decay 0.50 (interaction\_restart\_decay); post-escape cooldown 5 gen.\ & applied on each BSE escape event (not on the deep-stall restart)\\
 \midrule
 \multicolumn{3}{l}{\emph{$D\ge100$ controllers}}\\
 \midrule

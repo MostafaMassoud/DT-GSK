@@ -10,10 +10,10 @@
 > [Tutorial](tutorial.md).
 
 Run every command from the project root (the directory that contains
-`run.py`, `pyproject.toml`, and the `configs/` folder). On this machine that is:
+`run.py`, `pyproject.toml`, and the `configs/` folder):
 
 ```powershell
-cd D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1
+cd <path-to-your-DT-GSK-checkout>
 ```
 
 The canonical runner is `python run.py`, which prepends `src/` to the import

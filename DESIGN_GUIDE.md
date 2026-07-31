@@ -1,6 +1,6 @@
 # DESIGN_GUIDE.md -- Design Principles and How to Extend
 
-**Purpose.** This document records the design philosophy of the GSK-family Python project (`00-GSK_Family_Python`, PhD research software for the GSK optimizer family) and gives concrete, copy-pasteable recipes for extending it: adding an optimizer, a benchmark suite, a CLI command, a result artifact, or an analysis comparator. It is the "why it is shaped this way, and how to grow it without breaking it" reference.
+**Purpose.** This document records the design philosophy of the DT-GSK repository (PhD research software for the GSK optimizer family) and gives concrete, copy-pasteable recipes for extending it: adding an optimizer, a benchmark suite, a CLI command, a result artifact, or an analysis comparator. It is the "why it is shaped this way, and how to grow it without breaking it" reference.
 
 **Audience.** Contributors and future-you adding code to `src/gsk_family/`. Read this *before* writing a new optimizer or analysis routine. This file covers design intent and extension procedure; it deliberately defers:
 - exact directory/module layout to [ARCHITECTURE.md](ARCHITECTURE.md),

@@ -40,8 +40,9 @@ presented as comparable.
 One provenance qualification applies: the \egsk{} panel cells derive
 from the committed reference results of the runnable \egsk{} port,
 whose late local polish uses SciPy-SLSQP, whereas the original
-reference implementation uses a fmincon-based SQP
-solver~\cite{jawad2024egsk}. The substituted routine is a search
+algorithm's late refinement is a sequential-quadratic-programming
+polish~\cite{jawad2024egsk}, realized as MATLAB fmincon in the family's
+reference implementation. The substituted routine is a search
 component rather than a cosmetic finishing step: it consumes part of the
 same evaluation budget and can move the returned solution, so the \egsk{}
 cells reported here are properties of this port and not of the published
@@ -71,7 +72,7 @@ is NaN by design on problems without published optima, where
 best-fitness is authoritative.
 Infeasible evaluations --- for instance a failed trajectory integration
 or an out-of-domain intermediate value on the orbital-mechanics problems
---- receive the suite's standard infeasibility penalty ($10^{30}$),
+--- receive the reference implementation's standard infeasibility penalty ($10^{30}$),
 applied identically for all seven algorithms, so a feasible candidate is
 always preferred to an infeasible one at selection.
 % BIND: PR-02, PR-04 (claims matrix; data_ledger.csv); benchmarks/cec_suite_python/cec2011/_constants.py (NAN_PENALTY)
@@ -137,8 +138,11 @@ Significance & \multicolumn{5}{c}{$\alpha = 0.05$; Holm at $m{=}6$ per dimension
 
 \paragraph{Panel, pairing, and seed-paired start.}
 The comparison panel is exactly the seven-algorithm GSK family of
-Table~\ref{tab:panel}; comparator configurations follow their original
-publications, and \dtgsk{} runs the single hash-frozen configuration
+Table~\ref{tab:panel}; comparator configurations follow the family's
+shipped reference implementations
+(Table~\ref{tab:comparator-params-main};
+Section~\ref{sec:alg:overview} discloses where these differ from the
+source papers), and \dtgsk{} runs the single hash-frozen configuration
 (Table~\ref{tab:parameters}), identical across the four bound-constrained
 suites with no per-suite tuning. On CEC2013LSGO alone it adds two
 linkage-block-size entries, for $D = 905$ and $D = 1000$, set to the
@@ -984,8 +988,9 @@ runs of that algorithm --- the identical aggregation basis for all
 seven curves in every panel, with no smoothing and no
 interpolation --- on a log-error axis whose display-only floor of
 $10^{-14}$ marks exact zeros and never enters any statistic. The
-complete function $\times$ dimension convergence sets for CEC2017,
-CEC2011 and CEC2013 are in the Supplementary Materials, Section~S3.
+complete convergence sets --- CEC2017 at all four dimensions, CEC2011
+at native dimensions, and CEC2013 at the prespecified $D = 30$ --- are
+in the Supplementary Materials, Section~S3.
 % BIND: captions_registry conventions (aggregation, display floor)
 
 The unfavorable case is discussed rather than skipped. On F26 at
@@ -1114,12 +1119,13 @@ effect belongs to the deterministic endgame \emph{as a whole}, and the polish
 isolation removes that entire compass phase rather than the learned basis
 alone, so the advantage may rest on classical direct search rather than on
 anything learned during the run. Second, \dtgsk{} begins from
-$NP = 5D$ against the comparators' $NP = 100$ --- a five-fold difference at
-$D = 100$ --- which is a design choice inherited from the family's
-reference-implementation configuration rather than a controlled variable. Third, CEC2017 is
+$NP = 5D$ against the comparators' $NP = 100$ --- a five-fold difference
+at $D = 100$. The comparators' value is the family's
+reference-implementation setting, and the asymmetry was not a controlled
+variable. Third, CEC2017 is
 development-exposed; CEC2011 and CEC2013 corroborate, but neither is
 independent of configuration selection --- the single configuration was fixed on
-CEC2017 before either suite was seen, so they were not consulted for selection yet
+CEC2017 without consulting either suite, so they were not used for selection yet
 cannot be read as fully independent holdouts. None of the three is excluded by the
 evidence reported here, and each bounds how far the panel standing should be
 read as attributable to the tiered design itself. A fourth bound is

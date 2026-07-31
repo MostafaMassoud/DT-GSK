@@ -150,8 +150,11 @@ lack verifiable protocol metadata, and everything else is locally produced.
 
 ## 4. eGSK solver provenance (EG-011) — verified determination
 
-**Published mechanism:** eGSK's late-stage refinement uses MATLAB `fmincon` (SQP, Optimization
-Toolbox) per `jawad2024egsk`.
+**Published mechanism:** eGSK's late-stage refinement is a sequential-quadratic-programming
+(SQP) polish per `jawad2024egsk` (Sect. 3.2.3); the concrete solver, MATLAB `fmincon`
+(Optimization Toolbox), comes from the family's vendored reference implementation
+(`egsk_ip_refine.m`, see `egsk.py` docstring), not from the article — the published PDF never
+names fmincon (corrected 2026-07-31, round-3 CITE-REP-01).
 
 **Local implementation:** `src/gsk_family/optimizers/egsk.py` substitutes
 `scipy.optimize.minimize(method="SLSQP")` (module docstring lines 16–22; `_egsk_ip_refine` lines

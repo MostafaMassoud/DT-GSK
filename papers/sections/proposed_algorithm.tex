@@ -344,7 +344,7 @@ dynamic exploration--exploitation
 problem~\cite{auer2002finite,fialho2010adaptive}; ACE is not an
 instance of those algorithms, and no regret bound is claimed for it.
 ACE is control-plane only: it consumes no objective evaluations, and
-its per-generation cost is $O(NP + m)$ for $m\in\{5,6\}$ arms (five, or six
+its per-generation cost is $O(NP + M)$ for $M\in\{5,6\}$ arms (five, or six
 with the optional mid-tier DE arm). % BIND: phase_03/complexity_analysis.md (ACE row)
 
 \subsubsection{ARGP: Acceptance-Rate Gated Pruning}\label{sec:alg:argp}
@@ -360,7 +360,7 @@ provided at least two arms remain active. Subsequent draws therefore
 concentrate on productive operators.  The freeze is recoverable: a frozen arm is re-activated
 as soon as its windowed acceptance climbs back to $\tau_{\text{argp}}$, so ARGP
 redistributes operator budget rather than permanently retiring it. % BIND: phase_03/parameter_table.md (ARGP window/threshold/warmup)
-Its bookkeeping cost is $O(m\cdot W_{\text{argp}})$ per
+Its bookkeeping cost is $O(M\cdot W_{\text{argp}})$ per
 generation. % BIND: phase_03/complexity_analysis.md (ARGP row)
 
 \subsubsection{NLPSR: Tier-Floored Population-Size Reduction}\label{sec:alg:nlpsr}
@@ -421,7 +421,10 @@ diversity floor 0.35); below $D=20$ it falls back to a single
 stagnation trigger, for which the acceptance and diversity floors are
 inactive. When triggered it first perturbs the
 worst $r_{c}$ fraction of the population with heavy-tailed
-Cauchy draws, Eq.~(\ref{eq:bse-cauchy}); a successful rescue --- one that
+Cauchy draws, Eq.~(\ref{eq:bse-cauchy}), sparing the frozen elite ---
+the top $\operatorname{round}(0.05\,NP)$ rows by fitness, exempt from
+both the rescue and the restart (Supplementary Material, Section~S5),
+which anchors the equation's ``unfrozen'' qualifier; a successful rescue --- one that
 lowers the incumbent best --- cancels the restart for that generation, and
 only when the rescue fails does BSE then reseed part of the population from
 a diversity archive: a Cauchy-rescue-then-partial-restart design in the
@@ -476,8 +479,8 @@ learns or exploits the interaction structure of the moves a run has
 already accepted.
 Outside the family, structure learning is available, but at a different
 cost or mechanism. Differential grouping spends a dedicated offline
-budget of objective evaluations, of order $O(n^{2}/m)$, on pairwise
-probing before optimization starts~\cite{omidvar2014dg}. Covariance
+budget of pairwise-probing objective evaluations --- quadratic in the
+dimension --- before optimization starts~\cite{omidvar2014dg}. Covariance
 matrix adaptation learns a full sampling covariance from selected
 steps~\cite{hansen2001cmaes}. Eigenvector-based crossover
 recomputes the population-covariance eigenbasis every
@@ -553,8 +556,8 @@ $D\ge50$ each blockwise row draws its blocks from the learned ISM graph
 with probability $0.5$, and from the random permutation partition
 otherwise (block size 10), so the learned structure supplies about half
 of the blockwise rows rather than all of them.
-The graph itself is active only for $D\ge50$ and is rebuilt every 5
-generations at $D=50$ and every 20 at $D=100$. % BIND: phase_03/parameter_table.md (block size by tier) + phase_03/contribution_matrix.md row 8
+The graph itself is active only for $D\ge50$ and is re-extracted into
+blocks every 5 generations at $D=50$ and every 20 at $D=100$. % BIND: phase_03/parameter_table.md (block size by tier) + phase_03/contribution_matrix.md row 8
 The graph's top-$k$ blocks could \emph{also} define a bounded subspace (at
 most 20 coordinates) for a structure-aware local search, but this ISM-block
 subspace variant is \emph{not enabled} in the frozen configuration, which
@@ -716,9 +719,9 @@ are disclosed in Supplementary Section~S7.
 Table~\ref{tab:panel} records the comparator panel and its
 configuration provenance.
 All seven algorithms are run in-repository under one frozen protocol;
-the six comparators run their published reference constants, and eGSK
+the six comparators run their reference-implementation constants, and eGSK
 is the Python port in which the SciPy SLSQP solver substitutes the
-published MATLAB fmincon polish --- the panel column is
+reference implementation's MATLAB fmincon (SQP) polish --- the panel column is
 therefore ``eGSK (Python port, SLSQP polish)'', with no
 numerical-equivalence claim between the two
 backends. % BIND: papers/governance/comparability_audit.md Sections 1-4 (T-PANEL source)
@@ -745,8 +748,8 @@ APGSK & \cite{apgsk2021} & reference-implementation constants, $NP=100$ at every
 % (role map B.1: "exact settings for reproduction"), not mohamed2021novel.
 FDB-AGSK & \cite{fdbagsk2023} & reference-implementation constants, $NP=100$ at every $D$; in-repository re-run\\
 ATMALS-GSK & \cite{alfadli2025atmals} & reference-implementation constants, $NP=100$ at every $D$; in-repository re-run\\
-eGSK & \cite{jawad2024egsk} & Python port; SLSQP substitutes the published
-fmincon polish (disclosed)\\
+eGSK & \cite{jawad2024egsk} & Python port; SLSQP substitutes the
+reference implementation's fmincon polish (disclosed)\\
 \dtgsk{} & this paper & frozen tier-resolved configuration
 (Table~\ref{tab:parameters}); hash-locked\\
 \bottomrule
@@ -755,7 +758,7 @@ fmincon polish (disclosed)\\
 % BIND: papers/governance/comparability_audit.md (panel roster, reference
 % constants, eGSK SLSQP provenance; rule R-EGSK-1).
 
-The exact numeric settings behind ``published constants'' are reproduced
+The exact numeric settings behind ``reference-implementation constants'' are reproduced
 in Table~\ref{tab:comparator-params-main} so the main text is
 parameter-complete without the Supplementary Material: every value is
 read programmatically from the shipped optimizer modules --- module

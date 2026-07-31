@@ -136,7 +136,7 @@ are true, consistent, and navigable, or list exactly what is not.
 ## How to use this prompt
 
 1. Give a capable LLM or coding agent read access (write access if you want it to
-   apply fixes) to the repository root (the `02-GSK_Family_Python_v1.1` project
+   apply fixes) to the repository root (the DT-GSK project
    folder).
 2. Paste everything inside the fenced block below as the instruction prompt.
 3. Either point the reviewer at one phase at a time, or let it run all seven
@@ -266,7 +266,7 @@ consistency and accuracy against the current code — not depth, pedagogy, or
 new worked examples (a separate prompt owns that). Do not invent facts: every
 claim you make about the code must be backed by a file:line you actually read.
 
-Project root: the `02-GSK_Family_Python_v1.1` repository root.
+Project root: the DT-GSK repository root.
 
 Operating rules:
 
