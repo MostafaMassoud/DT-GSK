@@ -5595,4 +5595,381 @@ This appendix is the consolidated, per-dimension checklist the review MUST compl
 
 **Closing.** Completing this checklist is necessary but not sufficient for acceptance (§6): it certifies the camera-ready quality of the artifact, not the strength of the science. A clean sweep of F.1–F.21 with all gates (§11) green is the minimum bar for declaring the manuscript submission-ready.
 
+
+---
+
+## 18. Forensic deep-review layer (FDR) — twelve-role forensic pass with an authorship-defensibility audit (author-supplied master prompt, reviewed and tuned 2026-07-31)
+
+### 18.0 Provenance, invocation, and precedence
+
+**Provenance.** The author supplied a standalone "MASTER PROMPT:
+MULTIDISCIPLINARY FORENSIC REVIEW OF A RESEARCH PAPER AND ITS SUPPLEMENTARY
+MATERIAL" (2026-07-31) and directed that it be reviewed, tuned, and added to
+this instrument. The original was written for an arbitrary chat-pasted
+manuscript with no governance: it assumed the reviewer may freely rewrite the
+title and abstract, invite new citations, and treat every fix as free. None
+of that holds here. This section is the repo-native adaptation; §18.2 records
+every material tuning decision so the delta from the author's original is
+auditable.
+
+**Invocation.** The FDR layer runs ON DEMAND — when the author asks for a
+"forensic review" / "FDR pass" — or as the deep mode of a full panel round.
+It COMPOSES WITH the §8 workflow and the §3 panel; it does not replace them.
+It is heavier than the standard round: budget accordingly and execute it as a
+real multi-agent panel with per-finding adversarial verification (the
+project's practice), not as a single-context simulation — the original's
+"simulate a panel meeting" instruction is superseded by actually convening
+one.
+
+**Precedence.** Subordinate to §1.4 (authority), the §1.5 snapshot and its
+newest layer, §2 (non-negotiable rules), §4 (evidence constitution), §5
+(classification), and §10 (the evidence-locked project profile). On any
+conflict, those govern. This layer only ADDS review surface. It never relaxes
+a gate, reopens a registered outcome, re-runs frozen evidence, or authorizes
+an edit outside change control.
+
+**Materials.** The submission is the repository, never a paste. Reviewable
+materials: `papers/main.tex` + the five section files; `papers/supplementary.tex`;
+the five rendered artifacts (both PDFs, both DOCX, `cover_letter.pdf`);
+`papers/references.bib`; the governance registers; the frozen analysis
+bundles under `papers/analysis/`; and the evidence-release manifests. Venue
+facts are pre-filled from §1.5.1 (MDPI *Algorithms*; American English;
+MDPI numbered references) and are never requested from the author. The
+original's materials list is adjusted: no graphical abstract or Elsevier-style
+highlights exist for this venue (their absence is NOT a finding); no
+response-to-reviewers document exists pre-submission; the governance registers
+ARE reviewable materials and their internal consistency is in scope.
+
+### 18.1 Roster mapping — the twelve forensic roles on the standing panel
+
+| # | FDR role (original) | Standing seat (§3) | Delta this layer adds |
+|---|---|---|---|
+| 1 | Editor-in-Chief, Q1 journal | ECB | desk-rejection-risk sweep as an explicit output |
+| 2 | Senior domain expert | T1-OPT | challenge-novelty duty made adversarial by default |
+| 3 | Methodology / experimental design | T2-BENCH | threats-to-validity taxonomy (internal/external) |
+| 4 | Statistics and data analysis | T3-STAT | practical-vs-statistical significance split reported per claim |
+| 5 | Algorithm / mathematical verification | T1-OPT + §8 math stage | the 17-point equation/algorithm checklist of §18.3 Pass 4 |
+| 6 | Reproducibility / software engineering | T3-STAT repro seat | committed-blob rule (§1.5.0-Q(b)) is part of the audit |
+| 7 | Senior academic writing editor | presentation seat | full-sentence-coverage language pass (§18.3 Pass 8) |
+| 8 | Human-authenticity / authorship-defensibility editor | **NEW — defined by §18.4** | the layer's core addition; deepens F.21/§10.17.5 from a paragraph to a methodology |
+| 9 | Citation and research-integrity auditor | citation seat + §4 | representation audit within the CLOSED corpus (§18.3 Pass 6) |
+| 10 | Supplementary-material auditor | cross-format seat | semantic (validator-invisible) consistency audit |
+| 11 | Skeptical peer reviewer | adversarial verifier fleet | refute-by-default verification of every finding |
+| 12 | Revision strategist | ticket register + disposition machinery | staged plan with freeze-batching (§18.5 Part L) |
+
+Every role produces findings independently; every finding is then
+adversarially verified against the live tree before it may appear in the
+report. A finding that fails verification is recorded as refuted, not
+deleted.
+
+### 18.2 Non-negotiable tuning deltas from the author's original
+
+These are the points where the original, applied verbatim, would have
+violated this project's governance. Each is binding for any FDR execution.
+
+**(a) Frozen and registered text.** The manuscript is under a freeze
+manifest, and specific sentences are REGISTERED VERBATIMS (the wording-bank
+sentences as amended, currently through Amendment 3). The FDR may FLAG any
+frozen or registered passage, but a rewrite of a registered verbatim is never
+"replacement text" — it is a proposal for a new dated, append-only amendment,
+and must be labeled as such. Rewrites of merely-frozen (non-registered) text
+are proposals that, if adopted, void the current freeze pass and enter the
+standard re-mint cycle.
+
+**(b) Closed citation corpus.** The corpus is closed at the allowed-key list
+(`papers/governance/allowed_citation_keys.txt`; C1–C5 lockstep). "Add a
+citation" recommendations are phrased as CR-gated admission requests (the
+CR-0020 pattern), never as edits. The original's placeholder
+`[CITE THE PRIMARY SOURCE]` resolves ONLY through the lockstep: bibliographic
+metadata comes from the source PDF, never from memory — which the original
+itself requires, and which §4 already enforces. Existence checks are
+performed against the evidence cards and reference PDFs in-repo, not by
+recall.
+
+**(c) Numbers from frozen CSVs only.** Every numerical verification reads
+the frozen analysis bundles; no standing, p-value, rank, or effect size is
+ever confirmed from memory (§10). Evidential-tier discipline applies
+verbatim: omnibus/Nemenyi findings are never attributed to the paired layer,
+descriptive-only surfaces never acquire confirmatory language, and the
+CEC2020/LSGO caveat sentences are load-bearing.
+
+**(d) Fix class and freeze consequence are mandatory columns.** The original
+treats every correction as free. Here every finding must carry, in addition
+to §5 severity/priority/confidence: `fix_class` = manuscript (voids the
+current pass; requires re-mint + superseding tag) | repo-only (no re-mint) |
+author-side (portal/account action) | none, and a one-clause freeze
+consequence. A finding without a fix class is incomplete.
+
+**(e) Severity taxonomy: use §5, map the original's.** The original's four
+severities and P0–P3 map as: Critical→C, Major→M, Minor→N (or O when it
+weakens credibility beyond one locus), Editorial→E; original P0→P0/P1,
+P1→P1, P2→P2/P3, P3→P3/P4. Report in §5 vocabulary; do not run two
+taxonomies side by side.
+
+**(f) Verdict scale: use §6 bands.** The original's five-level verdict maps
+onto the §6 readiness bands; its rule "never submission-ready with unresolved
+Critical/P0 items" is already the §11 gate and stands. The panel-register
+verdict vocabulary (READY / READY_WITH_NITS / MINOR_REVISION /
+MAJOR_REVISION) is used for seat verdicts.
+
+**(g) Verify, don't re-raise.** The original has no concept of a completed
+review history. This project has closed rounds with registered dispositions.
+A closed finding re-enters ONLY on demonstrated regression (show the closure,
+then show the live tree contradicting it) — the standing rule of the §1.5
+layers. Independent re-verification of closed items is encouraged;
+re-litigation is not.
+
+**(h) Disclosed GenAI assistance is not a finding.** The manuscript's GenAI
+disclosure names Claude Opus 4.6, 4.8 and 5.0 (Anthropic) in the manuscript
+and cover letter, per MDPI policy, with author-attested scope (AG-0007,
+CLOSED). The §18.4 audit therefore audits DEFENSIBILITY, not detection, and
+must never treat the disclosed assistance itself, or its stylistic traces, as
+an integrity finding. What it hunts is prose the AUTHORS could not defend:
+generic, unsupported, over-claimed, or evidence-free text — regardless of who
+or what drafted it.
+
+**(i) No applied rewrites of the title or abstract.** The original's Part K
+("provide complete revised versions of: Title... Abstract...") is tuned:
+title and abstract are frozen artifacts whose wording is partly registered.
+Part-K rewrites for them are filed as PROPOSALS in the ticket register with
+the fix-class machinery of (a); they are never presented as applied text.
+For all other passages, Part-K replacement text is welcome and must meet the
+§18.6 standards.
+
+**(j) Metaheuristics checklist retained.** The original's
+optimization-specific audit items (population size, FES budget, stopping
+criterion, runs, bounds, constraint handling, initialization,
+parameter-adaptation rules, final-local-search bias, equal budgets, official
+benchmark code, mean/median/best/worst basis, numerical-precision treatment,
+ranking procedures, published-results-vs-re-execution, equivalent execution
+conditions) are all in scope and largely covered by §10; the FDR treats §10
+as the binding instantiation and the original's list as the completeness
+check against it.
+
+### 18.3 The nine passes, mapped and tuned
+
+- **Pass 1 — Submission map.** Seed from `claims_evidence_matrix.csv` and the
+  §7 artifacts; VERIFY the map rather than rebuilding it, then flag any
+  contribution whose evidence chain (theory / equation / algorithm /
+  experiment / ablation / statistic / supplement) has a gap. New output: the
+  Part-B table of §18.5.
+- **Pass 2 — Scientific and logical review.** Per §8, plus the original's
+  additions now made explicit duties: alternative-explanation analysis,
+  correlation-vs-causation, empirical-results-are-not-proof, improvements
+  scientifically meaningful (not merely numerically positive), and honest
+  reporting of negative findings (this project's ISM null is the sanctioned
+  exemplar, not a target).
+- **Pass 3 — Methodological/experimental audit.** §10 profile + §18.2(j)
+  checklist. Fairness findings must respect the disclosed, registered
+  configuration asymmetries (the NP=5D fair-start exception and its
+  disclosure set) rather than rediscovering them.
+- **Pass 4 — Mathematical/algorithmic verification.** The original's 17-point
+  checklist is adopted in full: symbol definitions; dimensional/logical
+  consistency; index ranges; initialization; boundary cases; denominator
+  safety; undefined/reused symbols; equations-vs-prose; equations-vs-
+  pseudocode; pseudocode-vs-supplement; complexity plausibility;
+  inputs/outputs; random operations and distributions defined; unambiguous
+  update order; precise accept/reject/selection/archive/memory semantics;
+  deterministic components described accurately; undocumented
+  result-material implementation decisions. Output: the Part-H table with the
+  original's five-value verification vocabulary (Verified from supplied
+  material / Internally plausible but incompletely specified / Inconsistent /
+  Incorrect / Cannot be verified). An equation is never "correct" merely
+  because it is syntactically valid.
+- **Pass 5 — Main–supplement consistency.** Run the validators FIRST
+  (cross-format parity, doc-consistency, evidence bindings); the manual audit
+  then covers what validators cannot see — semantic agreement of settings,
+  scope statements, limitation lists, and interpretive claims across the two
+  documents. Report per the original's conflict schema (both statements, why
+  they conflict, which is more credible, what the author must verify, exact
+  correction in EACH document); never silently prefer one version.
+- **Pass 6 — Citation audit.** Within the closed corpus (§18.2(b)): does each
+  citation support the exact claim at its locus; primary where appropriate;
+  represented accurately; not overextended; not missing where attribution is
+  required; consistent entries. Self-citation is audited for representation
+  (the structural-forcing disclosure exists; verify it stays accurate), not
+  re-litigated. Output: Part-J subsections and table.
+- **Pass 7 — Authorship-defensibility audit.** §18.4, in full.
+- **Pass 8 — Language pass.** Full sentence coverage per the original's item
+  list, constrained by house style: American English (favorable/favors); no
+  monospace/`\texttt` anywhere; line numbering stays disabled; E-notation
+  table convention; terminology per `terminology_sheet.md`; captions
+  self-contained. Every correction preserves technical meaning (§18.6).
+- **Pass 9 — Readiness.** §6 bands, §11 gates, and the Part-N statement.
+
+### 18.4 The authorship-defensibility audit (core addition)
+
+#### 18.4.0 Doctrine
+
+Never claim to prove whether any passage was written by AI or by a human.
+Detector-style judgments are explicitly out of scope and unreliable on exactly
+this manuscript's registers: formal academic English, non-native English
+writing, heavily edited technical prose, repetitive methodological
+description, and formulaic journal sections all produce false positives. The
+audit's object is DEFENSIBILITY: after revision, the authors must be able to
+explain and defend every sentence — in peer review, in a presentation, and in
+a research-integrity inquiry. Never recommend: detector-gaming edits,
+deliberate grammatical errors, arbitrary sentence-rhythm variation, informal
+anecdotes in formal prose, or concealment/misrepresentation of the disclosed
+AI assistance (§18.2(h)). Cosmetic synonym replacement is not a remedy for
+anything.
+
+#### 18.4.1 Pattern library
+
+Evaluate patterns CUMULATIVELY and in context; no single feature is evidence
+of anything. For each hit, identify the scientific weakness beneath the
+wording — that weakness, not the style, is what gets fixed.
+
+1. **Generic or content-light prose** — sentences that sound scholarly but
+   commit to nothing: broad praise without evidence; restated importance;
+   obvious facts as insights; claims that would fit any paper; abstract nouns
+   where concrete findings belong. Live risk phrases for THIS domain include
+   "provides valuable insights into...", "clearly demonstrate the
+   effectiveness and robustness...", "opens new avenues...", and especially
+   "achieves a good balance between exploration and exploitation" — flag any
+   instance not tied to a measured result. Do not delete automatically;
+   determine whether the claim can be made specific and evidenced, then make
+   it so or remove it.
+2. **Repetitive rhetorical templates** — recurring paragraph shapes
+   (topic sentence / generic explanation / broad benefit / restated claim);
+   transition monoculture (Furthermore/Moreover/Additionally/Consequently);
+   near-identical paragraph endings; repeated superiority restatements;
+   uniform sentence rhythm; habitual three-item lists; "not only... but
+   also" chains; over-symmetrical phrasing.
+3. **Polish without specificity** — fluent passages lacking numbers,
+   conditions, mechanisms, citations, limitations, or a tie to a table,
+   figure, or experiment. Polish is not the problem; polish that masks weak
+   content is.
+4. **Synonym churn** — one concept under many names
+   (method/framework/model/architecture/scheme/strategy/mechanism;
+   performance/efficacy/effectiveness/capability; renamed algorithmic
+   components). One technically correct term, used consistently;
+   `terminology_sheet.md` is the arbiter.
+5. **Unnatural certainty** — proves / guarantees / always / universally /
+   undoubtedly / clearly superior / completely eliminates / optimal /
+   state-of-the-art. The blocked-wording machinery already gates some of
+   these; the audit checks the rest against the evidence and scopes them.
+   Never weaken a claim the evidence genuinely supports.
+6. **Inflated novelty** — "for the first time", "completely novel paradigm",
+   "revolutionary", "groundbreaking", "unprecedented", "unique". Priority
+   claims need documentary support; otherwise recommend precise contribution
+   language. (This manuscript's contribution language is registered — verify
+   it has not drifted toward inflation, and equally that no fix has deflated
+   a demonstrated claim.)
+7. **Artificially balanced or exhaustive prose** — exhaustive application
+   lists; every paragraph with exactly three benefits; conclusions replaying
+   every section in order; literature reviews as mechanical summaries rather
+   than critical synthesis.
+8. **Voice and quality discontinuities** — abrupt shifts in terminology,
+   English proficiency, sentence complexity, formatting, citation density,
+   voice, notation, or technical depth. State the plausible non-misconduct
+   explanations (multiple authors, revision history, translation, editorial
+   passes) and recommend harmonization; never infer misconduct from
+   discontinuity.
+9. **Unsupported table interpretation** — robustness from one metric;
+   superiority without a valid test; small deltas called substantial;
+   losses ignored; favorable dimensions cherry-picked; "consistent" over
+   materially varying results; "significant" without a significance test.
+   The §10 statistical-scope rules are the binding instantiation.
+10. **Generic conclusion and future work** — conclusion repeating the
+    abstract; new claims at the end; promotional closings; omitted
+    limitations; future work disconnected from observed results. Future-work
+    items must trace to observed limitations (the A-1/A-2 addendum rows are
+    the sanctioned pattern).
+
+#### 18.4.2 Revision principles
+
+For each flagged passage: identify the exact problem; explain why it reads
+generic, formulaic, or disconnected; identify the scientific content that
+belongs there; provide a revision grounded in the actual method or evidence
+(or a placeholder per §18.5 Part E when the fact is the author's to supply);
+preserve uncertainty and limitations; never fix by stylistic variation alone.
+
+#### 18.4.3 Required outputs
+
+(1) The Part-F pattern register (schema in §18.5) with per-hit risk
+Low/Moderate/High — cumulative and contextual, never treated as proof.
+(2) A repeated-phrase inventory: transitions, sentence openers, conclusion
+phrases, superiority claims, novelty expressions, generic benefit statements,
+exploration–exploitation claims, robustness statements, future-work phrases —
+with frequencies and locations. (3) A voice-discontinuity list with
+non-misconduct explanations and harmonization actions. (4) One overall
+authenticity-risk rating (Low / Moderate / High / Very high) with its
+reasoning, plus the explicit reminder that style alone can neither prove nor
+disprove authorship.
+
+### 18.5 Output contract — the original's Parts A–N on house artifacts
+
+| Part | Content (original) | House disposition |
+|---|---|---|
+| A | Executive verdict, weakness headliners, authenticity risk, finding counts | header of the dated panel register + §12 report |
+| B | Claim–evidence map (ID / claim / location / evidence / strength / missing / action) | cross-check against `claims_evidence_matrix.csv`; report only deltas and gaps |
+| C | Critical+Major findings, full schema | §5 ticket schema + fix_class + freeze consequence (§18.2(d)) |
+| D | Section-by-section review incl. sections needing no change | §12 format; "reviewed, no substantive change" entries are mandatory, with reasons |
+| E | Line-by-line change register | schema retained (Change ID / doc / location / original / problem / explanation / severity / priority / action / replacement); no meaning-obscuring ellipses; whole-paragraph rebuilds say so and give the paragraph; unresolved facts get explicit placeholders (`[INSERT VERIFIED ...]`) that are NEVER invented |
+| F | Authenticity pattern register + phrase inventory + discontinuities | §18.4.3 |
+| G | Main–supplement consistency matrix | schema retained; validators first (§18.3 Pass 5) |
+| H | Math/algorithm audit table | five-value verification vocabulary (§18.3 Pass 4) |
+| I | Experimental/statistical audit table | §10-bound; CSVs only |
+| J | Citation audit, seven subsections | closed-corpus rules (§18.2(b)); "requires verification", never "fabricated", absent proof |
+| K | Rewritten high-risk passages | proposals-only for frozen/registered text (§18.2(i)); §18.6 standards |
+| L | Four-stage prioritized revision plan | stages retained (integrity → methodology/reproducibility → structure/argument → language), with the house rule: all manuscript-voiding fixes BATCH into one anchor commit per re-mint cycle; each action carries dependencies and completion evidence |
+| M | Author verification checklist | retained; every item maps to an author-side or repo-verifiable check; "every sentence understood and defendable by the authors" is the closing item |
+| N | Final readiness statement | §6 band + remaining blockers + submission conditions + whether another cycle is needed + the authenticity tri-state (author-grounded / mostly authentic but formulaic in places / heavily generic) + the style-proves-nothing reminder |
+
+### 18.6 Editing decision hierarchy and replacement-text standards
+
+Decision hierarchy (in order): factual/scientific correctness → logical
+correctness → missing evidence or qualification → contradictions → paragraph
+structure → sentence clarity → redundancy → grammar/punctuation →
+style/formatting harmony. Elegant prose never outranks accuracy.
+
+For a sentence mixing valid and invalid content: preserve the valid part,
+remove or qualify the invalid part, add an evidence placeholder where
+required, and explain the change. For genuinely ambiguous text: state both
+readings, identify the wording that causes the ambiguity, and revise to
+remove it — never assume the intended reading.
+
+All replacement text must be: technically accurate; direct; evidence-based;
+grammatically correct; journal-appropriate; free of hype and vague praise;
+terminologically and tense-consistent; scoped to the actual experiments;
+defendable by the authors. Do not homogenize every sentence into one polished
+register; do not introduce variation to imitate humanity; do not prefer rare
+synonyms over standard technical terms; do not replace field terminology
+because it recurs. House additions: registered verbatims are untouchable
+(§18.2(a)); preserve every registered hedge and limitation; preserve the
+negative-result framing (the ISM null is advertised by design).
+
+### 18.7 The eighteen-question battery
+
+Answer all, explicitly, before the report closes: (1) the actual contribution
+in one precise sentence; (2) whether it genuinely differs from the closest
+prior work; (3) which contribution claims are experimentally demonstrated;
+(4) which are only argued or assumed; (5) whether the method addresses the
+stated gap; (6) whether the comparisons are fair; (7) whether conclusions are
+statistically AND practically justified; (8) whether the work is reproducible
+from the committed artifacts — including the committed-blob check, not only
+the working tree; (9) whether the main paper and supplement describe the same
+study; (10) whether anything central is hidden in the supplement; (11)
+whether any numerical results contradict; (12) whether any references are
+questionable within the closed corpus; (13) which passages read generic or
+mechanically produced; (14) what scientific weakness sits beneath each such
+passage; (15) whether the authors could defend every sentence orally; (16)
+the five most likely rejection reasons, mapped to the §14 pattern list; (17)
+the exact revisions that most improve acceptance probability; (18) whether
+the manuscript demonstrates authentic scientific reasoning rather than
+generic academic language.
+
+### 18.8 Detail standard
+
+No summary reviews. Every problem carries: exact location (file:line or
+document/section/paragraph-opening-words plus exhibit identifier — never
+"somewhere in the methodology"); the problem; the explanation; the
+consequence; severity, priority, confidence, fix class; the required change;
+replacement text where textual; all locations needing synchronized revision;
+and the author verification required. Repeated errors are reported as one
+global pattern WITH every affected location enumerated. Unrelated issues are
+never bundled to shorten the report. The §15 prohibited-shortcuts list
+applies to this layer in full.
+
 <!-- END OF COMPREHENSIVE MANUSCRIPT REVIEW PROMPT -->
