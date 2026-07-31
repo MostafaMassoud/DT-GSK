@@ -182,9 +182,23 @@ def token_found(kind: str, token: str, spaced: str, squashed: str) -> bool:
         if mant:
             pat = (re.escape(mant) + r"[x·*]?10" + exp_pat +
                    r"(?![0-9])")
+            spaced_pat = (re.escape(mant) + r"\s*[x·*×]?\s*10\s*" +
+                          exp_pat + r"(?![0-9])")
         else:
             pat = r"(?<![0-9.])10" + exp_pat + r"(?![0-9])"
-        return re.search(pat, squashed) is not None
+            spaced_pat = r"(?<![0-9.])10\s*" + exp_pat + r"(?![0-9])"
+        # pow10 checks BOTH channels, like every kind below it. The squashed
+        # channel alone is not sufficient: adjacent table cells concatenate
+        # there, so a neighbouring cell's leading digit lands directly on the
+        # exponent and the trailing-digit guard rejects an otherwise exact
+        # match ("1.8x10-11" followed by "4.3x10-10" squashes to
+        # "1.8x10-114.3x10-10"). The spaced channel keeps the cell separator,
+        # so the same guard is safe there and still blocks a truncated
+        # exponent (10^-11 must not match inside 10^-110). Whitespace
+        # tolerance is needed because pdf extraction emits "1.8 x 10-11"
+        # where the docx emits "1.8x10-11".
+        return (re.search(spaced_pat, spaced) is not None
+                or re.search(pat, squashed) is not None)
     if kind == "sci":
         pat = re.escape(token) + r"(?![0-9])"
         return (re.search(pat, spaced, re.IGNORECASE) is not None
