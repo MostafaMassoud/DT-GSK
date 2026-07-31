@@ -37,3 +37,11 @@ papers/ISM-GSK.new.pdf
 papers/figures/concept/*_src.pdf
 papers/figures/concept/*_src.aux
 papers/figures/concept/*_src.log
+
+# latexmk build-state byproducts (embed machine-local absolute paths; builds
+# go through papers/scripts/build_pdf.py — panel round-2 finding S4-9)
+*.fls
+*.fdb_latexmk
+# stale editor/backup droppings (round-2 finding S4-4)
+.bak
+*.bak

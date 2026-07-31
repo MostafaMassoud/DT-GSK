@@ -21,9 +21,9 @@ GSK optimizer family. It is one of the two `license-files` targets declared in
   schedules, analysis bundles, and verification manifests we produced are
   released under the Creative Commons Attribution 4.0 International
   (CC BY 4.0) License.
-- **Benchmark definitions (third party):** the CEC2017/CEC2011/CEC2013 problem
-  definitions are the property of their respective authors and are used under
-  their original terms; we do not relicense them. The CC BY 4.0 grant above
+- **Benchmark definitions (third party):** the CEC2017/CEC2011/CEC2013/
+  CEC2020/CEC2013LSGO problem definitions are the property of their respective
+  authors and are used under their original terms; we do not relicense them. The CC BY 4.0 grant above
   applies only to our own derived data, not to these upstream definitions.
 - The manuscript Data Availability Statement is written to match this record.
 

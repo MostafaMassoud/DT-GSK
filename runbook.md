@@ -1,6 +1,6 @@
 # Runbook
 
-Copy-paste commands for the `00-GSK_Family_Python` project. Run everything from
+Copy-paste commands for the DT-GSK repository. Run everything from
 the repository root (the folder that contains `run.py`, `pyproject.toml`, and
 `src/gsk_family/`). Every command below passes `--root .`, so it is portable
 regardless of where the checkout lives on disk:

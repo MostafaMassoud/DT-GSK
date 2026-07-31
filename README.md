@@ -107,8 +107,10 @@ population fully re-initializes while a preserved global-best can never lose
 ground, which fixes the lone catastrophic basin trap (CEC2017 F30 D10) and is
 byte-identical on non-stalling runs.
 
-See [FINAL_RELEASE_REPORT.md](FINAL_RELEASE_REPORT.md) for per-dimension ranks
-and statistics; the per-suite rank CSVs live under `papers/analysis/`.
+The per-dimension ranks and full statistics are in the manuscript and its
+Supplementary Material (`papers/`); the frozen per-suite rank CSVs live under
+`papers/analysis/`. ([FINAL_RELEASE_REPORT.md](FINAL_RELEASE_REPORT.md) is a
+historical, CEC2017-only engineering report from before the five-suite study.)
 
 > `egsk` is now a **runnable** optimizer ID -- it ships a real kernel
 > (`src/gsk_family/optimizers/egsk.py`, a faithful MATLAB port whose
@@ -180,8 +182,11 @@ Governance and standards (the authoritative project rules):
 - [PERFORMANCE_RULES.md](PERFORMANCE_RULES.md): Numba, thread pinning, parallel
   backend, the floating-point-regime sentinel, and memory rules.
 
-The release report is [FINAL_RELEASE_REPORT.md](FINAL_RELEASE_REPORT.md): the
-per-dimension DT-GSK ranks, statistics, and the publication-readiness decision.
+The study's record of standings and statistics is the manuscript with its
+Supplementary Material and the frozen analysis bundles under
+`papers/analysis/`. [FINAL_RELEASE_REPORT.md](FINAL_RELEASE_REPORT.md) is
+retained as a historical, CEC2017-only engineering report predating the
+five-suite study.
 
 The full documentation package lives in `docs/`, where the canonical guides are
 organized into themed subfolders (see [Documentation Structure](#documentation-structure)

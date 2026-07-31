@@ -55,15 +55,15 @@ exclusions and per-domain depth live in the sibling docs of §10.
 
 ## 2. Workspace Rules
 
-2.1 **MUST work in-place.** Work **directly inside** the repository root
-(`02-GSK_Family_Python_v1.1`, the `00-GSK_Family_Python` project). This root is
-the shared working folder for humans and agents alike.
+2.1 **MUST work in-place.** Work **directly inside** the repository root (the
+DT-GSK repository, the folder containing `run.py` and `src/gsk_family/`). This
+root is the shared working folder for humans and agents alike.
 
 2.2 **NEVER nest, mirror, or fork the tree.** Do **not** create a nested copy, a
 mirror tree, a generated agent-only workspace, a worktree clone of this repo
-inside this repo, or a separate `.claude/` project folder for it. The git repo
-is rooted higher (at `D:/AI/PhD-Projects`); that does not license creating
-sub-projects here.
+inside this repo, or a separate `.claude/` project folder for it. The
+repository root is its own git root; nothing licenses creating sub-projects
+here.
 
 2.3 **`benchmarks/cec_reference_results/` is READ-ONLY.** This directory is
 imported, immutable reference evidence. NEVER write generated experiment output

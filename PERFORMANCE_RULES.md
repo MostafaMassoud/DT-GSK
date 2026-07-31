@@ -74,9 +74,9 @@ keyed by source hash and Numba/LLVM version, so it is rebuilt automatically when
 the kernel source or toolchain changes.
 - You SHOULD let the cache populate naturally on the first warmed run.
 - You **NEVER** delete, copy, or relocate the `.nbc`/`.nbi` cache of *another
-  project* (the source `03-DT-GSK-v2.1` tree, or any sibling under
-  `D:/AI/PhD-Projects/`). Cache files are local build artifacts, not shared
-  state; treat them as untracked and project-private.
+  project or checkout* outside this repository root. Cache files are local
+  build artifacts, not shared state; treat them as untracked and
+  project-private.
 - The Numba cache is not committed and **MUST NOT** be added to version control.
 
 1.4 **Warmup hides compilation from timed runs.** First-call JIT compilation must

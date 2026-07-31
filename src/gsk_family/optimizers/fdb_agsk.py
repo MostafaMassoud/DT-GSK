@@ -1,4 +1,12 @@
-"""FDB-AGSK optimizer."""
+"""FDB-AGSK optimizer.
+
+Faithful Python re-implementation of the FDB-AGSK algorithm of Bakir,
+Duman, Guvenc & Kahraman, "Improved adaptive gaining-sharing knowledge
+algorithm with FDB-based guiding mechanism for optimization of optimal
+reactive power flow problem", Electrical Engineering 105, 3121-3160 (2023),
+https://doi.org/10.1007/s00202-023-01803-9 — AGSK with the
+fitness-distance-balance (FDB) senior-phase guiding mechanism.
+"""
 
 from __future__ import annotations
 
