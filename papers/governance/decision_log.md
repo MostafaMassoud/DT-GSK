@@ -1196,3 +1196,48 @@ applying all surfaced fixes.
   archive of record must be cut from v2.3; v2.2, v2.1 and the monorepo tags
   stay in place, unmoved. Nothing pushed (the author pushes).
   **Approver**: author ("Fix all", 2026-07-31). **Status**: CLOSED.
+
+## D-0031 (2026-07-31) - Round-3 FDR panel executed and fully remediated; pass-29 re-freeze; tag v2.4
+
+- **Instrument**: section 18 (forensic deep-review layer, the author-supplied
+  master prompt reviewed/tuned and added at commit b523631) applied for the
+  first time: seven forensic seats + refute-by-default verification (14
+  agents). 36 findings raised, 35 confirmed (1 MAJOR / 5 MODERATE / 11 MINOR /
+  6 EDITORIAL / 12 ADVISORY), 1 refuted - the refutation itself enforcing the
+  registered CL-02 hedge. The first-ever 18.4 authorship-defensibility audit
+  returned overall risk LOW / tri-state AUTHOR-GROUNDED on both documents,
+  with zero hits on the live risk-phrase library; the only voice signature
+  (the corrective-contrast template) carries no scientific weakness and is
+  recorded as ADVISORY pattern observations, unactioned by design.
+- **Author direction**: "fix all" over the r3 register. 33 unique fixes
+  applied (CE-01=CITE-REP-02 and REG-01=MATH-02 were duplicate pairs):
+  22 manuscript-class at anchor dc33f1f, the registry/repo batch alongside.
+  Four findings were incompleteness of the round-2 batch itself; their
+  closure corrects the pass-28 freeze statement's over-claims (noted in the
+  pass-29 statement).
+- **Notable rulings recorded here**: (i) LM-06 instantiation - the adopted
+  FINAL_PUBLICATION_PLAN 0.4 disclosure sentence (a), qualitative and
+  valueless with the explicit no-competitiveness disclaimer, is the
+  sanctioned use of molina2018shadeils/latorre2013mos and supersedes the
+  cards' "quotes the published values" proviso at that locus (CITE-REP-07;
+  role map annotated). (ii) The cover letter's "To our knowledge" is the
+  registered CL-02 hedge and was preserved; only the comma splice was
+  repaired, and the claims-matrix CL-02 row was re-bound to the shipped
+  R-0004 letter (CE-02). (iii) CE-03 resolved by aligning the development-
+  history clause to the attested S5.3 form ("without consulting either
+  suite") rather than asserting the stronger temporal fact on the author's
+  behalf. (iv) yang2008large and zhong2023lmm - staged in references.bib
+  during the LSGO scope change but never admitted or cited - removed; any
+  future use requires a CR-gated admission (CITE-REP-06).
+- **Verification**: five artifacts byte-identical x2 at pinned epochs
+  (PDFs 1783468800+FORCE_SOURCE_DATE, DOCX 1783641600); hygiene FULL;
+  parity 726/0; provenance; doc-consistency; citation controls C1-C5 (61
+  keys); bindings 0 FAIL; validate_docx 33/33 both; artifact labels; tests
+  601 passed + 2 skipped.
+- **Freeze**: pass-29 minted at anchor dc33f1f (13 of 15 hashes changed,
+  all batch-traceable; related_work.tex and artifact_binding.csv
+  unchanged), check_manifest 15/15; manifest edited surgically, CRLF
+  preserved. Tag **v2.4** supersedes v2.3 as the submission AND
+  Release/Zenodo basis; v2.3 and earlier tags stay in place, unmoved.
+  Nothing pushed (the author pushes). **Approver**: author ("fix all",
+  2026-07-31). **Status**: CLOSED.

@@ -168,6 +168,10 @@ registered CL-02 scope, or go the amendment path.
 
 ## Disposition
 
-Filed for the author's per-finding decision. No fix applied at filing time.
-Adopting any manuscript-class fix voids pass-28 and requires the pass-29 re-mint
-with a superseding v2.4 tag; the Release/Zenodo basis would then advance with it.
+**RESOLVED IN FULL, author-directed ("fix all", 2026-07-31).** All 33 unique
+fixes applied at anchor commit dc33f1f (= pass-29 freeze anchor; mint in the
+following commit; decision log D-0031). The four fix_class=none pattern
+observations (AUTH-02/03/05, AUTH-SUPP-01) are recorded, unactioned by design.
+The refuted S8-07-analogue (AUTH-SUPP-02) was not actioned; the registered
+CL-02 hedge survives verbatim. Tag **v2.4** is the submission and
+Release/Zenodo basis from this mint forward.
