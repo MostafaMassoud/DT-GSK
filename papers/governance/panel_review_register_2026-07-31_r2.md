@@ -81,5 +81,11 @@ after the fix batch, with earlier tags left in place per project convention.
 
 ## Disposition
 
-Filed for the author's per-finding decision. No fix in this register has been
-applied at the time of filing.
+**RESOLVED IN FULL, author-directed ("Fix all", 2026-07-31).** The repo-only
+batch (12 findings) landed at commit 3539977; the manuscript batch (9
+findings) at commit 70c51ba, which is the **pass-28** freeze anchor
+(check_manifest 15/15 after the mint; decision log D-0030). SE-049 closed by
+the explicit publisher-deferral record `similarity_screening_record.md`.
+S4-1 is discharged by tag **v2.3** at the post-fix state: the GitHub Release
+and Zenodo archive are cut from v2.3, never from the superseded v2.2 object.
+The one refuted finding (S8-07) was not actioned, per its refutation.

@@ -1146,3 +1146,53 @@ applying all surfaced fixes.
   dtgsk-submission-v2.2-2026-07-31) supersedes v2.1 as submission basis; v2.1
   remains in place, unmoved; nothing pushed (the author pushes). **Approver**: author (supplementary header instruction,
   2026-07-31). **Status**: CLOSED.
+
+## D-0030 (2026-07-31) - Round-2 panel executed and fully remediated; pass-28 re-freeze; tag v2.3; interim events of the evening recorded
+
+- **Interim events after D-0029, recorded here per round-2 finding S5-2**
+  (the log's completeness is itself a review criterion): (i) D-WORD-01 and
+  R-0004 were CLOSED at commit 19caab4 (word_validation_report.md Section 10;
+  risk register); (ii) a SECOND Word-resave incident (commit 7804150, both
+  DOCX, briefly on origin) was superseded by deterministic rebuilds at
+  6a67c0b, reproducing the exact pass-27 hashes - no re-mint was needed;
+  (iii) results/ was pruned of 477 family convergence-curve CSVs (1.606 GB)
+  under ruling A-11 at 8560a81 with the three external-baseline banks
+  untouched; (iv) the review instrument gained layer 1.5.0-Q and a refreshed
+  definitive-state block (83dda27).
+- **Round 2**: the updated prompt was applied as an eight-seat panel with
+  per-finding adversarial verification (14 agents; register
+  panel_review_register_2026-07-31_r2.md). Verdict MINOR REVISION, no
+  blocker: 26 findings confirmed (3 MAJOR), 1 refuted on the instrument's
+  own out-of-scope rule. The statistics seat matched 100+ printed values
+  cell-exact against the frozen bundles and returned zero findings; the
+  DOCX seat likewise.
+- **Author direction**: "Fix all" (2026-07-31). Both batches applied:
+  - Repo-only (12 findings, commit 3539977): CITATION.cff version -> 2.3 +
+    CFF-schema conference entity; root .bak, the four latexmk byproducts and
+    the internal session handoff removed from the public tree (+ .gitignore
+    guards); fdb_agsk.py attribution header (SE-035); LICENSES.md five-suite
+    provenance; runbook/PROJECT_RULES/PERFORMANCE_RULES de-monorepo'd; README
+    FINAL_RELEASE_REPORT references labeled historical; SE-049 closed by an
+    explicit publisher-deferral record (similarity_screening_record.md).
+  - Manuscript (9 findings, commit 70c51ba = pass-28 anchor): the S1-01
+    NP=100 provenance correction (MAJOR; reference implementations, not
+    "source papers"), the Table 4/5 pointer and classification repairs, the
+    taxonomy cadence tier qualifier, the parameter-table suite-accuracy
+    pass, the notation unification (KF/KR, pi_min, m vs the defined modulus
+    M), S5.4's CEC2013 ceiling D<=50, the contiguous supplement reference
+    list (74 pp), and the cover letter re-dated 31 July 2026 with its false
+    STALE-pdf comment corrected (.md twin synced). No number, rank, test,
+    standing, or registered outcome changed anywhere in either batch.
+- **Verification**: all five artifacts rebuilt at the pinned epochs,
+  byte-identical across two consecutive builds; hygiene FULL mode; parity
+  725 rows / 0 FAIL; provenance; doc-consistency; C1-C5 (61 keys); bindings
+  0 FAIL; validate_docx 33/33 both; artifact labels; tests 601 passed + 2
+  skipped. Main PDF 46 pp, B1 = 41 (inside CR-0021).
+- **Freeze**: pass-28 minted at anchor 70c51ba (9 of 15 hashes changed, all
+  batch-traceable), check_manifest 15/15; manifest edited surgically, CRLF
+  117 preserved. Tag **v2.3** in this repository supersedes v2.2 as the
+  submission AND Release/Zenodo basis - round-2 finding S4-1 established
+  that the v2.2 tag predates the A-11 prune and the closure records, so the
+  archive of record must be cut from v2.3; v2.2, v2.1 and the monorepo tags
+  stay in place, unmoved. Nothing pushed (the author pushes).
+  **Approver**: author ("Fix all", 2026-07-31). **Status**: CLOSED.

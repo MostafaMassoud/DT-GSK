@@ -1,9 +1,9 @@
 {
   "schema": "main_manuscript_freeze_manifest/v1",
-  "phase": "PASS-27 DOCX header restoration (dtgsk-submission-v2.2 basis)",
-  "generated_utc": "2026-07-31T15:50:32+00:00",
-  "anchor_commit": "2f9631eb74c3cda34b75992adb64dfd04876b93c",
-  "pre_freeze_base_commit": "fa613cf9bbce9b016e819ddd2fa9ab0b34ccf049",
+  "phase": "PASS-28 round-2 panel fix batch (dtgsk-submission-v2.3 basis)",
+  "generated_utc": "2026-07-31T19:01:16+00:00",
+  "anchor_commit": "70c51baf0ae58fa3c16a70f6e6d8db74a2cfb258",
+  "pre_freeze_base_commit": "3539977a7e2601fffe83ef02b5bf38617ab32d26",
   "evidence_release": {
     "primary": "rel-2026-07-20-67d9345f9",
     "cec2013lsgo": "lsgo-rel-2026-07-28-ff1a046ef",
@@ -11,7 +11,7 @@
     "ablation": "abl-rel-2026-07-20"
   },
   "scientific_content_status": "FROZEN_FOR_SUBMISSION",
-  "freeze_statement": "Re-freeze after the author-directed supplementary header correction. DOCX-ONLY change: no .tex source, no rendered PDF, no evaluation, and no reported number, rank, p-value, equation, figure or table value is touched; both PDFs remain byte-identical to the PASS-26 mint. (1) supplementary.docx header order restored to the MDPI/PDF layout (Article / title / authors / affiliation / abstract / keywords): _hoist_article_label and _affiliations_before_abstract were gated to the main document, the first on the false premise that the supplement carries no article-type label, so the supplement rendered its affiliation block below the abstract, contradicting supplementary.pdf. (2) Affiliation superscripts restored in BOTH documents: pandoc builds the DOCX title block from document metadata and drops math there, deleting the markers that revision ticket R3-11 requires for author-to-affiliation mapping; they now ride through as @@SUP!X@@ and are rebuilt as w:vertAlign runs. (3) Supersedes commit fa613cf, which committed a Word-resaved DT-GSK.docx (1,093,867 bytes; Application 'Microsoft Office Word' 16.0000; revision 3; 26 zip entries) in place of the deterministic 997,338-byte build_docx.py output. check_manifest hashes the working tree, which still held the correct build, so the substitution was invisible to it and only a fresh clone would have exposed it. Both DOCX artifacts verified byte-identical across three consecutive builds at SOURCE_DATE_EPOCH=1783641600.",
+  "freeze_statement": "Re-freeze after the round-2 eight-seat panel fix batch (register panel_review_register_2026-07-31_r2.md; instrument at layer 1.5.0-Q; every finding adversarially verified, 26 confirmed, none blocking). Nine manuscript-class corrections applied, all textual/layout; no number, rank, p-value, test, standing, or registered outcome changes: (S1-01, MAJOR) the comparators' NP=100 is attributed to the family's shipped reference implementations with the source-paper divergence disclosed, no longer to 'their source papers' (false for AGSK 20xD, APGSK 200xD, FDB-AGSK 40xn per the sanctioned evidence cards); (S1-02) Table 4's dangling row pointer repaired; (S1-03) Tables 4/5 equation classification reconciled and the ISM confidence gate scoped to the linkage consumer; (S1-04) taxonomy caption linkage-cadence tier qualifier added; (S1-05) parameter-table run-level cells made suite-accurate; (S1-06) notation unified (KF/KR, pi_min, arm count m vs child-seed modulus M defined); (S2-01) S5.4 states CEC2013's own evidence ceiling D<=50; (S6-PDF-001) supplement references now one contiguous list after a pre-bibliography clearpage (supplement 74 pp); (S8-06/S8-05) cover letter re-dated 31 July 2026 and its stale source comment corrected, .md twin synced. All five artifacts rebuilt at the pinned epochs and byte-identical across two consecutive builds; main PDF 46 pp, B1=41 within the CR-0021 caps. Gate battery green: hygiene FULL, parity 725/0, provenance, doc-consistency, C1-C5, bindings 0 FAIL, validate_docx 33/33 both, artifact labels, tests 601+2. The companion repo-only batch (12 findings incl. CITATION.cff v2.3 + schema fix, SE-049 deferral record, SE-035 attribution header) landed in the pre-freeze base commit and touches no hashed file.",
   "hash_algorithm": "SHA-256",
   "build_environment": {
     "pdf_source_date_epoch": 1783468800,
@@ -30,23 +30,23 @@
     },
     {
       "path": "papers/sections/introduction.tex",
-      "sha256": "2e19c7b79126b39ab5ae5294be7967f78520469cc1127f124ac5938af3187624",
-      "bytes": 11609
+      "sha256": "d3de5f26213aea21695c3c34d30a86e9e893f150d61dec5e94336fe422e1772f",
+      "bytes": 11607
     },
     {
       "path": "papers/sections/related_work.tex",
-      "sha256": "bbc01bcf2f379e5eadcfb97541a904a50d401b1e6130bdbb5ccdcb7685e29dfd",
-      "bytes": 21701
+      "sha256": "85ee0fc87facc5ce0652e719d147725603792c0f000750afdd3f854e47191e00",
+      "bytes": 21757
     },
     {
       "path": "papers/sections/proposed_algorithm.tex",
-      "sha256": "0db65158d3ca30892785f5f58b89e06502209b0e707f49d3ebcb9a0b0ecc1162",
-      "bytes": 56614
+      "sha256": "6d79206164f48320bc7204b33f76cb3b3b22ecfa209c58e91848a245693c9450",
+      "bytes": 57018
     },
     {
       "path": "papers/sections/performance.tex",
-      "sha256": "b98351ca04d7cb39e6030cd15b737c9a53e614ea6c00bbe3885271ba7462ea83",
-      "bytes": 76503
+      "sha256": "d999e556107d9955b46d90449ad8ae15d2482bb78948fa6524e1aedc2521c77c",
+      "bytes": 76515
     },
     {
       "path": "papers/sections/conclusions.tex",
@@ -55,27 +55,27 @@
     },
     {
       "path": "papers/DT-GSK.pdf",
-      "sha256": "07e89b7a287ac74157c0f973aa75df44c25a78e53be8f71486f5a669f4a06bec",
-      "bytes": 811109
+      "sha256": "939efeb835a5637fe90f349f6fb9831262ac3992b4652fec6151e50f200166e4",
+      "bytes": 811949
     },
     {
       "path": "papers/DT-GSK.docx",
-      "sha256": "64c60b930d181b92070d439fcc2ec71b0511dda28be592b4d8e3203c64b0c735",
-      "bytes": 997338
+      "sha256": "9f12cf6b0e2ffa99af86a52289e18f07d586effd1cb68a5f3468af51170a8ce1",
+      "bytes": 997663
     },
     {
       "path": "papers/supplementary.pdf",
-      "sha256": "390888d09f193efb12a9e992a239894891612cfaeb6564745dd9c473af27c1cf",
-      "bytes": 1718189
+      "sha256": "47d90ba817cfeb53c2c3b07714586242528e1aab99be6a5c3271caf17dd81e93",
+      "bytes": 1718744
     },
     {
       "path": "papers/supplementary.docx",
-      "sha256": "7f8fef873625c6c1381e96f2775362ec656fef97ca51524c778ac7d7e7df201f",
-      "bytes": 9609617
+      "sha256": "981fedb647f19c7db3026c428e907679a177989175dbb0a4f38a39598404c9a9",
+      "bytes": 9609624
     },
     {
       "path": "papers/cover_letter.pdf",
-      "sha256": "0a641534cf0c260312c9666dababee1299f1f0c46e6815e2f6eb8b15e7b72989",
+      "sha256": "1717c84537e7f592ab916a1dfc3c6a2390336d1377bf33075e73d5cf070e8dd9",
       "bytes": 125078
     },
     {
@@ -101,7 +101,7 @@
   ],
   "validator_outputs_at_freeze": {
     "build_hygiene": "OK - no unresolved references, control characters, or retired content",
-    "cross_format_parity": "TOTAL rows=724  FAIL=0",
+    "cross_format_parity": "TOTAL rows=725  FAIL=0",
     "docx_validators": "0 warnings (both documents; re-run after the header restoration)",
     "provenance_claims": "[provenance] OK - prose matches the manifests (per-suite ids cross-checked)",
     "citation_controls": "PASS: C1-C5 hold (role=61 usage sites re-validated after the apgsk2021 additions and note-field deletions)",
