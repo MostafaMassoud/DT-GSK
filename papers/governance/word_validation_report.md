@@ -1,6 +1,6 @@
 # Word validation report — Phase 9 (Gate 9 documented fallback)
 
-Date: 2026-07-11; **refreshed 2026-07-22 (SE-032)** -- see Section 9, which supersedes every count, hash and page number in Sections 1-8.
+Date: 2026-07-11; **refreshed 2026-07-22 (SE-032)** -- see Section 9, which supersedes every count, hash and page number in Sections 1-8; **refreshed again 2026-07-31 (pass-27)** -- see Section 10, which supersedes Section 9's artifact hashes and counts and **closes deviation D-WORD-01**.
 Scope: `papers/DT-GSK.docx`, `papers/supplementary.docx`, `word/reference.docx`
 against `papers/DT-GSK.pdf` and `papers/supplementary.pdf`. **The 34 pp / 32 pp figures originally recorded here are stale; the shipped build is 40 pp / 61 pp (Section 9).**
 
@@ -11,7 +11,10 @@ prescribed open-save-open check could not be executed.  Per the Phase 9
 binding constraints, the DOCUMENTED FALLBACK was applied instead: OOXML
 schema/package-level validation (Sections 2–3) plus this recorded deviation.
 
-> **DEVIATION D-WORD-01 (executed 2026-07-23; confirmation pending):** The
+> **DEVIATION D-WORD-01 — CLOSED 2026-07-31, see Section 10.2.** Historical
+> record of the deviation as raised:
+>
+> **(executed 2026-07-23; confirmation pending):** The
 > author performed the desktop-Word open-save of DT-GSK.docx on 2026-07-23
 > (recorded in the freeze manifest, fourteenth pass; the shipped file remains
 > the deterministic build output, since Word re-writes bytes on save). The
@@ -315,9 +318,70 @@ submit-mode line numbering, D-3 suppressed branding) raised by SE-048.
 
 ### 9.5 Deviation D-WORD-01 status
 
+**Superseded: CLOSED 2026-07-31 — see Section 10.2.** Status as recorded at
+this refresh:
+
 **EXECUTED 2026-07-23 (author-side; visual confirmation pending).** The author
 opened and saved DT-GSK.docx in desktop Word without error (freeze manifest,
 fourteenth pass). The shipped artifact remains the deterministic build output
 (Word re-writes bytes on save, so the re-saved file is a compatibility probe,
 not the deliverable). Remaining before submission: the visual checklist of
 Section 1 on re-open (fields, TOC/SEQ/REF/CITATION, landscape sections).
+
+---
+
+## 10. Refresh against the pass-27 build; D-WORD-01 closure (2026-07-31)
+
+Measured against the pass-27 freeze (manifest anchor `2f9631eb7`, tag `v2.2`).
+Authoritative over Section 9 wherever they disagree. Context for the changed
+artifacts: the pass-27 build restored the MDPI header layout in
+`supplementary.docx` and the affiliation superscripts in both documents
+(decision log D-0029); no `.tex` source or PDF changed.
+
+### 10.1 Shipped artifacts and current validator counts
+
+| Artifact | Bytes | SHA-256 |
+|---|---:|---|
+| `papers/DT-GSK.docx` | 997,338 | `64c60b930d181b92070d439fcc2ec71b0511dda28be592b4d8e3203c64b0c735` |
+| `papers/supplementary.docx` | 9,609,617 | `7f8fef873625c6c1381e96f2775362ec656fef97ca51524c778ac7d7e7df201f` |
+
+Both byte-identical across three consecutive builds at
+`SOURCE_DATE_EPOCH=1783641600`.
+
+| Object | DT-GSK.docx | supplementary.docx |
+|---|---:|---:|
+| `m:oMath` (native math) | 901 | 975 |
+| Tables (`w:tbl`) | 20 | 45 |
+| Drawings (embedded figures) | 7 | 27 |
+| Bookmarks | 152 | 238 |
+| Field starts (`w:fldChar begin`) | 336 | 162 |
+| `SEQ` / `REF` / `CITATION` fields | 40 / 194 / 102 | 73 / 59 / 30 |
+| `TOC` fields | 0 | 0 |
+| Unresolved build markers | 0 | 0 |
+
+`validate_docx.py`: **33 PASS / 0 FAIL / 0 warnings** on both documents.
+`validate_cross_format_parity.py`: **724 rows, 0 FAIL**.
+`validate_evidence_bindings.py`: **250 BIND comments; 1,135 numeric tokens;
+1,135/1,135 found in BOTH formats; 0 FAIL** — this supersedes the
+"267 BIND / 721 tokens" figure recorded in Sections 2 and 5, which described
+the three-suite manuscript before the five-suite scope change (CR-0019) and
+before the validator's pow10 spaced-channel fix (commit `ea63486`).
+
+### 10.2 Deviation D-WORD-01 — CLOSED
+
+**CLOSED 2026-07-31 (author confirmation received).** The author performed
+the desktop-Word open-save on BOTH pass-27 documents on 2026-07-31 — Word
+opened and saved each without error and without a repair prompt (evidenced by
+the Word-rewritten packages, `Application` "Microsoft Office Word" 16.0000,
+briefly committed as `fa613cf` and `7804150`), and confirmed the Section 1
+visual checklist: fields rendered as values (no error text), SEQ/REF/CITATION
+cross-references resolved to the correct exhibits, and the wide tables
+rendered acceptably. Not reported: the observed multi-source CITATION form
+(`[1,2]` vs `[1], [2]`) — cosmetic either way per Section 1 item 3, so the
+closure does not hang on it.
+
+Per the standing rule, the re-saved bytes are a compatibility probe and never
+the deliverable: the deterministic builds were restored and re-verified
+against the pass-27 manifest in commits `2f9631e` (first probe) and `6a67c0b`
+(second probe, both documents), `check_manifest` 15/15 after each. No
+residual author-side Word item remains open.
