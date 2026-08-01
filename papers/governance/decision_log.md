@@ -1530,3 +1530,31 @@ applying all surfaced fixes.
   check_manifest 15/15. Tag **v2.9** supersedes v2.8; earlier tags unmoved;
   CITATION.cff bumped to 2.9 in the tagged state.
   **Approver**: author (final decision, 2026-08-01). **Status**: CLOSED.
+
+## D-0038 (2026-08-01) - Code licence stated as MIT open source
+
+- **Author directive**: "make it MIT open license".
+- The manuscript's licence sentence read "The **released** \dtgsk{} code is
+  distributed under the MIT License (see the accompanying LICENSE file)". It now
+  reads "The \dtgsk{} code is **licensed under the MIT License, an OSI-approved
+  open-source licence** (the full grant text is in the accompanying LICENSE
+  file)".
+- **Why this does not conflict with D-0037.** An OSI-approved licence is open
+  source as a property of the grant, not of the hosting: MIT is open source
+  whether or not the code is publicly available. The sentence states the terms
+  under which the code is licensed; it does not state where a reader can get it,
+  and the Data Availability Statement continues to govern that ("from the
+  corresponding author upon reasonable request").
+- It also removes "released", the one word flagged in the pre-submission review
+  as stretchable toward a GitHub release. The manuscript's other twenty uses of
+  "released" refer to the frozen EVIDENCE releases (rel-2026-07-20-67d9345f9,
+  lsgo-rel-2026-07-28-ff1a046ef, cec2020-rel-2026-07-29-5867abe1e), which is the
+  paper's own established term and is correct.
+- **docs/LICENSES.md**: the status banner still said "verify copyright line
+  before final submission". The author confirmed it on 2026-08-01 (D-0037), so
+  the caveat is replaced with the confirmation date, and the licence is stated
+  the same way there.
+- **Freeze**: pass-35 minted at anchor bc07ab7a4 (3 of 15 hashes changed),
+  check_manifest 15/15. Tag **v2.10** supersedes v2.9; earlier tags unmoved;
+  CITATION.cff bumped to 2.10 in the tagged state.
+  **Approver**: author (2026-08-01). **Status**: CLOSED.

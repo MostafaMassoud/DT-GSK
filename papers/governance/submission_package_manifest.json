@@ -1,16 +1,16 @@
 {
   "schema": "submission_package_manifest/v1",
-  "generated_utc": "2026-08-01T13:38:28Z",
-  "manuscript_version_id": "v2.9",
-  "manuscript_version_note": "Freeze pass-34, tag v2.9 (D-0037). Supersedes v2.8 as the submission basis. No Zenodo deposit, no GitHub release and no repository DOI are created for this work; the article DOI is assigned by Algorithms (MDPI) after acceptance.",
+  "generated_utc": "2026-08-01T13:48:42Z",
+  "manuscript_version_id": "v2.10",
+  "manuscript_version_note": "Freeze pass-35, tag v2.10 (D-0038). Supersedes v2.9 as the submission basis. No Zenodo deposit, no GitHub release and no repository DOI are created for this work; the article DOI is assigned by Algorithms (MDPI) after acceptance.",
   "target_journal": "Algorithms (MDPI)",
   "evidence_release": [
     "rel-2026-07-20-67d9345f9 (CEC2017, CEC2011, CEC2013 - primary)",
     "lsgo-rel-2026-07-28-ff1a046ef (CEC2013LSGO)",
     "cec2020-rel-2026-07-29-5867abe1e (CEC2020)"
   ],
-  "authoritative_commit": "502b32162d81dc3d96c259b791f4b3d2e700ea72",
-  "pre_freeze_base_commit": "438b0013844cd3a87b39508eb000ff01e15eedb8",
+  "authoritative_commit": "bc07ab7a400f1ae0fc4a968e141cce11c8619ef5",
+  "pre_freeze_base_commit": "285fe94de1cc77b5f267679bd06af9359ff9f0a6",
   "hash_algorithm": "SHA-256",
   "submission_files": [
     {
@@ -18,15 +18,15 @@
       "path": "papers/DT-GSK.pdf",
       "pages": 47,
       "build_epoch": 1783468800,
-      "sha256": "e2b8df0ecbef6f0415da5292186a0fd9ffb64c1aa06351ec9cb42e10c4650a70",
-      "bytes": 817457
+      "sha256": "c69695dd4d533af79b90cdfb711477b05e2c20b9e1258a897ab60645a098a4ea",
+      "bytes": 817500
     },
     {
       "role": "main-manuscript-docx",
       "path": "papers/DT-GSK.docx",
       "build": "deterministic docx render",
-      "sha256": "430fd92330f1efd9940055d5daa931357f77a65ec66d55c41b59b59201cf83c1",
-      "bytes": 999581
+      "sha256": "5771ae8791f6b22329b6853195d959a98afca6dc296d77ee8f0817a872d4d668",
+      "bytes": 999601
     },
     {
       "role": "supplement-pdf",
