@@ -6,11 +6,18 @@ WHAT THIS IS -- AND IS NOT
 This pack is a *convenience download*. It is neither of the two authoritative
 channels:
 
-  1. JOURNAL SUBMISSION -- the five deliverables only (main PDF/DOCX,
-     supplement PDF/DOCX, cover letter; about 13 MB). They are uploaded through
-     the journal's own system and are hash-recorded in
-     ``papers/governance/submission_package_manifest.json``. Code and evidence
-     are NOT uploaded to the journal.
+  1. JOURNAL SUBMISSION -- the five deliverables (main PDF/DOCX, supplement
+     PDF/DOCX, cover letter; about 13 MB), PLUS the two ZIPs MDPI requires for
+     a LaTeX submission: the collated source archive and the 600 dpi figure
+     archive, both built by ``build_submission_zips.py``. They are uploaded
+     through the journal's own system and the five deliverables are
+     hash-recorded in ``papers/governance/submission_package_manifest.json``.
+     The EVIDENCE TREE is not uploaded to the journal -- but the LaTeX sources
+     are, and an earlier version of this note wrongly said otherwise. The live
+     Instructions for Authors (retrieved 2026-08-01, A-0001) require LaTeX
+     manuscripts to be "collated into one ZIP folder (including all source
+     files and images, so that the Editorial Office can recompile the submitted
+     PDF)".
 
   2. ARCHIVE OF RECORD -- the public code repository, including the full
      evidence tree (``curves/`` and all), archived immutably at a tagged
