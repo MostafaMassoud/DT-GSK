@@ -6,13 +6,15 @@ message: >-
   preferred-citation. If you use the GSK-family baselines re-implemented here,
   please also cite their original sources, listed under references.
 type: software
-version: "2.8"
+version: "2.9"
 date-released: 2026-08-01
 license: MIT
 repository-code: "https://github.com/MostafaMassoud/DT-GSK"
-# doi: added after the Zenodo archive of this release is minted. Keep the
-# version field above equal to the tag this file ships inside --- Zenodo
-# reads it, not the tag name (gated by papers/scripts/validate_citation_cff.py).
+# No DOI field. Author decision 2026-08-01 (D-0037): no Zenodo deposit and no
+# repository DOI are created for this work. The article DOI is assigned by
+# Algorithms (MDPI) after acceptance and belongs to the article, not to this
+# software record. Keep the version field above equal to the tag this file
+# ships inside (gated by papers/scripts/validate_citation_cff.py).
 abstract: >-
   Reference Python implementation of DT-GSK (Dimension-Tiered Gaining-Sharing
   Knowledge Optimization) together with six re-implemented GSK-family

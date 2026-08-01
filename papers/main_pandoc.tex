@@ -3512,37 +3512,36 @@ This research received no external funding.
 \noindent\textbf{Informed Consent Statement:} Not applicable.
 
 \vspace{1em}
-\noindent\textbf{Data Availability Statement:} The \dtgsk{}
-implementation, the benchmark harness for the CEC2017, CEC2011,
-CEC2013, CEC2020 and CEC2013LSGO suites, the per-run raw result CSVs,
-the seed schedules, and
-the per-cell environment and verification manifests behind every
-reported number are contained in the versioned, immutable evidence
-releases accompanying this article: the primary release
-rel-2026-07-20-67d9345f9 (CEC2017, CEC2011 and CEC2013) and the two
-separate, non-superseding releases held apart from it in the
-repository, lsgo-rel-2026-07-28-ff1a046ef (CEC2013LSGO) and
-cec2020-rel-2026-07-29-5867abe1e (CEC2020). The complete implementation and evidence
-tree are published in a public code repository and archived immutably at a
-tagged release carrying a persistent digital object identifier; both locators
-are supplied with the submission.
 
 
-All CEC2017, CEC2011 and CEC2013 values derive from the single primary
-evidence release archived with this article, whose manifest records a
+
+
+
+
+
+
+\noindent\textbf{Data Availability Statement:} The source code,
+configuration files, and experimental result data supporting the findings of
+this study are available from the corresponding author upon reasonable
+request. The supplementary materials accompanying the manuscript provide the
+additional methodological and experimental details needed to evaluate the
+reported results.
+All CEC2017, CEC2011 and CEC2013 values derive from a single primary
+evidence release, rel-2026-07-20-67d9345f9, whose manifest records a
 SHA-256 checksum for every released file; the two suites added after
 that release was minted are carried by their own separate,
-non-superseding releases named above, each with its own checksummed
-manifest; and the derived statistical artifacts
+non-superseding releases, lsgo-rel-2026-07-28-ff1a046ef (CEC2013LSGO)
+and cec2020-rel-2026-07-29-5867abe1e (CEC2020), each with its own
+checksummed manifest; and the derived statistical artifacts
 behind every table and figure are versioned as checksummed analysis
-bundles in the same repository. The supplementary component-isolation study
+bundles alongside them. The supplementary component-isolation study
 (Section~S6) draws on a separate immutable component-isolation release,
 identified and checksummed in the Supplementary Materials. 
-Beyond the analyzed suites, the repository also contains runnable
-implementations of eight non-GSK baseline optimizers and, for three of
+Beyond the analyzed suites, the implementation also includes runnable
+versions of eight non-GSK baseline optimizers and, for three of
 them (SHADE-ILS, MOS and DECC-G), complete result banks on CEC2013LSGO
 produced under this paper's protocol. These implementations carry no
-validation evidence checkable within this repository: the vendored ports
+validation evidence checkable within this project: the vendored ports
 are byte-faithful copies whose author-code parity records reside in a
 separate project, and DECC-G is first-party code written from its source
 paper with no author-code oracle. They fall outside this paper's
@@ -3551,12 +3550,12 @@ comparability audit against the family is claimed for
 them. 
 The complete shipped configuration is the single dimension-aware,
 hash-frozen configuration, enforced by a configuration-lock validator
-and a byte-stability regression test; the repository's runbook
-(runbook.md) documents the commands that reproduce the
+and a byte-stability regression test; the accompanying runbook
+documents the commands that reproduce the
 experiment grid and the analysis outputs, and the tuning-protocol
 disclosure is provided in the Supplementary
 Materials. The released \dtgsk{} code is distributed under the MIT License
-(see the repository LICENSE file), and our own derived data and
+(see the accompanying LICENSE file), and our own derived data and
 analysis artifacts under the Creative Commons Attribution 4.0 International
 (CC~BY~4.0) License; the CEC2017, CEC2011, CEC2013, CEC2020 and
 CEC2013LSGO benchmark definitions remain
