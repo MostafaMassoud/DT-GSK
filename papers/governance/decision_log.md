@@ -1712,3 +1712,36 @@ applying all surfaced fixes.
 - **Submission impact: none.** The shipped DOCX is unchanged and validates.
   **Approver**: author (confirmed the round-trip, 2026-08-01). **Status**:
   CLOSED (passed).
+
+## D-0043 (2026-08-01) - Figures 1 and 2 ship as editable Visio OLE; the D-0042 fold-in decision reversed
+
+- **Author directive**: the two flowcharts should be Visio OLE in the
+  manuscript. D-0042 had recorded the fold-in as deliberately not taken; that is
+  reversed here and the OLE path is now default-on
+  (`VISIO_OLE_FLOWCHARTS=0` restores raster pictures).
+- **Two of my three stated reasons did not survive measurement**, which is why
+  this is a correction and not merely compliance:
+  - *"it would enlarge the submitted DOCX"* - the delta is **+9,869 bytes**,
+    about 1 percent of a 1 MB file. Not material.
+  - *"an editor without Visio would meet an object they cannot open"* - **void**:
+    each `<w:object>` retains its PNG preview, so the figures render exactly as
+    before for a reader without Visio. The OLE is additive.
+  - Only the third stands - MDPI asks for figures as a separate >=600 dpi ZIP,
+    which is built and shipped - and that is a reason to ALSO provide the ZIP,
+    not a reason to withhold editability from the Word deliverable.
+- **A build defect fixed while enabling it**: the opt-in block regenerated the
+  tracked `flowchart_*.vsdx` on every DOCX build, rewriting validated artifacts
+  as a side effect and producing spurious working-tree diffs. They are now
+  regenerated only when absent, and were confirmed untouched across two builds.
+- **Validator scope widened**: `validate_visio_ole.py` previously checked only
+  the standalone `DT-GSK_visio.docx`, which is a build product and usually
+  absent. It now checks the **shipped** `DT-GSK.docx` on every run - both
+  embedded drawings byte-identical to their tracked sources, both attached with
+  the `package` relationship type (the D-0041 defect), each embedded copy
+  re-validated independently.
+- **Scope**: exactly one tracked file moves, `papers/DT-GSK.docx`. The PDF, the
+  supplement in both formats, the cover letter, `main.tex` and all three CSVs
+  are byte-identical to pass-36. Same drawings, now editable.
+- **Freeze**: pass-37 minted at anchor 01b6a7f2d (1 of 15 hashes changed),
+  check_manifest 15/15. Tag **v2.12** supersedes v2.11.
+  **Approver**: author (2026-08-01). **Status**: CLOSED.

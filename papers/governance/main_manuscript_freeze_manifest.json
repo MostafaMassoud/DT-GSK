@@ -1,9 +1,9 @@
 {
   "schema": "main_manuscript_freeze_manifest/v1",
-  "phase": "PASS-36 final pre-submission sweep remediation (dtgsk-submission-v2.11 basis)",
-  "generated_utc": "2026-08-01T14:15:00+00:00",
-  "anchor_commit": "58c6058ac83be1f036bb18c1b5519d7dc69b4068",
-  "pre_freeze_base_commit": "e99f808c485ca75c02980f8960e7c2e79881e828",
+  "phase": "PASS-37 Figures 1-2 as editable Visio OLE (dtgsk-submission-v2.12 basis)",
+  "generated_utc": "2026-08-01T15:29:20+00:00",
+  "anchor_commit": "01b6a7f2d6e860af87ba60272149c982e50407bd",
+  "pre_freeze_base_commit": "792d1dc7be294642caefe9bc98d00b009e8947cf",
   "evidence_release": {
     "primary": "rel-2026-07-20-67d9345f9",
     "cec2013lsgo": "lsgo-rel-2026-07-28-ff1a046ef",
@@ -11,7 +11,7 @@
     "ablation": "abl-rel-2026-07-20"
   },
   "scientific_content_status": "FROZEN_FOR_SUBMISSION",
-  "freeze_statement": "Re-freeze after an adversarial five-seat pre-submission sweep returned 21 candidates, 7 refuted and 14 confirmed. No number, rank, p-value, test, standing or registered outcome changes; four of fifteen tracked files move and the cover letter and main.tex are byte-identical to the pass-35 mint. BLOCKER: Algorithm 1's float was 55.24pt too large for the page after the pass-31 additions, rendering page 12 to within 18.1pt of the A4 trim edge. LaTeX warns 'Float too large for page', which is a different warning from Overfull hbox/vbox; the hygiene gate checked only the latter, so five successive mints passed it. Fixed by tightening three algorithm lines and reducing the float's setstretch from 1.55 to 1.32 (1.55 predated the pass-31 rows); worst bottom margin across all 47 pages is now 40.3pt, and the gate now fails on oversized floats with the one deliberate float-page figure exempted by magnitude. FALSE GOVERNANCE RECORD: D-0037 and the pass-34 freeze statement both asserted three docs/LICENSES.md edits that were never made - the script aborted before reaching them - so the package shipped an unresolved copyright placeholder the record called closed. Now actually applied. D-0037 CONSEQUENCES MISSED IN THE PACKAGE: the reproduction pack's cover note promised a public DOI-archived repository to the very requester the Data Availability Statement sends there; README called this a public repository and named an accompanying artifact repository URL; AG-0006 justified withholding a residential address on the public-archive premise. All restated. MANUSCRIPT FIDELITY, all from pass-31: the DE-arm step was placed before the crossover mask and described as replacing the trial rather than overwriting its binomially masked coordinates; a cross-reference pointed at the notation table for a constant it does not contain; an added note reused the symbol epsilon against the paper's own one-symbol-one-meaning guarantee; and the supplement's parameter-table caption still carried the run-time-tuning claim the main table had corrected. STALE RECORDS: reproducibility_manifest.json had gone silently stale on 2 of 5 digests, and A-0001 claimed a GenAI departure had been retired that D-0036 reinstated. All five artifacts byte-identical across two consecutive builds at the pinned epochs; ten gates green.",
+  "freeze_statement": "Re-freeze after the author's directive that Figures 1 and 2 ship as editable Visio OLE objects in the Word deliverable. ONE tracked file moves - papers/DT-GSK.docx - and nothing else: the PDF, the supplement in both formats, the cover letter, main.tex and all three CSVs are byte-identical to the pass-36 mint. No number, rank, p-value, test, standing or registered outcome changes; the figures are the same drawings, now double-click-editable. This reverses the D-0042 decision to keep the fold-in opt-in, and the reversal is substantively right rather than merely directed: two of the three reasons given there did not survive measurement. The size cost is +9,869 bytes, about 1 percent, not a material enlargement; and the 'an editor without Visio meets an object they cannot open' risk is void because each w:object retains its PNG preview, so the figures render exactly as before without Visio. Only the third reason stands - MDPI asks for figures as a separate 600 dpi ZIP, which is built and shipped - and that is not a reason to withhold editability from the DOCX. Also corrected while enabling it: the opt-in block regenerated the tracked flowchart_*.vsdx on every build, rewriting validated artifacts as a side effect; they are now regenerated only when absent and were confirmed untouched across two builds. validate_visio_ole.py now covers the SHIPPED DT-GSK.docx rather than only the standalone variant, checking on every run that both embedded drawings are byte-identical to their tracked sources, that both use the 'package' relationship type (the defect that made Word render them as flat images, fixed in D-0041 and author-confirmed in D-0042), and that each embedded copy re-validates independently. Verification: DOCX byte-identical across two consecutive builds at the pinned epoch 1783641600; 2 OLE objects with 2 previews retained; validate_docx passes on both documents; cross-format parity, doc-consistency, artifact labels and build hygiene all green.",
   "hash_algorithm": "SHA-256",
   "build_environment": {
     "pdf_source_date_epoch": 1783468800,
@@ -60,8 +60,8 @@
     },
     {
       "path": "papers/DT-GSK.docx",
-      "sha256": "c8abbb0ee1a508b2e4aa28200cd96af60b1e04e78c370c20d8a56af140433306",
-      "bytes": 999647
+      "sha256": "256f4c685928187cbcd7c258dead8b7d1bf734c288a524e3d75d6f54a3553821",
+      "bytes": 1009516
     },
     {
       "path": "papers/supplementary.pdf",

@@ -1,16 +1,16 @@
 {
   "schema": "submission_package_manifest/v1",
-  "generated_utc": "2026-08-01T14:15:00Z",
-  "manuscript_version_id": "v2.11",
-  "manuscript_version_note": "Freeze pass-36, tag v2.11 (D-0039). Supersedes v2.10 as the submission basis. No Zenodo deposit, no GitHub release and no repository DOI are created for this work; the article DOI is assigned by Algorithms (MDPI) after acceptance.",
+  "generated_utc": "2026-08-01T15:29:20Z",
+  "manuscript_version_id": "v2.12",
+  "manuscript_version_note": "Freeze pass-37, tag v2.12 (D-0043). Supersedes v2.11 as the submission basis. Figures 1 and 2 ship as editable Visio OLE objects in the Word deliverable, with their PNG previews retained. No Zenodo deposit, no GitHub release and no repository DOI; the article DOI is assigned by Algorithms (MDPI) after acceptance.",
   "target_journal": "Algorithms (MDPI)",
   "evidence_release": [
     "rel-2026-07-20-67d9345f9 (CEC2017, CEC2011, CEC2013 - primary)",
     "lsgo-rel-2026-07-28-ff1a046ef (CEC2013LSGO)",
     "cec2020-rel-2026-07-29-5867abe1e (CEC2020)"
   ],
-  "authoritative_commit": "58c6058ac83be1f036bb18c1b5519d7dc69b4068",
-  "pre_freeze_base_commit": "e99f808c485ca75c02980f8960e7c2e79881e828",
+  "authoritative_commit": "01b6a7f2d6e860af87ba60272149c982e50407bd",
+  "pre_freeze_base_commit": "792d1dc7be294642caefe9bc98d00b009e8947cf",
   "hash_algorithm": "SHA-256",
   "submission_files": [
     {
@@ -25,8 +25,8 @@
       "role": "main-manuscript-docx",
       "path": "papers/DT-GSK.docx",
       "build": "deterministic docx render",
-      "sha256": "c8abbb0ee1a508b2e4aa28200cd96af60b1e04e78c370c20d8a56af140433306",
-      "bytes": 999647
+      "sha256": "256f4c685928187cbcd7c258dead8b7d1bf734c288a524e3d75d6f54a3553821",
+      "bytes": 1009516
     },
     {
       "role": "supplement-pdf",
