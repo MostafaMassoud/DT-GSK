@@ -218,8 +218,28 @@ def check_ole_docx(path: Path) -> bool:
                                     "word/document.xml"})
 
         rels = {}
+        rel_types = {}
         for rel in ET.fromstring(z.read("word/_rels/document.xml.rels")):
             rels[rel.get("Id")] = rel.get("Target")
+            rel_types[rel.get("Id")] = rel.get("Type", "")
+
+        # An OPC-package embed (.vsdx/.docx/.xlsx/.pptx) must be attached with
+        # the `package` relationship type. Under `oleObject` Word expects a
+        # legacy compound-file stream (.bin), cannot activate a zip, and falls
+        # back to rendering the preview image only -- the object appears as a
+        # static picture and double-click does nothing. That is precisely the
+        # defect that failed the author acceptance test twice, and this
+        # validator passed the broken package until this check was added.
+        OPC_EXT = (".vsdx", ".docx", ".xlsx", ".pptx")
+        for rid, tgt in rels.items():
+            if tgt and tgt.lower().endswith(OPC_EXT):
+                kind = rel_types.get(rid, "").rsplit("/", 1)[-1]
+                if kind != "package":
+                    fail(f"{label}: '{tgt}' is an OPC package but is attached "
+                         f"with relationship type '{kind}' -- Word cannot "
+                         f"activate it and will show the preview image only; "
+                         f"it must be 'package'")
+                    good = False
 
         doc = z.read("word/document.xml").decode("utf-8")
         objects = re.findall(r"<w:object\b.*?</w:object>", doc, re.S)

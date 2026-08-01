@@ -1639,3 +1639,38 @@ applying all surfaced fixes.
   repository, so D4 can be revived if a future venue wants editable diagrams.
   **Approver**: author (directed the fix, then removed the artifact).
   **Status**: CLOSED (withdrawn).
+
+## D-0041 (2026-08-01) - D4 Visio OLE: root cause found and FIXED; supersedes the D-0040 withdrawal
+
+- **New fact.** After D-0040 withdrew D4 for want of a retest result, the author
+  retested and reported the failure directly: the flowchart still opens as a
+  static image in Word. D-0040 recorded that "no visual confirmation was ever
+  obtained"; that is now superseded - **the retest was performed on 2026-08-01
+  and it FAILED**, reproducing the 2026-07-13 result.
+- **Root cause, found by inspecting the generated markup.** A `.vsdx` is an OPC
+  **package** (a zip), not a legacy OLE compound-file stream.
+  `embed_visio_ole.py` attached it with the relationship type
+  `.../relationships/oleObject`, under which Word expects a `.bin` compound
+  file; handed a zip it cannot activate the object and silently falls back to
+  rendering the preview image alone. That is exactly the reported symptom, and
+  it was never an Office configuration problem on the author's machine as
+  D-0040 speculated.
+- **Fix**: modern Office formats (.vsdx/.docx/.xlsx/.pptx) must use
+  `.../relationships/package`. One constant. The `<o:OLEObject>` markup was
+  correct throughout (`Type="Embed"`, `ProgID="Visio.Drawing.15"`,
+  `DrawAspect="Content"`), as were the preview image, the content types and the
+  drawings themselves - which is why every structural check passed while the
+  object still would not open.
+- **The validator had the same blind spot** and passed the broken package. It
+  now fails any OPC-package embed attached with a non-`package` relationship
+  type, and the check is negative-tested by rebuilding the pre-fix package and
+  confirming it is caught.
+- **Lesson**: "structurally valid" and "functionally correct" are different
+  claims. Eleven passing structural checks said nothing about whether Word could
+  activate the object, and the withdrawal in D-0040 attributed the failure to
+  the author's environment rather than looking at the generated relationship
+  type. Diagnose before disposing.
+- **Status**: D4 **REOPENED and FIXED**, pending one more author check. The
+  D-0040 withdrawal is superseded; its reasoning about submission impact still
+  holds - the OLE DOCX remains excluded from the package (C-001 5.4), so this
+  is an enhancement, not a submission dependency.

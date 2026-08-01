@@ -30,7 +30,20 @@ from _word_ooxml import read_zip_parts, write_deterministic_zip  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
 CONCEPT = ROOT / "papers/figures/concept"
-OLE_REL = "http://schemas.openxmlformats.org/officeDocument/2006/relationships/oleObject"
+# A .vsdx is an OPC PACKAGE (a zip), not a legacy OLE compound-file stream.
+#
+# This was the defect behind the failed author acceptance test ("the OLE
+# flowcharts showed as static images in Word", 2026-07-13, retested and still
+# failing 2026-08-01). The embed used the `oleObject` relationship type, under
+# which Word expects a legacy compound-file stream (.bin); handed a zip instead
+# it cannot activate the object and silently falls back to rendering only the
+# preview image -- which is exactly "it is treated as an image".
+#
+# Modern Office formats (.vsdx/.docx/.xlsx/.pptx) must be attached with the
+# `package` relationship type. The <o:OLEObject> markup was always correct
+# (Type="Embed", ProgID="Visio.Drawing.15", DrawAspect="Content"); only the
+# relationship type was wrong.
+OLE_REL = "http://schemas.openxmlformats.org/officeDocument/2006/relationships/package"
 VSDX_CT = "application/vnd.ms-visio.drawing"
 EMU_PER_IN = 914400.0
 
