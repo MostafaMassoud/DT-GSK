@@ -1241,3 +1241,55 @@ applying all surfaced fixes.
   Release/Zenodo basis; v2.3 and earlier tags stay in place, unmoved.
   Nothing pushed (the author pushes). **Approver**: author ("fix all",
   2026-07-31). **Status**: CLOSED.
+
+## D-0032 (2026-08-01) - GenAI disclosure amended to name ChatGPT; scope widened and loci harmonized; pass-30 re-freeze; tag v2.5
+
+- **Trigger**: the 2026-08-01 repository transparency audit (four seats over
+  the public tree, every finding adversarially verified) raised three
+  disclosure findings, of which one was a hard contradiction.
+- **D-001 (MAJOR).** The manuscript named Claude and deliberately withheld
+  ChatGPT, recording in AG-0007 that its use was superficial grammar/spelling
+  polish and therefore exempt under MDPI policy. The repository documents at
+  least five substantive ChatGPT review passes over the manuscript package
+  (130 + 33 + 16 + 10 tickets plus an R4 round) whose applied fixes changed
+  statistical language and method descriptions - a discrepancy falsifiable by
+  one grep of the public tree. The audit explicitly refused to draft the
+  remedy, holding that it turned on a fact only the author could supply. The
+  author confirmed the broader scope on 2026-08-01 and supplied draft wording.
+  ChatGPT (OpenAI) is now named in all three disclosure loci.
+- **Three departures from the author's draft**, each recorded because each
+  preserves something the draft would have weakened: version pins retained
+  (MDPI asks for tool and version; no version is stated for ChatGPT because
+  the author-recalled strings were never verified and this project's standing
+  rule forbids naming anything on inference); "did not independently generate"
+  replaced by the existing flat denial, which is both stronger and true and is
+  corroborated by the commit history; and two dropped clauses restored -
+  software-engineering support, and "no AI system is an author of this work".
+- **D-002 (MODERATE)**: affirmative scope widened from "background and
+  explanatory passages" to expository prose throughout the manuscript that
+  restates findings the authors had already established, plus the internal
+  pre-submission review use.
+- **D-004 (MINOR)**: the methods sentence and Acknowledgments no longer deny
+  AI contribution to "the analysis" - a denial the tree strained, since
+  AI-co-authored commits touched analysis TOOLING (ea63486) - and now deny
+  designing or executing an experiment, producing or computing any reported
+  number, and generating the statistical method. All denials remain true and
+  are consistent across the three loci and with the repository.
+- **Governance**: AG-0007 amended rather than rewritten; the original
+  exemption determination is retained verbatim and marked superseded, with the
+  reason, date and audit-finding id. Folded in: HYG-14 (real ORCID iDs replace
+  placeholder macros in supplementary.tex; unused macros, so the supplement is
+  byte-identical) and HYG-12 (the forbidden-token rule restated to the scope
+  actually in force, since the repository openly broke the rule as written -
+  including inside all three files that state it).
+- **Verification**: five artifacts byte-identical across two consecutive
+  builds at the pinned epochs; only four tracked files change; B1 = 41 pp and
+  B2 = 22,533 words inside the CR-0021 caps; hygiene FULL, parity 726/0,
+  provenance, doc-consistency, citation controls, evidence bindings, artifact
+  labels, validate_docx 33/33 both, tests 601 passed + 2 skipped.
+- **Freeze**: pass-30 minted at anchor ad35a43 (4 of 15 hashes changed),
+  check_manifest 15/15; manifest edited surgically, CRLF preserved. Tag
+  **v2.5** supersedes v2.4 as the submission and Release/Zenodo basis; earlier
+  tags stay in place, unmoved. Nothing pushed (the author pushes).
+  **Approver**: author (disclosure wording supplied and approved,
+  2026-08-01). **Status**: CLOSED.
