@@ -95,6 +95,12 @@ def collect() -> set[Path]:
             for name in rel.split(","):
                 if (b := resolve(name.strip(), (".bib",))) is not None:
                     needed.add(b)
+    # The compiled reference PDF ships INSIDE the source zip: SuSy's manuscript
+    # slot takes a single Word/.zip and auto-extracts metadata from it, and the
+    # editorial office gets the canonical render alongside the sources it can
+    # recompile (the clean-room check proves the two are byte-identical).
+    if (PAPERS / "DT-GSK.pdf").is_file():
+        needed.add(PAPERS / "DT-GSK.pdf")
     # class + support files, and the frozen .bbl
     for extra in ("Definitions", "main.bbl"):
         p = PAPERS / extra
