@@ -35,11 +35,11 @@
   pdftitle={DT-GSK in Plain Language}, pdfauthor={Mostafa Elsayed Masoud}}
 
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{4.4pt plus 1pt minus 1pt}
+\setlength{\parskip}{3.9pt plus 1pt minus 1pt}
 \titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
-\titlespacing*{\section}{0pt}{8pt}{3pt}
+\titlespacing*{\section}{0pt}{7pt}{2pt}
 \titleformat{\subsection}{\normalsize\bfseries}{}{0em}{}
-\titlespacing*{\subsection}{0pt}{6pt}{1pt}
+\titlespacing*{\subsection}{0pt}{5pt}{1pt}
 \newcommand{\hl}[1]{\textbf{#1}}
 
 \definecolor{boxblue}{RGB}{232,240,250}
@@ -244,20 +244,58 @@ larger population. This asymmetry is disclosed, not controlled for.
 
 \subsection{3. ACE --- adaptive control ensemble (all tiers)}
 
-A bandit-style selector over a pool of $(KF, KR, K_{\exp})$ arms. Each
-individual draws an arm; credit is an exponential moving average of realized
-improvement with learning rate $c = 0.10$; probabilities are floored at
-$\pi_{\min} = 0.05$ so no arm is ever eliminated outright.
+A credit-based selector over a pool of five fixed arms, each a triple
+$(KF, KR, K_{\exp})$ of gaining--sharing rate, crossover rate and
+junior-dimension exponent. Every individual independently draws an arm each
+generation, so a single generation exercises several configurations at once.
+
+\begin{center}
+\small
+\begin{tabular}{@{}cccclc@{}}
+\toprule
+\textbf{arm} & $KF$ & $KR$ & $K_{\exp}$ & \textbf{character} & $\pi_0$\\
+\midrule
+1 & 0.1 & 0.2 & 2.0  & cautious explorer          & 0.05\\
+2 & 1.0 & 0.1 & 15.0 & dimension-selective bold   & 0.05\\
+3 & 0.5 & 0.9 & 10.0 & \textbf{GSK-canonical (baseline)} & \textbf{0.45}\\
+4 & 1.0 & 0.9 & 5.0  & aggressive wide            & 0.05\\
+5 & 0.5 & 0.9 & 3.0  & extended-exploration GSK   & 0.40\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The pool is deliberately spread: arm 1 takes small steps on few coordinates,
+arm 2 maximal steps on very few (high $K_{\exp}$ drains the junior set fast),
+arm 4 maximal steps on most. \hl{Arm 3 is unmodified GSK}, and with arm 5 ---
+same rates, slower junior decay --- it carries $0.85$ of the initial mass, so
+\hl{DT-GSK starts as base GSK and must earn any departure from it}; the three
+exploratory arms begin at the floor.
+
+\hl{The credit rule.} Credit is an exponential moving average of realized
+improvement at learning rate $c = 0.10$, with probabilities projected onto the
+simplex under the floor $\pi_{\min} = 0.05$ --- so no arm is ever eliminated
+and any arm can recover. Two details matter:
 
 \begin{itemize}[leftmargin=1.2em, itemsep=1pt, topsep=3pt]
-\item \textbf{Pool:} 5 arms. \textbf{Arm 3 is GSK-pure} $(0.5, 0.9, 10)$, so the
-      unmodified base method is always reachable.
-\item \textbf{Initial probabilities:} $(0.05,\, 0.05,\, 0.45,\, 0.05,\, 0.40)$
-      --- weighted toward the GSK-pure arm at the start.
-\item \textbf{Sixth arm:} a differential-evolution arm, enabled only for
-      $20 \leq D < 100$.
-\item \textbf{Credit memory:} single below $D=20$; top/bottom split at
-      $D\geq20$.
+\item \textbf{Warm-up.} No credit update happens until the consumed-budget
+      fraction reaches $0.05$; before that the probabilities sit at $\pi_0$.
+\item \textbf{Two update branches.} If a generation is \emph{net-improving}
+      (summed $f_{\mathrm{old}} - f_{\mathrm{new}}$ positive), the full-pool
+      target is used with worsened arms floored at $\pi_{\min}$. If it yields
+      \emph{no net improvement}, the credit target is restricted to the arms
+      that did improve. The restricted branch is what stabilizes learning on
+      hard functions --- without it, a generation in which everything fails
+      would push probability mass around on noise.
+\end{itemize}
+
+\begin{itemize}[leftmargin=1.2em, itemsep=1pt, topsep=3pt]
+\item \textbf{Arm memory:} a single pool below $D = 20$; a top/bottom split at
+      $D \geq 20$, where the individual's fitness rank selects which memory its
+      draw uses.
+\item \textbf{Sixth arm:} for $20 \leq D < 100$ only, an optional
+      differential-evolution arm ($F = 0.5$, $CR = 0.9$) enters at initial
+      probability $0.10$--$0.20$ by tier. It is off below 20 and at
+      $D \geq 100$.
 \end{itemize}
 
 \subsection{4. ARGP --- adaptive rank-gated pruning (all tiers)}
@@ -470,12 +508,14 @@ $\alpha_{\mathrm{psr}}$ & 1.0 & inert (nonlinear shipped)\\
 \midrule
 \multicolumn{3}{@{}l}{\emph{ACE / ARGP}}\\
 \midrule
-arm pool & 5 arms $(KF, KR, K_{\exp})$; arm 3 GSK-pure $(0.5, 0.9, 10)$ & \\
-initial probabilities & $(0.05,\, 0.05,\, 0.45,\, 0.05,\, 0.40)$ & \\
-learning rate $c$ & 0.10 & \\
-probability floor $\pi_{\min}$ & 0.05 & soft-freeze target\\
-memory mode & single ($D{<}20$) $\to$ top/bottom ($D{\geq}20$) & \\
-DE arm & on only for $20 \leq D < 100$ & \\
+arm pool & 5 arms $(KF, KR, K_{\exp})$; arm 3 GSK-canonical $(0.5, 0.9, 10)$ & see arm table, Sec.~4.3\\
+initial probabilities $\pi_0$ & $(0.05,\, 0.05,\, 0.45,\, 0.05,\, 0.40)$ & 0.85 on the two GSK-rate arms\\
+learning rate $c$ & 0.10 & EMA on realized improvement\\
+probability floor $\pi_{\min}$ & 0.05 & simplex projection; no arm dies\\
+update start & consumed-budget fraction 0.05 & $\pi$ held at $\pi_0$ before it\\
+credit target & full pool if net-improving; else restricted to improving arms & stabilizes hard functions\\
+memory mode & single ($D{<}20$) $\to$ top/bottom ($D{\geq}20$) & rank selects the memory\\
+DE arm & $20 \leq D < 100$ only; $F = 0.5$, $CR = 0.9$ & initial prob 0.10--0.20 by tier\\
 ARGP window / threshold & 30 gens / 0.02 (0.010 at $D{\geq}50$) & warm-up 0.15\\
 \midrule
 \multicolumn{3}{@{}l}{\emph{Linkage block crossover}}\\
