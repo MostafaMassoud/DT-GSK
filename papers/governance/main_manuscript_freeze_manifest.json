@@ -1,9 +1,9 @@
 {
   "schema": "main_manuscript_freeze_manifest/v1",
-  "phase": "PASS-32 ChatGPT version + A-0001 online verification (dtgsk-submission-v2.7 basis)",
-  "generated_utc": "2026-08-01T12:59:55+00:00",
-  "anchor_commit": "76c53bc4ed5f665dba5d3a3236100db79acfa882",
-  "pre_freeze_base_commit": "0d2bed9907faae38134c3e2969d250b1680a7305",
+  "phase": "PASS-33 ChatGPT version removed (dtgsk-submission-v2.8 basis)",
+  "generated_utc": "2026-08-01T13:26:57+00:00",
+  "anchor_commit": "90821d5023fd8139bdcfd352c1fc4a968cd499e5",
+  "pre_freeze_base_commit": "e0c4265f21181ae08ca1bc39b3e38a329d6c10ce",
   "evidence_release": {
     "primary": "rel-2026-07-20-67d9345f9",
     "cec2013lsgo": "lsgo-rel-2026-07-28-ff1a046ef",
@@ -11,7 +11,7 @@
     "ablation": "abl-rel-2026-07-20"
   },
   "scientific_content_status": "FROZEN_FOR_SUBMISSION",
-  "freeze_statement": "Re-freeze after the author supplied the ChatGPT version and after A-0001 was closed by live retrieval of the venue's Instructions for Authors. No number, rank, p-value, test, standing or registered outcome changes; five of fifteen tracked files move, and both supplementary artifacts are byte-identical to the pass-31 mint. (1) ChatGPT is disclosed as version 5.5 in all four loci (the Use-of-GenAI statement, the Acknowledgments, the methods-level sentence and the cover letter). D-0032 had withheld a version because the author-recalled string was unverified; the author supplied it directly on 2026-08-01, and it is recorded in-source as an author attestation rather than a verified product string, because it was not checked against a product catalogue and this project does not name anything on inference. (2) A-0001, open since Phase 4, is CLOSED: the live MDPI Algorithms Instructions-for-Authors page was retrieved and read in full on 2026-08-01, and ten requirement rows are now verified against the live source instead of search snippets. Three consequences: MDPI's prescribed Acknowledgments sentence explicitly asks for '[tool name, version information]', which independently retires the D-0032 departure; the exemption wording confirms the original AG-0007 determination was sound in principle and lapsed on the facts rather than on a misreading; and two previously unrecorded submission-time actions surfaced (LaTeX must ship as a ZIP of all sources so the Editorial Office can recompile, and figures must be supplied in a single ZIP at preferably no less than 600 dpi). Also confirmed: no length or page cap exists on the page, so the CR-0021 caps are self-imposed discipline rather than a venue rule. (3) artifact_binding.csv, the only tracked governance file to move, no longer stamps 59 rows with a generator SHA that resolves nowhere in this repository; those cells now say what they are and point at the evidence-release manifest, which is the real provenance. Verification: all five artifacts byte-identical across two consecutive builds at the pinned epochs; hygiene, doc-consistency, provenance, citation controls, evidence bindings, artifact labels, cross-format parity, validate_docx on both documents, frozen analysis and citation_cff all green.",
+  "freeze_statement": "Re-freeze after the author-directed removal of the ChatGPT version from the disclosure. No number, rank, p-value, test, standing or registered outcome changes. The rule applied: do not publish a model number unless repository evidence conclusively establishes it. It does not -- the only occurrences in the tree are the author's own recollection, recorded verbatim AS unverified ('Catgut 5.5 / 5.6', AG-0007), and the restatement of it is the same uncertain pair. A pair cannot fill MDPI's prescribed '[tool name, version information]' slot, and an unsupported number is a specific checkable claim with nothing behind it, so the tool is named and its role described in full while the version is omitted rather than invented. This restores the D-0032 position and reverts the pass-32 attempt to state one. Four tracked files move, but only main.tex changes in substance: the rebuilt PDF, DOCX and cover letter are byte-identical to the pass-31 build, the sole surviving difference being a source comment recording the reasoning. Both supplementary artifacts are untouched. All five artifacts byte-identical across two consecutive builds at the pinned epochs; nine gates green.",
   "hash_algorithm": "SHA-256",
   "build_environment": {
     "pdf_source_date_epoch": 1783468800,
@@ -25,8 +25,8 @@
   "files": [
     {
       "path": "papers/main.tex",
-      "sha256": "dcb74c9651ef34675b0ba99e16f419b09b1a687d456f3640bd0f192553354139",
-      "bytes": 25079
+      "sha256": "cc36b9a10c1420b67c1b71455bf70d3a8ec97a2c070713abf684b2b516519315",
+      "bytes": 25466
     },
     {
       "path": "papers/sections/introduction.tex",
@@ -55,13 +55,13 @@
     },
     {
       "path": "papers/DT-GSK.pdf",
-      "sha256": "3231dfc67ab101b45ca92800afc059676e0c386e5abffb716de7fbf1d6fc1462",
-      "bytes": 817898
+      "sha256": "db59dbc64d24d868580a3c0178bf7a73f38e59b30da8c2cf0f729ace6c9be115",
+      "bytes": 817876
     },
     {
       "path": "papers/DT-GSK.docx",
-      "sha256": "fb1b06d817c7ecf1dbce3bbabe5e93ab9ef8dcb3ff4a4efb80cd873d8e410de8",
-      "bytes": 999722
+      "sha256": "4bd70cdee683c00c5294784abeb7e01b0c1a222f75280402e91756e46a6c38e8",
+      "bytes": 999715
     },
     {
       "path": "papers/supplementary.pdf",
@@ -75,8 +75,8 @@
     },
     {
       "path": "papers/cover_letter.pdf",
-      "sha256": "660162a26b47928049fd84bd5de060f79d062b129c03609b17262f30cf1fa64e",
-      "bytes": 125524
+      "sha256": "b1d13db013e8f656a4ea4946189602b6d559589d1ab1fcc93736360905d6b608",
+      "bytes": 125517
     },
     {
       "path": "papers/governance/claims_evidence_matrix.csv",

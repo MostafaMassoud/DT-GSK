@@ -1463,3 +1463,36 @@ applying all surfaced fixes.
   2.7 in the tagged state and `validate_citation_cff.py` enforces it.
   **Approver**: author ("Fix all", and the version supplied directly,
   2026-08-01). **Status**: CLOSED.
+
+## D-0036 (2026-08-01) - Submission scope narrowed to the journal; ChatGPT version removed
+
+- **Author decision on scope.** No Zenodo deposit and no repository DOI will be
+  created for this submission: the article DOI is assigned by *Algorithms*
+  (MDPI) through its own publication workflow after acceptance. Every Zenodo-
+  and archive-DOI-dependent task is out of scope, and a GitHub push or release
+  is optional repository housekeeping rather than a submission blocker.
+- **ChatGPT version REMOVED**, reverting the pass-32 change made the same day.
+  The rule the author set: do not publish a model number unless repository
+  evidence conclusively establishes it. Verified before acting -- it does not.
+  The only occurrences anywhere in the tree are the author's own recollection,
+  logged verbatim AS unverified ("Catgut 5.5 / 5.6", AG-0007). The author's
+  restatement was the same uncertain pair, and a pair is not a determination: it
+  cannot fill MDPI's prescribed "[tool name, version information]" slot. Three
+  options were put to the author, who chose to omit the version. This restores
+  the D-0032 position for D-0032's own reason -- an unsupported version number
+  is worse than none, being a specific checkable claim with nothing behind it,
+  whereas naming the tool and describing its role is accurate and complete.
+- **CONSEQUENCE RAISED, NOT RESOLVED HERE.** The Data Availability Statement
+  states that the implementation and evidence tree "are published in a public
+  code repository and archived immutably at a tagged release carrying a
+  persistent digital object identifier; both locators are supplied with the
+  submission" (main.tex:276-282). With no Zenodo deposit and no public
+  repository, that sentence is unsupportable, and *Algorithms* "requires that
+  authors publish all experimental controls and make full datasets available
+  where possible". It must be reworded, or the repository must be public, before
+  submission. Deliberately NOT changed unilaterally: it alters what the paper
+  promises its readers about reproducibility, which is the author's call.
+- **Freeze**: pass-33 minted at anchor 90821d502 (4 of 15 hashes changed),
+  check_manifest 15/15. Tag **v2.8** supersedes v2.7; earlier tags unmoved;
+  CITATION.cff bumped to 2.8 in the tagged state.
+  **Approver**: author (2026-08-01). **Status**: CLOSED.
