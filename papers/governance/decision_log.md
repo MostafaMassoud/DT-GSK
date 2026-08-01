@@ -1418,3 +1418,48 @@ applying all surfaced fixes.
   `papers/scripts/validate_citation_cff.py` gate now enforces that invariant
   (it found a fourth historical occurrence at v2.2 on first run).
   **Approver**: author ("fix all", 2026-08-01). **Status**: CLOSED.
+
+## D-0035 (2026-08-01) - ChatGPT version disclosed; A-0001 closed by live retrieval; pass-32 re-freeze; tag v2.7
+
+- **ChatGPT version.** The author supplied "5.5" on 2026-08-01, in response to
+  the open-issues table listing the missing version. D-0032 had deliberately
+  withheld one on the ground that the author-recalled string ("Catgut 5.5 /
+  5.6") was never verified. The author stating it directly is what resolves
+  that: the disclosure is the authors' own statement of what they used. It is
+  recorded in the manuscript source as an **author attestation**, explicitly
+  not as a verified product string - it was not checked against a product
+  catalogue, and this project's standing rule forbids naming anything on
+  inference. Applied to all four loci.
+- **A-0001 CLOSED - the oldest open assumption in the register.** Phase 4
+  recorded `verified_online = FALSE` because direct retrieval of the venue's
+  Instructions for Authors 403'd on 2026-07-10. That block still reproduces
+  through a plain fetcher; the page renders normally in a browser, which is how
+  it was read on 2026-08-01. Ten requirement rows are now verified against the
+  live source. The full table is appended to
+  `phase_04/journal_requirements.md`.
+- **Three things the verification changed**, none of which was inferable from
+  search snippets: (i) MDPI's prescribed Acknowledgments sentence asks for
+  "[tool name, **version information**]", so a version is explicitly required -
+  this retires the D-0032 departure independently of the author's answer; (ii)
+  the exemption wording ("The use of GenAI for superficial text editing ... does
+  not need to be declared") confirms the **original** AG-0007 determination was
+  sound in principle and lapsed on the facts, not on a misreading of policy -
+  worth recording, since the amendment could otherwise read as an admission
+  that the first ruling was incompetent; (iii) two submission-time obligations
+  that no record carried: LaTeX must be submitted as a ZIP of all sources so
+  the Editorial Office can recompile, and figures must be supplied in a single
+  ZIP at preferably >= 600 dpi.
+- **Also confirmed**: no length or page cap exists anywhere on the page, so the
+  CR-0021 caps are self-imposed reviewer-attention discipline and not a venue
+  requirement; and the reviewer-suggestion rule is precise - three names, none
+  a current collaborator or co-publisher with any co-author within three years,
+  all from different institutions. That is what makes the declared GSK-family
+  relationships binding on the author's choice at the portal.
+- **Nine repository items** from the same open-issues table were cleared in the
+  anchor commit; only `artifact_binding.csv` among them is manifest-tracked.
+- **Freeze**: pass-32 minted at anchor 76c53bc4e (5 of 15 hashes changed),
+  check_manifest 15/15. Tag **v2.7** supersedes v2.6 as the submission and
+  Release/Zenodo basis; earlier tags stay unmoved; `CITATION.cff` is bumped to
+  2.7 in the tagged state and `validate_citation_cff.py` enforces it.
+  **Approver**: author ("Fix all", and the version supplied directly,
+  2026-08-01). **Status**: CLOSED.
