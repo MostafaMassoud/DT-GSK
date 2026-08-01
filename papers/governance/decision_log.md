@@ -534,7 +534,7 @@ applying all surfaced fixes.
   main manifest refrozen 12/12 (a4_title_and_consistency_refreeze). NO primary
   result/rank/number/equation/figure changed.
 - **Approver**: P1. **Status**: A4 fixes COMPLETE. Cover-letter venue rewrite
-  (R-0004) and A1.T5 author facts remain open; D4 Visio re-test open.
+  (R-0004) and A1.T5 author facts remain open; D4 Visio re-test open. *(D4 WITHDRAWN 2026-08-01 - see D-0040; R-0004 and A1.T5 closed earlier.)*
 
 ## D-0016 (2026-07-18) — M-026: tie-corrected Friedman adopted after the primary outcome was known
 
@@ -1601,3 +1601,41 @@ applying all surfaced fixes.
 - **Freeze**: pass-36 minted at anchor 58c6058ac (4 of 15 hashes changed),
   check_manifest 15/15. Tag **v2.11** supersedes v2.10.
   **Approver**: author (standing "fix all"). **Status**: CLOSED.
+
+## D-0040 (2026-08-01) - Phase D4 (Visio OLE flowcharts) WITHDRAWN
+
+- **What D4 was**: an optional enhancement embedding native Visio `.vsdx`
+  drawings into a *separate* DOCX variant (`DT-GSK_visio.docx`) as editable OLE
+  objects, so a Word user could double-click a flowchart and edit it in Visio.
+  It was never part of the submission: the variant is recorded as excluded
+  (C-001 5.4), and the shipped DOCX carries raster flowcharts.
+- **Why it stayed open**: the first author acceptance test **failed** - "the OLE
+  flowcharts showed as static images in Word" - and the retest gate has been
+  open since 2026-07-13. The test needs Microsoft Visio, which no build or agent
+  environment here has.
+- **What was done on 2026-08-01**: the artifact was rebuilt from the committed
+  drawings, and `papers/scripts/validate_visio_ole.py` was written to automate
+  everything about the acceptance test that does not require Visio. It checks
+  eleven properties across both artifacts (OPC parts, relationship-target
+  resolution, content-type coverage, the Visio 2012 namespace, page resolution,
+  shape counts against the specs, OLE `r:id` resolution, byte-identity of each
+  embedded drawing to its tracked source, independent re-validation of the
+  embedded copies, preview-image resolution, and the vsdx content type) and is
+  **negative-tested** - a missing required part, a dangling relationship target
+  and malformed XML are each injected and each caught. All checks pass.
+- **Therefore**: the packages are not malformed. If double-click still produces
+  a static image, the cause is OLE activation on the author's machine - Word's
+  OLE/ActiveX policy, Visio not installed, or the `Visio.Drawing.15` ProgID not
+  registered - and not the generated artifact. Diagnosing a local Office
+  configuration is out of scope for this project.
+- **Disposition: WITHDRAWN.** The retest gate, the dependent fold-in and the
+  optional extension diagrams are all withdrawn. No visual confirmation was ever
+  obtained and none is recorded: the artifact was rebuilt and removed on
+  2026-08-01 without a retest result being reported, and inventing a pass would
+  repeat the false-record failure this session already had to correct in D-0037.
+- **Submission impact: none.** The shipped DOCX is unchanged and validates; MDPI
+  requires figures as a single ZIP at >= 600 dpi, which is built and verified.
+  The generators, the drawings and the new validator all remain in the
+  repository, so D4 can be revived if a future venue wants editable diagrams.
+  **Approver**: author (directed the fix, then removed the artifact).
+  **Status**: CLOSED (withdrawn).
