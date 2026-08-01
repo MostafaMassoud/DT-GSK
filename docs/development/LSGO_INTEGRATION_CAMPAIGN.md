@@ -17,10 +17,18 @@ own confidence, not an independent check. -->
 > Quality-Assurance Instruments".
 
 
-> **Status:** PLANNING. The manuscript remains frozen at
-> `dtgsk-submission-v1.0-2026-07-25` (commit `41726c544`). Nothing in this plan
-> has been executed. The dt-gsk LSGO run is in progress (125/375 runs; F1-F5
-> complete; roughly 11 h wall remaining at 13 workers, from a measured
+> **HISTORICAL RECORD — executed.** This plan was written while the campaign was
+> still being scoped, and its status line below is preserved as written. It is
+> **not** current: the CEC2013LSGO leg ran to completion, was promoted as the
+> immutable evidence release `lsgo-rel-2026-07-28-ff1a046ef`, and is reported in
+> the manuscript and in Supplementary Section S7. The manuscript freeze it names
+> (`dtgsk-submission-v1.0-2026-07-25`) has been superseded many times; for the
+> current pass and tag read papers/governance/main_manuscript_freeze_manifest.json (its `phase` field) and the newest entry in papers/governance/decision_log.md.
+>
+> *Status as written, retained for the record:* PLANNING. The manuscript remains
+> frozen at `dtgsk-submission-v1.0-2026-07-25` (commit `41726c544`). Nothing in
+> this plan has been executed. The dt-gsk LSGO run is in progress (125/375 runs;
+> F1-F5 complete; roughly 11 h wall remaining at 13 workers, from a measured
 > dt-gsk/agsk cost ratio of 2.08x).
 
 ## Two blocking findings, verified first-hand

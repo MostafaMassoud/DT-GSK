@@ -20,7 +20,9 @@ Everything else carries the panel's own confidence. -->
 
 > **HISTORICAL RECORD — partially superseded.** Status statements in this plan
 > (including any manuscript-freeze tag it names) describe the state when it was
-> written. Current state: freeze pass-29, tag `v2.4`. Its rulings remain in
+> written. For the current freeze pass and tag, read papers/governance/main_manuscript_freeze_manifest.json (its `phase` field) and the newest entry in papers/governance/decision_log.md ---
+> this banner deliberately no longer names one, because hardcoding the tag here
+> is what left it stale across two successive re-mints. Its rulings remain in
 > force unless a later governance record supersedes them.
 
 

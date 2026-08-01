@@ -1,8 +1,10 @@
 # Family-wide acceleration plan — 7 algorithms x 5 suites, bit-identical only
 
-**Status:** ACTIVE. Supersedes the campaign-state sections of
-`LSGO_ACCELERATION_PLAN.md` (whose measured lessons — T1 rejection, budget-scaling,
-worker knee, probe traps — remain authoritative). **Opened:** 2026-07-25.
+**Status:** CLOSED 2026-07-25 (CR-0013..CR-0017; see the CAMPAIGN COMPLETE row in
+the table below, which this header previously contradicted). Supersedes the
+campaign-state sections of `LSGO_ACCELERATION_PLAN.md` (whose measured lessons —
+T1 rejection, budget-scaling, worker knee, probe traps — remain authoritative).
+**Opened:** 2026-07-25. **Closed:** 2026-07-25.
 
 **Hard constraint:** every change bit-identical — same arithmetic, same operation
 order, same RNG stream consumption, same seeded `best_fitness`. Result-changing

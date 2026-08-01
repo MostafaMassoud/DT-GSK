@@ -1,9 +1,12 @@
 # Paper Completion Plan — five-suite manuscript to `dtgsk-submission-v2.0`
 
 > **HISTORICAL RECORD — executed and superseded.** The phases in this plan were
-> completed; the manuscript has since advanced through freeze passes 27, 28 and
-> 29 (round-2 and round-3 review batches). Current state: pass-29, tag `v2.4`.
-> Retained as process evidence; do not read its status statements as current.
+> completed; the manuscript has since advanced through several further freeze
+> passes (the round-2 and round-3 review batches and the disclosure amendment).
+> For the current pass and tag read papers/governance/main_manuscript_freeze_manifest.json (its `phase` field) and the newest entry in papers/governance/decision_log.md; this banner deliberately
+> no longer names one, because hardcoding it here is what left it stale across
+> two successive re-mints. Retained as process evidence; do not read its status
+> statements as current.
 
 
 Status: **AWAITING AUTHOR APPROVAL — no manuscript file is touched until then.**

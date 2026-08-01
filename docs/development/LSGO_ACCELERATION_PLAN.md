@@ -1,7 +1,13 @@
 # CEC2013LSGO Acceleration Plan — all 7 GSK-family algorithms, bit-identically
 
-**Status:** ACTIVE. Autonomous-resumable — read §0 to find where to continue.
-**Opened:** 2026-07-25. **Scope:** CEC2013LSGO (D=1000, D=905) primary.
+**Status:** CLOSED. The campaign this plan opened was superseded by
+`FAMILY_ACCELERATION_PLAN.md` and closed under CR-0013..CR-0017 on 2026-07-25.
+The resume table and the "next action" work order below are **historical**: they
+record where the plan stood when it was handed over, not work that is waiting.
+Its measured lessons (T1 rejection, budget-scaling, the worker knee, the probe
+traps) remain authoritative and are cited by the superseding plan.
+**Opened:** 2026-07-25. **Closed:** 2026-07-25. **Scope:** CEC2013LSGO (D=1000,
+D=905) primary.
 
 ## ⚠⚠ FULL UNFREEZE — author ruling 2026-07-25
 
