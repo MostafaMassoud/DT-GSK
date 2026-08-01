@@ -1,4 +1,6 @@
-# Standing autonomous execution plan (user directive 2026-07-11)
+# Standing execution-sequencing plan — manuscript production, Phases 10–12
+
+*(Historical filename: `AUTONOMOUS_EXECUTION_PLAN.md`. "Autonomous" here refers to proceeding through production phases without pausing for approval at each step — it does not describe the science, which was fixed and frozen upstream of this plan. Author directive, 2026-07-11.)*
 
 > **STATUS (2026-08-01).** Phases 10-12 are complete and gated — see
 > `phase_10/`, `phase_11/` and `phase_12/`. The evidence binding stated below

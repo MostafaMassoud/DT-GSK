@@ -1,4 +1,6 @@
-# PHASE 6 — Humanization Pass
+# PHASE 6 — Prose-Quality Pass
+
+*(Historical filename: `PHASE_6_humanization.md`. The document was titled "Humanization Pass" when written; the detector-oriented framing that name carried was revoked before submission — see the banner below. The filename is retained because the governance records key their supersession ruling to it.)*
 
 > ## SUPERSEDED — RETAINED AS HISTORICAL RECORD. DO NOT APPLY AS WRITTEN.
 >
@@ -26,8 +28,8 @@
 > content that may not change any number, citation, claim, or scope qualifier.
 >
 > The file is kept rather than deleted because it is part of the audit trail and
-> is referenced by line number from the governance records. Banner added
-> 2026-08-01.
+> the governance records key their supersession ruling to this filename. Banner
+> added 2026-08-01.
 
 **Objective (superseded wording — see banner).** Make the DT-GSK manuscript read
 as expert-human prose — varied rhythm, concrete paper-specific detail, honest
@@ -69,17 +71,17 @@ Do not start Phase 6 until all of the following hold:
 3. **Citations closed.** Every `\cite{...}` key is one of the 57; every key is
    actually used; zero undefined references (constraint C1). Phase 6 does not add
    or remove citations; it only changes surrounding wording.
-4. **A frozen baseline.** Tag or stash the pre-humanization tex so the integrity
+4. **A frozen baseline.** Tag or stash the pre-pass tex so the integrity
    diff in Task 6.6 has a clean "before" to compare against. Recommended:
    `git tag phase6-baseline` before the first edit, or work on a dedicated branch.
 
-If any prerequisite is unmet, return to the owning phase. Humanizing an unbound
+If any prerequisite is unmet, return to the owning phase. Restyling an unbound
 draft risks laundering an unverified number into publishable-looking prose — the
 worst possible failure mode for this project.
 
 ---
 
-## What humanization is and is NOT
+## What this pass is and is NOT
 
 **Legitimate (do this).** Write genuinely well. Expert human technical prose has
 a texture: sentence lengths vary hard, paragraphs are lumpy, claims are anchored
@@ -440,7 +442,7 @@ methods" without naming them; grandiosity.
 - **Deleting a needed citation.** Merging two sentences can orphan a `\cite`.
   Every claim that needed support before still needs it after. Never drop a key to
   make a sentence flow; re-house it.
-- **Over-casual register.** Humanizing is not colloquializing. No contractions in
+- **Over-casual register.** Improving prose quality is not colloquializing. No contractions in
   formal claims, no "basically," no jokes, no rhetorical questions as filler. The
   target is a strong human *technical* author: precise, occasionally dry, never
   chatty. Varied rhythm ≠ casual tone.
