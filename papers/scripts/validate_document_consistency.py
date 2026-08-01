@@ -189,17 +189,43 @@ def check_cover_letters() -> None:
                             r"[^\]\n]*\]", text, re.I):
             needs_author(f"{label} cover letter: unfilled field {m[:70]}")
 
-    # GenAI tool + version, pinned by policy disclosure
-    gen_md = re.search(r"\(([^)]*Claude[^)]*)\)", md)
-    gen_tx = re.search(r"\(([^)]*Claude[^)]*)\)", tx)
-    if gen_md and gen_tx:
-        if norm(gen_md.group(1)) == norm(gen_tx.group(1)):
-            ok(f"GenAI disclosure matches: {gen_md.group(1)}")
-        else:
-            fail(f"GenAI disclosure differs: md={gen_md.group(1)!r} "
-                 f"tex={gen_tx.group(1)!r}")
+    # GenAI tools, pinned by policy disclosure.
+    #
+    # This used to match a single parenthesised group containing "Claude", which
+    # assumed the disclosure named exactly one tool with the name inside the
+    # parentheses. The D-0032 amendment names two (Claude and ChatGPT) and puts
+    # the vendor/version parentheses after each name, so that shape no longer
+    # holds. The check now asserts what actually matters: every disclosed tool
+    # appears in BOTH cover letters, and the disclosure sentence itself is
+    # identical between them.
+    GENAI_TOOLS = ("Claude", "ChatGPT")
+
+    missing = {
+        label: [t for t in GENAI_TOOLS if t.lower() not in text.lower()]
+        for label, text in (("markdown", md), ("tex", tx))
+    }
+    if any(missing.values()):
+        for label, absent in missing.items():
+            if absent:
+                fail(f"{label} cover letter omits disclosed GenAI tool(s): "
+                     f"{', '.join(absent)}")
     else:
-        fail("GenAI disclosure missing from one or both cover letters")
+        ok(f"GenAI tools disclosed in both cover letters: "
+           f"{', '.join(GENAI_TOOLS)}")
+
+    def genai_sentence(text: str) -> str | None:
+        m = re.search(r"[^.]*generative[- ]AI assistants[^.]*\.", text, re.I)
+        return m.group(0) if m else None
+
+    sent_md, sent_tx = genai_sentence(md), genai_sentence(tx)
+    if sent_md and sent_tx:
+        if norm(sent_md) == norm(sent_tx):
+            ok("GenAI disclosure sentence matches across both cover letters")
+        else:
+            fail(f"GenAI disclosure differs: md={sent_md[:90]!r} "
+                 f"tex={sent_tx[:90]!r}")
+    else:
+        fail("GenAI disclosure sentence missing from one or both cover letters")
 
     # contribution-scope markers
     c_md = set(re.findall(r"\bC([1-9])\b", md))

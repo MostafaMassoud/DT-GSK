@@ -57,7 +57,7 @@ else $-1$\\
 $KF$ & knowledge factor (step scale)\\
 $KR$ & knowledge ratio (per-dimension update probability)\\
 $K_{\exp}$ & junior$\to$senior dimension-schedule exponent\\
-$D_{\text{jun}}=\lceil D(1-x)^{K_{\exp}}\rceil$ & \emph{expected} junior-phase coordinate count; each coordinate joins the junior phase independently with probability $p_{\text{jun}}=D_{\text{jun}}/D$\\
+$D_{\text{jun}}=\lceil D(1-x)^{K_{\exp}}\rceil$ & \emph{expected} junior-phase coordinate count; a coordinate joins the junior phase with marginal probability $p_{\text{jun}}=D_{\text{jun}}/D$, drawn independently per coordinate on the scalar-mask rows and per block on the linkage-blockwise rows\\
 $p$ & senior partition fraction (group size $\operatorname{round}(p\,NP)$)\\
 \bottomrule
 \end{tabular}

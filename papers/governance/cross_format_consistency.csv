@@ -66,7 +66,7 @@ DT-GSK.docx,caption,Table 6.  Scaffold notation (Contribution C2): symbols for t
 DT-GSK.docx,caption,Table 7.  Worked numeric example at D=50: the tier-resolved NLPSR sche,PASS,alnum-containment,,,c7ff14c96592
 DT-GSK.docx,caption,Table 8.  Interaction-structure memory and eigenframe-polish notation ,PASS,alnum-containment,,,bf657d5636aa
 DT-GSK.docx,caption,Table 9.  How strictly improving accepted moves become exploitable str,PASS,alnum-containment,,,952d2fc483df
-DT-GSK.docx,caption,Table 10.  Frozen run parameters of the shipped configuration (core). ,PASS,alnum-containment,,,d2e9decdffaf
+DT-GSK.docx,caption,Table 10.  Frozen run parameters of the shipped configuration (core). ,PASS,alnum-containment,,,03c7bb47999a
 DT-GSK.docx,caption,Table 11.  GSK-family panel roster and configuration provenance. All p,PASS,alnum-containment,,,cbaaae1e6109
 DT-GSK.docx,caption,Table 12.  GSK-family comparator parameter settings exactly as run in ,PASS,alnum-containment,,,d70d8e311a44
 DT-GSK.docx,caption,"Table 13.  Frozen evaluation protocol, one row per suite. The seed sch",PASS,alnum-containment,,,794f4f60f776
@@ -83,14 +83,14 @@ DT-GSK.docx,caption,Figure 7.  Family-overlay convergence on CEC2017 at D=100 (t
 DT-GSK.docx,caption,Table 19.  Measured per-run wall-clock time of DT-GSK on CEC2017 (seco,PASS_FORMAT_DIFF,alnum-window-coverage,coverage=0.94,math glyph/precision rendering in caption,6158857297c1
 DT-GSK.docx,table_authored,authored_0 (Variant...),PASS_FORMAT_DIFF,tex-detex-rowset,"6/7 rows identical, 1 math-styling rows",LaTeX math command text vs OMML glyph extraction,03f184e2bf58
 DT-GSK.docx,table_authored,authored_1 (...),PASS,tex-detex-rowset,5 rows identical,,736f3c70e1cb
-DT-GSK.docx,table_authored,authored_2 (Symbol...),PASS_FORMAT_DIFF,tex-detex-rowset,"22/23 rows identical, 1 math-styling rows",LaTeX math command text vs OMML glyph extraction,7c4409cfcb2a
+DT-GSK.docx,table_authored,authored_2 (Symbol...),PASS_FORMAT_DIFF,tex-detex-rowset,"22/23 rows identical, 1 math-styling rows",LaTeX math command text vs OMML glyph extraction,41ec5d5ba211
 DT-GSK.docx,table_authored,authored_3 (Subsystem (Eq.)...),PASS,tex-detex-rowset,10 rows identical,,c3778425160b
 DT-GSK.docx,table_authored,authored_4 (Subsystem (Eq.)...),PASS,tex-detex-rowset,11 rows identical,,2f1e87e8bbc6
-DT-GSK.docx,table_authored,authored_5 (Symbol...),PASS_FORMAT_DIFF,tex-detex-rowset,"18/21 rows identical, 3 math-styling rows",LaTeX math command text vs OMML glyph extraction,28cc2c875ded
+DT-GSK.docx,table_authored,authored_5 (Symbol...),PASS_FORMAT_DIFF,tex-detex-rowset,"18/21 rows identical, 3 math-styling rows",LaTeX math command text vs OMML glyph extraction,1f6299a490ff
 DT-GSK.docx,table_authored,authored_6 (x...),PASS_FORMAT_DIFF,tex-detex-rowset,"7/8 rows identical, 1 math-styling rows",LaTeX math command text vs OMML glyph extraction,946c651233bc
-DT-GSK.docx,table_authored,authored_7 (Symbol...),PASS_FORMAT_DIFF,tex-detex-rowset,"7/11 rows identical, 4 math-styling rows",LaTeX math command text vs OMML glyph extraction,c326505db669
+DT-GSK.docx,table_authored,authored_7 (Symbol...),PASS_FORMAT_DIFF,tex-detex-rowset,"8/11 rows identical, 3 math-styling rows",LaTeX math command text vs OMML glyph extraction,4c75a9c6530c
 DT-GSK.docx,table_authored,authored_8 (Stage...),PASS,tex-detex-rowset,4 rows identical,,a6c993e7e964
-DT-GSK.docx,table_authored,authored_9 (Parameter...),PASS_FORMAT_DIFF,tex-detex-rowset,"14/15 rows identical, 1 math-styling rows",LaTeX math command text vs OMML glyph extraction,147b50843b7f
+DT-GSK.docx,table_authored,authored_9 (Parameter...),PASS_FORMAT_DIFF,tex-detex-rowset,"13/15 rows identical, 2 math-styling rows",LaTeX math command text vs OMML glyph extraction,a8346afc72d2
 DT-GSK.docx,table_authored,authored_10 (Algorithm...),PASS,tex-detex-rowset,8 rows identical,,bf57517b59ae
 DT-GSK.docx,table_authored,authored_11 (Algorithm...),PASS,tex-detex-rowset,7 rows identical,,a828572428d6
 DT-GSK.docx,table_authored,authored_12 (Suite...),PASS_FORMAT_DIFF,tex-detex-rowset,"8/10 rows identical, 2 math-styling rows",LaTeX math command text vs OMML glyph extraction,57545096e2d5
@@ -132,18 +132,21 @@ DT-GSK.docx,paragraph,We consider bound-constrained minimization of f:RD→R ove
 DT-GSK.docx,paragraph,These four elements — the junior/senior operator with its in,PASS,alnum-containment,,,94f952061a50
 DT-GSK.docx,paragraph,At the rank boundaries the neighbour pair is taken from the ,PASS,alnum-containment,,,93f302c01b75
 DT-GSK.docx,equation_display,"(2) R1∼U(Pbest), R2∼U(Pmid), R3∼U(Pworst),  |Pbest|=|P",PASS_FORMAT_DIFF,equation-number + source identity,eq number rendered in PDF,OMML linear text vs PDF math glyph extraction order,75f82be287fd
-DT-GSK.docx,paragraph,Each coordinate joins the junior phase independently with pr,PASS,alnum-containment,,,0e2b5e79d224
+DT-GSK.docx,paragraph,The fraction p is population-wide below D=50. At D≥50 the fr,PASS,alnum-containment,,,5022352eb60c
+DT-GSK.docx,paragraph,Each coordinate joins the junior phase with marginal probabi,PASS,alnum-containment,,,eef6413cb16b
 DT-GSK.docx,equation_display,"(4) junior: ui =xi+KF (xR1−xR2)+sJ (xR3−xi) ,senior: u",PASS_FORMAT_DIFF,equation-number + source identity,eq number rendered in PDF,OMML linear text vs PDF math glyph extraction order,34b5f3ddf779
 DT-GSK.docx,paragraph,"Here sJ,sS∈{+1,−1} are the signs of two different fitness co",PASS,alnum-containment,,,071c59b0ad6f
 DT-GSK.docx,equation_display,(5) vij=uijif mij=1xijotherwise  mij∼Bernoulli(KR)per-,PASS_FORMAT_DIFF,equation-number + source identity,eq number rendered in PDF,OMML linear text vs PDF math glyph extraction order,20373785b046
+DT-GSK.docx,paragraph,Here KR is not the single frozen constant of Table 3 but the,PASS,alnum-containment,,,d063bc77e590
 DT-GSK.docx,equation_display,"(6) NP(x)=round↑12​NPinit+Nmin−NPinitx(1−x),  x=tMaxFE",PASS_FORMAT_DIFF,equation-number + source identity,eq number rendered in PDF,OMML linear text vs PDF math glyph extraction order,00da0e76c637
 DT-GSK.docx,equation_display,"(7) dm=​​i: si=m​​​f(xi)−f(vi),  S=m​dm,  P(z)=arg min",PASS_FORMAT_DIFF,equation-number + source identity,eq number rendered in PDF,OMML linear text vs PDF math glyph extraction order,6d217cfb6000
+DT-GSK.docx,paragraph,The tie-accepting form above is the base rule and is what ru,PASS,alnum-containment,,,8426741ffa53
 DT-GSK.docx,equation_display,"(10) xi←repair​xi+γ C(0,1), γ=rs u−ℓD, worst round(rc N",PASS_FORMAT_DIFF,equation-number + source identity,eq number rendered in PDF,OMML linear text vs PDF math glyph extraction order,faf643d4b705
 DT-GSK.docx,equation_display,"(11) G• ←λ G•+ηi ∈ I+​wi ϕ•(δi) ϕ•(δi)​⊤,  δi=ΔxiΔxi1, ",PASS_FORMAT_DIFF,equation-number + source identity,eq number rendered in PDF,OMML linear text vs PDF math glyph extraction order,d36bcfefa6c0
 DT-GSK.docx,equation_display,"(13) stream0 =threefry(seed),  streamk=threefry(sk),sk ",PASS_FORMAT_DIFF,equation-number + source identity,eq number rendered in PDF,OMML linear text vs PDF math glyph extraction order,aec582eeaa96
 DT-GSK.docx,paragraph,where Mseed=2 147 483 646 is the child-seed modulus (Supplem,PASS,alnum-containment,,,66a5b0e68732
 DT-GSK.docx,paragraph,"DT-GSK ships as a single frozen configuration, which resolve",PASS,alnum-containment,,,c9057dd146b0
-DT-GSK.docx,paragraph,One configuration asymmetry follows from running each algori,PASS,alnum-containment,,,2f86d5666d5e
+DT-GSK.docx,paragraph,One configuration asymmetry follows from running each algori,PASS_FORMAT_DIFF,alnum-split-containment,paragraph verbatim in two contiguous runs,page-break/float interleaves PDF extraction mid-paragraph,2f86d5666d5e
 DT-GSK.docx,paragraph,Within one generation the subsystems execute in the fixed or,PASS,alnum-containment,,,8bb47f9982c5
 DT-GSK.docx,paragraph,Nonlinear Population-Size Reduction (NLPSR).,PASS,alnum-containment,,,af958851fbfa
 DT-GSK.docx,paragraph,Operator-arm sampling by the Adaptive Control Engine (ACE).,PASS,alnum-containment,,,a91e06fb87e9
@@ -154,23 +157,23 @@ DT-GSK.docx,paragraph,The operator-credit update and Acceptance-Rate Gated Pruni
 DT-GSK.docx,paragraph,Stagnation escape by the Budget-Safe Escape (BSE) mechanism.,PASS,alnum-containment,,,2b70c3b93279
 DT-GSK.docx,paragraph,The charged coordinate local search.,PASS,alnum-containment,,,77e386e15745
 DT-GSK.docx,paragraph,"At D≥50, the one-shot eigenframe final polish in the final b",PASS,alnum-containment,,,0dfc989b09b4
-DT-GSK.docx,paragraph,The D≥100 upper-tier controllers do not form a separate step,PASS_FORMAT_DIFF,alnum-split-containment,paragraph verbatim in two contiguous runs,page-break/float interleaves PDF extraction mid-paragraph,34d5807a60de
-DT-GSK.docx,paragraph,A step written “if D≥d” in Algorithm 1 is inactive below tie,PASS,alnum-containment,,,e5a3aa439619
+DT-GSK.docx,paragraph,The D≥100 upper-tier controllers do not form a separate step,PASS,alnum-containment,,,34d5807a60de
+DT-GSK.docx,paragraph,A step written “if D≥d” in Algorithm 1 is inactive below tie,PASS_FORMAT_DIFF,alnum-split-containment,paragraph verbatim in two contiguous runs,page-break/float interleaves PDF extraction mid-paragraph,e5a3aa439619
 DT-GSK.docx,paragraph,Dimension-tier gating is stated once and holds everywhere. T,PASS,alnum-containment,,,96ddfb992da4
 DT-GSK.docx,paragraph,The scaffold answers a control and budget problem: a single ,PASS_FORMAT_DIFF,alnum-split-containment,paragraph verbatim in two contiguous runs,page-break/float interleaves PDF extraction mid-paragraph,2637743f44c0
 DT-GSK.docx,paragraph,"A fixed (KF,KR,Kexp) triple that suits one landscape or one ",PASS,alnum-containment,,,6344d983d891
-DT-GSK.docx,paragraph,ACE instead adapts at the operator level: it maintains a poo,PASS_FORMAT_DIFF,alnum-split-containment,paragraph verbatim in two contiguous runs,page-break/float interleaves PDF extraction mid-paragraph,8ee45f6f913c
+DT-GSK.docx,paragraph,ACE instead adapts at the operator level: it maintains a poo,PASS,alnum-containment,,,8ee45f6f913c
 DT-GSK.docx,paragraph,The probability floor that keeps ACE exploring also forces d,PASS,alnum-containment,,,e5aa78ba371c
 DT-GSK.docx,paragraph,NLPSR is explicitly not claimed as new. It keeps the concave,PASS,alnum-containment,,,5858f5e828fb
-DT-GSK.docx,paragraph,Greedy selection over a shrinking population can stagnate: n,PASS,alnum-containment,,,358836064ddd
+DT-GSK.docx,paragraph,Greedy selection over a shrinking population can stagnate: n,PASS_FORMAT_DIFF,alnum-split-containment,paragraph verbatim in two contiguous runs,page-break/float interleaves PDF extraction mid-paragraph,358836064ddd
 DT-GSK.docx,paragraph,BSE perturbs within the current basin; a search that is deep,PASS,alnum-containment,,,e0e9d7e5773f
 DT-GSK.docx,paragraph,"As established in Section 2, no cited GSK-family variant lea",PASS,alnum-containment,,,9b3bb489a61a
 DT-GSK.docx,paragraph,The interaction-structure memory accumulates this evidence i,PASS,alnum-containment,,,8c303d752868
 DT-GSK.docx,paragraph,"ISM consumes no extra objective evaluations, since it observ",PASS,alnum-containment,,,7e8c702a3778
 DT-GSK.docx,paragraph,The learned structure is exploited through two active channe,PASS,alnum-containment,,,f166561e914b
 DT-GSK.docx,paragraph,ISM activates at D≥50 under the frozen configuration; below ,PASS,alnum-containment,,,e611d99ad20f
-DT-GSK.docx,paragraph,"At the end of a budget-limited run, the incumbent typically ",PASS,alnum-containment,,,e663c093cb45
-DT-GSK.docx,paragraph,The eigenframe final polish is a one-shot deterministic comp,PASS_FORMAT_DIFF,alnum-split-containment,paragraph verbatim in two contiguous runs,page-break/float interleaves PDF extraction mid-paragraph,41a845798d12
+DT-GSK.docx,paragraph,"At the end of a budget-limited run, the incumbent typically ",PASS_FORMAT_DIFF,alnum-split-containment,paragraph verbatim in two contiguous runs,page-break/float interleaves PDF extraction mid-paragraph,e663c093cb45
+DT-GSK.docx,paragraph,The eigenframe final polish is a one-shot deterministic comp,PASS,alnum-containment,,,41a845798d12
 DT-GSK.docx,paragraph,"At D≥100, the frozen configuration enables a set of protecti",PASS,alnum-containment,,,00d9d618f0a1
 DT-GSK.docx,paragraph,"Table 10 consolidates DT-GSK’s tier-resolved configuration, ",PASS,alnum-containment,,,359cce22f345
 DT-GSK.docx,paragraph,"Per-subsystem constants (ACE/ARGP, linkage crossover, BSE/ar",PASS,alnum-containment,,,124c2a0e7dc4
@@ -516,7 +519,7 @@ supplementary.docx,table_authored,authored_18 (Symbol...),PASS,tex-detex-rowset,
 supplementary.docx,table_authored,authored_19 (Algorithm...),PASS,tex-detex-rowset,7 rows identical,,a828572428d6
 supplementary.docx,table_authored,authored_20 (Current...),PASS,tex-detex-rowset,4 rows identical,,f565d5af0fd7
 supplementary.docx,table_authored,authored_21 (Acronym...),PASS,tex-detex-rowset,16 rows identical,,fee1feabb88d
-supplementary.docx,table_authored,authored_22 (Parameter...),PASS,tex-detex-rowset,37 rows identical,,2dd6ac597276
+supplementary.docx,table_authored,authored_22 (Parameter...),PASS_FORMAT_DIFF,tex-detex-rowset,"37/38 rows identical, 1 math-styling rows",LaTeX math command text vs OMML glyph extraction,554035926c39
 supplementary.docx,table_authored,authored_23 (arm...),PASS,tex-detex-rowset,6 rows identical,,c80ad1e70cd5
 supplementary.docx,table_authored,authored_24 (constant...),PASS,tex-detex-rowset,7 rows identical,,6e4c521e8973
 supplementary.docx,table_generated,SA01 (Table A15),PASS_FORMAT_DIFF,wsource-exact + tex-display-precision,8 data rows; header rows 2; all display strings derivable,DOCX = semantic full precision; PDF = display-rounded; equal at display precision,830f1f312543
@@ -624,7 +627,7 @@ supplementary.docx,paragraph,The main-text notation table defines every mathemat
 supplementary.docx,paragraph,Table A22 completes the main-text frozen-parameter table. Th,PASS,alnum-containment,,,da9a0f121c02
 supplementary.docx,paragraph,This subsection records the operator-level constants and upd,PASS,alnum-containment,,,ef50bc012555
 supplementary.docx,paragraph,The adaptive credit-based selector samples one of five fixed,PASS,alnum-containment,,,f20572a22835
-supplementary.docx,paragraph,The credit is an exponential moving average at learning rate,PASS,alnum-containment,,,b70284b65ad9
+supplementary.docx,paragraph,The credit is an exponential moving average at learning rate,PASS,alnum-containment,,,b4b776019026
 supplementary.docx,paragraph,"The following states the order of operations, the timing con",PASS,alnum-containment,,,e09a034c674c
 supplementary.docx,paragraph,Eligibility to update. No credit update is applied until the,PASS,alnum-containment,,,5ec8d0fedeed
 supplementary.docx,paragraph,Arm assignment. Each individual independently draws one arm ,PASS,alnum-containment,,,65d78443efca

@@ -11,7 +11,7 @@
 \caption{Frozen run parameters of the shipped configuration (core).
 Where a value varies by dimension tier, the tier-resolved values are given
 inline against the four tiers $D{<}20$ / $20$--$49$ / $50$--$99$ / ${\ge}100$.
-No tuning is required or permitted at run time.}
+No per-suite or per-run tuning is performed: every value here is resolved from $D$ alone and is identical across the four bound-constrained suites. The adapter does expose an advanced per-run override path, which is not used for any result in this paper.}
 \label{tab:parameters}
 \centering
 \small
@@ -29,9 +29,9 @@ $NP_{\text{init}}$ & $5D$ & population multiplier 5\\
 \multicolumn{3}{l}{\emph{Core GSK operator}}\\
 \midrule
 $KF$ & 0.5 (ACE arm-controlled) & default 0.5\\
-$KR$ & 0.9 (ACE arm-controlled) & block mask when linkage on\\
+$KR$ & 0.9 (ACE arm-controlled) & block mask when linkage on; floor $\kappa_{\dim}$ (S5)\\
 $K_{\exp}$ & 10 (ACE arm-controlled) & junior-dimension schedule\\
-$p$ (senior) & 0.05 ($0.15$ at $20$--$49$; split-bottom $0.10$ at $D\ge50$) & \\
+$p$ (senior) & 0.05 ($0.15$ at $20$--$49$) & at $D\ge50$ worse half $\to0.10$, only while acc.\ ${\le}0.10$\\
 \midrule
 \multicolumn{3}{l}{\emph{NLPSR}}\\
 \midrule

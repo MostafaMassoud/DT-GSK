@@ -682,7 +682,7 @@ else $-1$\\
 $KF$ & knowledge factor (step scale)\\
 $KR$ & knowledge ratio (per-dimension update probability)\\
 $K_{\exp}$ & junior$\to$senior dimension-schedule exponent\\
-$D_{\text{jun}}=\lceil D(1-x)^{K_{\exp}}\rceil$ & \emph{expected} junior-phase coordinate count; each coordinate joins the junior phase independently with probability $p_{\text{jun}}=D_{\text{jun}}/D$\\
+$D_{\text{jun}}=\lceil D(1-x)^{K_{\exp}}\rceil$ & \emph{expected} junior-phase coordinate count; a coordinate joins the junior phase with marginal probability $p_{\text{jun}}=D_{\text{jun}}/D$, drawn independently per coordinate on the scalar-mask rows and per block on the linkage-blockwise rows\\
 $p$ & senior partition fraction (group size $\operatorname{round}(p\,NP)$)\\
 \bottomrule
 \end{tabular}
@@ -784,6 +784,7 @@ R_3 \sim \mathcal{U}(P_{\text{worst}}),\qquad
 
 @@EQNUM!eq:senior-idx@@
 
+The fraction $p$ is population-wide below $D=50$. At $D\ge50$ the frozen profile enables a conditional two-rate partition: while the trailing ten-generation mean acceptance is at most $0.10$, the worse-ranked half of the population draws its senior sources with $p=0.10$ and the better-ranked half keeps $p=0.05$; whenever acceptance is above that floor the single rate $p=0.05$ is used for the whole population.
 
 
 
@@ -796,7 +797,7 @@ D_{\text{jun}} = \left\lceil D\,(1-x)^{K_{\exp}} \right\rceil,
 
 @@EQNUM!eq:kexp-schedule@@
 
-Each coordinate joins the junior phase independently with probability $p_{\text{jun}}$ (a Bernoulli assignment), so $D_{\text{jun}}$ is the \emph{expected}, not the realized, junior-coordinate count.
+Each coordinate joins the junior phase with marginal probability $p_{\text{jun}}$, so $D_{\text{jun}}$ is the \emph{expected}, not the realized, junior-coordinate count. The assignment is an independent per-coordinate Bernoulli draw only on the rows that take the scalar mask; on a linkage-blockwise row (Eq.~(@@REF!eq:kr-mask@@)) a single draw is shared across a whole block, so coordinates within a block are perfectly correlated and the realized count is more dispersed than the independent case.
 
 
 
@@ -852,6 +853,7 @@ m_{ij} \sim
 
 @@EQNUM!eq:kr-mask@@
 
+Here $KR$ is not the single frozen constant of Table~@@REF!tab:notation@@ but the rate carried by the ACE arm that individual $i$ drew this generation, so it varies per individual and per generation over the arm pool. It is additionally floored at $\min(1,\ \kappa_{\dim}/D)$ with $\kappa_{\dim}=0/20/40/40$ by tier, which raises the low-$KR$ arms above their nominal rates at every $D\ge20$. Finally, a force-nonzero guarantee applies after mask assembly in both modes: if a row's mask would leave the trial identical to its parent, one coordinate is set at random so that every trial differs from its parent in at least one coordinate.
 
 
 
@@ -927,6 +929,7 @@ v_{ij} \leftarrow
 
 @@EQNUM!eq:greedy-accept@@
 
+The tie-accepting form above is the base rule and is what runs at $D<100$. At $D\ge100$ the late-acceptance clip can replace it, late in the budget and after a stall streak, with the strict test $f(v_i) < f(x_i) - \epsilon\lvert f(x_i)\rvert$ at $\epsilon=10^{-3}$, which rejects ties; the clip's own gates are given in Supplementary Section~S5.
 
 
 
@@ -1113,7 +1116,7 @@ fixed execution order are listed in Section~@@REF!sec:algorithm@@.
 
 @@ALGLINE!7!1@@ Reduce $NP$ by the NLPSR schedule \ \ $\triangleright$~Eq.~(@@REF!eq:nlpsr@@)
 
-@@ALGLINE!8!1@@ Assign each individual its $(KF, KR, K_{\exp})$ by the ACE selector
+@@ALGLINE!8!1@@ Assign each individual an ACE arm (a $(KF, KR, K_{\exp})$ triple; a sixth DE/rand/1 arm exists at $20{\le}D{<}100$)
 
 @@ALGLINE!9!1@@ Count the gained and shared dimensions \ \ $\triangleright$~Eq.~(@@REF!eq:kexp-schedule@@)
 
@@ -1121,37 +1124,39 @@ fixed execution order are listed in Section~@@REF!sec:algorithm@@.
 
 @@ALGLINE!11!1@@ Apply the senior gaining-sharing phase
 
-@@ALGLINE!12!1@@ Form the crossover mask: a tier-dependent fraction of rows take a linkage block (learned at $D{\ge}50$, random otherwise, and only when the confidence gate passes); the remaining rows take the $KR$ mask \ \ $\triangleright$~Eq.~(@@REF!eq:kr-mask@@)
+@@ALGLINE!12!1@@ \textbf{if} the individual drew the DE arm: build its trial by DE/rand/1 instead \ \ $\triangleright$~$F{=}0.5$, $CR{=}0.9$
 
-@@ALGLINE!13!1@@ Repair the out-of-bound coordinates
+@@ALGLINE!13!1@@ Form the crossover mask: a tier-dependent fraction of rows take a linkage block (learned at $D{\ge}50$, random otherwise, and only when the confidence gate passes); the remaining rows take the $KR$ mask \ \ $\triangleright$~Eq.~(@@REF!eq:kr-mask@@)
 
-@@ALGLINE!14!1@@ Evaluate the maximal prefix of $\{v_i\}$ that fits the remaining budget \ \ $\triangleright$~unevaluated rows are non-selectable
+@@ALGLINE!14!1@@ Repair the out-of-bound coordinates
 
-@@ALGLINE!15!1@@ Greedily keep each no-worse trial and update the diversity archive \ \ $\triangleright$~Eq.~(@@REF!eq:greedy-accept@@)
+@@ALGLINE!15!1@@ Evaluate the maximal prefix of $\{v_i\}$ that fits the remaining budget \ \ $\triangleright$~unevaluated rows are non-selectable
+
+@@ALGLINE!16!1@@ Greedily keep each no-worse trial and update the diversity archive \ \ $\triangleright$~Eq.~(@@REF!eq:greedy-accept@@)
 
 @@ALGLINE!-!2@@ \quad\emph{Learn, escape, and refine \textnormal{(dimension-gated)}}
 
-@@ALGLINE!16!1@@ \textbf{if} $D{\ge}50$: update the interaction-structure memory \ \ $\triangleright$~Eq.~(@@REF!eq:sgsm-graph@@)
+@@ALGLINE!17!1@@ \textbf{if} $D{\ge}50$: update the interaction-structure memory \ \ $\triangleright$~Eq.~(@@REF!eq:sgsm-graph@@)
 
-@@ALGLINE!17!1@@ Update the ACE credit and prune stalled arms (ARGP)
+@@ALGLINE!18!1@@ Update the ACE credit and prune stalled arms (ARGP)
 
-@@ALGLINE!18!1@@ \textbf{if} stagnating: apply the budget-safe escape \ \ $\triangleright$~Eq.~(@@REF!eq:bse-cauchy@@)
+@@ALGLINE!19!1@@ \textbf{if} stagnating: apply the budget-safe escape \ \ $\triangleright$~Eq.~(@@REF!eq:bse-cauchy@@)
 
-@@ALGLINE!19!1@@ Run the charged coordinate local search on the elite rows
+@@ALGLINE!20!1@@ \textbf{if} in the endgame slice ($\ge0.80$ below $D{=}50$, $\ge0.70$ above), under the evaluation cap and past cooldown: run the charged coordinate local search on the elite rows
 
 @@ALGLINE!-!2@@ \quad\emph{Note.}~\textnormal{The $D{\ge}100$ upper-tier controllers are cross-cutting, not a stage after the local search: they act at population reduction (subspace-sampling floor), trial construction (frozen-streak broaden and late linkage random-mix), acceptance (late-acceptance clip and basin-memory update), and escape (basin-novelty reseed); a budget/ROI gate additionally gates the local search (a matching hook exists on the escape but never blocks it in the frozen configuration).}
 
-@@ALGLINE!20!1@@ \textbf{if} $D{\ge}50$: polish the working incumbent $x^{*}$ once, in the final budget slice \ \ $\triangleright$~Eq.~(@@REF!eq:eigen-polish@@)
+@@ALGLINE!21!1@@ \textbf{if} $D{\ge}50$: polish the working incumbent $x^{*}$ once, in the final budget slice \ \ $\triangleright$~Eq.~(@@REF!eq:eigen-polish@@)
 
 @@ALGLINE!-!2@@ \quad\emph{Update and restart}
 
-@@ALGLINE!21!1@@ Update the global best $x^{gb}$
+@@ALGLINE!22!1@@ Update the global best $x^{gb}$
 
-@@ALGLINE!22!1@@ \textbf{if} deep-stalled: restart the population, keeping $x^{gb}$
+@@ALGLINE!23!1@@ \textbf{if} deep-stalled: restart the population, keeping $x^{gb}$
 
-@@ALGLINE!23!0@@ \textbf{end while}
+@@ALGLINE!24!0@@ \textbf{end while}
 
-@@ALGLINE!24!0@@ \textbf{return} $x^{gb}$
+@@ALGLINE!25!0@@ \textbf{return} $x^{gb}$
 
 
 
@@ -1342,7 +1347,7 @@ $NP(x)=NP_{\text{init}}+(N_{\min}-NP_{\text{init}})\,x^{(1-x)}$ &
 $W$ & BSE stagnation window\\
 $\epsilon=10^{-8}$ & scale-aware stagnation tolerance\\
 $r_{c}=0.10$ & BSE Cauchy-perturbation fraction\\
-$r_{\text{rst}}$ & BSE restart (archive-reseed) fraction ($0.30$ low-$D$, $0.10$ otherwise; see Table~@@REF!tab:parameters@@)\\
+$r_{\text{rst}}$ & BSE restart (replacement) fraction: the $\operatorname{round}(r_{\text{rst}}NP)$ worst unfrozen rows are replaced per escape ($0.30$ at $D{<}50$, $0.10$ at $D{\ge}50$); each replaced row is re-seeded from $A$ with probability $0.50$, otherwise from a fresh draw (see Table~@@REF!tab:parameters@@)\\
 $R_{\max}$ & maximum BSE restarts ($4/2/4/2$ by tier)\\
 $\mathcal{C}(0,1)$ & standard Cauchy draws; rescue scale $\gamma=r_s(u{-}\ell)/\sqrt{D}$ ($r_s$ tier-dependent)\\
 $A$ & distance-filtered diversity archive ($|A| = 200$ fixed; L2 admit/replace threshold 0.05; no fitness gate)\\
@@ -1543,12 +1548,12 @@ Supplementary Materials, Section~S5.}
 \midrule
 $G_{\mathrm{abs}}\in\mathbb{R}^{D\times D}$ & non-negative magnitude interaction graph (decaying); confidence gate + linkage\\
 $G_{\mathrm{signed}}\in\mathbb{R}^{D\times D}$ & signed interaction graph (decaying); eigenframe-polish basis\\
-$g_{\mathrm{act}}\in\mathbb{R}^{D}$ & per-dimension self-weight (decaying; LS dim-selection, inactive in the frozen config)\\
+$g_{\mathrm{act}}\in\mathbb{R}^{D}$ & per-dimension activity: improvement-weighted, $\ell_1$-normalized $\lvert\Delta x\rvert$ accumulated linearly in a separate vector (the graph diagonals themselves are zeroed); decaying; LS dim-selection, inactive in the frozen config\\
 $C\in\mathbb{R}^{D\times D}$ & co-occurrence support/count (decaying)\\
 $\lambda=0.95$ & interaction decay (EMA)\\
 $\eta=1.0$ & interaction learning rate (EMA accumulation)\\
 $\kappa_{\min}=0.35$ & interaction confidence gate (adaptive at $D\ge50$)\\
-$\operatorname{conf}(G_{\mathrm{abs}})$ & graph confidence (edge density $\times$ magnitude $\times$ support $\times$ stability; $\kappa(\cdot)$, Supplementary Materials, Section~S5)\\
+$\operatorname{conf}(G_{\mathrm{abs}})$ & graph confidence $\kappa(\cdot)$: a block-size-weighted mean of per-block scores in edge density, magnitude, support and stability, scaled by the square root of the non-trivial-dimension coverage (Supplementary Materials, Section~S5)\\
 $V$ & eigenbasis of $G_{\mathrm{signed}}$ (polish directions)\\
 $s_{\text{fp}}$ & polish start fraction ($0.96$)\\
 \bottomrule
@@ -1807,7 +1812,7 @@ are disclosed in Supplementary Section~S7.
 \caption{@@TABLECAP!tab:parameters@@ Frozen run parameters of the shipped configuration (core).
 Where a value varies by dimension tier, the tier-resolved values are given
 inline against the four tiers $D{<}20$ / $20$--$49$ / $50$--$99$ / ${\ge}100$.
-No tuning is required or permitted at run time.}
+No per-suite or per-run tuning is performed: every value here is resolved from $D$ alone and is identical across the four bound-constrained suites. The adapter does expose an advanced per-run override path, which is not used for any result in this paper.}
 \label{tab:parameters}
 \small
 \begin{tabular}{lll}
@@ -1824,9 +1829,9 @@ $NP_{\text{init}}$ & $5D$ & population multiplier 5\\
 \multicolumn{3}{l}{\emph{Core GSK operator}}\\
 \midrule
 $KF$ & 0.5 (ACE arm-controlled) & default 0.5\\
-$KR$ & 0.9 (ACE arm-controlled) & block mask when linkage on\\
+$KR$ & 0.9 (ACE arm-controlled) & block mask when linkage on; floor $\kappa_{\dim}$ (S5)\\
 $K_{\exp}$ & 10 (ACE arm-controlled) & junior-dimension schedule\\
-$p$ (senior) & 0.05 ($0.15$ at $20$--$49$; split-bottom $0.10$ at $D\ge50$) & \\
+$p$ (senior) & 0.05 ($0.15$ at $20$--$49$) & at $D\ge50$ worse half $\to0.10$, only while acc.\ ${\le}0.10$\\
 \midrule
 \multicolumn{3}{l}{\emph{NLPSR}}\\
 \midrule
@@ -3447,6 +3452,7 @@ numbers from them in the declared supported environment.
 
 
 
+
 \section*{Supplementary Materials}
 
 The following supporting information accompanies this
@@ -3555,6 +3561,10 @@ analysis artifacts under the Creative Commons Attribution 4.0 International
 (CC~BY~4.0) License; the CEC2017, CEC2011, CEC2013, CEC2020 and
 CEC2013LSGO benchmark definitions remain
 under their respective upstream terms. 
+
+
+
+
 
 
 

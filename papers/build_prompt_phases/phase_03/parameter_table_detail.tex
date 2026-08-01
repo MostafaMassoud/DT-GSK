@@ -28,8 +28,8 @@ algorithm\_freeze\_manifest.json.}
 \midrule
 \multicolumn{3}{l}{\emph{ACE / ARGP}}\\
 \midrule
-arm pool & 5 arms $(KF,KR,K_{\exp})$; arm 3 = GSK-pure $(0.5,0.9,10)$ & \\
-init probs & $(0.05,0.05,0.45,0.05,0.40)$ & \\
+arm pool & 5 arms $(KF,KR,K_{\exp})$; arm 3 = GSK-pure $(0.5,0.9,10)$; at $20{\le}D{<}100$ a virtual sixth DE/rand/1 arm is appended, so the pool holds 5 / 6 / 6 / 5 arms across the four tiers & the sixth arm is added at run time (see the DE-arm row)\\
+init probs $\pi_0$ & $(0.05,0.05,0.45,0.05,0.40)$ at $D{<}20$ and $D{\ge}100$; with the DE arm ($20{\le}D{<}100$) the five are rescaled by $1-\pi_{\mathrm{DE}}$ and a sixth appended, giving $(0.05,0.05,0.40,0.05,0.355,0.095)$ at $20$--$49$ and $(0.05,0.05,0.35,0.05,0.31,0.19)$ at $50$--$99$ & shown after the $\pi_{\min}$ simplex projection\\
 learning rate $c$ & 0.10 & \\
 probability floor $\pi_{\min}$ & 0.05 & \\
 memory mode & single ($D{<}20$) $\to$ top\_bottom ($D\ge20$) & \\
@@ -38,6 +38,7 @@ ARGP window / threshold & 30 / 0.02 (0.010 at $D\ge50$), warmup 0.15 & \\
 \midrule
 \multicolumn{3}{l}{\emph{Linkage crossover}}\\
 \midrule
+minimum dimension & 10 ($D{<}50$) / 30 ($D\ge50$) & the blockwise mask is off entirely below it\\
 block size & 5 ($D{<}50$) / 10 ($D\ge50$) & \\
 mix probability & 0.70 ($D{<}20$) / 0.40 (mid) / 0.70 ($D\ge50$) & \\
 refresh period & 20 gen.\ ($D{<}50$) / 10 ($D\ge50$) & \\
@@ -70,7 +71,7 @@ A1 late-accept clip & $\tau$-floor 0.85; high-acc 0.30; log-drop $\epsilon$ $-2.
 A2 frozen-streak broaden & acc-floor 0.05; log-drop $\epsilon$ $-3.0$; streak $k{=}10$; window/cooldown 20/10 gen.; $KR$ factor 1.5 & broadens $KR$ during frozen streaks\\
 FC4 late linkage random-mix & $\tau$-floor 0.50; negative-lift $-0.05$; severe-lift $-0.20$; strength 0.5; lift-EMA $\alpha$ 0.20 & reverts to random linkage when learned-block lift turns negative\\
 basin memory / subspace-sampling floor & enabled & \\
-trust-region budget policy & present, runtime-inert & redundant guard; not an active mechanism\\
+budget/ROI gate & admits the coordinate local search only from consumed budget fraction $0.70$ & duplicates this tier's local-search start fraction, but is read before the escape rather than after it; the trust-region displacement governor it descends from was removed from the code at the paper freeze\\
 \bottomrule
 \end{tabular}
 \end{table}

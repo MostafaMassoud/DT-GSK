@@ -1560,7 +1560,11 @@ probabilities are projected onto the simplex under the floor $\pi_{\min}=0.05$,
 and updating begins once the consumed-budget fraction reaches $0.05$; the arm
 memory is a single pool for $D<20$ and a top/bottom split for $D\ge 20$.  For
 $20\le D<100$ an optional sixth differential-evolution arm ($F=0.5$, $CR=0.9$)
-enters with initial probability $0.10$--$0.20$ by tier.  When a generation yields no net
+is configured at $0.10$ ($20$--$49$) or $0.20$ ($50$--$99$).  The five arm
+probabilities tabulated above are the DE-off vector: when the sixth arm enters,
+the five are rescaled by $1-\pi_{\mathrm{DE}}$ and the six are re-projected onto
+the simplex under $\pi_{\min}$, giving $(0.05,0.05,0.40,0.05,0.355,0.095)$ at
+$20$--$49$ and $(0.05,0.05,0.35,0.05,0.31,0.19)$ at $50$--$99$.  When a generation yields no net
 improvement (its summed $f_{\mathrm{old}}-f_{\mathrm{new}}$ is non-positive) the
 credit target is restricted to the improving arms, as in main-text
 Equation~(7); when the generation is net-improving the full-pool target is

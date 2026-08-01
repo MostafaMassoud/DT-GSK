@@ -45,7 +45,7 @@ $NP(x)=NP_{\text{init}}+(N_{\min}-NP_{\text{init}})\,x^{(1-x)}$ &
 $W$ & BSE stagnation window\\
 $\epsilon=10^{-8}$ & scale-aware stagnation tolerance\\
 $r_{c}=0.10$ & BSE Cauchy-perturbation fraction\\
-$r_{\text{rst}}$ & BSE restart (archive-reseed) fraction ($0.30$ low-$D$, $0.10$ otherwise; see Table~\ref{tab:parameters})\\
+$r_{\text{rst}}$ & BSE restart (replacement) fraction: the $\operatorname{round}(r_{\text{rst}}NP)$ worst unfrozen rows are replaced per escape ($0.30$ at $D{<}50$, $0.10$ at $D{\ge}50$); each replaced row is re-seeded from $A$ with probability $0.50$, otherwise from a fresh draw (see Table~\ref{tab:parameters})\\
 $R_{\max}$ & maximum BSE restarts ($4/2/4/2$ by tier)\\
 $\mathcal{C}(0,1)$ & standard Cauchy draws; rescue scale $\gamma=r_s(u{-}\ell)/\sqrt{D}$ ($r_s$ tier-dependent)\\
 $A$ & distance-filtered diversity archive ($|A| = 200$ fixed; L2 admit/replace threshold 0.05; no fitness gate)\\

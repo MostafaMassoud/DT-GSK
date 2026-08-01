@@ -26,6 +26,7 @@ R_2 \sim \mathcal{U}(P_{\text{mid}}),\quad
 R_3 \sim \mathcal{U}(P_{\text{worst}}),\qquad
 |P_{\text{best}}| = |P_{\text{worst}}| = \operatorname{round}(p \cdot NP)
 \end{equation}
+The fraction $p$ is population-wide below $D=50$. At $D\ge50$ the frozen profile enables a conditional two-rate partition: while the trailing ten-generation mean acceptance is at most $0.10$, the worse-ranked half of the population draws its senior sources with $p=0.10$ and the better-ranked half keeps $p=0.05$; whenever acceptance is above that floor the single rate $p=0.05$ is used for the whole population.
 
 % ---- E2 (inherited) --- _dt_core.py (Kexp path) ---------------------------
 % Junior dimension schedule.
@@ -34,7 +35,7 @@ D_{\text{jun}} = \left\lceil D\,(1-x)^{K_{\exp}} \right\rceil,
 \qquad p_{\text{jun}} = \frac{D_{\text{jun}}}{D},
 \qquad x = \frac{t}{\text{MaxFES}}
 \end{equation}
-Each coordinate joins the junior phase independently with probability $p_{\text{jun}}$ (a Bernoulli assignment), so $D_{\text{jun}}$ is the \emph{expected}, not the realized, junior-coordinate count.
+Each coordinate joins the junior phase with marginal probability $p_{\text{jun}}$, so $D_{\text{jun}}$ is the \emph{expected}, not the realized, junior-coordinate count. The assignment is an independent per-coordinate Bernoulli draw only on the rows that take the scalar mask; on a linkage-blockwise row (Eq.~(\ref{eq:kr-mask})) a single draw is shared across a whole block, so coordinates within a block are perfectly correlated and the realized count is more dispersed than the independent case.
 
 % ---- E3 (inherited) --- _numba_accel.py:407-414 (gsk kernel) ---------------
 % Gaining-sharing update. Junior and senior use DIFFERENT donor arrangements,
@@ -82,6 +83,7 @@ m_{ij} \sim
 \text{shared across a linkage block } B\ni j & \text{linkage-blockwise mode}
 \end{cases}
 \end{equation}
+Here $KR$ is not the single frozen constant of Table~\ref{tab:notation} but the rate carried by the ACE arm that individual $i$ drew this generation, so it varies per individual and per generation over the arm pool. It is additionally floored at $\min(1,\ \kappa_{\dim}/D)$ with $\kappa_{\dim}=0/20/40/40$ by tier, which raises the low-$KR$ arms above their nominal rates at every $D\ge20$. Finally, a force-nonzero guarantee applies after mask assembly in both modes: if a row's mask would leave the trial identical to its parent, one coordinate is set at random so that every trial differs from its parent in at least one coordinate.
 
 % ---- E5 (modified) --- _dt_core.py:790 / _numba_accel.py:909 --------------
 % Nonlinear population reduction (tier-floored; rounded half-up).
@@ -141,6 +143,7 @@ v_{ij} \leftarrow
 (x_i, f_i) \leftarrow \left(v_i,\, f(v_i)\right)
 \quad\text{iff}\quad f(v_i) \le f(x_i)
 \end{equation}
+The tie-accepting form above is the base rule and is what runs at $D<100$. At $D\ge100$ the late-acceptance clip can replace it, late in the budget and after a stall streak, with the strict test $f(v_i) < f(x_i) - \epsilon\lvert f(x_i)\rvert$ at $\epsilon=10^{-3}$, which rejects ties; the clip's own gates are given in Supplementary Section~S5.
 
 % ---- E9 (modified) --- _dt_core.py:3874 (cauchy rescue) -------------------
 % Budget-safe escape: Cauchy rescue of the worst round(r_c NP) UNFROZEN rows

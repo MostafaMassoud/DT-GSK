@@ -42,10 +42,11 @@ fixed execution order are listed in Section~\ref{sec:algorithm}.}
   \Statex
   \Statex \quad\emph{Adapt and build trials}
   \State Reduce $NP$ by the NLPSR schedule \Comment{Eq.~(\ref{eq:nlpsr})}
-  \State Assign each individual its $(KF, KR, K_{\exp})$ by the ACE selector
+  \State Assign each individual an ACE arm (a $(KF, KR, K_{\exp})$ triple; a sixth DE/rand/1 arm exists at $20{\le}D{<}100$)
   \State Count the gained and shared dimensions \Comment{Eq.~(\ref{eq:kexp-schedule})}
   \State Apply the junior gaining-sharing phase
   \State Apply the senior gaining-sharing phase
+  \State \textbf{if} the individual drew the DE arm: build its trial by DE/rand/1 instead \Comment{$F{=}0.5$, $CR{=}0.9$}
   \State Form the crossover mask: a tier-dependent fraction of rows take a linkage block (learned at $D{\ge}50$, random otherwise, and only when the confidence gate passes); the remaining rows take the $KR$ mask \Comment{Eq.~(\ref{eq:kr-mask})}
   \State Repair the out-of-bound coordinates
   \State Evaluate the maximal prefix of $\{v_i\}$ that fits the remaining budget \Comment{unevaluated rows are non-selectable}
@@ -55,7 +56,7 @@ fixed execution order are listed in Section~\ref{sec:algorithm}.}
   \State \textbf{if} $D{\ge}50$: update the interaction-structure memory \Comment{Eq.~(\ref{eq:sgsm-graph})}
   \State Update the ACE credit and prune stalled arms (ARGP)
   \State \textbf{if} stagnating: apply the budget-safe escape \Comment{Eq.~(\ref{eq:bse-cauchy})}
-  \State Run the charged coordinate local search on the elite rows
+  \State \textbf{if} in the endgame slice ($\ge0.80$ below $D{=}50$, $\ge0.70$ above), under the evaluation cap and past cooldown: run the charged coordinate local search on the elite rows
   \Statex \quad\emph{Note.}~\textnormal{The $D{\ge}100$ upper-tier controllers are cross-cutting, not a stage after the local search: they act at population reduction (subspace-sampling floor), trial construction (frozen-streak broaden and late linkage random-mix), acceptance (late-acceptance clip and basin-memory update), and escape (basin-novelty reseed); a budget/ROI gate additionally gates the local search (a matching hook exists on the escape but never blocks it in the frozen configuration).}
   \State \textbf{if} $D{\ge}50$: polish the working incumbent $x^{*}$ once, in the final budget slice \Comment{Eq.~(\ref{eq:eigen-polish})}
   \Statex
