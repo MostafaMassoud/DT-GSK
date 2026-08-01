@@ -1366,3 +1366,49 @@ applying all surfaced fixes.
   submission and Release/Zenodo basis.
 - **Approver**: author (raised the file-name question and directed the fix).
   **Status**: CLOSED.
+
+## D-0034 (2026-08-01) - Frozen-tables audit and the missed disclosure loci; CR-0022 closed; pass-31 re-freeze; tag v2.6
+
+- **Trigger**: the author's "fix all" over the open-issues table. Two
+  multi-agent sweeps ran: a register-wide open-issues sweep (68 candidates, 62
+  deduped, each verified against the tree, 17 killed as already closed) and a
+  row-by-row audit of the seven `phase_03` files that are `\input` into the
+  built artifacts (50 raw findings, 33 refuted adversarially, 17 confirmed).
+- **The disclosure gap the earlier amendment missed.** D-0032 named ChatGPT in
+  the manuscript's three loci and stopped. The cover letter still disclosed
+  Claude alone under the pre-D-002 narrow scope. Both documents ship in one
+  package and `cover_letter.pdf` is manifest-tracked, so an editor comparing
+  them would have found two different GenAI disclosures. Harmonized in
+  `cover_letter.tex` and `cover_letter.md`. Recorded as a lesson: an amendment
+  scoped to "the manuscript's disclosure loci" is not scoped to the submission
+  package.
+- **The frozen tables were not faithful to the frozen code.** The sharpest case
+  is Table 1's senior-partition row, which printed a runtime-conditional branch
+  as an unconditional tier constant; the audit proved materiality by executing
+  the shipped configuration (0/7,560 generations fire on D=50 sphere versus
+  7,124/7,319 on D=50 rastrigin). Also: the caption claimed run-time tuning is
+  "not permitted" when the adapter exposes an override path; Algorithm 1 never
+  showed the DE arm, an operator active across a whole tier band; the D>=100
+  acceptance clip was stated only inside a LaTeX comment, so no reader of the
+  PDF ever saw it.
+- **CR-0022 CLOSED** by the same batch (supplement trust-region row, pi_0
+  rescale, linkage minimum dimension).
+- **Two regressions caused by these very fixes, both caught by the gates**: the
+  new Notes cells blew the `{lll}` parameter table 145pt wide, and the longer
+  Algorithm 1 pushed its caption across a page boundary, which cross-format
+  parity detected as a non-contiguous caption match. Both fixed before the
+  mint. Worth keeping: the gates caught my own edits, not just the originals.
+- **Gate change**: `validate_document_consistency.py` matched a single
+  parenthesised group containing "Claude", which assumed a one-tool disclosure
+  with the name inside the parentheses. It now asserts that every disclosed
+  tool appears in both cover letters and that the disclosure sentence is
+  identical between them.
+- **Freeze**: pass-31 minted at anchor d2bd45de5 (6 of 15 hashes changed),
+  check_manifest 15/15; manifest edited surgically, CRLF preserved. Tag
+  **v2.6** supersedes v2.5 as the submission and Release/Zenodo basis. This
+  **corrects D-0033**, which stated that no new tag was required and that v2.5
+  remained the basis: that was true when written and is no longer.
+  `CITATION.cff` is bumped to 2.6 in the tagged state, and the new
+  `papers/scripts/validate_citation_cff.py` gate now enforces that invariant
+  (it found a fourth historical occurrence at v2.2 on first run).
+  **Approver**: author ("fix all", 2026-08-01). **Status**: CLOSED.

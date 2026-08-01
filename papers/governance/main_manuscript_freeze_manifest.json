@@ -1,9 +1,9 @@
 {
   "schema": "main_manuscript_freeze_manifest/v1",
-  "phase": "PASS-30 GenAI disclosure amendment (dtgsk-submission-v2.5 basis)",
-  "generated_utc": "2026-08-01T10:45:32+00:00",
-  "anchor_commit": "ad35a4343c4f83903f574773c3e213fdb0e6183a",
-  "pre_freeze_base_commit": "8d8a5b0991dbbe8a35c93ec784742ef68155dc88",
+  "phase": "PASS-31 frozen-tables audit + missed disclosure loci (dtgsk-submission-v2.6 basis)",
+  "generated_utc": "2026-08-01T12:23:50+00:00",
+  "anchor_commit": "d2bd45de53f11f4aba17329fa531adafe9f8808e",
+  "pre_freeze_base_commit": "e2722b344753eaf422962f312738822b4f47d9be",
   "evidence_release": {
     "primary": "rel-2026-07-20-67d9345f9",
     "cec2013lsgo": "lsgo-rel-2026-07-28-ff1a046ef",
@@ -11,7 +11,7 @@
     "ablation": "abl-rel-2026-07-20"
   },
   "scientific_content_status": "FROZEN_FOR_SUBMISSION",
-  "freeze_statement": "Re-freeze after the author-directed GenAI disclosure amendment resolving the three disclosure findings of the 2026-08-01 repository transparency audit. No number, rank, p-value, test, standing, or registered outcome changes; both supplementary artifacts are byte-identical to the pass-29 mint and only four tracked files move. (D-001) ChatGPT (OpenAI) is now named alongside Claude (Opus 4.6, 4.8 and 5.0; Anthropic) in the Use-of-GenAI statement, the Acknowledgments and the methods-level sentence: the manuscript had withheld it under MDPI's superficial-editing exemption, but the repository documents substantive ChatGPT review passes whose applied findings changed statistical language and method descriptions, and the author confirmed that broader scope. No version is stated for ChatGPT because the author-recalled strings were never verified; naming an unverifiable version was judged worse than naming none. (D-002) The affirmative scope is widened from 'background and explanatory passages' to expository prose throughout the manuscript restating findings the authors had already established, plus the internal pre-submission review use. (D-004) The three disclosure loci are harmonized on the word 'analysis': the methods sentence and Acknowledgments no longer deny AI contribution to 'the analysis' - a denial the tree strained, since AI-co-authored commits touched analysis TOOLING - and instead deny designing or executing any experiment, producing or computing any reported number, and generating the statistical method. Every denial remains true and now matches the repository. The absolute denials of the pass-29 wording are preserved rather than softened. Governance: AG-0007 amended with its original determination retained verbatim and marked superseded. Folded in: HYG-14 (placeholder ORCID macros in supplementary.tex replaced with the real iDs; unused, so the supplement is byte-identical) and HYG-12 (the forbidden-token rule restated to the scope actually in force). All five artifacts byte-identical across two consecutive builds at the pinned epochs; B1 = 41 pp, B2 = 22,533 words, inside the CR-0021 caps; gates green (hygiene FULL, parity 726/0, provenance, doc-consistency, C1-C5, bindings, labels, docx 33/33 both, tests 601+2).",
+  "freeze_statement": "Re-freeze after two independent multi-agent audits, both of which found defects in already-frozen artifacts. No number, rank, p-value, test, standing or registered outcome changes; six of fifteen tracked files move. (1) DISCLOSURE. The D-0032 amendment named ChatGPT in the manuscript's three disclosure loci but not in the cover letter, which still disclosed Claude alone under the pre-D-002 narrow scope -- two divergent GenAI disclosures inside one submission package, with cover_letter.pdf manifest-tracked. Harmonized in cover_letter.tex and .md; two stale main.tex comments corrected with it, one of which asserted ChatGPT was 'intentionally not named in the two blocks below' five lines above the blocks that name it. (2) FROZEN TABLES. A row-by-row audit of the seven phase_03 files that are \\input into the built artifacts produced 50 raw findings; 33 were refuted under adversarial verification and 17 confirmed. Material items: Table 1 printed the senior-partition widening as an unconditional tier constant when it is a runtime branch gated on trailing acceptance (0 of 7,560 generations fire on D=50 sphere, 7,124 of 7,319 on D=50 rastrigin -- a reader implementing from Table 1 alone builds a different algorithm on unimodal problems); the caption claimed no run-time tuning is permitted when the adapter exposes an override path; Algorithm 1 omitted the DE arm entirely and printed the local search as unconditional; the D>=100 acceptance clip lived only inside a LaTeX comment and never reached a reader; KR in the mask equation is the ACE-drawn per-individual rate under a tier coverage floor, not the single frozen 0.9. Equations were corrected by qualifying prose, not restructured math -- they were incomplete rather than wrong. (3) CR-0022 CLOSED: the supplement's 'trust-region budget policy | present, runtime-inert' row named a mechanism removed at the paper freeze and called an active gate inert, contradicting the main text; pi_0 printed without the DE rescale so six probabilities summed past 1; the linkage minimum-dimension gate was absent from a table claiming no value is omitted. All three fixed. Verification: all five artifacts byte-identical across two consecutive builds at the pinned epochs; B1 = 41 pp, B2 = 22,989 words inside the CR-0021 caps; hygiene, doc-consistency, provenance, citation controls, evidence bindings, artifact labels, cross-format parity (729 rows, 0 FAIL), validate_docx on both documents, frozen analysis and the new citation_cff gate all green.",
   "hash_algorithm": "SHA-256",
   "build_environment": {
     "pdf_source_date_epoch": 1783468800,
@@ -25,8 +25,8 @@
   "files": [
     {
       "path": "papers/main.tex",
-      "sha256": "3756a3fac573b8c9af026f403ae7a478791da15840e5bcde49602d992c254fa9",
-      "bytes": 24213
+      "sha256": "e7023c5b31c817e97b1a97ec62322bb0bef4a91dcb277b943452823a31578772",
+      "bytes": 24569
     },
     {
       "path": "papers/sections/introduction.tex",
@@ -55,28 +55,28 @@
     },
     {
       "path": "papers/DT-GSK.pdf",
-      "sha256": "0cf45acc2dfafc9b692da5d1b142fe43e4128421e4b30fe186cd1299d9ffb797",
-      "bytes": 814806
+      "sha256": "db59dbc64d24d868580a3c0178bf7a73f38e59b30da8c2cf0f729ace6c9be115",
+      "bytes": 817876
     },
     {
       "path": "papers/DT-GSK.docx",
-      "sha256": "eeba29974cb8c28a439281d9af1b5d59fa4b2a07ec4c1554e8171fe17a3c5ed7",
-      "bytes": 998180
+      "sha256": "4bd70cdee683c00c5294784abeb7e01b0c1a222f75280402e91756e46a6c38e8",
+      "bytes": 999715
     },
     {
       "path": "papers/supplementary.pdf",
-      "sha256": "a9fcf35785ee10bc7d968228d64c27c12883911456ab1d3070418ed89ba9c758",
-      "bytes": 1719966
+      "sha256": "439fff39029bfbe87a8c26a2bc4109548266af1d59134d24cae06a259f31f3e2",
+      "bytes": 1721957
     },
     {
       "path": "papers/supplementary.docx",
-      "sha256": "5f570066be5d1aca0c6f2ecdc5c899d208ecb517f988ee8b56e9227ce5d0abbc",
-      "bytes": 9610078
+      "sha256": "7877d94eb153f3ff2736cb219eb58f93fd235226060eb5753a62d4fe979c5839",
+      "bytes": 9610988
     },
     {
       "path": "papers/cover_letter.pdf",
-      "sha256": "b669cc42b544f0220aa25837f23c54bdc867f1726f8b4754bf1ce9cd5eb8a8f1",
-      "bytes": 125078
+      "sha256": "b1d13db013e8f656a4ea4946189602b6d559589d1ab1fcc93736360905d6b608",
+      "bytes": 125517
     },
     {
       "path": "papers/governance/claims_evidence_matrix.csv",
