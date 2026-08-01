@@ -1,4 +1,4 @@
-% Plain-language summary of DT-GSK -- standalone, seven pages.
+% Plain-language summary of DT-GSK -- standalone, ten pages.
 % Audience: a reader with no optimization background. Success test: they can
 % read it once and then explain the work accurately to someone else.
 %
@@ -17,7 +17,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 \usepackage{lmodern}
-\usepackage[margin=0.88in]{geometry}
+\usepackage[margin=0.75in]{geometry}
 \usepackage{microtype}
 \usepackage{parskip}
 \usepackage{booktabs}
@@ -34,12 +34,13 @@
 \hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black,
   pdftitle={DT-GSK in Plain Language}, pdfauthor={Mostafa Elsayed Masoud}}
 
+\linespread{0.97}\selectfont
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{3.9pt plus 1pt minus 1pt}
+\setlength{\parskip}{2.9pt plus 1pt minus 1pt}
 \titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
-\titlespacing*{\section}{0pt}{7pt}{2pt}
+\titlespacing*{\section}{0pt}{4.5pt}{1.2pt}
 \titleformat{\subsection}{\normalsize\bfseries}{}{0em}{}
-\titlespacing*{\subsection}{0pt}{5pt}{1pt}
+\titlespacing*{\subsection}{0pt}{4pt}{1pt}
 \newcommand{\hl}[1]{\textbf{#1}}
 
 \definecolor{boxblue}{RGB}{232,240,250}
@@ -70,7 +71,7 @@ moustafa.masoud@gmail.com (M.E.M.\ ORCID 0009-0003-8415-2158);
 hmhmdss@yahoo.com (H.S.M.R.\ ORCID 0000-0003-0387-5876);
 aliwagdy@gmail.com (A.W.M.\ ORCID 0000-0002-5895-2632)}\\[1pt]
 {\footnotesize $^{*}$\;Correspondence: moustafa.masoud@gmail.com}\\[5pt]
-{\footnotesize A seven-page companion to the paper \emph{DT-GSK: Dimension-Tiered Adaptive Control
+{\footnotesize A ten-page companion to the paper \emph{DT-GSK: Dimension-Tiered Adaptive Control
 and Deterministic Refinement for Gaining-Sharing Knowledge Optimization}.\\
 For readers who already know population-based metaheuristics. Where this
 summary could be read as claiming more than the paper does, the paper governs.}
@@ -178,7 +179,7 @@ which needs $D\geq10$. Counting those, five things switch on or off with
 dimension, not three.
 
 \begin{center}
-\begin{tikzpicture}[node distance=2.4mm]
+\begin{tikzpicture}[node distance=1.9mm]
 \node[dtterm] (start) {START};
 \node[dtbox, below=of start] (size) {Read the problem dimension $D$};
 \node[dtgate, below=of size] (gear) {\textbf{Resolve the tier} (once, before the run)\\[1pt]
@@ -535,7 +536,7 @@ tuned nor tunable at run time.
 
 {\scriptsize
 \setlength{\LTpre}{2pt}\setlength{\LTpost}{2pt}
-\renewcommand{\arraystretch}{0.95}
+\renewcommand{\arraystretch}{0.90}
 \begin{longtable}{@{}p{4.0cm}p{7.0cm}p{3.9cm}@{}}
 \toprule
 \textbf{Parameter} & \textbf{Value} & \textbf{Note}\\
@@ -642,7 +643,7 @@ budget/ROI gate & admits local search from budget fraction 0.70 & duplicates thi
 
 \section{The method in pseudocode}
 
-\begin{tcolorbox}[colback=boxgrey, colframe=black!45, boxrule=0.4pt,
+\begin{tcolorbox}[breakable, colback=boxgrey, colframe=black!45, boxrule=0.4pt,
   arc=2pt, left=3.5mm, right=2.5mm, top=2mm, bottom=2mm]
 {\small
 \textbf{INPUT:} objective $f$, dimension $D$, bounds $[\ell,u]$, budget MaxFES
