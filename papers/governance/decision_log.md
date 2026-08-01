@@ -710,6 +710,11 @@ applying all surfaced fixes.
 - **Approver**: P1 (author decisions 2026-07-27 and 2026-07-28). **Status**: OPEN
   (closes when the registered analyses have been executed and every
   PENDING_PREREGISTERED row is resolved).
+- **CLOSED 2026-08-01.** Both stated conditions are met: the registered
+  analyses ran and were promoted as `cec2020-rel-2026-07-29-5867abe1e` and
+  `lsgo-rel-2026-07-28-ff1a046ef`, and no `PENDING_PREREGISTERED` row
+  survives in any register (checked repo-wide). The status line above is
+  retained as written; this entry supersedes it.
 
 - **Correction (2026-07-28, later — see D-0025).** Two descriptive phrases above are
   imprecise; the decisions they record are unchanged. (i) "validated tooling"

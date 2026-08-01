@@ -5,9 +5,10 @@
 | Phase | Phase 0 — Governance preflight, repository state, and authority freeze |
 | Framework | `papers/PAPER_BUILD_PROMPT.md` ("Evidence-Locked Q1 Publication Production Framework") |
 | Governing sections | 0.1 (normative language), 0.2 (single-authority and precedence rule), 0.3 (explicitly superseded instructions), 1.3, 1.4, 4.8, 6.10, 12.4; Phase 0 task 2 |
-| Project root | `D:/AI/PhD-Projects/00-GSK-Family/02-GSK_Family_Python_v1.1` |
-| Git root | `D:/AI/PhD-Projects` (project paths prefixed `00-GSK-Family/02-GSK_Family_Python_v1.1/`) |
-| Anchor commit | `262fc16c91fbe5608a1a0b0c5df3cbcd009edc21` (branch `main`) |
+| Project root *(as recorded at Phase 0)* | `D:/AI/PhD-Projects/00-GSK-Family/02-GSK_Family_Python_v1.1` |
+| Git root *(as recorded at Phase 0)* | `D:/AI/PhD-Projects` (project paths prefixed `00-GSK-Family/02-GSK_Family_Python_v1.1/`) |
+| Anchor commit *(as recorded at Phase 0)* | `262fc16c91fbe5608a1a0b0c5df3cbcd009edc21` (branch `main`) |
+| **Current repository** | This register now lives in the standalone **DT-GSK** repository. The three rows above are a dated Phase-0 record of the private monorepo the project was built in; the anchor commit does not resolve here. See "Repository history and provenance" in the top-level `README.md`. |
 | Date recorded | 2026-07-10 |
 | Author | Phase 0 execution agent (autonomous, per Section 0.5) |
 

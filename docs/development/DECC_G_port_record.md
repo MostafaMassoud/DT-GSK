@@ -77,6 +77,14 @@ or weakened to suit a result.
 
 ## What remains before publication use
 
+> **STATUS 2026-08-01 — largely discharged, and the gate no longer applies.**
+> The 15 x 25 campaign named below **was run** (375/375 runs, committed). More
+> importantly, CR-0019 removed the trigger entirely: DECC-G appears in no panel,
+> table, figure or claim in the manuscript, so no DECC-G number reaches the paper
+> and this checklist gates nothing. What genuinely remains undone is the
+> function-by-function comparison against the published column and a trajectory
+> regression pin — both needed only if DECC-G is ever promoted into a claim.
+
 * Full 15 × 25 campaign (~10 CPU-hours; ~100 s/run) and a function-by-function
   comparison against the published column, reporting losses as well as wins.
 * A regression pin so future edits cannot silently change its trajectories.

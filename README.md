@@ -825,6 +825,10 @@ adds a documentation header.
 |---|---|
 | [`papers/PAPER_REVIEW_PROMPT.md`](papers/PAPER_REVIEW_PROMPT.md) | The manuscript audit. Multi-seat adversarial review with per-finding verification. Applied three times; the resulting registers are in `papers/governance/`. |
 | [`papers/PAPER_BUILD_PROMPT.md`](papers/PAPER_BUILD_PROMPT.md) | The evidence-locked manuscript-production protocol (phase gates, claim/evidence binding, freeze discipline). |
+| [`papers/build_prompt_phases/`](papers/build_prompt_phases/README.md) | The per-phase expansions of the build protocol, plus the phase outputs. Its README explains what the directory is and records the two 2026-08-01 renames. |
+| [`docs/development/ACCELERATION_CAMPAIGN_PROMPT.md`](docs/development/ACCELERATION_CAMPAIGN_PROMPT.md) | Performance-campaign work-sequencing prompt (campaign closed; retained as a dated record). |
+| [`docs/development/SIBLING_CAMPAIGN_TRANSFER.md`](docs/development/SIBLING_CAMPAIGN_TRANSFER.md) | Transfer notes from the sibling acceleration campaign (superseded in part by a later measurement). |
+| [`docs/development/LSGO_INTEGRATION_CAMPAIGN.md`](docs/development/LSGO_INTEGRATION_CAMPAIGN.md) | The CEC2013LSGO integration plan (executed; promoted as `lsgo-rel-2026-07-28-ff1a046ef`). |
 | [`docs/prompt/`](docs/prompt/project-review.md) | Four repository-side audits: full-project review, documentation consistency, deep documentation upgrade, and pre-publication hardening. |
 
 The outcomes are published too, not just the instructions: the panel registers

@@ -12,6 +12,13 @@
 
 **Version 1.2 · 2026-07-17 · grounded on commit `056fb3ff0` · repo `02-GSK_Family_Python_v1.1`**
 
+> **SUPERSEDED STATUS BOX (2026-08-01).** The box below describes the world of
+> 2026-07-20 and is kept as a dated record. It is **not** current: the remediation
+> ledger it cites closed, the manuscript has since advanced through freeze passes
+> 27-31 and tag `v2.6`, and the evidence base now spans four releases rather than
+> the two named below. For the current state read the freeze manifest's `phase`
+> field and the newest entry in `papers/governance/decision_log.md`.
+>
 > **CURRENT STATUS (2026-07-20) — read before acting; this campaign is not the active
 > workstream.** The project is in **final pre-submission remediation of a BUILT manuscript**,
 > not an open acceleration push. The 80-ticket remediation ledger
@@ -169,7 +176,16 @@ burned a whole round in the source campaign.
 | **DT-GSK** | **PYTHON-FLOOR-BOUND** (low/mid D) → **KERNEL-BOUND** (D≥100) | ~30 sequential Python subsystem blocks/gen is the floor; already heavily de-overheaded (pre-alloc B03/B04/B14, hoists S5/S7, fused bincounts H1, argpartition H6b, argsort skip B06, telemetry gate MEM-1). At D≥100: `NP=5·D=500`, parallel `(NP,D)` kernels + 3 reference-RNG fills dominate |
 | *(any)* | **TELEMETRY-BOUND** | **applies to no default configuration.** All six classics record exactly 1 convergence point/gen. DT-GSK's MEM-1 fast path emits 2 scalars/gen and `continue`s past the ~150-field log. The JSONL diagnostics path is **opt-in** (`dt_diagnostics`) |
 
-### 3.1 ⚠ Serial-kernel twins ARE the biggest lever here — **v1.0 of this document said the opposite and was WRONG**
+### 3.1 ⚠ Serial-kernel twins — **AVENUE CLOSED by measurement (2026-08-01)**
+
+> **FINAL CORRECTION (2026-08-01).** This section has now been wrong in both
+> directions. v1.0 said serial twins were inapplicable; the v1.2 correction below
+> reversed that to "the biggest lever". A later direct measurement recorded in
+> `PORT_05_TUNING_TRIAGE.md` (Addendum) came back at **0.95x — no gain** — and
+> closed the avenue. The v1.2 correction and its reasoning are kept below as the
+> record of how the estimate was formed, not because it held.
+
+#### Superseded heading, retained: *Serial-kernel twins ARE the biggest lever here*
 
 > **CORRECTION (v1.2, 2026-07-17).** v1.0–v1.1 of this section claimed serial twins were
 > "mostly inapplicable because the family is population-batch." **That was wrong, and it was

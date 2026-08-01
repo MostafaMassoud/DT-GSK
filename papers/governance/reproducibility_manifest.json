@@ -4,7 +4,7 @@
   "created_date": "2026-07-10",
   "project_root": "D:/AI/PhD-Projects/00-GSK-Family/02-GSK_Family_Python_v1.1",
   "git_root": "D:/AI/PhD-Projects",
-  "anchor_commit": "67d9345f9502a9a584e645fa8948f60a61d70e29",
+  "anchor_commit": "0d2bed9907faae38134c3e2969d250b1680a7305",
   "branch": "main",
   "environment": {
     "environment_id": "phase0-preflight-host",
@@ -486,30 +486,36 @@
     "freeze_manifest_agreement": "main_manuscript_freeze_manifest.json: all 12 tracked files recompute-match on-disk (post R9-review re-freeze); PDF/DOCX hashes above agree.",
     "notes": "Supersedes the Phase-0 stub status of this file for delivery-level recording (R-2461 / R-6851). Requirement satisfied for Gate-12 evidence except author-side administrative items."
   },
-  "evidence_release": "rel-2026-07-20-67d9345f9",
+  "evidence_release": {
+    "primary": "rel-2026-07-20-67d9345f9  (CEC2017, CEC2011, CEC2013)",
+    "lsgo": "lsgo-rel-2026-07-28-ff1a046ef  (CEC2013LSGO)",
+    "cec2020": "cec2020-rel-2026-07-29-5867abe1e  (CEC2020)",
+    "ablation": "abl-rel-2026-07-13  (component isolation, incl. the promoted CEC2017 D50/D100 overlay)",
+    "note": "Four immutable releases back this manuscript. Earlier revisions of this file named only the primary one and a superseded ablation id (abl-rel-2026-07-11); corrected 2026-08-01 at the pass-31 mint."
+  },
   "superseded_anchor": "262fc16c91fbe5608a1a0b0c5df3cbcd009edc21",
-  "updated_utc": "2026-07-24T00:00:00Z",
-  "update_note": "SE-004: this record was two evidence releases stale (anchored at 262fc16c9, rel-2026-07-10-262fc16c9). Re-pointed to rel-2026-07-20-67d9345f9 (anchor 67d9345f9), the release every reported number derives from.",
+  "updated_utc": "2026-08-01T12:48:37Z",
+  "update_note": "Refreshed 2026-08-01 at the freeze pass-31 mint (tag v2.6). The five shipped-artifact digests are read from the artifacts themselves and all four evidence releases are now named. `project_root` and `git_root` above still record the private monorepo because that is where Phase 0 actually ran; they are a dated historical record, not a pointer to this repository, whose own root is the standalone DT-GSK tree. Likewise `superseded_anchor` and the phase-specific sections are left as written.",
   "shipped_artifacts": {
     "papers/DT-GSK.pdf": {
-      "sha256": "f1faa5e9ebacf5f605713b1aea9fe0095c06b8b2ffdb9b1938540a1f04baffc7",
-      "bytes": 761899
+      "sha256": "db59dbc64d24d868580a3c0178bf7a73f38e59b30da8c2cf0f729ace6c9be115",
+      "bytes": 817876
     },
     "papers/DT-GSK.docx": {
-      "sha256": "00176cff030ffe26cf81d99399e2ee5518f7556b1444f181a8bea5b0842b271f",
-      "bytes": 986577
+      "sha256": "4bd70cdee683c00c5294784abeb7e01b0c1a222f75280402e91756e46a6c38e8",
+      "bytes": 999715
     },
     "papers/supplementary.pdf": {
-      "sha256": "76a0bbbd8e0c7b08c04aef70e579f33ccd8b6d11f092fad7c03f89bc08db9944",
-      "bytes": 1609418
+      "sha256": "439fff39029bfbe87a8c26a2bc4109548266af1d59134d24cae06a259f31f3e2",
+      "bytes": 1721957
     },
     "papers/supplementary.docx": {
-      "sha256": "ba225735b78a501aec8ecd8de68834f916ac6a16d577acf5e0ab4dcc4747c318",
-      "bytes": 9572245
+      "sha256": "7877d94eb153f3ff2736cb219eb58f93fd235226060eb5753a62d4fe979c5839",
+      "bytes": 9610988
     },
     "papers/cover_letter.pdf": {
-      "sha256": "a3ce6481ab4db70f387b341369c8f2d1115d223af2e5b170f5052197284ce374",
-      "bytes": 119864
+      "sha256": "b1d13db013e8f656a4ea4946189602b6d559589d1ab1fcc93736360905d6b608",
+      "bytes": 125517
     }
   },
   "determinism_record": {

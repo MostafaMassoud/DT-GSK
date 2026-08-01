@@ -81,3 +81,33 @@
 2. Confirm no journal-specific page cap (Section 2) — else re-bind the Section 1.5 rule to the published cap and update `page_budget.md`.
 3. Confirm peer-review model (Section 8) and template currency (Section 3).
 4. Confirm APC (Section 9) and declaration block list (Section 7).
+
+
+---
+
+## ONLINE VERIFICATION - 2026-08-01 (closes A-0001)
+
+**verified_online = TRUE.** `https://www.mdpi.com/journal/algorithms/instructions`
+was retrieved successfully on 2026-08-01 and read in full. The 403 that blocked
+Phase 4 on 2026-07-10 still reproduces through a plain HTTP fetcher; the page
+renders normally in a browser, which is how it was read. Everything below is
+quoted or paraphrased from the live page, so the SEARCH-DERIVED items above are
+now confirmed or corrected as noted.
+
+| # | Item | Live-page finding | Effect on this manuscript |
+|---|---|---|---|
+| 1 | Article type | "Article: These are original research manuscripts... structure should include an Abstract, Keywords, Introduction, Materials and Methods, Results, Discussion, and Conclusions (optional)". | CONFIRMED. Wired type is correct. |
+| 2 | Length | Free format accepted: "We do not have strict formatting requirements". **No length or page cap is stated anywhere on the page.** | CONFIRMED. The repo-internal CR-0021 caps remain a self-imposed discipline, not a venue rule. |
+| 3 | Template | Word or LaTeX template encouraged; LaTeX submissions "must be collated into one ZIP folder (including all source files and images, so that the Editorial Office can recompile the submitted PDF)"; total data must not exceed **120 MB**. | ACTION AT SUBMISSION: submit a ZIP of the LaTeX sources, not only the PDF. Package is ~12 MB, well inside 120 MB. |
+| 4 | References | "References must be numbered in order of appearance in the text (including table captions and figure legends)"; "reference numbers should be placed in square brackets [ ], and placed before the punctuation; for example [1], [1-3] or [1,3]". | CONFIRMED - matches the shipped style. |
+| 5 | Figures | "at a sufficiently high resolution (preferably no less than 600 dpi) in PNG, JPEG or TIFF formats", supplied "in a single zip archive"; colour is free. | ACTION AT SUBMISSION: supply the figure ZIP at >=600 dpi. |
+| 6 | Back matter (Article) | "Supplementary Materials, Author Contributions, Funding, Data Availability Statement, Acknowledgments, Conflicts of Interest, References." | CONFIRMED - all present. |
+| 7 | **GenAI disclosure** | **TWO required placements.** In *Materials and Methods*: "authors are required to disclose in this section details of how GenAI has been used in the paper (e.g., to generate text, data or graphics or assist in study design or data collection, analysis or interpretation)." In *Acknowledgments*, a prescribed sentence: "During the preparation of this manuscript/study, the author(s) used **[tool name, version information]** for the purposes of [description of use]. The authors have reviewed and edited the output and take full responsibility for the content of this publication". Exemption confirmed verbatim: "The use of GenAI for superficial text editing (e.g., regarding grammar, spelling, punctuation and formatting) does not need to be declared." | CONFIRMED and ACTED ON. The manuscript already carries both placements and the Acknowledgments already follows the prescribed sentence. **Version information is explicitly requested**, which retires the D-0032 departure: ChatGPT is now disclosed as 5.5 (author attestation, 2026-08-01). The exemption wording also confirms the ORIGINAL AG-0007 determination was sound in principle - it lapsed on the facts (the use was not superficial), not on a misreading of policy. |
+| 8 | GenAI authorship | "Generative artificial intelligence (GenAI) tools and other large language models (LLMs) cannot be listed as authors". | CONFIRMED - the manuscript states no AI system is an author. |
+| 9 | Reviewer suggestions | "please suggest three potential reviewers"; they "should neither be current collaborators of the co-authors nor have published with any of the co-authors of the manuscript within the last three years"; "from different institutions to the authors". | AUTHOR ACTION, and the constraint is now precise: three names, no co-publication with any co-author in three years, different institutions. This is what makes the declared GSK-family relationships binding on the choice. |
+| 10 | Cover letter | "A cover letter must be included with each manuscript submission... explain why the content of the paper is significant... why the manuscript fits the scope of the journal." | CONFIRMED - present and on scope. |
+
+**Not stated on the page** (so still UNKNOWN, and not assumed): a journal-specific
+supplementary file-type or size limit beyond the 120 MB total, and any
+requirement that the archived artifact be deposited with a particular
+repository.

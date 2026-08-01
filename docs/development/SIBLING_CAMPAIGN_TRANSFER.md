@@ -45,7 +45,14 @@ at that target.** Do not port it; do not let its 10–19× headline numbers set 
 
 ## 1. ✅ APPLIES — ranked by expected value here
 
-### 1.1 Serial-kernel twins — **the biggest lever** ⭐
+### 1.1 Serial-kernel twins — ~~**the biggest lever**~~ **AVENUE CLOSED (2026-08-01)**
+
+> **CORRECTION.** This section, and §3.1 of `ACCELERATION_CAMPAIGN_PROMPT.md`,
+> ranked serial-kernel twins as the biggest available lever (3-10x on cec2017,
+> 1.5x on LSGO). A later direct measurement recorded in
+> `PORT_05_TUNING_TRIAGE.md` (Addendum) came back at **0.95x — no gain** — and
+> closed the avenue. The projections below were never realised; they are kept
+> because the reasoning is the record of how the estimate was formed.
 - **What:** re-jit each suite kernel's *same* `py_func` with `parallel=False`; route opted-in
   callers via a thread-local scope. Same math, no numba workqueue launch.
 - **Why it pays even at NP=100:** one `evaluate` is **2–15 kernel launches** (F1–F10 ≈ 2 ≈
