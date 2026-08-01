@@ -209,73 +209,326 @@ do not exist below $D=50$.
 dimension-gated stages; the tier itself is fixed before the loop begins.}
 \end{center}
 
-\section{The three contributions}
+\section{The components, one by one}
 
-\subsection{C2 --- the dimension-tiered adaptive scaffold}
+Nine subsystems. Six run at every tier; three are dimension-gated. Constants
+below are the frozen shipped configuration --- no tuning is performed or
+permitted at run time.
 
-The scaffold is an ensemble of control mechanisms, all active at every tier:
+\subsection{1. The inherited GSK core (all tiers)}
 
-\begin{itemize}[leftmargin=1.2em, itemsep=2pt, topsep=3pt]
-\item \hl{ACE}, a bandit-style operator-configuration selector over five arms
-      (six in the mid-tiers, where a differential-evolution arm is enabled).
-      Arm 3 is the GSK-pure setting $(0.5, 0.9, 10)$, so the base method is
-      always reachable. Credit is an exponential moving average of realized
-      improvement, with a probability floor so no arm dies outright.
-\item \hl{ARGP}, which soft-freezes arms whose windowed acceptance falls below
-      a tier threshold after warm-up --- pruning to $\pi_{\min}=0.05$ rather
-      than removing, so a pruned arm can recover.
-\item \hl{NLPSR}, a nonlinear population-size reduction schedule with a tier
-      floor ($N_{\min}=12$, raised to 25 at $D\geq50$).
-\item \hl{Linkage block crossover}, replacing the per-coordinate $KR$ mask with
-      a block mask over non-contiguous coordinate subsets for about 70\% of the
-      population. Below $D=50$ the blocks are random; at $D\geq50$ they are
-      supplied by the interaction memory.
-\item \hl{BSE}, a triple-trigger stagnation escape (acceptance, diversity and
-      signal floors) firing a Cauchy rescue and, if the rescue fails, an
-      archive-seeded partial restart --- hard-capped so it cannot overshoot
-      MaxFES.
-\item \hl{A deep-stall restart} that fully re-initializes the working
-      population while preserving the global best, so \hl{a restart can never
-      lose ground.}
+The junior/senior vector update and midpoint bound repair are numerically
+unchanged from base GSK. Two elements are modified: the crossover mask (see
+component 4) and the selection rule, which \emph{accepts ties} rather than
+requiring strict improvement.
+
+The senior partition fraction $p$ is tier-resolved: $0.05$ below $D=20$,
+$0.15$ at $20$--$49$, and a split-bottom $0.10$ at $D\geq50$. The junior
+dimension count follows the decaying schedule
+$D_{\mathrm{jun}} = \mathrm{clip}(\lceil D(1-x)^{K_{\exp}}\rceil, 0, D)$, where
+$x$ is the consumed budget fraction --- so coordinates migrate from junior to
+senior control as the run proceeds, and at $x=1$ every coordinate is senior.
+
+\subsection{2. NLPSR population-size reduction (all tiers)}
+
+The population starts at $NP_{\mathrm{init}} = 5D$ and contracts on a
+\emph{nonlinear} $x^{(1-x)}$ schedule toward a tier floor: $N_{\min} = 12$
+below $D=50$, raised to $25$ at $D\geq50$. The alternative power-schedule
+exponent $\alpha_{\mathrm{psr}} = 1.0$ is present but inert --- the nonlinear
+form is the one shipped.
+
+The $5D$ start is a documented fair-start exception: the six comparators run
+$NP = 100$ at every dimension, so at $D = 100$ DT-GSK begins with a five-fold
+larger population. This asymmetry is disclosed, not controlled for.
+
+\subsection{3. ACE --- adaptive control ensemble (all tiers)}
+
+A bandit-style selector over a pool of $(KF, KR, K_{\exp})$ arms. Each
+individual draws an arm; credit is an exponential moving average of realized
+improvement with learning rate $c = 0.10$; probabilities are floored at
+$\pi_{\min} = 0.05$ so no arm is ever eliminated outright.
+
+\begin{itemize}[leftmargin=1.2em, itemsep=1pt, topsep=3pt]
+\item \textbf{Pool:} 5 arms. \textbf{Arm 3 is GSK-pure} $(0.5, 0.9, 10)$, so the
+      unmodified base method is always reachable.
+\item \textbf{Initial probabilities:} $(0.05,\, 0.05,\, 0.45,\, 0.05,\, 0.40)$
+      --- weighted toward the GSK-pure arm at the start.
+\item \textbf{Sixth arm:} a differential-evolution arm, enabled only for
+      $20 \leq D < 100$.
+\item \textbf{Credit memory:} single below $D=20$; top/bottom split at
+      $D\geq20$.
 \end{itemize}
 
-At $D\geq100$ a further block of upper-tier controllers activates: basin memory,
-a subspace floor, late-accept clipping, frozen-streak broadening, and linkage
-random-mixing.
+\subsection{4. ARGP --- adaptive rank-gated pruning (all tiers)}
 
-\subsection{C1 --- the deterministic eigenframe polish}
+Arms whose windowed acceptance falls below a tier threshold after warm-up are
+\emph{soft-frozen} to the probability floor rather than removed, so a pruned
+arm recovers if it becomes productive again. Window $30$ generations; threshold
+$0.02$, tightened to $0.010$ at $D\geq50$; warm-up $0.15$ of the budget.
 
-Where the family ends stochastically, DT-GSK ends with a \hl{one-shot, RNG-free
-compass search} on a learned eigenbasis, opened at $s_{\mathrm{fp}}=0.96$ of the
-budget: step along each basis direction, evaluate, contract, repeat. It is
-budget-exact --- every evaluation it spends is charged through the same
-accounting path --- and it \hl{only exists at $D\geq50$}, where the graph that
-supplies its basis exists.
+\subsection{5. Linkage block crossover (all tiers)}
 
-The practical consequence is repeatability. A stochastic endgame returns a
-slightly different incumbent each run; this one returns bit-identical results
---- \emph{in the declared single-threaded environment the study used.} The paper
-is explicit that this is not a cross-thread or cross-platform guarantee.
+For roughly 70\% of the population the per-coordinate $KR$ mask is replaced by
+a \emph{block} mask over non-contiguous coordinate subsets --- the mechanism
+through which structure, rather than a scalar, is adapted.
 
-\subsection{C3's exploratory component --- ISM, and its null result}
+\begin{itemize}[leftmargin=1.2em, itemsep=1pt, topsep=3pt]
+\item \textbf{Block size:} 5 below $D=50$, 10 at $D\geq50$.
+\item \textbf{Mix probability:} $0.70$ ($D<20$), $0.40$ (mid-tiers), $0.70$
+      ($D\geq50$).
+\item \textbf{Refresh period:} every 20 generations below $D=50$, every 10 at
+      $D\geq50$.
+\item \textbf{Block source:} random below $D=50$; \textbf{supplied by the ISM
+      graph at $D\geq50$}, which is the only path by which the memory reaches
+      the search.
+\end{itemize}
 
-The interaction-structure memory accumulates a decaying ($\lambda=0.95$),
-confidence-gated ($\kappa_{\min}=0.35$) coordinate-pair graph from strictly
-improving accepted moves. It has exactly two consumers: linkage blocks for the
-crossover mask, and the signed-graph eigenbasis for the polish. \hl{Like the
-polish, it is gated to $D\geq50$.}
+\subsection{6. Charged coordinate local search (all tiers)}
 
-It costs \hl{no extra objective evaluations} --- it is assembled from moves the
-optimizer already made. It is not free in wall-clock, though: isolating it
-measured \hl{+57.3\% at CEC2017 $D{=}50$, +36.3\% at $D{=}100$, and +30.3\% on
-CEC2013 $D{=}50$}.
+An axis-aligned search admitted in the endgame by the joint of a time gate, an
+evaluation-budget cap, a call period and a post-search cooldown. It selects the
+best \textit{elite-count} individuals, orders axes by descending population
+standard deviation, and probes one coordinate per elite at
+$x_0 \pm \delta e_{\mathrm{coord}}$, with
+$\delta = \mathit{step\_scale} \cdot \sigma_{\mathrm{coord}} \cdot
+\mathit{step\_decay}$, where \textit{step\_decay} shrinks linearly from $1.0$
+to $0.25$ across the endgame window. Probes are batch-evaluated and accepted
+greedily. Every probe is charged to the budget.
 
-And the direct isolation is a \hl{registered negative result: no detectable
-standalone benefit at its active tiers.} The authors ran the contrast to find
-out, got a null, and advertised it in the abstract and conclusions rather than
-confining it to a supplement. So the component cost real time and bought nothing
-measurable --- and that is the published finding. It is positioned as a
-secondary exploratory mechanism, explicitly not the performance driver.
+\begin{center}
+\small
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+& $D{<}20$ & $20$--$49$ & $50$--$99$ & $D{\geq}100$\\
+\midrule
+start fraction & 0.80 & 0.80 & 0.70 & 0.70\\
+eval-budget cap & 0.02 & 0.01 & 0.05 & 0.02\\
+elite count & 2 & 3 & 5 & 2\\
+step scale & 0.20 & 0.20 & 0.10 & 0.10\\
+call period (gens) & 1 & 1 & 1 & 2\\
+cooldown (gens) & 6 & 6 & 6 & 3\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The \emph{coordinate} method is the one enabled. An ISM-block subspace variant
+exists in the code but is switched off in the frozen configuration --- a point
+the paper corrects explicitly, since an earlier description had it the other
+way round.
+
+\subsection{7. BSE escape, archive, and the deep-stall restart (all tiers)}
+
+A stagnation escape with a \emph{triple trigger} at $D\geq20$ (acceptance floor
+$0.10$, diversity floor $0.35$, and a signal test with $\epsilon = 10^{-8}$
+over a signal window of 10); below $D=20$ it falls back to a single stagnation
+trigger with the two floors inactive. Detection window $W = 50$.
+
+When it fires, the top $\mathrm{round}(0.05\,NP)$ individuals by fitness are
+\emph{frozen} --- exempt from both rescue and restart. A Cauchy rescue then
+perturbs the worst $\mathrm{round}(0.10\,NP)$ unfrozen rows by
+$r_s \cdot D^{-1/2} \cdot \mathrm{span} \cdot \mathcal{C}(0,1)$, with
+$r_s = 0.04$ at $D\geq20$ and $0.05$ below. A rescue that lowers the incumbent
+\emph{cancels} the restart for that generation; only a failed rescue triggers
+the archive-seeded partial restart.
+
+\begin{itemize}[leftmargin=1.2em, itemsep=1pt, topsep=3pt]
+\item \textbf{Restart fraction:} $0.30$ below $D=50$, $0.10$ at $D\geq50$.
+\item \textbf{Max restarts:} 4 at $D<20$ and $50$--$99$; 2 otherwise --- a hard
+      cap, so BSE can never overshoot MaxFES.
+\item \textbf{Archive:} fixed cap 200 at all $D$, L2 distance filter 0.05.
+\item \textbf{Deep-stall restart:} fires at stall fraction $0.25$ of the
+      budget, minimum budget 20\,000 evaluations, cooldown $0.15$, stop at
+      $0.9$. It fully re-initializes the working population while the preserved
+      global best can never lose ground.
+\end{itemize}
+
+\subsection{8. ISM --- interaction-structure memory (\emph{$D\geq50$ only})}
+
+Two co-evolving accumulators --- a magnitude graph $G_{\mathrm{abs}}$ and a
+signed graph $G_{\mathrm{signed}}$ --- built from \emph{strictly improving}
+accepted moves, sharing
+$G_\bullet \leftarrow \lambda G_\bullet + \eta\sum_i w_i\, v_i v_i^{\!\top}$
+with decay $\lambda = 0.95$ and commit rate $\eta = 1.0$. Rejected trials and
+ties contribute nothing. Per-move source weights: $0$ for
+differential-evolution-arm moves, $0.25$ for local-search moves, $1$ otherwise.
+
+\begin{itemize}[leftmargin=1.2em, itemsep=1pt, topsep=3pt]
+\item \textbf{Gate:} \textit{interaction-graph-min-dim} $= 50$. Below that
+      tier the graph is not allocated at all.
+\item \textbf{Refresh:} every 5 generations below $D=100$, every 20 at
+      $D\geq100$; warm-up $0.10$.
+\item \textbf{Confidence gate:} $\kappa_{\min} = 0.35$ for linkage ($0.45$ for
+      the dormant subspace search), adaptive at $D\geq50$ on a rolling median
+      --- window 30, percentile $0.50$, floor $0.12$.
+\item \textbf{Block extraction:} max-normalize, keep row edges
+      $\geq \max(\varphi,\, \tfrac12 \max_k W_{jk})$ with $\varphi = 10^{-4}$,
+      symmetrize, take connected components; discard below $b_{\min} = 2$, keep
+      whole up to $b_{\max} = 10$, split larger ones greedily.
+\item \textbf{Readiness:} a block feeds the crossover only after $\geq 10$
+      updates and $2$ refreshes, with at least 4 non-trivial dimensions.
+\item \textbf{Escape response:} on any BSE escape event the retained graph is
+      halved ($\times 0.50$) with a 5-generation cooldown. The deep-stall
+      restart does \emph{not} touch the graph.
+\end{itemize}
+
+\hl{Measured cost and outcome.} ISM consumes no extra objective evaluations,
+but the isolation measured a wall-clock overhead of \hl{+57.3\% (CEC2017
+$D{=}50$), +36.3\% ($D{=}100$) and +30.3\% (CEC2013 $D{=}50$)} --- and returned
+\hl{no detectable standalone benefit at its active tiers.} That null is a
+registered result, advertised in the abstract and conclusions. ISM is
+positioned as a secondary exploratory mechanism, explicitly not the performance
+driver.
+
+\subsection{9. The eigenframe final polish (\emph{$D\geq50$ only})}
+
+One-shot, RNG-free compass search, armed at budget fraction $0.96$ under a cap
+of $0.02\,\mathrm{MaxFES}$. Its basis $V$ is the eigenvectors of the
+symmetrized $G_{\mathrm{signed}}$ ordered by descending $|\text{eigenvalue}|$
+--- falling back to coordinate axes when the graph carries no signal.
+
+Unlike the crossover and local-search consumers it is gated \emph{only} on a
+non-zero signed signal, not on graph readiness, so it can act before
+$\kappa_{\min}$ would admit a linkage block. The step initializes at $0.05$ of
+the box span, grows by $1.3$ after an improving probe (capped at half the
+span), halves after a full non-improving sweep, and terminates at the budget
+cap or when the step falls below $10^{-12}$ of the span. Probes are accepted
+only on strict improvement, so the stage cannot corrupt the returned solution.
+
+Repeatability follows from having no RNG draws: the same input returns
+bit-identical output --- \emph{in the declared single-threaded environment.}
+The paper is explicit that this is not a cross-thread or cross-platform
+guarantee.
+
+\subsection{10. Upper-tier controllers (\emph{$D\geq100$ only})}
+
+\begin{itemize}[leftmargin=1.2em, itemsep=1pt, topsep=3pt]
+\item \textbf{A1 late-accept clip} --- tightens elitist acceptance late in the
+      budget. $\tau$-floor $0.85$; high-acceptance $0.30$; log-drop
+      $\epsilon = -2.0$; streak $k = 5$; strict $\epsilon = 10^{-3}$; log-drop
+      EMA $\alpha = 0.30$.
+\item \textbf{A2 frozen-streak broaden} --- widens $KR$ during frozen streaks.
+      Acceptance floor $0.05$; log-drop $\epsilon = -3.0$; streak $k = 10$;
+      window/cooldown 20/10 generations; $KR$ factor $1.5$.
+\item \textbf{FC4 late linkage random-mix} --- reverts to random linkage when
+      measured learned-block lift turns negative. $\tau$-floor $0.50$;
+      negative lift $-0.05$; severe lift $-0.20$; strength $0.5$; lift-EMA
+      $\alpha = 0.20$.
+\item \textbf{Basin memory} and a \textbf{subspace-sampling floor}: enabled.
+\item A trust-region budget policy is present but \textbf{runtime-inert} --- a
+      redundant guard, not an active mechanism.
+\end{itemize}
+
+\subsection{Determinism layer}
+
+Thirteen append-only, prefix-locked RNG substreams (init, core, ace, kexp, div,
+bse, arch, link, de, control, flow, basin, trust). Stream 0 is the run seed
+verbatim; children are $s_k = (\text{seed} + 1{,}000{,}003(k{+}1)) \bmod
+M_{\mathrm{seed}} + 1$ with $M_{\mathrm{seed}} = 2{,}147{,}483{,}646$. The
+substream layout is prefix-locked so adding a stream cannot perturb existing
+ones.
+
+\section{Frozen parameter reference}
+
+Every value in the shipped configuration, in one place. Tier columns are
+$D{<}20$ / $20$--$49$ / $50$--$99$ / $D{\geq}100$; a single value means it does
+not vary by tier. The whole set is hash-frozen in the repository's algorithm
+freeze manifest and is neither tuned nor tunable at run time.
+
+\begin{center}
+\footnotesize
+\begin{tabular}{@{}p{4.1cm}p{7.0cm}p{4.0cm}@{}}
+\toprule
+\textbf{Parameter} & \textbf{Value} & \textbf{Note}\\
+\midrule
+\multicolumn{3}{@{}l}{\emph{Run level}}\\
+\midrule
+generator & Threefry, unified shared seed, 13 substreams & prefix-locked\\
+MaxFES & suite-dependent; $10^{4}D$ on CEC2017/CEC2013 & \\
+bounds & uniform scalar $(\ell, u)$ & per-coordinate on CEC2011\\
+$NP_{\mathrm{init}}$ & $5D$ & fair-start exception\\
+seed modulus $M_{\mathrm{seed}}$ & $2{,}147{,}483{,}646$ & \\
+\midrule
+\multicolumn{3}{@{}l}{\emph{Core GSK operator}}\\
+\midrule
+$KF$ & 0.5 & ACE arm-controlled\\
+$KR$ & 0.9 & ACE arm-controlled\\
+$K_{\exp}$ & 10 & junior-dimension schedule\\
+$p$ (senior) & 0.05 / 0.15 / split-bottom 0.10 at $D{\geq}50$ & \\
+\midrule
+\multicolumn{3}{@{}l}{\emph{NLPSR}}\\
+\midrule
+schedule & nonlinear $x^{(1-x)}$ & \\
+$N_{\min}$ & 12; 25 at $D{\geq}50$ & tier floor\\
+$\alpha_{\mathrm{psr}}$ & 1.0 & inert (nonlinear shipped)\\
+\midrule
+\multicolumn{3}{@{}l}{\emph{ACE / ARGP}}\\
+\midrule
+arm pool & 5 arms $(KF, KR, K_{\exp})$; arm 3 GSK-pure $(0.5, 0.9, 10)$ & \\
+initial probabilities & $(0.05,\, 0.05,\, 0.45,\, 0.05,\, 0.40)$ & \\
+learning rate $c$ & 0.10 & \\
+probability floor $\pi_{\min}$ & 0.05 & soft-freeze target\\
+memory mode & single ($D{<}20$) $\to$ top/bottom ($D{\geq}20$) & \\
+DE arm & on only for $20 \leq D < 100$ & \\
+ARGP window / threshold & 30 gens / 0.02 (0.010 at $D{\geq}50$) & warm-up 0.15\\
+\midrule
+\multicolumn{3}{@{}l}{\emph{Linkage block crossover}}\\
+\midrule
+block size & 5 ($D{<}50$) / 10 ($D{\geq}50$) & \\
+mix probability & 0.70 / 0.40 / 0.70 & by tier band\\
+refresh period & 20 gens ($D{<}50$) / 10 ($D{\geq}50$) & \\
+block source & random; ISM-fed at $D{\geq}50$ & \\
+\midrule
+\multicolumn{3}{@{}l}{\emph{Coordinate local search}}\\
+\midrule
+start fraction & 0.80 / 0.80 / 0.70 / 0.70 & \\
+eval-budget cap & 0.02 / 0.01 / 0.05 / 0.02 & of MaxFES\\
+elite count & 2 / 3 / 5 / 2 & \\
+step scale & 0.20 / 0.20 / 0.10 / 0.10 & $\times\,\sigma_{\mathrm{coord}}$\\
+step decay & $1.0 \rightarrow 0.25$ linear & across endgame window\\
+period / cooldown & 1/1/1/2 gens \ / \ 6/6/6/3 gens & \\
+\midrule
+\multicolumn{3}{@{}l}{\emph{BSE / archive / deep-stall}}\\
+\midrule
+trigger mode & stagnation ($D{<}20$) / triple ($D{\geq}20$) & \\
+window $W$ / signal window & 50 / 10 & $\epsilon = 10^{-8}$\\
+acceptance / diversity floor & 0.10 / 0.35 & inactive at $D{<}20$\\
+elite freeze & top $\mathrm{round}(0.05\,NP)$ & exempt from rescue+restart\\
+Cauchy rescue fraction $r_c$ & worst $\mathrm{round}(0.10\,NP)$ unfrozen & \\
+Cauchy scale $r_s$ & 0.05 ($D{<}20$) / 0.04 ($D{\geq}20$) & $\times D^{-1/2}\!\cdot$span\\
+restart fraction $r_{\mathrm{rst}}$ & 0.30 ($D{<}50$) / 0.10 ($D{\geq}50$) & \\
+max restarts $R_{\max}$ & 4 / 2 / 4 / 2 & hard cap on MaxFES\\
+archive & cap 200 (all $D$), L2 filter 0.05 & \\
+deep-stall & frac 0.25; min-budget 20\,000 & cooldown 0.15; stop 0.9\\
+\midrule
+\multicolumn{3}{@{}l}{\emph{ISM interaction memory --- $D{\geq}50$ only}}\\
+\midrule
+enable gate & $D \geq 50$ & not allocated below\\
+decay $\lambda$ / commit rate $\eta$ & 0.95 / 1.0 & \\
+source weights & 0 (DE arm) / 0.25 (local search) / 1 & per accepted move\\
+refresh period / warm-up & 5 gens ($D{<}100$) / 20 ($D{\geq}100$); 0.10 & \\
+confidence gate $\kappa_{\min}$ & 0.35 linkage (0.45 dormant subspace) & adaptive: window 30, pct 0.50, floor 0.12\\
+edge floor $\varphi$ & $10^{-4}$ & with $\tfrac12$ row-max rule\\
+block size range & $b_{\min} = 2$ to $b_{\max} = 10$ & larger split greedily\\
+readiness & $\geq 10$ updates, 2 refreshes, 4 non-trivial dims & \\
+escape response & graph $\times\,0.50$, 5-gen cooldown & BSE events only\\
+\midrule
+\multicolumn{3}{@{}l}{\emph{Eigenframe polish --- $D{\geq}50$ only}}\\
+\midrule
+arming fraction $s_{\mathrm{fp}}$ & 0.96 & budget cap $0.02\,$MaxFES\\
+basis & eigenvectors of symmetrized $G_{\mathrm{signed}}$ & axes if no signal\\
+step init / growth / halving & 0.05 span / $\times 1.3$ / $\div 2$ & growth capped at $\tfrac12$ span\\
+termination & budget cap or step $< 10^{-12}$ span & strict-improvement accept\\
+\midrule
+\multicolumn{3}{@{}l}{\emph{$D{\geq}100$ controllers}}\\
+\midrule
+A1 late-accept clip & $\tau$-floor 0.85; high-acc 0.30; log-drop $-2.0$; streak 5; strict $10^{-3}$; EMA 0.30 & \\
+A2 frozen-streak broaden & acc-floor 0.05; log-drop $-3.0$; streak 10; window/cooldown 20/10; $KR\times1.5$ & \\
+FC4 linkage random-mix & $\tau$-floor 0.50; lift $-0.05$ / severe $-0.20$; strength 0.5; EMA 0.20 & \\
+basin memory, subspace floor & enabled & \\
+trust-region budget policy & present, runtime-inert & redundant guard\\
+\bottomrule
+\end{tabular}
+\end{center}
 
 \section{The method in pseudocode}
 
