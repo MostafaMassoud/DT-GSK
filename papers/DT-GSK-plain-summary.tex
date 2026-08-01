@@ -66,126 +66,122 @@
 {\small Operations Research Department, Faculty of Graduate Studies for Statistical Research, Cairo University}\\[5pt]
 {\footnotesize A seven-page companion to the paper \emph{DT-GSK: Dimension-Tiered Adaptive Control
 and Deterministic Refinement for Gaining-Sharing Knowledge Optimization}.\\
-Written for readers with no background in this field. Where this summary could
-be read as claiming more than the paper does, the paper governs.}
+For readers who already know population-based metaheuristics. Where this
+summary could be read as claiming more than the paper does, the paper governs.}
 \end{center}
 
 \vspace{2pt}\hrule\vspace{6pt}
 
-\section{The problem}
+\section{Where this sits: GSK and its descendants}
 
-A lot of practical questions turn out to be the same question underneath:
-\emph{out of a huge number of possibilities, which one is best?}
+Gaining-Sharing Knowledge (GSK) is a population-based metaheuristic whose
+update is built on a two-phase human-learning metaphor. Each individual splits
+its coordinates into a \emph{junior} part, which draws knowledge from nearest
+and farthest neighbours in the population, and a \emph{senior} part, which
+draws from the best, middle and worst performers. The junior/senior split is not
+fixed: a decaying schedule governed by $K_{\exp}$ moves coordinates from junior
+to senior as the run proceeds, so the search shifts from local imitation to
+elite-guided refinement. Two scalars control the transfer --- the knowledge
+factor $KF$ (step magnitude) and the knowledge ratio $KR$ (how many coordinates
+actually change) --- and selection is greedy.
 
-\begin{itemize}[leftmargin=1.2em, itemsep=1pt, topsep=3pt]
-\item How should a power network be arranged so it wastes the least energy?
-\item What shape makes a part as strong as possible for its weight?
-\item Which combination of inputs makes a model match the real data most closely?
+\subsection{What the descendants changed}
+
+The published variants attack the base method at three levels, and it is worth
+being precise about which, because it defines the gap.
+
+\begin{itemize}[leftmargin=1.2em, itemsep=2pt, topsep=3pt]
+\item \hl{AGSK} added the family's first adaptive parameter control: each
+      individual draws its $(KF, KR)$ pair from a four-setting pool whose
+      probabilities update from realized improvements, plus a dual-regime
+      knowledge rate and L-SHADE-style linear population reduction.
+\item \hl{APGSK} extended that with a second, negative-$KF$ pool activated
+      after half the budget to re-diversify, a nonlinear reduction schedule,
+      and a much larger initial population.
+\item \hl{FDB-AGSK} left the parameters alone and redesigned \emph{donor
+      policy}: the senior-phase guide becomes fitness--distance-balance
+      selection, aimed at AGSK's premature convergence on multimodal, hybrid
+      and composition functions.
+\item \hl{ATMALS-GSK} and \hl{eGSK} are composite designs, adding memory-based
+      local search and a dual adaptive knowledge factor with a
+      gradient-based interior-point refinement respectively.
 \end{itemize}
 
-These problems are hard for two reasons. There is no formula that gives you the
-answer. And there are far too many possibilities to try them all.
+Two things are common to all of them. What adapts is a \emph{scalar} --- a
+parameter value, or which individual knowledge flows from --- never
+\emph{which coordinates move together}. And each variant fixes its behaviour
+at a single operating point.
 
-What you \emph{can} do is guess an answer, measure how good it is, and try
-again. But each measurement is expensive: a simulation, a lab experiment, a
-long calculation. So you only get a limited number of tries, and your job is to
-spend them wisely.
+\subsection{The gap}
 
-This is called \hl{black-box optimization}. You can score an answer, but you
-cannot look inside the problem and work out the solution directly.
+\hl{Every published variant uses one configuration regardless of problem
+dimension.} That is a real weakness, because the useful machinery changes
+qualitatively with $D$.
 
-\subsection{One word you need: ``unknowns''}
+At $D = 10$ the space is small enough that careful structure learning and a
+deterministic endgame are affordable and pay off. At $D = 1000$ the same
+machinery consumes budget that a plain, well-scheduled population would spend
+better --- while controllers that are pointless at low $D$ (basin memory,
+subspace floors, acceptance clipping) start to matter. Evidence bases compound
+this: AGSK and APGSK are evaluated at $D \leq 20$ under budgets far larger
+relative to dimension than the CEC2017 protocol, and FDB-AGSK at a tenth of the
+standard budget with $D = 10$ untested.
 
-\hl{An ``unknown'' is one quantity you are allowed to change.} If you are
-designing a beam and you can choose its length, width, and thickness, that
-problem has three unknowns. Think of them as dials you can turn.
-
-Some problems have 10 dials. Some have 1{,}000. \hl{That number is the key to
-this whole paper.}
-
-\subsection{How these methods work}
-
-Most methods for this job work a bit like breeding plants.
-
-\begin{enumerate}[leftmargin=1.4em, itemsep=1pt, topsep=3pt]
-\item Start with a group of candidate answers.
-\item Mix and adjust them to make new ones.
-\item Test the new ones. Keep the better ones, drop the worse ones.
-\item Repeat until you run out of tries.
-\end{enumerate}
-
-The skill is in step 2. Be too careful and you never discover anything new. Be
-too wild and you never settle down and refine a good answer.
-
-\section{The family this work builds on}
-
-This project builds on a method called \hl{Gaining-Sharing Knowledge}, or GSK.
-It copies the way people learn.
-
-When you are new at something, you learn from people just ahead of you and just
-behind you. Later, once you have some experience, you learn from the very best
-people you can reach. GSK gives its candidate answers those same two modes: a
-\hl{junior} mode that copies near neighbours, and a \hl{senior} mode that copies
-the best and worst performers in the group.
-
-Several improved versions of GSK have been published in recent years. Each one
-adjusts how those two modes are tuned.
-
-\subsection{The gap this paper found}
-
-All of those versions share one habit. Each one settles on a single way of
-behaving, and uses it for everything. \hl{The same dial settings are used whether
-the problem has 10 unknowns or 1{,}000.}
-
-That is a genuine weakness, because the size of a problem changes what a good
-strategy looks like.
-
-With 10 unknowns the search space is small enough to explore carefully, and
-careful machinery pays off. With 1{,}000 unknowns that same machinery just burns
-through the budget, while other tools, useless on a small problem, start to help
-a lot.
-
-\hl{One setting cannot be right for both.} That is the gap.
+\hl{One operating point cannot be right across that range.}
 
 \section{What DT-GSK does differently}
 
-DT-GSK changes its own machinery to match the size of the problem. That is what
-``Dimension-Tiered'' means in its name.
+DT-GSK resolves control \emph{by dimension} rather than at one operating
+point. It defines four tiers --- $D<20$, $20$--$49$, $50$--$99$, $D\geq100$ ---
+and gates whole subsystems on or off across them.
 
-\hl{Think of a gearbox with four gears:} under 20 unknowns, 20 to 49, 50 to 99,
-and 100 or more.
+\hl{The tier is resolved once, from $D$, before the run starts, and never
+changes during it.} There is no online tier switching to reason about: a
+$D=60$ problem simply instantiates a different machine than a $D=15$ one.
 
-One important detail. \hl{The gear is chosen once, before the search starts,
-based purely on how many unknowns the problem has. It never changes during the
-run.} A 60-unknown problem simply gets different parts switched on than a
-15-unknown one does.
+\begin{center}
+\small
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+\textbf{Subsystem} & $D{<}20$ & $20$--$49$ & $50$--$99$ & $D{\geq}100$ \\
+\midrule
+Inherited GSK core (mask and ties modified) & on & on & on & on \\
+NLPSR population-size reduction & on & on & on & on \\
+ACE operator selector + ARGP pruning & on & on & on & on \\
+Linkage block crossover & on & on & on & on \\
+Coordinate local search & on & on & on & on \\
+BSE escape + archive, deep-stall restart & on & on & on & on \\
+\textbf{ISM interaction memory} & off & off & \textbf{on} & \textbf{on} \\
+\textbf{Eigenframe final polish} & off & off & \textbf{on} & \textbf{on} \\
+\textbf{Upper-tier controllers} & off & off & off & \textbf{on} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Note what this table settles: the adaptive scaffold runs at \emph{every}
+tier. Only three blocks are gated, and the two that carry DT-GSK's
+distinctive claims --- the interaction memory and the deterministic polish ---
+do not exist below $D=50$.
 
 \begin{center}
 \begin{tikzpicture}[node distance=2.4mm]
 \node[dtterm] (start) {START};
-\node[dtbox, below=of start] (size) {Count the unknowns in the problem};
-\node[dtgate, below=of size] (gear) {\textbf{Choose the gear} (once, and for good)\\[1pt]
-  \scriptsize under 20 \,$\cdot$\, 20--49 \,$\cdot$\, 50--99 \,$\cdot$\, 100+};
-\node[dtbox, below=of gear] (init) {Create a group of random candidate answers
-  and score them};
+\node[dtbox, below=of start] (size) {Read the problem dimension $D$};
+\node[dtgate, below=of size] (gear) {\textbf{Resolve the tier} (once, before the run)\\[1pt]
+  \scriptsize $D{<}20$ \,$\cdot$\, $20$--$49$ \,$\cdot$\, $50$--$99$ \,$\cdot$\, $D{\geq}100$};
+\node[dtbox, below=of gear] (init) {Initialize $NP = 5D$, evaluate};
 
-\node[dtbox, below=3mm of init] (mode) {\textbf{1.} Pick a working mode
-  (favour ones that have been helping)};
-\node[dtbox, below=of mode] (make) {\textbf{2.} Make new candidate answers
-  (junior and senior learning)};
-\node[dtbox, below=of make] (test) {\textbf{3.} Score them. Keep each one only
-  if it is no worse};
-\node[dtbox, below=of test] (shrink) {\textbf{4.} Slowly shrink the group;
-  if stuck, shake it up or restart\\[1pt]
-  \scriptsize (a restart never loses the best answer so far)};
-\node[dtgate, below=of shrink] (map) {\textbf{5.} \emph{50+ unknowns only:}
-  update the map of which dials move together};
+\node[dtbox, below=3mm of init] (mode) {\textbf{1.} ACE draws an arm; ARGP prunes weak arms};
+\node[dtbox, below=of mode] (make) {\textbf{2.} Junior/senior update; block crossover mask};
+\node[dtbox, below=of make] (test) {\textbf{3.} Evaluate; greedy selection (ties accepted)};
+\node[dtbox, below=of test] (shrink) {\textbf{4.} NLPSR shrink; BSE escape / deep-stall restart\\[1pt]
+  \scriptsize (the global best is always preserved)};
+\node[dtgate, below=of shrink] (map) {\textbf{5.} \emph{$D{\geq}50$ only:} update the ISM graph};
 
-\node[dtbox, below=3mm of map] (budget) {Any budget left?
-  \ \scriptsize\textbf{yes} $\rightarrow$ back to step 1};
-\node[dtgate, below=of budget] (polish) {\emph{50+ unknowns only:} final polish
-  --- a careful, repeatable search, no randomness};
-\node[dtterm, below=of polish] (end) {RETURN best answer};
+\node[dtbox, below=3mm of map] (budget) {Budget remaining? \ \scriptsize\textbf{yes} $\rightarrow$ step 1};
+\node[dtgate, below=of budget] (polish) {\emph{$D{\geq}50$ only:} eigenframe polish\\[1pt]
+  \scriptsize one-shot RNG-free compass search, from $s_{\mathrm{fp}}{=}0.96$};
+\node[dtterm, below=of polish] (end) {RETURN global best};
 
 \draw[dtflow] (start)--(size);
 \draw[dtflow] (size)--(gear);
@@ -209,102 +205,125 @@ run.} A 60-unknown problem simply gets different parts switched on than a
   (budget.east) -- ++(1.15,0) |- (mode.east);
 \end{tikzpicture}
 
-{\footnotesize\textbf{Figure 1.} How DT-GSK runs. The two gold boxes are the
-parts that only switch on for larger problems.}
+{\footnotesize\textbf{Figure 1.} DT-GSK's execution order. Gold marks the
+dimension-gated stages; the tier itself is fixed before the loop begins.}
 \end{center}
 
-\section{The three ideas inside it}
+\section{The three contributions}
 
-\subsection{Idea 1: machinery that tunes itself}
+\subsection{C2 --- the dimension-tiered adaptive scaffold}
 
-Instead of fixing its settings in advance, DT-GSK keeps several working modes
-available and watches which ones are actually producing improvements. Modes that
-help get picked more often. Modes that stop helping are set aside, but not
-permanently, so a mode can come back if it becomes useful again.
+The scaffold is an ensemble of control mechanisms, all active at every tier:
 
-It also shrinks its group of candidates over time: early on it spreads effort
-wide, later it concentrates on refining what it has. And it has a safety net.
-If progress stalls badly it restarts from fresh candidates while keeping the
-best answer found so far, so \hl{a restart can never lose ground.}
+\begin{itemize}[leftmargin=1.2em, itemsep=2pt, topsep=3pt]
+\item \hl{ACE}, a bandit-style operator-configuration selector over five arms
+      (six in the mid-tiers, where a differential-evolution arm is enabled).
+      Arm 3 is the GSK-pure setting $(0.5, 0.9, 10)$, so the base method is
+      always reachable. Credit is an exponential moving average of realized
+      improvement, with a probability floor so no arm dies outright.
+\item \hl{ARGP}, which soft-freezes arms whose windowed acceptance falls below
+      a tier threshold after warm-up --- pruning to $\pi_{\min}=0.05$ rather
+      than removing, so a pruned arm can recover.
+\item \hl{NLPSR}, a nonlinear population-size reduction schedule with a tier
+      floor ($N_{\min}=12$, raised to 25 at $D\geq50$).
+\item \hl{Linkage block crossover}, replacing the per-coordinate $KR$ mask with
+      a block mask over non-contiguous coordinate subsets for about 70\% of the
+      population. Below $D=50$ the blocks are random; at $D\geq50$ they are
+      supplied by the interaction memory.
+\item \hl{BSE}, a triple-trigger stagnation escape (acceptance, diversity and
+      signal floors) firing a Cauchy rescue and, if the rescue fails, an
+      archive-seeded partial restart --- hard-capped so it cannot overshoot
+      MaxFES.
+\item \hl{A deep-stall restart} that fully re-initializes the working
+      population while preserving the global best, so \hl{a restart can never
+      lose ground.}
+\end{itemize}
 
-\hl{This part runs at every problem size, including the smallest ones.}
+At $D\geq100$ a further block of upper-tier controllers activates: basin memory,
+a subspace floor, late-accept clipping, frozen-streak broadening, and linkage
+random-mixing.
 
-\subsection{Idea 2: a careful, repeatable finish}
+\subsection{C1 --- the deterministic eigenframe polish}
 
-Most methods in this family finish the way they started: randomly. DT-GSK does
-something different at the end. It stops guessing and runs a \hl{systematic
-search} around its best answer. Step one way, test. Step the other way, test.
-Shrink the step. Repeat. There is no randomness in it at all.
+Where the family ends stochastically, DT-GSK ends with a \hl{one-shot, RNG-free
+compass search} on a learned eigenbasis, opened at $s_{\mathrm{fp}}=0.96$ of the
+budget: step along each basis direction, evaluate, contract, repeat. It is
+budget-exact --- every evaluation it spends is charged through the same
+accounting path --- and it \hl{only exists at $D\geq50$}, where the graph that
+supplies its basis exists.
 
-\hl{This only switches on from 50 unknowns upward}, and it runs once, in the last
-few percent of the budget.
+The practical consequence is repeatability. A stochastic endgame returns a
+slightly different incumbent each run; this one returns bit-identical results
+--- \emph{in the declared single-threaded environment the study used.} The paper
+is explicit that this is not a cross-thread or cross-platform guarantee.
 
-It helps in a practical way too. A random finish gives a slightly different
-answer every time you run it. A repeatable finish gives exactly the same answer
-every time --- \emph{as long as you run it on the same computer setup the study
-used.} The paper is careful to say this is not promised across different
-hardware.
+\subsection{C3's exploratory component --- ISM, and its null result}
 
-\subsection{Idea 3: a memory of what worked (the honest one)}
+The interaction-structure memory accumulates a decaying ($\lambda=0.95$),
+confidence-gated ($\kappa_{\min}=0.35$) coordinate-pair graph from strictly
+improving accepted moves. It has exactly two consumers: linkage blocks for the
+crossover mask, and the signed-graph eigenbasis for the polish. \hl{Like the
+polish, it is gated to $D\geq50$.}
 
-The third idea is more experimental. While it searches, DT-GSK notices which
-\emph{pairs} of dials tend to improve together, and builds a simple map of those
-relationships. It uses the map to decide which dials to change as a group, and to
-aim the final polish. \hl{Like the polish, it only switches on from 50 unknowns
-up.}
+It costs \hl{no extra objective evaluations} --- it is assembled from moves the
+optimizer already made. It is not free in wall-clock, though: isolating it
+measured \hl{+57.3\% at CEC2017 $D{=}50$, +36.3\% at $D{=}100$, and +30.3\% on
+CEC2013 $D{=}50$}.
 
-Building the map needs no extra measurements of the problem. It is put together
-from measurements the method was already taking.
+And the direct isolation is a \hl{registered negative result: no detectable
+standalone benefit at its active tiers.} The authors ran the contrast to find
+out, got a null, and advertised it in the abstract and conclusions rather than
+confining it to a supplement. So the component cost real time and bought nothing
+measurable --- and that is the published finding. It is positioned as a
+secondary exploratory mechanism, explicitly not the performance driver.
 
-But it is not free. Switching it on made runs roughly \hl{30 to 57 percent
-slower} in the authors' own timings.
-
-And here the paper says something you rarely see. \hl{When this memory was
-tested on its own, it produced no measurable benefit.} The authors ran that test
-specifically to find out, got a negative answer, and put it in the paper's
-abstract and conclusions instead of leaving it out. So this component cost real
-computing time and bought nothing they could detect --- and they published that.
-
-\section{The method, step by step}
-
-Here is the whole method in plain steps. ``D'' just means the number of unknowns.
+\section{The method in pseudocode}
 
 \begin{tcolorbox}[colback=boxgrey, colframe=black!45, boxrule=0.4pt,
   arc=2pt, left=3.5mm, right=2.5mm, top=2mm, bottom=2mm]
 {\small
-\textbf{INPUT:} the problem, its number of unknowns $D$, and a fixed budget of
-tests.\\[3pt]
+\textbf{INPUT:} objective $f$, dimension $D$, bounds $[\ell,u]$, budget MaxFES
+(suite-dependent), seed.\\[3pt]
 
-\textbf{1. Choose the gear} from $D$, once, before starting:\\
-\hspace*{4mm}$D < 20$ \ \ \ \ \ $\rightarrow$ self-tuning machinery only\\
-\hspace*{4mm}$D = 20\!-\!49$ \ \ $\rightarrow$ the above, plus an extra working mode\\
-\hspace*{4mm}$D = 50\!-\!99$ \ \ $\rightarrow$ the above, plus the pair-map and the final polish\\
-\hspace*{4mm}$D \geq 100$ \ \ \ $\rightarrow$ the above, plus extra protections for big problems\\[3pt]
+\textbf{1. Resolve the tier from $D$} --- once, before the run:\\
+\hspace*{4mm}$D<20$ \ \ \ \ \ \ $\rightarrow$ scaffold only (ACE+ARGP, NLPSR, blocks, LS, BSE, restart)\\
+\hspace*{4mm}$20\!-\!49$ \ \ \ \ $\rightarrow$ + differential-evolution arm in the ACE pool\\
+\hspace*{4mm}$50\!-\!99$ \ \ \ \ $\rightarrow$ + ISM graph, ISM-fed linkage blocks, eigenframe polish\\
+\hspace*{4mm}$D\geq100$ \ \ \ $\rightarrow$ + upper-tier controllers (basin memory, subspace floor, \ldots)\\[3pt]
 
-\textbf{2. Set up.} Create $5 \times D$ random candidate answers. Score them all.\\[3pt]
+\textbf{2. Initialize} $NP \leftarrow 5D$ from the seeded stream; evaluate; open the
+13 RNG substreams.\\[3pt]
 
-\textbf{3. REPEAT until the budget is nearly spent:}\\
-\hspace*{4mm}\textbf{a.} Pick a working mode, favouring ones that have been helping lately.\\
-\hspace*{4mm}\textbf{b.} For each candidate, build one new trial answer:\\
-\hspace*{9mm}$\cdot$ \emph{junior} --- copy from near neighbours\\
-\hspace*{9mm}$\cdot$ \emph{senior} --- copy from the best and the worst\\
-\hspace*{4mm}\textbf{c.} Score each trial. Keep it only if it is no worse than what it replaces.\\
-\hspace*{4mm}\textbf{d.} Slightly shrink the group of candidates.\\
-\hspace*{4mm}\textbf{e.} \emph{If $D \geq 50$:} update the map of which dials move together.\\
-\hspace*{4mm}\textbf{f.} If progress has stalled: shake up the worst candidates. If it is\\
-\hspace*{9mm}still stuck, restart --- but never lose the best answer found.\\[3pt]
+\textbf{3. REPEAT} while budget remains:\\
+\hspace*{4mm}\textbf{a.} ACE selects an arm $(KF, KR, K_{\exp})$ by EMA credit;
+ARGP soft-freezes\\
+\hspace*{9mm}under-performing arms to $\pi_{\min}$ after warm-up.\\
+\hspace*{4mm}\textbf{b.} Partition coordinates junior/senior by the $K_{\exp}$ schedule;
+build\\
+\hspace*{9mm}the trial vector (junior: near neighbours; senior: best/middle/worst).\\
+\hspace*{4mm}\textbf{c.} Apply the crossover mask --- block mask for $\approx$70\% of rows\\
+\hspace*{9mm}(ISM-supplied blocks if $D\geq50$, random otherwise).\\
+\hspace*{4mm}\textbf{d.} Repair to bounds; evaluate; greedy selection, accepting ties.\\
+\hspace*{4mm}\textbf{e.} NLPSR shrinks $NP$ toward its tier floor.\\
+\hspace*{4mm}\textbf{f.} \emph{If $D\geq50$:} update the ISM graphs from strictly improving\\
+\hspace*{9mm}accepted moves; re-extract linkage blocks on the tier cadence.\\
+\hspace*{4mm}\textbf{g.} \emph{If stagnating:} BSE Cauchy rescue on the worst rows; if it\\
+\hspace*{9mm}fails, archive-seeded partial restart. On a deep stall, full\\
+\hspace*{9mm}re-initialization --- the global best is never discarded.\\[3pt]
 
-\textbf{4. Final polish} \emph{(only if $D \geq 50$).} Spend the last few percent
-of the budget\\
-\hspace*{4mm}searching carefully around the best answer: step along a direction,\\
-\hspace*{4mm}test, shrink the step, repeat. No randomness.\\[3pt]
+\textbf{4. Eigenframe polish} \emph{(only if $D\geq50$)}, once, from
+$s_{\mathrm{fp}}=0.96$ of\\
+\hspace*{4mm}the budget: compass search along the signed-graph eigenbasis ---
+step,\\
+\hspace*{4mm}evaluate, contract --- with no RNG draws and budget-exact accounting.\\[3pt]
 
-\textbf{5. RETURN} the best answer seen at any point.
+\textbf{5. RETURN} the global best ever accepted.
 }
 \end{tcolorbox}
 
-Notice that steps 1 and 4 are what make this method different from the rest of
-its family. Everything else is a refinement of ideas the family already had.
+Steps 1 and 4 are the novelty. Everything else is the family's existing
+machinery, re-scheduled: the contribution is \emph{where} each mechanism is
+allowed to act, not a new base operator.
 
 \section{How it was tested}
 
@@ -365,29 +384,25 @@ CEC2013LSGO & 15 very large problems & 1{,}000 (two at 905) & 25 \\
       seen the standings before writing their plan.
 \end{itemize}
 
-\subsection{How the scores were compared}
+\subsection{The statistical protocol}
 
-Raw scores vary enormously from problem to problem, so the study uses
-\hl{average rank} instead. On each problem the seven methods are ranked 1st to
-7th. Those positions are then averaged.
+Standings are \hl{Friedman mean ranks} over the seven-member panel, taken
+per dimension and aggregated. Separation is tested with \hl{Wilcoxon
+signed-rank} tests at the function level, \hl{Holm-corrected} within each
+dimension family, with Nemenyi critical differences reported for the omnibus
+layer and rank-biserial effect sizes alongside.
 
-\begin{center}
-\small
-\begin{tabular}{@{}cl@{}}
-\toprule
-\textbf{Average rank} & \textbf{Meaning} \\
-\midrule
-1.0 & won every single problem \\
-2.5 & usually near the top \\
-4.0 & exactly middle of the pack \\
-7.0 & lost every single problem \\
-\bottomrule
-\end{tabular}
-\end{center}
+Two disciplines matter for reading the results:
 
-Separate statistical tests then ask whether a gap is real or could just be luck.
-\hl{Important: the average ranks below are descriptive summaries. No statistical
-test is attached to them.}
+\begin{itemize}[leftmargin=1.2em, itemsep=2pt, topsep=3pt]
+\item \hl{The rank aggregates carry no attached test.} The headline
+      cross-dimension figures are descriptive summaries; no cross-dimension
+      test is claimed for them.
+\item \hl{Evidential tiers never cross.} An omnibus or Nemenyi separation is
+      never reported as a paired-test result, and the CEC2013LSGO descriptive
+      layer --- inspected before the analysis plan was signed --- carries no
+      confirmatory weight anywhere.
+\end{itemize}
 
 \section{What they found}
 
