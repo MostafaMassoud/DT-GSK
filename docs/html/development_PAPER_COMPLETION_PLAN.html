@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Paper Completion Plan — five-suite manuscript to `dtgsk-submission-v2.0` - GSK Family Python Documentation">
+  <title>Paper Completion Plan — five-suite manuscript to `dtgsk-submission-v2.0` | GSK Family Python Documentation</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <div class="site-shell">
+    <aside class="sidebar">
+<div class="brand"><a href="index.html">GSK Family Python</a></div>
+<input class="nav-search" type="search" placeholder="Filter docs" aria-label="Filter docs">
+<nav class="nav-list" aria-label="Documentation">
+<section><h2>Getting Started</h2>
+<a class="nav-link" href="getting-started_configuration.html">Configuration</a>
+<a class="nav-link" href="getting-started_explainer.html">Explainer</a>
+<a class="nav-link" href="getting-started_runbook.html">Runbook</a>
+<a class="nav-link" href="getting-started_troubleshooting.html">Troubleshooting</a>
+<a class="nav-link" href="getting-started_tutorial.html">Tutorial</a>
+<a class="nav-link" href="getting-started_user_guide.html">User Guide</a>
+</section>
+<section><h2>Reference</h2>
+<a class="nav-link" href="reference_api.html">API Reference</a>
+<a class="nav-link" href="reference_architecture.html">Architecture</a>
+<a class="nav-link" href="reference_benchmark_mapping.html">Benchmark Mapping</a>
+<a class="nav-link" href="reference_benchmark_protocol.html">Benchmark Protocol</a>
+<a class="nav-link" href="reference_cec2011_cpp_python_equivalence_review.html">CEC2011 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013_cpp_python_equivalence_review.html">CEC2013 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013lsgo_cpp_python_equivalence_review.html">CEC2013LSGO C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2017_cpp_python_equivalence_review.html">CEC2017 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2020_cpp_python_equivalence_review.html">CEC2020 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="index.html">Documentation Index</a>
+<a class="nav-link" href="reference_fp_regime.html">Floating-Point Regime Verification</a>
+<a class="nav-link" href="reference_diagrams.html">Flowcharts And Diagrams</a>
+<a class="nav-link" href="reference_glossary.html">Glossary</a>
+<a class="nav-link" href="LICENSES.html">Licenses</a>
+<a class="nav-link" href="reference_module_dependencies.html">Module Dependencies</a>
+<a class="nav-link" href="reference_project_structure.html">Project Structure</a>
+<a class="nav-link" href="reference_python_optimizer_interface.html">Python Optimizer Interface</a>
+<a class="nav-link" href="reference_result_schema.html">Result Schema</a>
+<a class="nav-link" href="reference_seed_policy.html">Seed Policy</a>
+<a class="nav-link" href="reference_workflows.html">Workflows</a>
+</section>
+<section><h2>Algorithm Guides</h2>
+<a class="nav-link" href="algorithms_agsk.html">AGSK — Adaptive Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_apgsk.html">APGSK — Adaptive-Parameters Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_atmals-gsk.html">ATMALS-GSK — Adaptive Tuning, Memory, Adaptive Local Search</a>
+<a class="nav-link" href="algorithms_dt-gsk.html">DT-GSK — Dimension-Tiered Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_egsk.html">EGSK — Enhanced Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_fdb-agsk.html">FDB-AGSK — Fitness-Distance-Balance AGSK</a>
+<a class="nav-link" href="algorithms_gsk.html">GSK — Gaining-Sharing Knowledge</a>
+</section>
+<section><h2>Development</h2>
+<a class="nav-link" href="development_BUG_resume_summary_truncation.html">BUG-RESUME-01 — resume mode truncates (and mis-computes) the per-dimension summary CSV</a>
+<a class="nav-link" href="development_LSGO_ACCELERATION_PLAN.html">CEC2013LSGO Acceleration Plan — all 7 GSK-family algorithms, bit-identically</a>
+<a class="nav-link" href="development_LSGO_INTEGRATION_CAMPAIGN.html">CEC2013LSGO Integration — Campaign Plan</a>
+<a class="nav-link" href="development_CEC2017_PREC_adjudication.html">CEC2017-PREC — adjudication (CLOSED 2026-07-25)</a>
+<a class="nav-link" href="development_code_reading_guide.html">Code Reading Guide</a>
+<a class="nav-link" href="development_contributor_guide.html">Contributor Guide</a>
+<a class="nav-link" href="development_DECC_G_port_record.html">DECC-G port — fidelity and validation record</a>
+<a class="nav-link" href="development_developer_guide.html">Developer Guide</a>
+<a class="nav-link" href="development_README.html">Development Docs</a>
+<a class="nav-link" href="development_dt_gsk_core_reference.html">DT-GSK Core Reference — the vendored core and its byte-identity lock</a>
+<a class="nav-link" href="development_evidence_rerun_runbook.html">DT-GSK re-run runbook — corrected implementation (C006 + graph backend)</a>
+<a class="nav-link" href="development_egsk_port_spec.html">EGSK — Algorithm Spec &amp; Porting Verdict</a>
+<a class="nav-link" href="development_extension_guide.html">Extension Guide</a>
+<a class="nav-link" href="development_FAMILY_ACCELERATION_PLAN.html">Family-wide acceleration plan — 7 algorithms x 5 suites, bit-identical only</a>
+<a class="nav-link" href="development_FINAL_PUBLICATION_PLAN.html">FINAL PUBLICATION PLAN — DT-GSK, Four(/Five)-Suite Scope</a>
+<a class="nav-link" href="development_ACCELERATION_CAMPAIGN_PROMPT.html">GSK-Family Acceleration Campaign — Execution Prompt</a>
+<a class="nav-link" href="development_maintenance_guide.html">Maintenance Guide</a>
+<a class="nav-link active" href="development_PAPER_COMPLETION_PLAN.html">Paper Completion Plan — five-suite manuscript to `dtgsk-submission-v2.0`</a>
+<a class="nav-link" href="development_PORT_05_TUNING_TRIAGE.html">Porting project-05 tuning into 02 — Phase 1 audit and triage</a>
+<a class="nav-link" href="development_REFERENCE_PROMOTION_PLAN.html">Reference Promotion Plan — CEC2013LSGO now, CEC2020 behind its completeness gate</a>
+<a class="nav-link" href="development_SIBLING_CAMPAIGN_TRANSFER.html">Sibling-Campaign Transfer — every tuning that can make the GSK family fast</a>
+</section>
+<section><h2>Research</h2>
+<a class="nav-link" href="research_egsk_validation_appendix.html">EGSK Validation Appendix — Paired Port-vs-Reference Equivalence</a>
+<a class="nav-link" href="research_numerical_examples.html">Numerical Examples</a>
+<a class="nav-link" href="research_performance.html">Performance</a>
+<a class="nav-link" href="research_reproducibility.html">Reproducibility</a>
+<a class="nav-link" href="research_researcher_handbook.html">Researcher Handbook</a>
+<a class="nav-link" href="research_statistical_analysis.html">Statistical Analysis (GSK-family comparison)</a>
+<a class="nav-link" href="research_validation_report.html">Validation Report</a>
+</section>
+<section><h2>Prompts</h2>
+<a class="nav-link" href="prompt_documentation-deep-upgrade.html">Deep Documentation Review &amp; Upgrade Prompt — GSK Family Python</a>
+<a class="nav-link" href="prompt_project-review.html">Deep Expert Review Prompt For GSK Family Python</a>
+<a class="nav-link" href="prompt_documentation-review.html">Documentation Review Prompt</a>
+<a class="nav-link" href="prompt_publication-polish.html">Final Publication Prompt — Production-Ready Q1 Release of GSK Family Python v1.1</a>
+</section>
+<section><h2>Python API</h2>
+<a class="nav-link" href="api_index.html">API Module Index</a>
+<a class="nav-link api-link" href="api/gsk_family.__init__.html">gsk_family.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.__init__.html">gsk_family.analysis.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.family_report.html">gsk_family.analysis.family_report</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.figures.html">gsk_family.analysis.figures</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.latex_tables.html">gsk_family.analysis.latex_tables</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.project_policy.html">gsk_family.analysis.project_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.result_loader.html">gsk_family.analysis.result_loader</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistical_tests.html">gsk_family.analysis.statistical_tests</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistics.html">gsk_family.analysis.statistics</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.__init__.html">gsk_family.benchmark_adapter.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.factory.html">gsk_family.benchmark_adapter.factory</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.problem.html">gsk_family.benchmark_adapter.problem</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.protocol.html">gsk_family.benchmark_adapter.protocol</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.__init__.html">gsk_family.cli.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.list.html">gsk_family.cli.list</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.run.html">gsk_family.cli.run</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.stats.html">gsk_family.cli.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.validate.html">gsk_family.cli.validate</a>
+<a class="nav-link api-link" href="api/gsk_family.common.__init__.html">gsk_family.common.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.common.bounds.html">gsk_family.common.bounds</a>
+<a class="nav-link api-link" href="api/gsk_family.common.donors.html">gsk_family.common.donors</a>
+<a class="nav-link api-link" href="api/gsk_family.common.numeric_compat.html">gsk_family.common.numeric_compat</a>
+<a class="nav-link api-link" href="api/gsk_family.common.population.html">gsk_family.common.population</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reduction.html">gsk_family.common.reduction</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reference_rng.html">gsk_family.common.reference_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.rng.html">gsk_family.common.rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.threefry_rng.html">gsk_family.common.threefry_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.__init__.html">gsk_family.optimizers.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_profiles.html">gsk_family.optimizers._dt_profiles</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_rng.html">gsk_family.optimizers._dt_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._kernels.html">gsk_family.optimizers._kernels</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.agsk.html">gsk_family.optimizers.agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.apgsk.html">gsk_family.optimizers.apgsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_gsk.html">gsk_family.optimizers.atmals_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_helpers.html">gsk_family.optimizers.atmals_helpers</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.dt_gsk.html">gsk_family.optimizers.dt_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.egsk.html">gsk_family.optimizers.egsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.__init__.html">gsk_family.optimizers.external.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._base.html">gsk_family.optimizers.external._base</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._telemetry_shim.html">gsk_family.optimizers.external._telemetry_shim</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.cmaes.html">gsk_family.optimizers.external.cmaes</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.decc_g.html">gsk_family.optimizers.external.decc_g</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.ebowithcmar.html">gsk_family.optimizers.external.ebowithcmar</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.jso.html">gsk_family.optimizers.external.jso</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade.html">gsk_family.optimizers.external.lshade</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade_spacma.html">gsk_family.optimizers.external.lshade_spacma</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.mos_cec2013lsgo.html">gsk_family.optimizers.external.mos_cec2013lsgo</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.shade_ils.html">gsk_family.optimizers.external.shade_ils</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_agsk.html">gsk_family.optimizers.fdb_agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_scores.html">gsk_family.optimizers.fdb_scores</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.gsk.html">gsk_family.optimizers.gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.__init__.html">gsk_family.runners.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.config.html">gsk_family.runners.config</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.fp_regime.html">gsk_family.runners.fp_regime</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.output.html">gsk_family.runners.output</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.parallel.html">gsk_family.runners.parallel</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.performance.html">gsk_family.runners.performance</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.run_experiment.html">gsk_family.runners.run_experiment</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.seed_policy.html">gsk_family.runners.seed_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.verification.html">gsk_family.runners.verification</a>
+<a class="nav-link api-link" href="api/gsk_family.stats.html">gsk_family.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.types.html">gsk_family.types</a>
+</section>
+</nav></aside>
+    <main class="content">
+      <article class="doc-card">
+        <h1 id="paper-completion-plan-five-suite-manuscript-to-dtgsk-submission-v2-0">Paper Completion Plan — five-suite manuscript to <code>dtgsk-submission-v2.0</code></h1>
+<p>Status: <strong>AWAITING AUTHOR APPROVAL — no manuscript file is touched until then.</strong> Evidence-tree closure: <strong>VERIFIED CLOSED</strong> (see Appendix). Baseline: all five suites complete, promoted, and analyzed (85,855 runs across 35 banks; releases <code>rel-2026-07-20-67d9345f9</code> / <code>lsgo-rel-2026-07-28-ff1a046ef</code> / <code>cec2020-rel-2026-07-29-5867abe1e</code>; ablation <code>abl-rel-2026-07-20</code>). Registered statistics computed for every family; outcome sentences data-resolved (SAP Amendments 1–2). Citation corpus at 61, validator green. Evidence-tree closure audit: see the verdict appended at the end of this document.</p>
+<p>The empirical story the manuscript must now tell, fixed by the registered pipeline and not negotiable during drafting:</p>
+<div class="table-wrap"><table><thead><tr><th>Suite</th><th>DT-GSK standing</th><th>Authority</th></tr></thead><tbody><tr><td>CEC2017 (primary)</td><td>first (2.48 aggregate)</td><td>frozen release, unchanged</td></tr><tr><td>CEC2013</td><td>first (2.80)</td><td>frozen release, unchanged</td></tr><tr><td>CEC2011</td><td>as frozen</td><td>frozen release, unchanged</td></tr><tr><td>CEC2020</td><td><strong>fourth of seven</strong>; Holm-separated in 5/24 pairwise (3 wins, 2 losses); <code>[AGSK first]</code> wording-bank sentence applies verbatim</td><td>Amendment 2 §A2.2–A2.3</td></tr><tr><td>CEC2013LSGO</td><td>tied-first descriptive with AGSK; paired tests separate nothing; effect layer bars any superiority claim over atmals-gsk</td><td>Amendment 1 + 2</td></tr></tbody></table></div>
+<p>Standing constraints (absolute, unchanged): frozen releases never re-minted; pre-registration append-only; LaTeX authored via Write/Edit only (heredoc backslash trap); PDF epoch 1783468800 + FORCE_SOURCE_DATE=1; DOCX epoch 1783641600 (a persisted shell var silently breaks reproducibility — set it explicitly, verify ×2); no reviewer names/DOIs/metrics fabricated; author commits nothing mid-phase without coordination (the 01:20 sweep precedent).</p>
+<p>---</p>
+<h2 id="phase-w1-main-text-surgery-owner-agent-gate-author-reads-the-diff">Phase W1 — Main-text surgery (owner: agent; gate: author reads the diff)</h2>
+<p>All sites pre-mapped file:line by the Phase-4 inventory (11-agent audit).</p>
+<ol>
+<li><strong>Suite enumerations, 15 sites</strong> (<code>main.tex:218/289</code>, <code>introduction.tex:134/158</code>,</li>
+<p><code>performance.tex:9/106/748/959</code>, <code>related_work.tex:221</code>, abstract, Data Availability, plus the supplement mirrors): three-suite wording → five-suite wording. Where a site states the *scored* protocol, the CEC2020/LSGO protocol facts come from the addendum (38 cells / 30 runs; 15 functions / 25 runs).</p>
+<li><strong>Headline recount</strong>: &quot;first overall on CEC2017 and CEC2013; fourth on</li>
+<p>CEC2020 (a comparator&#x27;s home suite, predicted boundary); tied-first descriptive on CEC2013LSGO with no paired separation&quot; — counts filled only from <code>friedman_ranks_*_overall.csv</code> files, never typed from memory.</p>
+<li><strong>Pre-registration surfaced as a strength</strong>: one main-text sentence records</li>
+<p>that the CEC2020 analysis and all outcome wording were committed before any CEC2020 result existed (signing commit <code>5c9bfae82</code>), pointing to S8. NO minute-level margin in the manuscript: the &quot;15m52s&quot; figure is attested only in Amendment 1 (line 52, a dated record) and derives from an unpromoted file mtime -- the closure audit found a second defensible anchor (first session log, 16m39s), which proves minute precision is anchor-dependent. The commit-level fact is git-verifiable; minutes are not.</p>
+<li><strong>Claims matrix</strong>: LM-05 narrowed (bound-constrained ceiling D=100 → LSGO is</li>
+<p>family-internal, see RS-13/LM-06); RS-12/RS-13/LM-06 resolved from PENDING_PREREGISTERED to final wording — RS-12 takes the <code>[AGSK first]</code> sentence + the 5-of-24 count; RS-13 takes the tied-first ceiling; LM-06 the adopted limitation sentence.</p>
+<li><strong>Adopted disclosure sentences placed</strong>: (a) LSGO scope sentence in the</li>
+<p>results section + S7 echo (cites <code>molina2018shadeils</code>/<code>latorre2013mos</code> — published values only); (b) conclusions limitation; (c) Data Availability sentence (the reworded no-in-repo-validation version) + all three release ids.</p>
+<li><strong><code>supplementary.tex:1879</code></strong> replaced with the drafted accurate wording</li>
+<p>(CR-0006 + ablation A1 history disclosed).</p>
+<li><strong>Conflict-adjacency disclosure</strong> (AGSK/CEC2020, co-author) in the CEC2020</li>
+<p>results passage and the conflicts block.</p>
+<li>False-sentence sweep re-run after edits (grep patterns from the inventory),</li>
+<p>PLUS <code>supplementary.tex:649-653</code> (&quot;the complete convergence record ... every scored function of every suite&quot;) -- true for three suites, false-adjacent for five; re-scope the sentence to the suites whose convergence record S3 carries.</p>
+</ol>
+<p>Exit gate: every edited sentence traces to a committed CSV or registered text; <code>audit_manuscript.py</code> review-pattern hits adjudicated in writing; author reads the full diff before W4 builds.</p>
+<h2 id="phase-w2-supplements-s7-s8-owner-agent-parallel-with-w1">Phase W2 — Supplements S7 + S8 (owner: agent; parallel with W1)</h2>
+<ol>
+<li><strong>S8</strong> from the committed skeleton: every FILL slot populated from</li>
+<p><code>papers/analysis/cec2020-rel-2026-07-29-5867abe1e/cec2020/*.csv</code>; outcome sentence = the <code>[AGSK first]</code> variant verbatim; the D-0024 inspection ledger disclosed (what was seen mid-campaign, and that dt-gsk partials were not inspected until the author surfaced D5); power disclosure; robustness subsection notes the mean-vs-median ordinal movements and that the binding instability rule did not fire.</p>
+<li><strong>S7</strong> (LSGO): protocol + tier statement (descriptive-after-inspection vs</li>
+<p>the confirmatory paired layer); Friedman/Nemenyi table; both Wilcoxon layers; effect sizes with the F1-vs-gsk estimand divergence disclosed; the Ackley-variant panel note; the D-8.4 linkage-value provenance sentence (structural rule, contemporaneous record, no parameter search, timing disclosed); scope sentence echo.</p>
+<li>Appended after S6 — S1–S6, S6.5–S6.7 never renumbered. <code>\supplementary{}</code></li>
+<p>block and label registry updated; exhibits enter the caption registry.</p>
+</ol>
+<p>Exit gate: S7/S8 numbers diff-checked mechanically against their source CSVs (script, not eyes); no value appears that the bundles do not contain.</p>
+<h2 id="phase-w3-exhibits-cross-format-plumbing-owner-agent">Phase W3 — Exhibits + cross-format plumbing (owner: agent)</h2>
+<ol>
+<li>New-suite table fragments + word_sources JSON generated from the analysis</li>
+<p>bundles (new generators mirror the frozen ones; frozen generators untouched). FIRST: reconcile the three-way table-id collision the audit found -- the claims matrix says T15=CEC2020/T16=LSGO, FINAL_PUBLICATION_PLAN 4.2(f) says T17=LSGO/T18=CEC2020 (suite order reversed), and <code>_paper_tables/T15.csv</code>/ <code>T16.csv</code> already exist with CEC2017 content. Ruling to apply: claims-matrix tokens are a separate namespace from <code>_paper_tables</code> filenames (existing precedent: T04 token vs T4.csv), so keep the matrix tokens, assign NEW non-colliding filenames (T17/T18 per the plan), and record the mapping in the artifact-binding register.</p>
+<li>DOCX pipeline: new tables registered; <code>validate_docx</code> + cross-format parity</li>
+<p>extended to the new exhibits; captions self-contained per registry rules.</p>
+</ol>
+<p>Exit gate: parity 0 FAIL including new rows; word_sources round-trip.</p>
+<h2 id="phase-w4-builds-at-pinned-epochs-owner-agent">Phase W4 — Builds at pinned epochs (owner: agent)</h2>
+<p>PDF (epoch 1783468800, FORCE_SOURCE_DATE=1) ×2 byte-compare; DOCX (epoch 1783641600 — exported explicitly in the build command, never inherited) ×2 byte-compare; supplement likewise. Any Overfull &gt;2pt fails per the standing hygiene gate.</p>
+<h2 id="phase-w5-full-gate-battery-adversarial-sweep-owner-agent">Phase W5 — Full gate battery + adversarial sweep (owner: agent)</h2>
+<p>pytest (full), ruff, config locks, frozen-analysis 115/115, union strict-inventory (3 manifests) zero unlisted, both analysis bundles re-hashed, citation controls C1–C5, provenance-claims validator on source AND rendered artifacts, DOCX validators, cross-format parity, build hygiene. Then the review-prompt panel applied per layer 1.5.0-N (scope review: the three load-bearing disclosure sentences PRESENT and unhedged; no external appears as comparator; registered-vs-reported comparison for CEC2020).</p>
+<h2 id="phase-w6-governance-closure-owner-agent">Phase W6 — Governance closure (owner: agent)</h2>
+<p>Review-prompt §1.5.1 populated variables updated in one pass (EMPIRICAL_SCOPE five suites, release ids, standings); BENCHMARK_EVIDENCE_INDEX rows for the cec2020 release AND both analysis bundles (the index currently mentions cec2020 zero times); <code>_pending_refreeze.json</code> tickets flipped as satisfied; decision-log closure entry; deviation-record dispositions final. Also record the audit&#x27;s reproducibility footnote: <code>generate_trace_figures.py</code> and <code>generate_adaptive_params_panel.py</code> read <code>results/dt-gsk/...</code> inputs that are UNTRACKED, so two committed figures cannot be regenerated from a clean checkout -- a pre-existing exposure of the frozen manuscript, disclosed in the deviation record rather than silently carried.</p>
+<h2 id="phase-w7-re-freeze-pass-24-tag-owner-agent-mints-author-confirms">Phase W7 — Re-freeze pass 24 + tag (owner: agent mints, author confirms)</h2>
+<p>Fresh <code>main_manuscript_freeze_manifest.json</code> mint (15 files incl. rebuilt PDF/DOCX); <code>check_manifest</code> 15/15; freeze statement pass 24 appended; annotated tag <strong><code>dtgsk-submission-v2.0-&lt;date&gt;</code></strong> (v1.0 retained, never moved).</p>
+<h2 id="phase-w8-author-side-post-tag-checklist-owner-you">Phase W8 — Author-side post-tag checklist (owner: YOU)</h2>
+<ol>
+<li><code>git push origin main --tags</code>.</li>
+<li>COMP-001b resumes: dedicated public repo (snapshot of 02-GSK_Family only —</li>
+<p>never the monorepo), GitHub Release from the v2.0 tag, Zenodo toggle ON BEFORE the release, DOI recorded; SuSy submission with committed artifacts (never open-save the DOCX first — D-WORD-01).</p>
+<li>Submission metadata you already supplied (address/phone) goes into SuSy</li>
+<p>only, never into repo files.</p>
+</ol>
+<p>Ordering: W1 ∥ W2 → W3 → W4 → W5 → W6 → W7 → W8. Estimated agent time W1–W7: one focused working day plus the author read of the W1 diff.</p>
+<p>---</p>
+<h2 id="appendix-evidence-tree-closure-audit-verdict-2026-07-29">Appendix: evidence-tree closure audit verdict (2026-07-29)</h2>
+<p><strong>VERDICT: TREE CLOSED.</strong> Four-agent audit (consumer census, staging classification, integrity re-verification, adversarial break-attempt), all green at HEAD <code>e46d0c3f7</code>:</p>
+<ul>
+<li>Every S7/S8 FILL slot, every Phase-4 sentence input, and every headline</li>
+<p>number sources from a committed, manifest-bound artifact (census table on file; 5-of-24 pairwise count and all ordinals independently recomputed).</p>
+<li>Staging classification: everything under <code>results/_run_all/</code> is either</li>
+<p>promoted or deliberately excluded under recorded authority (Section 11 exclusions; CR-0019 externals). Gap list: EMPTY after the sweep.</p>
+<li>Integrity: union strict-inventory 3403/3403 + 173/173 + 336/336, zero</li>
+<p>unlisted; frozen-analysis 115/115; both new bundles re-hashed clean against their internal manifests; <code>_paper_tables</code> 17/17; <code>_ablation</code> sample clean.</p>
+<li>Curves: NO prescribed S7/S8 exhibit needs the excluded curves (verified</li>
+<p>against the plan&#x27;s exhibit lists and the skeleton&#x27;s amendment-gated rules). The audit additionally corrected its own census: the optional S8 convergence figure, if ever amended in, is buildable from the PROMOTED gen_logs -- no curve promotion would be needed.</p>
+</ul>
+<p>Non-blocking caveats, all absorbed into the phases above: (a) no minute-level pre-registration margin in the manuscript (W1.3 -- the figure is anchor-dependent; commit-level fact only); (b) three-way T-id reconciliation (W3); (c) <code>supplementary.tex:649-653</code> added to the false-sentence sweep (W1.8); (d) untracked trace-figure inputs disclosed (W6); (e) index rows for the cec2020 release and analysis bundles (W6).</p>
+      </article>
+    </main>
+    <aside class="page-toc" aria-label="On this page">
+<h2>On This Page</h2>
+<a class="toc-level-1" href="#paper-completion-plan-five-suite-manuscript-to-dtgsk-submission-v2-0">Paper Completion Plan — five-suite manuscript to `dtgsk-submission-v2.0`</a>
+<a class="toc-level-2" href="#phase-w1-main-text-surgery-owner-agent-gate-author-reads-the-diff">Phase W1 — Main-text surgery (owner: agent; gate: author reads the diff)</a>
+<a class="toc-level-2" href="#phase-w2-supplements-s7-s8-owner-agent-parallel-with-w1">Phase W2 — Supplements S7 + S8 (owner: agent; parallel with W1)</a>
+<a class="toc-level-2" href="#phase-w3-exhibits-cross-format-plumbing-owner-agent">Phase W3 — Exhibits + cross-format plumbing (owner: agent)</a>
+<a class="toc-level-2" href="#phase-w4-builds-at-pinned-epochs-owner-agent">Phase W4 — Builds at pinned epochs (owner: agent)</a>
+<a class="toc-level-2" href="#phase-w5-full-gate-battery-adversarial-sweep-owner-agent">Phase W5 — Full gate battery + adversarial sweep (owner: agent)</a>
+<a class="toc-level-2" href="#phase-w6-governance-closure-owner-agent">Phase W6 — Governance closure (owner: agent)</a>
+<a class="toc-level-2" href="#phase-w7-re-freeze-pass-24-tag-owner-agent-mints-author-confirms">Phase W7 — Re-freeze pass 24 + tag (owner: agent mints, author confirms)</a>
+<a class="toc-level-2" href="#phase-w8-author-side-post-tag-checklist-owner-you">Phase W8 — Author-side post-tag checklist (owner: YOU)</a>
+<a class="toc-level-2" href="#appendix-evidence-tree-closure-audit-verdict-2026-07-29">Appendix: evidence-tree closure audit verdict (2026-07-29)</a>
+</aside>
+  </div>
+  <script src="assets/search.js"></script>
+</body>
+</html>

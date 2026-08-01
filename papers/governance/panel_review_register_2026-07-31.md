@@ -1,4 +1,4 @@
-<!-- Filed 2026-07-31. Eight-seat expert review panel applying papers/PAPER_REVIEW_PROMPT.md
+<!-- Filed 2026-07-31. Eight-seat SIMULATED expert review panel (LLM agent seats) applying papers/PAPER_REVIEW_PROMPT.md
      (layer 1.5.0-O) over the pass-24/25 v2.0 manuscript; workflow wf_b55700c9-59e,
      1.66M subagent tokens, 502 tool uses; synthesis seat adversarially verified every
      BLOCKING/MAJOR quote byte-for-byte; both BLOCKING items independently re-verified

@@ -753,6 +753,39 @@ When editing this project:
 - remove generated caches after broad test or lint runs;
 - preserve deterministic behavior during performance tuning.
 
+## Repository history and provenance
+
+Two facts about this repository are worth stating before anyone reads its
+history or its internal records, because both are easy to misread.
+
+**The git history is a squashed import.** This public repository was created on
+2026-07-31 from a private development monorepo. Its root commit contains the
+entire project as one import; the visible history therefore covers only the
+final submission-polish phase, not the project's development, which ran from
+early July 2026 (see `papers/governance/decision_log.md` for the dated decision
+record spanning that period). Consequently: commit SHAs quoted inside evidence
+release identifiers and governance records — for example the `67d9345f9` in
+`rel-2026-07-20-67d9345f9` — are **opaque labels minted in the originating
+monorepo**. They identify a release; they do not resolve to objects in this
+repository's history, and no attempt to look them up here will succeed.
+
+For the same reason, internal working records written before the move may
+reference monorepo paths, sibling project names, or the old repository URL. The
+artifact repository accompanying the article is
+`https://github.com/MostafaMassoud/DT-GSK`.
+
+**Evidence-tree entry point.** `benchmarks/cec_reference_results/README.md` is
+frozen and byte-bound at mint time, so it necessarily still names the release
+ids current on the day it was sealed and links to a file that has since moved.
+Use these instead:
+
+- Current release ids: resolve them from the manifests, never from prose —
+  `papers/governance/evidence_release_manifest.json` (primary),
+  `..._cec2013lsgo.json`, `..._cec2020.json`, and
+  `benchmarks/cec_reference_results/_ablation/manifest.json`.
+- Evidence index: `benchmarks/cec_reference_results/_index/BENCHMARK_EVIDENCE_INDEX.md`
+  (moved there 2026-07-28; the frozen README still points at the old path).
+
 ## Internal Quality-Assurance Instruments (please read before browsing them)
 
 This repository ships the review instruments the authors used on their own

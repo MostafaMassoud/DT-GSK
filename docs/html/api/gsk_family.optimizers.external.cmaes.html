@@ -70,6 +70,7 @@
 <a class="nav-link" href="../development_FINAL_PUBLICATION_PLAN.html">FINAL PUBLICATION PLAN — DT-GSK, Four(/Five)-Suite Scope</a>
 <a class="nav-link" href="../development_ACCELERATION_CAMPAIGN_PROMPT.html">GSK-Family Acceleration Campaign — Execution Prompt</a>
 <a class="nav-link" href="../development_maintenance_guide.html">Maintenance Guide</a>
+<a class="nav-link" href="../development_PAPER_COMPLETION_PLAN.html">Paper Completion Plan — five-suite manuscript to `dtgsk-submission-v2.0`</a>
 <a class="nav-link" href="../development_PORT_05_TUNING_TRIAGE.html">Porting project-05 tuning into 02 — Phase 1 audit and triage</a>
 <a class="nav-link" href="../development_REFERENCE_PROMOTION_PLAN.html">Reference Promotion Plan — CEC2013LSGO now, CEC2020 behind its completeness gate</a>
 <a class="nav-link" href="../development_SIBLING_CAMPAIGN_TRANSFER.html">Sibling-Campaign Transfer — every tuning that can make the GSK family fast</a>
@@ -199,7 +200,11 @@ fires. ``params[&#x27;restarts&#x27;]`` records any re-seeds; ``max_restarts`` n
 <div class="member-kind">function</div>
 <h2>optimize</h2>
 <pre><code>optimize(problem, options: OptimizerOptions) -&gt; OptimizerResult</code></pre>
-<p>Run the 2001 canonical CMA-ES on ``problem`` under the family contract.</p>
+<p>Run standard (mu/mu_W, lambda)-CMA-ES on ``problem`` under the family contract.</p>
+<p>Rank-one AND rank-mu covariance update, matching Hansen ``cmaes.m`` v3.61.beta
+defaults (see the module docstring). Corrected 2026-07-28: this line previously
+said &quot;the 2001 canonical CMA-ES&quot;, describing the rank-one-only intermediate state
+that was superseded on 2026-07-22 and contradicting the module docstring.</p>
 </section>
       </article>
     </main>

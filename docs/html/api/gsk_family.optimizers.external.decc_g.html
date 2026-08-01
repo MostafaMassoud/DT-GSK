@@ -70,6 +70,7 @@
 <a class="nav-link" href="../development_FINAL_PUBLICATION_PLAN.html">FINAL PUBLICATION PLAN — DT-GSK, Four(/Five)-Suite Scope</a>
 <a class="nav-link" href="../development_ACCELERATION_CAMPAIGN_PROMPT.html">GSK-Family Acceleration Campaign — Execution Prompt</a>
 <a class="nav-link" href="../development_maintenance_guide.html">Maintenance Guide</a>
+<a class="nav-link" href="../development_PAPER_COMPLETION_PLAN.html">Paper Completion Plan — five-suite manuscript to `dtgsk-submission-v2.0`</a>
 <a class="nav-link" href="../development_PORT_05_TUNING_TRIAGE.html">Porting project-05 tuning into 02 — Phase 1 audit and triage</a>
 <a class="nav-link" href="../development_REFERENCE_PROMOTION_PLAN.html">Reference Promotion Plan — CEC2013LSGO now, CEC2020 behind its completeness gate</a>
 <a class="nav-link" href="../development_SIBLING_CAMPAIGN_TRANSFER.html">Sibling-Campaign Transfer — every tuning that can make the GSK family fast</a>
@@ -190,10 +191,15 @@ Every evaluation goes through ``_base.BudgetEvaluator``, which is hard-capped at
 ``problem.max_nfes``. Each phase truncates to ``ev.remaining()`` before evaluating,
 so the run stops exactly at the budget rather than overshooting -- matching the
 family&#x27;s budget-exact contract and the CEC2013LSGO protocol.</p>
-<p>Not part of the seven-method GSK-family panel; vendored alongside MOS and SHADE-ILS
-so the large-scale comparison can be run first-party under identical conditions.</p>
+<p>Not part of the seven-method GSK-family panel. Unlike MOS and SHADE-ILS this module
+is **not vendored**: it is first-party code written from the source paper, with no
+author-code oracle to check it against (see docs/development/DECC_G_port_record.md,
+which records the five bring-up defects found and fixed by reading the paper). It
+exists so the large-scale comparison can be run first-party under identical
+conditions. Corrected 2026-07-28: this docstring previously said &quot;vendored alongside
+MOS and SHADE-ILS&quot;, contradicting the port record.</p>
 <h2 id="members">Members</h2>
-<section class="api-member" id="function-random-groups-70">
+<section class="api-member" id="function-random-groups-75">
 <div class="member-kind">function</div>
 <h2>_random_groups</h2>
 <pre><code>_random_groups(dim: int, group_size: int, rng: Any) -&gt; list[np.ndarray]</code></pre>
@@ -201,7 +207,7 @@ so the large-scale comparison can be run first-party under identical conditions.
 <p>Re-drawn every cycle: random grouping is the mechanism by which interacting
 variables are eventually placed in the same subcomponent (paper Section 3.1).</p>
 </section>
-<section class="api-member" id="function-sansde-81">
+<section class="api-member" id="function-sansde-105">
 <div class="member-kind">function</div>
 <h2>_sansde</h2>
 <pre><code>_sansde(sub_pop: np.ndarray, sub_fit: np.ndarray, evaluate_sub: Any, rng: Any, lo: np.ndarray, hi: np.ndarray, max_fes: int, state: dict[str, Any]) -&gt; tuple[np.ndarray, np.ndarray, int]</code></pre>
@@ -212,7 +218,7 @@ per-individual from either N(0.5, 0.3) or a Cauchy, and CR self-adapted from a
 running mean of successful values. ``state`` carries the adaptation across
 cycles for this subcomponent index, as the paper&#x27;s learning period requires.</p>
 </section>
-<section class="api-member" id="function-weight-step-172">
+<section class="api-member" id="function-weight-step-196">
 <div class="member-kind">function</div>
 <h2>_weight_step</h2>
 <pre><code>_weight_step(individual: np.ndarray, groups: list[np.ndarray], ev: Any, rng: Any, lb: np.ndarray, ub: np.ndarray) -&gt; tuple[np.ndarray, float, int] | None</code></pre>
@@ -222,7 +228,7 @@ DE search regardless of the problem&#x27;s dimensionality -- the mechanism that 
 DECC-G correct the scale of a whole subcomponent at once.
 Returns ``None`` when the budget cannot fund even the initial population.</p>
 </section>
-<section class="api-member" id="function-optimize-227">
+<section class="api-member" id="function-optimize-251">
 <div class="member-kind">function</div>
 <h2>optimize</h2>
 <pre><code>optimize(problem: Any, options: OptimizerOptions) -&gt; OptimizerResult</code></pre>
@@ -234,10 +240,10 @@ Returns ``None`` when the budget cannot fund even the initial population.</p>
 <h2>On This Page</h2>
 <a class="toc-level-1" href="#gsk-family-optimizers-external-decc-g">gsk_family.optimizers.external.decc_g</a>
 <a class="toc-level-2" href="#members">Members</a>
-<a class="toc-level-2" href="#function-random-groups-70">_random_groups</a>
-<a class="toc-level-2" href="#function-sansde-81">_sansde</a>
-<a class="toc-level-2" href="#function-weight-step-172">_weight_step</a>
-<a class="toc-level-2" href="#function-optimize-227">optimize</a>
+<a class="toc-level-2" href="#function-random-groups-75">_random_groups</a>
+<a class="toc-level-2" href="#function-sansde-105">_sansde</a>
+<a class="toc-level-2" href="#function-weight-step-196">_weight_step</a>
+<a class="toc-level-2" href="#function-optimize-251">optimize</a>
 </aside>
   </div>
   <script src="../assets/search.js"></script>

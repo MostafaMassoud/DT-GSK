@@ -70,6 +70,7 @@
 <a class="nav-link" href="development_FINAL_PUBLICATION_PLAN.html">FINAL PUBLICATION PLAN — DT-GSK, Four(/Five)-Suite Scope</a>
 <a class="nav-link" href="development_ACCELERATION_CAMPAIGN_PROMPT.html">GSK-Family Acceleration Campaign — Execution Prompt</a>
 <a class="nav-link" href="development_maintenance_guide.html">Maintenance Guide</a>
+<a class="nav-link" href="development_PAPER_COMPLETION_PLAN.html">Paper Completion Plan — five-suite manuscript to `dtgsk-submission-v2.0`</a>
 <a class="nav-link" href="development_PORT_05_TUNING_TRIAGE.html">Porting project-05 tuning into 02 — Phase 1 audit and triage</a>
 <a class="nav-link" href="development_REFERENCE_PROMOTION_PLAN.html">Reference Promotion Plan — CEC2013LSGO now, CEC2020 behind its completeness gate</a>
 <a class="nav-link" href="development_SIBLING_CAMPAIGN_TRANSFER.html">Sibling-Campaign Transfer — every tuning that can make the GSK family fast</a>
@@ -158,6 +159,15 @@
     <main class="content">
       <article class="doc-card">
         <h1 id="documentation-review-prompt">Documentation Review Prompt</h1>
+<blockquote><strong>Internal quality-assurance instrument.</strong> This is a checklist the authors</blockquote>
+<blockquote>applied to their own work before submission. It is <strong>not</strong> the journal&#x27;s peer</blockquote>
+<blockquote>review and did not substitute for it. It directs *auditing* -- verifying the</blockquote>
+<blockquote>repository and manuscript against frozen evidence -- never the authoring of</blockquote>
+<blockquote>scientific claims. It may be executed by a human team or with AI assistance;</blockquote>
+<blockquote>the authors used the latter, disclosed in the manuscript&#x27;s *Use of Generative</blockquote>
+<blockquote>Artificial Intelligence* statement, which is the authoritative account. See</blockquote>
+<blockquote>the README section &quot;Internal Quality-Assurance Instruments&quot; for the full</blockquote>
+<blockquote>framing.</blockquote>
 <blockquote><strong>Two parts.</strong> Part I (below) is the prose/consistency-and-staleness gate for</blockquote>
 <blockquote><code>docs/</code> and Markdown. Part II (appended) is the inline docstring &amp; comment</blockquote>
 <blockquote>review for code, tests, scripts, and configs.</blockquote>
@@ -229,7 +239,7 @@
 <h2 id="how-to-use-this-prompt">How to use this prompt</h2>
 <ol>
 <li>Give a capable LLM or coding agent read access (write access if you want it to</li>
-<p>apply fixes) to the repository root (the <code>02-GSK_Family_Python_v1.1</code> project folder).</p>
+<p>apply fixes) to the repository root (the DT-GSK project folder).</p>
 <li>Paste everything inside the fenced block below as the instruction prompt.</li>
 <li>Either point the reviewer at one phase at a time, or let it run all seven</li>
 <p>phases plus the automated-checks appendix in a single pass.</p>
@@ -291,7 +301,7 @@ consistency and accuracy against the current code — not depth, pedagogy, or
 new worked examples (a separate prompt owns that). Do not invent facts: every
 claim you make about the code must be backed by a file:line you actually read.
 
-Project root: the `02-GSK_Family_Python_v1.1` repository root.
+Project root: the DT-GSK repository root.
 
 Operating rules:
 

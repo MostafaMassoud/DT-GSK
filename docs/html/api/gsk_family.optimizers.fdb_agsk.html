@@ -70,6 +70,7 @@
 <a class="nav-link" href="../development_FINAL_PUBLICATION_PLAN.html">FINAL PUBLICATION PLAN — DT-GSK, Four(/Five)-Suite Scope</a>
 <a class="nav-link" href="../development_ACCELERATION_CAMPAIGN_PROMPT.html">GSK-Family Acceleration Campaign — Execution Prompt</a>
 <a class="nav-link" href="../development_maintenance_guide.html">Maintenance Guide</a>
+<a class="nav-link" href="../development_PAPER_COMPLETION_PLAN.html">Paper Completion Plan — five-suite manuscript to `dtgsk-submission-v2.0`</a>
 <a class="nav-link" href="../development_PORT_05_TUNING_TRIAGE.html">Porting project-05 tuning into 02 — Phase 1 audit and triage</a>
 <a class="nav-link" href="../development_REFERENCE_PROMOTION_PLAN.html">Reference Promotion Plan — CEC2013LSGO now, CEC2020 behind its completeness gate</a>
 <a class="nav-link" href="../development_SIBLING_CAMPAIGN_TRANSFER.html">Sibling-Campaign Transfer — every tuning that can make the GSK family fast</a>
@@ -160,44 +161,50 @@
         <h1>gsk_family.optimizers.fdb_agsk</h1>
 <p class="source-path">Source: <code>src/gsk_family/optimizers/fdb_agsk.py</code></p>
 <p>FDB-AGSK optimizer.</p>
+<p>Faithful Python re-implementation of the FDB-AGSK algorithm of Bakir,
+Duman, Guvenc &amp; Kahraman, &quot;Improved adaptive gaining-sharing knowledge
+algorithm with FDB-based guiding mechanism for optimization of optimal
+reactive power flow problem&quot;, Electrical Engineering 105, 3121-3160 (2023),
+https://doi.org/10.1007/s00202-023-01803-9 — AGSK with the
+fitness-distance-balance (FDB) senior-phase guiding mechanism.</p>
 <h2 id="members">Members</h2>
-<section class="api-member" id="function-validate-fdb-case-41">
+<section class="api-member" id="function-validate-fdb-case-49">
 <div class="member-kind">function</div>
 <h2>_validate_fdb_case</h2>
 <pre><code>_validate_fdb_case(value: Any) -&gt; int</code></pre>
 <p>Validate the FDB donor injection case number.</p>
 </section>
-<section class="api-member" id="function-base-junior-neighbors-49">
+<section class="api-member" id="function-base-junior-neighbors-57">
 <div class="member-kind">function</div>
 <h2>_base_junior_neighbors</h2>
 <pre><code>_base_junior_neighbors(ind_best: Any, *, validate: bool = True) -&gt; tuple[np.ndarray, np.ndarray]</code></pre>
 <p>Return rank-neighbor R1/R2 arrays before FDB R3 injection.</p>
 </section>
-<section class="api-member" id="function-fdb-junior-r1r2r3-80">
+<section class="api-member" id="function-fdb-junior-r1r2r3-88">
 <div class="member-kind">function</div>
 <h2>_fdb_junior_r1r2r3</h2>
 <pre><code>_fdb_junior_r1r2r3(ind_best: Any, fdb_case: int, fdb_index: int | None, rfdb_index: int | None, rng: RandomContext, *, max_iterations: int = 1000, validate: bool = True) -&gt; tuple[np.ndarray, np.ndarray, np.ndarray]</code></pre>
 <p>Return junior donor arrays with FDB case-specific injections.</p>
 </section>
-<section class="api-member" id="function-sample-block-126">
+<section class="api-member" id="function-sample-block-134">
 <div class="member-kind">function</div>
 <h2>_sample_block</h2>
 <pre><code>_sample_block(block: np.ndarray, pop_size: int, rng: RandomContext, *, name: str) -&gt; np.ndarray</code></pre>
 <p>Sample donor indices uniformly from one senior donor block.</p>
 </section>
-<section class="api-member" id="function-fdb-senior-r1r2r3-135">
+<section class="api-member" id="function-fdb-senior-r1r2r3-143">
 <div class="member-kind">function</div>
 <h2>_fdb_senior_r1r2r3</h2>
 <pre><code>_fdb_senior_r1r2r3(ind_best: Any, fdb_case: int, fdb_index: int | np.ndarray | None, rng: RandomContext, *, validate: bool = True) -&gt; tuple[np.ndarray, np.ndarray, np.ndarray]</code></pre>
 <p>Return senior donor arrays with FDB case-specific injections.</p>
 </section>
-<section class="api-member" id="function-fdb-indices-179">
+<section class="api-member" id="function-fdb-indices-187">
 <div class="member-kind">function</div>
 <h2>_fdb_indices</h2>
 <pre><code>_fdb_indices(fdb_case: int, population: np.ndarray, fitness: np.ndarray, rng: RandomContext) -&gt; tuple[int | np.ndarray | None, int | None]</code></pre>
 <p>Select the FDB index payload required by the active FDB case.</p>
 </section>
-<section class="api-member" id="function-optimize-200">
+<section class="api-member" id="function-optimize-208">
 <div class="member-kind">function</div>
 <h2>optimize</h2>
 <pre><code>optimize(problem: BenchmarkProblem, options: OptimizerOptions | dict[str, Any]) -&gt; OptimizerResult</code></pre>
@@ -209,13 +216,13 @@
 <h2>On This Page</h2>
 <a class="toc-level-1" href="#gsk-family-optimizers-fdb-agsk">gsk_family.optimizers.fdb_agsk</a>
 <a class="toc-level-2" href="#members">Members</a>
-<a class="toc-level-2" href="#function-validate-fdb-case-41">_validate_fdb_case</a>
-<a class="toc-level-2" href="#function-base-junior-neighbors-49">_base_junior_neighbors</a>
-<a class="toc-level-2" href="#function-fdb-junior-r1r2r3-80">_fdb_junior_r1r2r3</a>
-<a class="toc-level-2" href="#function-sample-block-126">_sample_block</a>
-<a class="toc-level-2" href="#function-fdb-senior-r1r2r3-135">_fdb_senior_r1r2r3</a>
-<a class="toc-level-2" href="#function-fdb-indices-179">_fdb_indices</a>
-<a class="toc-level-2" href="#function-optimize-200">optimize</a>
+<a class="toc-level-2" href="#function-validate-fdb-case-49">_validate_fdb_case</a>
+<a class="toc-level-2" href="#function-base-junior-neighbors-57">_base_junior_neighbors</a>
+<a class="toc-level-2" href="#function-fdb-junior-r1r2r3-88">_fdb_junior_r1r2r3</a>
+<a class="toc-level-2" href="#function-sample-block-134">_sample_block</a>
+<a class="toc-level-2" href="#function-fdb-senior-r1r2r3-143">_fdb_senior_r1r2r3</a>
+<a class="toc-level-2" href="#function-fdb-indices-187">_fdb_indices</a>
+<a class="toc-level-2" href="#function-optimize-208">optimize</a>
 </aside>
   </div>
   <script src="../assets/search.js"></script>

@@ -2,7 +2,7 @@
 
 Instrument: `papers/PAPER_REVIEW_PROMPT.md` with **Section 18 (forensic deep-review
 layer)** active — its first application, including the first-ever execution of the
-18.4 authorship-defensibility audit. Seven forensic seats, every finding
+18.4 authorship-defensibility audit. Seven simulated forensic seats (LLM agents), every finding
 adversarially verified refute-by-default (14 agents). Basis: pass-28, anchor
 `70c51ba`, tag `v2.3`. Standings verified from the frozen release CSVs at every
 seat that cites one; no number restated from memory.

@@ -1,9 +1,37 @@
 # PHASE 6 — Humanization Pass
 
-**Objective.** Make the DT-GSK manuscript read as expert-human prose — varied
-rhythm, concrete paper-specific detail, honest local hedging — so the text lacks
-the statistical fingerprints of machine generation, while changing not one fact,
-number, citation, or claim.
+> ## SUPERSEDED — RETAINED AS HISTORICAL RECORD. DO NOT APPLY AS WRITTEN.
+>
+> **The detector-oriented framing in this file was formally revoked by this
+> project's own governance before submission.** Two passages — the objective
+> below ("so the text lacks the statistical fingerprints of machine
+> generation") and the note further down that good prose "happens to evade
+> naive AI-text classifiers" — are recorded as **OBSOLETE / SUPERSEDED** in
+> [`papers/governance/instruction_precedence.md`](../governance/instruction_precedence.md)
+> (conflict **C-07**, and precedence row **S-10**).
+>
+> They are superseded by `papers/PAPER_BUILD_PROMPT.md` §0.3, which is binding:
+> **"Wording intended to evade AI-text detectors is prohibited. The writing goal
+> is genuine academic clarity, specificity, and integrity."** The same
+> prohibition is restated at PAPER_BUILD_PROMPT.md:6648 ("a prose-quality audit,
+> not an attempt to evade authorship detection") and :7196, and the review
+> instrument's §18.4 forbids recommending detector-gaming edits at all. **No
+> phase of this project targeted, measured, or optimized a detector score.**
+>
+> **What remains usable here** is the craft guidance — prefer specific to
+> generic phrasing, delete hollow connectives, never pad, never add fake
+> hedging, never fabricate — read as writing-quality examples only, stripped of
+> the detector motive. The integrity note immediately below is the operative
+> constraint and was never relaxed: this is a style pass over *already frozen*
+> content that may not change any number, citation, claim, or scope qualifier.
+>
+> The file is kept rather than deleted because it is part of the audit trail and
+> is referenced by line number from the governance records. Banner added
+> 2026-08-01.
+
+**Objective (superseded wording — see banner).** Make the DT-GSK manuscript read
+as expert-human prose — varied rhythm, concrete paper-specific detail, honest
+local hedging — while changing not one fact, number, citation, or claim.
 
 > **INTEGRITY NOTE (read first, non-negotiable).** This phase is a **style pass
 > over true content**. You may re-order words, split or merge sentences, delete
@@ -56,10 +84,17 @@ worst possible failure mode for this project.
 **Legitimate (do this).** Write genuinely well. Expert human technical prose has
 a texture: sentence lengths vary hard, paragraphs are lumpy, claims are anchored
 to specific measurements, and the author admits friction where friction exists.
-When you write that way, the text also happens to evade naive AI-text classifiers
-— not because you gamed them, but because it no longer carries their tells. The
-target is a strong human author, not a detector score. A detector is a proxy; the
-prose is the artifact.
+The target is genuine academic clarity, specificity, and integrity. It is not a
+detector score, and no detector score was ever targeted, measured, or optimized
+in this project.
+
+> *Superseded sentence, removed 2026-08-01 and recorded here for the audit
+> trail:* the original text continued "When you write that way, the text also
+> happens to evade naive AI-text classifiers — not because you gamed them, but
+> because it no longer carries their tells." That framing is revoked by
+> `PAPER_BUILD_PROMPT.md` §0.3 and logged as conflict **C-07** in
+> `papers/governance/instruction_precedence.md`. The original wording remains in
+> git history.
 
 **Illegitimate (never do this).**
 

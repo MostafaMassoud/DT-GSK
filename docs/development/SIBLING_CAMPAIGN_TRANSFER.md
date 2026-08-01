@@ -1,5 +1,15 @@
 # Sibling-Campaign Transfer — every tuning that can make the GSK family fast
 
+> **Internal quality-assurance instrument.** This is a work-sequencing and
+> execution prompt the authors used on their own project. It is **not** the
+> journal's peer review and did not substitute for it, and it governs tooling
+> and campaign ordering rather than scientific judgement. It may be executed by
+> a human team or with AI assistance; the authors used the latter, disclosed in
+> the manuscript's *Use of Generative Artificial Intelligence* statement, which
+> is the authoritative account. See the README section "Internal
+> Quality-Assurance Instruments".
+
+
 **2026-07-17 · What was proven in `05-Human-Inspired-Family_Python_v0.1`, mapped onto
 `02-GSK_Family_Python_v1.1` (7 algorithms × cec2017/cec2013/cec2011/cec2013lsgo/cec2020).**
 Companion to `ACCELERATION_CAMPAIGN_PROMPT.md` (method + governance). Every number below is

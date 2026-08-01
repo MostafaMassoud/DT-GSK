@@ -1,5 +1,15 @@
 # GSK-Family Acceleration Campaign — Execution Prompt
 
+> **Internal quality-assurance instrument.** This is a work-sequencing and
+> execution prompt the authors used on their own project. It is **not** the
+> journal's peer review and did not substitute for it, and it governs tooling
+> and campaign ordering rather than scientific judgement. It may be executed by
+> a human team or with AI assistance; the authors used the latter, disclosed in
+> the manuscript's *Use of Generative Artificial Intelligence* statement, which
+> is the authoritative account. See the README section "Internal
+> Quality-Assurance Instruments".
+
+
 **Version 1.2 · 2026-07-17 · grounded on commit `056fb3ff0` · repo `02-GSK_Family_Python_v1.1`**
 
 > **CURRENT STATUS (2026-07-20) — read before acting; this campaign is not the active

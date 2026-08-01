@@ -1,7 +1,7 @@
 # Panel review register — round 2 (2026-07-31, pass-27 / v2.2 basis)
 
 Instrument: `papers/PAPER_REVIEW_PROMPT.md` at layer **1.5.0-Q** (commit 83dda27).
-Executed as an eight-seat expert panel with per-finding adversarial verification
+Executed as an eight-seat SIMULATED expert panel (LLM agent seats) with per-finding adversarial verification
 (14 agents; every finding independently re-checked against the live tree with a
 refute-by-default charge). Basis: freeze pass-27, anchor `2f9631eb7`, tag `v2.2`;
 all standings verified from the release CSVs, never restated from memory.

@@ -35,7 +35,7 @@ and ``_archive_consider_nb``.
 
 Fastmath policy (I4)
 --------------------
-Per CLAUDE.md Â§"Hard invariants" item 4, ``fastmath=True`` is
+Per SKILL.md Section "Hard invariants" item 4, ``fastmath=True`` is
 *prohibited* in any kernel whose output depends on a floating-point
 reduction whose ordering affects the result (sums over a population,
 variance / SD accumulators, acceptance-rate deltas, archive-distance
@@ -103,7 +103,7 @@ else:
 
 # ===================== 2. population_radius =====================
 if HAS_NUMBA:
-    # Invariant I4 (CLAUDE.md): no fastmath=True in reduction-sensitive kernels.
+    # Invariant I4 (SKILL.md): no fastmath=True in reduction-sensitive kernels.
     # This kernel sums per-row distances under prange; fastmath would relax
     # associativity across threads and make the scalar accumulator
     # non-deterministic.  Keep parallel, drop fastmath.

@@ -23,8 +23,9 @@ produce the paper-grade statistical comparison that backs the proposed method
 
 - **Runnable optimizers (7):** `gsk`, `agsk`, `apgsk`, `fdb-agsk`,
   `atmals-gsk`, `egsk`, `dt-gsk`.
-  - `dt-gsk` is **this project's proposed method** — Interaction-Structure
-    Memory GSK, byte-identically migrated from the source DT-GSK v2.1 tree.
+  - `dt-gsk` is **this project's proposed method** — Dimension-Tiered
+    Gaining-Sharing Knowledge Optimization (the ISM interaction-structure
+    memory survives as a component name only), byte-identically migrated from the source DT-GSK v2.1 tree.
     Its vendored core is `src/gsk_family/optimizers/_dt_core.py` (plus
     `_dt_profiles.py`, `_dt_rng.py`, and the `_dt_subsystems/` package); the
     family-facing adapter is `src/gsk_family/optimizers/dt_gsk.py`. It uses the

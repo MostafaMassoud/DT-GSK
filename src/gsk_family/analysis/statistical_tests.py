@@ -218,7 +218,7 @@ class FriedmanResult:
 # in `benchmarks/cec_reference_results/cec2017/` plus the new DT-GSK label). Used
 # to build the 7-algo "GSK-family" Friedman panel (6 comparators + DT-GSK).
 # The paper scope is GSK-family-only, so this is also the full comparator set;
-# keep this list aligned with CLAUDE.md "publication scope covers the GSK
+# keep this list aligned with SKILL.md "publication scope covers the GSK
 # family (6 comparators)".
 _GSK_FAMILY_REF_NAMES: frozenset[str] = frozenset(
     alg.upper() for alg in REFERENCE_COMPARATORS

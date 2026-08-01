@@ -1,3 +1,5 @@
+> **Editorial note (2026-08-01).** This audit was performed while the project lived in the private `MostafaMassoud/PhD-Projects` monorepo. The artifact repository accompanying the article is `https://github.com/MostafaMassoud/DT-GSK`; commit counts and identifiers quoted below were measured in the monorepo and do not resolve in the public repository's squashed history. See the "Repository history and provenance" note in the top-level README.
+
 # Stage 16 — GenAI Disclosure and Detection-Risk Audit (D16.1–D16.6)
 
 **Seat:** `s16_ethics_ai` (T6-INTEG, role RI) · **Review date:** 2026-07-22

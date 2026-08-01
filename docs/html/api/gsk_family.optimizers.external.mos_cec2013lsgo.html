@@ -70,6 +70,7 @@
 <a class="nav-link" href="../development_FINAL_PUBLICATION_PLAN.html">FINAL PUBLICATION PLAN — DT-GSK, Four(/Five)-Suite Scope</a>
 <a class="nav-link" href="../development_ACCELERATION_CAMPAIGN_PROMPT.html">GSK-Family Acceleration Campaign — Execution Prompt</a>
 <a class="nav-link" href="../development_maintenance_guide.html">Maintenance Guide</a>
+<a class="nav-link" href="../development_PAPER_COMPLETION_PLAN.html">Paper Completion Plan — five-suite manuscript to `dtgsk-submission-v2.0`</a>
 <a class="nav-link" href="../development_PORT_05_TUNING_TRIAGE.html">Porting project-05 tuning into 02 — Phase 1 audit and triage</a>
 <a class="nav-link" href="../development_REFERENCE_PROMOTION_PLAN.html">Reference Promotion Plan — CEC2013LSGO now, CEC2020 behind its completeness gate</a>
 <a class="nav-link" href="../development_SIBLING_CAMPAIGN_TRANSFER.html">Sibling-Campaign Transfer — every tuning that can make the GSK family fast</a>
@@ -202,25 +203,25 @@ tournament-2 selection, budget 3e6.</p>
 from the GA generations (§3.7). The two local searches are one-eval-at-a-time (faithful; the
 LS share of the D=1000 budget is sequential, like the other LSGO baselines).</p>
 <h2 id="members">Members</h2>
-<section class="api-member" id="function-rel-inc-72">
+<section class="api-member" id="function-rel-inc-74">
 <div class="member-kind">function</div>
 <h2>_rel_inc</h2>
 <pre><code>_rel_inc(new: float, old: float) -&gt; float</code></pre>
 <p>AFI per-individual increment: |Δf/f_before| if improved, else 0 (computeFitnessIncrement).</p>
 </section>
-<section class="api-member" id="function-update-participation-79">
+<section class="api-member" id="function-update-participation-81">
 <div class="member-kind">function</div>
 <h2>_update_participation</h2>
 <pre><code>_update_participation(part: np.ndarray, qual: np.ndarray, xi: float, min_part: float) -&gt; None</code></pre>
 <p>DynamicParticipation.update — transfer participation loser→winner (in place).</p>
 </section>
-<section class="api-member" id="function-tournament-112">
+<section class="api-member" id="function-tournament-114">
 <div class="member-kind">function</div>
 <h2>_tournament</h2>
 <pre><code>_tournament(fitness: np.ndarray, rng, n: int) -&gt; int</code></pre>
 <p>unif_tournament:2 — the better of two uniformly-random individuals among ``n``.</p>
 </section>
-<section class="api-member" id="function-ga-evolve-122">
+<section class="api-member" id="function-ga-evolve-124">
 <div class="member-kind">function</div>
 <h2>_ga_evolve</h2>
 <pre><code>_ga_evolve(pop, fitness, sr_arr, imp_arr, max_evals, ev, rng, lb, ub, recorder, pcx, pmut, alpha = 0.5)</code></pre>
@@ -229,7 +230,7 @@ LS share of the D=1000 budget is sequential, like the other LSGO baselines).</p>
 is a clone of pop[k] with only its GENES overwritten (GARealOps.cc:180-181), so it
 CARRIES pop[k]&#x27;s _SR/_improve into the mu+lambda pool.</p>
 </section>
-<section class="api-member" id="class-sw-219">
+<section class="api-member" id="class-sw-221">
 <div class="member-kind">class</div>
 <h2>_SW</h2>
 <pre><code>_SW</code></pre>
@@ -238,13 +239,13 @@ CARRIES pop[k]&#x27;s _SR/_improve into the mu+lambda pool.</p>
 CARGO only (soliswets never touches them) — the SW relay is how MTS&#x27;s annealed SR
 travels through the population in the C++ (copy() carries _SR; LSElitism installs it).</p>
 </section>
-<section class="api-member" id="function-sw-block-236">
+<section class="api-member" id="function-sw-block-238">
 <div class="member-kind">function</div>
 <h2>_sw_block</h2>
 <pre><code>_sw_block(x, f, sw, max_iters, ev, rng, lb, ub, max_succ, max_fail, adj_succ, adj_fail)</code></pre>
 <p>One Solis-Wets budget block; returns (fit_inc, evals, n_improved, x, f). Mutates ``sw``.</p>
 </section>
-<section class="api-member" id="function-sw-evolve-296">
+<section class="api-member" id="function-sw-evolve-298">
 <div class="member-kind">function</div>
 <h2>_sw_evolve</h2>
 <pre><code>_sw_evolve(pop, fitness, sr_arr, imp_arr, max_evals, sw, ev, rng, lb, ub, delta0, mx_s, mx_f, a_s, a_f)</code></pre>
@@ -256,7 +257,7 @@ per-genome SR/improve cargo (copy() carries _SR/_improve). bias/delta/streaks ar
 reset (C++ ``_swparams`` created once for the whole run, MOSTechniqueLSObj.cc:172).
 The SW product is installed back with its carried SR/improve (LSElitism).</p>
 </section>
-<section class="api-member" id="class-mtsr-344">
+<section class="api-member" id="class-mtsr-346">
 <div class="member-kind">class</div>
 <h2>_MTSR</h2>
 <pre><code>_MTSR</code></pre>
@@ -269,7 +270,7 @@ see _mtsr_evolve. values/explored = the run-global RLImprovPerDimManager (values
 1.0; first touch replaces, then EMA 0.7·old+0.3·new; unexplored dims outrank all
 explored — RLImprovPerDimManager.cc:11-40, alpha=0.7).</p>
 </section>
-<section class="api-member" id="function-select-dims-363">
+<section class="api-member" id="function-select-dims-365">
 <div class="member-kind">function</div>
 <h2>_select_dims</h2>
 <pre><code>_select_dims(values, explored, search_prob, num_other, rng)</code></pre>
@@ -278,10 +279,10 @@ boosted above all explored (max+1); dims covering search_prob of the mass (highe
 first) + num_other random lower-mass dims (floor 1); returned ascending-sorted
 (GARealOps.cc:825).</p>
 </section>
-<section class="api-member" id="function-mtsr-sweep-395">
+<section class="api-member" id="function-mtsr-sweep-397">
 <div class="member-kind">function</div>
 <h2>_mtsr_sweep</h2>
-<pre><code>_mtsr_sweep(x, score, m, ev, rng, lb0, ub0, adj_f, adj_min, m_l, m_r, s_prob, min_prob)</code></pre>
+<pre><code>_mtsr_sweep(x, score, m, ev, rng, lb, ub, adj_f, adj_min, m_l, m_r, s_prob, min_prob)</code></pre>
 <p>One COMPLETE MTS-LS1-Reduced sweep over the selected dims; returns
 (fit_inc, evals, n_improved, x, score). Mutates ``m``.</p>
 <p>The C++ per-call eval cap is dead code (6-arg extern-C called through a 7-arg pointer —
@@ -290,10 +291,10 @@ each LS call is a full sweep and the block budget is enforced BETWEEN sweeps
 (MOSTechniqueLS.cc:187). Mid-sweep exit happens only on true global budget exhaustion
 (the family budget contract).</p>
 </section>
-<section class="api-member" id="function-mtsr-evolve-469">
+<section class="api-member" id="function-mtsr-evolve-475">
 <div class="member-kind">function</div>
 <h2>_mtsr_evolve</h2>
-<pre><code>_mtsr_evolve(pop, fitness, sr_arr, imp_arr, max_evals, m, ev, rng, lb0, ub0, adj_f, adj_min, m_l, m_r, s_prob, min_prob)</code></pre>
+<pre><code>_mtsr_evolve(pop, fitness, sr_arr, imp_arr, max_evals, m, ev, rng, lb, ub, adj_f, adj_min, m_l, m_r, s_prob, min_prob)</code></pre>
 <p>Run MTS-LS1-Reduced on the incumbent for max_evals FEs; return
 (pop, fitness, sr_arr, imp_arr, AFI-quality, n_improved).</p>
 <p>Incumbent rule (MOSTechniqueLS.cc:160-167): ``g.copy(pop-&gt;best())`` adopts the pop
@@ -304,7 +305,7 @@ genome&#x27;s carried value (ctor default range/2 for most slots) — the mechan
 re-opens the coarse SR ladder; the SW relay preserves annealed SR through the pop.
 Whole sweeps only; block allocation enforced BETWEEN sweeps (MOSTechniqueLS.cc:187).</p>
 </section>
-<section class="api-member" id="function-optimize-517">
+<section class="api-member" id="function-optimize-523">
 <div class="member-kind">function</div>
 <h2>optimize</h2>
 <pre><code>optimize(problem, options: OptimizerOptions) -&gt; OptimizerResult</code></pre>
@@ -316,18 +317,18 @@ Whole sweeps only; block allocation enforced BETWEEN sweeps (MOSTechniqueLS.cc:1
 <h2>On This Page</h2>
 <a class="toc-level-1" href="#gsk-family-optimizers-external-mos-cec2013lsgo">gsk_family.optimizers.external.mos_cec2013lsgo</a>
 <a class="toc-level-2" href="#members">Members</a>
-<a class="toc-level-2" href="#function-rel-inc-72">_rel_inc</a>
-<a class="toc-level-2" href="#function-update-participation-79">_update_participation</a>
-<a class="toc-level-2" href="#function-tournament-112">_tournament</a>
-<a class="toc-level-2" href="#function-ga-evolve-122">_ga_evolve</a>
-<a class="toc-level-2" href="#class-sw-219">_SW</a>
-<a class="toc-level-2" href="#function-sw-block-236">_sw_block</a>
-<a class="toc-level-2" href="#function-sw-evolve-296">_sw_evolve</a>
-<a class="toc-level-2" href="#class-mtsr-344">_MTSR</a>
-<a class="toc-level-2" href="#function-select-dims-363">_select_dims</a>
-<a class="toc-level-2" href="#function-mtsr-sweep-395">_mtsr_sweep</a>
-<a class="toc-level-2" href="#function-mtsr-evolve-469">_mtsr_evolve</a>
-<a class="toc-level-2" href="#function-optimize-517">optimize</a>
+<a class="toc-level-2" href="#function-rel-inc-74">_rel_inc</a>
+<a class="toc-level-2" href="#function-update-participation-81">_update_participation</a>
+<a class="toc-level-2" href="#function-tournament-114">_tournament</a>
+<a class="toc-level-2" href="#function-ga-evolve-124">_ga_evolve</a>
+<a class="toc-level-2" href="#class-sw-221">_SW</a>
+<a class="toc-level-2" href="#function-sw-block-238">_sw_block</a>
+<a class="toc-level-2" href="#function-sw-evolve-298">_sw_evolve</a>
+<a class="toc-level-2" href="#class-mtsr-346">_MTSR</a>
+<a class="toc-level-2" href="#function-select-dims-365">_select_dims</a>
+<a class="toc-level-2" href="#function-mtsr-sweep-397">_mtsr_sweep</a>
+<a class="toc-level-2" href="#function-mtsr-evolve-475">_mtsr_evolve</a>
+<a class="toc-level-2" href="#function-optimize-523">optimize</a>
 </aside>
   </div>
   <script src="../assets/search.js"></script>

@@ -7,6 +7,16 @@ own confidence, not an independent check. -->
 
 # CEC2013LSGO Integration — Campaign Plan
 
+> **Internal quality-assurance instrument.** This is a work-sequencing and
+> execution prompt the authors used on their own project. It is **not** the
+> journal's peer review and did not substitute for it, and it governs tooling
+> and campaign ordering rather than scientific judgement. It may be executed by
+> a human team or with AI assistance; the authors used the latter, disclosed in
+> the manuscript's *Use of Generative Artificial Intelligence* statement, which
+> is the authoritative account. See the README section "Internal
+> Quality-Assurance Instruments".
+
+
 > **Status:** PLANNING. The manuscript remains frozen at
 > `dtgsk-submission-v1.0-2026-07-25` (commit `41726c544`). Nothing in this plan
 > has been executed. The dt-gsk LSGO run is in progress (125/375 runs; F1-F5

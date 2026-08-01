@@ -70,6 +70,7 @@
 <a class="nav-link" href="development_FINAL_PUBLICATION_PLAN.html">FINAL PUBLICATION PLAN — DT-GSK, Four(/Five)-Suite Scope</a>
 <a class="nav-link" href="development_ACCELERATION_CAMPAIGN_PROMPT.html">GSK-Family Acceleration Campaign — Execution Prompt</a>
 <a class="nav-link" href="development_maintenance_guide.html">Maintenance Guide</a>
+<a class="nav-link" href="development_PAPER_COMPLETION_PLAN.html">Paper Completion Plan — five-suite manuscript to `dtgsk-submission-v2.0`</a>
 <a class="nav-link" href="development_PORT_05_TUNING_TRIAGE.html">Porting project-05 tuning into 02 — Phase 1 audit and triage</a>
 <a class="nav-link" href="development_REFERENCE_PROMOTION_PLAN.html">Reference Promotion Plan — CEC2013LSGO now, CEC2020 behind its completeness gate</a>
 <a class="nav-link" href="development_SIBLING_CAMPAIGN_TRANSFER.html">Sibling-Campaign Transfer — every tuning that can make the GSK family fast</a>
@@ -185,7 +186,7 @@
 <li>all seven runnable optimizer smoke paths (<code>gsk</code>, <code>agsk</code>, <code>apgsk</code>, <code>fdb-agsk</code>,</li>
 <p><code>atmals-gsk</code>, <code>egsk</code>, <code>dt-gsk</code>);</p>
 <li>fair-start and deterministic replay behavior;</li>
-<li>dt-gsk byte-for-byte parity with its source project (<code>01-Python/03-DT-GSK-v2.1</code>), locked by <code>tests/regression/test_dt_gsk_byte_stable.py</code> on sphere and CEC2017 at D=10 and D=30 (the lock deliberately stays below the <code>D&gt;=50</code> SGSM/parallel-kernel tier, which is thread-sensitive; that tier is guarded instead by <code>test_dt_graph_backend_parity.py</code> and <code>test_dt_polish_incumbent_consistent.py</code>);</li>
+<li>dt-gsk byte-for-byte parity with its originating development tree (the <code>03-DT-GSK-v2.1</code> workspace, predating this repository), locked by <code>tests/regression/test_dt_gsk_byte_stable.py</code> on sphere and CEC2017 at D=10 and D=30 (the lock deliberately stays below the <code>D&gt;=50</code> SGSM/parallel-kernel tier, which is thread-sensitive; that tier is guarded instead by <code>test_dt_graph_backend_parity.py</code> and <code>test_dt_polish_incumbent_consistent.py</code>);</li>
 <li>the statistical-analysis suite (Friedman/Wilcoxon, the result/reference</li>
 <p>loaders, figures, LaTeX, and the <code>gsk-stats</code> CLI);</p>
 <li>runner output schema;</li>
