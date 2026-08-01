@@ -4,9 +4,10 @@ This file records the license and provenance of the Python implementation of the
 GSK optimizer family. It is one of the two `license-files` targets declared in
 `pyproject.toml` (`license = "MIT"`, `license-files = ["LICENSE", "docs/LICENSES.md"]`).
 
-> **License status: settled (author-confirmed 2026-07-14; verify copyright line
-> before final submission).** The code is released under the MIT License; the
-> authors' own derived data and analysis artifacts are released under CC BY 4.0.
+> **License status: settled and final (author-confirmed 2026-07-14; copyright
+> line confirmed 2026-08-01).** The code is licensed under the MIT License, an
+> OSI-approved open-source licence; the authors' own derived data and analysis
+> artifacts are licensed under CC BY 4.0.
 > Third-party benchmark definitions remain under their upstream terms (below).
 
 ## Project license
