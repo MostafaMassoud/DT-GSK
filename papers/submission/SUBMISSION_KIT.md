@@ -103,6 +103,12 @@ take full responsibility for the content of this publication.
 Do NOT add "5.5/5.6" here: the manuscript deliberately states no ChatGPT
 version (D-0036), and the form must match the manuscript.
 
+## 8b. Code/data availability field (if the form asks for a URL)
+
+Paste: https://github.com/MostafaMassoud/DT-GSK
+The submitted version corresponds to repository tag v2.13. No Zenodo/DOI
+for the repository; the article DOI is assigned by the journal (D-0044).
+
 ## 9. Conflicts of interest (if the form asks separately)
 
 State what the manuscript states: A.W.M. is the originator of the baseline GSK

@@ -771,9 +771,10 @@ repository's history, and no attempt to look them up here will succeed.
 For the same reason, internal working records written before the move may
 reference monorepo paths, sibling project names, or the old repository URL.
 Those references resolve against this repository, which is the repository of
-origin for the work. No public artifact repository accompanies the article: the
-manuscript's Data Availability Statement makes the code, configuration and
-result data available from the corresponding author upon reasonable request.
+origin for the work and, since 2026-08-01, the public artifact repository the
+manuscript's Data Availability Statement cites (https://github.com/MostafaMassoud/DT-GSK);
+further materials remain available from the corresponding author on
+reasonable request.
 
 **Evidence-tree entry point.** `benchmarks/cec_reference_results/README.md` is
 frozen and byte-bound at mint time, so it necessarily still names the release

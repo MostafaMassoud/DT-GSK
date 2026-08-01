@@ -195,7 +195,7 @@ The three Section-8.7 exemplars are **calibration references, never content temp
 | GSK practice | Public code link plus complete protocol and platform; but rot-prone personal URL, no seeds, no per-run data. |
 | ATMALS-GSK practice | Re-implementable in principle from parameter grids and cited protocols; but no code, data "on request", and internal contradictions make the actually-used configuration ambiguous. |
 | eGSK practice | Re-implementable from the text; but no code/seeds/raw results and a factually misleading "no data was used" declaration. |
-| **ADOPTED for DT-GSK** | Full-artifact reproducibility, WITHOUT public hosting (revised 2026-08-01, D-0037): the code, configuration and result data are supplied by the corresponding author on reasonable request, bound to pinned evidence releases by SHA-256 manifests, with the frozen configuration and seed schedules included. No public repository, GitHub release or DOI is created; the article DOI comes from the journal. |
+| **ADOPTED for DT-GSK** | Full-artifact reproducibility WITH public hosting (revised again 2026-08-01, D-0044): the public repository at https://github.com/MostafaMassoud/DT-GSK carries the code, configuration, result data and the pinned evidence releases, bound by SHA-256 manifests; further materials on reasonable request. No Zenodo deposit and no repository DOI; the article DOI comes from the journal. |
 | Weakness to avoid | eGSK's misleading data statement; ATMALS-GSK's configuration ambiguity; GSK's link rot and missing seeds/raw data. |
 
 ## 20. Supplementary-material usage

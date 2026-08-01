@@ -1192,11 +1192,12 @@ desktop-Word open-save and regenerated to the deterministic build before minting
   framing in §1.5.0-K(f)).** Three distinct channels, and reviewers must not conflate them:
   1. **Journal submission** — the *five deliverables only* (~13 MB); code and evidence are **not**
      uploaded. Hashes in `submission_package_manifest.json`.
-  2. **Archive of record** — the **full** evidence tree (`curves/` committed, author's decision),
-     bound to the pinned evidence releases by SHA-256 manifests and supplied by the corresponding
-     author on reasonable request. This is what the Data Availability Statement cites and what
-     reproduction should use. *(Revised 2026-08-01, D-0037: no public repository, GitHub release
-     or repository DOI is created for this work; the article DOI is assigned by the journal.)*
+  2. **Archive of record** — the public repository at https://github.com/MostafaMassoud/DT-GSK,
+     carrying the **full** evidence tree (`curves/` committed, author's decision) bound to the
+     pinned evidence releases by SHA-256 manifests. This is what the Data Availability Statement
+     cites and what reproduction should use. *(Revised 2026-08-01: D-0037 kept the repository
+     private; D-0044, same day, made it public and cited the URL. No Zenodo deposit and no
+     repository DOI exist; the article DOI is assigned by the journal.)*
   3. **Convenience reproduction pack** — `dist/dtgsk_reproduction_pack.zip` (21 MB), code + summary
      evidence, `curves/`+`gen_logs/` excluded so it stays a light download. **Not authoritative**; if it
      and the archived release disagree, the release wins.
