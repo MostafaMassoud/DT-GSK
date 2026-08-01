@@ -12,10 +12,10 @@ benchmarks/cec_suite_cpp/build/
 dist/
 *.egg-info/
 !results/
-# Raw ISM-GSK per-generation diagnostics traces: deterministic-regenerable bulk
+# Raw DT-GSK per-generation diagnostics traces: deterministic-regenerable bulk
 # (seeds recorded in run_config/seed_schedule; single files can exceed GitHub's
 # 100 MB limit). The derived diagnostics_analysis CSVs stay tracked.
-ISMTrace_*.jsonl
+DTTrace_*.jsonl
 # LaTeX build intermediates (papers/); the curated *_missing.log provenance
 # files are kept tracked.
 papers/*.aux
@@ -30,8 +30,8 @@ papers/*.log
 # (the reference_papers/README.md index + references.bib are tracked; PDFs are not).
 reference_papers/*.pdf
 
-# build lock-workaround temp (build_pdf.py writes this when ISM-GSK.pdf is open)
-papers/ISM-GSK.new.pdf
+# build lock-workaround temp (build_pdf.py writes this when DT-GSK.pdf is open)
+papers/DT-GSK.new.pdf
 
 # standalone TikZ compile intermediates (source .tex + final .pdf are kept)
 papers/figures/concept/*_src.pdf
@@ -45,3 +45,6 @@ papers/figures/concept/*_src.log
 # stale editor/backup droppings (round-2 finding S4-4)
 .bak
 *.bak
+
+# agent/tool session state (never publish)
+.claude/

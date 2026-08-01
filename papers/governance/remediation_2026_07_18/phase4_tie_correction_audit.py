@@ -15,7 +15,8 @@ from pathlib import Path
 import numpy as np
 from scipy import stats as sps
 
-B = Path(r"D:\AI\PhD-Projects\00-GSK-Family\02-GSK_Family_Python_v1.1\papers\analysis\rel-2026-07-16-78f075cb0")
+B = (Path(__file__).resolve().parents[3] / "papers" / "analysis"
+     / "rel-2026-07-16-78f075cb0")
 ALPHA = 0.05
 
 def load_matrix(desc_csv):

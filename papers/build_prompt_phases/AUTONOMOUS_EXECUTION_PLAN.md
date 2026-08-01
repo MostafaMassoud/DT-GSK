@@ -1,5 +1,13 @@
 # Standing autonomous execution plan (user directive 2026-07-11)
 
+> **STATUS (2026-08-01).** Phases 10-12 are complete and gated — see
+> `phase_10/`, `phase_11/` and `phase_12/`. The evidence binding stated below
+> (`rel-2026-07-10-262fc16c9`) is two releases out of date; the manuscript now
+> binds to `rel-2026-07-20-67d9345f9` plus the two later suite releases. The
+> author-side items listed as outstanding (including AG-0002 ORCID iDs) were
+> closed 2026-07-25.
+
+
 > **What "autonomous" means here, and what it does not.** This file is a
 > work-sequencing directive: it records the order in which the remaining
 > production and review phases were to be executed, and the author's standing
@@ -25,7 +33,7 @@ apply `papers/PAPER_REVIEW_PROMPT.md` as a full adversarial review of the finish
 paper and fix all issues autonomously.
 
 ## Sequence (each step gated on the previous freezing)
-1. **Phase 10** — adversarial 6-reviewer review (RUNNING, task wfl2zo62s). On completion:
+1. **Phase 10** — adversarial 6-reviewer review (completed; see `phase_10/PHASE_10_gate_report.md`). On completion:
    apply fixes, close Gate 10, commit, freeze.
 2. **Phase 11** — Primary manuscript finalization + pre-ablation freeze (Gate 11, the hard
    pre-ablation gate). Inline/workflow. Commit + freeze.

@@ -12,10 +12,12 @@ import json
 import math
 import pickle
 import sys
+import os
+import tempfile
 from pathlib import Path
 
-ROOT = Path(r"D:/AI/PhD-Projects/00-GSK-Family/02-GSK_Family_Python_v1.1")
-SCRATCH = Path(r"C:\Users\moust\AppData\Local\Temp\claude\D--AI-PhD-Projects-00-GSK-Family-02-GSK-Family-Python-v1-1\936aad4c-083b-4d56-9c2a-2238bd8a85b8\scratchpad")
+ROOT = Path(__file__).resolve().parents[3]
+SCRATCH = Path(os.environ.get("GSK_AUDIT_SCRATCH", tempfile.gettempdir()))
 REF = ROOT / "benchmarks" / "cec_reference_results"
 SUITE_PY = ROOT / "benchmarks" / "cec_suite_python"
 

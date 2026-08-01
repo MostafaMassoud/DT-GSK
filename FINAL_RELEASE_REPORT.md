@@ -40,9 +40,9 @@ RNG is drawn only when it fires. `deep_stall_restart_enabled` defaults to **True
 
 ## 5. Files modified / removed / retained
 - **Modified:** `src/gsk_family/optimizers/_dt_core.py` (deep-stall mechanism, default-on;
-  endgame flag reverted); `scripts/analyze_ism_diagnostics.py` (`ls_hit_rate`);
+  endgame flag reverted); `scripts/analyze_ism_diagnostics.py (since renamed analyze_dt_diagnostics.py)` (`ls_hit_rate`);
   `tests/unit/test_dt_profiles.py` (source-field parity contract).
-- **Added:** `tests/unit/test_dt_deep_stall_restart.py`; `configs/publish/ism_gsk_cec2017_final.yml`;
+- **Added:** `tests/unit/test_dt_deep_stall_restart.py`; `configs/publish/dt_gsk_cec2017_final.yml`;
   `ISM_GSK_TRAP_FIX_PLAN.md` (archived, then retired; retained in git history);
   the release notes below; this report.
 - **Removed:** `tests/unit/test_ism_endgame_flag.py`, `configs/experimental/ism_endgame_d10d30.yml`
@@ -71,7 +71,7 @@ byte-identity KATs untouched).
   root into `docs/development/` (rendered in the docs site; since relocated to
   `docs/development/history/`; that archive has since been retired -- the records
   remain in git history, and the DT2 retractions travel with the evidence in
-  `benchmarks/cec_reference_results/_oracle/README.md`).
+  `benchmarks/cec_reference_results/_oracle/ (WITHDRAWN: the oracle study and its release orc-rel-2026-07-14 were removed from the paper and the tree deleted 2026-07-18; see papers/PAPER_REVIEW_PROMPT.md and the decision log) README.md`).
 - **Prompts:** all completed-work prompts under `docs/prompt/` now carry
   historical-record banners; stale facts corrected (script count, test count,
   removed-module references); `publication-polish.md` added as the

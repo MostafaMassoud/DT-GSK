@@ -13,7 +13,7 @@ import json
 import statistics
 from pathlib import Path
 
-ROOT = Path(r"D:/AI/PhD-Projects/00-GSK-Family/02-GSK_Family_Python_v1.1")
+ROOT = Path(__file__).resolve().parents[3]
 EVID = ROOT / "benchmarks" / "cec_reference_results"
 AP = EVID / "cec2017" / "apgsk"
 

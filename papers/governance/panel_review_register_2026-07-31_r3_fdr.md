@@ -27,8 +27,8 @@ template ('X rather than Y' 47x main + 32x supplement; ', not Y' 34x;
 ADVISORY pattern observations (AUTH-02/03/05, AUTH-SUPP-01) with no scientific
 weakness beneath them. Per 18.4.0/18.4.3: this rating is cumulative and
 contextual; style alone can neither prove nor disprove authorship, and the
-disclosed GenAI assistance (Claude Opus 4.6/4.8/5.0, AG-0007) played no part in
-it.
+disclosed GenAI assistance (Claude Opus 4.6/4.8/5.0, AG-0007) was not treated as
+evidence in arriving at this rating.
 
 **Notable: four findings are incompleteness of the ROUND-2 batch itself** —
 CE-01/CITE-REP-02 (three residual loci of the pre-r2 NP=100 provenance claim, so

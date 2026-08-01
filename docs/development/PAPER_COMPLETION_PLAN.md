@@ -1,5 +1,11 @@
 # Paper Completion Plan — five-suite manuscript to `dtgsk-submission-v2.0`
 
+> **HISTORICAL RECORD — executed and superseded.** The phases in this plan were
+> completed; the manuscript has since advanced through freeze passes 27, 28 and
+> 29 (round-2 and round-3 review batches). Current state: pass-29, tag `v2.4`.
+> Retained as process evidence; do not read its status statements as current.
+
+
 Status: **AWAITING AUTHOR APPROVAL — no manuscript file is touched until then.**
 Evidence-tree closure: **VERIFIED CLOSED** (see Appendix).
 Baseline: all five suites complete, promoted, and analyzed (85,855 runs across 35

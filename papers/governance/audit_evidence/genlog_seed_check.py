@@ -14,7 +14,7 @@ import json
 import re
 from pathlib import Path
 
-ROOT = Path(r"D:/AI/PhD-Projects/00-GSK-Family/02-GSK_Family_Python_v1.1")
+ROOT = Path(__file__).resolve().parents[3]
 EVID = ROOT / "benchmarks" / "cec_reference_results"
 MAX_SAFE_SEED = 2_147_483_646
 BASE = 20240620

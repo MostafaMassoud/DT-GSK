@@ -58,7 +58,7 @@ BODY_FONT = "Palatino Linotype"
 MONO_FONT = "Consolas"
 
 _PANDOC_USER_WIN = Path(
-    os.environ.get("LOCALAPPDATA", r"C:\Users\moust\AppData\Local")
+    os.environ.get("LOCALAPPDATA", str(Path.home() / "AppData" / "Local"))
 ) / "Pandoc" / "pandoc.exe"
 
 

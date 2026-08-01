@@ -18,6 +18,12 @@ Everything else carries the panel's own confidence. -->
 
 # FINAL PUBLICATION PLAN — DT-GSK, Four(/Five)-Suite Scope
 
+> **HISTORICAL RECORD — partially superseded.** Status statements in this plan
+> (including any manuscript-freeze tag it names) describe the state when it was
+> written. Current state: freeze pass-29, tag `v2.4`. Its rulings remain in
+> force unless a later governance record supersedes them.
+
+
 **Document:** `docs/development/FINAL_PUBLICATION_PLAN.md`
 **Programme baseline:** clean tree at `45b1d35e8e54b4daf0fc0caeab148305fc563e14` (verified 2026-07-28). Manuscript frozen at tag `dtgsk-submission-v1.0-2026-07-25` (commit `41726c544`), pass 23. Primary evidence release `rel-2026-07-20-67d9345f9` (3,403 files, digests verified) — **never re-run, never re-minted, never superseded**. CEC2020: zero result banks. CEC2013LSGO: family banks 375/375 complete in `results/_run_all/`, unpromoted. CR register ends at CR-0018.
 **Authority:** the three author scope decisions of 2026-07-27 (externals out of the paper; seven family algorithms on CEC2017/CEC2011/CEC2020/CEC2013LSGO; transformed Ackley only) plus the Decision Gate 0 outcome recorded in Phase 0.

@@ -14,7 +14,7 @@ import sys
 from collections import Counter, defaultdict
 from pathlib import Path
 
-ROOT = Path(r"D:/AI/PhD-Projects/00-GSK-Family/02-GSK_Family_Python_v1.1")
+ROOT = Path(__file__).resolve().parents[2]
 REF = ROOT / "benchmarks" / "cec_reference_results"
 OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(".")
 OUT.mkdir(parents=True, exist_ok=True)

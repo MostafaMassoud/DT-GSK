@@ -57,7 +57,7 @@ Only the closed-set statistics citations may be used downstream — do not intro
 - `configs/smoke.yml`, `configs/all_optimizers_smoke.yml`, `configs/golden_validation_smoke.yml`, `configs/performance_campaign_smoke.yml` — smoke/CI sizing (use for dry runs, **never** for paper numbers).
 - `configs/experimental/{ism_diag.yml, ism_diag_15run.yml, ism_d10_scored.yml}` — ISM diagnostic sweeps (exploratory only).
 - `configs/_ablation/<cell>.yml` — the scaffold-ablation cell configs, written by `scripts/run_ablation.py` (6 mechanisms + baseline = 7 cells).
-- `configs/publish/ism_gsk_cec2017_final.yml` — the frozen publication config for the proposed method.
+- `configs/publish/dt_gsk_cec2017_final.yml` — the frozen publication config for the proposed method.
 
 ### Results tree
 - `results/_run_all/<optimizer>/<suite>/` with subdirs `summary/`, `curves/`, `gen_logs/`.
@@ -108,7 +108,7 @@ The full 7-optimizer panel is already committed under `benchmarks/cec_reference_
 
    - Proposed method (`dt-gsk`), full CEC2017 panel dimension set, publication config:
      ```
-     gsk-run --config configs/publish/ism_gsk_cec2017_final.yml --overwrite
+     gsk-run --config configs/publish/dt_gsk_cec2017_final.yml --overwrite
      ```
    - A single missing comparator cell via the family config, scoping optimizer and dimension explicitly (respects the 51-run CEC2017 convention encoded in the config; do **not** pass `--runs` to override it):
      ```
@@ -121,7 +121,7 @@ The full 7-optimizer panel is already committed under `benchmarks/cec_reference_
    **Per-optimizer regeneration notes.**
    - `egsk` is a runnable port (scipy-SLSQP substitutes MATLAB `fmincon`); it is runnable **and** a reference comparator. If the paper's `egsk` panel column uses the `fmincon` reference CSVs rather than the port, take those from `benchmarks/cec_reference_results/cec2017/` and do not overwrite them with port output — label which source each `egsk` number came from. Cross-check the port against the reference with `python scripts/validate_egsk_vs_reference.py`.
    - `atmals-gsk` is runnable; regenerate exactly like any comparator cell via `configs/all_cec2017.yml`.
-   - `dt-gsk` core is byte-identity-locked. Regenerate from `configs/publish/ism_gsk_cec2017_final.yml`; if a frozen ISM profile is in play, `python scripts/validate_profile_lock.py` guards against accidental drift in the locked profile. Do **not** enable any opt-in tuning profile for the headline panel unless `claims.md` says so.
+   - `dt-gsk` core is byte-identity-locked. Regenerate from `configs/publish/dt_gsk_cec2017_final.yml`; if a frozen ISM profile is in play, `python scripts/validate_profile_lock.py` guards against accidental drift in the locked profile. Do **not** enable any opt-in tuning profile for the headline panel unless `claims.md` says so.
 
    **Per-suite driver matrix** (whole-suite regeneration; each respects its config's run count):
    | Suite       | Driver                                  | Family config             |
@@ -311,7 +311,7 @@ Phase 3 plots representative convergence curves, but the **selection and consoli
 ### A. Regenerate one missing cell (proposed method, CEC2017 D30)
 ```
 # 51-run CEC2017 convention is encoded in the config; do not override with --runs.
-gsk-run --config configs/publish/ism_gsk_cec2017_final.yml --optimizer dt-gsk --dimension 30 --overwrite
+gsk-run --config configs/publish/dt_gsk_cec2017_final.yml --optimizer dt-gsk --dimension 30 --overwrite
 # Output lands here:
 #   results/_run_all/dt-gsk/cec2017/summary/dt-gsk_cec2017_D30.csv   (Function,Best,Median,Mean,Worst,SD)
 #   results/_run_all/dt-gsk/cec2017/summary/{per_run.csv,seed_schedule.csv,run_config.json,environment.json,verification.json}
@@ -429,7 +429,7 @@ dt-gsk,2.43,2.41,2.30,2.28
 - **Mixing `egsk` sources.** The `egsk` port (scipy-SLSQP) and the `fmincon` reference CSVs are two different provenances. Pick one per exhibit, state which, and never silently swap them mid-table.
 - **Overriding config budgets or counts on the CLI.** Passing `--runs`, `--max-evaluations`, or `--seed` to "save time" produces numbers that are not the paper's numbers. Regenerate from the frozen config only.
 - **Skipping `gsk-validate`.** A cell that was copied, partially written, or produced under a drifted regime can still parse. `gsk-validate` is the gate that catches it before it poisons a statistic.
-- **Enabling a tuning profile for the headline panel.** ISM opt-in profiles change results; the headline panel uses the frozen `configs/publish/ism_gsk_cec2017_final.yml`. Use `scripts/validate_profile_lock.py` to confirm the locked profile.
+- **Enabling a tuning profile for the headline panel.** ISM opt-in profiles change results; the headline panel uses the frozen `configs/publish/dt_gsk_cec2017_final.yml`. Use `scripts/validate_profile_lock.py` to confirm the locked profile.
 
 ---
 

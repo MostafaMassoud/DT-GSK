@@ -260,7 +260,7 @@ Tooling:
   win/tie/loss split, signed-rank sums, p-value, and significance verdict.
 - `validate_egsk_vs_reference.py` — validates the runnable `egsk` kernel against
   the committed MATLAB-`fmincon` reference tables (statistical-equivalence check).
-- `analyze_ism_diagnostics.py` — post-processes the opt-in dt-gsk diagnostics
+- `analyze_dt_diagnostics.py` — post-processes the opt-in dt-gsk diagnostics
   JSONL traces into per-subsystem summaries and wrong-basin candidates.
 - `plot_convergence_from_curves.py` — renders convergence PNGs from committed
   curve CSVs without re-running a campaign.

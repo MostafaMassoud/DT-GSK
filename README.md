@@ -262,8 +262,7 @@ Directory roles:
   interface, module dependencies, workflows, result schema, seed policy,
   benchmark protocol and mapping, diagrams, project structure, glossary),
   `algorithms/` (per-optimizer notes), `development/` (developer, contributor,
-  maintenance, extension, and code-reading guides, the EGSK port spec, and
-  `history/` with archived records of completed work), `research/` (researcher
+  maintenance, extension, and code-reading guides, and the EGSK port spec), `research/` (researcher
   handbook, reproducibility, performance, validation report, numerical
   examples), `prompt/` (the review and audit prompts), and `html/` (generated
   site). The folder root also holds `index.md` and `LICENSES.md`.

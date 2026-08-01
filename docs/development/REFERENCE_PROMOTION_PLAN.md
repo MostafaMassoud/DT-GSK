@@ -1,5 +1,11 @@
 # Reference Promotion Plan — CEC2013LSGO now, CEC2020 behind its completeness gate
 
+> **HISTORICAL RECORD — executed and superseded.** The promotion this plan
+> describes was carried out on 2026-07-28/29; every target it lists now exists
+> and the work produced releases `lsgo-rel-2026-07-28-ff1a046ef` and
+> `cec2020-rel-2026-07-29-5867abe1e`. Retained as process evidence.
+
+
 Status: **AWAITING AUTHOR APPROVAL — nothing has been copied.**
 Authority: author directive 2026-07-28 (full prompt on file); SAP Addendum 1
 Section 11 (pre-registered promotion and file-class policy, signing commit

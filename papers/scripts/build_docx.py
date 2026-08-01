@@ -142,7 +142,7 @@ DOC_SPECS = {
 }
 
 _PANDOC_USER_WIN = Path(
-    os.environ.get("LOCALAPPDATA", r"C:\Users\moust\AppData\Local")
+    os.environ.get("LOCALAPPDATA", str(Path.home() / "AppData" / "Local"))
 ) / "Pandoc" / "pandoc.exe"
 _GS_USER_WIN = Path(r"C:\Program Files\gs\gs10.06.0\bin\gswin64c.exe")
 

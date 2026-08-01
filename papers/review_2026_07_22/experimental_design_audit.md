@@ -149,7 +149,7 @@ with the same default inside each port (`agsk.py:209–210`, `apgsk.py:73–74`,
 
 **What the code does.** `src/gsk_family/optimizers/egsk.py:149–212` replaces the published `fmincon(...,'sqp')` interior-point refinement with `scipy.optimize.minimize(method="SLSQP")`, budgeted at `ceil(2e-3 · MaxFES)` per invocation (`:170–171`) and correctly charged into `nfes` (`:211`). It is invoked inside the main loop in the late stage (`:313, 320–324`), so it can fire many times per run.
 
-**Quantification (my probe — this number does not exist anywhere in the package).** Read-only instrumentation at `C:\Users\moust\AppData\Local\Temp\claude\D--AI-PhD-Projects-00-GSK-Family-02-GSK-Family-Python-v1-1\651a5b19-0834-476f-9d3e-5147fafebacd\scratchpad\egsk_polish_share.py`, run on real CEC2017 cells with the campaign seed formula:
+**Quantification (my probe — this number does not exist anywhere in the package).** Read-only instrumentation at `an out-of-tree read-only probe script (not committed)`, run on real CEC2017 cells with the campaign seed formula:
 
 | D | F | polish invocations | evaluations through SLSQP | **share of MaxFES** |
 |---|---|---|---|---|
