@@ -21,6 +21,7 @@
 \usepackage{microtype}
 \usepackage{parskip}
 \usepackage{booktabs}
+\usepackage{longtable}
 \usepackage{array}
 \usepackage{enumitem}
 \usepackage{titlesec}
@@ -434,12 +435,18 @@ $D{<}20$ / $20$--$49$ / $50$--$99$ / $D{\geq}100$; a single value means it does
 not vary by tier. The whole set is hash-frozen in the repository's algorithm
 freeze manifest and is neither tuned nor tunable at run time.
 
-\begin{center}
-\footnotesize
-\begin{tabular}{@{}p{4.1cm}p{7.0cm}p{4.0cm}@{}}
+{\scriptsize
+\setlength{\LTpre}{2pt}\setlength{\LTpost}{2pt}
+\renewcommand{\arraystretch}{0.95}
+\begin{longtable}{@{}p{4.0cm}p{7.0cm}p{3.9cm}@{}}
 \toprule
 \textbf{Parameter} & \textbf{Value} & \textbf{Note}\\
 \midrule
+\endfirsthead
+\toprule
+\textbf{Parameter} & \textbf{Value} & \textbf{Note} \ \emph{(continued)}\\
+\midrule
+\endhead
 \multicolumn{3}{@{}l}{\emph{Run level}}\\
 \midrule
 generator & Threefry, unified shared seed, 13 substreams & prefix-locked\\
@@ -527,8 +534,8 @@ FC4 linkage random-mix & $\tau$-floor 0.50; lift $-0.05$ / severe $-0.20$; stren
 basin memory, subspace floor & enabled & \\
 trust-region budget policy & present, runtime-inert & redundant guard\\
 \bottomrule
-\end{tabular}
-\end{center}
+\end{longtable}
+}
 
 \section{The method in pseudocode}
 
@@ -661,7 +668,7 @@ Two disciplines matter for reading the results:
 
 \begin{center}
 \small
-\begin{tabular}{@{}p{2.1cm}p{5.4cm}p{3.0cm}c@{}}
+\begin{tabular}{@{}p{2.4cm}p{4.95cm}p{3.2cm}c@{}}
 \toprule
 \textbf{Collection} & \textbf{What kind of test it is} & \textbf{DT-GSK's place} & \textbf{Avg.\ rank} \\
 \midrule
