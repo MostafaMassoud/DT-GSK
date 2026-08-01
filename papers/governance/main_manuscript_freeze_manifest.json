@@ -1,9 +1,9 @@
 {
   "schema": "main_manuscript_freeze_manifest/v1",
-  "phase": "PASS-37 Figures 1-2 as editable Visio OLE (dtgsk-submission-v2.12 basis)",
-  "generated_utc": "2026-08-01T15:29:20+00:00",
-  "anchor_commit": "01b6a7f2d6e860af87ba60272149c982e50407bd",
-  "pre_freeze_base_commit": "792d1dc7be294642caefe9bc98d00b009e8947cf",
+  "phase": "PASS-38 public repository cited in the DAS (dtgsk-submission-v2.13 basis)",
+  "generated_utc": "2026-08-01T18:48:21+00:00",
+  "anchor_commit": "d12989add7769efa097ce9283d8fe773837df136",
+  "pre_freeze_base_commit": "420cac4e8b66dc52c4fd5e50cfd2e7b2c2cb1434",
   "evidence_release": {
     "primary": "rel-2026-07-20-67d9345f9",
     "cec2013lsgo": "lsgo-rel-2026-07-28-ff1a046ef",
@@ -11,7 +11,7 @@
     "ablation": "abl-rel-2026-07-20"
   },
   "scientific_content_status": "FROZEN_FOR_SUBMISSION",
-  "freeze_statement": "Re-freeze after the author's directive that Figures 1 and 2 ship as editable Visio OLE objects in the Word deliverable. ONE tracked file moves - papers/DT-GSK.docx - and nothing else: the PDF, the supplement in both formats, the cover letter, main.tex and all three CSVs are byte-identical to the pass-36 mint. No number, rank, p-value, test, standing or registered outcome changes; the figures are the same drawings, now double-click-editable. This reverses the D-0042 decision to keep the fold-in opt-in, and the reversal is substantively right rather than merely directed: two of the three reasons given there did not survive measurement. The size cost is +9,869 bytes, about 1 percent, not a material enlargement; and the 'an editor without Visio meets an object they cannot open' risk is void because each w:object retains its PNG preview, so the figures render exactly as before without Visio. Only the third reason stands - MDPI asks for figures as a separate 600 dpi ZIP, which is built and shipped - and that is not a reason to withhold editability from the DOCX. Also corrected while enabling it: the opt-in block regenerated the tracked flowchart_*.vsdx on every build, rewriting validated artifacts as a side effect; they are now regenerated only when absent and were confirmed untouched across two builds. validate_visio_ole.py now covers the SHIPPED DT-GSK.docx rather than only the standalone variant, checking on every run that both embedded drawings are byte-identical to their tracked sources, that both use the 'package' relationship type (the defect that made Word render them as flat images, fixed in D-0041 and author-confirmed in D-0042), and that each embedded copy re-validates independently. Verification: DOCX byte-identical across two consecutive builds at the pinned epoch 1783641600; 2 OLE objects with 2 previews retained; validate_docx passes on both documents; cross-format parity, doc-consistency, artifact labels and build hygiene all green.",
+  "freeze_statement": "Re-freeze after the author's decision to make the repository public and cite its URL at submission (D-0044, partially superseding D-0037: the visibility limb only - no Zenodo deposit and no repository DOI exist, and the article DOI is assigned by the journal after acceptance). No number, rank, p-value, test, standing or registered outcome changes; three of fifteen tracked files move and the supplement and cover letter are byte-identical to the pass-37 mint. The Data Availability Statement now states that the source code, configuration files and experimental result data are openly available in the public DT-GSK repository at https://github.com/MostafaMassoud/DT-GSK, that the submitted version corresponds to repository tag v2.13, and that further materials are available from the corresponding author on reasonable request. Public accessibility of the URL was verified before it was cited (anonymous fetch renders the repository and its README). The URL is the single archival identifier the statement is permitted to carry. Every statement written under the superseded not-public limb was corrected in the same anchor commit (README, the reproduction-pack cover note and emitted manifest, the presentation-conventions posture, the review instrument's archive-of-record definition). All five artifacts byte-identical across two consecutive builds at the pinned epochs; eleven gates green.",
   "hash_algorithm": "SHA-256",
   "build_environment": {
     "pdf_source_date_epoch": 1783468800,
@@ -25,8 +25,8 @@
   "files": [
     {
       "path": "papers/main.tex",
-      "sha256": "98956e140ff2cbb70fdb24d69b64bdd9c14232b251c97e8217fab615a419e694",
-      "bytes": 25320
+      "sha256": "1991db759cf451389d239894a24664cb272cd51a9733d208ec0212e7126c5aa2",
+      "bytes": 25582
     },
     {
       "path": "papers/sections/introduction.tex",
@@ -55,13 +55,13 @@
     },
     {
       "path": "papers/DT-GSK.pdf",
-      "sha256": "916d13432d836b499d84c59cd9c00c5520c7842659f3c043e94d1d89c3dfa71f",
-      "bytes": 817478
+      "sha256": "77c740a6360f53ac42c2c955662f24afd8c2be89e5fb84921e630e99a0885efb",
+      "bytes": 818170
     },
     {
       "path": "papers/DT-GSK.docx",
-      "sha256": "256f4c685928187cbcd7c258dead8b7d1bf734c288a524e3d75d6f54a3553821",
-      "bytes": 1009516
+      "sha256": "7f31d3008c6381637f5d8c3d0bffc4ee63e07a95ae1bfa00b81af806a32ce63c",
+      "bytes": 1009705
     },
     {
       "path": "papers/supplementary.pdf",

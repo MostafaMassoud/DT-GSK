@@ -1745,3 +1745,38 @@ applying all surfaced fixes.
 - **Freeze**: pass-37 minted at anchor 01b6a7f2d (1 of 15 hashes changed),
   check_manifest 15/15. Tag **v2.12** supersedes v2.11.
   **Approver**: author (2026-08-01). **Status**: CLOSED.
+
+## D-0044 (2026-08-01) - Repository made PUBLIC; URL cited in the Data Availability Statement
+
+- **Author decision**, reversing ONE limb of D-0037: the repository at
+  https://github.com/MostafaMassoud/DT-GSK is public as of 2026-08-01, and the
+  URL is cited in the Data Availability Statement and supplied at submission.
+  The other D-0037 limbs stand unchanged: no Zenodo deposit, no repository
+  DOI; the article DOI is assigned by *Algorithms* (MDPI) after acceptance.
+- **Verified before citing**: an anonymous fetch of the URL renders the
+  repository and its README - the DAS does not cite an address the reader
+  cannot reach.
+- **DAS wording**: openly available at the URL; the submitted version
+  corresponds to repository tag v2.13 (cut at this mint, so the pointer is
+  self-consistent); further materials from the corresponding author on
+  reasonable request. The URL is the single archival identifier permitted in
+  the statement (review instrument 10.17.4).
+- **Consistency sweep in the same anchor commit** - every statement written
+  under the superseded limb was corrected: README ("no public artifact
+  repository accompanies the article" - now false, replaced), the
+  reproduction-pack cover note and its emitted manifest, the
+  presentation-conventions adopted posture, and the review instrument's
+  archive-of-record definition. The submission kit gained the
+  availability-URL field.
+- **What a public repository now exposes, stated plainly**: the full
+  governance record, including the AI-assisted commit trailers, the production
+  prompt files, and the disclosure amendments. All of it was audited for
+  exactly this exposure (the 2026-08-01 transparency audit and its
+  remediation), the manuscript's disclosure covers the facts, and the
+  commit-boundary evidence (no AI-assisted commit touches
+  benchmarks/cec_reference_results/ or papers/analysis/) is itself part of
+  what the repository now makes checkable by anyone.
+- **Freeze**: pass-38 minted at anchor d12989add (3 of 15 hashes changed),
+  check_manifest 15/15. Tag **v2.13** supersedes v2.12; earlier tags unmoved;
+  CITATION.cff bumped to 2.13 in the tagged state.
+  **Approver**: author (2026-08-01). **Status**: CLOSED.

@@ -498,12 +498,12 @@
   "update_note": "Refreshed 2026-08-01 at the freeze pass-36 mint. The five shipped-artifact digests are recomputed from the artifacts on disk at each refresh. NOTE: this file is not covered by check_manifest.py, which validates only main_manuscript_freeze_manifest.json, so two of these five digests went silently stale between pass-31 and pass-35 before the pre-submission sweep caught it. Re-verify these five whenever a new pass is minted. `project_root` and `git_root` above still record the private monorepo because that is where Phase 0 ran; they are a dated historical record, not a pointer to this repository.",
   "shipped_artifacts": {
     "papers/DT-GSK.pdf": {
-      "sha256": "916d13432d836b499d84c59cd9c00c5520c7842659f3c043e94d1d89c3dfa71f",
-      "bytes": 817478
+      "sha256": "77c740a6360f53ac42c2c955662f24afd8c2be89e5fb84921e630e99a0885efb",
+      "bytes": 818170
     },
     "papers/DT-GSK.docx": {
-      "sha256": "256f4c685928187cbcd7c258dead8b7d1bf734c288a524e3d75d6f54a3553821",
-      "bytes": 1009516
+      "sha256": "7f31d3008c6381637f5d8c3d0bffc4ee63e07a95ae1bfa00b81af806a32ce63c",
+      "bytes": 1009705
     },
     "papers/supplementary.pdf": {
       "sha256": "0347dc80bd58e18eb7cfc1301facfefe2c51fc3a6bb3de80c9b7789c42c1c296",

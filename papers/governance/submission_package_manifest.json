@@ -1,16 +1,16 @@
 {
   "schema": "submission_package_manifest/v1",
-  "generated_utc": "2026-08-01T15:29:20Z",
-  "manuscript_version_id": "v2.12",
-  "manuscript_version_note": "Freeze pass-37, tag v2.12 (D-0043). Supersedes v2.11 as the submission basis. Figures 1 and 2 ship as editable Visio OLE objects in the Word deliverable, with their PNG previews retained. No Zenodo deposit, no GitHub release and no repository DOI; the article DOI is assigned by Algorithms (MDPI) after acceptance.",
+  "generated_utc": "2026-08-01T18:48:21Z",
+  "manuscript_version_id": "v2.13",
+  "manuscript_version_note": "Freeze pass-38, tag v2.13 (D-0044). Supersedes v2.12 as the submission basis. The repository is public and cited in the Data Availability Statement (https://github.com/MostafaMassoud/DT-GSK). No Zenodo deposit and no repository DOI; the article DOI is assigned by Algorithms (MDPI) after acceptance.",
   "target_journal": "Algorithms (MDPI)",
   "evidence_release": [
     "rel-2026-07-20-67d9345f9 (CEC2017, CEC2011, CEC2013 - primary)",
     "lsgo-rel-2026-07-28-ff1a046ef (CEC2013LSGO)",
     "cec2020-rel-2026-07-29-5867abe1e (CEC2020)"
   ],
-  "authoritative_commit": "01b6a7f2d6e860af87ba60272149c982e50407bd",
-  "pre_freeze_base_commit": "792d1dc7be294642caefe9bc98d00b009e8947cf",
+  "authoritative_commit": "d12989add7769efa097ce9283d8fe773837df136",
+  "pre_freeze_base_commit": "420cac4e8b66dc52c4fd5e50cfd2e7b2c2cb1434",
   "hash_algorithm": "SHA-256",
   "submission_files": [
     {
@@ -18,15 +18,15 @@
       "path": "papers/DT-GSK.pdf",
       "pages": 47,
       "build_epoch": 1783468800,
-      "sha256": "916d13432d836b499d84c59cd9c00c5520c7842659f3c043e94d1d89c3dfa71f",
-      "bytes": 817478
+      "sha256": "77c740a6360f53ac42c2c955662f24afd8c2be89e5fb84921e630e99a0885efb",
+      "bytes": 818170
     },
     {
       "role": "main-manuscript-docx",
       "path": "papers/DT-GSK.docx",
       "build": "deterministic docx render",
-      "sha256": "256f4c685928187cbcd7c258dead8b7d1bf734c288a524e3d75d6f54a3553821",
-      "bytes": 1009516
+      "sha256": "7f31d3008c6381637f5d8c3d0bffc4ee63e07a95ae1bfa00b81af806a32ce63c",
+      "bytes": 1009705
     },
     {
       "role": "supplement-pdf",
