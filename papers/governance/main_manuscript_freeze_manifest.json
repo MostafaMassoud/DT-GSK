@@ -1,9 +1,9 @@
 {
   "schema": "main_manuscript_freeze_manifest/v1",
-  "phase": "PASS-33 ChatGPT version removed (dtgsk-submission-v2.8 basis)",
-  "generated_utc": "2026-08-01T13:26:57+00:00",
-  "anchor_commit": "90821d5023fd8139bdcfd352c1fc4a968cd499e5",
-  "pre_freeze_base_commit": "e0c4265f21181ae08ca1bc39b3e38a329d6c10ce",
+  "phase": "PASS-34 Data Availability on reasonable request (dtgsk-submission-v2.9 basis)",
+  "generated_utc": "2026-08-01T13:38:28+00:00",
+  "anchor_commit": "502b32162d81dc3d96c259b791f4b3d2e700ea72",
+  "pre_freeze_base_commit": "438b0013844cd3a87b39508eb000ff01e15eedb8",
   "evidence_release": {
     "primary": "rel-2026-07-20-67d9345f9",
     "cec2013lsgo": "lsgo-rel-2026-07-28-ff1a046ef",
@@ -11,7 +11,7 @@
     "ablation": "abl-rel-2026-07-20"
   },
   "scientific_content_status": "FROZEN_FOR_SUBMISSION",
-  "freeze_statement": "Re-freeze after the author-directed removal of the ChatGPT version from the disclosure. No number, rank, p-value, test, standing or registered outcome changes. The rule applied: do not publish a model number unless repository evidence conclusively establishes it. It does not -- the only occurrences in the tree are the author's own recollection, recorded verbatim AS unverified ('Catgut 5.5 / 5.6', AG-0007), and the restatement of it is the same uncertain pair. A pair cannot fill MDPI's prescribed '[tool name, version information]' slot, and an unsupported number is a specific checkable claim with nothing behind it, so the tool is named and its role described in full while the version is omitted rather than invented. This restores the D-0032 position and reverts the pass-32 attempt to state one. Four tracked files move, but only main.tex changes in substance: the rebuilt PDF, DOCX and cover letter are byte-identical to the pass-31 build, the sole surviving difference being a source comment recording the reasoning. Both supplementary artifacts are untouched. All five artifacts byte-identical across two consecutive builds at the pinned epochs; nine gates green.",
+  "freeze_statement": "Re-freeze after the author's final decision on data availability. No number, rank, p-value, test, standing or registered outcome changes; three of fifteen tracked files move and both supplementary artifacts plus the cover letter are byte-identical to the pass-33 mint. The Data Availability Statement previously promised that the implementation and evidence tree were 'published in a public code repository and archived immutably at a tagged release carrying a persistent digital object identifier', with 'both locators supplied with the submission'. The author's decision of 2026-08-01 creates no public repository, no GitHub release, no Zenodo deposit and no repository DOI - the article DOI is assigned by Algorithms (MDPI) after acceptance - so that sentence was unsupportable and is replaced by availability from the corresponding author upon reasonable request, with the supplementary materials carrying the additional methodological and experimental detail. Six further availability phrasings elsewhere in the manuscript were swept out with it ('archived with this article', 'in the same repository', 'the repository also contains', 'the repository's runbook', 'the repository LICENSE file', 'checkable within this repository'), as was CITATION.cff's commented Zenodo DOI note. Statements describing the evidence's internal structure or provenance are retained by direction: they assert auditability, not public access. Verified absent from the rendered PDF: public code repository, persistent digital object identifier, Zenodo, GitHub, tagged release, locators are supplied, archived immutably, supplied with the submission, publicly available; and the new statement appears verbatim in both the PDF and the DOCX. Also closed: the docs/LICENSES.md copyright placeholder, on the author's confirmation ('Copyright (c) 2026 by the authors.'), with the confirm-before-submission instruction removed. All five artifacts byte-identical across two consecutive builds at the pinned epochs; ten gates green.",
   "hash_algorithm": "SHA-256",
   "build_environment": {
     "pdf_source_date_epoch": 1783468800,
@@ -25,8 +25,8 @@
   "files": [
     {
       "path": "papers/main.tex",
-      "sha256": "cc36b9a10c1420b67c1b71455bf70d3a8ec97a2c070713abf684b2b516519315",
-      "bytes": 25466
+      "sha256": "3b3fd0ae6c8c77791d986ba2bf6d23291b9518b51b0a0c36f70616af2505693d",
+      "bytes": 25272
     },
     {
       "path": "papers/sections/introduction.tex",
@@ -55,13 +55,13 @@
     },
     {
       "path": "papers/DT-GSK.pdf",
-      "sha256": "db59dbc64d24d868580a3c0178bf7a73f38e59b30da8c2cf0f729ace6c9be115",
-      "bytes": 817876
+      "sha256": "e2b8df0ecbef6f0415da5292186a0fd9ffb64c1aa06351ec9cb42e10c4650a70",
+      "bytes": 817457
     },
     {
       "path": "papers/DT-GSK.docx",
-      "sha256": "4bd70cdee683c00c5294784abeb7e01b0c1a222f75280402e91756e46a6c38e8",
-      "bytes": 999715
+      "sha256": "430fd92330f1efd9940055d5daa931357f77a65ec66d55c41b59b59201cf83c1",
+      "bytes": 999581
     },
     {
       "path": "papers/supplementary.pdf",

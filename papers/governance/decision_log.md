@@ -1496,3 +1496,37 @@ applying all surfaced fixes.
   check_manifest 15/15. Tag **v2.8** supersedes v2.7; earlier tags unmoved;
   CITATION.cff bumped to 2.8 in the tagged state.
   **Approver**: author (2026-08-01). **Status**: CLOSED.
+
+## D-0037 (2026-08-01) - FINAL: data availability on reasonable request; no public repository, no Zenodo, no repository DOI
+
+- **Author's final decision.** The article DOI will be assigned and managed by
+  *Algorithms* (MDPI) after acceptance and publication. No separate Zenodo
+  deposit and no repository DOI are created for this submission. The repository
+  is not made public. A GitHub push or release is optional housekeeping, not a
+  submission dependency. This decision is not to be reopened.
+- **Data Availability Statement replaced.** The previous wording promised "a
+  public code repository ... archived immutably at a tagged release carrying a
+  persistent digital object identifier; both locators are supplied with the
+  submission" - a claim the decision above makes unsupportable, in a journal
+  that "requires that authors publish all experimental controls and make full
+  datasets available where possible". Replaced with the author-supplied text:
+  availability from the corresponding author upon reasonable request, with the
+  supplementary materials carrying the additional methodological and
+  experimental detail. A source comment records the decision and forbids
+  reintroducing a public-availability or DOI claim; it supersedes the
+  AG-0006 / R-0004 note that previously sat there.
+- **Package-wide sweep.** Six further phrasings that implied public access were
+  neutralised, none of them in the DAS itself, plus CITATION.cff's commented
+  Zenodo DOI note. Statements that merely describe the evidence's internal
+  structure or provenance are retained by explicit direction: they assert
+  auditability, not public availability. Absence verified against the RENDERED
+  PDF rather than the source, for all nine forbidden phrases.
+- **Copyright closed.** The author confirmed the line and year in this message.
+  `docs/LICENSES.md` now reads "Copyright (c) 2026 by the authors."; the
+  instruction asking the authors to confirm it is removed and the
+  pre-publication checklist item marked DONE. Licence terms and the
+  file-specific distinctions are unchanged.
+- **Freeze**: pass-34 minted at anchor 502b32162 (3 of 15 hashes changed),
+  check_manifest 15/15. Tag **v2.9** supersedes v2.8; earlier tags unmoved;
+  CITATION.cff bumped to 2.9 in the tagged state.
+  **Approver**: author (final decision, 2026-08-01). **Status**: CLOSED.

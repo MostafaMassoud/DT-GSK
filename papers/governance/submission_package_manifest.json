@@ -1,16 +1,16 @@
 {
   "schema": "submission_package_manifest/v1",
-  "generated_utc": "2026-08-01T12:24:58Z",
-  "manuscript_version_id": "v2.6",
-  "manuscript_version_note": "Freeze pass-31, tag v2.6. Supersedes v2.5 as the submission and Release/Zenodo basis (D-0034).",
+  "generated_utc": "2026-08-01T13:38:28Z",
+  "manuscript_version_id": "v2.9",
+  "manuscript_version_note": "Freeze pass-34, tag v2.9 (D-0037). Supersedes v2.8 as the submission basis. No Zenodo deposit, no GitHub release and no repository DOI are created for this work; the article DOI is assigned by Algorithms (MDPI) after acceptance.",
   "target_journal": "Algorithms (MDPI)",
   "evidence_release": [
     "rel-2026-07-20-67d9345f9 (CEC2017, CEC2011, CEC2013 - primary)",
     "lsgo-rel-2026-07-28-ff1a046ef (CEC2013LSGO)",
     "cec2020-rel-2026-07-29-5867abe1e (CEC2020)"
   ],
-  "authoritative_commit": "856066c0ea4ac6a1b28c68a009b2a26d5b364cef",
-  "pre_freeze_base_commit": "d2bd45de53f11f4aba17329fa531adafe9f8808e",
+  "authoritative_commit": "502b32162d81dc3d96c259b791f4b3d2e700ea72",
+  "pre_freeze_base_commit": "438b0013844cd3a87b39508eb000ff01e15eedb8",
   "hash_algorithm": "SHA-256",
   "submission_files": [
     {
@@ -18,15 +18,15 @@
       "path": "papers/DT-GSK.pdf",
       "pages": 47,
       "build_epoch": 1783468800,
-      "sha256": "db59dbc64d24d868580a3c0178bf7a73f38e59b30da8c2cf0f729ace6c9be115",
-      "bytes": 817876
+      "sha256": "e2b8df0ecbef6f0415da5292186a0fd9ffb64c1aa06351ec9cb42e10c4650a70",
+      "bytes": 817457
     },
     {
       "role": "main-manuscript-docx",
       "path": "papers/DT-GSK.docx",
       "build": "deterministic docx render",
-      "sha256": "4bd70cdee683c00c5294784abeb7e01b0c1a222f75280402e91756e46a6c38e8",
-      "bytes": 999715
+      "sha256": "430fd92330f1efd9940055d5daa931357f77a65ec66d55c41b59b59201cf83c1",
+      "bytes": 999581
     },
     {
       "role": "supplement-pdf",
