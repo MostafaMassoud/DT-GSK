@@ -56,7 +56,7 @@
     {
       "path": "papers/DT-GSK_visio.docx",
       "bytes": 1641812,
-      "reason": "Visio flowchart working file, not a submission artifact (C-001 5.4); author to `git rm` before the authoritative commit."
+      "reason": "Visio flowchart working file: an optional editable-OLE variant of the DOCX, never a submission artifact (C-001 5.4). Removed from the tree before the authoritative commit, as required; rebuildable on demand from papers/scripts/build_visio_flowcharts.py + embed_visio_ole.py."
     }
   ],
   "notes": "Source .tex, references.bib, and governance CSVs are pinned in main_manuscript_freeze_manifest.json. authoritative_commit is stamped at the freeze commit."
