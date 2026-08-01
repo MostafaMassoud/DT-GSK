@@ -2936,29 +2936,38 @@ def build(doc_kind: str) -> int:
         print(f"  ! {spec['out'].name} locked; kept {final_path.name}",
               file=sys.stderr)
 
-    # Phase D4 (OPT-IN): embed the process flowcharts as native Visio OLE
-    # objects (double-click-to-edit + extractable from word/embeddings/) instead
-    # of raster pictures. Enabled only when VISIO_OLE_FLOWCHARTS is set.
+    # Phase D4 -- DEFAULT ON since 2026-08-01 (D-0043, author directive).
     #
-    # The Word/Visio round-trip WAS confirmed by the author on 2026-08-01
-    # (D-0042), after the relationship-type defect was fixed in embed_visio_ole.py
-    # (D-0041). So this path is no longer "pending confirmation" -- it works, and
-    # this build exercises the same fixed embed_ole() the standalone script uses.
+    # Figures 1 and 2 (the base-GSK and DT-GSK flowcharts) ship as native Visio
+    # OLE objects: double-click-to-edit in Word, and extractable from
+    # word/embeddings/. The PNG preview is retained inside each object, so a
+    # reader without Visio still sees the figure exactly as before.
     #
-    # It stays OPT-IN by decision, not by doubt (D-0042): the OLE variant is
-    # excluded from the submission package (C-001 5.4), MDPI wants figures as a
-    # separate >=600 dpi ZIP, and embedding OLE in the SUBMITTED DOCX would
-    # enlarge it and risk an editor without Visio meeting an object they cannot
-    # open. The default (frozen submission) DOCX therefore keeps the PNG
-    # flowcharts. Revisit only if a venue asks for editable diagrams.
-    if doc_kind == "main" and os.environ.get("VISIO_OLE_FLOWCHARTS"):
+    # History: the round-trip failed twice before the cause was found -- a .vsdx
+    # is an OPC package and was being attached with the `oleObject` relationship
+    # type instead of `package` (D-0041). Fixed, and the author confirmed
+    # editing in Visio (D-0042). It was briefly kept opt-in on two arguments
+    # that measurement did not support: the size cost is +9,869 bytes (~1%), and
+    # the "editor without Visio" risk is covered by the retained preview.
+    #
+    # Set VISIO_OLE_FLOWCHARTS=0 to fall back to plain raster pictures.
+    #
+    # NOTE: this deliberately does NOT regenerate flowchart_*.vsdx. Those are
+    # tracked, validated artifacts; rebuilding them as a side effect of every
+    # DOCX build rewrote them in place and produced spurious diffs. They are
+    # regenerated only when absent, and otherwise used as committed --
+    # papers/scripts/validate_visio_ole.py checks them against their specs.
+    _ole_on = os.environ.get("VISIO_OLE_FLOWCHARTS", "1") not in ("0", "", "no")
+    if doc_kind == "main" and _ole_on:
         specs_dir = ROOT / "figures" / "concept" / "flowchart_specs"
         if specs_dir.is_dir():
             from build_visio_flowcharts import build_vsdx
             from embed_visio_ole import embed_ole
             concept = ROOT / "figures" / "concept"
             for _fc in ("gsk", "dtgsk"):
-                build_vsdx(specs_dir / f"{_fc}.json", concept / f"flowchart_{_fc}.vsdx")
+                _vsdx = concept / f"flowchart_{_fc}.vsdx"
+                if not _vsdx.is_file():
+                    build_vsdx(specs_dir / f"{_fc}.json", _vsdx)
             embed_ole(final_path, ["gsk", "dtgsk"], final_path)
             print("  visio flowcharts: embedded gsk + dtgsk as editable OLE objects")
 

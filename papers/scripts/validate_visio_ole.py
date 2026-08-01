@@ -301,7 +301,10 @@ def main() -> int:
         check_vsdx(CONCEPT / f"flowchart_{spec.stem}.vsdx", spec)
         # each embedded copy is validated again inside the DOCX below
     print("\nOLE-embedded DOCX")
-    for cand in (PAPERS / "DT-GSK_visio.docx",):
+    # DT-GSK.docx carries the OLE flowcharts by default since D-0043, so the
+    # SHIPPED artifact is now in scope -- not just the standalone variant, which
+    # is a build product and usually absent.
+    for cand in (PAPERS / "DT-GSK.docx", PAPERS / "DT-GSK_visio.docx"):
         check_ole_docx(cand)
         if cand.is_file():
             with zipfile.ZipFile(cand) as z:
