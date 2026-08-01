@@ -9,7 +9,7 @@ conclusion-critical result living only here.
 
 > This file expands **Phase 5** of `papers/PAPER_BUILD_PROMPT.md`. It **follows**
 > `PHASE_4_drafting.md` (the main-text draft must exist first) and **hands off to**
-> `PHASE_6_humanization.md`. Do **not** edit the main manuscript in this phase;
+> `PHASE_6_prose_quality.md`. Do **not** edit the main manuscript in this phase;
 > the only manuscript-adjacent files you touch are `papers/supplementary.tex` and
 > `papers/sections/supplementary_content.tex`.
 
@@ -549,7 +549,7 @@ Phase 5 is complete only when **all** hold:
 
 ## Hand-off
 
-Deliverables handed to **`PHASE_6_humanization.md`**:
+Deliverables handed to **`PHASE_6_prose_quality.md`**:
 
 - `papers/sections/supplementary_content.tex` — fully assembled, all sections
   populated, S-numbered.
@@ -558,6 +558,6 @@ Deliverables handed to **`PHASE_6_humanization.md`**:
   artifact), for Phase 6 to preserve while it edits prose.
 - The recorded **commit SHA** and confirmation that the four gates are green.
 
-Phase 6 humanizes the *prose* of both the main text and supplement. It must not
+Phase 6 is a prose-quality pass over both the main text and supplement. It must not
 alter any `\label` key, table/figure number, or reproducibility value; if it
 reorders content, it re-runs the 5.2 cross-link checks and updates the manifest.

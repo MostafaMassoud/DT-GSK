@@ -1,6 +1,6 @@
 # PHASE 6 — Prose-Quality Pass
 
-*(Historical filename: `PHASE_6_humanization.md`. The document was titled "Humanization Pass" when written; the detector-oriented framing that name carried was revoked before submission — see the banner below. The filename is retained because the governance records key their supersession ruling to it.)*
+*(**Renamed 2026-08-01** from `PHASE_6_humanization.md`. The old file name carried the revoked framing described below into every directory listing of this repository, where a reader sees it before opening anything, so the file now carries its corrected title instead. Git history preserves the original name and every prior revision; the rename is recorded in `papers/governance/decision_log.md` (D-0033) and in the precedence register, and no substantive content changed at the rename.)*
 
 > ## SUPERSEDED — RETAINED AS HISTORICAL RECORD. DO NOT APPLY AS WRITTEN.
 >
@@ -27,9 +27,11 @@
 > constraint and was never relaxed: this is a style pass over *already frozen*
 > content that may not change any number, citation, claim, or scope qualifier.
 >
-> The file is kept rather than deleted because it is part of the audit trail and
-> the governance records key their supersession ruling to this filename. Banner
-> added 2026-08-01.
+> The file is kept rather than deleted because it is part of the audit trail:
+> the governance records key their supersession ruling to this document by
+> quotation, under both its current and its former name. Banner added
+> 2026-08-01; the file was renamed the same day (see the note above the
+> banner).
 
 **Objective (superseded wording — see banner).** Make the DT-GSK manuscript read
 as expert-human prose — varied rhythm, concrete paper-specific detail, honest
@@ -495,9 +497,21 @@ blocking regardless of how good the prose reads.
 ## Hand-off
 
 On a clean exit gate, hand to **`PHASE_7_review.md`** (adversarial review &
-revision loop). Phase 7's A1 / AI-text-adversary pass reads only for
-machine-generation tells and must find none; its R1 (Q1) and R2 (Q2) referee
+revision loop). Phase 7's A1 pass re-reads the manuscript for the prose
+defects listed above and must find none; its R1 (Q1) and R2 (Q2) referee
 passes then attack novelty, baselines, statistics, reproducibility, and clarity.
+
+> *Superseded wording, replaced 2026-08-01 and recorded here for the audit
+> trail:* the sentence above originally read "Phase 7's A1 / AI-text-adversary
+> pass reads only for machine-generation tells and must find none." This is the
+> **third** detector-oriented passage in this file, revoked on the same ground
+> as the two struck above — `PAPER_BUILD_PROMPT.md` §0.3 and conflict **C-07**.
+> It survived that strike because the precedence register had recorded the
+> quotation against `PHASE_7_review.md` line 461, where it has never appeared
+> (checked against the full history with `git log -S`); the register's
+> misattribution is corrected at the same date, so the record and the file now
+> agree. As with the other two, the framing is revoked but the sentence is
+> preserved here rather than deleted.
 Carry forward: the frozen `phase6-baseline` tag (so any Phase 7 prose fix can be
 integrity-checked the same way) and the note that Phase 6 diffs were confirmed
 style-only. If Phase 7 revisions touch prose, re-apply this file's tell-scan and

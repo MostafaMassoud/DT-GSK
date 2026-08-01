@@ -4,7 +4,7 @@
 
 **Objective.** Draft the DT-GSK main text one section at a time — Method first, Abstract last — so that every sentence is bound to a Phase-2 number, cites only the 57 locked keys, references a Phase-3 exhibit that already exists, and survives its R1 (Q1) and R2 (Q2) self-review before the next section starts.
 
-> This file expands **Phase 4** and **Part 6** of `papers/PAPER_BUILD_PROMPT.md` into an executable drafting procedure. It **follows** `PHASE_3_tables_figures.md` (exhibits must be final and legible before prose points at them) and **hands to** `PHASE_5_supplementary.md` (everything you mark as overflow here becomes Phase-5 supplement material). It does **not** touch the supplement, humanization (Phase 6), or adversarial review (Phase 7) — those are later phases. Draft in the target voice, but do not chase machine-tell removal yet; that is Phase 6.
+> This file expands **Phase 4** and **Part 6** of `papers/PAPER_BUILD_PROMPT.md` into an executable drafting procedure. It **follows** `PHASE_3_tables_figures.md` (exhibits must be final and legible before prose points at them) and **hands to** `PHASE_5_supplementary.md` (everything you mark as overflow here becomes Phase-5 supplement material). It does **not** touch the supplement, the prose-quality pass (Phase 6), or adversarial review (Phase 7) — those are later phases. Draft in the target voice, but leave the style polish to Phase 6.
 
 ---
 
@@ -326,4 +326,4 @@ Hand to **`PHASE_5_supplementary.md`**. Deliver:
 2. The **overflow list** — every `% TODO(supplement)` item from every section (full per-function tables, full Wilcoxon matrices, full convergence sets, full sweep grids, extended ablations, pseudocode sub-procedures, seed/environment tables, any proof sketch). Phase 5 assembles these into `sections/supplementary_content.tex` and cross-links them back to the main text.
 3. The list of **main-text cross-reference pointers that expect a supplement target** (e.g. "full per-function results in Table S-x"), so Phase 5 can create resolving `\label`s.
 
-Phase 5 owns `supplementary.tex` / `sections/supplementary_content.tex`; it must not alter a fact in the main text — only house the rigour that did not fit. After Phase 5, the paper proceeds to Phase 6 (humanization) and Phase 7 (adversarial review).
+Phase 5 owns `supplementary.tex` / `sections/supplementary_content.tex`; it must not alter a fact in the main text — only house the rigour that did not fit. After Phase 5, the paper proceeds to Phase 6 (prose-quality pass) and Phase 7 (adversarial review).

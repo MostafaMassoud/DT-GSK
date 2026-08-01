@@ -7586,7 +7586,7 @@ build_prompt_phases/PHASE_2_data_stats.md
 build_prompt_phases/PHASE_3_tables_figures.md
 build_prompt_phases/PHASE_4_drafting.md
 build_prompt_phases/PHASE_5_supplementary.md
-build_prompt_phases/PHASE_6_humanization.md
+build_prompt_phases/PHASE_6_prose_quality.md
 build_prompt_phases/PHASE_7_review.md
 build_prompt_phases/PHASE_8_compliance.md
 build_prompt_phases/PHASE_9_submission.md

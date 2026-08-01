@@ -1,6 +1,6 @@
 # Standing execution-sequencing plan — manuscript production, Phases 10–12
 
-*(Historical filename: `AUTONOMOUS_EXECUTION_PLAN.md`. "Autonomous" here refers to proceeding through production phases without pausing for approval at each step — it does not describe the science, which was fixed and frozen upstream of this plan. Author directive, 2026-07-11.)*
+*(**Renamed 2026-08-01** from `AUTONOMOUS_EXECUTION_PLAN.md`. "Autonomous" there meant proceeding through the production phases without pausing for approval at each step; it never described the science, which was fixed and frozen upstream of this plan (author directive, 2026-07-11). Because the old name invited exactly the opposite reading from a directory listing, the file now carries its title. Git history preserves the original name and every prior revision; the rename is recorded in `papers/governance/decision_log.md` (D-0033), and no substantive content changed at the rename.)*
 
 > **STATUS (2026-08-01).** Phases 10-12 are complete and gated — see
 > `phase_10/`, `phase_11/` and `phase_12/`. The evidence binding stated below

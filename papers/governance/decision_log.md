@@ -1293,3 +1293,76 @@ applying all surfaced fixes.
   tags stay in place, unmoved. Nothing pushed (the author pushes).
   **Approver**: author (disclosure wording supplied and approved,
   2026-08-01). **Status**: CLOSED.
+
+## D-0033 (2026-08-01) - Two prompt files renamed; a third detector-oriented passage struck; the live humanization mandate reframed; a precedence-register misattribution corrected
+
+- **Trigger**: the author asked what was being done about the *file names*
+  `PHASE_6_humanization.md` and `AUTONOMOUS_EXECUTION_PLAN.md`. The 2026-08-01
+  transparency audit and its remediation had corrected the *contents* of both
+  files - titles, banners, struck passages - but left the names untouched, on
+  the reasoning that renaming immediately after a transparency audit could read
+  as selective cleanup. That reasoning was wrong in one respect the audit did
+  not weigh: a directory listing is what a reader sees first, and both names
+  carried framing this project's own governance had already revoked, to every
+  reader who never opens the file.
+- **Renames** (`git mv`, history preserved):
+  `PHASE_6_humanization.md` -> `PHASE_6_prose_quality.md`, matching the
+  corrected title; and `AUTONOMOUS_EXECUTION_PLAN.md` ->
+  `EXECUTION_SEQUENCING_PLAN.md`, likewise. No substantive content changed at
+  either rename. Each file states the former name, the date, and the reason in
+  its header. Concealment is the risk a rename carries, and it is answered
+  here by keeping the old names visible in three places at once: the renamed
+  files, this log, and the git history.
+- **Not renamed, deliberately**: documents dated before today that cite the old
+  names - the `phase_12/` review records and `papers/review_2026_07_22/` -
+  are left exactly as written. They are dated records, correct for their date;
+  rewriting them is the thing that would actually be scrubbing.
+- **A third detector-oriented passage, previously missed (the substantive
+  finding).** `PHASE_6`'s hand-off section still read "Phase 7's A1 /
+  AI-text-adversary pass reads only for machine-generation tells and must find
+  none." It is the same C-07 defect as the two passages struck earlier today
+  and had simply been missed. The reason it was missed is itself a defect:
+  `instruction_precedence.md` recorded that quotation against
+  `PHASE_7_review.md` line 461 (rows S-11 and C-07), so the strike pass looked
+  for it in the wrong file. **The phrase has never appeared in
+  `PHASE_7_review.md` at any revision** - verified with `git log -S` over the
+  full history, all paths - and line 461 there carries unrelated text.
+  `PHASE_7_review.md` carries no C-07 defect at all. The passage is now struck
+  at source and quoted in place like the other two; rows S-11 and C-07 are
+  corrected, each carrying the correction and its date rather than being
+  silently rewritten. Lesson recorded: a register entry that misfiles a quoted
+  defect does not merely mislabel it, it exempts it from remediation.
+- **The live instrument was worse than the historical files (F2).**
+  `PAPER_REVIEW_PROMPT.md` Section 10.17.5 - not a superseded artifact but the
+  instrument applied to this manuscript as recently as the round-3 pass - was
+  titled "Whole-manuscript humanization mandate" and required the reviewer to
+  "identify and eliminate any wording, structure, formatting, repetition,
+  placeholders, or stylistic patterns that could suggest AI-assisted writing."
+  That is a concealment criterion on its face, and this manuscript *discloses*
+  AI assistance, so the instruction contradicted the paper it was applied to as
+  well as `PAPER_BUILD_PROMPT.md` Section 0.3. Retitled "Whole-manuscript
+  expert-authorship mandate"; the criterion is restated as the named prose
+  defects (templated cadence, hollow phrasing, redundant restatement, tonal
+  seams, mechanical formatting, leftover scaffolding), each a defect in wholly
+  human-written prose too; and an explicit "the criterion is quality, not
+  provenance" paragraph forbids any edit motivated by a detector score. The
+  operative bullets were already sound and are unchanged - the defect was the
+  framing around them, not the craft guidance inside. Three further loci
+  followed the same rewording (Stage-4 heading, checklist F.21 heading and its
+  first bullet).
+- **New**: `papers/build_prompt_phases/README.md` explains what that directory
+  is - the authors' own production instructions, not results - records the
+  rename table, notes which `phase_NN/` outputs are load-bearing for the
+  manuscript, and states the AI-commit boundary as a checkable fact rather than
+  an assertion (no AI-assisted commit touches
+  `benchmarks/cec_reference_results/` or `papers/analysis/`; the two that touch
+  optimizer source are comment-only, re-verified at this date across all 31
+  such commits). Same remedy pattern as the approved
+  `papers/review_2026_07_22/README.md`.
+- **Scope**: repository documentation only. **No manuscript file changed**, no
+  file in the freeze manifest was touched, and no number, rank, p-value, test,
+  standing, or registered outcome moved. check_manifest remains 15/15 against
+  the pass-30 mint; **no re-mint and no new tag** - `v2.5` remains the
+  submission and Release/Zenodo basis.
+- **Approver**: author (raised the file-name question and directed the fix).
+  **Status**: CLOSED.

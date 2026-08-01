@@ -6,7 +6,7 @@ and R2 zero open *must-fixes*, keeping a point-by-point revision log that later
 seeds the rebuttal.
 
 This file expands **Phase 7** and **Part 9** of `papers/PAPER_BUILD_PROMPT.md`. It
-follows `PHASE_6_humanization.md` (which hands over a humanized, fact-frozen full
+follows `PHASE_6_prose_quality.md` (which hands over a style-passed, fact-frozen full
 draft) and hands to `PHASE_8_compliance.md` (final build + constraint proofs). It
 also produces the artifact Phase 9 consumes: the completed `revision_log.md`,
 which is the raw material for the reviewer-response letter (Appendix E of the
@@ -28,8 +28,8 @@ narrowing of a claim.
 Do not open Phase 7 until all of the following hold. If any is false, return to
 the phase that owns it.
 
-- **Humanized full draft complete (Phase 6 exit gate met).** All five main
-  sections exist and are humanized: `sections/introduction.tex`,
+- **Prose-quality pass complete (Phase 6 exit gate met).** All five main
+  sections exist and have had the Phase 6 style pass applied: `sections/introduction.tex`,
   `sections/literature_review.tex`, `sections/proposed_algorithm.tex`,
   `sections/performance.tex`, `sections/conclusions.tex`, plus the abstract in
   `main.tex`. The A1 tell-scan is clean (no three consecutive generated-smelling
@@ -471,7 +471,7 @@ note: regenerated via papers/scripts/generate_nemenyi_cd.py at higher label size
 - **Rewriting the revision log to look cleaner.** The log is evidence for the Phase 9
   rebuttal; it must record what was actually objected to and actually changed. A
   sanitized log produces a rebuttal that doesn't match the manuscript's history.
-- **Letting Phase 6 humanization regress.** Heavy revision can reintroduce banned
+- **Letting the Phase 6 prose-quality pass regress.** Heavy revision can reintroduce banned
   phrasing (Appendix C) or uniform rhythm. Spot-run the A1 tell-scan on any
   substantially rewritten paragraph so Phase 6's exit gate still holds.
 
