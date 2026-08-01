@@ -495,15 +495,15 @@
   },
   "superseded_anchor": "262fc16c91fbe5608a1a0b0c5df3cbcd009edc21",
   "updated_utc": "2026-08-01T12:48:37Z",
-  "update_note": "Refreshed 2026-08-01 at the freeze pass-31 mint (tag v2.6). The five shipped-artifact digests are read from the artifacts themselves and all four evidence releases are now named. `project_root` and `git_root` above still record the private monorepo because that is where Phase 0 actually ran; they are a dated historical record, not a pointer to this repository, whose own root is the standalone DT-GSK tree. Likewise `superseded_anchor` and the phase-specific sections are left as written.",
+  "update_note": "Refreshed 2026-08-01 at the freeze pass-36 mint. The five shipped-artifact digests are recomputed from the artifacts on disk at each refresh. NOTE: this file is not covered by check_manifest.py, which validates only main_manuscript_freeze_manifest.json, so two of these five digests went silently stale between pass-31 and pass-35 before the pre-submission sweep caught it. Re-verify these five whenever a new pass is minted. `project_root` and `git_root` above still record the private monorepo because that is where Phase 0 ran; they are a dated historical record, not a pointer to this repository.",
   "shipped_artifacts": {
     "papers/DT-GSK.pdf": {
-      "sha256": "db59dbc64d24d868580a3c0178bf7a73f38e59b30da8c2cf0f729ace6c9be115",
-      "bytes": 817876
+      "sha256": "916d13432d836b499d84c59cd9c00c5520c7842659f3c043e94d1d89c3dfa71f",
+      "bytes": 817478
     },
     "papers/DT-GSK.docx": {
-      "sha256": "4bd70cdee683c00c5294784abeb7e01b0c1a222f75280402e91756e46a6c38e8",
-      "bytes": 999715
+      "sha256": "5771ae8791f6b22329b6853195d959a98afca6dc296d77ee8f0817a872d4d668",
+      "bytes": 999601
     },
     "papers/supplementary.pdf": {
       "sha256": "439fff39029bfbe87a8c26a2bc4109548266af1d59134d24cae06a259f31f3e2",

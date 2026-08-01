@@ -15,9 +15,7 @@ GSK optimizer family. It is one of the two `license-files` targets declared in
 - **Code:** MIT License. The full grant text and copyright line are in the
   root `LICENSE` file; `pyproject.toml` declares `license = "MIT"` and points
   `license-files` at both `LICENSE` and this document.
-- **Copyright:** (c) 2026 Mostafa Elsayed Masoud, Heba Sayed Mohamed Roshdy, and
-  Ali Wagdy Mohamed. *Authors: confirm this copyright line and year before
-  submission; adjust if an institutional rights-holder applies.*
+- **Copyright:** Copyright (c) 2026 by the authors.
 - **Data and derived artifacts (authored by us):** the per-run result CSVs, seed
   schedules, analysis bundles, and verification manifests we produced are
   released under the Creative Commons Attribution 4.0 International
@@ -105,8 +103,9 @@ used in an experiment:
 
 ## Before publication or redistribution
 
-1. Confirm the copyright line and year in the **Project license** section against
-   the final author list (the MIT grant text is already in the root `LICENSE`).
+1. ~~Confirm the copyright line and year.~~ **DONE 2026-08-01** - confirmed by
+   the author; the **Project license** section reads "Copyright (c) 2026 by the
+   authors." (the MIT grant text is in the root `LICENSE`).
 2. Confirm third-party license notices are preserved in the distribution.
 3. Reconcile the **Attribution** section with the originating research codebase
    and benchmark suite license/citation statements.

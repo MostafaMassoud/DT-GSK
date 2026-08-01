@@ -757,7 +757,7 @@ When editing this project:
 Two facts about this repository are worth stating before anyone reads its
 history or its internal records, because both are easy to misread.
 
-**The git history is a squashed import.** This public repository was created on
+**The git history is a squashed import.** This repository was created on
 2026-07-31 from a private development monorepo. Its root commit contains the
 entire project as one import; the visible history therefore covers only the
 final submission-polish phase, not the project's development, which ran from
@@ -769,9 +769,11 @@ monorepo**. They identify a release; they do not resolve to objects in this
 repository's history, and no attempt to look them up here will succeed.
 
 For the same reason, internal working records written before the move may
-reference monorepo paths, sibling project names, or the old repository URL. The
-artifact repository accompanying the article is
-`https://github.com/MostafaMassoud/DT-GSK`.
+reference monorepo paths, sibling project names, or the old repository URL.
+Those references resolve against this repository, which is the repository of
+origin for the work. No public artifact repository accompanies the article: the
+manuscript's Data Availability Statement makes the code, configuration and
+result data available from the corresponding author upon reasonable request.
 
 **Evidence-tree entry point.** `benchmarks/cec_reference_results/README.md` is
 frozen and byte-bound at mint time, so it necessarily still names the release

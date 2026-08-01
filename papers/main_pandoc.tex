@@ -853,7 +853,7 @@ m_{ij} \sim
 
 @@EQNUM!eq:kr-mask@@
 
-Here $KR$ is not the single frozen constant of Table~@@REF!tab:notation@@ but the rate carried by the ACE arm that individual $i$ drew this generation, so it varies per individual and per generation over the arm pool. It is additionally floored at $\min(1,\ \kappa_{\dim}/D)$ with $\kappa_{\dim}=0/20/40/40$ by tier, which raises the low-$KR$ arms above their nominal rates at every $D\ge20$. Finally, a force-nonzero guarantee applies after mask assembly in both modes: if a row's mask would leave the trial identical to its parent, one coordinate is set at random so that every trial differs from its parent in at least one coordinate.
+Here $KR$ is not the single frozen value of Table~@@REF!tab:parameters@@ but the rate carried by the ACE arm that individual $i$ drew this generation, so it varies per individual and per generation over the arm pool. It is additionally floored at $\min(1,\ \kappa_{\dim}/D)$ with $\kappa_{\dim}=0/20/40/40$ by tier, which raises the low-$KR$ arms above their nominal rates at every $D\ge20$. Finally, a force-nonzero guarantee applies after mask assembly in both modes: if a row's mask would leave the trial identical to its parent, one coordinate is set at random so that every trial differs from its parent in at least one coordinate.
 
 
 
@@ -929,7 +929,7 @@ v_{ij} \leftarrow
 
 @@EQNUM!eq:greedy-accept@@
 
-The tie-accepting form above is the base rule and is what runs at $D<100$. At $D\ge100$ the late-acceptance clip can replace it, late in the budget and after a stall streak, with the strict test $f(v_i) < f(x_i) - \epsilon\lvert f(x_i)\rvert$ at $\epsilon=10^{-3}$, which rejects ties; the clip's own gates are given in Supplementary Section~S5.
+The tie-accepting form above is the base rule and is what runs at $D<100$. At $D\ge100$ the late-acceptance clip can replace it, late in the budget and after a stall streak, with the strict test $f(v_i) < f(x_i) - \epsilon_{\mathrm{clip}}\lvert f(x_i)\rvert$ at $\epsilon_{\mathrm{clip}}=10^{-3}$ (a distinct symbol from the stagnation tolerance $\epsilon$), which rejects ties; the clip's own gates are given in Supplementary Section~S5.
 
 
 
@@ -1116,7 +1116,7 @@ fixed execution order are listed in Section~@@REF!sec:algorithm@@.
 
 @@ALGLINE!7!1@@ Reduce $NP$ by the NLPSR schedule \ \ $\triangleright$~Eq.~(@@REF!eq:nlpsr@@)
 
-@@ALGLINE!8!1@@ Assign each individual an ACE arm (a $(KF, KR, K_{\exp})$ triple; a sixth DE/rand/1 arm exists at $20{\le}D{<}100$)
+@@ALGLINE!8!1@@ Assign each individual an ACE arm \ \ $\triangleright$~$(KF, KR, K_{\exp})$; a sixth DE arm at $20{\le}D{<}100$
 
 @@ALGLINE!9!1@@ Count the gained and shared dimensions \ \ $\triangleright$~Eq.~(@@REF!eq:kexp-schedule@@)
 
@@ -1124,9 +1124,9 @@ fixed execution order are listed in Section~@@REF!sec:algorithm@@.
 
 @@ALGLINE!11!1@@ Apply the senior gaining-sharing phase
 
-@@ALGLINE!12!1@@ \textbf{if} the individual drew the DE arm: build its trial by DE/rand/1 instead \ \ $\triangleright$~$F{=}0.5$, $CR{=}0.9$
+@@ALGLINE!12!1@@ Form the crossover mask: a tier-dependent fraction of rows take a linkage block (learned at $D{\ge}50$, random otherwise, and only when the confidence gate passes); the remaining rows take the $KR$ mask \ \ $\triangleright$~Eq.~(@@REF!eq:kr-mask@@)
 
-@@ALGLINE!13!1@@ Form the crossover mask: a tier-dependent fraction of rows take a linkage block (learned at $D{\ge}50$, random otherwise, and only when the confidence gate passes); the remaining rows take the $KR$ mask \ \ $\triangleright$~Eq.~(@@REF!eq:kr-mask@@)
+@@ALGLINE!13!1@@ \textbf{if} DE arm: overwrite the trial's binomially masked coordinates with a DE/rand/1 mutant \ \ $\triangleright$~$F{=}0.5$, $CR{=}0.9$
 
 @@ALGLINE!14!1@@ Repair the out-of-bound coordinates
 
@@ -1142,7 +1142,7 @@ fixed execution order are listed in Section~@@REF!sec:algorithm@@.
 
 @@ALGLINE!19!1@@ \textbf{if} stagnating: apply the budget-safe escape \ \ $\triangleright$~Eq.~(@@REF!eq:bse-cauchy@@)
 
-@@ALGLINE!20!1@@ \textbf{if} in the endgame slice ($\ge0.80$ below $D{=}50$, $\ge0.70$ above), under the evaluation cap and past cooldown: run the charged coordinate local search on the elite rows
+@@ALGLINE!20!1@@ \textbf{if} in the endgame slice, under the evaluation cap and past cooldown: charged coordinate local search on the elite rows \ \ $\triangleright$~$\ge0.80$ below $D{=}50$; $\ge0.70$ above
 
 @@ALGLINE!-!2@@ \quad\emph{Note.}~\textnormal{The $D{\ge}100$ upper-tier controllers are cross-cutting, not a stage after the local search: they act at population reduction (subspace-sampling floor), trial construction (frozen-streak broaden and late linkage random-mix), acceptance (late-acceptance clip and basin-memory update), and escape (basin-novelty reseed); a budget/ROI gate additionally gates the local search (a matching hook exists on the escape but never blocks it in the frozen configuration).}
 

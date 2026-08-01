@@ -137,10 +137,10 @@ DT-GSK.docx,paragraph,Each coordinate joins the junior phase with marginal proba
 DT-GSK.docx,equation_display,"(4) junior: ui =xi+KF (xR1−xR2)+sJ (xR3−xi) ,senior: u",PASS_FORMAT_DIFF,equation-number + source identity,eq number rendered in PDF,OMML linear text vs PDF math glyph extraction order,34b5f3ddf779
 DT-GSK.docx,paragraph,"Here sJ,sS∈{+1,−1} are the signs of two different fitness co",PASS,alnum-containment,,,071c59b0ad6f
 DT-GSK.docx,equation_display,(5) vij=uijif mij=1xijotherwise  mij∼Bernoulli(KR)per-,PASS_FORMAT_DIFF,equation-number + source identity,eq number rendered in PDF,OMML linear text vs PDF math glyph extraction order,20373785b046
-DT-GSK.docx,paragraph,Here KR is not the single frozen constant of Table 3 but the,PASS,alnum-containment,,,d063bc77e590
+DT-GSK.docx,paragraph,Here KR is not the single frozen value of Table 10 but the r,PASS,alnum-containment,,,219d76048f23
 DT-GSK.docx,equation_display,"(6) NP(x)=round↑12​NPinit+Nmin−NPinitx(1−x),  x=tMaxFE",PASS_FORMAT_DIFF,equation-number + source identity,eq number rendered in PDF,OMML linear text vs PDF math glyph extraction order,00da0e76c637
 DT-GSK.docx,equation_display,"(7) dm=​​i: si=m​​​f(xi)−f(vi),  S=m​dm,  P(z)=arg min",PASS_FORMAT_DIFF,equation-number + source identity,eq number rendered in PDF,OMML linear text vs PDF math glyph extraction order,6d217cfb6000
-DT-GSK.docx,paragraph,The tie-accepting form above is the base rule and is what ru,PASS,alnum-containment,,,8426741ffa53
+DT-GSK.docx,paragraph,The tie-accepting form above is the base rule and is what ru,PASS,alnum-containment,,,7da7f9cc0af7
 DT-GSK.docx,equation_display,"(10) xi←repair​xi+γ C(0,1), γ=rs u−ℓD, worst round(rc N",PASS_FORMAT_DIFF,equation-number + source identity,eq number rendered in PDF,OMML linear text vs PDF math glyph extraction order,faf643d4b705
 DT-GSK.docx,equation_display,"(11) G• ←λ G•+ηi ∈ I+​wi ϕ•(δi) ϕ•(δi)​⊤,  δi=ΔxiΔxi1, ",PASS_FORMAT_DIFF,equation-number + source identity,eq number rendered in PDF,OMML linear text vs PDF math glyph extraction order,d36bcfefa6c0
 DT-GSK.docx,equation_display,"(13) stream0 =threefry(seed),  streamk=threefry(sk),sk ",PASS_FORMAT_DIFF,equation-number + source identity,eq number rendered in PDF,OMML linear text vs PDF math glyph extraction order,aec582eeaa96
@@ -457,7 +457,7 @@ supplementary.docx,caption,"Table A18.  RNG substream key. The 13 append-only, p
 supplementary.docx,caption,Table A19.  GSK-family comparator parameter settings as run in this st,PASS,alnum-containment,,,feb175cb3543
 supplementary.docx,caption,Table A20.  Current names and the legacy identifiers retained in relea,PASS,alnum-containment,,,14bb805f9e1f
 supplementary.docx,caption,Table A21.  Acronyms used in the text that are not mathematical symbol,PASS,alnum-containment,,,b163f4669d00
-supplementary.docx,caption,Table A22.  Frozen run parameters of the shipped configuration (per-su,PASS,alnum-containment,,,571573639edd
+supplementary.docx,caption,Table A22.  Frozen run parameters of the shipped configuration (per-su,PASS,alnum-containment,,,9f0d3892d591
 supplementary.docx,caption,Table A23.  Scaffold remove-one ablation on CEC2017: mean Friedman ran,PASS,alnum-containment,,,fe8ebc533e94
 supplementary.docx,caption,Figure B27.  Conditional rank degradation from removing each scaffold ,PASS,alnum-containment,,,dcee0264c5d9
 supplementary.docx,caption,Table A24.  Scaffold remove-one ablation on CEC2017: full-vs-cell pair,PASS,alnum-containment,,,86ea0bcd6e86

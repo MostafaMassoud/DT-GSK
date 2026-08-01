@@ -113,11 +113,12 @@ Evidence release: rel-2026-07-20-67d9345f9  (ablation: abl-rel-2026-07-20)
 
 * The **journal submission** is the five deliverables only (main PDF/DOCX,
   supplement PDF/DOCX, cover letter). Code and evidence are not uploaded there.
-* The **archive of record** is the public code repository, including the full
-  evidence tree, archived immutably at a tagged release with a persistent DOI.
-  That is what the Data Availability Statement cites, and it is the copy to use
-  for reproduction or audit. If this pack and the archived release ever
-  disagree, **the release wins.**
+* The **archive of record** is the project's full evidence tree, bound to the
+  immutable evidence release `rel-2026-07-20-67d9345f9` (and the two later,
+  non-superseding suite releases) by a SHA-256 manifest over every released
+  file. It is supplied by the corresponding author on reasonable request, which
+  is what the Data Availability Statement cites. This pack is a lighter subset
+  of it; if the two ever disagree, **the full evidence tree wins.**
 
 This pack exists only so the implementation and summary evidence can be
 obtained without cloning the full (~1.2 GB) repository.

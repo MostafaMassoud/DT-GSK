@@ -66,6 +66,24 @@ RETIRED = [
 _BAD_CTRL = {b for b in range(0x20)} - {0x09, 0x0A, 0x0D}
 
 
+# ---------------------------------------------------------------------------
+# "Float too large for page" -- added 2026-08-01 after the final pre-submission
+# sweep. This gate checked Overfull \hbox/\vbox only, so it passed a build in
+# which Algorithm 1's float exceeded the text block by 55 pt and rendered to
+# within 18 pt of the A4 trim edge. An overfull box and an oversized float are
+# different warnings; only the first was caught.
+#
+# The DT-GSK concept flowchart is a deliberate [p] float-page figure at
+# 0.86\textheight whose caption pushes it 20.05 pt past \textheight. It gets a
+# page to itself and renders with healthy margins, so it is exempted by value.
+# Any OTHER oversized float, or a change in this one's magnitude, fails.
+FLOAT_RE = re.compile(r"Float too large for page by ([0-9.]+)pt")
+KNOWN_OVERSIZED_FLOATS = {
+    "20.04884": "fig_dtgsk_flowchart.pdf, a [p] float-page figure at "
+                "0.86\\textheight; renders alone on its page with normal margins",
+}
+
+
 def _fail(msg: str) -> None:
     print(f"  FAIL  {msg}")
 
@@ -95,6 +113,18 @@ def check_logs() -> int:
                 _fail(f"{log.name}: overfull hbox {m}pt (> {OVERFULL_TOL_PT}pt "
                       "tolerance) -- content clips at the page edge")
                 problems += 1
+
+        # An oversized FLOAT is a different warning from an overfull box, and
+        # until 2026-08-01 only the latter was gated -- which is how a 55 pt
+        # oversized Algorithm 1 float reached a mint. See the note above
+        # KNOWN_OVERSIZED_FLOATS.
+        for m in FLOAT_RE.finditer(text):
+            amount = m.group(1)
+            if amount in KNOWN_OVERSIZED_FLOATS:
+                continue
+            _fail(f"{log.name}: float too large for page by {amount}pt -- "
+                  "content may run past the text block toward the trim edge")
+            problems += 1
     return problems
 
 

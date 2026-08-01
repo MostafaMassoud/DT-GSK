@@ -83,7 +83,7 @@ m_{ij} \sim
 \text{shared across a linkage block } B\ni j & \text{linkage-blockwise mode}
 \end{cases}
 \end{equation}
-Here $KR$ is not the single frozen constant of Table~\ref{tab:notation} but the rate carried by the ACE arm that individual $i$ drew this generation, so it varies per individual and per generation over the arm pool. It is additionally floored at $\min(1,\ \kappa_{\dim}/D)$ with $\kappa_{\dim}=0/20/40/40$ by tier, which raises the low-$KR$ arms above their nominal rates at every $D\ge20$. Finally, a force-nonzero guarantee applies after mask assembly in both modes: if a row's mask would leave the trial identical to its parent, one coordinate is set at random so that every trial differs from its parent in at least one coordinate.
+Here $KR$ is not the single frozen value of Table~\ref{tab:parameters} but the rate carried by the ACE arm that individual $i$ drew this generation, so it varies per individual and per generation over the arm pool. It is additionally floored at $\min(1,\ \kappa_{\dim}/D)$ with $\kappa_{\dim}=0/20/40/40$ by tier, which raises the low-$KR$ arms above their nominal rates at every $D\ge20$. Finally, a force-nonzero guarantee applies after mask assembly in both modes: if a row's mask would leave the trial identical to its parent, one coordinate is set at random so that every trial differs from its parent in at least one coordinate.
 
 % ---- E5 (modified) --- _dt_core.py:790 / _numba_accel.py:909 --------------
 % Nonlinear population reduction (tier-floored; rounded half-up).
@@ -143,7 +143,7 @@ v_{ij} \leftarrow
 (x_i, f_i) \leftarrow \left(v_i,\, f(v_i)\right)
 \quad\text{iff}\quad f(v_i) \le f(x_i)
 \end{equation}
-The tie-accepting form above is the base rule and is what runs at $D<100$. At $D\ge100$ the late-acceptance clip can replace it, late in the budget and after a stall streak, with the strict test $f(v_i) < f(x_i) - \epsilon\lvert f(x_i)\rvert$ at $\epsilon=10^{-3}$, which rejects ties; the clip's own gates are given in Supplementary Section~S5.
+The tie-accepting form above is the base rule and is what runs at $D<100$. At $D\ge100$ the late-acceptance clip can replace it, late in the budget and after a stall streak, with the strict test $f(v_i) < f(x_i) - \epsilon_{\mathrm{clip}}\lvert f(x_i)\rvert$ at $\epsilon_{\mathrm{clip}}=10^{-3}$ (a distinct symbol from the stagnation tolerance $\epsilon$), which rejects ties; the clip's own gates are given in Supplementary Section~S5.
 
 % ---- E9 (modified) --- _dt_core.py:3874 (cauchy rescue) -------------------
 % Budget-safe escape: Cauchy rescue of the worst round(r_c NP) UNFROZEN rows
