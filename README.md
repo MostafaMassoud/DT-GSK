@@ -753,21 +753,55 @@ When editing this project:
 - remove generated caches after broad test or lint runs;
 - preserve deterministic behavior during performance tuning.
 
-## Contributor and Review Tooling
+## Internal Quality-Assurance Instruments (please read before browsing them)
 
-The repository documents its own working conventions, so that a reviewer or
-contributor can reproduce the process as well as the numbers:
+This repository ships the review instruments the authors used on their own
+work. They are unusual to publish, so it is worth stating plainly what they
+are and what they are not.
+
+**What they are.** Internal, pre-submission quality-assurance checklists. They
+direct a reviewer -- human or AI assistant -- to *audit* the manuscript against
+the frozen evidence: re-read every printed statistic from the immutable
+analysis bundles, check the paper against the code, hunt for overstatement, and
+report findings with exact file and line references. They exist because the
+authors wanted their own claims attacked before a journal's reviewers did.
+
+**What they are not.** They are **not** the journal's peer review and did not
+substitute for it. They are not a route by which any scientific content was
+generated. The instruments direct *checking*, never authorship of claims: they
+forbid restating any standing from memory (every number must be re-read from
+the release CSVs), forbid altering pre-registered wording, and require each
+finding to be independently verified against the working tree before it may be
+reported. Every finding they produced was then adjudicated and applied by the
+authors, who take full responsibility for the result.
+
+**On AI assistance.** The authors used a large language model during this
+project, disclosed in the manuscript's *Use of Generative Artificial
+Intelligence* statement, which is the authoritative account. In short: it
+assisted with language editing, drafting of descriptive prose, and
+software-engineering and tooling support. It designed no experiments, produced
+no data, computed no statistics, and generated no scientific claim, result, or
+conclusion. The commit history is consistent with that: no commit carrying an
+AI co-authorship trailer modifies any file under
+`benchmarks/cec_reference_results/` or `papers/analysis/` -- the evidence and
+the derived statistics -- and the single such commit touching optimizer source
+adds a documentation header.
+
+**The instruments themselves:**
+
+| File | What it drives |
+|---|---|
+| [`papers/PAPER_REVIEW_PROMPT.md`](papers/PAPER_REVIEW_PROMPT.md) | The manuscript audit. Multi-seat adversarial review with per-finding verification. Applied three times; the resulting registers are in `papers/governance/`. |
+| [`papers/PAPER_BUILD_PROMPT.md`](papers/PAPER_BUILD_PROMPT.md) | The evidence-locked manuscript-production protocol (phase gates, claim/evidence binding, freeze discipline). |
+| [`docs/prompt/`](docs/prompt/project-review.md) | Four repository-side audits: full-project review, documentation consistency, deep documentation upgrade, and pre-publication hardening. |
+
+The outcomes are published too, not just the instructions: the panel registers
+under `papers/governance/` record every finding raised, whether it was
+confirmed or refuted on verification, and how it was resolved.
+
+## Contributor Tooling
 
 - [SKILL.md](SKILL.md): the project's operating contract -- the conventions any
   contributor (human or automated) is expected to follow.
 - [runbook.md](runbook.md): copy-paste command reference for installs, smoke
   tests, full sweeps, and backend recovery.
-
-The review and audit prompts live under [`docs/prompt/`](docs/prompt/project-review.md)
-(four files): `project-review.md` (full-project audit),
-`documentation-review.md` (docs consistency gate + inline docstring/comment review),
-`documentation-deep-upgrade.md` (deep docs upgrade), and
-`publication-polish.md` (the pre-publication release-hardening pass).
-
-Use these files before major review, tuning, validation, documentation,
-release, or cleanup work.

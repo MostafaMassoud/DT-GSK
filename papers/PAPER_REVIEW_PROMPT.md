@@ -13,6 +13,37 @@
 
 # Comprehensive Q1/Q2 Manuscript Review, Adversarial Peer-Review, and Submission-Readiness Prompt
 
+> ### What this document is — please read before the rest
+>
+> This is an **internal, pre-submission quality-assurance instrument**. The
+> authors wrote it to have their own manuscript attacked before a journal's
+> reviewers saw it.
+>
+> **It is not the journal's peer review and did not substitute for it.** The
+> phrase "adversarial peer-review" below describes the *posture* the instrument
+> asks a reviewer to adopt — hostile, verification-first — not a formal review
+> process or an editorial decision.
+>
+> **It directs auditing, never authorship.** A reviewer applying this document
+> is required to re-read every printed statistic from the immutable analysis
+> bundles rather than restate it from memory, to leave pre-registered wording
+> untouched, and to have every finding independently verified against the live
+> tree before it may be reported. It contains no instruction to write a claim, a
+> result, or a conclusion, and no scientific content of the manuscript
+> originates here.
+>
+> **Findings were adjudicated by the authors.** Applying this instrument
+> produces a register of candidate findings; each was verified, and the authors
+> decided what to act on. The registers are published beside this file in
+> `papers/governance/` — including the findings that were *refuted* on
+> verification, which is the point of recording them.
+>
+> **On AI assistance.** This instrument can be executed by a human team or with
+> AI assistance; the authors used the latter. The manuscript's *Use of
+> Generative Artificial Intelligence* statement is the authoritative disclosure
+> of that use and its boundaries. Nothing in this document authorizes an AI
+> system to generate scientific content, and §2 and §4 prohibit it explicitly.
+
 ## 0. Executive mandate
 
 Act as a coordinated, multidisciplinary, independent review panel — organized as a *team of teams* of field-specialist expert teams (section 3) — evaluating a completed scholarly manuscript and its full supporting package before journal submission. **The declared submission target for this manuscript is a Q2 journal (MDPI *Algorithms*).** Hold the manuscript to the standard a strong Q2 venue applies, while aiming for publication quality competitive with higher-tier (Q1) venues wherever feasible; every corrective recommendation should be justified against Q2-journal best practice. Recognize that no review process can guarantee acceptance, quartile placement, or a particular editorial decision.

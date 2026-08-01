@@ -1,5 +1,16 @@
 # Deep Expert Review Prompt For GSK Family Python
 
+> **Internal quality-assurance instrument.** This is a checklist the authors
+> applied to their own work before submission. It is **not** the journal's peer
+> review and did not substitute for it. It directs *auditing* -- verifying the
+> repository and manuscript against frozen evidence -- never the authoring of
+> scientific claims. It may be executed by a human team or with AI assistance;
+> the authors used the latter, disclosed in the manuscript's *Use of Generative
+> Artificial Intelligence* statement, which is the authoritative account. See
+> the README section "Internal Quality-Assurance Instruments" for the full
+> framing.
+
+
 > **What this page is.** A paste-ready, full-project audit prompt for the GSK
 > Family Python project. It coordinates an expert review team across code, docs,
 > tests, benchmarks, and reproducibility, and produces a severity-ranked report

@@ -1,5 +1,16 @@
 # Deep Documentation Review & Upgrade Prompt — GSK Family Python
 
+> **Internal quality-assurance instrument.** This is a checklist the authors
+> applied to their own work before submission. It is **not** the journal's peer
+> review and did not substitute for it. It directs *auditing* -- verifying the
+> repository and manuscript against frozen evidence -- never the authoring of
+> scientific claims. It may be executed by a human team or with AI assistance;
+> the authors used the latter, disclosed in the manuscript's *Use of Generative
+> Artificial Intelligence* statement, which is the authoritative account. See
+> the README section "Internal Quality-Assurance Instruments" for the full
+> framing.
+
+
 > **Purpose.** Drive a capable LLM (or expert human team) to transform `docs/`
 > into a *professional, self-contained reference*: deeply detailed, highly
 > readable, with worked numerical examples and flowcharts for every non-trivial

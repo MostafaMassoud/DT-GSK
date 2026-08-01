@@ -21,6 +21,17 @@
 
 # DT-GSK — Evidence-Locked Q1 Publication Production Framework
 
+> **Internal manuscript-production protocol.** This document governs how the
+> manuscript was *built and gated* -- phase gates, claim-to-evidence binding,
+> freeze discipline, and the rule that no reported number may exist without a
+> committed artifact behind it. It is a process specification, not a source of
+> scientific content: it prescribes where every number must come from, never
+> what any number should be. It may be executed by a human team or with AI
+> assistance; the authors used the latter, disclosed in the manuscript's *Use of
+> Generative Artificial Intelligence* statement. See the README section
+> "Internal Quality-Assurance Instruments" for the full framing.
+
+
 ## 0. Executive mandate
 
 Act as a coordinated multidisciplinary research team with expert competence in
