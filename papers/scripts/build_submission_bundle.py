@@ -19,11 +19,13 @@ channels:
      files and images, so that the Editorial Office can recompile the submitted
      PDF)".
 
-  2. ARCHIVE OF RECORD -- the public code repository, including the full
-     evidence tree (``curves/`` and all), archived immutably at a tagged
-     release with a persistent DOI. That is what the Data Availability
-     Statement cites, and it is the copy anyone should use to reproduce or
-     audit the work.
+  2. ARCHIVE OF RECORD -- the project's full evidence tree (``curves/`` and
+     all), bound to the immutable evidence release rel-2026-07-20-67d9345f9
+     and the two later suite releases by a SHA-256 manifest over every
+     released file. It is supplied by the corresponding author on reasonable
+     request, which is what the Data Availability Statement cites, and it is
+     the copy to use to reproduce or audit the work. No public repository,
+     GitHub release or DOI is created for this work (D-0037).
 
 This pack exists only so a reviewer can obtain the implementation, the frozen
 configuration, the analysis bundle and the summary-level evidence without
@@ -244,10 +246,11 @@ def main() -> None:
         "authoritative_channels": {
             "journal_submission": ("five deliverables only; hashes in "
                                    "papers/governance/submission_package_manifest.json"),
-            "archive_of_record": ("public repository incl. full evidence tree, "
-                                  "archived at a tagged release with a persistent "
-                                  "DOI; identifiers are author-supplied and are "
-                                  "not recorded here"),
+            "archive_of_record": ("full evidence tree bound to evidence release "
+                                  "rel-2026-07-20-67d9345f9 (and the two later "
+                                  "suite releases) by SHA-256 manifest; supplied "
+                                  "by the corresponding author on reasonable "
+                                  "request. No public repository or DOI (D-0037)"),
         },
     }
     MANIFEST_PATH.write_text(

@@ -1558,3 +1558,46 @@ applying all surfaced fixes.
   check_manifest 15/15. Tag **v2.10** supersedes v2.9; earlier tags unmoved;
   CITATION.cff bumped to 2.10 in the tagged state.
   **Approver**: author (2026-08-01). **Status**: CLOSED.
+
+## D-0039 (2026-08-01) - Final pre-submission sweep: 14 findings remediated, including a false entry in D-0037
+
+- **Trigger**: after reporting "no repository or manuscript issues", an
+  adversarial five-seat sweep was run over the frozen package as a last check.
+  21 candidates, 7 refuted, **14 confirmed**. The prior "none" was wrong.
+- **CORRECTION TO D-0037.** Its "Copyright closed" bullet asserted three
+  `docs/LICENSES.md` edits - the confirmed copyright line, removal of the
+  "authors: confirm this copyright line" instruction, and the checklist item -
+  **that were never made**. The script intended to make them aborted on an
+  assertion before reaching them; the failing edit was repaired separately and
+  the LICENSES edits were never re-run. The pass-34 freeze statement repeated
+  the claim. Consequence: the package shipped an unresolved copyright
+  placeholder that the governance record called closed. The edits are now
+  applied; D-0037's text stands as written and this entry corrects it.
+- **A gate blind spot, five mints wide.** Algorithm 1's float was 55.24pt too
+  large for the page from pass-31 onward, rendering page 12 to within 18.1pt of
+  the A4 trim edge. LaTeX emits "Float too large for page", which is a distinct
+  warning from Overfull hbox/vbox; `validate_build_hygiene.py` checked only the
+  latter and passed every mint. The float now fits (setstretch 1.55 -> 1.32,
+  three lines tightened; worst bottom margin 40.3pt), and the gate fails on
+  oversized floats, exempting by magnitude the one deliberate `[p]` float-page
+  figure. A negative test confirms the check is live rather than dead code.
+- **D-0037 consequences that survived inside the package**: the reproduction
+  pack's cover note promised a public, DOI-archived repository as the archive of
+  record *to the requester the Data Availability Statement sends there*; README
+  called this a public repository and named an accompanying artifact repository;
+  AG-0006 rested the withholding of a residential address on that same
+  now-void premise. All three restated; the address stays out.
+- **Manuscript fidelity, all traceable to the pass-31 batch**: the DE-arm step
+  was inserted before the crossover mask and described as building the trial
+  "instead", where the code writes the DE mutant after the mask and overwrites
+  only its binomially masked coordinates; a cross-reference sent the reader to
+  the notation table for a constant it does not carry; an added note reused
+  $\epsilon$ against the paper's own one-symbol-one-meaning guarantee; and the
+  supplement's parameter-table caption still carried the run-time-tuning claim
+  the main table had corrected in the same pass.
+- **Lesson recorded**: a fix batch large enough to need a script is large enough
+  for the script to abort mid-way and leave the record ahead of the tree. Assert
+  the END STATE after the batch, not the success of each edit.
+- **Freeze**: pass-36 minted at anchor 58c6058ac (4 of 15 hashes changed),
+  check_manifest 15/15. Tag **v2.11** supersedes v2.10.
+  **Approver**: author (standing "fix all"). **Status**: CLOSED.

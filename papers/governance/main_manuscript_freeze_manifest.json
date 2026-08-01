@@ -1,9 +1,9 @@
 {
   "schema": "main_manuscript_freeze_manifest/v1",
-  "phase": "PASS-35 MIT stated as open-source licence (dtgsk-submission-v2.10 basis)",
-  "generated_utc": "2026-08-01T13:48:42+00:00",
-  "anchor_commit": "bc07ab7a400f1ae0fc4a968e141cce11c8619ef5",
-  "pre_freeze_base_commit": "285fe94de1cc77b5f267679bd06af9359ff9f0a6",
+  "phase": "PASS-36 final pre-submission sweep remediation (dtgsk-submission-v2.11 basis)",
+  "generated_utc": "2026-08-01T14:15:00+00:00",
+  "anchor_commit": "58c6058ac83be1f036bb18c1b5519d7dc69b4068",
+  "pre_freeze_base_commit": "e99f808c485ca75c02980f8960e7c2e79881e828",
   "evidence_release": {
     "primary": "rel-2026-07-20-67d9345f9",
     "cec2013lsgo": "lsgo-rel-2026-07-28-ff1a046ef",
@@ -11,7 +11,7 @@
     "ablation": "abl-rel-2026-07-20"
   },
   "scientific_content_status": "FROZEN_FOR_SUBMISSION",
-  "freeze_statement": "Re-freeze after the author's directive to state the code licence as MIT open source. No number, rank, p-value, test, standing or registered outcome changes; three of fifteen tracked files move, and the supplement and cover letter are byte-identical to the pass-34 mint. The licence sentence now reads that the code 'is licensed under the MIT License, an OSI-approved open-source licence', replacing 'The released DT-GSK code is distributed under the MIT License'. Stating MIT as open source is accurate independently of distribution - an OSI-approved licence is open source whether or not the code is publicly hosted - so this reintroduces no availability claim under D-0037. It also removes the single word ('released') flagged as stretchable toward a GitHub release; the manuscript's remaining uses of 'released' are its own technical term for the frozen evidence releases and are correct. docs/LICENSES.md's status banner, which still asked the authors to verify the copyright line before submission, is updated to record the 2026-08-01 confirmation and to state the licence the same way. All five artifacts byte-identical across two consecutive builds at the pinned epochs; gates green.",
+  "freeze_statement": "Re-freeze after an adversarial five-seat pre-submission sweep returned 21 candidates, 7 refuted and 14 confirmed. No number, rank, p-value, test, standing or registered outcome changes; four of fifteen tracked files move and the cover letter and main.tex are byte-identical to the pass-35 mint. BLOCKER: Algorithm 1's float was 55.24pt too large for the page after the pass-31 additions, rendering page 12 to within 18.1pt of the A4 trim edge. LaTeX warns 'Float too large for page', which is a different warning from Overfull hbox/vbox; the hygiene gate checked only the latter, so five successive mints passed it. Fixed by tightening three algorithm lines and reducing the float's setstretch from 1.55 to 1.32 (1.55 predated the pass-31 rows); worst bottom margin across all 47 pages is now 40.3pt, and the gate now fails on oversized floats with the one deliberate float-page figure exempted by magnitude. FALSE GOVERNANCE RECORD: D-0037 and the pass-34 freeze statement both asserted three docs/LICENSES.md edits that were never made - the script aborted before reaching them - so the package shipped an unresolved copyright placeholder the record called closed. Now actually applied. D-0037 CONSEQUENCES MISSED IN THE PACKAGE: the reproduction pack's cover note promised a public DOI-archived repository to the very requester the Data Availability Statement sends there; README called this a public repository and named an accompanying artifact repository URL; AG-0006 justified withholding a residential address on the public-archive premise. All restated. MANUSCRIPT FIDELITY, all from pass-31: the DE-arm step was placed before the crossover mask and described as replacing the trial rather than overwriting its binomially masked coordinates; a cross-reference pointed at the notation table for a constant it does not contain; an added note reused the symbol epsilon against the paper's own one-symbol-one-meaning guarantee; and the supplement's parameter-table caption still carried the run-time-tuning claim the main table had corrected. STALE RECORDS: reproducibility_manifest.json had gone silently stale on 2 of 5 digests, and A-0001 claimed a GenAI departure had been retired that D-0036 reinstated. All five artifacts byte-identical across two consecutive builds at the pinned epochs; ten gates green.",
   "hash_algorithm": "SHA-256",
   "build_environment": {
     "pdf_source_date_epoch": 1783468800,
@@ -55,23 +55,23 @@
     },
     {
       "path": "papers/DT-GSK.pdf",
-      "sha256": "c69695dd4d533af79b90cdfb711477b05e2c20b9e1258a897ab60645a098a4ea",
-      "bytes": 817500
+      "sha256": "916d13432d836b499d84c59cd9c00c5520c7842659f3c043e94d1d89c3dfa71f",
+      "bytes": 817478
     },
     {
       "path": "papers/DT-GSK.docx",
-      "sha256": "5771ae8791f6b22329b6853195d959a98afca6dc296d77ee8f0817a872d4d668",
-      "bytes": 999601
+      "sha256": "c8abbb0ee1a508b2e4aa28200cd96af60b1e04e78c370c20d8a56af140433306",
+      "bytes": 999647
     },
     {
       "path": "papers/supplementary.pdf",
-      "sha256": "439fff39029bfbe87a8c26a2bc4109548266af1d59134d24cae06a259f31f3e2",
-      "bytes": 1721957
+      "sha256": "0347dc80bd58e18eb7cfc1301facfefe2c51fc3a6bb3de80c9b7789c42c1c296",
+      "bytes": 1722053
     },
     {
       "path": "papers/supplementary.docx",
-      "sha256": "7877d94eb153f3ff2736cb219eb58f93fd235226060eb5753a62d4fe979c5839",
-      "bytes": 9610988
+      "sha256": "4a29ae25b254b1642d3caf0ea497fd1ee8ade82c76a022da023c448782a2a95f",
+      "bytes": 9611004
     },
     {
       "path": "papers/cover_letter.pdf",
