@@ -2936,11 +2936,21 @@ def build(doc_kind: str) -> int:
         print(f"  ! {spec['out'].name} locked; kept {final_path.name}",
               file=sys.stderr)
 
-    # Phase D4 (OPT-IN, pending author Visio confirmation): embed the process
-    # flowcharts as native Visio OLE objects (double-click-to-edit + extractable
-    # from word/embeddings/) instead of raster pictures. Enabled only when
-    # VISIO_OLE_FLOWCHARTS is set, so the default (frozen submission) DOCX keeps
-    # the known-good PNG flowcharts until the Word/Visio round-trip is confirmed.
+    # Phase D4 (OPT-IN): embed the process flowcharts as native Visio OLE
+    # objects (double-click-to-edit + extractable from word/embeddings/) instead
+    # of raster pictures. Enabled only when VISIO_OLE_FLOWCHARTS is set.
+    #
+    # The Word/Visio round-trip WAS confirmed by the author on 2026-08-01
+    # (D-0042), after the relationship-type defect was fixed in embed_visio_ole.py
+    # (D-0041). So this path is no longer "pending confirmation" -- it works, and
+    # this build exercises the same fixed embed_ole() the standalone script uses.
+    #
+    # It stays OPT-IN by decision, not by doubt (D-0042): the OLE variant is
+    # excluded from the submission package (C-001 5.4), MDPI wants figures as a
+    # separate >=600 dpi ZIP, and embedding OLE in the SUBMITTED DOCX would
+    # enlarge it and risk an editor without Visio meeting an object they cannot
+    # open. The default (frozen submission) DOCX therefore keeps the PNG
+    # flowcharts. Revisit only if a venue asks for editable diagrams.
     if doc_kind == "main" and os.environ.get("VISIO_OLE_FLOWCHARTS"):
         specs_dir = ROOT / "figures" / "concept" / "flowchart_specs"
         if specs_dir.is_dir():
