@@ -154,7 +154,7 @@ $D=60$ problem simply instantiates a different machine than a $D=15$ one.
 Inherited GSK core (mask and ties modified) & on & on & on & on \\
 NLPSR population-size reduction & on & on & on & on \\
 ACE operator selector + ARGP pruning & on & on & on & on \\
-Linkage block crossover & on & on & on & on \\
+Linkage block crossover$^{\dagger}$ & on & on & on & on \\
 Coordinate local search & on & on & on & on \\
 BSE escape + archive, deep-stall restart & on & on & on & on \\
 \textbf{ISM interaction memory} & off & off & \textbf{on} & \textbf{on} \\
@@ -164,10 +164,18 @@ BSE escape + archive, deep-stall restart & on & on & on & on \\
 \end{tabular}
 \end{center}
 
+{\footnotesize $^{\dagger}$Within the $D{<}20$ tier the linkage mask carries a
+further $D\geq10$ gate of its own, so it is additionally inactive at the
+CEC2020 $D{=}5$ cells and at the CEC2011 problems of dimension 1, 6 and 7.}
+
 Note what this table settles: the adaptive scaffold runs at \emph{every}
-tier. Only three blocks are gated, and the two that carry DT-GSK's
-distinctive claims --- the interaction memory and the deterministic polish ---
-do not exist below $D=50$.
+tier. Three of the nine rows are gated as whole rows, and the two that carry
+DT-GSK's distinctive claims --- the interaction memory and the deterministic
+polish --- do not exist below $D=50$. Two further mechanisms \emph{inside} the
+always-on rows carry dimension gates of their own: the ACE differential-evolution
+arm, which is present only for $20\leq D<100$, and the blockwise linkage mask,
+which needs $D\geq10$. Counting those, five things switch on or off with
+dimension, not three.
 
 \begin{center}
 \begin{tikzpicture}[node distance=2.4mm]
@@ -177,17 +185,18 @@ do not exist below $D=50$.
   \scriptsize $D{<}20$ \,$\cdot$\, $20$--$49$ \,$\cdot$\, $50$--$99$ \,$\cdot$\, $D{\geq}100$};
 \node[dtbox, below=of gear] (init) {Initialize $NP = 5D$, evaluate};
 
-\node[dtbox, below=3mm of init] (mode) {\textbf{1.} ACE draws an arm; ARGP prunes weak arms};
+\node[dtbox, below=3mm of init] (mode) {\textbf{1.} NLPSR shrinks $NP$; ACE draws an arm per individual};
 \node[dtbox, below=of mode] (make) {\textbf{2.} Junior/senior update; block crossover mask};
 \node[dtbox, below=of make] (test) {\textbf{3.} Evaluate; greedy selection (ties accepted)};
-\node[dtbox, below=of test] (shrink) {\textbf{4.} NLPSR shrink; BSE escape / deep-stall restart\\[1pt]
+\node[dtgate, below=of test] (map) {\textbf{4.} \emph{$D{\geq}50$ only:} update the ISM graph};
+\node[dtbox, below=of map] (shrink) {\textbf{5.} ACE credit update; ARGP prunes weak arms;\\[1pt]
+  BSE escape / deep-stall restart\\[1pt]
   \scriptsize (the global best is always preserved)};
-\node[dtgate, below=of shrink] (map) {\textbf{5.} \emph{$D{\geq}50$ only:} update the ISM graph};
+\node[dtgate, below=of shrink] (polish) {\textbf{6.} \emph{$D{\geq}50$, once, at $s_{\mathrm{fp}}{=}0.96$:} eigenframe polish\\[1pt]
+  \scriptsize one-shot RNG-free compass search; the loop then continues};
 
-\node[dtbox, below=3mm of map] (budget) {Budget remaining? \ \scriptsize\textbf{yes} $\rightarrow$ step 1};
-\node[dtgate, below=of budget] (polish) {\emph{$D{\geq}50$ only:} eigenframe polish\\[1pt]
-  \scriptsize one-shot RNG-free compass search, from $s_{\mathrm{fp}}{=}0.96$};
-\node[dtterm, below=of polish] (end) {RETURN global best};
+\node[dtbox, below=3mm of polish] (budget) {Budget remaining? \ \scriptsize\textbf{yes} $\rightarrow$ step 1};
+\node[dtterm, below=of budget] (end) {RETURN global best};
 
 \draw[dtflow] (start)--(size);
 \draw[dtflow] (size)--(gear);
@@ -195,14 +204,14 @@ do not exist below $D=50$.
 \draw[dtflow] (init)--(mode);
 \draw[dtflow] (mode)--(make);
 \draw[dtflow] (make)--(test);
-\draw[dtflow] (test)--(shrink);
-\draw[dtflow] (shrink)--(map);
-\draw[dtflow] (map)--(budget);
-\draw[dtflow] (budget)--(polish);
-\draw[dtflow] (polish)--(end);
+\draw[dtflow] (test)--(map);
+\draw[dtflow] (map)--(shrink);
+\draw[dtflow] (shrink)--(polish);
+\draw[dtflow] (polish)--(budget);
+\draw[dtflow] (budget)--(end);
 
 \begin{scope}[on background layer]
-\node[draw=black!25, dashed, rounded corners, fit=(mode)(map),
+\node[draw=black!25, dashed, rounded corners, fit=(mode)(polish),
       inner sep=2.2mm, label={[font=\scriptsize\itshape, anchor=west,
       rotate=90, xshift=-1mm]west:the main loop}] {};
 \end{scope}
@@ -212,7 +221,11 @@ do not exist below $D=50$.
 \end{tikzpicture}
 
 {\footnotesize\textbf{Figure 1.} DT-GSK's execution order. Gold marks the
-dimension-gated stages; the tier itself is fixed before the loop begins.}
+dimension-gated stages; the tier itself is fixed before the loop begins. The
+eigenframe polish is a one-shot stage \emph{inside} the loop, not a closing
+step: it arms in the first generation that reaches $s_{\mathrm{fp}}{=}0.96$ of
+the budget, is capped at $0.02\,$MaxFES, and ordinary generations resume on the
+remainder.}
 \end{center}
 
 \section{The components, one by one}
@@ -228,8 +241,11 @@ unchanged from base GSK. Two elements are modified: the crossover mask (see
 component 4) and the selection rule, which \emph{accepts ties} rather than
 requiring strict improvement.
 
-The senior partition fraction $p$ is tier-resolved: $0.05$ below $D=20$,
-$0.15$ at $20$--$49$, and a split-bottom $0.10$ at $D\geq50$. The junior
+The senior partition fraction $p$ is tier-resolved: $0.05$ below $D=20$ and
+$0.15$ at $20$--$49$. At $D\geq50$ the base rate is $0.05$, with the
+worse-ranked half widened to $0.10$ --- but only while the trailing
+ten-generation mean acceptance sits at or below $0.10$; above that floor the
+single rate $0.05$ is used for the whole population. The junior
 dimension count follows the decaying schedule
 $D_{\mathrm{jun}} = \mathrm{clip}(\lceil D(1-x)^{K_{\exp}}\rceil, 0, D)$, where
 $x$ is the consumed budget fraction --- so coordinates migrate from junior to
@@ -270,11 +286,30 @@ generation, so a single generation exercises several configurations at once.
 \end{center}
 
 The pool is deliberately spread: arm 1 takes small steps on few coordinates,
-arm 2 maximal steps on very few (high $K_{\exp}$ drains the junior set fast),
-arm 4 maximal steps on most. \hl{Arm 3 is unmodified GSK}, and with arm 5 ---
-same rates, slower junior decay --- it carries $0.85$ of the initial mass, so
+arm 2 large steps on very few (high $K_{\exp}$ drains the junior set fast),
+arm 4 large steps on most. \hl{Arm 3 is unmodified GSK}, and with arm 5 ---
+same rates, slower junior decay --- it carries most of the initial mass, so
 \hl{DT-GSK starts as base GSK and must earn any departure from it}; the three
 exploratory arms begin at the floor.
+
+Two qualifications on that table, both of which change what actually executes:
+
+\begin{itemize}[leftmargin=1.2em, itemsep=1pt, topsep=3pt]
+\item \textbf{The $KR$ column is nominal, not executed.} A coverage floor
+      $\min(1,\ \kappa_{\dim}/D)$ is applied to every individual's $KR$, with
+      $\kappa_{\dim} = 0$ below $D=20$, $20$ at $20$--$49$ and $40$ at
+      $D\geq50$. The floor is $1.000$ at $D=20$, $0.667$ at $D=30$, $0.500$ at
+      $D=40$, $0.800$ at $D=50$ and $0.400$ at $D=100$. So the low-$KR$ arms
+      never run at their listed rates above $D=20$ --- at $D=20$ every arm
+      updates every coordinate --- and arms 1 and 2 execute at the floor.
+\item \textbf{$\pi_0$ is the five-arm vector.} It holds as printed at $D<20$
+      and $D\geq100$, where arms 3 and 5 carry $0.85$ between them. In the two
+      tiers that admit the sixth differential-evolution arm the five are
+      rescaled by $1-\pi_{\mathrm{DE}}$ and re-projected onto the simplex,
+      giving $(0.05, 0.05, 0.40, 0.05, 0.355, 0.095)$ at $20$--$49$ and
+      $(0.05, 0.05, 0.35, 0.05, 0.31, 0.19)$ at $50$--$99$. Arms 3 and 5 then
+      start with $0.755$ and $0.660$ of the mass, not $0.85$.
+\end{itemize}
 
 \hl{The credit rule.} Credit is an exponential moving average of realized
 improvement at learning rate $c = 0.10$, with probabilities projected onto the
@@ -298,9 +333,10 @@ and any arm can recover. Two details matter:
       $D \geq 20$, where the individual's fitness rank selects which memory its
       draw uses.
 \item \textbf{Sixth arm:} for $20 \leq D < 100$ only, an optional
-      differential-evolution arm ($F = 0.5$, $CR = 0.9$) enters at initial
-      probability $0.10$--$0.20$ by tier. It is off below 20 and at
-      $D \geq 100$.
+      differential-evolution arm ($F = 0.5$, $CR = 0.9$) is configured at
+      $0.10$ (20--49) and $0.20$ (50--99); after the simplex projection it
+      starts at $0.095$ and $0.190$ respectively. It is off below 20 and off
+      again at $D \geq 100$.
 \end{itemize}
 
 \subsection{4. ARGP --- adaptive rank-gated pruning (all tiers)}
@@ -310,21 +346,30 @@ Arms whose windowed acceptance falls below a tier threshold after warm-up are
 arm recovers if it becomes productive again. Window $30$ generations; threshold
 $0.02$, tightened to $0.010$ at $D\geq50$; warm-up $0.15$ of the budget.
 
-\subsection{5. Linkage block crossover (all tiers)}
+\subsection{5. Linkage block crossover (all tiers, from $D\geq10$)}
 
-For roughly 70\% of the population the per-coordinate $KR$ mask is replaced by
-a \emph{block} mask over non-contiguous coordinate subsets --- the mechanism
-through which structure, rather than a scalar, is adapted.
+For a tier-set fraction of the population the per-coordinate $KR$ mask is
+replaced by a \emph{block} mask over non-contiguous coordinate subsets --- the
+mechanism through which structure, rather than a scalar, is adapted. The
+mechanism carries its own dimension gate: it needs $D\geq10$ below $D=50$ and
+$D\geq30$ above it, so it is inactive at the CEC2020 $D{=}5$ bank and at the
+CEC2011 problems of dimension 1, 6 and 7.
 
 \begin{itemize}[leftmargin=1.2em, itemsep=1pt, topsep=3pt]
 \item \textbf{Block size:} 5 below $D=50$, 10 at $D\geq50$.
-\item \textbf{Mix probability:} $0.70$ ($D<20$), $0.40$ (mid-tiers), $0.70$
-      ($D\geq50$).
+\item \textbf{Mix probability} (the fraction of rows that get a block mask):
+      $0.70$ ($D<20$), $0.40$ ($20$--$49$), $0.70$ ($D\geq50$).
 \item \textbf{Refresh period:} every 20 generations below $D=50$, every 10 at
       $D\geq50$.
-\item \textbf{Block source:} random below $D=50$; \textbf{supplied by the ISM
-      graph at $D\geq50$}, which is the only path by which the memory reaches
-      the search.
+\item \textbf{Block source:} random below $D=50$. At $D\geq50$ a block-mask
+      row draws the \textbf{ISM-learned partition with probability $0.50$} and
+      the random partition otherwise, so roughly half the block rows stay
+      random even where the memory is active --- and all of them do until the
+      graph passes its readiness test. Nor is the crossover the memory's only
+      route into the search: the eigenframe polish reads the signed graph
+      directly for its basis (component 9), and at $D\geq100$ the count of
+      generations that commit to learned blocks releases the sample-protected
+      population floor.
 \end{itemize}
 
 \subsection{6. Charged coordinate local search (all tiers)}
@@ -401,6 +446,10 @@ differential-evolution-arm moves, $0.25$ for local-search moves, $1$ otherwise.
       tier the graph is not allocated at all.
 \item \textbf{Refresh:} every 5 generations below $D=100$, every 20 at
       $D\geq100$; warm-up $0.10$.
+\item \textbf{Update thinning at $D\geq100$:} evidence is injected only every
+      10th generation and capped at the 24 largest improvements. On the other
+      nine generations the graph only decays, so the effective decay between
+      injections is $\lambda^{10}\approx0.60$ rather than $0.95$.
 \item \textbf{Confidence gate:} $\kappa_{\min} = 0.35$ for linkage ($0.45$ for
       the dormant subspace search), adaptive at $D\geq50$ on a rolling median
       --- window 30, percentile $0.50$, floor $0.12$.
@@ -458,8 +507,13 @@ guarantee.
       negative lift $-0.05$; severe lift $-0.20$; strength $0.5$; lift-EMA
       $\alpha = 0.20$.
 \item \textbf{Basin memory} and a \textbf{subspace-sampling floor}: enabled.
-\item A trust-region budget policy is present but \textbf{runtime-inert} --- a
-      redundant guard, not an active mechanism.
+\item A \textbf{budget/ROI gate}, which admits the coordinate local search
+      only from budget fraction $0.70$ --- the same threshold as this tier's
+      local-search start fraction, so it is very nearly redundant, though the
+      two are read at different points in the generation and can disagree on
+      the generation that crosses the threshold. The trust-region displacement
+      governor it descends from was \emph{removed} from the code at the paper
+      freeze and is not present at run time.
 \end{itemize}
 
 \subsection{Determinism layer}
@@ -473,10 +527,11 @@ ones.
 
 \section{Frozen parameter reference}
 
-Every value in the shipped configuration, in one place. Tier columns are
-$D{<}20$ / $20$--$49$ / $50$--$99$ / $D{\geq}100$; a single value means it does
-not vary by tier. The whole set is hash-frozen in the repository's algorithm
-freeze manifest and is neither tuned nor tunable at run time.
+Every value this summary refers to, in one place; the exhaustive set is in
+Supplementary S5 and the repository's algorithm freeze manifest. Tier columns
+are $D{<}20$ / $20$--$49$ / $50$--$99$ / $D{\geq}100$; a single value means it
+does not vary by tier. The whole configuration is hash-frozen and is neither
+tuned nor tunable at run time.
 
 {\scriptsize
 \setlength{\LTpre}{2pt}\setlength{\LTpost}{2pt}
@@ -502,8 +557,9 @@ seed modulus $M_{\mathrm{seed}}$ & $2{,}147{,}483{,}646$ & \\
 \midrule
 $KF$ & 0.5 & ACE arm-controlled\\
 $KR$ & 0.9 & ACE arm-controlled\\
+$KR$ coverage floor $\kappa_{\dim}$ & 0 / 20 / 40 / 40 & floor $\min(1,\kappa_{\dim}/D)$ overrides low-$KR$ arms\\
 $K_{\exp}$ & 10 & junior-dimension schedule\\
-$p$ (senior) & 0.05 / 0.15 / split-bottom 0.10 at $D{\geq}50$ & \\
+$p$ (senior) & 0.05 / 0.15 / 0.05 at $D{\geq}50$ & bottom half widened to 0.10 only while mean acceptance $\leq 0.10$\\
 \midrule
 \multicolumn{3}{@{}l}{\emph{NLPSR}}\\
 \midrule
@@ -514,21 +570,22 @@ $\alpha_{\mathrm{psr}}$ & 1.0 & inert (nonlinear shipped)\\
 \multicolumn{3}{@{}l}{\emph{ACE / ARGP}}\\
 \midrule
 arm pool & 5 arms $(KF, KR, K_{\exp})$; arm 3 GSK-canonical $(0.5, 0.9, 10)$ & see arm table, Sec.~4.3\\
-initial probabilities $\pi_0$ & $(0.05,\, 0.05,\, 0.45,\, 0.05,\, 0.40)$ & 0.85 on the two GSK-rate arms\\
+initial probabilities $\pi_0$ & $(0.05, 0.05, 0.45, 0.05, 0.40)$ at $D{<}20$ and $D{\geq}100$; $(0.05, 0.05, 0.40, 0.05, 0.355, 0.095)$ at $20$--$49$; $(0.05, 0.05, 0.35, 0.05, 0.31, 0.19)$ at $50$--$99$ & 0.85 / 0.755 / 0.660 on the two GSK-rate arms\\
 learning rate $c$ & 0.10 & EMA on realized improvement\\
 probability floor $\pi_{\min}$ & 0.05 & simplex projection; no arm dies\\
 update start & consumed-budget fraction 0.05 & $\pi$ held at $\pi_0$ before it\\
 credit target & full pool if net-improving; else restricted to improving arms & stabilizes hard functions\\
 memory mode & single ($D{<}20$) $\to$ top/bottom ($D{\geq}20$) & rank selects the memory\\
-DE arm & $20 \leq D < 100$ only; $F = 0.5$, $CR = 0.9$ & initial prob 0.10--0.20 by tier\\
+DE arm & $20 \leq D < 100$ only; $F = 0.5$, $CR = 0.9$ & configured 0.10 / 0.20; starts at 0.095 / 0.190 after projection\\
 ARGP window / threshold & 30 gens / 0.02 (0.010 at $D{\geq}50$) & warm-up 0.15\\
 \midrule
 \multicolumn{3}{@{}l}{\emph{Linkage block crossover}}\\
 \midrule
 block size & 5 ($D{<}50$) / 10 ($D{\geq}50$) & \\
-mix probability & 0.70 / 0.40 / 0.70 & by tier band\\
+minimum dimension & 10 ($D{<}50$) / 30 ($D{\geq}50$) & off entirely below it\\
+mix probability & 0.70 / 0.40 / 0.70 & fraction of rows given a block mask\\
 refresh period & 20 gens ($D{<}50$) / 10 ($D{\geq}50$) & \\
-block source & random; ISM-fed at $D{\geq}50$ & \\
+block source & random; at $D{\geq}50$ ISM-learned with probability 0.50, random otherwise & \emph{interaction-linkage-mix-prob} $=0.50$\\
 \midrule
 \multicolumn{3}{@{}l}{\emph{Coordinate local search}}\\
 \midrule
@@ -558,6 +615,7 @@ enable gate & $D \geq 50$ & not allocated below\\
 decay $\lambda$ / commit rate $\eta$ & 0.95 / 1.0 & \\
 source weights & 0 (DE arm) / 0.25 (local search) / 1 & per accepted move\\
 refresh period / warm-up & 5 gens ($D{<}100$) / 20 ($D{\geq}100$); 0.10 & \\
+update period / sample cap & every gen., uncapped ($50$--$99$); every 10th gen., top 24 ($D{\geq}100$) & effective decay $\lambda^{10}\approx0.60$ at $D{\geq}100$\\
 confidence gate $\kappa_{\min}$ & 0.35 linkage (0.45 dormant subspace) & adaptive: window 30, pct 0.50, floor 0.12\\
 edge floor $\varphi$ & $10^{-4}$ & with $\tfrac12$ row-max rule\\
 block size range & $b_{\min} = 2$ to $b_{\max} = 10$ & larger split greedily\\
@@ -577,7 +635,7 @@ A1 late-accept clip & $\tau$-floor 0.85; high-acc 0.30; log-drop $-2.0$; streak 
 A2 frozen-streak broaden & acc-floor 0.05; log-drop $-3.0$; streak 10; window/cooldown 20/10; $KR\times1.5$ & \\
 FC4 linkage random-mix & $\tau$-floor 0.50; lift $-0.05$ / severe $-0.20$; strength 0.5; EMA 0.20 & \\
 basin memory, subspace floor & enabled & \\
-trust-region budget policy & present, runtime-inert & redundant guard\\
+budget/ROI gate & admits local search from budget fraction 0.70 & duplicates this tier's local-search start; trust-region governor removed at the freeze\\
 \bottomrule
 \end{longtable}
 }
@@ -594,10 +652,11 @@ trust-region budget policy & present, runtime-inert & redundant guard\\
 \hspace*{4mm}$D<20$ \ \ \ \ \ \ $\rightarrow$ scaffold only (ACE+ARGP, NLPSR, blocks, LS, BSE, restart)\\
 \hspace*{4mm}$20\!-\!49$ \ \ \ \ $\rightarrow$ + differential-evolution arm in the ACE pool\\
 \hspace*{4mm}$50\!-\!99$ \ \ \ \ $\rightarrow$ + ISM graph, ISM-fed linkage blocks, eigenframe polish\\
-\hspace*{4mm}$D\geq100$ \ \ \ $\rightarrow$ + upper-tier controllers (basin memory, subspace floor, \ldots)\\[3pt]
+\hspace*{4mm}$D\geq100$ \ \ \ $\rightarrow$ + upper-tier controllers (basin memory, subspace floor, \ldots);\\
+\hspace*{13mm}\emph{and the DE arm switches off again}\\[3pt]
 
-\textbf{2. Initialize} $NP \leftarrow 5D$ from the seeded stream; evaluate; open the
-13 RNG substreams.\\[3pt]
+\textbf{2. Open the 13 RNG substreams} from the run seed; \textbf{initialize}
+$NP \leftarrow 5D$ from the \textit{init} substream; evaluate.\\[3pt]
 
 \textbf{3. REPEAT} while budget remains:\\
 \hspace*{4mm}\textbf{a.} ACE selects an arm $(KF, KR, K_{\exp})$ by EMA credit;
@@ -606,29 +665,36 @@ ARGP soft-freezes\\
 \hspace*{4mm}\textbf{b.} Partition coordinates junior/senior by the $K_{\exp}$ schedule;
 build\\
 \hspace*{9mm}the trial vector (junior: near neighbours; senior: best/middle/worst).\\
-\hspace*{4mm}\textbf{c.} Apply the crossover mask --- block mask for $\approx$70\% of rows\\
-\hspace*{9mm}(ISM-supplied blocks if $D\geq50$, random otherwise).\\
-\hspace*{4mm}\textbf{d.} Repair to bounds; evaluate; greedy selection, accepting ties.\\
-\hspace*{4mm}\textbf{e.} NLPSR shrinks $NP$ toward its tier floor.\\
+\hspace*{4mm}\textbf{c.} Apply the crossover mask --- block mask for 70\% of rows
+(40\% at $20\!-\!49$);\\
+\hspace*{9mm}at $D\geq50$ half of those rows use ISM-supplied blocks once the
+graph is\\
+\hspace*{9mm}ready, the rest stay random; below 50 all are random.\\
+\hspace*{4mm}\textbf{d.} Repair to bounds; evaluate; greedy selection, accepting ties\\
+\hspace*{9mm}(tightened to strict improvement by the A1 clip late in the budget at $D\geq100$).\\
+\hspace*{4mm}\textbf{e.} Update ACE credit; ARGP soft-freezes under-performing arms.\\
 \hspace*{4mm}\textbf{f.} \emph{If $D\geq50$:} update the ISM graphs from strictly improving\\
 \hspace*{9mm}accepted moves; re-extract linkage blocks on the tier cadence.\\
 \hspace*{4mm}\textbf{g.} \emph{If stagnating:} BSE Cauchy rescue on the worst rows; if it\\
 \hspace*{9mm}fails, archive-seeded partial restart. On a deep stall, full\\
-\hspace*{9mm}re-initialization --- the global best is never discarded.\\[3pt]
+\hspace*{9mm}re-initialization --- the global best is never discarded.\\
+\hspace*{4mm}\textbf{h.} \emph{If $D\geq50$, once, on the first generation that reaches}\\
+\hspace*{9mm}$s_{\mathrm{fp}}=0.96$ \emph{of the budget:} eigenframe polish --- compass
+search\\
+\hspace*{9mm}along the signed-graph eigenbasis (step, evaluate, contract), no RNG\\
+\hspace*{9mm}draws, capped at $0.02\,$MaxFES. The loop then continues on the\\
+\hspace*{9mm}remaining budget.\\
+\hspace*{4mm}\textbf{i.} NLPSR shrinks $NP$ toward its tier floor for the next generation.\\[3pt]
 
-\textbf{4. Eigenframe polish} \emph{(only if $D\geq50$)}, once, from
-$s_{\mathrm{fp}}=0.96$ of\\
-\hspace*{4mm}the budget: compass search along the signed-graph eigenbasis ---
-step,\\
-\hspace*{4mm}evaluate, contract --- with no RNG draws and budget-exact accounting.\\[3pt]
-
-\textbf{5. RETURN} the global best ever accepted.
+\textbf{4. RETURN} the global best ever accepted.
 }
 \end{tcolorbox}
 
-Steps 1 and 4 are the novelty. Everything else is the family's existing
-machinery, re-scheduled: the contribution is \emph{where} each mechanism is
-allowed to act, not a new base operator.
+Step 1 and steps 3f/3h are where the novelty sits: the tier resolution is the
+organizing contribution, and the interaction memory and the eigenframe polish
+are subsystems written for DT-GSK rather than inherited. The base
+junior/senior operator is unchanged --- the contribution is \emph{where} each
+mechanism is allowed to act, not a new base operator.
 
 \section{How it was tested}
 
