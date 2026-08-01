@@ -63,14 +63,21 @@ for Statistical Research, Cairo University, Giza 12613, Egypt
 
 ## 6. Files to upload (this order)
 
+This is a **LaTeX submission** (author decision, 2026-08-01): the PDF is the
+canonical rendering and the source ZIP recompiles byte-identical to it. The
+DOCX files are NOT uploaded — they are pandoc-built companions whose layout
+legitimately differs from the PDF (the parity gate proves semantic equality,
+not visual identity). If the editorial office requests an editable file later
+in production, `papers/DT-GSK.docx` exists and validates.
+
 | Upload slot | File |
 |---|---|
 | Manuscript (LaTeX source) | `papers/submission/DT-GSK-latex-source.zip` |
 | Manuscript PDF | `papers/DT-GSK.pdf` |
-| Manuscript Word (if a slot exists) | `papers/DT-GSK.docx` |
 | Figures | `papers/submission/DT-GSK-figures-600dpi.zip` |
-| Supplementary Materials | `papers/supplementary.pdf` (and `papers/supplementary.docx` if a second slot exists) |
+| Supplementary Materials | `papers/supplementary.pdf` |
 | Cover letter | paste text from `papers/cover_letter.md`, or upload `papers/cover_letter.pdf` |
+| ~~Word files~~ | skip — LaTeX submission |
 
 ## 7. Cover letter (textbox)
 
