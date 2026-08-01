@@ -48,3 +48,7 @@ papers/figures/concept/*_src.log
 
 # agent/tool session state (never publish)
 .claude/
+
+# Visio OLE build product (C-001 5.4: never commit; regenerate with
+# papers/scripts/embed_visio_ole.py). Committed once by accident 2026-08-01.
+papers/DT-GSK_visio.docx

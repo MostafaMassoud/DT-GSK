@@ -1674,3 +1674,41 @@ applying all surfaced fixes.
   D-0040 withdrawal is superseded; its reasoning about submission impact still
   holds - the OLE DOCX remains excluded from the package (C-001 5.4), so this
   is an enhancement, not a submission dependency.
+
+## D-0042 (2026-08-01) - D4 Visio OLE round-trip PASSED (author-confirmed); phase closed
+
+- **The gate passed.** The author opened `DT-GSK_visio.docx` in Word,
+  double-clicked a flowchart, and confirmed it opens in Microsoft Visio for
+  editing. This is the **first pass ever recorded** for this gate.
+- **The full arc, for the record.** The acceptance test failed on 2026-07-13
+  ("the OLE flowcharts showed as static images in Word") and the gate stayed
+  open. On 2026-08-01 it was withdrawn unverified (D-0040) - a disposal without
+  a diagnosis, which also speculated that the cause was the author's Office
+  configuration. The author then retested and it failed again. Inspecting the
+  generated markup found the real cause (D-0041): a `.vsdx` is an OPC package,
+  and it was attached with the `oleObject` relationship type, under which Word
+  expects a legacy compound-file stream and silently falls back to the preview
+  image. Changing one constant to the `package` relationship type fixed it, and
+  the author's confirmation closes the loop.
+- **What this cost, and the lesson.** Eleven structural checks passed against a
+  package that could not be activated, because structural validity and
+  functional correctness are different claims. The withdrawal in D-0040 was
+  premature: the item should have been diagnosed before it was disposed of, and
+  attributing the failure to the author's environment was a guess presented as a
+  likely cause. `validate_visio_ole.py` now fails any OPC-package embed carrying
+  a non-`package` relationship type, negative-tested against a reconstruction of
+  the broken package, so this specific defect cannot recur silently.
+- **Fold-in deliberately NOT taken.** With the round-trip confirmed, folding OLE
+  into the default build is now a live option. It is not taken: the OLE variant
+  is excluded from the submission package (C-001 5.4); MDPI asks for figures as
+  a separate >=600 dpi ZIP, which is built and verified; embedding OLE objects
+  in the *submitted* DOCX would enlarge it and risk an editor without Visio
+  meeting an object they cannot open; and changing the shipped artifact now
+  would force another freeze pass for no submission benefit.
+- **Disposition: D4 CLOSED - objective met.** The capability works and is
+  reproducible from `build_visio_flowcharts.py` + `embed_visio_ole.py`, both in
+  the repository with the validator. `DT-GSK_visio.docx` itself is a build
+  product, not committed, regenerable in one command.
+- **Submission impact: none.** The shipped DOCX is unchanged and validates.
+  **Approver**: author (confirmed the round-trip, 2026-08-01). **Status**:
+  CLOSED (passed).
