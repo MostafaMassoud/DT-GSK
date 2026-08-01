@@ -731,12 +731,17 @@ Python execution, that reduced smoke checks prove full-budget equivalence, that
 generated results are reference evidence, or that validation passed when all
 functions were skipped.
 
-**Forbidden-token rule:** the upstream numeric-computing platform's product name
-(the six-letter tool starting with "M" and ending in "atlab") may appear **only**
-in `docs/reference/seed_policy.md` (and its generated HTML twin), where the
-seed-policy exception documents the reverse-engineered reference streams. Never
-write that literal token anywhere else — including in this file. Refer to it
-obliquely ("the external reference implementation / platform").
+**Platform-name rule:** the upstream numeric-computing platform's product name
+is used in this repository **only for factual provenance** — naming the
+lineage of the vendored eGSK reference port, and the seed-policy exception in
+`docs/reference/seed_policy.md` that documents the reverse-engineered reference
+streams. It must never be used to describe *this* project's own runtime, which
+is pure Python: this implementation does not require, invoke, or depend on that
+platform. (Earlier revisions of this rule banned the token outside
+`seed_policy.md` altogether; that scope was never actually in force — the
+provenance uses are legitimate and appear throughout the governance and
+architecture documents — and it was corrected on 2026-08-01, audit finding
+HYG-12.)
 
 ## 14. Editing, Review, and Reporting Protocol
 

@@ -357,10 +357,11 @@ Documentation is gated like code by
   builder reads with `encoding="utf-8"`; broken bytes surface as garbled output.
 - **Keep the two runbooks in sync.** The root [runbook.md](runbook.md) and the
   in-site `docs/getting-started/runbook.md` must agree when run commands change.
-- **Respect the forbidden-token rule.** The upstream numeric-platform product
-  name may appear ONLY in `docs/reference/seed_policy.md` and its HTML twin (see
-  [PROJECT_RULES.md](PROJECT_RULES.md) / [SKILL.md](SKILL.md)). Do not write that
-  literal token in code, comments, or other docs — including this file.
+- **Respect the platform-name rule.** The upstream numeric-platform product
+  name is permitted for factual provenance (the vendored eGSK port lineage and
+  `docs/reference/seed_policy.md`), but must never describe this project's own
+  runtime, which is pure Python (see
+  [PROJECT_RULES.md](PROJECT_RULES.md) / [SKILL.md](SKILL.md)).
 
 ---
 

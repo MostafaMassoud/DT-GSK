@@ -196,7 +196,7 @@ DT-GSK.docx,paragraph,All runs were executed on a 22-logical-core Windows workst
 DT-GSK.docx,paragraph,The analysis bundle records its own environment (NumPy 2.2.6,PASS,alnum-containment,,,3ffe5da339ca
 DT-GSK.docx,paragraph,"For DT-GSK, every objective evaluation, including polish and",PASS,alnum-containment,,,198383099e52
 DT-GSK.docx,paragraph,Runs are budget-exact and repeat-identical; byte-identical r,PASS,alnum-containment,,,ba619abc25b3
-DT-GSK.docx,paragraph,"No generative-AI system contributed to the design, execution",PASS,alnum-containment,,,f9acd2feb884
+DT-GSK.docx,paragraph,"No generative-AI system designed or executed any experiment,",PASS,alnum-containment,,,c89e92e28712
 DT-GSK.docx,paragraph,Hypotheses are stated once here. For each comparator and dim,PASS,alnum-window-coverage,coverage=0.99,,229153a50185
 DT-GSK.docx,paragraph,"For the multi-algorithm view, a Friedman test [38] with the ",PASS,alnum-window-coverage,coverage=0.99,,a6d51c97757b
 DT-GSK.docx,paragraph,The complete per-comparison workbooks — including signed-ran,PASS,alnum-containment,,,5c53c4dea0fb
@@ -281,8 +281,8 @@ DT-GSK.docx,paragraph,Institutional Review Board Statement: Not applicable.,PASS
 DT-GSK.docx,paragraph,Informed Consent Statement: Not applicable.,PASS,alnum-containment,,,89bd59ac9b67
 DT-GSK.docx,paragraph,"Data Availability Statement: The DT-GSK implementation, the ",PASS,alnum-containment,,,18bc65116029
 DT-GSK.docx,paragraph,"All CEC2017, CEC2011 and CEC2013 values derive from the sing",PASS,alnum-containment,,,111e52c3b519
-DT-GSK.docx,paragraph,Use of Generative Artificial Intelligence: During the prepar,PASS,alnum-containment,,,26c2dac56037
-DT-GSK.docx,paragraph,"During the preparation of this manuscript, the authors used ",PASS,alnum-containment,,,1bab7048f69b
+DT-GSK.docx,paragraph,Use of Generative Artificial Intelligence: During the prepar,PASS,alnum-containment,,,04213b9238fd
+DT-GSK.docx,paragraph,"During the preparation and revision of this manuscript, the ",PASS,alnum-containment,,,2fe3fbc5bd15
 DT-GSK.docx,paragraph,Author A.W.M. is the originator of the baseline Gaining-Shar,PASS,alnum-containment,,,83921bdcc640
 DT-GSK.docx,paragraph,The following abbreviations are used in this manuscript:,PASS,alnum-containment,,,91e377da31c0
 DT-GSK.docx,citation_keys,44 distinct keys in 102 fields,PASS,set-equality vs canonical \cite inventory,,,1930313bcbf7

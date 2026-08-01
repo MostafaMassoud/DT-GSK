@@ -133,9 +133,11 @@ format is owned by `src/gsk_family/runners/output.py` and
 
 3.6 **Truthful reporting (terminology).** Do not imply that reduced smoke checks
 prove full-budget equivalence, that generated results are reference evidence, or
-that validation passed when functions were skipped. Terminology rules (including
-the forbidden upstream-platform token, permitted only in
-`docs/reference/seed_policy.md`) are detailed in [SKILL.md](SKILL.md) §13.
+that validation passed when functions were skipped. Terminology rules
+(including the upstream-platform name, which is permitted for factual
+provenance -- the eGSK port lineage and the `docs/reference/seed_policy.md`
+exception -- but never to describe this project's own runtime) are detailed in
+[SKILL.md](SKILL.md) §13.
 
 ---
 
