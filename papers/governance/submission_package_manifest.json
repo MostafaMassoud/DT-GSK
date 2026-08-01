@@ -1,51 +1,55 @@
 {
   "schema": "submission_package_manifest/v1",
-  "generated_utc": "2026-07-24T00:00:00Z",
-  "manuscript_version_id": "v1.0",
-  "manuscript_version_note": "Default first-submission id; author may set a preferred scheme before the authoritative commit.",
+  "generated_utc": "2026-08-01T12:24:58Z",
+  "manuscript_version_id": "v2.6",
+  "manuscript_version_note": "Freeze pass-31, tag v2.6. Supersedes v2.5 as the submission and Release/Zenodo basis (D-0034).",
   "target_journal": "Algorithms (MDPI)",
-  "evidence_release": "rel-2026-07-20-67d9345f9",
-  "authoritative_commit": "abd2fa2f25c8426247b43c85bcb3d82041d00976",
-  "pre_freeze_base_commit": "383d7896be4034d25e46bf24da51c31dca6476e1",
+  "evidence_release": [
+    "rel-2026-07-20-67d9345f9 (CEC2017, CEC2011, CEC2013 - primary)",
+    "lsgo-rel-2026-07-28-ff1a046ef (CEC2013LSGO)",
+    "cec2020-rel-2026-07-29-5867abe1e (CEC2020)"
+  ],
+  "authoritative_commit": "856066c0ea4ac6a1b28c68a009b2a26d5b364cef",
+  "pre_freeze_base_commit": "d2bd45de53f11f4aba17329fa531adafe9f8808e",
   "hash_algorithm": "SHA-256",
   "submission_files": [
     {
       "role": "main-manuscript-pdf",
       "path": "papers/DT-GSK.pdf",
-      "pages": 41,
+      "pages": 47,
       "build_epoch": 1783468800,
-      "sha256": "f1faa5e9ebacf5f605713b1aea9fe0095c06b8b2ffdb9b1938540a1f04baffc7",
-      "bytes": 761899
+      "sha256": "db59dbc64d24d868580a3c0178bf7a73f38e59b30da8c2cf0f729ace6c9be115",
+      "bytes": 817876
     },
     {
       "role": "main-manuscript-docx",
       "path": "papers/DT-GSK.docx",
       "build": "deterministic docx render",
-      "sha256": "00176cff030ffe26cf81d99399e2ee5518f7556b1444f181a8bea5b0842b271f",
-      "bytes": 986577
+      "sha256": "4bd70cdee683c00c5294784abeb7e01b0c1a222f75280402e91756e46a6c38e8",
+      "bytes": 999715
     },
     {
       "role": "supplement-pdf",
       "path": "papers/supplementary.pdf",
-      "pages": 56,
+      "pages": 75,
       "build_epoch": 1783468800,
-      "sha256": "76a0bbbd8e0c7b08c04aef70e579f33ccd8b6d11f092fad7c03f89bc08db9944",
-      "bytes": 1609418
+      "sha256": "439fff39029bfbe87a8c26a2bc4109548266af1d59134d24cae06a259f31f3e2",
+      "bytes": 1721957
     },
     {
       "role": "supplement-docx",
       "path": "papers/supplementary.docx",
       "build": "deterministic docx render",
-      "sha256": "ba225735b78a501aec8ecd8de68834f916ac6a16d577acf5e0ab4dcc4747c318",
-      "bytes": 9572245
+      "sha256": "7877d94eb153f3ff2736cb219eb58f93fd235226060eb5753a62d4fe979c5839",
+      "bytes": 9610988
     },
     {
       "role": "cover-letter-pdf",
       "path": "papers/cover_letter.pdf",
       "pages": 2,
       "build_epoch": 1783468800,
-      "sha256": "a3ce6481ab4db70f387b341369c8f2d1115d223af2e5b170f5052197284ce374",
-      "bytes": 119864
+      "sha256": "b1d13db013e8f656a4ea4946189602b6d559589d1ab1fcc93736360905d6b608",
+      "bytes": 125517
     }
   ],
   "excluded_from_package": [

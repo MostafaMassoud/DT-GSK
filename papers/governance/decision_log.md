@@ -1366,6 +1366,7 @@ applying all surfaced fixes.
   submission and Release/Zenodo basis.
 - **Approver**: author (raised the file-name question and directed the fix).
   **Status**: CLOSED.
+- **SUPERSEDED IN PART by D-0034 (2026-08-01, same day).** The scope note above --- "no re-mint and no new tag; `v2.5` remains the submission and Release/Zenodo basis" --- was true when written and is no longer. The frozen-tables audit and the missed cover-letter disclosure forced freeze pass-31, and the CITATION.cff version pin required a superseding tag independently. **`v2.6` is the basis.** The original wording is retained above, unedited, as the record.
 
 ## D-0034 (2026-08-01) - Frozen-tables audit and the missed disclosure loci; CR-0022 closed; pass-31 re-freeze; tag v2.6
 
