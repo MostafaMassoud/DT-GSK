@@ -1780,3 +1780,40 @@ applying all surfaced fixes.
   check_manifest 15/15. Tag **v2.13** supersedes v2.12; earlier tags unmoved;
   CITATION.cff bumped to 2.13 in the tagged state.
   **Approver**: author (2026-08-01). **Status**: CLOSED.
+
+## D-0045 (2026-08-01) - SUBMITTED to Algorithms (MDPI); status "Pending editor decision"
+
+- **The manuscript was submitted** through the MDPI SuSy portal on 2026-08-01
+  by the corresponding author. Portal status as reported: **Pending editor
+  decision**.
+- **Manuscript ID**: _NOT YET RECORDED - author to supply (algorithms-XXXXXXX)._
+  This placeholder is deliberate: an absent ID is a visible gap, whereas
+  omitting the field entirely would hide it.
+- **What was submitted** (LaTeX submission; the Word deliverables were
+  deliberately NOT uploaded, since the DOCX is a pandoc companion whose layout
+  differs from the canonical PDF):
+  - `papers/submission/DT-GSK-latex-source.zip` - collated sources, verified to
+    recompile in a clean room to a PDF byte-identical to the shipped one, and
+    carrying that PDF inside it;
+  - `papers/DT-GSK.pdf` (47 pp), `papers/supplementary.pdf` (75 pp),
+    `papers/cover_letter.pdf` (2 pp);
+  - `papers/submission/DT-GSK-figures-600dpi.zip` - 7 figures, 600 dpi PNG.
+- **Frozen basis**: freeze pass-38, tag **v2.13**, repository anchor b51590790. The
+  five deliverables are hash-recorded in
+  `papers/governance/submission_package_manifest.json` at that tag; that record
+  is the authoritative statement of exactly what was uploaded.
+- **Form/manuscript consistency**, the D16.5 obligation: the portal's GenAI
+  declaration named both assistants, matching the manuscript's four disclosure
+  loci; the conflicts-of-interest field restated the manuscript's COI; the
+  data-availability field carried the public repository URL and the v2.13 tag,
+  matching the Data Availability Statement (D-0044). Open peer-review was
+  elected. No external funding was declared, matching AG-0003.
+- **Author biographies**: the corresponding author's is entered; the two
+  co-author biographies were deliberately left for those authors to supply,
+  and are due before acceptance rather than before submission.
+- **STANDING INSTRUCTION from this point**: do NOT rebuild or re-mint anything.
+  v2.13 is the frozen record of what was submitted, and any post-submission
+  change would break the correspondence between the repository and the file
+  under review. A revision request, if one comes, is handled as a new freeze
+  pass through change control - never as an edit to the submitted state.
+  **Status**: OPEN (awaiting editorial decision).
