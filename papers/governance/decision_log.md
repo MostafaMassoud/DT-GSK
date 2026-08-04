@@ -1786,9 +1786,14 @@ applying all surfaced fixes.
 - **The manuscript was submitted** through the MDPI SuSy portal on 2026-08-01
   by the corresponding author. Portal status as reported: **Pending editor
   decision**.
-- **Manuscript ID**: _NOT YET RECORDED - author to supply (algorithms-XXXXXXX)._
-  This placeholder is deliberate: an absent ID is a visible gap, whereas
-  omitting the field entirely would hide it.
+- **Manuscript ID**: **algorithms-4507562** (supplied by the author 2026-08-01;
+  placeholder filled). Section: *Evolutionary Algorithms and Machine
+  Learning*. Submission date as recorded by the portal: 2026-08-01.
+- **STATUS PROGRESSION**: "Pending editor decision" -> **"Under review"**
+  (observed 2026-08-01). The manuscript therefore cleared the editorial
+  desk gate - the handling editor judged it in scope and complete, and sent
+  it to peer reviewers rather than desk-rejecting or returning it. No
+  reviewer report has been received at the time of this entry.
 - **What was submitted** (LaTeX submission; the Word deliverables were
   deliberately NOT uploaded, since the DOCX is a pandoc companion whose layout
   differs from the canonical PDF):
