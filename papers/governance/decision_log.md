@@ -1848,4 +1848,16 @@ applying all surfaced fixes.
 - **No manuscript change**: nothing in the frozen package was touched to
   produce the preprint; v2.13 remains the single basis for both the journal
   submission and this posting. check_manifest 15/15.
-  **Status**: OPEN (awaiting Preprints.org screening/announcement).
+- **WITHDRAWN 2026-08-04, same day.** The author located and used the
+  platform's own withdraw option, acting inside the pre-announcement
+  screening window - the only interval in which a Preprints.org submission
+  can be taken down cleanly, since after announcement and DOI registration
+  the platform states a preprint cannot be fully removed and receives only a
+  withdrawal notice with its metadata still visible. No DOI had been issued.
+- **Net effect**: no preprint of this work is published. The manuscript's
+  only public routes remain the journal submission under review
+  (algorithms-4507562) and the public repository cited in the Data
+  Availability Statement (D-0044). Nothing in the manuscript, the frozen
+  package, or the repository referred to a preprint, so no text required
+  correction and no re-mint was triggered.
+  **Status**: CLOSED (posted and withdrawn same day; no publication).
