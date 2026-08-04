@@ -1822,3 +1822,30 @@ applying all surfaced fixes.
   under review. A revision request, if one comes, is handled as a new freeze
   pass through change control - never as an edit to the submitted state.
   **Status**: OPEN (awaiting editorial decision).
+
+## D-0046 (2026-08-04) - Preprint submitted to Preprints.org (ID 226790)
+
+- **Preprint ID 226790**, type Article, submission received 2026-08-04. Title
+  and author list identical to the journal submission; author emails as
+  recorded in the manuscript byline. Subject category: Computer Science and
+  Mathematics / Artificial Intelligence and Machine Learning, chosen to match
+  the journal section (*Evolutionary Algorithms and Machine Learning*) rather
+  than the more generic Applied Mathematics.
+- **What it snapshots**: the manuscript as submitted to *Algorithms*
+  (algorithms-4507562), i.e. freeze pass-38 / tag **v2.13**. The preprint is
+  therefore a PRE-REVIEW snapshot; if peer review produces revisions, the
+  posted version does not change unless a new version is posted deliberately.
+- **Separate publication act, deliberately logged as one.** Posting a preprint
+  is not a by-product of journal submission: it publishes the work under
+  CC BY 4.0, permanently, and the platform states that preprints cannot be
+  fully removed once announced and assigned a DOI - only marked with a
+  withdrawal notice, with title, authors and abstract remaining visible. The
+  author was advised of this before the record was filed.
+- **Consistency with the rest of the record**: the preprint carries the same
+  Data Availability Statement (public repository + tag v2.13, D-0044) and the
+  same Use-of-Generative-AI disclosure naming both assistants, so the preprint,
+  the journal submission and the public repository state one story.
+- **No manuscript change**: nothing in the frozen package was touched to
+  produce the preprint; v2.13 remains the single basis for both the journal
+  submission and this posting. check_manifest 15/15.
+  **Status**: OPEN (awaiting Preprints.org screening/announcement).
