@@ -15,6 +15,27 @@ Python package: `gsk_family` (under `src/`). Console entry points are `gsk-*`.
 The repository exists to support a **published claim**, not to be a general framework. Most files
 are frozen or hash-bound. Assume nothing is casually editable.
 
+## Right now (2026-08-27)
+
+The round-1 revision is **done and published**. `origin/main` carries it, `v2.14` is pushed, and
+`v2.13` still resolves — so both tags the Data Availability Statement names are live.
+
+**Work on `main`.** It tracks origin. The development history lives on
+`archive/revision-pass-39-full` and **must never be pushed**: some of its commit messages gender an
+anonymous reviewer, and its intermediate trees carry the reviewers' reports.
+
+**One confirmed defect is open against the published paper.** Table A45's caption in the
+Supplementary Materials says the two identity controls are confirmed by their tie counts; the
+D = 100 control prints 2/25/2, and 27 of 1479 run cells differ by up to 5.3 % relative under an
+identical configuration, environment and budget. That needs a pass-42. A verification pass over
+eleven further alleged defects was running when this was written — read
+[REVISION_STATUS.md](REVISION_STATUS.md) §2 before assuming the fix list is only that one item.
+
+**Author-only, still outstanding:** the SuSy resubmission; a GitHub Support ticket to
+garbage-collect commit `b9846e4` (seven copyrighted PDFs are off every ref but still served by
+direct SHA — verified HTTP 206); GitHub Insights → Traffic → Clones, which expires on a 14-day
+window; and telling the co-authors their biographies were public for twenty days.
+
 ## Read this first
 
 **➡ [REVISION_STATUS.md](REVISION_STATUS.md) — current state, always.** The manuscript is under
@@ -42,6 +63,8 @@ Everything else in this file is a pointer.
 2. **`benchmarks/cec_reference_results/` is READ-ONLY** frozen evidence. Never "regenerate" it.
    Runners write under `results/` and nowhere else — `_run_all/` for the campaign, `_revision/` for
    the revision driver (`scripts/run_revision_experiments.py`), `_ablation*/` for ablations.
+   `results/_revision/` is **untracked** (D-0049): it duplicates the promoted release, which is the
+   citable evidence.
 3. **`papers/` is a frozen manuscript under change control.** Any edit voids the freeze manifest and
    belongs to a new freeze pass (see D-0045). Never edit the submitted state in place.
 4. **Never author LaTeX or regex through a bash heredoc** — backslash collapse has already shipped
@@ -53,6 +76,17 @@ Everything else in this file is a pointer.
 7. **Never run `papers/scripts/finalize_evidence.py`** (standing instruction).
 8. **Work only in `D:/AI/Research-Lab/DT-GSK`.** A divergent copy lives in the PhD-Projects monorepo;
    each freeze manifest hashes only its own tree, so both can report "15/15" while disagreeing.
+9. **The repository is PUBLIC and some files are deliberately untracked** (D-0049). Pinned in
+   `.gitignore`, present on disk, retained in git only on the never-pushed archive branch: both
+   reviewers' reports, the point-by-point response (it quotes them), the co-author handoff
+   (biographies marked as awaiting their subjects' approval), and seven copyrighted third-party
+   PDFs. The **pre-registration is public on purpose** — the Supplementary Materials' claim that
+   adverse-outcome wording predates the outcomes is uncheckable without it. Do not re-add any of
+   the others, and never push a branch whose history contains them.
+10. **A `.gitignore` glob that does not cross `/` is not an exclusion.** `reference_papers/*.pdf`
+   silently matched nothing under `Academic_Research_Guidelines/` for the life of the repo, and
+   38.8 MiB of copyrighted PDFs reached the public remote. Recursive form alongside it now; check
+   `git check-ignore -v <path>` rather than trusting the pattern.
 
 Full detail and the remaining traps: [REVISION_STATUS.md](REVISION_STATUS.md) §7.
 
@@ -71,7 +105,8 @@ Full detail and the remaining traps: [REVISION_STATUS.md](REVISION_STATUS.md) §
 | Style, determinism, KATs | [CODING_STANDARD.md](CODING_STANDARD.md) |
 | Numba, threading, serial kernels | [PERFORMANCE_RULES.md](PERFORMANCE_RULES.md) |
 | Runtime-acceleration method | `docs/development/ACCELERATION_CAMPAIGN_PROMPT.md` (Appendix A) |
-| Decisions D-0001…D-0048 | `papers/governance/decision_log.md` |
+| Decisions D-0001…D-0049 | `papers/governance/decision_log.md` |
+| What is published vs withheld, and why | `papers/governance/decision_log.md` **D-0049** |
 | Claim → evidence bindings | `papers/governance/claims_evidence_matrix.csv` |
 
 ⚠️ **[FINAL_RELEASE_REPORT.md](FINAL_RELEASE_REPORT.md) is historical** (CEC2017 only, pre-submission).
@@ -80,10 +115,14 @@ It ends on "PUBLISH READY", which is no longer the project's state. Do not read 
 ## Conventions
 
 - Freeze passes and tags advance together: submitted at **pass-38 / v2.13**; the round-1 revision
-  landed at **pass-40 / v2.14**. That tag is cut but **local and unpushed** — `origin/main` still
-  carries the submitted state and the remote tags stop at `v2.13`.
+  landed at **pass-41 / v2.14**, both **published**. A revision is always a new pass through change
+  control, never an edit to a tagged state (D-0045).
+- **Publication is a squash.** The public history is one commit per published state, because the
+  development history cannot be published. So a commit SHA recorded by a governance record —
+  including `anchor_commit` in the freeze manifest — does **not** resolve in the public history.
+  `published_commit` sits alongside it and does. This is disclosed in `README.md`.
 - Governance ids are sequential and must be verified free at apply time — next are **CR-0025** and
-  **D-0049**.
+  **D-0050**.
 - Evidence releases are additive and non-superseding. Frozen analysis outputs are never re-minted;
   new findings get a new release id.
 - Temporary files go in the session scratchpad, **outside** the repo. Never create scratch trees,

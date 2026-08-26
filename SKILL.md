@@ -632,7 +632,7 @@ python papers\scripts\check_frozen_analysis.py
 python papers\scripts\validate_provenance_claims.py
 ```
 
-At freeze pass-40, `check_manifest.py` reads **15/15** against its default
+At freeze pass-41, `check_manifest.py` reads **15/15** against its default
 `papers/governance/main_manuscript_freeze_manifest.json` (`--manifest` is
 repeatable for the other governance manifests), and `check_frozen_analysis.py`
 reads **115/115** byte-identical against the primary release. Note that

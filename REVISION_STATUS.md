@@ -60,10 +60,47 @@ known-answer pins reproduced, Holm family structure recorded per experiment.
 
 **The write-up is done too.** Supplementary Section S9 carries all four experiments as Tables
 A43--A46, the pre-committed C1/ISM/C2 manuscript edits are applied, the point-by-point response letter
-is written, every gate is green, freeze pass-40 is minted at 15/15, and **v2.14 is cut locally**. What is
-left is pushing the branch and the tag — nothing is on `origin` yet — and the author's SuSy portal entries.
+is written, every gate is green, freeze pass-41 is minted at 15/15, and **v2.14 is published**.
+`origin/main` carries the squashed revision commit and both `v2.13` and `v2.14` resolve publicly, so
+the Data Availability Statement works for the submitted and the revised version alike. What is left is
+the author's SuSy resubmission, the GitHub Support ticket, and one confirmed defect — see §2a.
 
-[APPLY NOTE: join these two lines with CRLF, not LF. REVISION_STATUS.md is 537 CRLF / 0 bare LF.]
+## 2a. Open against the published paper
+
+**One confirmed defect, and a verification pass over eleven more.**
+
+**CONFIRMED — Table A45 caption.** Supplementary S9.3's caption says the two identity controls
+"coincide with the tiered configuration by construction, which the tie counts confirm". The
+U-low/D = 10 control does (0/29/0). The U-high/D = 100 control prints **2/25/2**. Traced: the
+resolved configuration, the execution environment and the evaluation budget are **identical**
+between the two legs (the one apparent config difference was a `json.dump` artifact — YAML parsed
+the integer keys correctly), and NP was not transplanted, so E3 is budget-fair. Yet **27 of 1479**
+run cells differ at D = 100, median relative 1.6e-4, **max 5.3e-2** — not floating-point noise.
+
+Two things follow. The caption states something its own table falsifies, on the same page. And the
+residual sits in tension with contribution **C3**, which claims byte-stable determinism in the
+declared environment. The cause is not established; do not assert one.
+
+**Why every gate passed over it:** `validate_cross_format_parity` was green because the PDF and the
+DOCX agree — both carrying the same wrong caption — and `validate_evidence_bindings` excludes
+`% BIND:` comment text from token extraction by design. This is the third defect in this project
+caught only by reading the built PDF rather than the sources. **Read the PDF.**
+
+**UNDER VERIFICATION when this was written.** A prior assessment alleged eleven further defects.
+Spot-checking already refuted one (the claim that the NP qualification appears nowhere — the main
+text mentions matched population 11 times and cites S9.2 twice) and downgraded another ("ordinals
+identical in every variant reported here" is scoped to rank-computation robustness variants, so it
+is ambiguous rather than false). **Do not act on that assessment unverified.** The remaining claims
+concern: an S6.5-vs-S9.1 arithmetic contradiction on the ISM channel; "only fitness-affecting
+channel" versus "two active channels"; "perturbs no tier threshold" versus `argp_threshold`;
+"no constant is knife-edge" versus the n_min flip; effect-size language against A12 values in
+[0.493, 0.518]; and an Overall-column recomputation at matched NP.
+
+**A leaked meta-note was published and is now removed.** An agent's instruction to the applier
+("[APPLY NOTE: join these two lines with CRLF...]") was written into this file verbatim and reached
+`origin/main`. The applier matched and wrote proposed text without checking the *replacement* for
+meta-content. A tree-wide scan found no others. If you apply agent-proposed edits, scan the
+replacements, not just the anchors.
 
 ## 3. What has already been applied
 
