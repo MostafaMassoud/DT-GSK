@@ -6,13 +6,13 @@ what is happening, what is done, and what is next.
 
 | | |
 |---|---|
-| **Last updated** | 2026-08-26 |
+| **Last updated** | 2026-08-27 |
 | **Manuscript** | `algorithms-4507562` — *Algorithms* (MDPI) |
 | **Submitted** | 2026-08-01 from freeze **pass-38 / tag v2.13** (anchor `b515907`) |
 | **Editorial status** | **MAJOR REVISION** — 2 reviewers, received 2026-08-24 |
-| **Branch** | `revision/pass-39` — **unpushed**; `main` and `origin/main` both still point at the submitted state `b9846e4` |
+| **Branch** | `main` — **published** at `02d1791`, tracking `origin/main`. Work continues here. `archive/revision-pass-39-full` holds the development history and must never be pushed |
 | **Progress** | **COMPLETE** — all ten reviewer points answered; phases 1–7 applied; four experiments run, analysed and written up. |
-| **Freeze** | pass-40 minted, `check_manifest` 15/15 · anchor `77f9bc0` · **v2.14 cut** (hold condition satisfied) — annotated, but **local and unpushed**; remote tags stop at v2.13 |
+| **Freeze** | pass-41 re-minted, `check_manifest` 15/15 · anchor `6fb0506` · **v2.14 PUBLISHED** on the squashed commit; `v2.13` still resolves, so both tags the DAS names are live |
 | **Revision deadline** | Still unstated, but no longer gating — the experiment track is complete |
 
 ---
@@ -418,13 +418,20 @@ worktree blind spot.
 
 ### What remains
 
-1. **Tag v2.14** --- the author directive of 2026-08-25 withheld it only until the four experiments
-   were complete and integrated. That condition is met; the tag is cut from pass-40 (anchor
-   `77f9bc0`). `CITATION.cff` is already correct for it.
-2. **SuSy portal (author only)** --- re-enter the new title and the revised keyword list in the
-   revision form, upload the revised manuscript, supplementary, and
-   `papers/review_2026_08_24/response_to_reviewers.md` as the point-by-point response. Portal
-   metadata does not update from the PDF.
+1. ~~Tag v2.14~~ --- **DONE and PUBLISHED** 2026-08-27, on the squashed publication commit
+   `02d1791`. Verified from the public internet: the `v2.14` and `v2.13` trees both resolve, so
+   both tags the Data Availability Statement names are live, and the pre-registration resolves ---
+   which is what makes the claim that adverse-outcome wording predates the outcomes checkable
+   rather than asked-on-trust. The reviewers' reports, the response letter, the co-author handoff
+   and seven copyrighted PDFs all return 404 (D-0049).
+2. **SuSy portal (author only)** --- the one thing left. Re-enter the new title and the revised
+   keyword list in the revision form; portal metadata does not update from the PDF. Upload the
+   revised manuscript, the supplementary, the figures and LaTeX-source zips, the cover letter,
+   the response letter (`response_to_reviewers.pdf`, 10 pages) and the changes-marked register
+   (`change_register.pdf`, 17 pages, all 54 changed passages as-submitted vs as-revised). The
+   last two are deliberately NOT in the repository and are regenerable --- the letter from its
+   Markdown source on disk, the register from `git diff v2.13 v2.14`. Paste text and the full
+   upload table are in `papers/submission/SUBMISSION_KIT.md`.
 3. **`runners/run_experiment.py:725`** (and `:714`) --- the cosmetic `Pop=100` banner defect, in
    `_optimizer_options_line`; **not** `_optimizer_population_size` at `:345`, which only sizes the
    shared fair-start payload DT-GSK never consumes. Safe to fix now that the campaign has landed,
