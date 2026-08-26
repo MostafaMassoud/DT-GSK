@@ -25,7 +25,21 @@
       "no_sgsm",
       "no_adaptive",
       "no_finalpolish"
-    ]
+    ],
+    "reported_statistic": "iman_davenport_F_on_tie_corrected_chi2",
+    "convention_note": "CR-0023 (journal round-1 major revision, R1.4): component studies aligned to the main-text M-026/D-0016 convention.",
+    "chi2_tie_corrected": 12.88850174216028,
+    "p_value_tie_corrected": 0.004884037206581593,
+    "tie_correction_C": 0.9896551724137931,
+    "n_tied_problems": 2,
+    "iman_davenport_F": 4.869393511988717,
+    "p_iman_davenport": 0.0035912597524395858,
+    "iman_davenport_df": [
+      3,
+      84
+    ],
+    "chi2_uncorrected": 12.755172413793105,
+    "p_value_uncorrected": 0.0051971146099820675
   },
   "cell_labels": {
     "full": "SGSM ON (full algorithm; interaction_graph_enabled=true)",

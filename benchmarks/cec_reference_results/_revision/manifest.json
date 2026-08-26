@@ -1,0 +1,1313 @@
+{
+  "schema": "revision_evidence_manifest/v1",
+  "release_id": "rev-rel-2026-08-26-dd42d37eb",
+  "title": "DT-GSK journal round-1 revision experiments (E1 refinement-basis contrast, E2 matched population size, E3 uniform-vs-tiered, E4 parameter sensitivity)",
+  "generated_utc": "2026-08-26T17:44:53+00:00",
+  "git_head_at_promotion": "dd42d37ebdf205e826f6363aca10c93e1ab89b2e",
+  "governance": "CR-0023; D-0047; pre-registered in papers/review_2026_08_24/revision_experiments_preregistration.md (signed 2026-08-25, before any result existed)",
+  "supersedes_release": null,
+  "supersession_note": "Non-superseding. Pairs read-only with the frozen primary release rel-2026-07-20-67d9345f9 (panel columns, tiered arm) and the frozen ablation release abl-rel-2026-07-20 (overlay full / no_finalpolish arms for E1) via the unified seed schedule; nothing in either is re-minted.",
+  "exclusions": "curves/ (one representative convergence CSV per (function, dimension); regenerable from the recorded seeds) and per-session console logs (*_log_*.txt) are excluded, following the cec2020/lsgo release precedent.",
+  "e4_status": "included",
+  "arms": [
+    "e1_basis_coordinate",
+    "e2_np100",
+    "e3_uniform_high",
+    "e3_uniform_low",
+    "e4_ace_learning_rate_hi_D100",
+    "e4_ace_learning_rate_hi_D30",
+    "e4_ace_learning_rate_lo_D100",
+    "e4_ace_learning_rate_lo_D30",
+    "e4_argp_threshold_hi_D100",
+    "e4_argp_threshold_hi_D30",
+    "e4_argp_threshold_lo_D100",
+    "e4_argp_threshold_lo_D30",
+    "e4_bse_restart_frac_hi_D100",
+    "e4_bse_restart_frac_hi_D30",
+    "e4_bse_restart_frac_lo_D100",
+    "e4_bse_restart_frac_lo_D30",
+    "e4_interaction_update_period_hi_D100",
+    "e4_interaction_update_period_hi_D30",
+    "e4_interaction_update_period_lo_D100",
+    "e4_local_search_elite_count_hi_D100",
+    "e4_local_search_elite_count_hi_D30",
+    "e4_local_search_elite_count_lo_D100",
+    "e4_local_search_elite_count_lo_D30",
+    "e4_local_search_eval_budget_frac_hi_D100",
+    "e4_local_search_eval_budget_frac_hi_D30",
+    "e4_local_search_eval_budget_frac_lo_D100",
+    "e4_local_search_eval_budget_frac_lo_D30",
+    "e4_n_min_hi_D100",
+    "e4_n_min_hi_D30",
+    "e4_n_min_lo_D100",
+    "e4_n_min_lo_D30"
+  ],
+  "amendments": [],
+  "totals": {
+    "files": 252,
+    "bytes": 4171830
+  },
+  "files": [
+    {
+      "path": "_configs/e2_np100_cec2017.yml",
+      "sha256": "fe4e8cde8b4a31cbe04cca8613198e79db4d54c678864ec854a5f7fae179af54",
+      "bytes": 762
+    },
+    {
+      "path": "_configs/e3_uniform_high_cec2017.yml",
+      "sha256": "6a6a0985638ed2017e55d4e5f9788dde5df612fa2190d83cc211d04a499980e6",
+      "bytes": 4418
+    },
+    {
+      "path": "_configs/e3_uniform_low_cec2017.yml",
+      "sha256": "e5bb266ee59b8d3ca4bd296d6f79e75258d3b2b90f2366153121224f6ebed3ec",
+      "bytes": 2035
+    },
+    {
+      "path": "_configs/e4_ace_learning_rate_hi_D100.yml",
+      "sha256": "235c9825be1ea61ee8dff452177e9668c679916cd8f41eaed70696bc8d6571d2",
+      "bytes": 774
+    },
+    {
+      "path": "_configs/e4_ace_learning_rate_hi_D30.yml",
+      "sha256": "88773c3d24077d60c05c34fd038562a751cb51eaf23f7d46858b3e176f962f52",
+      "bytes": 772
+    },
+    {
+      "path": "_configs/e4_ace_learning_rate_lo_D100.yml",
+      "sha256": "b840a467f2e7f315f4d9f9d082223b9d7ad51c989d0c30c6e57e52896e6905bd",
+      "bytes": 774
+    },
+    {
+      "path": "_configs/e4_ace_learning_rate_lo_D30.yml",
+      "sha256": "3591d1fa65d6265001224d8f7526c962dc6a30337d3d292718dfd310f6d3a7a1",
+      "bytes": 772
+    },
+    {
+      "path": "_configs/e4_argp_threshold_hi_D100.yml",
+      "sha256": "579dffce99883ddb7ae6d3325e676187a36423296e028f2412245c2a3120ed25",
+      "bytes": 769
+    },
+    {
+      "path": "_configs/e4_argp_threshold_hi_D30.yml",
+      "sha256": "ceb86e601345e31552467fefc8d20b43836a8a6cb6bd78506424993bc9516490",
+      "bytes": 767
+    },
+    {
+      "path": "_configs/e4_argp_threshold_lo_D100.yml",
+      "sha256": "8a6b69d0b7c1cd1f5a36ea068d1e3f9b81883492b87f7a5cbe2add867f6b4229",
+      "bytes": 769
+    },
+    {
+      "path": "_configs/e4_argp_threshold_lo_D30.yml",
+      "sha256": "f44cd325d74c03a222f93da35600efba4d25a264537c24422ed1329bdc8cc757",
+      "bytes": 767
+    },
+    {
+      "path": "_configs/e4_bse_restart_frac_hi_D100.yml",
+      "sha256": "21e858eed7649842ecb7fcf33be5301ad8671514c56fdab309565f0a892ab85a",
+      "bytes": 772
+    },
+    {
+      "path": "_configs/e4_bse_restart_frac_hi_D30.yml",
+      "sha256": "91fb215aaa767ededa8f9bbd4c263c75368b4298431a948d90118f44f9d89a4c",
+      "bytes": 770
+    },
+    {
+      "path": "_configs/e4_bse_restart_frac_lo_D100.yml",
+      "sha256": "e889f0014579d1e7e6684bb9391de4610b8034175798666cec288247564e2a80",
+      "bytes": 772
+    },
+    {
+      "path": "_configs/e4_bse_restart_frac_lo_D30.yml",
+      "sha256": "0d02151454e6c706642315d06d3ba4614e7d84afd76c1dadb1bfe55c48514ce6",
+      "bytes": 770
+    },
+    {
+      "path": "_configs/e4_interaction_update_period_hi_D100.yml",
+      "sha256": "3dcae21c1df5cd6d6a33afb4df5aaf69254b3a3ea1df319e4f0405211f121d4b",
+      "bytes": 788
+    },
+    {
+      "path": "_configs/e4_interaction_update_period_hi_D30.yml",
+      "sha256": "386f9fec499ffc59a94e3153915790d50c343ee8ce092f5a03452b3880430e75",
+      "bytes": 785
+    },
+    {
+      "path": "_configs/e4_interaction_update_period_lo_D100.yml",
+      "sha256": "cb3f1b0e86c740c269a27a6a8a1f124dd0b5d09b1e5f3697304b032be9cdd6e5",
+      "bytes": 787
+    },
+    {
+      "path": "_configs/e4_local_search_elite_count_hi_D100.yml",
+      "sha256": "6f864c3ecc42a013597d12085f201ebfcc20375f2927168d6228187d8e479a48",
+      "bytes": 785
+    },
+    {
+      "path": "_configs/e4_local_search_elite_count_hi_D30.yml",
+      "sha256": "e600532211646988f1431a20a2982d93dcf55446210591b1e1ed7abba5887f0b",
+      "bytes": 783
+    },
+    {
+      "path": "_configs/e4_local_search_elite_count_lo_D100.yml",
+      "sha256": "a129e42d59f13d4439b6ed82c8c4bc6e1b42a8b3fe66485c575c2f1a1ace3550",
+      "bytes": 785
+    },
+    {
+      "path": "_configs/e4_local_search_elite_count_lo_D30.yml",
+      "sha256": "1f344df581ee7ed036319ada59a88af5c029687fa7864b555312e942690e5346",
+      "bytes": 783
+    },
+    {
+      "path": "_configs/e4_local_search_eval_budget_frac_hi_D100.yml",
+      "sha256": "3b4345a2c4a0e9c48b82dc7f32cf453027f2ab02c494da3ba8ea00e354a397a4",
+      "bytes": 799
+    },
+    {
+      "path": "_configs/e4_local_search_eval_budget_frac_hi_D30.yml",
+      "sha256": "00fe515304505e61e7614951f6402008a4420017982c1a3cec2b7029257abe4d",
+      "bytes": 797
+    },
+    {
+      "path": "_configs/e4_local_search_eval_budget_frac_lo_D100.yml",
+      "sha256": "4289097eda880391c9a6228976773962fa5546e87890ed91a30bdc890eb88175",
+      "bytes": 799
+    },
+    {
+      "path": "_configs/e4_local_search_eval_budget_frac_lo_D30.yml",
+      "sha256": "f05f6fd28dfaaad7272cfff641dc51f0cae918a034d1ec05083f25c7fbbb754e",
+      "bytes": 797
+    },
+    {
+      "path": "_configs/e4_n_min_hi_D100.yml",
+      "sha256": "994668da0deb01976feb5752aaeda6250f40c33dbbef65bfdddaaa2a0c974db1",
+      "bytes": 748
+    },
+    {
+      "path": "_configs/e4_n_min_hi_D30.yml",
+      "sha256": "b969026ff26cabd1636fcb3663d3e684cfa15f4848286ca14ca428e6c4844c08",
+      "bytes": 746
+    },
+    {
+      "path": "_configs/e4_n_min_lo_D100.yml",
+      "sha256": "e0158c8e78654036bb35107f297b0bc9b9230003728c073df6ad494e82c03015",
+      "bytes": 748
+    },
+    {
+      "path": "_configs/e4_n_min_lo_D30.yml",
+      "sha256": "0a2833787d8002b9acb9dfcb663678c723aac82c2cb6f38190e0d966e3b76259",
+      "bytes": 746
+    },
+    {
+      "path": "_provenance/driver.log",
+      "sha256": "edef0e526d9eddf7f29b48ed76e7338155953b9663363ce7bf3d47c26a920f04",
+      "bytes": 11291
+    },
+    {
+      "path": "e1_basis_coordinate/dt-gsk/cec2017/summary/per_run.csv",
+      "sha256": "0ca8a91f5218c2647c7276c39686d2444599235723c1efa4d1241f895d260dfe",
+      "bytes": 219959
+    },
+    {
+      "path": "e1_basis_coordinate/dt-gsk/cec2017/summary/run_config.json",
+      "sha256": "f9ff3ad0b825a9d9cc86ed39db9fb2f37d127df6f092dfdd02f0d44175472f93",
+      "bytes": 1025
+    },
+    {
+      "path": "e2_np100/dt-gsk/cec2017/summary/dt-gsk_cec2017_D10.csv",
+      "sha256": "5cd7da91d6e6d7e70756d8038150e25c07ce9a28b7434486c3d6a7eb55cca053",
+      "bytes": 2609
+    },
+    {
+      "path": "e2_np100/dt-gsk/cec2017/summary/dt-gsk_cec2017_D100.csv",
+      "sha256": "fd1fa39287c06b4d3e855d8e36324af6438905bfcd2922ee25098340ca78f3be",
+      "bytes": 2609
+    },
+    {
+      "path": "e2_np100/dt-gsk/cec2017/summary/dt-gsk_cec2017_D30.csv",
+      "sha256": "0dc721bc357c1dc4bf22f240d1614031950a963dd0bb7c8a5b7de05deb7857af",
+      "bytes": 2609
+    },
+    {
+      "path": "e2_np100/dt-gsk/cec2017/summary/dt-gsk_cec2017_D50.csv",
+      "sha256": "039c4e972fee272d0ebe78266b87be0ad0977b8e4bac94b67a911a7364db0a3d",
+      "bytes": 2609
+    },
+    {
+      "path": "e2_np100/dt-gsk/cec2017/summary/environment.json",
+      "sha256": "ea271d7bb09f8429153d8edfd31b7575049f285934bc2a80a147a405dd976d72",
+      "bytes": 3778
+    },
+    {
+      "path": "e2_np100/dt-gsk/cec2017/summary/per_run.csv",
+      "sha256": "f026493f0431420942d0313c3f1594d8867379347eebad7386d25d3551a184f3",
+      "bytes": 599885
+    },
+    {
+      "path": "e2_np100/dt-gsk/cec2017/summary/phase0_protocol.json",
+      "sha256": "bf8061daf43294eafb347a1537b2a6b1fa1e025be7d75dac239e520d2f9bece8",
+      "bytes": 1375
+    },
+    {
+      "path": "e2_np100/dt-gsk/cec2017/summary/run_config.json",
+      "sha256": "ce650d17e8309067c9defb0b33500313b264b28abf4f128085054891bbde952a",
+      "bytes": 1762
+    },
+    {
+      "path": "e2_np100/dt-gsk/cec2017/summary/seed_schedule.csv",
+      "sha256": "77122f46c87d573704912d27a46d6eade75b61917a7d81591d44fdef0ab773e9",
+      "bytes": 114408
+    },
+    {
+      "path": "e2_np100/dt-gsk/cec2017/summary/verification.json",
+      "sha256": "ff0323dd9f6d3d360124e0cf07247ae0e261eb213610109da16a9c76b81cd249",
+      "bytes": 536
+    },
+    {
+      "path": "e3_uniform_high/dt-gsk/cec2017/summary/dt-gsk_cec2017_D10.csv",
+      "sha256": "6cec833987237161ef1659a969790d5af5f6f35699e2495f77d496bb152d975e",
+      "bytes": 2609
+    },
+    {
+      "path": "e3_uniform_high/dt-gsk/cec2017/summary/dt-gsk_cec2017_D100.csv",
+      "sha256": "ad11650cf16836dde11b1481b232e5ae80895a7302da8fdc2efd87b2c461decc",
+      "bytes": 2609
+    },
+    {
+      "path": "e3_uniform_high/dt-gsk/cec2017/summary/dt-gsk_cec2017_D30.csv",
+      "sha256": "11762087d3fe6db24b5cca8d194fd7af416ed1c75c2325a0e1407f58e6282c1c",
+      "bytes": 2609
+    },
+    {
+      "path": "e3_uniform_high/dt-gsk/cec2017/summary/dt-gsk_cec2017_D50.csv",
+      "sha256": "43bee9d9382cb4e4588abfc83336e16f8b1e126a68dab1091a90d0aafd86469b",
+      "bytes": 2609
+    },
+    {
+      "path": "e3_uniform_high/dt-gsk/cec2017/summary/environment.json",
+      "sha256": "8e6d06e1393e9f4c13c44695b0eb9fbdbf7f636d30a38bce2881e9afca6eb918",
+      "bytes": 8084
+    },
+    {
+      "path": "e3_uniform_high/dt-gsk/cec2017/summary/per_run.csv",
+      "sha256": "e2543aabda5644de021c2d7929c0cf847441347de7819fadcea9a85f690f657e",
+      "bytes": 599108
+    },
+    {
+      "path": "e3_uniform_high/dt-gsk/cec2017/summary/phase0_protocol.json",
+      "sha256": "1745efbc4c368e29deaa440f69c9cf52055ae0525789026732302afc60ab61a7",
+      "bytes": 5675
+    },
+    {
+      "path": "e3_uniform_high/dt-gsk/cec2017/summary/run_config.json",
+      "sha256": "57860ef06a6a9086dc370de9a494502875d132ff52d11a3ffeab2066e19c9949",
+      "bytes": 10106
+    },
+    {
+      "path": "e3_uniform_high/dt-gsk/cec2017/summary/seed_schedule.csv",
+      "sha256": "77122f46c87d573704912d27a46d6eade75b61917a7d81591d44fdef0ab773e9",
+      "bytes": 114408
+    },
+    {
+      "path": "e3_uniform_high/dt-gsk/cec2017/summary/verification.json",
+      "sha256": "1746ca78bc188f5f8b08a5150905ca7a77a3e4649c6302e184836d3538e95911",
+      "bytes": 544
+    },
+    {
+      "path": "e3_uniform_low/dt-gsk/cec2017/summary/dt-gsk_cec2017_D10.csv",
+      "sha256": "8e40f4cea41c89411c35fc6276be0d6eaabee874e3e41672fb9bdd6786bcb245",
+      "bytes": 2609
+    },
+    {
+      "path": "e3_uniform_low/dt-gsk/cec2017/summary/dt-gsk_cec2017_D100.csv",
+      "sha256": "efa874c51c3c123d5bb8d88af1f862260890c7db275c73f1d157fbe9db02fad5",
+      "bytes": 2609
+    },
+    {
+      "path": "e3_uniform_low/dt-gsk/cec2017/summary/dt-gsk_cec2017_D30.csv",
+      "sha256": "d553524474605fd337a00a467d47482a21734a501a048becdd73b09161c7d348",
+      "bytes": 2609
+    },
+    {
+      "path": "e3_uniform_low/dt-gsk/cec2017/summary/dt-gsk_cec2017_D50.csv",
+      "sha256": "1287e543ed0ffc78651de2f2346b1ee4e8445a5518b55b8c930437269fe8f921",
+      "bytes": 2609
+    },
+    {
+      "path": "e3_uniform_low/dt-gsk/cec2017/summary/environment.json",
+      "sha256": "d6af622bcbbc1c5181c57bb972d4a2bb455d3ccacd701deb1d97bc5796d1d71f",
+      "bytes": 5360
+    },
+    {
+      "path": "e3_uniform_low/dt-gsk/cec2017/summary/per_run.csv",
+      "sha256": "ce684d99e394772a38972185196778a389066b4b6f2fc1135dbad91be21b736c",
+      "bytes": 599599
+    },
+    {
+      "path": "e3_uniform_low/dt-gsk/cec2017/summary/phase0_protocol.json",
+      "sha256": "7ba66291f6b46049b138e815cc4ff88e814f7af3025065d5ebef3cf918c6c97d",
+      "bytes": 2951
+    },
+    {
+      "path": "e3_uniform_low/dt-gsk/cec2017/summary/run_config.json",
+      "sha256": "33305183c061c765c518edde2d879ab2436d557a536b9a43f5a5607f86e91984",
+      "bytes": 4794
+    },
+    {
+      "path": "e3_uniform_low/dt-gsk/cec2017/summary/seed_schedule.csv",
+      "sha256": "77122f46c87d573704912d27a46d6eade75b61917a7d81591d44fdef0ab773e9",
+      "bytes": 114408
+    },
+    {
+      "path": "e3_uniform_low/dt-gsk/cec2017/summary/verification.json",
+      "sha256": "1cace4f3cb6a9016a2fd063eb1c90697393daa2ecb4989b240ba16780b9bc392",
+      "bytes": 543
+    },
+    {
+      "path": "e4_ace_learning_rate_hi_D100/dt-gsk/cec2017/summary/dt-gsk_cec2017_D100.csv",
+      "sha256": "30a014d6e3ec697620e2d0607f0597a924cb05d98ba91f19446a9df0be4ebedc",
+      "bytes": 2609
+    },
+    {
+      "path": "e4_ace_learning_rate_hi_D100/dt-gsk/cec2017/summary/environment.json",
+      "sha256": "96c820f8ad3b92edc2dda5b61a1e94b26c6bf017d7306666c6182c1f497585c1",
+      "bytes": 3754
+    },
+    {
+      "path": "e4_ace_learning_rate_hi_D100/dt-gsk/cec2017/summary/per_run.csv",
+      "sha256": "5420342ee364927f175691df7b4d8ac07e71a55970989c4d9bcc192597d4e232",
+      "bytes": 44961
+    },
+    {
+      "path": "e4_ace_learning_rate_hi_D100/dt-gsk/cec2017/summary/phase0_protocol.json",
+      "sha256": "79ddef31e7b47ef8acd81e8c74ce183ecde9b03268f5648ffd9b727f9bc265ef",
+      "bytes": 1345
+    },
+    {
+      "path": "e4_ace_learning_rate_hi_D100/dt-gsk/cec2017/summary/run_config.json",
+      "sha256": "3f486f61b977194960e9beb03bdbc7bd43340a27ce7e74ae8ac41d592f76497f",
+      "bytes": 1743
+    },
+    {
+      "path": "e4_ace_learning_rate_hi_D100/dt-gsk/cec2017/summary/seed_schedule.csv",
+      "sha256": "931a37c7f2a1f251210864908b66aab1ca7ba1a401055243cde39aa021ca860a",
+      "bytes": 8777
+    },
+    {
+      "path": "e4_ace_learning_rate_hi_D100/dt-gsk/cec2017/summary/verification.json",
+      "sha256": "b03e05619b802669e0f9d67df2798f203c58854f403189d1f7f5012d11d1305d",
+      "bytes": 554
+    },
+    {
+      "path": "e4_ace_learning_rate_hi_D30/dt-gsk/cec2017/summary/dt-gsk_cec2017_D30.csv",
+      "sha256": "45830f7e796852acb928af16359835dcebc780e486f624117a816bf045dde6d3",
+      "bytes": 2609
+    },
+    {
+      "path": "e4_ace_learning_rate_hi_D30/dt-gsk/cec2017/summary/environment.json",
+      "sha256": "a903c59c7cfc7f409dc824009f026dee7ca40496179d7e88d1c1efed2ee3b8e3",
+      "bytes": 3750
+    },
+    {
+      "path": "e4_ace_learning_rate_hi_D30/dt-gsk/cec2017/summary/per_run.csv",
+      "sha256": "a8ff9b4c23bc799fe0378e0a48b63e6dcdf1817e9cf5acffa52dc2416e4ff8d3",
+      "bytes": 43651
+    },
+    {
+      "path": "e4_ace_learning_rate_hi_D30/dt-gsk/cec2017/summary/phase0_protocol.json",
+      "sha256": "6a945361e4b86fa5fe346f68e6cf6d8a13b87d5ebcfe16fd05ee3dc0f0ecaefc",
+      "bytes": 1344
+    },
+    {
+      "path": "e4_ace_learning_rate_hi_D30/dt-gsk/cec2017/summary/run_config.json",
+      "sha256": "48488f25aeb0fcc66f576d697e426b0edee03c2b2581563c34f145fdd2c141c1",
+      "bytes": 1742
+    },
+    {
+      "path": "e4_ace_learning_rate_hi_D30/dt-gsk/cec2017/summary/seed_schedule.csv",
+      "sha256": "d299b648bd76d44314c2caff2c91b8803b64f98e90260bb168e2a69aeecf4936",
+      "bytes": 7907
+    },
+    {
+      "path": "e4_ace_learning_rate_hi_D30/dt-gsk/cec2017/summary/verification.json",
+      "sha256": "c3b77e25f2500e20842ba4fd2af8802614d3f002205d4e5b6a6419e1901966a0",
+      "bytes": 553
+    },
+    {
+      "path": "e4_ace_learning_rate_lo_D100/dt-gsk/cec2017/summary/dt-gsk_cec2017_D100.csv",
+      "sha256": "7ada97c8179acbd0fff2a730442a655480bf98b3fef0e5a62b9cc83944342d5a",
+      "bytes": 2609
+    },
+    {
+      "path": "e4_ace_learning_rate_lo_D100/dt-gsk/cec2017/summary/environment.json",
+      "sha256": "cc6c42f1609b268f4f3213d5167b718deed0c22b6b9db6f898aae7d8b91ebe2d",
+      "bytes": 3754
+    },
+    {
+      "path": "e4_ace_learning_rate_lo_D100/dt-gsk/cec2017/summary/per_run.csv",
+      "sha256": "c880ccf5037dd07f772c97a9a1a107c0288f7b1542ca13e747aa484d47b16851",
+      "bytes": 44964
+    },
+    {
+      "path": "e4_ace_learning_rate_lo_D100/dt-gsk/cec2017/summary/phase0_protocol.json",
+      "sha256": "898160c5cbd16aaa4df19fa5274348640eee69a4c3006bb92538202a93225b90",
+      "bytes": 1345
+    },
+    {
+      "path": "e4_ace_learning_rate_lo_D100/dt-gsk/cec2017/summary/run_config.json",
+      "sha256": "0f8ec6ad01b26179b6abec77be14c5cfd1860147792f0765de876d39f20ee633",
+      "bytes": 1743
+    },
+    {
+      "path": "e4_ace_learning_rate_lo_D100/dt-gsk/cec2017/summary/seed_schedule.csv",
+      "sha256": "931a37c7f2a1f251210864908b66aab1ca7ba1a401055243cde39aa021ca860a",
+      "bytes": 8777
+    },
+    {
+      "path": "e4_ace_learning_rate_lo_D100/dt-gsk/cec2017/summary/verification.json",
+      "sha256": "9de5307296dee306f9181f0abf23c167d30574f6e033419040b79c9e32ac912e",
+      "bytes": 554
+    },
+    {
+      "path": "e4_ace_learning_rate_lo_D30/dt-gsk/cec2017/summary/dt-gsk_cec2017_D30.csv",
+      "sha256": "07190a874ca779e7db0d042240ddf7567d3132e1f80aced3d381aacf0ff8f9b3",
+      "bytes": 2609
+    },
+    {
+      "path": "e4_ace_learning_rate_lo_D30/dt-gsk/cec2017/summary/environment.json",
+      "sha256": "7ea8266d7b255c64e63fe48d351de7d1f2dadbb201b0d45b3498fb462d942de9",
+      "bytes": 3750
+    },
+    {
+      "path": "e4_ace_learning_rate_lo_D30/dt-gsk/cec2017/summary/per_run.csv",
+      "sha256": "20a3c05eb7281df886e874805292440178e140e59427a44f8c84c4d8d8928202",
+      "bytes": 43651
+    },
+    {
+      "path": "e4_ace_learning_rate_lo_D30/dt-gsk/cec2017/summary/phase0_protocol.json",
+      "sha256": "9d83d149eac231bbc0caf6f8949afa65f4abc4ef15cb80c3c8f6457c0026e46a",
+      "bytes": 1344
+    },
+    {
+      "path": "e4_ace_learning_rate_lo_D30/dt-gsk/cec2017/summary/run_config.json",
+      "sha256": "78158b0aa0d766cddf9df3cb011d9446b9170b2bbb8e88f80461cea106f824f3",
+      "bytes": 1742
+    },
+    {
+      "path": "e4_ace_learning_rate_lo_D30/dt-gsk/cec2017/summary/seed_schedule.csv",
+      "sha256": "d299b648bd76d44314c2caff2c91b8803b64f98e90260bb168e2a69aeecf4936",
+      "bytes": 7907
+    },
+    {
+      "path": "e4_ace_learning_rate_lo_D30/dt-gsk/cec2017/summary/verification.json",
+      "sha256": "71babda440453468d08c11ef3097b62f73c31e7e05aae5f88fa710ade6c00acc",
+      "bytes": 552
+    },
+    {
+      "path": "e4_argp_threshold_hi_D100/dt-gsk/cec2017/summary/dt-gsk_cec2017_D100.csv",
+      "sha256": "a16b5e49aa188cb601d915a27569e8dc9a345673f8447d6e1ee2862f7e4bd933",
+      "bytes": 2609
+    },
+    {
+      "path": "e4_argp_threshold_hi_D100/dt-gsk/cec2017/summary/environment.json",
+      "sha256": "23057c50d84a969637ec0702e8775187725f0fc5804fc7792933836c8ba731e5",
+      "bytes": 3749
+    },
+    {
+      "path": "e4_argp_threshold_hi_D100/dt-gsk/cec2017/summary/per_run.csv",
+      "sha256": "a6181b8760c4e66b55b6d62fa7a03704d35fe99b6211088f2044e86454b494bc",
+      "bytes": 44967
+    },
+    {
+      "path": "e4_argp_threshold_hi_D100/dt-gsk/cec2017/summary/phase0_protocol.json",
+      "sha256": "df00cc1ff1bb011512c02fd3ca80ebcfdc06a8a08273496826c7450061388171",
+      "bytes": 1343
+    },
+    {
+      "path": "e4_argp_threshold_hi_D100/dt-gsk/cec2017/summary/run_config.json",
+      "sha256": "eafb37e4e7705361dbe93499bce41b12be8bb4542c296a1dc6f65fa32f6cc27f",
+      "bytes": 1739
+    },
+    {
+      "path": "e4_argp_threshold_hi_D100/dt-gsk/cec2017/summary/seed_schedule.csv",
+      "sha256": "931a37c7f2a1f251210864908b66aab1ca7ba1a401055243cde39aa021ca860a",
+      "bytes": 8777
+    },
+    {
+      "path": "e4_argp_threshold_hi_D100/dt-gsk/cec2017/summary/verification.json",
+      "sha256": "cd9d39271550b196827df5a3b0af646ffd8b5edd9acebfaf23ee3f46dde066e7",
+      "bytes": 550
+    },
+    {
+      "path": "e4_argp_threshold_hi_D30/dt-gsk/cec2017/summary/dt-gsk_cec2017_D30.csv",
+      "sha256": "16aee777eeec8f23fe1d1d2a9089c09a10c438c02389460833dca2490805211a",
+      "bytes": 2609
+    },
+    {
+      "path": "e4_argp_threshold_hi_D30/dt-gsk/cec2017/summary/environment.json",
+      "sha256": "3abf70949008ee0299c1da54d8a8a207c62e168a4b9018fe70c3413e10d7f5b4",
+      "bytes": 3745
+    },
+    {
+      "path": "e4_argp_threshold_hi_D30/dt-gsk/cec2017/summary/per_run.csv",
+      "sha256": "5ba168dc51096e389d235fd1c11f54072b82b9a8f0f1a575501c3e68f7439741",
+      "bytes": 43651
+    },
+    {
+      "path": "e4_argp_threshold_hi_D30/dt-gsk/cec2017/summary/phase0_protocol.json",
+      "sha256": "48529f198a7fc18b5056160a7047f83d987a4cd921008d62b679516ada68d06e",
+      "bytes": 1342
+    },
+    {
+      "path": "e4_argp_threshold_hi_D30/dt-gsk/cec2017/summary/run_config.json",
+      "sha256": "d2abd540a8e4ee7ea4f61a87fac8df6d174abcf793dec410305f98dcc65a07f4",
+      "bytes": 1738
+    },
+    {
+      "path": "e4_argp_threshold_hi_D30/dt-gsk/cec2017/summary/seed_schedule.csv",
+      "sha256": "d299b648bd76d44314c2caff2c91b8803b64f98e90260bb168e2a69aeecf4936",
+      "bytes": 7907
+    },
+    {
+      "path": "e4_argp_threshold_hi_D30/dt-gsk/cec2017/summary/verification.json",
+      "sha256": "971236a8cbd7ea3962518e4b5f333223b4be5d4b477ea6cdf7854a95c2dfa2cb",
+      "bytes": 550
+    },
+    {
+      "path": "e4_argp_threshold_lo_D100/dt-gsk/cec2017/summary/dt-gsk_cec2017_D100.csv",
+      "sha256": "3f59a7c8db9316e9c35d869cfe8aeb338dc354f4785cc2379b6f46a07a46d617",
+      "bytes": 2609
+    },
+    {
+      "path": "e4_argp_threshold_lo_D100/dt-gsk/cec2017/summary/environment.json",
+      "sha256": "5d486d25f7a9b64ce5d20b6b64c0b1ebc07f87fc96371e821b33b4959a94b1a7",
+      "bytes": 3748
+    },
+    {
+      "path": "e4_argp_threshold_lo_D100/dt-gsk/cec2017/summary/per_run.csv",
+      "sha256": "50066974fadedc4b957689c0c91ee9b10659ea992b577c7c67e386a4a72b975f",
+      "bytes": 44960
+    },
+    {
+      "path": "e4_argp_threshold_lo_D100/dt-gsk/cec2017/summary/phase0_protocol.json",
+      "sha256": "29b5c434d216b40f975b951692610403059cd7f9ba688384d9844ee98b1991c3",
+      "bytes": 1343
+    },
+    {
+      "path": "e4_argp_threshold_lo_D100/dt-gsk/cec2017/summary/run_config.json",
+      "sha256": "501b0f0b875dec846b27cfc71fdd5a906e0b1bb29c2a0e4762059d17d5082754",
+      "bytes": 1739
+    },
+    {
+      "path": "e4_argp_threshold_lo_D100/dt-gsk/cec2017/summary/seed_schedule.csv",
+      "sha256": "931a37c7f2a1f251210864908b66aab1ca7ba1a401055243cde39aa021ca860a",
+      "bytes": 8777
+    },
+    {
+      "path": "e4_argp_threshold_lo_D100/dt-gsk/cec2017/summary/verification.json",
+      "sha256": "c79d5dd255f338d9f141e1457a68c501604ded90b83b73884fe0f167ad3e41a1",
+      "bytes": 551
+    },
+    {
+      "path": "e4_argp_threshold_lo_D30/dt-gsk/cec2017/summary/dt-gsk_cec2017_D30.csv",
+      "sha256": "87ef7575b7fecfbcd5a316c841a9ce17d2efed916b0879335d75200b2f3ee139",
+      "bytes": 2609
+    },
+    {
+      "path": "e4_argp_threshold_lo_D30/dt-gsk/cec2017/summary/environment.json",
+      "sha256": "a605a00ffc12331922f4b7a024f6ed40b5552141d0fd2494814e70c75c07f8e0",
+      "bytes": 3745
+    },
+    {
+      "path": "e4_argp_threshold_lo_D30/dt-gsk/cec2017/summary/per_run.csv",
+      "sha256": "00bd026cc39e07ec1c43cb20000114c66889c05b5513eae3299b2f7276cb8ea9",
+      "bytes": 43651
+    },
+    {
+      "path": "e4_argp_threshold_lo_D30/dt-gsk/cec2017/summary/phase0_protocol.json",
+      "sha256": "164bd4407c6557eab4898e6f4d814eb7a9c29f6ec700d349bc02e5b1a16360d8",
+      "bytes": 1342
+    },
+    {
+      "path": "e4_argp_threshold_lo_D30/dt-gsk/cec2017/summary/run_config.json",
+      "sha256": "4e6c24bd265fc69f2746930ff85586b3b1184b9d61a316e88fa0a71194978a63",
+      "bytes": 1738
+    },
+    {
+      "path": "e4_argp_threshold_lo_D30/dt-gsk/cec2017/summary/seed_schedule.csv",
+      "sha256": "d299b648bd76d44314c2caff2c91b8803b64f98e90260bb168e2a69aeecf4936",
+      "bytes": 7907
+    },
+    {
+      "path": "e4_argp_threshold_lo_D30/dt-gsk/cec2017/summary/verification.json",
+      "sha256": "b978db66e7ba8707a35a5f012392b183967cdc88446c5b67d5cfcf7fd75081f7",
+      "bytes": 550
+    },
+    {
+      "path": "e4_bse_restart_frac_hi_D100/dt-gsk/cec2017/summary/dt-gsk_cec2017_D100.csv",
+      "sha256": "3b1bc99f704147aa9688e3514a794ffaaa90bb596655136bf8abba8a784f9168",
+      "bytes": 2609
+    },
+    {
+      "path": "e4_bse_restart_frac_hi_D100/dt-gsk/cec2017/summary/environment.json",
+      "sha256": "8d53eed0260a342799546b4f9cb855eca206601be47201b87522275d65d1a2f9",
+      "bytes": 3752
+    },
+    {
+      "path": "e4_bse_restart_frac_hi_D100/dt-gsk/cec2017/summary/per_run.csv",
+      "sha256": "0cd298277e3bb500622ff49ab37ac2d3c1b379fd305cae77bd001231a5bb2e80",
+      "bytes": 44963
+    },
+    {
+      "path": "e4_bse_restart_frac_hi_D100/dt-gsk/cec2017/summary/phase0_protocol.json",
+      "sha256": "a74e34103cd6099ecaf688042b09931bfb684bbd9653951ecc81496518c7b643",
+      "bytes": 1344
+    },
+    {
+      "path": "e4_bse_restart_frac_hi_D100/dt-gsk/cec2017/summary/run_config.json",
+      "sha256": "e5e040e16038a9714b20654e7c28543b67ca0fa77e16c420dafe42438db9ea24",
+      "bytes": 1741
+    },
+    {
+      "path": "e4_bse_restart_frac_hi_D100/dt-gsk/cec2017/summary/seed_schedule.csv",
+      "sha256": "931a37c7f2a1f251210864908b66aab1ca7ba1a401055243cde39aa021ca860a",
+      "bytes": 8777
+    },
+    {
+      "path": "e4_bse_restart_frac_hi_D100/dt-gsk/cec2017/summary/verification.json",
+      "sha256": "72a9c430c78dbce9a2133ef0e3dfa622c54f3d9e35f1999a4482fbe651941f25",
+      "bytes": 553
+    },
+    {
+      "path": "e4_bse_restart_frac_hi_D30/dt-gsk/cec2017/summary/dt-gsk_cec2017_D30.csv",
+      "sha256": "06bb4e3658d4ad36c1d970e17bf455f525aff626c892c29afd7c7ecd9ad61397",
+      "bytes": 2609
+    },
+    {
+      "path": "e4_bse_restart_frac_hi_D30/dt-gsk/cec2017/summary/environment.json",
+      "sha256": "4092078b78611bb97e00e8a28f9ecc8235e2f2ffe1f247dcffc1de99961c9c93",
+      "bytes": 3748
+    },
+    {
+      "path": "e4_bse_restart_frac_hi_D30/dt-gsk/cec2017/summary/per_run.csv",
+      "sha256": "ce3588788ed2f0f60acc972deedb401e8293f911d296ac89afa20b965c68ab34",
+      "bytes": 43651
+    },
+    {
+      "path": "e4_bse_restart_frac_hi_D30/dt-gsk/cec2017/summary/phase0_protocol.json",
+      "sha256": "a207da871ed4b8eeb478df362b890a843889e6c57cbd6fb2c8de3abf4d920e09",
+      "bytes": 1343
+    },
+    {
+      "path": "e4_bse_restart_frac_hi_D30/dt-gsk/cec2017/summary/run_config.json",
+      "sha256": "24091d565096296aebc0a3a858ba26c2956c9a608fd401402c68a91b7dfa3b68",
+      "bytes": 1740
+    },
+    {
+      "path": "e4_bse_restart_frac_hi_D30/dt-gsk/cec2017/summary/seed_schedule.csv",
+      "sha256": "d299b648bd76d44314c2caff2c91b8803b64f98e90260bb168e2a69aeecf4936",
+      "bytes": 7907
+    },
+    {
+      "path": "e4_bse_restart_frac_hi_D30/dt-gsk/cec2017/summary/verification.json",
+      "sha256": "abda4dd7e51606502ab13f772e1384b5e97b1f04e30cd9949aa6af36b7992f1d",
+      "bytes": 552
+    },
+    {
+      "path": "e4_bse_restart_frac_lo_D100/dt-gsk/cec2017/summary/dt-gsk_cec2017_D100.csv",
+      "sha256": "8917537d57833e3ed59f6f59f90f11da1940fdd2f4281759f66ab0eae75f7915",
+      "bytes": 2609
+    },
+    {
+      "path": "e4_bse_restart_frac_lo_D100/dt-gsk/cec2017/summary/environment.json",
+      "sha256": "e91179e6a679d71386ba16f154bfe16adba167e3f62abffd8be4dd3fadacdaef",
+      "bytes": 3752
+    },
+    {
+      "path": "e4_bse_restart_frac_lo_D100/dt-gsk/cec2017/summary/per_run.csv",
+      "sha256": "d7ff100b3fff10b35aa40034232768fe0db3f51baae4cc7c0882acc80739c9a7",
+      "bytes": 44957
+    },
+    {
+      "path": "e4_bse_restart_frac_lo_D100/dt-gsk/cec2017/summary/phase0_protocol.json",
+      "sha256": "08181cd797cf17526c20c48f8d363ac0a67f753b7b78d1a5c3583b340f23fc12",
+      "bytes": 1344
+    },
+    {
+      "path": "e4_bse_restart_frac_lo_D100/dt-gsk/cec2017/summary/run_config.json",
+      "sha256": "c712582fe1805add0b5453b6d83fffe3e36d04b3b1dbce55a0f647e8c425f79a",
+      "bytes": 1741
+    },
+    {
+      "path": "e4_bse_restart_frac_lo_D100/dt-gsk/cec2017/summary/seed_schedule.csv",
+      "sha256": "931a37c7f2a1f251210864908b66aab1ca7ba1a401055243cde39aa021ca860a",
+      "bytes": 8777
+    },
+    {
+      "path": "e4_bse_restart_frac_lo_D100/dt-gsk/cec2017/summary/verification.json",
+      "sha256": "975c743775a63bda5c512376f7af42bf6034365e9dd4565242e1013b10aee1fd",
+      "bytes": 553
+    },
+    {
+      "path": "e4_bse_restart_frac_lo_D30/dt-gsk/cec2017/summary/dt-gsk_cec2017_D30.csv",
+      "sha256": "6f92f7618381500bf268c5c45b2dc9b1d5df6f38274981268f52fad303b51e16",
+      "bytes": 2609
+    },
+    {
+      "path": "e4_bse_restart_frac_lo_D30/dt-gsk/cec2017/summary/environment.json",
+      "sha256": "d47cdbb8433f542e83e5236fd6c71c01a5acc008341beeac2dae88136232558a",
+      "bytes": 3747
+    },
+    {
+      "path": "e4_bse_restart_frac_lo_D30/dt-gsk/cec2017/summary/per_run.csv",
+      "sha256": "2c740c6d81fa4a897018b6ef370235505fa86cc2a19d5b4d3f72c0ffe4de284c",
+      "bytes": 43651
+    },
+    {
+      "path": "e4_bse_restart_frac_lo_D30/dt-gsk/cec2017/summary/phase0_protocol.json",
+      "sha256": "ef1630dd886e80e6f19a4732a9b88a2288d7255f126b512874224788deacc970",
+      "bytes": 1343
+    },
+    {
+      "path": "e4_bse_restart_frac_lo_D30/dt-gsk/cec2017/summary/run_config.json",
+      "sha256": "133c62e7d7261d7aa35efc44cd1fabf96ce4caf96f4d7d6e5561f3149756b127",
+      "bytes": 1740
+    },
+    {
+      "path": "e4_bse_restart_frac_lo_D30/dt-gsk/cec2017/summary/seed_schedule.csv",
+      "sha256": "d299b648bd76d44314c2caff2c91b8803b64f98e90260bb168e2a69aeecf4936",
+      "bytes": 7907
+    },
+    {
+      "path": "e4_bse_restart_frac_lo_D30/dt-gsk/cec2017/summary/verification.json",
+      "sha256": "f7e443e552d7a099ba6433bc777a8df0a6c7942350dc066e476115333f6e9460",
+      "bytes": 552
+    },
+    {
+      "path": "e4_interaction_update_period_hi_D100/dt-gsk/cec2017/summary/dt-gsk_cec2017_D100.csv",
+      "sha256": "25df01b9d4fe51c7d0d63025471ca539b7d434eb13a49219b7b7a10145d38c24",
+      "bytes": 2609
+    },
+    {
+      "path": "e4_interaction_update_period_hi_D100/dt-gsk/cec2017/summary/environment.json",
+      "sha256": "8b5cc3a342a46276819210fb78b5ebb4ce7c27a44a2c1b97ef82b5efb96e6603",
+      "bytes": 3767
+    },
+    {
+      "path": "e4_interaction_update_period_hi_D100/dt-gsk/cec2017/summary/per_run.csv",
+      "sha256": "b485f32c431d35bd48097d988190d364b2cf5b9c7768fc02ec72d0ea4096c3f9",
+      "bytes": 44971
+    },
+    {
+      "path": "e4_interaction_update_period_hi_D100/dt-gsk/cec2017/summary/phase0_protocol.json",
+      "sha256": "2796e82e36fa207ae5854c3145aa95cff597b219ea0ddfca81e3c40eeffa7d18",
+      "bytes": 1351
+    },
+    {
+      "path": "e4_interaction_update_period_hi_D100/dt-gsk/cec2017/summary/run_config.json",
+      "sha256": "22f18ac746c8ad6a5851c8fd8fbb585301e3bb603cf185b435960dc59ebca80b",
+      "bytes": 1755
+    },
+    {
+      "path": "e4_interaction_update_period_hi_D100/dt-gsk/cec2017/summary/seed_schedule.csv",
+      "sha256": "931a37c7f2a1f251210864908b66aab1ca7ba1a401055243cde39aa021ca860a",
+      "bytes": 8777
+    },
+    {
+      "path": "e4_interaction_update_period_hi_D100/dt-gsk/cec2017/summary/verification.json",
+      "sha256": "300cba1cfbe674c43c885fb3b057d0af536eb8b2de1aa8d20194fe73843cf7d3",
+      "bytes": 562
+    },
+    {
+      "path": "e4_interaction_update_period_hi_D30/dt-gsk/cec2017/summary/dt-gsk_cec2017_D30.csv",
+      "sha256": "20b15aa80c5bfeb35c15f44c45c2f591d17a1f5ed07fcb9aeaa287c68ec7af36",
+      "bytes": 2609
+    },
+    {
+      "path": "e4_interaction_update_period_hi_D30/dt-gsk/cec2017/summary/environment.json",
+      "sha256": "f53f47ebef42c9d65d5f74136f4bfcafeb3cbd11013f1b03bb017a4eb5d97237",
+      "bytes": 3763
+    },
+    {
+      "path": "e4_interaction_update_period_hi_D30/dt-gsk/cec2017/summary/per_run.csv",
+      "sha256": "8481c28e7d1b44f3b285ec5627f74d82518ec83d52cded7b9a9e16379d383206",
+      "bytes": 43651
+    },
+    {
+      "path": "e4_interaction_update_period_hi_D30/dt-gsk/cec2017/summary/phase0_protocol.json",
+      "sha256": "b7a6c0850836670a9cfa00d657851262ad2a6e85a311ab390cdd7f02a0f51731",
+      "bytes": 1349
+    },
+    {
+      "path": "e4_interaction_update_period_hi_D30/dt-gsk/cec2017/summary/run_config.json",
+      "sha256": "2dc2fc86728c6f9343c87aaa5a46ff916384d3522156806267be7d5c9c0b67a5",
+      "bytes": 1752
+    },
+    {
+      "path": "e4_interaction_update_period_hi_D30/dt-gsk/cec2017/summary/seed_schedule.csv",
+      "sha256": "d299b648bd76d44314c2caff2c91b8803b64f98e90260bb168e2a69aeecf4936",
+      "bytes": 7907
+    },
+    {
+      "path": "e4_interaction_update_period_hi_D30/dt-gsk/cec2017/summary/verification.json",
+      "sha256": "02c1c7fabaad82878ce0a56a500bc54ba6ee80ce7502829c75e6bfefe425856e",
+      "bytes": 561
+    },
+    {
+      "path": "e4_interaction_update_period_lo_D100/dt-gsk/cec2017/summary/dt-gsk_cec2017_D100.csv",
+      "sha256": "9569fcd3a6bd292d370b3e1e4b67f062f1236c1cd7791265562d5e546c57db0d",
+      "bytes": 2609
+    },
+    {
+      "path": "e4_interaction_update_period_lo_D100/dt-gsk/cec2017/summary/environment.json",
+      "sha256": "6cd8c36c975084156279667857f946c1486d6dcd1e284ec1acfa17d9d8fd04d6",
+      "bytes": 3767
+    },
+    {
+      "path": "e4_interaction_update_period_lo_D100/dt-gsk/cec2017/summary/per_run.csv",
+      "sha256": "babe483e89fc043c1b3bd0f4a712620087845a38d9f787843fbb408d30569c18",
+      "bytes": 44956
+    },
+    {
+      "path": "e4_interaction_update_period_lo_D100/dt-gsk/cec2017/summary/phase0_protocol.json",
+      "sha256": "4894b1bcea88abda4520c76e88a099cdaf64ed2958e8f082f07ac302eab3fc5d",
+      "bytes": 1350
+    },
+    {
+      "path": "e4_interaction_update_period_lo_D100/dt-gsk/cec2017/summary/run_config.json",
+      "sha256": "73ac33ceb9c7fb3a5fcb2865a4a616aa236e93ae1b3ae17f3a1ad9526494aa6d",
+      "bytes": 1753
+    },
+    {
+      "path": "e4_interaction_update_period_lo_D100/dt-gsk/cec2017/summary/seed_schedule.csv",
+      "sha256": "931a37c7f2a1f251210864908b66aab1ca7ba1a401055243cde39aa021ca860a",
+      "bytes": 8777
+    },
+    {
+      "path": "e4_interaction_update_period_lo_D100/dt-gsk/cec2017/summary/verification.json",
+      "sha256": "a5aa7435ab4ba3ab6966d9c5fdcb876bd8285852e052e354cba6a29d551d30ba",
+      "bytes": 562
+    },
+    {
+      "path": "e4_local_search_elite_count_hi_D100/dt-gsk/cec2017/summary/dt-gsk_cec2017_D100.csv",
+      "sha256": "59b887ade0226749fd29c4591963a6e4b2d9ccabe62c3006c78551e02cb55113",
+      "bytes": 2609
+    },
+    {
+      "path": "e4_local_search_elite_count_hi_D100/dt-gsk/cec2017/summary/environment.json",
+      "sha256": "1f2bfb3f4d94d3264226d02aec84b683448900ba5c08a82df8c271ba05a18d9e",
+      "bytes": 3765
+    },
+    {
+      "path": "e4_local_search_elite_count_hi_D100/dt-gsk/cec2017/summary/per_run.csv",
+      "sha256": "a8f8a41f3881e53d5c6a0cc90760977724e272711d1f750f67601019d52bf4bd",
+      "bytes": 44982
+    },
+    {
+      "path": "e4_local_search_elite_count_hi_D100/dt-gsk/cec2017/summary/phase0_protocol.json",
+      "sha256": "7aa20e374e380724c8d49a22992cc76a225a2b1f8da225cad1164a1e4c91c5bf",
+      "bytes": 1349
+    },
+    {
+      "path": "e4_local_search_elite_count_hi_D100/dt-gsk/cec2017/summary/run_config.json",
+      "sha256": "972c50e98e985c43c1fb527a26f107df9069b68fe1e3ced2a1b2fd4b6a3ec362",
+      "bytes": 1751
+    },
+    {
+      "path": "e4_local_search_elite_count_hi_D100/dt-gsk/cec2017/summary/seed_schedule.csv",
+      "sha256": "931a37c7f2a1f251210864908b66aab1ca7ba1a401055243cde39aa021ca860a",
+      "bytes": 8777
+    },
+    {
+      "path": "e4_local_search_elite_count_hi_D100/dt-gsk/cec2017/summary/verification.json",
+      "sha256": "109f56e2ead0af5a778b2fb9bf16f0b888b42fba3c96d5a6adbb2110e55b76b2",
+      "bytes": 560
+    },
+    {
+      "path": "e4_local_search_elite_count_hi_D30/dt-gsk/cec2017/summary/dt-gsk_cec2017_D30.csv",
+      "sha256": "dd62a02f65988306bec9c6fe3216711425faf92d8ffc5598773d13601396b08b",
+      "bytes": 2609
+    },
+    {
+      "path": "e4_local_search_elite_count_hi_D30/dt-gsk/cec2017/summary/environment.json",
+      "sha256": "3f5f65caa9966361a5ce2bdf10a578813fc124b5eeef7a7a4444e0c4000cb62e",
+      "bytes": 3761
+    },
+    {
+      "path": "e4_local_search_elite_count_hi_D30/dt-gsk/cec2017/summary/per_run.csv",
+      "sha256": "f817dc8cd113663dadfb5a5769643c6610499a826d43e8b71b7c54b0ff2b2ae9",
+      "bytes": 43651
+    },
+    {
+      "path": "e4_local_search_elite_count_hi_D30/dt-gsk/cec2017/summary/phase0_protocol.json",
+      "sha256": "38e8223d0fde67c8489216e9bb02c47d563bae48a20d75704ef2518f7dd31451",
+      "bytes": 1348
+    },
+    {
+      "path": "e4_local_search_elite_count_hi_D30/dt-gsk/cec2017/summary/run_config.json",
+      "sha256": "43f8d77a524d8eb05a898c268b5ae78f44f3bc1fe365aeed6f96c297d2202ded",
+      "bytes": 1750
+    },
+    {
+      "path": "e4_local_search_elite_count_hi_D30/dt-gsk/cec2017/summary/seed_schedule.csv",
+      "sha256": "d299b648bd76d44314c2caff2c91b8803b64f98e90260bb168e2a69aeecf4936",
+      "bytes": 7907
+    },
+    {
+      "path": "e4_local_search_elite_count_hi_D30/dt-gsk/cec2017/summary/verification.json",
+      "sha256": "3fad9cf391e53205816ab5f90ca247878f6b92034175f3befdf7fb9735b21659",
+      "bytes": 560
+    },
+    {
+      "path": "e4_local_search_elite_count_lo_D100/dt-gsk/cec2017/summary/dt-gsk_cec2017_D100.csv",
+      "sha256": "0fb15843a6b96eda80814726210cdccd972d26f70c8204d515037e141c8c993f",
+      "bytes": 2609
+    },
+    {
+      "path": "e4_local_search_elite_count_lo_D100/dt-gsk/cec2017/summary/environment.json",
+      "sha256": "b5c5fa2495f96fb50da4905390f5becbd1c75501b8efbe0a0c1c8f6b2140e3b1",
+      "bytes": 3765
+    },
+    {
+      "path": "e4_local_search_elite_count_lo_D100/dt-gsk/cec2017/summary/per_run.csv",
+      "sha256": "21857e3862b08225874e54a24064144282104f7f85e71299e4176d829ec93a5c",
+      "bytes": 44956
+    },
+    {
+      "path": "e4_local_search_elite_count_lo_D100/dt-gsk/cec2017/summary/phase0_protocol.json",
+      "sha256": "39c6255a6b4ed00a8f3458355ed3734d3953ce00605d3799b9f18a645c248f93",
+      "bytes": 1349
+    },
+    {
+      "path": "e4_local_search_elite_count_lo_D100/dt-gsk/cec2017/summary/run_config.json",
+      "sha256": "bddbb6a6b7c10bab77d99d8790563449d8d29fe2c8dd1893f3dc1e664e4e0771",
+      "bytes": 1751
+    },
+    {
+      "path": "e4_local_search_elite_count_lo_D100/dt-gsk/cec2017/summary/seed_schedule.csv",
+      "sha256": "931a37c7f2a1f251210864908b66aab1ca7ba1a401055243cde39aa021ca860a",
+      "bytes": 8777
+    },
+    {
+      "path": "e4_local_search_elite_count_lo_D100/dt-gsk/cec2017/summary/verification.json",
+      "sha256": "83e7367559aadb848761fa4a5f71a98c99c8c93ebdac0a377f5686406e3a5a96",
+      "bytes": 560
+    },
+    {
+      "path": "e4_local_search_elite_count_lo_D30/dt-gsk/cec2017/summary/dt-gsk_cec2017_D30.csv",
+      "sha256": "8272d37f67dfe1d6e3f972272460d88fb076c2c1158f76b1e4a2093a92cade5f",
+      "bytes": 2609
+    },
+    {
+      "path": "e4_local_search_elite_count_lo_D30/dt-gsk/cec2017/summary/environment.json",
+      "sha256": "9efe338708186c38a2582220fa3d64188ab863993a322b3d87a7978329312dcf",
+      "bytes": 3761
+    },
+    {
+      "path": "e4_local_search_elite_count_lo_D30/dt-gsk/cec2017/summary/per_run.csv",
+      "sha256": "57bb7b1646da3c06fce64eb9c9d25120c22ae30af2a31fb9184ad61bfcc2a034",
+      "bytes": 43651
+    },
+    {
+      "path": "e4_local_search_elite_count_lo_D30/dt-gsk/cec2017/summary/phase0_protocol.json",
+      "sha256": "eb25894e2a5c5ed23b7a83eea4b40155e744fbcd20d80d78401fab70e2eabede",
+      "bytes": 1348
+    },
+    {
+      "path": "e4_local_search_elite_count_lo_D30/dt-gsk/cec2017/summary/run_config.json",
+      "sha256": "7333818656908b3f1a71f8aad5ecda08a549a44b2e8b9c3f00e45375bf9704df",
+      "bytes": 1750
+    },
+    {
+      "path": "e4_local_search_elite_count_lo_D30/dt-gsk/cec2017/summary/seed_schedule.csv",
+      "sha256": "d299b648bd76d44314c2caff2c91b8803b64f98e90260bb168e2a69aeecf4936",
+      "bytes": 7907
+    },
+    {
+      "path": "e4_local_search_elite_count_lo_D30/dt-gsk/cec2017/summary/verification.json",
+      "sha256": "9a572a784677f0b596abebfa438c4c1fdafce5af318ee9dd36de6da96b7cd86d",
+      "bytes": 560
+    },
+    {
+      "path": "e4_local_search_eval_budget_frac_hi_D100/dt-gsk/cec2017/summary/dt-gsk_cec2017_D100.csv",
+      "sha256": "49fbe1ba57f36b271a2f1284fc2a7453f0e613d4f8bd3cf1cf7a6c49852eafb4",
+      "bytes": 2609
+    },
+    {
+      "path": "e4_local_search_eval_budget_frac_hi_D100/dt-gsk/cec2017/summary/environment.json",
+      "sha256": "257269b00e83c5e5b1a8fadc9435a0266732f5621dae447c8f9f40a1bcf4cac8",
+      "bytes": 3778
+    },
+    {
+      "path": "e4_local_search_eval_budget_frac_hi_D100/dt-gsk/cec2017/summary/per_run.csv",
+      "sha256": "a2d5487fe9dc6fbbd78907c61e968866e41993d41206e8a675408449cfbeb7d1",
+      "bytes": 44960
+    },
+    {
+      "path": "e4_local_search_eval_budget_frac_hi_D100/dt-gsk/cec2017/summary/phase0_protocol.json",
+      "sha256": "5dda4064cdefd2037455863c1d6b95be0f8083a0c482a691f84815451f1fe977",
+      "bytes": 1358
+    },
+    {
+      "path": "e4_local_search_eval_budget_frac_hi_D100/dt-gsk/cec2017/summary/run_config.json",
+      "sha256": "d478482bfbdac5a4b76f64736ed3341e1f8bdf3c0102c83e5af71318192460c0",
+      "bytes": 1769
+    },
+    {
+      "path": "e4_local_search_eval_budget_frac_hi_D100/dt-gsk/cec2017/summary/seed_schedule.csv",
+      "sha256": "931a37c7f2a1f251210864908b66aab1ca7ba1a401055243cde39aa021ca860a",
+      "bytes": 8777
+    },
+    {
+      "path": "e4_local_search_eval_budget_frac_hi_D100/dt-gsk/cec2017/summary/verification.json",
+      "sha256": "7282f4bc867baa0ff7739cfd3dfc9fd1b8a1d7a9e0d4547c5b135565763649c3",
+      "bytes": 566
+    },
+    {
+      "path": "e4_local_search_eval_budget_frac_hi_D30/dt-gsk/cec2017/summary/dt-gsk_cec2017_D30.csv",
+      "sha256": "a1a135ecffff93b6d11457f086424f16c4d2ef91ade7d7662119872d966db36f",
+      "bytes": 2609
+    },
+    {
+      "path": "e4_local_search_eval_budget_frac_hi_D30/dt-gsk/cec2017/summary/environment.json",
+      "sha256": "2e0c5e3a42797bbcd7da83c4beab2e9bac6c8f77a27b4ddeef4180e91a83e668",
+      "bytes": 3775
+    },
+    {
+      "path": "e4_local_search_eval_budget_frac_hi_D30/dt-gsk/cec2017/summary/per_run.csv",
+      "sha256": "13a28925d2245a7589e0eff2fe430b440825c2a8afd3567381c530d1ba053d3e",
+      "bytes": 43651
+    },
+    {
+      "path": "e4_local_search_eval_budget_frac_hi_D30/dt-gsk/cec2017/summary/phase0_protocol.json",
+      "sha256": "46a7cf985518ab6d0cee5e132385a3431f63799f0954494360b8def1c9977857",
+      "bytes": 1357
+    },
+    {
+      "path": "e4_local_search_eval_budget_frac_hi_D30/dt-gsk/cec2017/summary/run_config.json",
+      "sha256": "8d35e67d828a2e5853763e0beddaa2f9a0f1cea59d5add279345fc8ef3c3e2a7",
+      "bytes": 1768
+    },
+    {
+      "path": "e4_local_search_eval_budget_frac_hi_D30/dt-gsk/cec2017/summary/seed_schedule.csv",
+      "sha256": "d299b648bd76d44314c2caff2c91b8803b64f98e90260bb168e2a69aeecf4936",
+      "bytes": 7907
+    },
+    {
+      "path": "e4_local_search_eval_budget_frac_hi_D30/dt-gsk/cec2017/summary/verification.json",
+      "sha256": "60d5791e79fd784059f79507102f4912727c76a0a76cbd29e388f8f19beed43c",
+      "bytes": 565
+    },
+    {
+      "path": "e4_local_search_eval_budget_frac_lo_D100/dt-gsk/cec2017/summary/dt-gsk_cec2017_D100.csv",
+      "sha256": "49fbe1ba57f36b271a2f1284fc2a7453f0e613d4f8bd3cf1cf7a6c49852eafb4",
+      "bytes": 2609
+    },
+    {
+      "path": "e4_local_search_eval_budget_frac_lo_D100/dt-gsk/cec2017/summary/environment.json",
+      "sha256": "a3ac7c94606ceb4614c8fbbfd3fd75647ef1343f0ad8d14f277659076c6191fc",
+      "bytes": 3779
+    },
+    {
+      "path": "e4_local_search_eval_budget_frac_lo_D100/dt-gsk/cec2017/summary/per_run.csv",
+      "sha256": "52926c782f794faf978e5af1c51363482c6c1ce7c746f1529c9b160c4bc22257",
+      "bytes": 44964
+    },
+    {
+      "path": "e4_local_search_eval_budget_frac_lo_D100/dt-gsk/cec2017/summary/phase0_protocol.json",
+      "sha256": "632f28b2d9623a0a9b06ade085bafd7193b1536f47e9986c96e1d82ef8865750",
+      "bytes": 1358
+    },
+    {
+      "path": "e4_local_search_eval_budget_frac_lo_D100/dt-gsk/cec2017/summary/run_config.json",
+      "sha256": "305df3652d58b37675b03f973660685f09f3f7a1617adb73ccbf47cd4c405a07",
+      "bytes": 1769
+    },
+    {
+      "path": "e4_local_search_eval_budget_frac_lo_D100/dt-gsk/cec2017/summary/seed_schedule.csv",
+      "sha256": "931a37c7f2a1f251210864908b66aab1ca7ba1a401055243cde39aa021ca860a",
+      "bytes": 8777
+    },
+    {
+      "path": "e4_local_search_eval_budget_frac_lo_D100/dt-gsk/cec2017/summary/verification.json",
+      "sha256": "66278751647ec2f200f0402e1916bfea5196d37baff8ed5f0805e3befa04ce4f",
+      "bytes": 566
+    },
+    {
+      "path": "e4_local_search_eval_budget_frac_lo_D30/dt-gsk/cec2017/summary/dt-gsk_cec2017_D30.csv",
+      "sha256": "f483ee36a6b41cd34d9ba21c3089fde2a3e4480837df643a23131ccbcd4dc15b",
+      "bytes": 2609
+    },
+    {
+      "path": "e4_local_search_eval_budget_frac_lo_D30/dt-gsk/cec2017/summary/environment.json",
+      "sha256": "7b06a12b6d722e1a3f2329451ebb1fe1a1c396b2e03474e7ad8bf533533abad7",
+      "bytes": 3775
+    },
+    {
+      "path": "e4_local_search_eval_budget_frac_lo_D30/dt-gsk/cec2017/summary/per_run.csv",
+      "sha256": "8c7c4796b20660e0f54d39b49c26dda2a5a958181832ae7bc3f4a633804caaf8",
+      "bytes": 43651
+    },
+    {
+      "path": "e4_local_search_eval_budget_frac_lo_D30/dt-gsk/cec2017/summary/phase0_protocol.json",
+      "sha256": "d50182c3804bd6448f5a732cd58a23b0657e416e91f4ce0700dcd7441cdd6b71",
+      "bytes": 1357
+    },
+    {
+      "path": "e4_local_search_eval_budget_frac_lo_D30/dt-gsk/cec2017/summary/run_config.json",
+      "sha256": "2826690a48f4da942772a62d1a02e583182bb4500915949150dcf537ac6e0efa",
+      "bytes": 1768
+    },
+    {
+      "path": "e4_local_search_eval_budget_frac_lo_D30/dt-gsk/cec2017/summary/seed_schedule.csv",
+      "sha256": "d299b648bd76d44314c2caff2c91b8803b64f98e90260bb168e2a69aeecf4936",
+      "bytes": 7907
+    },
+    {
+      "path": "e4_local_search_eval_budget_frac_lo_D30/dt-gsk/cec2017/summary/verification.json",
+      "sha256": "5654d1ba14afadbe1e396c95e6d83fa8f7b3d92a729eb6209773afa6036784e8",
+      "bytes": 564
+    },
+    {
+      "path": "e4_n_min_hi_D100/dt-gsk/cec2017/summary/dt-gsk_cec2017_D100.csv",
+      "sha256": "03618adcade016f76c567a05c7064a7aafe77eec4d2e5ab6bc68c15098f79d9f",
+      "bytes": 2609
+    },
+    {
+      "path": "e4_n_min_hi_D100/dt-gsk/cec2017/summary/environment.json",
+      "sha256": "f7f890699fbccef5c3ebe2aa31dc3e5770c46b41169a85a5f1cc020fe4886546",
+      "bytes": 3728
+    },
+    {
+      "path": "e4_n_min_hi_D100/dt-gsk/cec2017/summary/per_run.csv",
+      "sha256": "678c0d832d6f0e28fea8436a5796f1f45f8e4ddbc68f63f08e00ebc53ed04967",
+      "bytes": 44956
+    },
+    {
+      "path": "e4_n_min_hi_D100/dt-gsk/cec2017/summary/phase0_protocol.json",
+      "sha256": "1a3d54e6941c0cf492a7272408b404a1f5df521906c625259e469d751f4a885a",
+      "bytes": 1331
+    },
+    {
+      "path": "e4_n_min_hi_D100/dt-gsk/cec2017/summary/run_config.json",
+      "sha256": "d2797e24d6762ddfe92d7c7ad3e1f3fa933ba5d8d3fad1b85a85ae06733dbaf2",
+      "bytes": 1715
+    },
+    {
+      "path": "e4_n_min_hi_D100/dt-gsk/cec2017/summary/seed_schedule.csv",
+      "sha256": "931a37c7f2a1f251210864908b66aab1ca7ba1a401055243cde39aa021ca860a",
+      "bytes": 8777
+    },
+    {
+      "path": "e4_n_min_hi_D100/dt-gsk/cec2017/summary/verification.json",
+      "sha256": "d046f051d314c9398392fc988c5a8d20084c31a98eb2104b439f3b1cc3b7b328",
+      "bytes": 542
+    },
+    {
+      "path": "e4_n_min_hi_D30/dt-gsk/cec2017/summary/dt-gsk_cec2017_D30.csv",
+      "sha256": "d782ca47384e9077ed2d9965fa36c7894358b61a1b1e26edd3f490fa2875d63b",
+      "bytes": 2609
+    },
+    {
+      "path": "e4_n_min_hi_D30/dt-gsk/cec2017/summary/environment.json",
+      "sha256": "b07814b48d874987f963a010c378d92a665bb992e788238246cd6ebb35836e7a",
+      "bytes": 3724
+    },
+    {
+      "path": "e4_n_min_hi_D30/dt-gsk/cec2017/summary/per_run.csv",
+      "sha256": "b613d829114e756050e272c6ce6b7e20fbfc84aa509c92428342e541f87fee32",
+      "bytes": 43651
+    },
+    {
+      "path": "e4_n_min_hi_D30/dt-gsk/cec2017/summary/phase0_protocol.json",
+      "sha256": "0fdbdee35baab746cf448216ab0621cdc7b1440e10efd7667f8b51befbf3f1cb",
+      "bytes": 1330
+    },
+    {
+      "path": "e4_n_min_hi_D30/dt-gsk/cec2017/summary/run_config.json",
+      "sha256": "e9ade8756d2b2d0da422dbd3a61547400c539374f68cc6d89f4f154a3d4dc602",
+      "bytes": 1714
+    },
+    {
+      "path": "e4_n_min_hi_D30/dt-gsk/cec2017/summary/seed_schedule.csv",
+      "sha256": "d299b648bd76d44314c2caff2c91b8803b64f98e90260bb168e2a69aeecf4936",
+      "bytes": 7907
+    },
+    {
+      "path": "e4_n_min_hi_D30/dt-gsk/cec2017/summary/verification.json",
+      "sha256": "9d7b490df6557f39587955dc65efa720665bac38ec63138c0046d44022a97c0f",
+      "bytes": 541
+    },
+    {
+      "path": "e4_n_min_lo_D100/dt-gsk/cec2017/summary/dt-gsk_cec2017_D100.csv",
+      "sha256": "564451f565e733b608a57242686079b8857dd109563e5e4a133df323b2f764f0",
+      "bytes": 2609
+    },
+    {
+      "path": "e4_n_min_lo_D100/dt-gsk/cec2017/summary/environment.json",
+      "sha256": "19728cb80622a0cc982dd4b3ead4eed0d045a0f00d459655e6e48cec94881dd6",
+      "bytes": 3728
+    },
+    {
+      "path": "e4_n_min_lo_D100/dt-gsk/cec2017/summary/per_run.csv",
+      "sha256": "941bc3fd58bd4769961b636b18c2dc7850cfe451ddcd934eebe288f44ec2f36c",
+      "bytes": 44964
+    },
+    {
+      "path": "e4_n_min_lo_D100/dt-gsk/cec2017/summary/phase0_protocol.json",
+      "sha256": "17f3299bd6638a035f0346aaa39512922153d67638ae12981312048c32ce944d",
+      "bytes": 1331
+    },
+    {
+      "path": "e4_n_min_lo_D100/dt-gsk/cec2017/summary/run_config.json",
+      "sha256": "5ad1feb4f83d7aaec7ff778381f26455984f549b8e4e7fd0e3292dea6de1f1af",
+      "bytes": 1715
+    },
+    {
+      "path": "e4_n_min_lo_D100/dt-gsk/cec2017/summary/seed_schedule.csv",
+      "sha256": "931a37c7f2a1f251210864908b66aab1ca7ba1a401055243cde39aa021ca860a",
+      "bytes": 8777
+    },
+    {
+      "path": "e4_n_min_lo_D100/dt-gsk/cec2017/summary/verification.json",
+      "sha256": "da1abc8f0795af89225f8da391050e2158832586076d6e8dc4f25a8203b24ba3",
+      "bytes": 542
+    },
+    {
+      "path": "e4_n_min_lo_D30/dt-gsk/cec2017/summary/dt-gsk_cec2017_D30.csv",
+      "sha256": "c51a560c8739abc2cf19b42e136ad30dd9397db1b6460ccb391a18426d1fc69c",
+      "bytes": 2609
+    },
+    {
+      "path": "e4_n_min_lo_D30/dt-gsk/cec2017/summary/environment.json",
+      "sha256": "25f0402c6fe1c7609e6f0ed0e8cc701f5382c3854045a2e2a5b63365001a7f9f",
+      "bytes": 3724
+    },
+    {
+      "path": "e4_n_min_lo_D30/dt-gsk/cec2017/summary/per_run.csv",
+      "sha256": "36419be914ba968edddccb2222af1e27cac29f8fc1d1b46709519b6fccae90f8",
+      "bytes": 43651
+    },
+    {
+      "path": "e4_n_min_lo_D30/dt-gsk/cec2017/summary/phase0_protocol.json",
+      "sha256": "e280aac99a0d860ec72852bab7161a80ffd37c8b42439bf715d4f729d51d1a49",
+      "bytes": 1330
+    },
+    {
+      "path": "e4_n_min_lo_D30/dt-gsk/cec2017/summary/run_config.json",
+      "sha256": "3fde3531abb21059f52aefcc0246e3679dedc7c86f34e388924400080d44e08c",
+      "bytes": 1714
+    },
+    {
+      "path": "e4_n_min_lo_D30/dt-gsk/cec2017/summary/seed_schedule.csv",
+      "sha256": "d299b648bd76d44314c2caff2c91b8803b64f98e90260bb168e2a69aeecf4936",
+      "bytes": 7907
+    },
+    {
+      "path": "e4_n_min_lo_D30/dt-gsk/cec2017/summary/verification.json",
+      "sha256": "17613df135ddfcd464084b6e2900397beca78f7f899925a4f3c9010190cd1cc1",
+      "bytes": 541
+    }
+  ],
+  "correction": "2026-08-27, before first publication: the repository-root prefix was stripped from the provenance path fields of 61 files (30 environment.json, 30 verification.json, 1 driver.log), so that data_root, reference_root, output_dir, generated_dir and the driver's --root argument are recorded RELATIVE to the repository root, matching every previously published release. No other byte of any file changed; no result, statistic, seed or checkpoint is affected. The 'computer' field is deliberately untouched -- it already appears in the published releases, so changing it here would make this release inconsistent with them. Cause: the campaign driver passed relative roots (scripts/run_revision_experiments.py:168) and the runner resolved them to absolute before writing provenance. This release had never been published when the correction was made, so no external copy of the superseded bytes exists. Recorded under D-0049."
+}

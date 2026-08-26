@@ -108,8 +108,8 @@ TREES = [
 README = """# DT-GSK reproduction pack (convenience copy)
 
 This archive accompanies the manuscript "DT-GSK: Dimension-Tiered Adaptive
-Control and Deterministic Refinement for Gaining-Sharing Knowledge
-Optimization".
+Configuration Selection and Deterministic Refinement for Gaining-Sharing
+Knowledge Optimization".
 
 Evidence release: rel-2026-07-20-67d9345f9  (ablation: abl-rel-2026-07-20)
 

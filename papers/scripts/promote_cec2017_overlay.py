@@ -136,6 +136,20 @@ def gen_contrasts(dim: int, means: dict, template: dict) -> tuple[Path, dict]:
     j["sgsm_active_dim_note"] = (
         "CEC2017 interaction_graph_min_dim=50; D50 and D100 are the SGSM-active "
         "tiers for CEC2017 (D100 additionally runs the high-dimension controllers).")
+    # CR-0023 (R1.4): decision statistic aligned to the main text (M-026/D-0016).
+    # Mirrors regen_cec2017_contrasts.iman_davenport; the pre-existing chi2 /
+    # p_value keys are retained unchanged as historical audit companions.
+    from scipy.stats import f as scipy_f
+    _chi2_id = float(fried.statistic_tie_corrected)
+    if not np.isfinite(_chi2_id):
+        _chi2_id = float(fried.statistic)
+    _n, _k = len(funcs), len(CELLS)
+    _denom = _n * (_k - 1) - _chi2_id
+    if _denom <= 1e-12:
+        _f_id, _p_id = None, 0.0
+    else:
+        _f_id = (_n - 1) * _chi2_id / _denom
+        _p_id = float(scipy_f.sf(_f_id, _k - 1, (_k - 1) * (_n - 1)))
     j["friedman_omnibus"] = {
         "chi2": float(fried.statistic),
         "p_value": float(fried.p_value),
@@ -143,6 +157,19 @@ def gen_contrasts(dim: int, means: dict, template: dict) -> tuple[Path, dict]:
         "n_algorithms": len(CELLS),
         "avg_ranks": {c: float(ranks[c]) for c in CELLS},
         "mean_rank_ordering_best_to_worst": ordering,
+        "reported_statistic": "iman_davenport_F_on_tie_corrected_chi2",
+        "convention_note": ("CR-0023 (journal round-1 major revision, R1.4): "
+                            "component studies aligned to the main-text "
+                            "M-026/D-0016 convention."),
+        "chi2_tie_corrected": float(fried.statistic_tie_corrected),
+        "p_value_tie_corrected": float(fried.p_value_tie_corrected),
+        "tie_correction_C": float(fried.tie_correction),
+        "n_tied_problems": int(fried.n_tied_problems),
+        "iman_davenport_F": _f_id,
+        "p_iman_davenport": _p_id,
+        "iman_davenport_df": [_k - 1, (_k - 1) * (_n - 1)],
+        "chi2_uncorrected": float(fried.statistic),
+        "p_value_uncorrected": float(fried.p_value),
     }
     j["contrasts"] = {
         c: {"wilcoxon_p": raw[c], "holm_p": holm_adj[c],
@@ -296,7 +323,11 @@ def main() -> int:
     man["verification"]["cec2017_sha256_recomputed_from_disk"] = True
 
     # write, preserving the manifest's LF + 1-space indent, no trailing newline
-    MAN.write_bytes(json.dumps(man, indent=1, ensure_ascii=False).encode("utf-8"))
+    # CR-0023 (R1.4): match the canonical mint serialization exactly
+    # (LF, indent=2, ensure_ascii=False, trailing newline); see the identical
+    # note in regen_cec2017_contrasts.py.
+    MAN.write_bytes(
+        (json.dumps(man, indent=2, ensure_ascii=False) + "\n").encode("utf-8"))
     print(f"  manifest: +{len(new)} CEC2017 overlay files -> totals "
           f"{man['totals']['files']} files / {man['totals']['bytes']} bytes; "
           f"release {PRIOR_RELEASE} -> {NEW_RELEASE}")

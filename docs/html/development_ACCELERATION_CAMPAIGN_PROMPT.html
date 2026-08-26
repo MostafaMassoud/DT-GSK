@@ -168,6 +168,13 @@
 <blockquote>is the authoritative account. See the README section &quot;Internal</blockquote>
 <blockquote>Quality-Assurance Instruments&quot;.</blockquote>
 <p><strong>Version 1.2 · 2026-07-17 · grounded on commit <code>056fb3ff0</code> · repo <code>02-GSK_Family_Python_v1.1</code></strong></p>
+<blockquote><strong>SUPERSEDED STATUS BOX (2026-08-01).</strong> The box below describes the world of</blockquote>
+<blockquote>2026-07-20 and is kept as a dated record. It is <strong>not</strong> current: the remediation</blockquote>
+<blockquote>ledger it cites closed, the manuscript has since advanced through freeze passes</blockquote>
+<blockquote>27-31 and tag <code>v2.6</code>, and the evidence base now spans four releases rather than</blockquote>
+<blockquote>the two named below. For the current state read the freeze manifest&#x27;s <code>phase</code></blockquote>
+<blockquote>field and the newest entry in <code>papers/governance/decision_log.md</code>.</blockquote>
+<blockquote></blockquote>
 <blockquote>**CURRENT STATUS (2026-07-20) — read before acting; this campaign is not the active</blockquote>
 <blockquote>workstream.<strong> The project is in </strong>final pre-submission remediation of a BUILT manuscript**,</blockquote>
 <blockquote>not an open acceleration push. The 80-ticket remediation ledger</blockquote>
@@ -245,7 +252,14 @@
 <h2 id="3-the-pre-computed-triage-verify-it-do-not-rediscover-it">3. The pre-computed triage — <strong>verify it, do not rediscover it</strong></h2>
 <p>A five-agent reconnaissance sweep (2026-07-17) already produced the Appendix A §2 triage with file:line evidence. <strong>Your job is to confirm or refute it by measurement (Appendix A §3), not to redo the reading.</strong> If measurement contradicts the table below, the measurement wins and you must say so loudly — a wrong triage is how Appendix A §11 T3 burned a whole round in the source campaign.</p>
 <div class="table-wrap"><table><thead><tr><th>Algorithm</th><th>Triage class</th><th>Evidence</th></tr></thead><tbody><tr><td>GSK, AGSK, APGSK, FDB-AGSK</td><td><strong>PYTHON-FLOOR-BOUND</strong></td><td>1 batch eval/gen; trial math compiled; residual = 2 full <code>(NP,D)</code> copies + <code>stable_argsort</code> + wrapper conversions + validation</td></tr><tr><td><strong>ATMALS-GSK</strong></td><td><strong>RNG-CALL-BOUND</strong></td><td><code>_local_search</code> draws scalar <code>float(rng.random())</code> in a <strong>nested Python loop</strong>: <code>nls(=5) × D</code> gate draws + one per hit ⇒ <strong>≥ 5·D single-double RNG dispatches/gen</strong> (D=100 → 500+/gen). <code>atmals_gsk.py:71-108</code> (esp. 90, 95-107)</td></tr><tr><td><strong>EGSK</strong></td><td><strong>DISPATCH-BOUND</strong></td><td>scipy-SLSQP endgame <code>_egsk_ip_refine</code> makes <strong>single-row <code>(1,D)</code></strong> <code>problem.evaluate</code> calls (<code>evaluate(z.reshape(1,dim))</code>, <code>egsk.py:186</code>), budget <code>min(ceil(2e-3·max_nfes), remaining)</code> per triggered generation (<code>:59,170-171</code>), <strong>no cooldown</strong>. Trigger = <code>gen ≥ 0.75·g_max</code> <strong>AND</strong> <code>(no optimum or best &gt; optimum+target)</code> <strong>AND</strong> <code>std([a2,b2,c2])·1e-2 ≤ 1.0</code> (<code>:313, 320-321</code>) — the latter two usually hold late on hard functions, so it approximates &quot;every late generation&quot;, <strong>but instrument the real condition, not the shorthand</strong>. Measured share of budget in 1-row dispatches: <strong>16.6% (D10) / 21.4% (D30) / 22.7% (D50) / 23.8% (D100)</strong>; closed form <code>0.25·ip_fe/(NP+ip_fe)</code>, strictly <strong>&lt; 25%</strong>. Wall share is *higher* (1-row evals cost more each) + SLSQP&#x27;s own FD gradients. Side effect: EGSK terminates ~21–24% short of <code>g_max</code> generations</td></tr><tr><td><strong>DT-GSK</strong></td><td><strong>PYTHON-FLOOR-BOUND</strong> (low/mid D) → <strong>KERNEL-BOUND</strong> (D≥100)</td><td>~30 sequential Python subsystem blocks/gen is the floor; already heavily de-overheaded (pre-alloc B03/B04/B14, hoists S5/S7, fused bincounts H1, argpartition H6b, argsort skip B06, telemetry gate MEM-1). At D≥100: <code>NP=5·D=500</code>, parallel <code>(NP,D)</code> kernels + 3 reference-RNG fills dominate</td></tr><tr><td>*(any)*</td><td><strong>TELEMETRY-BOUND</strong></td><td><strong>applies to no default configuration.</strong> All six classics record exactly 1 convergence point/gen. DT-GSK&#x27;s MEM-1 fast path emits 2 scalars/gen and <code>continue</code>s past the ~150-field log. The JSONL diagnostics path is <strong>opt-in</strong> (<code>dt_diagnostics</code>)</td></tr></tbody></table></div>
-<h3 id="3-1-serial-kernel-twins-are-the-biggest-lever-here-v1-0-of-this-document-said-the-opposite-and-was-wrong">3.1 ⚠ Serial-kernel twins ARE the biggest lever here — <strong>v1.0 of this document said the opposite and was WRONG</strong></h3>
+<h3 id="3-1-serial-kernel-twins-avenue-closed-by-measurement-2026-08-01">3.1 ⚠ Serial-kernel twins — <strong>AVENUE CLOSED by measurement (2026-08-01)</strong></h3>
+<blockquote><strong>FINAL CORRECTION (2026-08-01).</strong> This section has now been wrong in both</blockquote>
+<blockquote>directions. v1.0 said serial twins were inapplicable; the v1.2 correction below</blockquote>
+<blockquote>reversed that to &quot;the biggest lever&quot;. A later direct measurement recorded in</blockquote>
+<blockquote><code>PORT_05_TUNING_TRIAGE.md</code> (Addendum) came back at <strong>0.95x — no gain</strong> — and</blockquote>
+<blockquote>closed the avenue. The v1.2 correction and its reasoning are kept below as the</blockquote>
+<blockquote>record of how the estimate was formed, not because it held.</blockquote>
+<h4 id="superseded-heading-retained-serial-kernel-twins-are-the-biggest-lever-here">Superseded heading, retained: *Serial-kernel twins ARE the biggest lever here*</h4>
 <blockquote><strong>CORRECTION (v1.2, 2026-07-17).</strong> v1.0–v1.1 of this section claimed serial twins were</blockquote>
 <blockquote>&quot;mostly inapplicable because the family is population-batch.&quot; **That was wrong, and it was</blockquote>
 <blockquote>the document&#x27;s most load-bearing claim.** The sibling campaign&#x27;s own <code>gsk.py</code> is</blockquote>
@@ -877,7 +891,7 @@ max_ulp = int(np.max(np.abs(ia - ib)))</code></pre>
 <a class="toc-level-3" href="#2-2-the-five-suites-all-six-registered-names-verified-from-suite-protocols">2.2 The five suites (all six registered names verified from `SUITE_PROTOCOLS`)</a>
 <a class="toc-level-3" href="#2-3-the-scope-finding-you-must-surface-before-starting">2.3 The scope finding you must surface before starting</a>
 <a class="toc-level-2" href="#3-the-pre-computed-triage-verify-it-do-not-rediscover-it">3. The pre-computed triage — **verify it, do not rediscover it**</a>
-<a class="toc-level-3" href="#3-1-serial-kernel-twins-are-the-biggest-lever-here-v1-0-of-this-document-said-the-opposite-and-was-wrong">3.1 ⚠ Serial-kernel twins ARE the biggest lever here — **v1.0 of this document said the opposite and was WRONG**</a>
+<a class="toc-level-3" href="#3-1-serial-kernel-twins-avenue-closed-by-measurement-2026-08-01">3.1 ⚠ Serial-kernel twins — **AVENUE CLOSED by measurement (2026-08-01)**</a>
 <a class="toc-level-3" href="#3-2-the-three-concrete-7-class-targets-already-located">3.2 The three concrete §7-class targets already located</a>
 <a class="toc-level-3" href="#3-3-the-rng-picture">3.3 The RNG picture</a>
 <a class="toc-level-2" href="#4-campaign-projection-the-ranking-that-sets-your-work-order">4. Campaign projection — the ranking that sets your work order</a>

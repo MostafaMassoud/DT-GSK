@@ -1861,3 +1861,269 @@ applying all surfaced fixes.
   package, or the repository referred to a preprint, so no text required
   correction and no re-mint was triggered.
   **Status**: CLOSED (posted and withdrawn same day; no publication).
+
+## D-0047 (2026-08-25) - Journal peer review received: MAJOR REVISION; revision opened as pass-39
+
+- **Supersedes the standing state recorded in D-0045.** That entry closed with
+  the submission under review and the instruction not to rebuild or re-mint the
+  submitted package. The review has now arrived, so that hold is lifted for the
+  revision line only: v2.13 / pass-38 remains frozen history and is never edited
+  in place, and all revision work proceeds as a new freeze pass (pass-39, tag
+  v2.14) through change control, exactly as D-0045 prescribed.
+- **Decision received 2026-08-24**: MAJOR REVISION on algorithms-4507562, two
+  reviewers, neither recommending rejection. The reports are NOT kept in this
+  repository (D-0049): both reviewers declined to sign, and republishing a
+  confidential report is the journal's act at acceptance rather than the
+  authors' mid-revision. A verbatim record is retained on disk and, in git, only
+  on the never-pushed archive branch; before it existed the only copy of
+  Reviewer 1's report was outside version control and Reviewer 2's text existed
+  nowhere.
+- **Ten distinct points** (R1.1-R1.4, R2.1-R2.7), of which R1.3 and R2.2 are the
+  same objection raised independently by both reviewers. Six close with zero
+  optimizer runs; four require new experiments totalling ~32,000 runs. Reviewer 2
+  flags three for particular emphasis: the uniform-versus-tiered ablation (R2.1),
+  population-size control (R2.2), and eigenframe isolation (R2.3).
+- **The experiments cannot be declined.** The manuscript concedes in its own
+  words that two of them were never run: `sections/proposed_algorithm.tex:166`
+  states that "a common-$NP$ replication is identified as future work", and the
+  same section records that the tiering is not isolated by a controlled
+  uniform-versus-tiered contrast. No rebuttal posture is available on R2.1 or
+  R2.2 other than running them.
+- **Scope decision on R2.6 (external validation).** The reviewer offered two
+  options; the author elects the second - all claims stay explicitly restricted
+  to the GSK-family panel. No external algorithm enters the panel, and no
+  manuscript edit is required: the restriction is already stated in six places
+  (`main.tex:180`, `introduction.tex:89`, `performance.tex:889` and `:1239`,
+  `conclusions.tex:110`, `supplementary.tex:1376`). This decision leaves D-0025
+  and CR-0019(c) standing rather than reversing them; the exploratory first-party
+  non-GSK LSGO banks in the public repository remain unpromoted. A one-sentence
+  disclosure of their existence in S7 is recommended but optional, and D-0048 is
+  reserved should the scope decision ever be revisited.
+- **Title decision (R1.2).** Reviewer 1's second suggested phrasing is adopted:
+  "DT-GSK: Dimension-Tiered Adaptive Configuration Selection and Deterministic
+  Refinement for Gaining-Sharing Knowledge Optimization". His alternative
+  "Operator-State Adaptation" is declined with a stated reason - the tiering keys
+  on problem dimension, resolved before the run begins, not on operator state.
+  The retained second half preserves contribution C1, which both of the
+  reviewer's own proposals dropped. Not yet applied; propagation covers 32 sites.
+- **R1.4 APPLIED (this entry's only executed change).** All seven component-study
+  omnibus values now report the Iman-Davenport F on the tie-corrected Friedman
+  statistic, the convention the main text already used for the primary suites
+  (M-026 / D-0016). S6.5: 2.4e-3 -> 1.5e-3, 5.2e-3 -> 3.6e-3, 3.8e-3 -> 1.0e-3.
+  Scaffold exhibits SA01/SA02: 1.8e-6 -> 9.8e-9, 2.5e-8 -> 1.2e-10, 5.8e-3 ->
+  3.8e-3, 3.5e-2 -> 2.7e-2. Direction is bounded a priori: because the
+  tie-correction factor C <= 1 the correction can only increase the statistic, so
+  every p-value decreases and no ranking, sign, or Holm decision changes anywhere.
+  The historical chi-square values are retained as audit companions in the
+  released contrasts JSONs, per the D-0016 precedent. The Holm-corrected paired
+  Wilcoxon results that carry the S6.5 findings (Table A25: ISM null 0.983 /
+  0.897 / 0.647; polish 0.002 / 0.005 / 0.002) are unaffected by the omnibus
+  convention and are byte-identical after the change.
+  **The sharper p-values must not be used to strengthen any frozen claim.**
+- **Two defects found and fixed while applying R1.4.** (a) A third exhibit,
+  `papers/tables/SA02.tex`, reprinted the same four uncorrected values in its
+  per-dimension headers and had not been identified in the review; it regenerates
+  from the same run. (b) `regen_cec2017_contrasts.py` and
+  `promote_cec2017_overlay.py` wrote the ablation manifest as `indent=1` with no
+  trailing newline while the file on disk is `indent=2` with one, so either script
+  reformatted all ~30 KB on every run and buried the real change. Both writers now
+  match the canonical mint serialization; the manifest diff is eight lines.
+- **Gate state after the R1.4 change**: `check_frozen_analysis` 115/115
+  byte-identical (primary release rel-2026-07-20-67d9345f9 untouched); the
+  ablation release self-check reports all 1297 tracked checksums matching disk;
+  `check_manifest` 14/15 with only `supplementary.pdf` outstanding, which is
+  expected until the pass-39 re-mint; `validate_evidence_bindings`,
+  `validate_artifact_labels`, `validate_build_hygiene` and `audit_manuscript` all
+  exit 0, with `blocked_wording_hits` unchanged at 2 (pre-existing at HEAD).
+- **Note on `check_manifest --manifest`**: it selects its base directory from a
+  manifest's `evidence_root` key. The ablation manifest declares none, so the gate
+  resolves every path against the repo root and prints "0/1297 match". This is a
+  usage artifact, not corruption; the authoritative check is the self-check that
+  `regen_cec2017_contrasts.py` prints at the end of its run.
+- **Documentation**: three root Markdown files misstated project status and would
+  have misled a resuming reader - `FINAL_RELEASE_REPORT.md` closed on "PUBLISH
+  READY", `README.md` twice said "not yet peer-reviewed", and `docs/index.md`
+  carried a 2026-07-20 pre-submission status block. All three are corrected.
+  `CLAUDE.md` and `REVISION_STATUS.md` are added at the author's explicit request
+  as the session entry point and the single current-state record; PROJECT_RULES
+  2.6, SKILL.md 14 and the README tree are updated from eleven root Markdown
+  files to thirteen.
+- **Change request**: CR-0023 (sub-items a-f). **Open**: seven author decisions,
+  the revision deadline foremost, and the four experiments. `main.tex:156`
+  ("eigenframe refinement") is held pending the E1 outcome.
+  **Status**: OPEN (revision in progress; R1.4 applied and verified, uncommitted).
+
+## D-0048 (2026-08-26) - Round-one revision experiments closed: two submitted claims falsified, both accepted
+
+- **The four reviewer-requested experiments are complete.** Pre-registered
+  2026-08-25 in `papers/review_2026_08_24/revision_experiments_preregistration.md`
+  before any result existed, executed 2026-08-26 (31 legs, 32,451 optimizer runs,
+  22.19 h, zero failures), promoted read-only as evidence release
+  `rev-rel-2026-08-26-dd42d37eb`, and written into Supplementary Section S9 as
+  Tables A43-A46. The registration fixed the hypotheses, the Holm family
+  structure per experiment, the reporting convention, and the manuscript wording
+  for each possible outcome INCLUDING the outcomes adverse to the paper. Two
+  outcomes were adverse; the registered adverse-branch wording was applied
+  unmodified.
+- **E1 (R2.3, refinement basis) falsified the value of the learned eigenbasis.**
+  Three arms at fixed enablement under one budget: eigenframe (the frozen leg),
+  coordinate axes (the new arm, 2,958 runs), no refinement (the existing
+  component-isolation overlay). The deterministic endgame is vindicated - it
+  beats no refinement at D = 50 (22/2/5) and D = 100 (23/1/5), and the
+  coordinate variant beats no refinement 28/1/0 and 25/1/3. The BASIS is not:
+  the plain coordinate axes outperform the learned eigenframe at D = 50 on 25 of
+  29 functions (Holm 1.4e-4) and are not separated from it at D = 100 (0.0543).
+  There is no dimension at which the eigenbasis wins.
+  **Decision: contribution C1 is renamed "a deterministic final polish" and is
+  claimed basis-neutrally.** The eigenbasis is RETAINED in the method and
+  reported as a specified, reproducible negative result rather than removed - a
+  documented harmful component with its evidence attached is more useful than a
+  quiet deletion. The mechanism description is unchanged throughout: DT-GSK does
+  compute an eigenbasis, and E1 falsified its value, not its existence. The C1
+  bullet's submitted caveat that the basis question "remains open" is replaced by
+  the result, because leaving it would now be false.
+- **E3 (R2.1, tiered vs tier-constant) found the mid-dimension tier
+  mis-specified.** Two tier-constant transplants against the shipped tiered
+  configuration, all four dimensions, 11,832 runs. Tiering is supported against
+  the high-dimension transplant at D = 10 (22/4/3, Holm 0.006) and D = 50
+  (19/0/10, 0.0284). But at D = 30 the parameter set DT-GSK resolves at D = 10
+  outperforms the set it ships, on 20 of 29 functions (0.0055).
+  **Decision: contribution C2 is narrowed to the dimensions where tiering was
+  demonstrated, and the 20 <= D < 50 tier is disclosed as mis-specified in the
+  Conclusions.** Which configuration key carries the effect is NOT resolved and
+  is left explicitly open; E3 licenses only per-dimension statements about the
+  tiered configuration as a whole, and no cell is attributed to any subsystem.
+  This also explains a weakness the submitted paper could only describe: D = 30
+  was already where DT-GSK sits second behind eGSK.
+- **E2 (R1.3/R2.2, matched population) left the standing intact but not
+  unqualified.** At the comparators' NP = 100, DT-GSK is first at D = 10 and
+  second at D = 30, 50 and 100 - top two everywhere. The paired difference is
+  null at D = 10 and D = 30 (0.517) and significant at D = 50 (0.0064) and
+  D = 100 (0.0051), where holding NP at the panel constant costs first place.
+  **Decision: the D = 50 and D = 100 rank claims are qualified as resting in
+  part on the population rule, wherever they appear.** E2 is reported as an
+  ablation of a declared method component, NOT as a correction to a
+  mis-specified baseline, and the paper's headline results are not restated at
+  NP = 100 - doing so would ablate a component of the contribution and then
+  present the ablated method as the contribution.
+- **E4 (R2.7, sensitivity) is exploratory and stays that way.** 27 cells, seven
+  constants, two levels, D = 30 and D = 100, 15 repetitions per cell. Descriptive
+  only: no hypothesis test and no corrected p-value appears in its table or its
+  text. 26 of 27 cells leave the panel ordinal unchanged, median error ratios
+  span 0.982-1.016, and the single flip is favourable (raising the population
+  floor by one at D = 30 moves DT-GSK from second to first). Registration
+  amendment A1 is disclosed rather than smoothed: three real-valued constants at
+  D = 100 executed levels larger than the registered twenty per cent and
+  one-sided, those rows are flagged, and the table prints the levels actually
+  executed.
+- **Two revision-track corrections found by reading the built PDF.** (a)
+  `sections/introduction.tex` still labelled C1 "the eigenframe final polish
+  (C1)" in two places, including the closing list of the three principal
+  contributions, after the earlier pass renamed only the contribution bullet.
+  (b) The cover letter, which `build_submission_bundle.py` ships inside the
+  submission package, still carried C1 as an "eigenframe final polish" and the
+  basis question as "unresolved". Because an earlier pass had already retitled
+  that letter in place, it is the letter that travels with the current version
+  rather than a round-1 artifact, so it is converted to revision-1 form. CL-02's
+  scientific core and the GenAI disclosure sentence are untouched.
+- **Response letter**: `papers/review_2026_08_24/response_to_reviewers.md`,
+  point-by-point over all ten reviewer ids, quoting each reviewer sentence from
+  the verbatim record and printing every number in the same notation its exhibit
+  uses.
+- **Evidence integrity**: the PRIMARY release is untouched - `check_frozen_analysis`
+  reports 115/115 files byte-identical against `rel-2026-07-20-67d9345f9`, and the
+  revision release is additive and non-superseding. Seed pairing was verified by
+  seed identity before any statistic was computed (zero mismatches across E1-E4),
+  and eleven fail-closed known-answer pins reproduce in the analysis bundle.
+- **Change requests**: CR-0023 CLOSED; CR-0024 raised and closed for the
+  experiment track and its write-up. **Freeze pass-40 minted**, anchor
+  `77f9bc0`, `check_manifest` 15/15. The v2.14 tag hold set by the author on
+  2026-08-25 is satisfied - the four experiments are complete, integrated and
+  validated - and the tag is cut from this pass.
+  **Status**: CLOSED (revision complete; awaiting the author's SuSy resubmission).
+
+## D-0049 (2026-08-27) - What the public repository publishes, and what it withholds
+
+- **Context.** The repository is public and is named in the Data Availability
+  Statement, so what it contains is part of the paper's evidentiary claim. An
+  audit before publishing the round-one revision found four categories of
+  material that must not be in it, one of them already live.
+- **Copyrighted third-party PDFs, already public and now removed.** Seven PDFs
+  totalling 38.8 MiB - the APA Publication Manual 7th edition, four IEEE
+  publishing documents, the Manchester Academic Phrasebank and a USC libguide -
+  were added in commit b9846e4 and served publicly from 2026-08-07. The cause is
+  mechanical and worth recording: `.gitignore` carried
+  `reference_papers/*.pdf`, a SINGLE-LEVEL glob that cannot cross a `/`, so it
+  never matched `reference_papers/Academic_Research_Guidelines/` and the
+  intended exclusion silently failed from the root commit onward. The glob is
+  repaired with a recursive form alongside it. Because b9846e4 changes ONLY
+  those eight files and its parent is clean, removal is a REWIND to an
+  already-public ancestor, not a history rewrite: no existing commit SHA
+  changes, and tag v2.13 - which the submitted manuscript's DAS names - is an
+  ancestor of the rewind target and never carried the PDFs.
+- **Confidential peer review, withheld.** Both round-one reviewers declined to
+  sign. Their reports, and the point-by-point response that reproduces both
+  verbatim, are retained locally and untracked. Republishing a confidential
+  report is the journal's act at acceptance, in the journal's own form; doing it
+  unilaterally mid-revision is a different act on a different consent basis.
+  Withholding needs no permission. Reviewer 1's report additionally has no text
+  layer - every stream is vector glyph outlines - so it could not be redacted,
+  only re-rendered, and re-rendering cannot remove its typographic and timezone
+  fingerprint without destroying the artifact.
+- **The pre-registration IS published**, deliberately, at
+  `papers/review_2026_08_24/revision_experiments_preregistration.md`. It is
+  wholly the authors' own document, quotes no reviewer, and carries no date,
+  timestamp, report id, score or pronoun. The Supplementary Materials ask
+  readers to accept that the manuscript wording for every possible outcome -
+  including the two adverse outcomes that occurred - was fixed before any result
+  existed. That is uncheckable unless the document is public, and it is the
+  claim the revision's honesty rests on.
+- **Co-author material, withheld.** `papers/submission/AUTHOR_DATA_HANDOFF.md`
+  was public from 2026-08-07. It carries two biographies marked in the file
+  itself as "AWAITING HER APPROVAL" and "AWAITING HIS APPROVAL", against the
+  file's own rule "ask, do not draft-and-paste", plus privately-supplied
+  addresses. It is withheld and the rewind removes it from the public tip. The
+  co-authors should be told it was public.
+- **Campaign staging output, withheld.** `results/_revision/` duplicates the
+  promoted, manifest-hashed release and adds console logs. The promoted release
+  is the citable evidence and is published in full.
+- **Provenance paths corrected in the revision release.** 61 files in
+  `benchmarks/cec_reference_results/_revision/` recorded `data_root`,
+  `reference_root`, `output_dir`, `generated_dir` and the driver's `--root`
+  argument as ABSOLUTE local paths, against every previously published release,
+  which records them relative to the repository root. The campaign driver passed
+  relative roots and the runner resolved them before writing provenance. The
+  prefix is stripped, the manifest re-minted (61 of 252 entries moved), and the
+  correction recorded in the manifest's own `correction` field. No result,
+  statistic, seed or checkpoint is affected; the `computer` field is left alone
+  because it already appears in the published releases. This was done BEFORE
+  first publication, so no external copy of the superseded bytes exists. The
+  read-only guard on the release tree was cleared per file for one write each
+  and restored; the tree ends as protected as it started.
+- **A falsified integrity claim in the public README, corrected.** The
+  AI-transparency paragraph asserted that no commit carrying an AI co-authorship
+  trailer modifies any file under `benchmarks/cec_reference_results/` or
+  `papers/analysis/`. Four such commits now do, one of them the 259-file
+  promotion of the revision release; the claim was verifiable as false in two
+  commands. Its spirit held - no AI produced data or computed a statistic - but
+  a falsified integrity claim in a paper whose third contribution IS evidence
+  integrity is the worst possible defect to ship. It now states what is true and
+  gate-backed: no trailered commit touches the four hash-gated optimizer
+  modules, which `validate_provenance_claims.py` enforces by hash; two touch
+  other optimizer files and both are documentation-only; trailered commits do
+  appear under the evidence and analysis trees and every one is a promotion or a
+  re-derivation, byte-verified against staging before its manifest was minted.
+- **Publication mechanism.** One squashed commit on the rewound public branch,
+  carrying the audited tree. The 26-commit development history is retained
+  locally on `archive/revision-pass-39-full` and is NOT published: ten of its
+  commit messages characterise a reviewer who declined to sign, including with
+  gendered pronouns that were never established, and several intermediate trees
+  carry a verbatim reviewer sentence the published tree redacts. Squashing
+  removes all three disclosure routes by construction rather than by a
+  per-commit scrub whose failure mode is silent.
+- **The local v2.14 tag must never be pushed.** Its tree contains all seven
+  copyrighted PDFs and both reviewer reports. It is superseded by a tag cut on
+  the published commit.
+  **Status**: OPEN - the rewind, the GitHub Support purge request, the push and
+  the tag are author actions and had not been taken when this entry was written.
+

@@ -1,0 +1,89 @@
+{
+ "table_id": "SA07",
+ "manuscript_label": "Table A45",
+ "caption_stub": "Tiered configuration versus the two tier-constant transplants (E3, reviewer point R2.1) on CEC2017.",
+ "headers": [
+  [
+   "Arm",
+   "D",
+   "Holm p",
+   "Tiered W/T/L",
+   "A12",
+   "Reading"
+  ]
+ ],
+ "rows": [
+  [
+   "U-low",
+   "10",
+   "1.000",
+   "0/29/0",
+   "0.500",
+   "not separated"
+  ],
+  [
+   "U-low",
+   "30",
+   "0.0055",
+   "6/3/20",
+   "0.490",
+   "tier-constant better"
+  ],
+  [
+   "U-low",
+   "50",
+   "1.000",
+   "17/0/12",
+   "0.505",
+   "not separated"
+  ],
+  [
+   "U-low",
+   "100",
+   "1.000",
+   "14/0/15",
+   "0.513",
+   "not separated"
+  ],
+  [
+   "U-high",
+   "10",
+   "0.006",
+   "22/4/3",
+   "0.534",
+   "tiered better"
+  ],
+  [
+   "U-high",
+   "30",
+   "1.000",
+   "13/2/14",
+   "0.497",
+   "not separated"
+  ],
+  [
+   "U-high",
+   "50",
+   "0.0284",
+   "19/0/10",
+   "0.524",
+   "tiered better"
+  ],
+  [
+   "U-high",
+   "100",
+   "1.000",
+   "2/25/2",
+   "0.500",
+   "not separated"
+  ]
+ ],
+ "notes": [
+  "Holm corrected across the four dimensions within each arm; W/T/L counted from the tiered arm",
+  "no difference reported here may be attributed to any individual subsystem",
+  "at D=10 the U-low arm and at D=100 the U-high arm coincide with the tiered configuration by construction",
+  "machine-transcribed from papers/analysis/rev-rel-2026-08-26-dd42d37eb/e3_uniform_vs_tiered.json"
+ ],
+ "number_format": "as-is",
+ "source": "papers/analysis/rev-rel-2026-08-26-dd42d37eb/"
+}

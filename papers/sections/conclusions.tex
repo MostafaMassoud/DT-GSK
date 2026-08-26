@@ -13,7 +13,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 This paper introduced \dtgsk{}, a GSK-family algorithm that retains the
-gaining-sharing vector-update equations and layers an adaptive control-and-budget
+gaining-sharing vector-update equations and layers an adaptive configuration-and-budget
 scaffold, a deterministic final polish, and a controlled family evaluation on that
 core, with an interaction-structure memory as a supporting mechanism. % BIND: MT-01 (frozen contribution wording)
 That memory is a decaying, confidence- and evidence-gated
@@ -44,10 +44,12 @@ wins, 7 with no significant difference, and no significant loss --- a
 descriptive tally over four independent within-dimension Holm families
 (size 6 each), not a single result controlled family-wise across
 dimensions. % BIND: TAB-T15 (decision-column tally); M-028 (no global FWER claim)
-At the same time, its head-to-head records against \egsk{} at
-$D \geq 30$ are losing ones (11--2--16, 13--0--16, 12--0--17), and the
-two algorithms are never Nemenyi-separable on this suite (all four rank
-gaps lie inside the critical difference of
+At the same time, the Holm-corrected pairwise tests separate the two only at
+$D = 10$ ($p_{\mathrm{Holm}} = 0.0035$); at $D = 30/50/100$ they do not
+($p_{\mathrm{Holm}} = 0.199$, $1.0$, and $0.795$), its head-to-head records
+against \egsk{} at $D \geq 30$ are losing ones (11--2--16, 13--0--16,
+12--0--17), and the two algorithms are never Nemenyi-separable on this suite
+(all four rank gaps lie inside the critical difference of
 1.67). % BIND: negative_findings.md items 3-4 (TAB-T15 eGSK rows; nemenyi_cd_cec2017_D*.csv)
 On CEC2011, \dtgsk{} places second of seven (3.36; \egsk{} first at
 2.52), and its across-problem Wilcoxon against \egsk{} is a
@@ -84,16 +86,30 @@ moves its $D = 15$ ordinal
 (Supplementary Section~S8). % BIND: AN-ROB-2017-01, AN-ROB-2017-04 (r01/r04 DIVERGE verdicts); AN-ROB-2020 (robustness_cec2020.csv: dt-gsk aggregate ordinal 4 under both variants, D15 rank diverge under median)
 
 \paragraph{Limitations.}
-No parameter-sensitivity study was performed: the tier constants are frozen
-and hash-locked, and the individual influence of each is unmeasured. Neither
-ARGP nor the deep-stall restart is isolated by the remove-one study, which
-excludes both by pre-specification.
+The parameter-sensitivity evidence is exploratory and narrow: a one-factor
+sweep over seven constants at two levels, at $D = 30$ and $D = 100$ only, with
+15 repetitions per cell against the frozen panel's 51 (Supplementary Materials,
+Section~S9.4). It is descriptive, carries no hypothesis test, and perturbs no
+tier threshold; the tier constants themselves remain frozen and hash-locked.
+Neither ARGP nor the deep-stall restart is isolated by the remove-one study,
+which excludes both by pre-specification.
+% BIND: E4 (rev-rel-2026-08-26-dd42d37eb); exploratory scope restated
 The remaining limitations bounding these findings are stated in full, with
 their numeric evidence, in the Supplementary Materials, Section~S5. In
 outline: the
 mid-dimension tier favors \egsk{}, which leads at CEC2017 $D = 30$, on CEC2013
 at $D = 30$, and on CEC2011. The structure memory and the polish are gated to
 $D \geq 50$, so at $D \leq 30$ \dtgsk{} is essentially the adaptive scaffold.
+The configuration-transplant experiment added in revision locates part of that
+weakness: at $D = 30$ the parameter set \dtgsk{} resolves at $D = 10$
+outperforms the set it ships, on 20 of 29 functions
+($p_{\mathrm{Holm}} = 5.5\times10^{-3}$; Supplementary Materials,
+Section~S9.3), so the $20 \leq D < 50$ tier is
+mis-specified rather than the tiering principle being unsupported --- the same
+experiment demonstrates tiering against a high-dimension transplant at $D = 10$
+and $D = 50$. Which of the differing configuration keys carries the effect is
+not resolved here and is left open.
+% BIND: E3 (rev-rel-2026-08-26-dd42d37eb); C2 narrowed; D30 tier
 Pairing is by common seed, problem and run rather than by an identical
 starting population: \dtgsk{} self-initializes its own $5D$ population from
 the same seed-paired stream, the one documented departure from the shared
@@ -148,7 +164,19 @@ improvement to a GSK optimizer at these
 dimensions. This is a failure to detect an effect, not a demonstration that
 none exists: no equivalence test or confidence bound on the effect size was
 computed, so the result places no numerical ceiling on how large a benefit the
-design could have missed. It is
+design could have missed.
+% BIND: X-ABL-02 (S6.5 isolation null); anti-equivalence caveat
+The basis isolation added in revision sharpens this. In the
+memory's only fitness-affecting channel --- the basis the final polish searches
+along --- the learned eigenframe is outperformed by the plain coordinate axes at
+$D = 50$ ($p_{\mathrm{Holm}} = 1.4\times10^{-4}$, 25 of 29 functions), while the
+polish itself beats no refinement at both active dimensions (Supplementary
+Materials, Section~S9.1). At that dimension, therefore,
+exploiting the learned structure did not merely fail to help: it subtracted from
+a refinement that works without it. Contribution~C1 is stated basis-neutrally
+for this reason.
+% BIND: E1 (rev-rel-2026-08-26-dd42d37eb); C1 basis-neutral
+It is
 presented alongside the reproducible dimension-tiered system rather than as a
 fourth claimed contribution. Reporting it, together with the mid-dimension
 second place and the Holm-significant CEC2011 loss, is part of what the

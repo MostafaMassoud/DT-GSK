@@ -1,17 +1,18 @@
 {
   "schema": "main_manuscript_freeze_manifest/v1",
-  "phase": "PASS-38 public repository cited in the DAS (dtgsk-submission-v2.13 basis)",
-  "generated_utc": "2026-08-01T18:48:21+00:00",
-  "anchor_commit": "d12989add7769efa097ce9283d8fe773837df136",
-  "pre_freeze_base_commit": "420cac4e8b66dc52c4fd5e50cfd2e7b2c2cb1434",
+  "phase": "PASS-41 journal round-1 major revision COMPLETE and PUBLISHABLE -- all ten reviewer points answered; every claim the four experiments falsified is retired from the text; the tree carries nothing that must not be public",
+  "generated_utc": "2026-08-27T09:40:00+00:00",
+  "anchor_commit": "6fb05066182a825b5f84e9a91ca3e0f3e5f10b6d",
+  "pre_freeze_base_commit": "b9846e47024e48a0f8ce3e4f22bffbd794b2a355",
   "evidence_release": {
     "primary": "rel-2026-07-20-67d9345f9",
     "cec2013lsgo": "lsgo-rel-2026-07-28-ff1a046ef",
     "cec2020": "cec2020-rel-2026-07-29-5867abe1e",
-    "ablation": "abl-rel-2026-07-20"
+    "ablation": "abl-rel-2026-07-20",
+    "revision": "rev-rel-2026-08-26-dd42d37eb"
   },
-  "scientific_content_status": "FROZEN_FOR_SUBMISSION",
-  "freeze_statement": "Re-freeze after the author's decision to make the repository public and cite its URL at submission (D-0044, partially superseding D-0037: the visibility limb only - no Zenodo deposit and no repository DOI exist, and the article DOI is assigned by the journal after acceptance). No number, rank, p-value, test, standing or registered outcome changes; three of fifteen tracked files move and the supplement and cover letter are byte-identical to the pass-37 mint. The Data Availability Statement now states that the source code, configuration files and experimental result data are openly available in the public DT-GSK repository at https://github.com/MostafaMassoud/DT-GSK, that the submitted version corresponds to repository tag v2.13, and that further materials are available from the corresponding author on reasonable request. Public accessibility of the URL was verified before it was cited (anonymous fetch renders the repository and its README). The URL is the single archival identifier the statement is permitted to carry. Every statement written under the superseded not-public limb was corrected in the same anchor commit (README, the reproduction-pack cover note and emitted manifest, the presentation-conventions posture, the review instrument's archive-of-record definition). All five artifacts byte-identical across two consecutive builds at the pinned epochs; eleven gates green.",
+  "scientific_content_status": "REVISION_COMPLETE AND PUBLISHABLE. Pass-40 closed the evidence and the write-up; pass-41 fixes what pass-40 shipped wrong. Four statements that the revision experiments falsified were still in the text, so the revised paper told a reviewer who had demanded those exact experiments that they were not performed: 'No parameter-sensitivity study was performed', 'a common-NP replication is identified as future work', 'not isolated by a controlled uniform-versus-tiered contrast', and 'the asymmetry was not a controlled variable'. All four are retired. A fifth, 'whether that basis beats coordinate axes ... remains open', is answered for the coordinate arm and kept only for the untested random-orthonormal arm. The Supplementary abstract now enumerates S9 and counts three further releases; the Data Availability Statement names tag v2.14 for the revised version and rev-rel-2026-08-26-dd42d37eb alongside the other releases. No PRIMARY result changed: check_frozen_analysis reports 115/115 byte-identical against rel-2026-07-20-67d9345f9.",
+  "freeze_statement": "Freeze for publication and resubmission. Two classes of defect are fixed. (1) TEXT: the four falsified statements above, plus a swallowed sentence in conclusions.tex that had shipped in both artifacts -- a Phase-3 patch matched on a LINE PREFIX, so the tail of the real line was appended after a '% BIND:' comment and LaTeX discarded it, leaving the printed paper reading '...for this reason. none exists: no equivalence test...'. The audited anti-equivalence caveat is restored verbatim and placed with the claim it qualifies. A detector for this failure class now exists and the manuscript-wide sweep is clean. (2) TREE: the repository itself was not publishable. It tracked seven copyrighted PDFs, both reviewer reports, the response letter and a co-author handoff carrying biographies marked as awaiting their subjects' approval; an ordinary push would have published all of them, because the exclusions lived only in a build script. 395 files are untracked and pinned in .gitignore, whose reference_papers rule is repaired -- a single-level glob cannot cross a '/', which is why the intended exclusion silently never matched. The revision evidence release recorded absolute local provenance paths across 61 files against the convention of every published release; stripped and re-minted with the correction recorded in the release manifest. All of it is D-0049. TAG: v2.14 is re-cut on the published commit; the pre-existing local v2.14 must never be pushed, because its tree carries the PDFs and both reports.",
   "hash_algorithm": "SHA-256",
   "build_environment": {
     "pdf_source_date_epoch": 1783468800,
@@ -20,73 +21,75 @@
     "pdf_determinism": "double-build byte-identical: DT-GSK.pdf, supplementary.pdf, cover_letter.pdf",
     "docx_note": "committed deterministic renders via papers/scripts/build_docx.py; re-emitted whenever a pass touches them (see freeze_statement); DOCX epoch SOURCE_DATE_EPOCH=1783641600 (_word_ooxml default; distinct from the PDF epoch 1783468800 -- never let one leak into the other)",
     "platform": "win32",
-    "python": "3.10.11"
+    "python": "3.10.11",
+    "docx_source_date_epoch": 1783641600,
+    "docx_epoch_note": "_word_ooxml.source_date_epoch() prefers SOURCE_DATE_EPOCH from the environment and only falls back to 1783641600 when it is unset, so the DOCX must be built in a shell that never exported the PDF's 1783468800. Verified via dcterms:created = 2026-07-10T00:00:00Z in both files."
   },
   "files": [
     {
       "path": "papers/main.tex",
-      "sha256": "1991db759cf451389d239894a24664cb272cd51a9733d208ec0212e7126c5aa2",
-      "bytes": 25582
+      "sha256": "9992e9666a67936b8dac56720ee9967eb01bd0669e2c4684712c1e6af3edccee",
+      "bytes": 26099
     },
     {
       "path": "papers/sections/introduction.tex",
-      "sha256": "3e0df42e45782fa10e79b8e252288177ef7b0a85267c6a05ae2beded8990d6ea",
-      "bytes": 11696
+      "sha256": "40e52e87d45848fa8030d7df23ca189eba2ece2f81cbfcb812e675adbc971a7e",
+      "bytes": 12310
     },
     {
       "path": "papers/sections/related_work.tex",
-      "sha256": "85ee0fc87facc5ce0652e719d147725603792c0f000750afdd3f854e47191e00",
-      "bytes": 21757
+      "sha256": "7290e781d3e81bd4ef0fa0bcd4e67a06df4d785871432356fb5336f5536bf5ad",
+      "bytes": 21769
     },
     {
       "path": "papers/sections/proposed_algorithm.tex",
-      "sha256": "bd47fc779e7c61cd833143a782fa708563fd0ab1603ea22a3d45b8c59434c79c",
-      "bytes": 57328
+      "sha256": "b94ce4434c11e0063186c92fce8784b3e3b6dd01802d1bbf6aab9c5abebe6c95",
+      "bytes": 57980
     },
     {
       "path": "papers/sections/performance.tex",
-      "sha256": "b6091476d39a2e5d6481ade94b442047587d232c8fcaafbbb1a9f019c2ee55ca",
-      "bytes": 76840
+      "sha256": "b41d615cc85612a717765794582432b0d0925b17e02dd051bbf92ad7b4094407",
+      "bytes": 77863
     },
     {
       "path": "papers/sections/conclusions.tex",
-      "sha256": "e24e7eaf21beccb441336c8de695483f37c630e3f1aa3cd4553227fc07d8ce7f",
-      "bytes": 11940
+      "sha256": "cb1771f3a28cae1efb83e322e3656b79927f8bd9e9c35939807d9996831b34be",
+      "bytes": 13827
     },
     {
       "path": "papers/DT-GSK.pdf",
-      "sha256": "77c740a6360f53ac42c2c955662f24afd8c2be89e5fb84921e630e99a0885efb",
-      "bytes": 818170
+      "sha256": "de4b16711b147c98445516c56c1bc068fba65554af61e4b9f3b2ea0f3f7dd6cc",
+      "bytes": 821930
     },
     {
       "path": "papers/DT-GSK.docx",
-      "sha256": "7f31d3008c6381637f5d8c3d0bffc4ee63e07a95ae1bfa00b81af806a32ce63c",
-      "bytes": 1009705
+      "sha256": "b4b1ceca4df8711ab148851880bec643bdcef60f673bd73c94ec867aef41dd63",
+      "bytes": 1011624
     },
     {
       "path": "papers/supplementary.pdf",
-      "sha256": "0347dc80bd58e18eb7cfc1301facfefe2c51fc3a6bb3de80c9b7789c42c1c296",
-      "bytes": 1722053
+      "sha256": "de2902ebfa4188900766707c389a6b3898b25246da3dabc997a03e644eb2eaa3",
+      "bytes": 1747457
     },
     {
       "path": "papers/supplementary.docx",
-      "sha256": "4a29ae25b254b1642d3caf0ea497fd1ee8ade82c76a022da023c448782a2a95f",
-      "bytes": 9611004
+      "sha256": "20c32b974d4012f190b0d47a0fe9831a97e67fcf393bdde9cf7740d47283db06",
+      "bytes": 9622279
     },
     {
       "path": "papers/cover_letter.pdf",
-      "sha256": "b1d13db013e8f656a4ea4946189602b6d559589d1ab1fcc93736360905d6b608",
-      "bytes": 125517
+      "sha256": "4895e49b6fa9c95d0b66de3e27ddc057e860247c8cddda4dde6b093ee60162b2",
+      "bytes": 127117
     },
     {
       "path": "papers/governance/claims_evidence_matrix.csv",
-      "sha256": "15f2a067f8188c3e3c9d9a0cf1f54306ca5656ba40d294bf28eb20ce238ec13f",
-      "bytes": 40212
+      "sha256": "dc13cb18b354a807d071ca8b7c47aac89449e7786bd54045d032a5e3e433d398",
+      "bytes": 40218
     },
     {
       "path": "papers/governance/citation_usage_map.csv",
-      "sha256": "8f8723be88bf038e440104675566c7471afc34569bebe2706d952a161514a5cf",
-      "bytes": 51066
+      "sha256": "9f01360f3b1e5a2afa4e588a7fa3597268ca9869b000911c78e57d3ee302edd9",
+      "bytes": 51059
     },
     {
       "path": "papers/governance/artifact_binding.csv",
@@ -101,17 +104,20 @@
   ],
   "validator_outputs_at_freeze": {
     "build_hygiene": "OK - no unresolved references, control characters, or retired content",
-    "cross_format_parity": "TOTAL rows=726  FAIL=0",
-    "docx_validators": "0 warnings (both documents; re-run after the header restoration)",
-    "provenance_claims": "[provenance] OK - prose matches the manifests (per-suite ids cross-checked)",
-    "citation_controls": "PASS: C1-C5 hold (role=61 usage sites re-validated after the apgsk2021 additions and note-field deletions)",
-    "artifact_labels": "PASS: every manuscript_label resolves",
-    "document_consistency": "[doc-consistency] OK - all cross-stated facts agree",
-    "frozen_analysis": "115/115 byte-identical (rel-2026-07-20-67d9345f9)",
-    "strict_inventory_union": "3403/3403 + 173/173 + 336/336, zero unlisted",
-    "tests": "601 passed, 2 skipped",
-    "w5_adversarial_sweep": "0 BLOCKING (papers/governance/w5_review_sweep_2026-07-29.md)",
-    "environment_attestation": "green=True, 603 tests x2, zero failures (regenerated 2026-07-31)",
-    "panel_review": "8-seat register 2026-07-31: unanimous MINOR REVISION; batch applied in full; 4-lens verification workflow PASS"
-  }
+    "cross_format_parity": "TOTAL rows=761  FAIL=0",
+    "docx_validation": "OK on DT-GSK.docx and supplementary.docx",
+    "document_consistency": "OK - all cross-stated facts agree (no drift)",
+    "artifact_labels": "PASS: every manuscript_label resolves to a label in the shipped sources",
+    "citation_controls": "PASS: C1-C5 hold across all three citation-control files",
+    "citation_cff": "PASS: version consistent with every tag",
+    "provenance_claims": "OK - prose matches the manifests",
+    "frozen_analysis": "115/115 files byte-identical (rel-2026-07-20-67d9345f9)",
+    "evidence_bindings": "exit 0",
+    "audit_manuscript": "exit 0; terminology_hits 0; blocked_wording_hits 2 (pre-existing at the submitted state)",
+    "revision_analysis_pins": "11/11 fail-closed known-answer pins reproduced in papers/analysis/rev-rel-2026-08-26-dd42d37eb/; seed-pairing mismatches 0 across E1-E4",
+    "reproducibility": "all four artifacts rebuilt at the pinned epochs after the pass-41 text fixes; DT-GSK.pdf 821930, supplementary.pdf 1747133, DT-GSK.docx 1011624, supplementary.docx 9622136, cover_letter.pdf 127117.",
+    "swallowed_prose_sweep": "0 suspicious sentence resumptions across every manuscript source (comments stripped as LaTeX strips them, then a scan for prose resuming in lowercase after a full stop)",
+    "confidentiality_audit": "PASS on the tracked tree: no reviewer wording, no report-form detail, no report id, no gendered pronoun applied to a reviewer, no copyrighted PDF, no co-author handoff, no credentials"
+  },
+  "remint_note": "pass-41 RE-MINTED 2026-08-27 after the finalization pass: six reader-facing documents still taught the pre-revision story, the public plain-language summary worst among them, and the rendered S9 claimed a signed pre-registration without naming it. Re-minting rather than advancing to pass-42: pass-41 was never published and nothing was submitted from it, so it remains one internal working freeze. pass-41 supersedes pass-40, which was minted over a corrupted paragraph. The defect was found by reading the built PDF rather than the sources -- the same method that caught pass-39's, and the third time that method has been the one that worked. Every gate passed over the corruption: cross_format_parity was green because BOTH formats agreed, both wrong, and validate_evidence_bindings excludes '% BIND:' comment text from token extraction by design, which is exactly why prose swallowed into one was invisible. The lesson is recorded because it will recur: a multi-line edit whose old-text pattern ends on a PREFIX of a real source line leaves the remainder of that line attached to whatever the replacement ends with. When the replacement ends in a comment, the remainder is silently deleted from the rendered document. Patterns must end on a whole line."
 }

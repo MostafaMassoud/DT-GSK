@@ -24,7 +24,7 @@ that core it layers four kinds of machinery: control, budget, structure-memory,
 and polish. % BIND: phase_03/contribution_matrix.md (novelty statement)
 The contribution boundaries are marked explicitly throughout: no new base
 operator is claimed, the dimension-tiered adaptive scaffold is C2, the
-eigenframe final polish is C1, and the determinism layer is C3; the
+deterministic final polish is C1, and the determinism layer is C3; the
 interaction-structure memory is a supporting mechanism, not a contribution.
 Every mechanism below is presented as proposed and fully specified, and
 each design constant is either justified in one sentence or labeled a
@@ -163,8 +163,12 @@ receive the identical evaluation budget, so the difference lies in how each
 algorithm spends that budget rather than in how much it is given. We state it
 explicitly because population size is a design choice that can materially
 affect upper-tier behavior, and a reader comparing at $D=100$ should
-know the initial populations differ by a factor of five; a common-$NP$
-replication is identified as future work.
+know the initial populations differ by a factor of five. That replication was
+carried out in revision: at the comparators' $NP = 100$, \dtgsk{} remains first
+at $D = 10$ and second at $D = 30$, $50$ and $100$, with the paired difference
+significant only at $D = 50$ and $D = 100$ (Supplementary Materials,
+Section~S9.2).
+% BIND: E2 (rev-rel-2026-08-26-dd42d37eb); R1.3/R2.2
 
 % Canonical pseudocode (ART-PSEUDOCODE, label alg:dt-gsk).
 \input{build_prompt_phases/phase_03/algorithm_pseudocode.tex}
@@ -207,7 +211,7 @@ which Algorithm~\ref{alg:dt-gsk} lists and
 Figure~\ref{fig:dtgsk-flowchart} charts.
 \begin{enumerate}[noitemsep,topsep=2pt,leftmargin=*,label=(\arabic*)]
 \item Nonlinear Population-Size Reduction (NLPSR).
-\item Operator-arm sampling by the Adaptive Control Engine (ACE).
+\item Operator-arm sampling by the Adaptive Configuration Engine (ACE).
 \item Junior/senior trial construction and crossover masking.
 \item Bound repair and evaluation.
 \item Elitist acceptance and the diversity-archive update.
@@ -298,10 +302,15 @@ of the memory overlay itself is reported in the Supplementary Materials
 (Section~S6.5) and finds no significant standalone benefit at the
 memory's active tiers. The dimension-tiering itself --- resolving control
 by dimension rather than at a single fixed operating point --- is likewise
-not isolated by a controlled uniform-versus-tiered contrast; C2 is therefore
-claimed as the performance of the integrated frozen scaffold as a package,
-not as evidence that dimension-tiering is individually causal. Here each
-mechanism is specified with its trigger,
+not isolated at submission. A controlled tiered-versus-tier-constant contrast
+was added in revision (Supplementary Materials, Section~S9.3): it separates the
+two at $D = 10$ and $D = 50$ against a high-dimension transplant, while at
+$D = 30$ a low-dimension transplant outperforms the shipped configuration. C2 is
+therefore claimed for the dimensions where tiering was demonstrated, with the
+$20 \leq D < 50$ tier disclosed as mis-specified, rather than as evidence that
+dimension-tiering is individually causal at every tier.
+% BIND: E3 (rev-rel-2026-08-26-dd42d37eb); C2 narrowed; R2.1
+Here each mechanism is specified with its trigger,
 timing, and cost. Table~\ref{tab:notation-scaffold} lists the symbols this
 subsection introduces.
 

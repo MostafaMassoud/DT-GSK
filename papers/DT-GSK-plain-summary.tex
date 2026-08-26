@@ -71,8 +71,8 @@ moustafa.masoud@gmail.com (M.E.M.\ ORCID 0009-0003-8415-2158);
 hmhmdss@yahoo.com (H.S.M.R.\ ORCID 0000-0003-0387-5876);
 aliwagdy@gmail.com (A.W.M.\ ORCID 0000-0002-5895-2632)}\\[1pt]
 {\footnotesize $^{*}$\;Correspondence: moustafa.masoud@gmail.com}\\[5pt]
-{\footnotesize A ten-page companion to the paper \emph{DT-GSK: Dimension-Tiered Adaptive Control
-and Deterministic Refinement for Gaining-Sharing Knowledge Optimization}.\\
+{\footnotesize A ten-page companion to the paper \emph{DT-GSK: Dimension-Tiered Adaptive Configuration
+Selection and Deterministic Refinement for Gaining-Sharing Knowledge Optimization}.\\
 For readers who already know population-based metaheuristics. Where this
 summary could be read as claiming more than the paper does, the paper governs.}
 \end{center}
@@ -170,9 +170,10 @@ further $D\geq10$ gate of its own, so it is additionally inactive at the
 CEC2020 $D{=}5$ cells and at the CEC2011 problems of dimension 1, 6 and 7.}
 
 Note what this table settles: the adaptive scaffold runs at \emph{every}
-tier. Three of the nine rows are gated as whole rows, and the two that carry
-DT-GSK's distinctive claims --- the interaction memory and the deterministic
-polish --- do not exist below $D=50$. Two further mechanisms \emph{inside} the
+tier. Three of the nine rows are gated as whole rows, and the two that most
+change what DT-GSK \emph{is} above $D=50$ --- the interaction memory and the
+deterministic polish --- do not exist below it. Only the polish is claimed as a
+contribution; the memory is reported as a negative result (component 8). Two further mechanisms \emph{inside} the
 always-on rows carry dimension gates of their own: the ACE differential-evolution
 arm, which is present only for $20\leq D<100$, and the blockwise linkage mask,
 which needs $D\geq10$. Counting those, five things switch on or off with
@@ -262,9 +263,16 @@ form is the one shipped.
 
 The $5D$ start is a documented fair-start exception: the six comparators run
 $NP = 100$ at every dimension, so at $D = 100$ DT-GSK begins with a five-fold
-larger population. This asymmetry is disclosed, not controlled for.
+larger population. \hl{That asymmetry is now controlled, not merely
+disclosed.} Re-running DT-GSK at the comparators' $NP = 100$ leaves it first at
+10 unknowns and second at 30, 50 and 100 --- inside the top two everywhere --- so
+the population rule is not what produces the standing. It is not innocent
+either: the difference is indistinguishable from zero at 10 and 30 and
+significant at 50 and 100, where holding the population at the panel value costs
+DT-GSK first place. The paper therefore qualifies its 50- and 100-unknown rank
+claims as resting in part on this rule, wherever those claims appear.
 
-\subsection{3. ACE --- adaptive control ensemble (all tiers)}
+\subsection{3. ACE --- adaptive configuration engine (all tiers)}
 
 A credit-based selector over a pool of five fixed arms, each a triple
 $(KF, KR, K_{\exp})$ of gaining--sharing rate, crossover rate and
@@ -469,9 +477,18 @@ differential-evolution-arm moves, $0.25$ for local-search moves, $1$ otherwise.
 but the isolation measured a wall-clock overhead of \hl{+57.3\% (CEC2017
 $D{=}50$), +36.3\% ($D{=}100$) and +30.3\% (CEC2013 $D{=}50$)} --- and returned
 \hl{no detectable standalone benefit at its active tiers.} That null is a
-registered result, advertised in the abstract and conclusions. ISM is
-positioned as a secondary exploratory mechanism, explicitly not the performance
-driver.
+registered result, advertised in the abstract and conclusions.
+
+A later, sharper test went further. The pair-map's only route to affecting the
+answer is the basis it hands the deterministic polish, and testing that route
+directly --- no refinement, the plain coordinate axes, the learned basis --- found
+the \hl{learned basis is worse than the plain axes} at 50 unknowns, losing on 25
+of 29 problems. The refinement itself is fine, and beats doing nothing at both
+sizes where it runs; what fails is the learned geometry it was given. So the
+pair-map is not a secondary mechanism that merely failed to help. In the one
+place it could change the answer, it subtracted from something that works
+without it, and the paper now reports it as a specified negative result rather
+than as a component of the contribution.
 
 \subsection{9. The eigenframe final polish (\emph{$D\geq50$ only})}
 
@@ -492,6 +509,18 @@ Repeatability follows from having no RNG draws: the same input returns
 bit-identical output --- \emph{in the declared single-threaded environment.}
 The paper is explicit that this is not a cross-thread or cross-platform
 guarantee.
+
+\hl{Measured outcome: the polish works, its basis does not.} A three-arm
+isolation at fixed enablement --- no refinement, the coordinate axes, the
+learned eigenframe --- separates the two questions. The refinement itself is
+confirmed: against no refinement the shipped eigenframe arm wins on 22 of 29
+functions at $D{=}50$ and 23 of 29 at $D{=}100$, and the coordinate-axis
+variant wins 28 of 29 and 25 of 29. The \emph{learned} basis is not: at
+$D{=}50$ the coordinate axes beat it on 25 of 29
+($p_{\mathrm{Holm}} = 1.4\times10^{-4}$), and at $D{=}100$ the two are not
+separated. The paper therefore claims this contribution \hl{basis-neutrally}
+(Supplementary S9.1) --- what earns its place is the deterministic,
+budget-exact endgame, not the geometry it searches along.
 
 \subsection{10. Upper-tier controllers (\emph{$D\geq100$ only})}
 
@@ -807,8 +836,9 @@ specialist large-scale methods report much better published results than any
 method in this family, DT-GSK included.
 
 \hl{No test is attached.} The first places are average-rank summaries. Against
-its closest rival, eGSK, DT-GSK's lead on the main collection is small enough
-that the statistical tests cannot call it real at any problem size.
+its closest rival, eGSK, the paired tests separate the two on the main
+collection only at 10 unknowns; at 30, 50 and 100 they do not, and the wider
+all-methods comparison separates them at no size at all.
 
 \hl{Where the settings came from.} CEC2017 gave the headline first place, and
 CEC2017 is also the collection the authors used to choose DT-GSK's settings.
@@ -850,9 +880,14 @@ The advantage is \hl{tiered, and it is not simply ``the bigger the better''.}
 
 Across the two mathematical collections covering 10 to 100 unknowns, DT-GSK
 leads at every size except 30, where it drops to second on CEC2017 and third on
-CEC2013. On the small collection it leads at none of the four sizes. On the
-real-world set it is second. \hl{Its strength is concentrated at 50 unknowns and
-above.}
+CEC2013. That dip now has a located cause rather than only a description: at 30
+unknowns the settings DT-GSK chooses for 10 unknowns beat the settings it
+actually ships, on 20 of 29 problems. \hl{The 30-unknown tier is mis-specified}
+--- which is a fixable defect in one tier, not evidence against resolving
+settings by size, since the same experiment shows the size-resolved settings
+beating a one-size-fits-all alternative at 10 and at 50. On the small collection
+it leads at none of the four sizes. On the real-world set it is second.
+\hl{Its strength is concentrated at 50 unknowns and above.}
 
 \section{Limits, and why you can check all this}
 
@@ -863,8 +898,10 @@ above.}
       not even claim DT-GSK is the best method in its own family overall. The
       paper reports its standing size by size rather than as a single verdict,
       and other family members beat it at some sizes and on the real-world set.
-\item It does not claim the pair-map works. The direct test of it came back
-      negative, and that is reported.
+\item It does not claim the pair-map works. The direct test came back
+      negative, and a later test of the one route by which it could affect the
+      answer came back worse than negative --- the plain alternative beat it.
+      Both are reported.
 \item It does not claim to run faster. One competitor, eGSK, could only be
       rebuilt using a substitute for one internal solver. That part uses some of
       the same budget and can change the answer it returns, so the eGSK results
@@ -909,9 +946,11 @@ methods in the field, a comparison the paper does not make --- across five
 standard test collections with equal budgets. It came first on two, tied first on
 one, second on one, and fourth on one. It is weakest on small problems, where its
 size-gated machinery is switched off by design, and it loses on the real-world
-set. One of its three components was tested on its own, cost 30 to 57 percent
-more computing time, and showed no measurable benefit --- and the authors
-published that result instead of leaving it out.
+set. One of its mechanisms was tested on its own, cost 30 to 57 percent more
+computing time, showed no measurable benefit, and --- on a later, more direct
+test --- turned out to be actively worse than the simple alternative it replaced.
+The authors published that result instead of leaving it out, and stopped
+claiming the mechanism as a contribution.
 \end{tcolorbox}
 
 \vspace{3pt}\hrule\vspace{3pt}

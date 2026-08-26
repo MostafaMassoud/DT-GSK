@@ -57,6 +57,131 @@ python -m pip install -r requirements-dev.txt    # runtime + dev tooling
 Requires CPython `>=3.10,<3.14`. The runtime stack is NumPy, SciPy, pandas,
 matplotlib, PyYAML, and Numba (version ranges pinned in `pyproject.toml`).
 
+## Journal Revision Experiments (one command)
+
+The four reviewer-requested experiments from the *Algorithms* round-1 major
+revision (D-0047, CR-0023). The other six reviewer points needed no runs and are
+already applied.
+
+**Rehearse first — 20 seconds, and it verifies itself:**
+
+```powershell
+python scripts\run_revision_experiments.py --smoke
+```
+
+Runs every leg *kind* through the identical code path at tiny scope (2
+functions, 2 runs, one dimension, 3,000 evaluations), then checks that each leg
+actually wrote the rows it promised and prints `SMOKE PASSED` or `SMOKE FAILED`.
+Output goes to `results/_revision_smoke/`, which is gitignored and can never
+reach the campaign tree. Do not start the real run until this is green.
+
+**Then the real thing. This is the whole command:**
+
+```powershell
+python scripts\run_revision_experiments.py
+```
+
+Start it and leave it. It is **resumable**: after any interruption — Ctrl-C, a
+reboot, a crashed leg — re-run the identical line and it continues from the
+first incomplete cell instead of repeating finished work. Every leg is written
+`overwrite: false`.
+
+| Leg | Reviewer point | What it runs | Runs |
+|---|---|---|---|
+| E1 | R2.3 | Coordinate-basis final polish (the missing third arm) | 2,958 |
+| E2 | R1.3 / R2.2 | DT-GSK at the comparators' `NP = 100` | 5,916 |
+| E3 | R2.1 | Uniform vs tiered: the D=10 and D=100 parameter sets applied at every dimension | 11,832 |
+| E4 | R2.7 | Parameter sensitivity, 27 one-factor cells | 11,745 |
+| | | **Total** | **32,451** |
+
+Roughly 25–33 hours at 15 workers. Progress is printed and appended to
+`results/_revision/driver.log`, so a detached run can be followed with:
+
+```powershell
+Get-Content -Wait results\_revision\driver.log
+```
+
+Useful variants:
+
+```powershell
+python scripts\run_revision_experiments.py --smoke        # 20 s rehearsal, self-verifying
+python scripts\run_revision_experiments.py --status       # progress table, runs nothing
+python scripts\run_revision_experiments.py --dry-run      # the plan, runs nothing
+python scripts\run_revision_experiments.py --only E1,E2   # a subset
+python scripts\run_revision_experiments.py --workers 8    # fewer workers
+```
+
+`--smoke` composes with the others, so `--smoke --dry-run` shows the rehearsal
+plan without running it.
+
+The smoke run prints per-function comparisons against the reference bank that
+will look alarming — "Worse: 2", errors around 1e+09. That is expected and not a
+failure: 3,000 evaluations against the reference's 100,000–1,000,000. Judge the
+smoke by the `SMOKE PASSED` line, not by those tables.
+
+Notes that matter:
+
+- Output is staged under `results/_revision/`, **never** `benchmarks/`.
+  Promotion into an evidence release is a separate, deliberate step.
+- The driver pins `OMP`/`MKL`/`OPENBLAS`/`NUMBA` thread counts to 1 per worker.
+  D >= 50 byte-stability depends on that; do not run the legs by hand without it.
+- E3's override dictionaries are generated programmatically from
+  `_dt_profiles.pub_overrides()`. Eighty-eight config keys differ between the
+  D=10 and D=100 tiers — never transcribe them.
+- **E1 is driven by `scripts/run_e1_basis_contrast.py`, not by a YAML config.**
+  It needs the research hook `research_oracle_basis`, which the public adapter
+  deliberately does not forward and which
+  `tests/regression/test_dormant_mechanisms_unreachable.py` exists to keep
+  unreachable from every config, profile, CLI and adapter path — that test also
+  pins the adapter's source text, and `dt_gsk.py` is hash-gated by
+  `validate_provenance_claims.py`. Expressing E1 as a config would break a
+  regression test and a hash gate. The tripwire scans `src/gsk_family` only and
+  its docstring records that reaching the hooks "requires a new evidence
+  release", which is what E1 produces. Nothing under `src/` is modified.
+- The pre-registration addendum is **signed**:
+  `papers/review_2026_08_24/revision_experiments_preregistration.md`, dated
+  2026-08-25, before any result from these experiments existed. It records that
+  §1.4 of `papers/build_prompt_phases/phase_05/ablation_preregistration.md` —
+  which binds that a mechanism be verified ON in the baseline at a dimension
+  before a disable delta is claimed there — does **not** govern E1 or E3, and
+  registers replacement rules rather than reinterpreting it: E1 holds enablement
+  constant and substitutes the basis, E3 is a configuration transplant with its
+  own binding rule. E3 licenses only "the tiered configuration does / does not
+  outperform a tier-constant one at dimension d"; no E3 cell may be attributed to
+  a single subsystem. E4 is registered **exploratory** — descriptive only, no
+  hypothesis tests and no corrected p-values. The addendum is append-only: two
+  amendments dated 2026-08-26 record an E4 perturbation-level deviation at D=100
+  and a corrected E2 scope statement.
+
+## After The Campaign (promotion, analysis, exhibits)
+
+The campaign of record is already through this chain. Run it in this order:
+
+```powershell
+python papers/scripts/promote_revision_experiments.py --dry-run
+python papers/scripts/promote_revision_experiments.py
+python papers/scripts/analyze_revision_experiments.py
+python papers/scripts/generate_revision_exhibits.py
+```
+
+- **Promotion** writes the flat, manifest-bound tree
+  `benchmarks/cec_reference_results/_revision/` — release
+  **`rev-rel-2026-08-26-dd42d37eb`**, 31 arms, 252 files, read-only — not the
+  retired `_releases/<release-id>/` layout. `curves/` and per-session console
+  logs are excluded by manifest, never silently dropped. Re-running against an
+  existing tree verifies instead of re-copying, and adds only missing arms.
+- **Analysis** is strict-source: it reads the promoted tree plus the two frozen
+  releases it pairs with, never `results/`. It mints the self-manifested bundle
+  `papers/analysis/rev-rel-2026-08-26-dd42d37eb/` and refuses to emit unless
+  seed pairing verifies and its pinned known-answer battery reproduces.
+- **Exhibits** render SA05--SA08 — Supplementary Section S9, Tables A43--A46 —
+  and their Word twins from that bundle, from the same plain data in both
+  formats.
+
+The release is **additive and non-superseding**: the primary release
+`rel-2026-07-20-67d9345f9` is untouched and `check_frozen_analysis` still reads
+115/115 byte-identical.
+
 ## Full Paper Pipeline (in order)
 
 The complete data-to-PDF sequence. `--workers 15` is shown (matches
@@ -105,21 +230,75 @@ python papers/scripts/generate_trace_figures.py
 python papers/scripts/generate_nlpsr_trajectory.py
 python papers/scripts/generate_adaptive_params_panel.py
 
-# --- 6. Tables (read frozen, checked-in evidence: benchmarks/cec_reference_results/_paper_tables/
-#     and papers/analysis/rel-2026-07-20-67d9345f9/ — not results/ staging) ---
+# --- 6. Tables (read frozen, checked-in evidence: benchmarks/cec_reference_results/_paper_tables/,
+#     papers/analysis/rel-2026-07-20-67d9345f9/ and papers/analysis/rev-rel-2026-08-26-dd42d37eb/
+#     — not results/ staging) ---
 python papers/scripts/generate_latex_tables.py
 python papers/scripts/generate_t16_bca.py
+python papers/scripts/generate_revision_exhibits.py   # S9 exhibits SA05-SA08 = Tables A43-A46
 
-# --- 7. Build the PDFs ---
+# --- 7. Build the PDFs. The epoch is load-bearing: build_pdf.py sets nothing
+#     itself and passes no env to pdflatex, so without these two variables the
+#     artifacts carry the current date, are not byte-reproducible, and
+#     check_manifest will not read 15/15 ---
+$env:SOURCE_DATE_EPOCH = "1783468800"; $env:FORCE_SOURCE_DATE = "1"
 python papers/scripts/build_pdf.py
 python papers/scripts/build_supplementary.py
 python papers/scripts/generate_review_pack.py
 
-# --- 8. Quality gates ---
+# --- 7b. Word twins, IN A FRESH SHELL. The DOCX epoch is a different number and
+#     _word_ooxml.source_date_epoch() PREFERS an inherited SOURCE_DATE_EPOCH over
+#     its 1783641600 default, so a shell still carrying the PDF's 1783468800
+#     silently produces a non-reproducible DOCX that still passes every gate.
+#     build_docx.py consumes the checked-in table sources under
+#     papers/tables/word_sources/*.json; it does not regenerate them ---
+Remove-Item Env:FORCE_SOURCE_DATE -ErrorAction SilentlyContinue
+$env:SOURCE_DATE_EPOCH = "1783641600"
+python papers/scripts/build_docx.py
+python papers/scripts/build_docx.py --supplementary
+# Both DOCX files are freeze-tracked. Build every artifact TWICE and byte-compare
+# before trusting check_manifest.
+
+# --- 8. Quality gates (code side) ---
 python -m pytest -q
 python -m ruff check .
 python scripts\validate_profile_lock.py --root .
 python scripts\build_docs_html.py
+
+# --- 8b. Manuscript gate battery (the pass-40 battery). Every one must exit 0;
+#     the three counted ones read 15/15, 115/115 and 761 rows / 0 FAIL ---
+python papers/scripts/check_manifest.py
+python papers/scripts/check_frozen_analysis.py
+python papers/scripts/validate_cross_format_parity.py
+python papers/scripts/validate_document_consistency.py
+python papers/scripts/validate_build_hygiene.py
+python papers/scripts/validate_artifact_labels.py
+python papers/scripts/validate_citation_cff.py
+python papers/scripts/validate_citation_controls.py
+python papers/scripts/validate_provenance_claims.py
+python papers/scripts/validate_evidence_bindings.py
+python papers/scripts/validate_docx.py papers/DT-GSK.docx
+python papers/scripts/validate_docx.py papers/supplementary.docx
+
+# --- 8c. Freeze re-mint, after any change to one of the 15 files tracked in
+#     papers/governance/main_manuscript_freeze_manifest.json. Re-mint it
+#     byte-surgically -- CRLF, 2-space indent, both `sha256` and `bytes`
+#     updated per file -- and verify the json.dumps(indent=2, ensure_ascii=False)
+#     round-trip AND the trailing-byte convention against the ORIGINAL bytes
+#     before rewriting; read_text()/write_text() normalize the line endings and
+#     break every hash. Procedure of record:
+#     docs/development/FINAL_PUBLICATION_PLAN.md (take the trailing bytes from
+#     the file, not from that document -- this manifest does end with a
+#     trailing CRLF) ---
+
+# --- 8d. check_manifest hashes the WORKING TREE, not the committed blob, so a
+#     re-saved binary can still pass 15/15. Close that blind spot by hand: each
+#     size below must equal the `bytes` recorded for that file in the manifest ---
+git cat-file -s HEAD:papers/DT-GSK.pdf
+git cat-file -s HEAD:papers/DT-GSK.docx
+git cat-file -s HEAD:papers/supplementary.pdf
+git cat-file -s HEAD:papers/supplementary.docx
+git cat-file -s HEAD:papers/cover_letter.pdf
 ```
 
 ## Smoke Test
@@ -213,8 +392,9 @@ python papers/scripts/generate_cec2013_convergence.py --dimension 30
 ```
 
 The CEC2013 head-to-head (T11--T13) and Wilcoxon summary (T14) LaTeX tables are
-emitted by the shared table generator (needs the `results/paper_tables/` CSVs
-produced by the stats pass):
+emitted by the shared table generator, which reads the promoted evidence at
+`benchmarks/cec_reference_results/_paper_tables/` and never touches `results/`
+staging:
 
 ```powershell
 python papers/scripts/generate_latex_tables.py
@@ -425,7 +605,7 @@ Mechanism toggles (set to `false` to disable that cell's component):
 | `argp_enabled` | Acceptance-Rate Gated Pool Pruning |
 | `linkage_blockwise_enabled` | Linkage-aware block crossover |
 | `arch_enabled` | Elite archive |
-| `local_search_enabled` | Nelder--Mead endgame |
+| `local_search_enabled` | Coordinate endgame local search (`local_search_method` defaults to `coordinate`) |
 | `final_polish_enabled` | Eigenframe final polish |
 | `interaction_graph_enabled` | SGSM interaction graph (off for this ablation) |
 | `deep_stall_restart_enabled` | Deep-stall full restart |
@@ -488,9 +668,15 @@ Note: SGSM activates only at D >= 50, and CEC2011's native problem dims vary
 widely, so the CEC2011 ablation mostly probes the scaffold mechanisms rather than
 the SGSM overlay -- state that scope in the paper.
 
-> The parameter-sensitivity study is a **separate**, low-N run (n = 3) under
-> `results/dt-gsk/sweeps/parametric-study/`; report it as sensitivity, never as
-> ablation evidence.
+> The parameter-sensitivity study is a **separate** experiment, not ablation
+> evidence. It is E4 of the round-1 revision campaign: 27 one-factor cells at
+> D=30 and D=100, n = 15, promoted inside `rev-rel-2026-08-26-dd42d37eb` and
+> reported as Table A46 (exhibit SA08). It is registered **exploratory** --
+> descriptive only, no hypothesis tests and no corrected p-values. The older
+> `results/dt-gsk/sweeps/parametric-study/` tree (n = 3) that T21/T22 would have
+> come from is **absent** from this repository; that gap is EG-006 in
+> `papers/governance/evidence_gap_register.md`, whose "omit" branch was
+> exercised -- T21/T22 were never committed and the manuscript never cites them.
 
 ## Slow Or Crashing
 

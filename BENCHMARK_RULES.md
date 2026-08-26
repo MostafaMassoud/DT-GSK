@@ -55,14 +55,30 @@ Concrete facts from the code:
 - **`cec2013`** — 28 functions, fixed dims 10/30/50, error-vs-optimum; the
   **second GSK-family comparison suite** (51 runs; a full 7-optimizer reference
   panel is committed, see §6). The SGSM-overlay ablation additionally uses a
-  CEC2013 hold-out design (full / no-adaptive / no-sgsm cells).
-- **`cec2013lsgo`** — 15 large-scale functions, native dims, `raw_objective`
-  for comparability with imported references; budget `3000000` NFEs.
+  CEC2013 D=50 hold-out design (four cells: full / no-adaptive / no-sgsm /
+  no-finalpolish), which has since been promoted to cover CEC2017 D=50 and
+  D=100 as well.
+- **`cec2013lsgo`** — 15 large-scale functions, native dims (D=1000; F13/F14 are
+  D=905), `raw_objective` for comparability with imported references; budget
+  `3000000` NFEs, 25 runs. **F3/F6/F10 are an exception to that comparability:**
+  this bank evaluates the *transformed* Ackley chain (T_osz → T_asy(0.2) →
+  Lambda(10) → ackley, the Molina-package form SHADE-ILS uses), so those three
+  functions are NEVER comparable to a published raw-Ackley table such as MOS's.
+  The DECC-G transcription's variant was never verified, so treat its F3/F6/F10
+  entries the same way. See the `benchmark_variant.json` sidecar in each
+  `cec2013lsgo/<alg>/` directory and
+  `papers/governance/production_deviation_record.md` D-8.2.
 - **`cec2017`** — 30 functions implemented, **F2 implemented but excluded from
   the default/scored set** (see §2). Dims 10/30/50/100.
 - **`cec2020`** — 10 functions, dims 5/10/15/20, with **per-dimension budgets**
   from `CEC2020_BUDGETS = {5: 50000, 10: 1000000, 15: 3000000, 20: 10000000}`.
-  Note `CEC2020_UNAVAILABLE_CELLS = {(1,5),(1,15),(8,5),(8,15)}` are known gaps.
+  Two cell sets are refused by `make_problem`:
+  `CEC2020_PROTOCOL_EXCLUDED_CELLS = {(6,5),(7,5)}` (F6/F7 are specified for
+  D = 10/15/20 only — Yue et al. 2019, TR 201911 §2.1), and
+  `CEC2020_UNAVAILABLE_CELLS`, which is **empty since 2026-07-26** — the former
+  F1/F8 gaps at D=5/D=15 were validated against the in-repo C++ oracle and
+  restored (pinned by `tests/regression/test_cec2020_restored_cells.py`). The
+  committed bank uses **30 runs** per cell.
 
 `RAW_OBJECTIVE_SUITES = {cec2011, cec2013lsgo}` and
 `ERROR_VS_OPTIMUM_SUITES = {cec2013, cec2017, cec2020}` are the authoritative
@@ -227,8 +243,12 @@ layout: per-dimension summary CSVs, `per_run.csv`, `curves/`, `gen_logs/`, plus
 seed/environment/verification provenance files. Present algorithm directories
 today, per suite (verified on disk): the **full 7-optimizer GSK-family panel**
 — `agsk`, `apgsk`, `atmals-gsk`, `egsk`, `fdb-agsk`, `gsk`, **and the proposed
-`dt-gsk`** — for `cec2017`, `cec2011`, and `cec2013`; `cec2020` carries `agsk`
-only and `cec2013lsgo` carries `decc-g`/`mos` (partial context suites). This
+`dt-gsk`** — for **all five CEC suites** (`cec2011`, `cec2013`,
+`cec2013lsgo`, `cec2017`, `cec2020`). External large-scale baselines sit in a
+sibling tree, `_external_baselines/cec2013lsgo/` (`decc-g`, `mos`,
+`shade-ils`); per CR-0019 they are out of paper scope — context only, and
+admissible in no panel, figure, or statistic (see that tree's README for the
+MOS objective-variant caveat). This
 tree is the **single source of truth for all paper data and statistics**.
 
 Rules:
@@ -246,6 +266,44 @@ Rules:
   reproduced run under `results/_run_all/` is only a fallback for cells the
   reference tree does not carry. Use `provenance_report(...)` /
   `availability_matrix(...)` when you need to state where each cell came from.
+
+**Round-1 revision evidence (`_revision/`).** The four reviewer-requested
+experiments — E1 refinement basis, E2 matched population, E3 uniform-vs-tiered,
+E4 parameter sensitivity — are promoted as release
+**`rev-rel-2026-08-26-dd42d37eb`** under
+`benchmarks/cec_reference_results/_revision/`, whose manifest carries 252 files:
+30 `_configs/*.yml`, 221 per-arm result files under
+`<arm>/dt-gsk/cec2017/summary/`, and one `_provenance/` driver log. The analysis
+bundle is `papers/analysis/rev-rel-2026-08-26-dd42d37eb/` (governance: CR-0023,
+D-0047). The release is **additive and non-superseding**: the primary release
+`rel-2026-07-20-67d9345f9` and the ablation release `abl-rel-2026-07-20` are
+used read-only and nothing in either is re-minted. Protocol, binding:
+
+- All four are **CEC2017**, the 29 scored functions (F1, F3–F30), the suite's
+  own protocol budget `10000 * D` (§2), and the **unified Threefry schedule at
+  base seed 20240620** (`seed_policy: unified`) — the same regime as the frozen
+  panel, so every new cell pairs with it at matched `(dim, func, run)`. The
+  unified formula `get_cec_seed(base, dim, func, run)`
+  (`runners/seed_policy.py`) carries no optimizer or cell term, so that pairing
+  is verifiable rather than assumed; every analysis JSON records
+  `"seed_mismatches": 0`.
+- **E1–E3 use 51 runs**, matching the panel. E1 covers D = 50 and D = 100 and
+  mints exactly one new arm (`e1_basis_coordinate`); its other two arms are read
+  from the frozen ablation release. E2 and E3 cover all four CEC2017 dimensions.
+- **E4 uses 15 runs** across 27 one-factor cells at D in {30, 100}. Runs are
+  reduced rather than functions, so every E4 cell still spans the full scored
+  set.
+- **E4 is exploratory and descriptive only.** NEVER compute a hypothesis test or
+  a corrected p-value on it, and never mix it with the supplement's S6 ablation
+  material.
+- Legs stage under `results/_revision/<leg>/` rather than `results/_run_all/`,
+  and are promoted into the read-only tree deliberately. E1 is driven by
+  `scripts/run_e1_basis_contrast.py` rather than a YAML config because it reaches
+  a research hook the shipped config, profile, CLI and adapter surface
+  deliberately does not forward; nothing under `src/` is modified. The
+  pre-registration binding all four is
+  `papers/review_2026_08_24/revision_experiments_preregistration.md` (signed
+  2026-08-25, before any result existed).
 
 ---
 
@@ -294,7 +352,8 @@ Runnability + comparator-data note:
   panel reads these committed CSVs rather than a fresh local run so the numbers
   are fixed and reproducible.
 - **Panel data:** full committed reference panels (all 7 algorithms, the
-  proposed `dt-gsk` included) exist for `cec2017`, `cec2011`, and `cec2013`;
+  proposed `dt-gsk` included) exist for **all five CEC suites** — `cec2017`,
+  `cec2011`, `cec2013`, `cec2013lsgo`, and `cec2020`;
   `gsk-stats` loads them reference-first (§6).
 
 The statistical panel (Friedman ranks, Nemenyi CD, pairwise Wilcoxon + Holm,
@@ -337,7 +396,7 @@ Do not retype long flag lists from memory — use the canonical commands in
 | CEC2011 (F1:22, `--dimension native`, 25 runs) | §"Other Full Sweeps" |
 | CEC2020 / CEC2013 / CEC2013-LSGO sweeps | §"Other Full Sweeps" |
 | CEC2013 family panel (F1:28, dims 10/30/50, 51 runs) | §"CEC2013 Family Panel" |
-| DT-GSK scaffold ablation (`scripts/run_ablation.py`, 7 cells, default 25 runs) | §"DT-GSK Ablation (CEC2017)" |
+| DT-GSK scaffold ablation (`scripts/run_ablation.py`, 7 cells, default 25 runs) | §"DT-GSK Ablation (CEC2017)" |\r\n| Journal revision experiments E1–E4 (`scripts/run_revision_experiments.py`, 4 legs, 32,451 runs) | §"Journal Revision Experiments (one command)" |
 | Config-file launchers (`scripts/run_all_*.py`, `configs/*.yml`) | §"Config Launchers" |
 | Validate / compare against references | §"Results And Validation" |
 | Statistical analysis (`gsk-stats`) and live `--stats` | §"Statistical Analysis" |

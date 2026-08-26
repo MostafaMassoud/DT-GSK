@@ -54,17 +54,35 @@ The variants in this project (AGSK, APGSK, FDB-AGSK, ATMALS-GSK) keep the
 same skeleton but adapt these choices in different ways. DT-GSK
 (Dimension-Tiered Gaining-Sharing Knowledge) is this
 project's own proposed method: it keeps the gaining-sharing scaffold and adds a
-dimension-aware "pub" profile with adaptive control, nonlinear population
-reduction, an interaction-structure memory for high-dimensional problems, and a
-deep-stall full-restart (multi-start) safeguard that re-seeds the working
+dimension-aware "pub" profile with adaptive configuration selection, nonlinear
+population reduction, an interaction-structure memory for high-dimensional
+problems, and a deep-stall full-restart (multi-start) safeguard that re-seeds
+the working
 population when the search freezes while keeping the best-so-far. On CEC2017
 (51 runs, 29 scored functions, F2 excluded) it is the **#1-ranked algorithm in
 the GSK family** — #1 at D10, D50, and D100, and #1 overall by **both mean and
 median** Friedman rank; at D30 it is led only by the strong `egsk` baseline,
-the runner-up overall. That standing is a property of the complete
+the runner-up overall. Two controls added in the round-one revision qualify
+that standing. Those ranks rest in part on DT-GSK's `NP = 5D` population rule:
+re-run at the comparators' `NP = 100` it stays top-two at every dimension but
+first only at D10 — the `NP = 5D` leg wins the paired comparison at D50
+(Holm 0.0064) and D100 (Holm 0.0051), and neither leg separates at D10 or D30.
+And a configuration transplant locates part of the D30 weakness in the tier
+itself: the parameter set DT-GSK resolves at D10 beats the set it ships at D30
+on 20 of 29 functions (Holm 5.5e-3), so the 20 ≤ D < 50 tier is
+**mis-specified** rather than the tiering principle being unsupported — the
+same experiment demonstrates tiering at D10 and D50 against a high-dimension
+transplant. That standing is a property of the complete
 dimension-tiered system, not of any single subsystem — a direct component
 isolation found no detectable standalone benefit from the interaction-structure
-memory at its active tiers (see the Supplementary Materials, Section S6).
+memory at its active tiers, and a three-arm isolation of the refinement basis
+added in revision sharpens that to harm: in the memory's only fitness-affecting
+channel — the basis the deterministic final polish searches along — the learned
+eigenframe is **beaten by the plain coordinate axes** at D50 (Holm 1.4e-4, 25
+of 29 functions) and is not separated from them at D100. The polish itself
+survives, beating no refinement at both active dimensions, so it is claimed
+basis-neutrally and the memory is a specified negative result rather than a
+contribution (see the Supplementary Materials, Sections S6 and S9.1).
 See the per-optimizer guides — [GSK](../algorithms/gsk.md),
 [AGSK](../algorithms/agsk.md), [APGSK](../algorithms/apgsk.md),
 [FDB-AGSK](../algorithms/fdb-agsk.md),

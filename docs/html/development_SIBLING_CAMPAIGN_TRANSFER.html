@@ -177,7 +177,13 @@
 <p><strong>Roughly two-thirds of that campaign does NOT transfer</strong> — wave-splitting, rejection-aware speculative batching, phase-merging, the local-read/global-read dichotomy — because it all exists to drag *member-sequential* optimizers toward gsk&#x27;s shape. <strong>This family is already at that target.</strong> Do not port it; do not let its 10–19× headline numbers set expectations.</p>
 <p>---</p>
 <h2 id="1-applies-ranked-by-expected-value-here">1. ✅ APPLIES — ranked by expected value here</h2>
-<h3 id="1-1-serial-kernel-twins-the-biggest-lever">1.1 Serial-kernel twins — <strong>the biggest lever</strong> ⭐</h3>
+<h3 id="1-1-serial-kernel-twins-the-biggest-lever-avenue-closed-2026-08-01">1.1 Serial-kernel twins — ~~<strong>the biggest lever</strong>~~ <strong>AVENUE CLOSED (2026-08-01)</strong></h3>
+<blockquote><strong>CORRECTION.</strong> This section, and §3.1 of <code>ACCELERATION_CAMPAIGN_PROMPT.md</code>,</blockquote>
+<blockquote>ranked serial-kernel twins as the biggest available lever (3-10x on cec2017,</blockquote>
+<blockquote>1.5x on LSGO). A later direct measurement recorded in</blockquote>
+<blockquote><code>PORT_05_TUNING_TRIAGE.md</code> (Addendum) came back at <strong>0.95x — no gain</strong> — and</blockquote>
+<blockquote>closed the avenue. The projections below were never realised; they are kept</blockquote>
+<blockquote>because the reasoning is the record of how the estimate was formed.</blockquote>
 <ul>
 <li><strong>What:</strong> re-jit each suite kernel&#x27;s *same* <code>py_func</code> with <code>parallel=False</code>; route opted-in</li>
 <p>callers via a thread-local scope. Same math, no numba workqueue launch.</p>
@@ -280,7 +286,7 @@
 <a class="toc-level-1" href="#sibling-campaign-transfer-every-tuning-that-can-make-the-gsk-family-fast">Sibling-Campaign Transfer — every tuning that can make the GSK family fast</a>
 <a class="toc-level-2" href="#0-the-one-fact-that-governs-the-whole-transfer">0. The one fact that governs the whole transfer</a>
 <a class="toc-level-2" href="#1-applies-ranked-by-expected-value-here">1. ✅ APPLIES — ranked by expected value here</a>
-<a class="toc-level-3" href="#1-1-serial-kernel-twins-the-biggest-lever">1.1 Serial-kernel twins — **the biggest lever** ⭐</a>
+<a class="toc-level-3" href="#1-1-serial-kernel-twins-the-biggest-lever-avenue-closed-2026-08-01">1.1 Serial-kernel twins — ~~**the biggest lever**~~ **AVENUE CLOSED (2026-08-01)**</a>
 <a class="toc-level-3" href="#1-2-unrolled-threefry-4x64-20-fill-kernel-landed">1.2 Unrolled Threefry-4x64-20 fill kernel ⭐ — ✅ **LANDED**</a>
 <a class="toc-level-3" href="#1-3-the-gsk-py-micro-set-5-named-r1-edits">1.3 The `gsk.py` micro-set — 5 named R1 edits</a>
 <a class="toc-level-3" href="#1-4-rng-scalar-fast-paths">1.4 RNG scalar fast paths</a>

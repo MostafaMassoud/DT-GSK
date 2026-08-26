@@ -47,19 +47,25 @@ Recommended order: this prompt (deepen), then
 > **authoring spec** when a NEW page (optimizer, suite, or guide) is added,
 > not as a pending whole-repo task.
 
-> **Current project status (2026-07-20)** *(project-phase pointer — the
+> **Current project status (2026-08-26)** *(project-phase pointer — the
 > doc-coverage note above is about this prompt's own coverage; this is about the
-> project the docs describe).* The manuscript is **built** and in **final
-> pre-submission remediation**, not from-scratch construction: the 80-ticket
-> remediation ledger (`papers/governance/remediation_2026_07_18/ticket_status.csv`)
-> stands at **80/80 terminal** and all quality gates are green. **RT-001 is
+> project the docs describe).* The manuscript is **submitted and revised**, not
+> from-scratch construction: it went to *Algorithms* (MDPI) as
+> `algorithms-4507562` on 2026-08-01, came back **major revision**, and the
+> revision is complete — all ten reviewer points answered, four new experiments
+> run, analysed and written up as Supplementary Section S9 (Tables A43-A46). The
+> pre-submission 80-ticket remediation ledger
+> (`papers/governance/remediation_2026_07_18/ticket_status.csv`) closed at
+> **80/80 terminal**. Read `REVISION_STATUS.md` at the repository root before
+> acting on anything in this box or the one above it: the revision retired several
+> DT-GSK claims (see Phase E). **RT-001 is
 > CLOSED — do not re-run it:** the six-comparator re-timing was executed, failed
 > its determinism gate (3,772 differing rows), and was not adopted; the runtime
 > table (`tab:runtime`) was narrowed to **DT-GSK-only, single-session** instead,
 > and no cross-algorithm wall-clock claim is made. The two terminal
 > tickets **C-008** (mint a fresh `main_manuscript_freeze_manifest.json`) →
-> **C-001** (single authoritative commit + manuscript version id) remain pending
-> and run last. Current evidence ids: **primary release `rel-2026-07-20-67d9345f9`**
+> **C-001** (single authoritative commit + manuscript version id) were both
+> **closed and verified on 2026-07-21**; nothing in that ledger is pending. Current evidence ids: **primary release `rel-2026-07-20-67d9345f9`**
 > and **ablation `abl-rel-2026-07-20`** (derived bundle
 > `papers/analysis/rel-2026-07-20-67d9345f9/`); the superseded ids
 > (`rel-2026-07-16-78f075cb0`, `abl-rel-2026-07-16`, and earlier) may appear only
@@ -137,12 +143,15 @@ is superseded.)
   excludes F2:** the run-all path covers functions F1, F3–F30 across
   D=10/30/50/100. State this wherever CEC2017's function coverage is enumerated.
   Keep two counts distinct: *suites present in code* (six, above) versus *suites
-  with committed reference evidence* (**three** — `cec2017`, `cec2013`,
-  `cec2011`, the ones with full 7-optimizer trees under
-  `benchmarks/cec_reference_results/`). `cec2020` is present in code but carries
-  **no** committed reference results; `sphere` is the pure-Python smoke problem.
-  Do not assert a suite count without checking which sense you mean, and do not
-  claim reference evidence for `cec2020` or `sphere`.
+  with committed reference evidence* (**five** — `cec2017`, `cec2013`, `cec2011`,
+  `cec2013lsgo`, and `cec2020`, each with a full 7-optimizer tree under
+  `benchmarks/cec_reference_results/`). The three primary suites are covered by
+  the primary release `rel-2026-07-20-67d9345f9`; `cec2013lsgo` and `cec2020` are
+  separate, non-superseding per-suite releases whose cells carry a
+  `NOT_VERIFIED` verdict with reason `NO_REFERENCE` by design — no external
+  ground-truth bank exists for either suite. `sphere` is the pure-Python smoke
+  problem and carries none. Do not assert a suite count without checking which
+  sense you mean, and do not claim reference evidence for `sphere`.
 - **Statistical-comparison surface:** the `gsk-stats` CLI
   (`src/gsk_family/cli/stats.py`) and the runner `--stats` flag drive
   `src/gsk_family/analysis/` to build the **7-algorithm GSK-family panel** (the
@@ -154,7 +163,8 @@ is superseded.)
   proposed optimizer included — is loaded from the committed read-only tables
   under `benchmarks/cec_reference_results/<suite>/<optimizer>/` (flat layout
   with `per_run.csv`, `curves/`, `gen_logs/`; full 7-optimizer coverage for
-  cec2017, cec2011, and cec2013), and a locally reproduced run under
+  cec2017, cec2011, and cec2013, and for `cec2013lsgo` and `cec2020` without
+  `curves/`), and a locally reproduced run under
   `results/_run_all/<optimizer>/<suite>/summary/` is only a fallback for cells
   the reference tree does not carry
   (`analysis/result_loader.py::load_algorithm`). Default analysis output root is
@@ -213,7 +223,7 @@ is superseded.)
   `docs/html/algorithms_gsk.html`. The left-nav **groups pages by their
   top-level folder**. **Rebuild after every Markdown or docstring edit.**
 
-### 1.2 Scripts inventory (`scripts/` — 19 Python files plus a README; re-check against the directory)
+### 1.2 Scripts inventory (`scripts/` — 21 Python files plus a README; re-check against the directory)
 
 ```
 scripts/
@@ -223,6 +233,7 @@ scripts/
   run_all_cec2013.py   run_all_cec2013lsgo.py
   run_ablation.py            run_overlay_ablation_51.py
   run_campaign.py            retime_comparators.py
+  run_revision_experiments.py  run_e1_basis_contrast.py
   analyze_dt_diagnostics.py plot_convergence_from_curves.py
   validate_egsk_vs_reference.py
   promote_evidence.py        recover_apgsk_perrun.py

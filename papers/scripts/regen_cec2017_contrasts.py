@@ -19,6 +19,7 @@ import sys
 from pathlib import Path
 
 import numpy as np
+from scipy.stats import f as scipy_f
 from scipy.stats import wilcoxon as scipy_wilcoxon
 
 HERE = Path(__file__).resolve().parent
@@ -64,6 +65,23 @@ def per_run_errors(cell: str, dim: int) -> dict[int, list[float]]:
     return out
 
 
+def iman_davenport(chi2: float, n: int, k: int) -> tuple[float | None, float]:
+    """Iman-Davenport F from a Friedman chi2, matching the main-text convention.
+
+    Identical in form to ``phase6_run_analysis.friedman_with_id``'s inner
+    helper (the tool of record for the primary suites).  CR-0023 (journal
+    round-1 major revision, R1.4): the component studies previously reported
+    the classical chi-square approximation while the main text decided on the
+    tie-corrected chi2 + Iman-Davenport F (M-026 / D-0016).  The two are now
+    the same convention.
+    """
+    denom = n * (k - 1) - chi2
+    if denom <= 1e-12:
+        return None, 0.0
+    f = (n - 1) * chi2 / denom
+    return f, float(scipy_f.sf(f, k - 1, (k - 1) * (n - 1)))
+
+
 def a12(a: list[float], b: list[float]) -> float:
     n = len(a) * len(b)
     s = sum((x < y) + 0.5 * (x == y) for x in a for y in b)
@@ -77,6 +95,13 @@ def build(dim: int) -> dict:
     data = {c: [means[c][f] for f in funcs] for c in CELLS}
     fried = friedman_rank(data)
     ranks = fried.avg_ranks
+    # CR-0023 (R1.4): decision statistic aligned to the main text (M-026/D-0016).
+    # A fully-tied panel yields nan; fall back to the uncorrected chi2 rather
+    # than propagating nan into a reported value (phase6_run_analysis parity).
+    _chi2_id = float(fried.statistic_tie_corrected)
+    if not np.isfinite(_chi2_id):
+        _chi2_id = float(fried.statistic)
+    f_id, p_id = iman_davenport(_chi2_id, len(funcs), len(CELLS))
     ordering = sorted(CELLS, key=lambda c: ranks[c])
     disabled = [c for c in CELLS if c != FULL]
     full_vec = np.asarray(data[FULL], float)
@@ -149,7 +174,26 @@ def build(dim: int) -> dict:
             "chi2": float(fried.statistic), "p_value": float(fried.p_value),
             "n_problems": len(funcs), "n_algorithms": len(CELLS),
             "avg_ranks": {c: float(ranks[c]) for c in CELLS},
-            "mean_rank_ordering_best_to_worst": ordering},
+            "mean_rank_ordering_best_to_worst": ordering,
+            # CR-0023 (R1.4): reported omnibus is now the tie-corrected chi2
+            # with the Iman-Davenport F, the same decision statistic the main
+            # text uses for the primary suites. The keys above are retained
+            # unchanged as historical audit companions (D-0016 precedent):
+            # because C <= 1 the correction can only INCREASE the statistic,
+            # so it cannot manufacture a favourable decision.
+            "reported_statistic": "iman_davenport_F_on_tie_corrected_chi2",
+            "convention_note": ("CR-0023 (journal round-1 major revision, R1.4): "
+                                "component studies aligned to the main-text "
+                                "M-026/D-0016 convention."),
+            "chi2_tie_corrected": float(fried.statistic_tie_corrected),
+            "p_value_tie_corrected": float(fried.p_value_tie_corrected),
+            "tie_correction_C": float(fried.tie_correction),
+            "n_tied_problems": int(fried.n_tied_problems),
+            "iman_davenport_F": f_id, "p_iman_davenport": p_id,
+            "iman_davenport_df": [len(CELLS) - 1,
+                                  (len(CELLS) - 1) * (len(funcs) - 1)],
+            "chi2_uncorrected": float(fried.statistic),
+            "p_value_uncorrected": float(fried.p_value)},
         "cell_labels": CELL_LABELS,
         "contrasts": contrasts,
     }
@@ -191,7 +235,13 @@ def main() -> int:
         g = groups.setdefault(f["group"], {"files": 0, "bytes": 0})
         g["files"] += 1; g["bytes"] += f["size_bytes"]
     man["groups"] = groups
-    MAN.write_bytes(json.dumps(man, indent=1, ensure_ascii=False).encode("utf-8"))
+    # CR-0023 (R1.4): match the canonical mint serialization exactly
+    # (LF, indent=2, ensure_ascii=False, trailing newline). The previous
+    # indent=1 / no-trailing-newline form reformatted the whole manifest on
+    # every run -- a ~30 KB whitespace-only diff that obscured the real change
+    # and would have been re-flowed again by the next mint.
+    MAN.write_bytes(
+        (json.dumps(man, indent=2, ensure_ascii=False) + "\n").encode("utf-8"))
     for p in (ANA / f"overlay_contrasts_{SUITE}_D50.json",
               ANA / f"overlay_contrasts_{SUITE}_D100.json"):
         try:

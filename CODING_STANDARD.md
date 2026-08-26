@@ -187,7 +187,7 @@ def _is_vendored_ism(path: Path) -> bool:
     return "analysis" in path.parts and path.name in _VENDORED_ANALYSIS
 ```
 
-Note what is **NOT** exempt and DOES need full docstrings: the ISM adapter
+Note what is **NOT** exempt and DOES need full docstrings: the DT-GSK adapter
 `optimizers/dt_gsk.py`, the profile builder `optimizers/_dt_profiles.py`, the
 RNG layer `optimizers/_dt_rng.py`, and the rest of `analysis/` (e.g.
 `family_report.py`, `result_loader.py`, `figures.py`, `latex_tables.py`,
@@ -214,7 +214,7 @@ the source DT-GSK v2.1 tree. Its core is **reference-locked**:
   `_dt_rng`, and self-initializes its `5*D` (`np_init_mult*D`) population — that
   is the right place for project-specific glue.
 - **What proves the lock (must stay green):**
-  - config KAT — `tests/unit/test_dt_profiles.py` (`build_pub_config` field-for-field vs the source `_build_ism_gsk_config` fixture),
+  - config KAT — `tests/unit/test_dt_profiles.py` (`build_pub_config` field-for-field vs the source `_build_dt_gsk_config` fixture),
   - RNG KAT — `tests/unit/test_dt_rng.py` (13-substream layer),
   - byte-stable regression — `tests/regression/test_dt_gsk_byte_stable.py`
     (golden `best_fitness` values validated byte-identical at `seed=12345`,
@@ -224,6 +224,17 @@ the source DT-GSK v2.1 tree. Its core is **reference-locked**:
   `pub`-profile config will fail these. If one breaks, do not "update the
   golden" to make it pass — investigate, because the lock just caught a parity
   regression.
+- **Four modules are additionally hash-gated by the manuscript.**
+  `papers/scripts/validate_provenance_claims.py` hashes `dt_gsk.py`,
+  `_dt_core.py`, `_dt_profiles.py` and `_dt_rng.py` (its `SHIPPED` list) and
+  requires each module's **current** SHA-256 prefix to be printed in the frozen
+  `.tex` sources — all four are published in `papers/supplementary.tex`. So
+  **any** byte change moves the hash and fails the gate: a comment, a docstring,
+  a reflow, a line-ending flip. Note that this covers `dt_gsk.py`,
+  `_dt_profiles.py` and `_dt_rng.py` — the adapter, the profile builder and the
+  RNG layer that *Where adaptation belongs* above sends you to. Adapting
+  `dt-gsk` there is still correct, but it is a governed change that has to be
+  paired with a re-mint of the printed hashes — never a drive-by edit.
 - These determinism/lock rules intersect with thread pinning at D>=50/100; that
   side belongs to [PERFORMANCE_RULES.md](PERFORMANCE_RULES.md). The immutability
   policy belongs to [PROJECT_RULES.md](PROJECT_RULES.md).
@@ -260,6 +271,17 @@ they are deliberately mirrored so they can be diffed against a reference project
   `PASS  GSK`, the `DETAILED CONFIGURATION` block) — these are asserted by
   `tests/smoke/test_documentation_commands.py`. Changing whitespace or wording
   silently breaks the smoke gate and reference diffability.
+- **One console line is a known defect, not a format to preserve.** The
+  per-dimension table header prints `Pop=100` for every `dt-gsk` leg at every
+  dimension: `_optimizer_options_line` in `runners/run_experiment.py` falls
+  through to `options.get('np', 100)` (line 725; line 714 is the `gsk` branch,
+  where `np` is the real knob). `dt-gsk` has no `np` — it takes `pop_size` via
+  `options.values` and otherwise self-initializes `np_init_mult * dim`, the
+  documented fair-start exception ([DESIGN_GUIDE.md](DESIGN_GUIDE.md) §5.2). No
+  test asserts any `Pop=` string, so correcting it is safe; it was deferred only
+  to keep console output stable while a campaign was in flight. It is **not** at
+  `_optimizer_population_size` (line 345), which sizes the runner's fair-start
+  payload that `dt-gsk` never consumes.
 - **NEVER** change the result byte formats in `runners/output.py`
   (`per_run.csv` `%.10e`; convergence `%.16e` + `log10` column;
   `environment.json` key order). That schema is governed by
@@ -302,7 +324,7 @@ deterministic given a seed.
 
 ## 8. Tests
 
-Tests live under `tests/` in tiers; the suite currently collects 324 tests.
+Tests live under `tests/` in tiers; the suite currently collects 603 tests.
 Re-check the live count with `python -m pytest --collect-only -q` rather than
 hard-coding a number.
 
@@ -310,7 +332,7 @@ hard-coding a number.
 | --- | --- | --- |
 | Unit | `tests/unit/` | RNG known-answer tests (`test_rng.py`, `test_dt_rng.py`), config/profile KATs (`test_dt_profiles.py`), statistical primitives, docstring gate (`test_docstrings.py`), figures, loaders, helpers |
 | Smoke | `tests/smoke/` | per-optimizer smoke runs, CLI smoke, the documentation-command smoke (`test_documentation_commands.py`), stats CLI / `--stats` flag |
-| Regression | `tests/regression/` | the validation ladder and the dt-gsk byte-stable golden (`test_dt_gsk_byte_stable.py`) |
+| Regression | `tests/regression/` | the validation ladder, the dt-gsk byte-stable golden (`test_dt_gsk_byte_stable.py`), the 7x6 family golden-values matrix (`test_family_golden_values.py`), the claim- and governance-binding checks (ACE-equation conformance, polish/incumbent consistency, dormant-mechanism unreachability), interaction-graph backend parity, and runner resume/pool, budget-crossing and statistics regressions |
 | Performance | `tests/performance/` | optional parallel/scalability checks (the `slow` marker) |
 | Imports | `tests/test_imports.py` | package import surface |
 
@@ -377,7 +399,7 @@ Documentation is gated like code by
 - **Co-author trailer.** When you do commit, end the message with the trailer:
 
   ```text
-  Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+  Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
   ```
 
 - **Atomic, in-place changes.** Keep a commit scoped to one coherent change;
@@ -396,13 +418,17 @@ Before you call an edit done, confirm:
 1. `python -m ruff check src tests scripts` is clean.
 2. The relevant `python -m pytest` tier passes (docstring gate included for any
    new function/class/module).
-3. You did **not** edit a vendored byte-identity-locked file for behavior (§5);
-   the dt-gsk KATs/regression still pass if you were near that area.
+3. You did **not** edit a vendored byte-identity-locked file for behavior (§5),
+   and you did not silently touch `dt_gsk.py`, `_dt_core.py`, `_dt_profiles.py`,
+   or `_dt_rng.py` — even a comment changes their sha256 and fails
+   `papers/scripts/validate_provenance_claims.py` until the manuscript reprints
+   the hash. The dt-gsk KATs/regression still pass if you were near that area.
 4. New package-code diagnostics go through `logging` / the runner console helper,
    not bare `print` (§6); documented console/byte formats are unchanged.
 5. No unseeded randomness or wall-clock leaked into a numeric/result path (§7).
 6. New docs are in the required-doc list, `docs/html/` is regenerated and links
-   resolve, and everything is UTF-8 clean (§9).
+   resolve, everything is UTF-8 clean, and each file kept its own line endings
+   (§9).
 7. You commit only if asked, with the `Co-Authored-By` trailer (§10).
 
 ---

@@ -193,7 +193,7 @@ python run.py --root . --optimizer gsk,agsk,apgsk,fdb-agsk,atmals-gsk,egsk,dt-gs
 python run.py --root . --optimizer gsk,agsk,apgsk,fdb-agsk,atmals-gsk,egsk,dt-gsk --suite cec2013 --function 1:28 --dimension 10,30,50 --runs 51 --parallel --workers 15 --convergence-graphs --overwrite
 
 # --- 2. DT-GSK scaffold ablation: CEC2017, all dimensions ---
-python scripts/run_ablation.py --dimension 10,30,50,100 --runs 25 --workers 15
+python scripts/run_ablation.py --dimension 10,30,50,100 --runs 51 --workers 15
 
 # --- 3. Statistical panels (per suite) ---
 python -m gsk_family.cli.stats --suite CEC2017 --dims 10,30,50,100

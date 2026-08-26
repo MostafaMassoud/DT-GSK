@@ -12,6 +12,15 @@ benchmarks/cec_suite_cpp/build/
 dist/
 *.egg-info/
 !results/
+# Smoke-rehearsal output of scripts/run_revision_experiments.py --smoke.
+# Truncated budget, tiny function set: it is NOT evidence and must never be
+# promoted or committed. Campaign output under results/_revision/ IS tracked.
+results/_revision_smoke/
+# Revision-campaign staging curves: one representative convergence CSV per
+# (function, dimension), deterministic-regenerable from recorded seeds (same
+# rationale as DTTrace_*.jsonl). The promoted release under
+# benchmarks/cec_reference_results/_revision/ excludes them by manifest.
+results/_revision/*/dt-gsk/cec2017/curves/
 # Raw DT-GSK per-generation diagnostics traces: deterministic-regenerable bulk
 # (seeds recorded in run_config/seed_schedule; single files can exceed GitHub's
 # 100 MB limit). The derived diagnostics_analysis CSVs stay tracked.
@@ -29,6 +38,35 @@ papers/*.log
 # Reference-paper PDFs are copyrighted acquisition targets, not committed evidence
 # (the reference_papers/README.md index + references.bib are tracked; PDFs are not).
 reference_papers/*.pdf
+# ...and recursively. The line above is a SINGLE-LEVEL glob: it cannot cross a
+# '/', so it never matched reference_papers/Academic_Research_Guidelines/ and
+# seven copyrighted PDFs (38.8 MiB) reached the public remote, where they stayed
+# from 2026-08-07 until they were removed (D-0049).
+reference_papers/**/*.pdf
+
+# --- Withheld from the repository entirely (D-0049) --------------------------
+# Confidential peer review. Both round-one reviewers declined to sign;
+# republishing their reports is the journal's act at acceptance, in the
+# journal's own form, not the authors' act mid-revision. The response letter is
+# withheld with them because it reproduces both reports verbatim. All three stay
+# on disk for the authors and are retained in git only on the never-pushed
+# branch archive/revision-pass-39-full.
+papers/review_2026_08_24/reviewer1_report.pdf
+papers/review_2026_08_24/reviewer_reports_verbatim.md
+papers/review_2026_08_24/response_to_reviewers.md
+# NOT ignored, deliberately: revision_experiments_preregistration.md. It is the
+# authors' own document, quotes no reviewer, and is what the Supplementary
+# Materials' pre-registration claim depends on being checkable.
+
+# Co-author material supplied privately, including two biographies marked in the
+# file itself as awaiting their subjects' approval.
+papers/submission/AUTHOR_DATA_HANDOFF.md
+
+# Revision-campaign staging output: a superset of the promoted, manifest-hashed
+# release at benchmarks/cec_reference_results/_revision/ (which IS tracked and
+# published in full), plus console logs and a driver log.
+results/_revision/
+# -----------------------------------------------------------------------------
 
 # build lock-workaround temp (build_pdf.py writes this when DT-GSK.pdf is open)
 papers/DT-GSK.new.pdf

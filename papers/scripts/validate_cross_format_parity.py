@@ -752,6 +752,16 @@ def check_generated_table(doc_id: str, tid: str, docx_cells: list[list[str]],
             tok = canon_times(detex(_fold_times(cell)).replace("−", "-").strip())
             if not tok:
                 continue
+            # A display cell that reproduces a semantic value of its own row
+            # VERBATIM is derivable outright, whatever punctuation it carries
+            # internally. This is STRICTER than the per-number check below --
+            # exact equality rather than a display-rounded match -- so it can
+            # admit nothing the decomposition would have rejected on content.
+            # It is what accepts composite count cells such as a win/tie/loss
+            # triple "22/2/5", whose '/' separators the numeric decomposition
+            # would otherwise leave behind and read as residual text.
+            if norm_label(tok) in {norm_label(v) for v in jr[1:] if norm_label(v)}:
+                continue
             # a display cell may combine several numerics (e.g. mean ± SD)
             nums = re.findall(r"-?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?",
                               tok.replace(",", ""))

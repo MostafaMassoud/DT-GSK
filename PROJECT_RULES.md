@@ -81,15 +81,29 @@ when cleanup is in scope.
 reset the working directory between calls; always use absolute paths or `cd`
 into the root first.
 
-2.6 **Root-file discipline.** The project root holds a fixed inventory of eleven
-Markdown documents: the three operating files —
+2.6 **Root-file discipline.** The project root holds a fixed inventory of thirteen
+Markdown documents: the session entry point [CLAUDE.md](CLAUDE.md), the current-state
+record [REVISION_STATUS.md](REVISION_STATUS.md), the three operating files —
 [README.md](README.md), [SKILL.md](SKILL.md), [runbook.md](runbook.md) — the
 newcomer orientation map [REPO_MAP.md](REPO_MAP.md), the six governance files
 listed in §10, and the release report
 [FINAL_RELEASE_REPORT.md](FINAL_RELEASE_REPORT.md). These are the only root
 Markdown files. Do not add ad-hoc root guides or collapse existing ones without
 an explicit request. Note the documentation smoke gate (§8) asserts a fixed
-required-doc list; adding/moving a governed doc means updating that list too.
+required-doc list, but among root Markdown files that list names only
+[README.md](README.md) and [SKILL.md](SKILL.md); the other eleven — this file
+included — are governed by this section alone. No root document has an HTML
+twin, so the link gate never reaches them either. Adding, moving, or renaming a
+root document therefore means updating both inventories in
+[SKILL.md](SKILL.md) (§3.1 and §15) and the tree in [README.md](README.md) by
+hand; no gate will catch it for you.
+
+CLAUDE.md and REVISION_STATUS.md were added 2026-08-25 at the author's explicit
+request, to give a resuming session a cheap entry point during the journal
+revision. CLAUDE.md is a pointer file and must stay short; REVISION_STATUS.md is
+the single place current state is recorded, so status must not be duplicated into
+the other eleven. Resist growth: a new root guide is almost always a section in an
+existing file.
 
 ---
 
@@ -187,7 +201,18 @@ self-initializes a `5*D` (`np_init_mult*D`) population and therefore ignores any
 injected fair-start `X0`/`initial_population`, while still using the unified
 seed. This is a deliberate, documented exception — see
 `src/gsk_family/optimizers/dt_gsk.py` and `docs/algorithms/dt-gsk.md`. Do not
-"fix" it to consume the runner's injected population.
+"fix" it to consume the runner's injected population. `NP = 5D` is also a
+**declared component of the method**, not merely a default: the round-one
+journal review challenged the asymmetry against the comparators' `NP = 100`
+(R1.3/R2.2), and the matched-population experiment answered it — `dt-gsk` at
+`NP = 100` is first at `D = 10` and second at `D = 30`, `50` and `100`, with
+the paired difference null at `D = 10` and `D = 30` and significant at
+`D = 50` and `D = 100`. The published `D = 50` and `D = 100` rank claims are
+therefore qualified as resting in part on the population rule. Changing
+`np_init_mult` changes what the paper claims; the experiment, its evidence
+release and the decision that closed it are owned by
+[REVISION_STATUS.md](REVISION_STATUS.md) and
+`papers/governance/decision_log.md` (D-0048).
 
 4.6 **Thread pinning preserves determinism at scale.** `dt-gsk` at `D>=50`
 (SGSM / `prange`) and `D>=100` (TERRA controllers) requires single-thread
@@ -210,12 +235,12 @@ evidence over intuition; defer the why to [PERFORMANCE_RULES.md](PERFORMANCE_RUL
 from the source DT-GSK v2.1 tree. Its core is **VENDORED and
 BYTE-IDENTITY-LOCKED**.
 
-5.2 **The locked surface (do NOT edit for behavior):**
+5.2 **The locked surface (do NOT edit — the lock is on the bytes, not on behavior):**
 
 | Locked module / package | Path |
 | --- | --- |
-| ISM core (~4983 lines) | `src/gsk_family/optimizers/_dt_core.py` |
-| ISM subsystems package | `src/gsk_family/optimizers/_dt_subsystems/` |
+| DT-GSK core (5186 lines) | `src/gsk_family/optimizers/_dt_core.py` |
+| DT-GSK subsystems package | `src/gsk_family/optimizers/_dt_subsystems/` |
 | — bound constraint | `_dt_subsystems/bound_constraint.py` |
 | — budget / budget policy | `_dt_subsystems/budget.py`, `budget_policy.py` |
 | — basin memory | `_dt_subsystems/basin_memory.py` |
@@ -231,9 +256,15 @@ the profiles/RNG/adapter only with the same byte-identity caution.
 
 5.3 **Rules for the locked core:**
 
-- **NEVER** edit `_dt_core.py` or anything under `_dt_subsystems/` to change
-  behavior. No "casual" refactors, no renames, no reformatting that perturbs
-  output, no "improvements".
+- **NEVER** edit `_dt_core.py` or anything under `_dt_subsystems/`. For
+  `_dt_core.py` the lock is on the BYTES, not on behavior: it is one of the four
+  `SHIPPED` modules that `papers/scripts/validate_provenance_claims.py` SHA-256s,
+  and that gate requires the manuscript to print each module's *live* hash — so a
+  comment or whitespace edit that changes nothing at runtime still fails the gate
+  and falsifies a value the manuscript prints. `_dt_subsystems/` is not covered by
+  that hash gate, but a byte change there is still an explicitly-requested,
+  change-registered action (next bullet). No "casual" refactors, no renames, no
+  reformatting, no "improvements".
 - Any permitted change (e.g. a re-verified migration step under
   `docs/development/dt_gsk_core_reference.md`) MUST keep every byte-identity gate
   green (§8.5) and MUST be explicitly requested.

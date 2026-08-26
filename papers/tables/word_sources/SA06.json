@@ -1,0 +1,71 @@
+{
+ "table_id": "SA06",
+ "manuscript_label": "Table A44",
+ "caption_stub": "DT-GSK at the comparators' population value (E2, reviewer points R1.3/R2.2): the panel re-ranked with only the DT-GSK column substituted.",
+ "headers": [
+  [
+   "D",
+   "Rank NP=5D",
+   "Rank NP=100",
+   "Ordinal 5D",
+   "Ordinal 100",
+   "Holm p",
+   "Sig.",
+   "W/T/L",
+   "A12"
+  ]
+ ],
+ "rows": [
+  [
+   "10",
+   "2.879",
+   "2.724",
+   "1",
+   "1",
+   "0.517",
+   "no",
+   "10/4/15",
+   "0.495"
+  ],
+  [
+   "30",
+   "2.500",
+   "2.707",
+   "2",
+   "2",
+   "0.517",
+   "no",
+   "16/4/9",
+   "0.504"
+  ],
+  [
+   "50",
+   "2.207",
+   "2.621",
+   "1",
+   "2",
+   "0.0064",
+   "yes",
+   "23/0/6",
+   "0.527"
+  ],
+  [
+   "100",
+   "2.345",
+   "3.069",
+   "1",
+   "2",
+   "0.0051",
+   "yes",
+   "23/0/6",
+   "0.566"
+  ]
+ ],
+ "notes": [
+  "Holm corrected across the four dimensions",
+  "reported as an ablation of a declared method component, not a corrected baseline",
+  "machine-transcribed from papers/analysis/rev-rel-2026-08-26-dd42d37eb/e2_np100.json"
+ ],
+ "number_format": "as-is",
+ "source": "papers/analysis/rev-rel-2026-08-26-dd42d37eb/"
+}

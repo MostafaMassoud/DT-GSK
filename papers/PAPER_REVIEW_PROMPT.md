@@ -1618,9 +1618,12 @@ not rediscovery of resolved objections.
 ### 1.5.1 Populated review variables (current baseline)
 
 ```text
-PROJECT_TITLE:            DT-GSK: Dimension-Tiered Adaptive Control and Deterministic
-                          Refinement for Gaining-Sharing Knowledge Optimization
-                          (retitled 2026-07-18 — §1.5.0-B(a))
+PROJECT_TITLE:            DT-GSK: Dimension-Tiered Adaptive Configuration Selection
+                          and Deterministic Refinement for Gaining-Sharing Knowledge
+                          Optimization
+                          (retitled 2026-07-18 — §1.5.0-B(a); again 2026-08-25 per
+                          reviewer 1, journal round 1 — CR-0023 / D-0047. Historical
+                          narration elsewhere in this file keeps the old title.)
 TARGET_JOURNAL:          MDPI Algorithms
 TARGET_ARTICLE_TYPE:     Article
 TARGET_QUARTILE_STATUS:  Q2 (WoS CS Theory & Methods, IF 2.6); Scopus CiteScore

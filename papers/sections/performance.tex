@@ -9,7 +9,11 @@
 On CEC2017 \dtgsk{} attains the best overall Friedman
 mean rank in the seven-algorithm panel, placing first at three of four
 dimensions and second at $D = 30$; on CEC2011 it is likewise second, with
-a Holm-significant loss to \egsk{}. The CEC2020 and CEC2013LSGO legs,
+a Holm-significant loss to \egsk{}. That aggregate rank is a descriptive
+summary, not evidence of overall superiority: on CEC2017 the Holm-corrected
+pairwise tests separate \dtgsk{} from \egsk{} only at $D = 10$, and the two
+are never Nemenyi-separable at any dimension of that suite
+(Section~\ref{sec:exp:cec2017}). The CEC2020 and CEC2013LSGO legs,
 added under a registered analysis-plan addendum, are reported in
 Sections~\ref{sec:exp:cec2020} and~\ref{sec:exp:cec2013lsgo} at their
 registered evidential tiers, and the five-suite synthesis is confined to
@@ -1073,7 +1077,10 @@ Section~\ref{sec:alg:complexity}, so cost is reported both analytically and in
 wall-clock terms. The isolated compute cost of
 the interaction-structure memory is quantified in the Supplementary Materials
 (Section~S6.5; the measurement provenance for those figures is recorded in
-Section~S6.7). On the other suites \dtgsk{}'s mean per-run time is
+Section~S6.7), and it is not small: enabling the memory costs $+57.3\%$
+wall-clock on CEC2017 at $D = 50$, $+36.3\%$ at $D = 100$, and $+30.3\%$ on
+CEC2013 at $D = 50$, against no detectable standalone accuracy return at the
+tiers where it is active. On the other suites \dtgsk{}'s mean per-run time is
 4.45--34.26~s across CEC2013 $D \in \{10, 30, 50\}$ and 80.64~s on CEC2011
 (native dimensions). No comparator wall-clock is reported anywhere in this
 paper: comparator timings were collected in a separate measurement session, so
@@ -1121,8 +1128,13 @@ alone, so the advantage may rest on classical direct search rather than on
 anything learned during the run. Second, \dtgsk{} begins from
 $NP = 5D$ against the comparators' $NP = 100$ --- a five-fold difference
 at $D = 100$. The comparators' value is the family's
-reference-implementation setting, and the asymmetry was not a controlled
-variable. Third, CEC2017 is
+reference-implementation setting. The asymmetry was not a controlled variable
+at submission; it was controlled in revision (Supplementary Materials,
+Section~S9.2), and \dtgsk{} stays within the top two of the panel at every
+dimension at the common value, though its $D = 50$ and $D = 100$ first places
+are not reproduced there.
+% BIND: E2 (rev-rel-2026-08-26-dd42d37eb); rank-claim qualification
+Third, CEC2017 is
 development-exposed; CEC2011 and CEC2013 corroborate, but neither is
 independent of configuration selection --- the single configuration was fixed on
 CEC2017 without consulting either suite, so they were not used for selection yet
@@ -1177,7 +1189,10 @@ This reading associates the upper-tier behavior with the bundled
 tier configuration rather than with any isolated component. A direct
 isolation of the interaction-structure memory (Supplementary Materials
 Section~S6.5) finds no significant standalone benefit at its active
-tiers, at a tier-dependent compute overhead; per-component attribution to
+tiers, at a tier-dependent compute overhead; the basis isolation added in
+revision (Supplementary Materials Section~S9.1) finds the
+memory's learned eigenframe outperformed by the coordinate axes in the polish
+at $D = 50$. Per-component attribution to
 the memory is therefore not claimed here (Section~\ref{sec:conclusions}).
 Conversely, at $D \leq 30$ \dtgsk{} runs essentially the
 adaptive scaffold, so low-dimension behavior --- including the

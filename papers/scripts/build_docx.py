@@ -107,14 +107,14 @@ DOC_SPECS = {
         "bbl": ROOT / "main.bbl",
         "table_prefix": "",     # SEQ Table cached values are plain integers
         "figure_prefix": "",
-        "title": "DT-GSK: Dimension-Tiered Adaptive Control and Deterministic Refinement "
-                 "for Gaining-Sharing Knowledge Optimization",
+        "title": "DT-GSK: Dimension-Tiered Adaptive Configuration Selection and Deterministic "
+                 "Refinement for Gaining-Sharing Knowledge Optimization",
         "authors": "Mostafa Elsayed Masoud; Heba Sayed Mohamed Roshdy; "
                    "Ali Wagdy Mohamed",
-        "subject": "Dimension-tiered adaptive control and deterministic refinement for "
+        "subject": "Dimension-tiered adaptive configuration selection and deterministic refinement for "
                    "Gaining-Sharing Knowledge (DT-GSK) optimization",
         "keywords": "metaheuristic optimization; gaining-sharing knowledge; "
-                    "dimension-tiered adaptive control; deterministic final refinement; adaptive operator selection; interaction-structure memory; "
+                    "dimension-tiered adaptive configuration selection; deterministic final refinement; adaptive operator selection; "
                     "population-size reduction; "
                     "CEC benchmark suites; nonparametric statistical comparison; "
                     "reproducibility",
@@ -127,14 +127,14 @@ DOC_SPECS = {
         "bbl": ROOT / "supplementary.bbl",
         "table_prefix": "A",    # supplement exhibits: Tables A1.., Figures B1..
         "figure_prefix": "B",
-        "title": "Supplementary Material for: DT-GSK: Dimension-Tiered Adaptive Control "
-                 "and Deterministic Refinement for Gaining-Sharing Knowledge Optimization",
+        "title": "Supplementary Material for: DT-GSK: Dimension-Tiered Adaptive Configuration "
+                 "Selection and Deterministic Refinement for Gaining-Sharing Knowledge Optimization",
         "authors": "Mostafa Elsayed Masoud; Heba Sayed Mohamed Roshdy; "
                    "Ali Wagdy Mohamed",
-        "subject": "Supplementary Material: dimension-tiered adaptive control and "
+        "subject": "Supplementary Material: dimension-tiered adaptive configuration selection and "
                    "deterministic refinement for Gaining-Sharing Knowledge (DT-GSK) optimization",
         "keywords": "metaheuristic optimization; gaining-sharing knowledge; "
-                    "dimension-tiered adaptive control; deterministic final refinement; adaptive operator selection; interaction-structure memory; "
+                    "dimension-tiered adaptive configuration selection; deterministic final refinement; adaptive operator selection; "
                     "population-size reduction; "
                     "CEC benchmark suites; nonparametric statistical comparison; "
                     "reproducibility",

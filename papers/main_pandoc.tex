@@ -28,7 +28,7 @@
 \newcommand{\reftitle}[1]{}
 \newcommand{\externalbibliography}[1]{}
 
-\title{DT-GSK: Dimension-Tiered Adaptive Control and Deterministic Refinement for Gaining-Sharing Knowledge Optimization}
+\title{DT-GSK: Dimension-Tiered Adaptive Configuration Selection and Deterministic Refinement for Gaining-Sharing Knowledge Optimization}
 \author{Mostafa Elsayed Masoud @@SUP!1,*@@, Heba Sayed Mohamed Roshdy @@SUP!1@@ and Ali Wagdy Mohamed @@SUP!1@@}
 \date{}
 
@@ -50,19 +50,19 @@ moustafa.masoud@gmail.com (M.E.M.\ ORCID 0009-0003-8415-2158); hmhmdss@yahoo.com
 
 \begin{abstract}
 Published gaining-sharing knowledge (GSK) variants adapt scalar control and
-donor/selection policy at one operating point. Dimension-Tiered
-Gaining-Sharing Knowledge (DT-GSK) instead resolves control by
+donor/selection policy to a single operating point. Dimension-Tiered
+GSK (DT-GSK) resolves control by
 dimension: an adaptive scaffold serves every tier, a deterministic,
-budget-exact eigenframe refinement runs once from $D = 50$ upward, and the
-GSK vector-update equations are retained; an exploratory
-interaction-structure memory, learned from strictly improving accepted
-moves at no extra evaluations, supplies the refinement basis.
-Against six GSK-family baselines re-executed in-repository on CEC2017
-(primary), CEC2011, CEC2013, CEC2020, and CEC2013LSGO under one
+budget-exact final refinement runs once at $D \geq 50$, with the
+GSK vector-update equations retained; an exploratory
+interaction-structure memory, learned from accepted
+moves, supplies its basis.
+Against six GSK-family baselines re-executed on five CEC suites under one
 budget-fair paired protocol, DT-GSK attains the best descriptive
-family-rank aggregate on CEC2017 (2.48) and CEC2013 (2.80); it is second
-behind eGSK at CEC2017's $D = 30$ and on CEC2011; the CEC2011 loss is
-Holm-significant. % BIND: AN-RANKAGG-2017-OVERALL (friedman_ranks_cec2017_overall.csv; RS-01 NARROWED); AN-RANKAGG-2013-OVERALL (friedman_ranks_cec2013_overall.csv); AN-OMNI-2011-NATIVE (friedman_ranks_cec2011.csv)
+family-rank aggregate on CEC2017 (2.48) and CEC2013 (2.80), though the
+Holm-corrected tests separate it from eGSK only at CEC2017's $D = 10$; it
+is second behind eGSK at $D = 30$ and on CEC2011 (a Holm-significant
+loss). % BIND: AN-RANKAGG-2017-OVERALL (friedman_ranks_cec2017_overall.csv; RS-01 NARROWED); AN-RANKAGG-2013-OVERALL (friedman_ranks_cec2013_overall.csv); AN-OMNI-2011-NATIVE (friedman_ranks_cec2011.csv)
 On AGSK's strongest suite---the CEC2020 competition in which it was the
 runner-up---DT-GSK places fourth; the family panel corroborates AGSK's
 published strength in this regime, consistent with the tiering thesis:
@@ -74,19 +74,18 @@ AGSK. % BIND: RS-13 (registered ceiling wording; friedman_ranks_cec2013lsgo_nati
 Suite roles: CEC2017 selection-exposed; CEC2011 and CEC2013
 corroborative; CEC2020 pre-registered confirmatory; CEC2013LSGO
 post-hoc. % BIND: LM-01; RS-10; RS-12; RS-13; negative_findings.md items 2, 4
-A direct isolation finds no detectable standalone benefit from that
-memory---a controlled negative
-result. % BIND: X-ABL-02 (S6.5 isolation null) + Path-1 subset (S6.5); honest-framing pass
+Direct isolations find no standalone benefit from that memory; its
+basis is outperformed by coordinate axes---controlled negative
+results. % BIND: X-ABL-02 (S6.5 isolation null) + E1 basis isolation (S9.1, rev-rel-2026-08-26-dd42d37eb); honest-framing pass
 All findings are scoped to the GSK-family panel.
 \end{abstract}
 
 \noindent\textbf{Keywords:} metaheuristic optimization;
 gaining-sharing knowledge;
-dimension-tiered adaptive control;
+dimension-tiered adaptive configuration selection;
 deterministic final refinement;
 adaptive operator selection;
 population-size reduction;
-interaction-structure memory;
 CEC benchmark suites;
 nonparametric statistical comparison;
 reproducibility
@@ -106,7 +105,7 @@ statistically tested analysis of the algorithm families that already
 exist~@@CITE!hussain2019metaheuristic,del2019bio@@.
 This paper follows that prescription. It stays inside one family --- the
 gaining-sharing knowledge (GSK) algorithm and its published descendants ---
-and asks a single design question. Published GSK variants adapt control at one
+and asks a single design question. Published GSK variants adapt control to a single
 operating point. Can control instead be resolved by \emph{dimension}, through
 an adaptive scaffold that reconfigures per tier and is closed by a
 deterministic, budget-exact refinement? And does that yield a measurable,
@@ -143,7 +142,7 @@ additions, meets a hard-capped budget-safe escape and a restart
 that can never lose the global best. Late refinement that depends on a
 gradient-based solver or on randomized local search gives way to a
 deterministic, one-shot final polish --- the deterministic refinement of
-the title, realized as the eigenframe final polish (C1). And the weakness that no
+the title, realized as the deterministic final polish (C1). And the weakness that no
 descendant addresses --- recombination that treats every coordinate
 independently of the run's own improvement history --- is targeted by the
 interaction-structure memory (ISM), which this paper evaluates as an
@@ -164,7 +163,7 @@ a signal, once recovered, improves the optimizer is a hypothesis this paper
 tests; under the design reported here, and for GSK at these dimensions, it
 finds no detectable improvement. This paper proposes
 Dimension-Tiered Gaining-Sharing Knowledge (\dtgsk{}),
-which layers an adaptive control-and-budget scaffold and a deterministic final polish on the gaining-sharing vector-update operator, leaving that core unchanged, and is assessed through a controlled family evaluation; an interaction-structure memory feeds the polish basis and block crossover as a supporting mechanism. 
+which layers an adaptive configuration-and-budget scaffold and a deterministic final polish on the gaining-sharing vector-update operator, leaving that core unchanged, and is assessed through a controlled family evaluation; an interaction-structure memory feeds the polish basis and block crossover as a supporting mechanism. 
 Section~@@REF!sec:related@@ bounds this gap against structure-learning
 approaches outside the family. The empirical question the paper answers
 is deliberately bounded as well: within the seven-algorithm GSK-family
@@ -175,22 +174,25 @@ tiers?
 The contributions are:
 
 \begin{itemize}[leftmargin=*,labelsep=4.9mm]
-\item \textbf{C1 --- an eigenframe final polish.} A one-shot, RNG-free
+\item \textbf{C1 --- a deterministic final polish.} A one-shot, RNG-free
   deterministic compass search executed on the eigenbasis of the ISM
   signed interaction matrix in the final budget slice (coordinate axes
   when the graph carries no signal). Every probe is charged through
   the strict budget-accounting path; the substreams driving the rest of
   the run are byte-identical whether the polish fires or not (its own
   probes still consume budget and can change the final incumbent); and
-  no convergence guarantee is claimed. The component isolation removes the
-  \emph{entire} compass endgame, so any effect it measures attaches to that
-  deterministic phase as a whole, not to the \emph{learned} eigenbasis it consumes;
-  whether that eigenbasis outperforms
-  coordinate axes or a matched random orthonormal basis is not isolated by
-  that contrast and remains
-  open. 
+  no convergence guarantee is claimed. The contribution is the deterministic
+  endgame itself, not the basis it searches along: a direct three-arm isolation
+  at fixed enablement (Supplementary Materials
+  Section~S9.1) shows the endgame beating no refinement at
+  both active dimensions, while the \emph{learned} eigenbasis is beaten by the
+  plain coordinate axes at $D = 50$ ($p_{\mathrm{Holm}} = 1.4\times10^{-4}$)
+  and not separated from them at $D = 100$. C1 is therefore claimed
+  basis-neutrally, and the eigenbasis is retained as a specified, reproducible
+  negative result rather than as a source of the
+  benefit. 
 \item \textbf{C2 --- a dimension-tiered adaptive scaffold.} The
-  Adaptive Control Engine (ACE), an exponential-moving-average
+  Adaptive Configuration Engine (ACE), an exponential-moving-average
   credit-based adaptive selector over a pool of complete operator settings, with
   Acceptance-Rate Gated Pruning (ARGP) of unproductive arms; a
   tier-floored Nonlinear Population-Size Reduction (NLPSR) schedule
@@ -227,7 +229,7 @@ The contributions are:
   in origin, subject to those disclosed exceptions. 
 \end{itemize}
 
-The interaction-structure memory is an online, decaying, evidence-gated coordinate-pair graph learned from strictly improving accepted moves without additional objective evaluations. It provides candidate linkage blocks for blockwise crossover and a candidate eigenbasis for the eigenframe final polish (C1). However, the present component isolation does not establish a consistent standalone performance contribution from ISM at the dimensions where it is active, and the function-class analysis reveals no systematic advantage on the hybrid or composition categories (Supplementary Materials, Sections~S6.5 and S6.6). ISM is therefore positioned as a secondary exploratory mechanism rather than as the primary source of \dtgsk{}'s performance standing. Its inclusion provides a fully specified and reproducible investigation of structure learning from strictly improving accepted moves, while the paper's principal contributions remain the dimension-tiered adaptive scaffold (C2), the eigenframe final polish (C1), and the controlled, budget-fair family evaluation (C3).
+The interaction-structure memory is an online, decaying, evidence-gated coordinate-pair graph learned from strictly improving accepted moves without additional objective evaluations. It provides candidate linkage blocks for blockwise crossover and a candidate eigenbasis for the deterministic final polish (C1). However, the component isolation does not establish a consistent standalone performance contribution from ISM at the dimensions where it is active, and the function-class analysis reveals no systematic advantage on the hybrid or composition categories (Supplementary Materials, Sections~S6.5 and S6.6). The direct basis isolation added in revision goes further: in the memory's only fitness-affecting channel, the polish basis, the learned eigenframe is outperformed by the plain coordinate axes at $D = 50$ (Supplementary Materials, Section~S9.1), so at that dimension the exploitation of the learned structure subtracts from a refinement that works without it. ISM is therefore positioned as a specified negative result rather than as a source of \dtgsk{}'s performance standing. Its inclusion provides a fully specified and reproducible investigation of structure learning from strictly improving accepted moves, while the paper's principal contributions remain the dimension-tiered adaptive scaffold (C2), the deterministic final polish (C1), and the controlled, budget-fair family evaluation (C3).
 
 The remainder of the paper is organized as follows.
 Section~@@REF!sec:related@@ reviews the GSK family, positions the
@@ -235,7 +237,7 @@ interaction-structure memory against structure learning outside the
 family, and states the resulting gaps. Section~@@REF!sec:algorithm@@
 specifies \dtgsk{}: notation and the inherited base operators, the
 adaptive scaffold, the interaction-structure memory and its
-exploitation channels, the eigenframe final polish, the frozen
+exploitation channels, the deterministic final polish, the frozen
 configuration, and the complexity and evaluation accounting.
 Section~@@REF!sec:experiments@@ reports the experimental study on the
 five suites, including the statistical analysis, the convergence
@@ -274,7 +276,7 @@ the closest structure-learning lines on four dimensions
 (Table~@@REF!tab:taxonomy@@).
 
 
-\subsection{@@SECNUM!sec:rel:family!2.1.@@ The GSK Family: From Fixed Parameters to Adaptive Control}\label{sec:rel:family}
+\subsection{@@SECNUM!sec:rel:family!2.1.@@ The GSK Family: From Fixed Parameters to Adaptive Configuration}\label{sec:rel:family}
 
 
 The gaining-sharing knowledge algorithm (GSK) is a human-inspired
@@ -564,7 +566,7 @@ evaluations and without replacing the base operator}.
 The junior and senior gaining-sharing vector-update equations are inherited
 unchanged~@@CITE!mohamed2020gaining@@, while the surrounding generation mechanics
 are modified; \dtgsk{}'s contribution is an
-adaptive control-and-budget scaffold, a deterministic final polish, and a controlled
+adaptive configuration-and-budget scaffold, a deterministic final polish, and a controlled
 family evaluation layered on those inherited equations, with an interaction-structure memory
 as a supporting mechanism. 
 Whether this closes the gap is an empirical question, answered within
@@ -600,7 +602,7 @@ that core it layers four kinds of machinery: control, budget, structure-memory,
 and polish. 
 The contribution boundaries are marked explicitly throughout: no new base
 operator is claimed, the dimension-tiered adaptive scaffold is C2, the
-eigenframe final polish is C1, and the determinism layer is C3; the
+deterministic final polish is C1, and the determinism layer is C3; the
 interaction-structure memory is a supporting mechanism, not a contribution.
 Every mechanism below is presented as proposed and fully specified, and
 each design constant is either justified in one sentence or labeled a
@@ -1062,8 +1064,12 @@ receive the identical evaluation budget, so the difference lies in how each
 algorithm spends that budget rather than in how much it is given. We state it
 explicitly because population size is a design choice that can materially
 affect upper-tier behavior, and a reader comparing at $D=100$ should
-know the initial populations differ by a factor of five; a common-$NP$
-replication is identified as future work.
+know the initial populations differ by a factor of five. That replication was
+carried out in revision: at the comparators' $NP = 100$, \dtgsk{} remains first
+at $D = 10$ and second at $D = 30$, $50$ and $100$, with the paired difference
+significant only at $D = 50$ and $D = 100$ (Supplementary Materials,
+Section~S9.2).
+
 
 
 
@@ -1199,7 +1205,7 @@ which Algorithm~@@REF!alg:dt-gsk@@ lists and
 Figure~@@REF!fig:dtgsk-flowchart@@ charts.
 \begin{enumerate}[noitemsep,topsep=2pt,leftmargin=*,label=(\arabic*)]
 \item Nonlinear Population-Size Reduction (NLPSR).
-\item Operator-arm sampling by the Adaptive Control Engine (ACE).
+\item Operator-arm sampling by the Adaptive Configuration Engine (ACE).
 \item Junior/senior trial construction and crossover masking.
 \item Bound repair and evaluation.
 \item Elitist acceptance and the diversity-archive update.
@@ -1289,10 +1295,15 @@ of the memory overlay itself is reported in the Supplementary Materials
 (Section~S6.5) and finds no significant standalone benefit at the
 memory's active tiers. The dimension-tiering itself --- resolving control
 by dimension rather than at a single fixed operating point --- is likewise
-not isolated by a controlled uniform-versus-tiered contrast; C2 is therefore
-claimed as the performance of the integrated frozen scaffold as a package,
-not as evidence that dimension-tiering is individually causal. Here each
-mechanism is specified with its trigger,
+not isolated at submission. A controlled tiered-versus-tier-constant contrast
+was added in revision (Supplementary Materials, Section~S9.3): it separates the
+two at $D = 10$ and $D = 50$ against a high-dimension transplant, while at
+$D = 30$ a low-dimension transplant outperforms the shipped configuration. C2 is
+therefore claimed for the dimensions where tiering was demonstrated, with the
+$20 \leq D < 50$ tier disclosed as mis-specified, rather than as evidence that
+dimension-tiering is individually causal at every tier.
+
+Here each mechanism is specified with its trigger,
 timing, and cost. Table~@@REF!tab:notation-scaffold@@ lists the symbols this
 subsection introduces.
 
@@ -2038,7 +2049,11 @@ other.
 On CEC2017 \dtgsk{} attains the best overall Friedman
 mean rank in the seven-algorithm panel, placing first at three of four
 dimensions and second at $D = 30$; on CEC2011 it is likewise second, with
-a Holm-significant loss to \egsk{}. The CEC2020 and CEC2013LSGO legs,
+a Holm-significant loss to \egsk{}. That aggregate rank is a descriptive
+summary, not evidence of overall superiority: on CEC2017 the Holm-corrected
+pairwise tests separate \dtgsk{} from \egsk{} only at $D = 10$, and the two
+are never Nemenyi-separable at any dimension of that suite
+(Section~@@REF!sec:exp:cec2017@@). The CEC2020 and CEC2013LSGO legs,
 added under a registered analysis-plan addendum, are reported in
 Sections~@@REF!sec:exp:cec2020@@ and~@@REF!sec:exp:cec2013lsgo@@ at their
 registered evidential tiers, and the five-suite synthesis is confined to
@@ -3088,7 +3103,10 @@ Section~@@REF!sec:alg:complexity@@, so cost is reported both analytically and in
 wall-clock terms. The isolated compute cost of
 the interaction-structure memory is quantified in the Supplementary Materials
 (Section~S6.5; the measurement provenance for those figures is recorded in
-Section~S6.7). On the other suites \dtgsk{}'s mean per-run time is
+Section~S6.7), and it is not small: enabling the memory costs $+57.3\%$
+wall-clock on CEC2017 at $D = 50$, $+36.3\%$ at $D = 100$, and $+30.3\%$ on
+CEC2013 at $D = 50$, against no detectable standalone accuracy return at the
+tiers where it is active. On the other suites \dtgsk{}'s mean per-run time is
 4.45--34.26~s across CEC2013 $D \in \{10, 30, 50\}$ and 80.64~s on CEC2011
 (native dimensions). No comparator wall-clock is reported anywhere in this
 paper: comparator timings were collected in a separate measurement session, so
@@ -3134,8 +3152,13 @@ alone, so the advantage may rest on classical direct search rather than on
 anything learned during the run. Second, \dtgsk{} begins from
 $NP = 5D$ against the comparators' $NP = 100$ --- a five-fold difference
 at $D = 100$. The comparators' value is the family's
-reference-implementation setting, and the asymmetry was not a controlled
-variable. Third, CEC2017 is
+reference-implementation setting. The asymmetry was not a controlled variable
+at submission; it was controlled in revision (Supplementary Materials,
+Section~S9.2), and \dtgsk{} stays within the top two of the panel at every
+dimension at the common value, though its $D = 50$ and $D = 100$ first places
+are not reproduced there.
+
+Third, CEC2017 is
 development-exposed; CEC2011 and CEC2013 corroborate, but neither is
 independent of configuration selection --- the single configuration was fixed on
 CEC2017 without consulting either suite, so they were not used for selection yet
@@ -3190,7 +3213,10 @@ This reading associates the upper-tier behavior with the bundled
 tier configuration rather than with any isolated component. A direct
 isolation of the interaction-structure memory (Supplementary Materials
 Section~S6.5) finds no significant standalone benefit at its active
-tiers, at a tier-dependent compute overhead; per-component attribution to
+tiers, at a tier-dependent compute overhead; the basis isolation added in
+revision (Supplementary Materials Section~S9.1) finds the
+memory's learned eigenframe outperformed by the coordinate axes in the polish
+at $D = 50$. Per-component attribution to
 the memory is therefore not claimed here (Section~@@REF!sec:conclusions@@).
 Conversely, at $D \leq 30$ \dtgsk{} runs essentially the
 adaptive scaffold, so low-dimension behavior --- including the
@@ -3274,7 +3300,7 @@ seven-algorithm GSK-family panel~@@CITE!wolpert1997nfl@@.
 
 
 This paper introduced \dtgsk{}, a GSK-family algorithm that retains the
-gaining-sharing vector-update equations and layers an adaptive control-and-budget
+gaining-sharing vector-update equations and layers an adaptive configuration-and-budget
 scaffold, a deterministic final polish, and a controlled family evaluation on that
 core, with an interaction-structure memory as a supporting mechanism. 
 That memory is a decaying, confidence- and evidence-gated
@@ -3305,10 +3331,12 @@ wins, 7 with no significant difference, and no significant loss --- a
 descriptive tally over four independent within-dimension Holm families
 (size 6 each), not a single result controlled family-wise across
 dimensions. 
-At the same time, its head-to-head records against \egsk{} at
-$D \geq 30$ are losing ones (11--2--16, 13--0--16, 12--0--17), and the
-two algorithms are never Nemenyi-separable on this suite (all four rank
-gaps lie inside the critical difference of
+At the same time, the Holm-corrected pairwise tests separate the two only at
+$D = 10$ ($p_{\mathrm{Holm}} = 0.0035$); at $D = 30/50/100$ they do not
+($p_{\mathrm{Holm}} = 0.199$, $1.0$, and $0.795$), its head-to-head records
+against \egsk{} at $D \geq 30$ are losing ones (11--2--16, 13--0--16,
+12--0--17), and the two algorithms are never Nemenyi-separable on this suite
+(all four rank gaps lie inside the critical difference of
 1.67). 
 On CEC2011, \dtgsk{} places second of seven (3.36; \egsk{} first at
 2.52), and its across-problem Wilcoxon against \egsk{} is a
@@ -3345,16 +3373,30 @@ moves its $D = 15$ ordinal
 (Supplementary Section~S8). 
 
 \paragraph{Limitations.}
-No parameter-sensitivity study was performed: the tier constants are frozen
-and hash-locked, and the individual influence of each is unmeasured. Neither
-ARGP nor the deep-stall restart is isolated by the remove-one study, which
-excludes both by pre-specification.
+The parameter-sensitivity evidence is exploratory and narrow: a one-factor
+sweep over seven constants at two levels, at $D = 30$ and $D = 100$ only, with
+15 repetitions per cell against the frozen panel's 51 (Supplementary Materials,
+Section~S9.4). It is descriptive, carries no hypothesis test, and perturbs no
+tier threshold; the tier constants themselves remain frozen and hash-locked.
+Neither ARGP nor the deep-stall restart is isolated by the remove-one study,
+which excludes both by pre-specification.
+
 The remaining limitations bounding these findings are stated in full, with
 their numeric evidence, in the Supplementary Materials, Section~S5. In
 outline: the
 mid-dimension tier favors \egsk{}, which leads at CEC2017 $D = 30$, on CEC2013
 at $D = 30$, and on CEC2011. The structure memory and the polish are gated to
 $D \geq 50$, so at $D \leq 30$ \dtgsk{} is essentially the adaptive scaffold.
+The configuration-transplant experiment added in revision locates part of that
+weakness: at $D = 30$ the parameter set \dtgsk{} resolves at $D = 10$
+outperforms the set it ships, on 20 of 29 functions
+($p_{\mathrm{Holm}} = 5.5\times10^{-3}$; Supplementary Materials,
+Section~S9.3), so the $20 \leq D < 50$ tier is
+mis-specified rather than the tiering principle being unsupported --- the same
+experiment demonstrates tiering against a high-dimension transplant at $D = 10$
+and $D = 50$. Which of the differing configuration keys carries the effect is
+not resolved here and is left open.
+
 Pairing is by common seed, problem and run rather than by an identical
 starting population: \dtgsk{} self-initializes its own $5D$ population from
 the same seed-paired stream, the one documented departure from the shared
@@ -3409,7 +3451,19 @@ improvement to a GSK optimizer at these
 dimensions. This is a failure to detect an effect, not a demonstration that
 none exists: no equivalence test or confidence bound on the effect size was
 computed, so the result places no numerical ceiling on how large a benefit the
-design could have missed. It is
+design could have missed.
+
+The basis isolation added in revision sharpens this. In the
+memory's only fitness-affecting channel --- the basis the final polish searches
+along --- the learned eigenframe is outperformed by the plain coordinate axes at
+$D = 50$ ($p_{\mathrm{Holm}} = 1.4\times10^{-4}$, 25 of 29 functions), while the
+polish itself beats no refinement at both active dimensions (Supplementary
+Materials, Section~S9.1). At that dimension, therefore,
+exploiting the learned structure did not merely fail to help: it subtracted from
+a refinement that works without it. Contribution~C1 is stated basis-neutrally
+for this reason.
+
+It is
 presented alongside the reproducible dimension-tiered system rather than as a
 fourth claimed contribution. Reporting it, together with the mid-dimension
 second place and the Holm-significant CEC2011 loss, is part of what the
@@ -3456,7 +3510,7 @@ numbers from them in the declared supported environment.
 \section*{Supplementary Materials}
 
 The following supporting information accompanies this
-article: Supplementary Sections S1--S8, comprising the complete CEC2017
+article: Supplementary Sections S1--S9, comprising the complete CEC2017
 per-function panel tables (S1); pairwise matrices and additional-suite
 detail for CEC2011 and the CEC2013 second comparison suite, including
 the descriptive rank-stability intervals (S2); the convergence
@@ -3469,7 +3523,7 @@ supplement-only component-contribution study --- a scaffold
 remove-one decomposition and a direct isolation of the interaction-structure
 memory (which finds no significant standalone benefit at its active
 tiers), drawn from separate component-isolation evidence, reported after the primary
-freeze and altering no primary result, together with the per-component cost accounting, the post-hoc function-class analysis, and the implementation-caveats trail for the two corrected defects --- the material the main text cites as~S6.5, S6.6, and~S6.7 (S6); the CEC2013LSGO large-scale study, with its family-internal scope, evidential-tier and provenance disclosures (S7); and the pre-registered CEC2020 confirmatory battery, reported with its registered outcome wording (S8).
+freeze and altering no primary result, together with the per-component cost accounting, the post-hoc function-class analysis, and the implementation-caveats trail for the two corrected defects --- the material the main text cites as~S6.5, S6.6, and~S6.7 (S6); the CEC2013LSGO large-scale study, with its family-internal scope, evidential-tier and provenance disclosures (S7); the pre-registered CEC2020 confirmatory battery, reported with its registered outcome wording (S8); and the four round-one revision experiments --- the refinement-basis isolation, the matched-population-size control, the tiered-versus-tier-constant transplant, and the exploratory parameter-sensitivity screen --- each pre-registered before it produced a result (S9).
 
 
 
@@ -3521,8 +3575,9 @@ This research received no external funding.
 \noindent\textbf{Data Availability Statement:} The source code,
 configuration files, and experimental result data supporting the findings of
 this study are openly available in the public \dtgsk{} repository at
-\url{https://github.com/MostafaMassoud/DT-GSK}; the submitted version
-corresponds to the repository tag v2.13, and any further materials are
+\url{https://github.com/MostafaMassoud/DT-GSK}; the originally submitted
+version corresponds to the repository tag v2.13 and this revised version to
+tag v2.14, and any further materials are
 available from the corresponding author upon reasonable request. The
 supplementary materials accompanying the manuscript provide the additional
 methodological and experimental details needed to evaluate the reported
@@ -3533,7 +3588,9 @@ SHA-256 checksum for every released file; the two suites added after
 that release was minted are carried by their own separate,
 non-superseding releases, lsgo-rel-2026-07-28-ff1a046ef (CEC2013LSGO)
 and cec2020-rel-2026-07-29-5867abe1e (CEC2020), each with its own
-checksummed manifest; and the derived statistical artifacts
+checksummed manifest; the four round-one revision experiments are carried by a
+fourth additive, non-superseding release, rev-rel-2026-08-26-dd42d37eb, which
+leaves every primary value unchanged; and the derived statistical artifacts
 behind every table and figure are versioned as checksummed analysis
 bundles alongside them. The supplementary component-isolation study
 (Section~S6) draws on a separate immutable component-isolation release,
@@ -3683,7 +3740,7 @@ The following abbreviations are used in this manuscript:\\
 GSK      & Gaining-Sharing Knowledge \\
 \dtgsk{} & Dimension-Tiered Gaining-Sharing Knowledge (this paper) \\
 ISM      & interaction-structure memory \\
-ACE      & Adaptive Control Engine \\
+ACE      & Adaptive Configuration Engine \\
 ARGP     & Acceptance-Rate Gated Pruning \\
 NLPSR    & Nonlinear Population-Size Reduction \\
 BSE      & Budget-Safe Escape \\

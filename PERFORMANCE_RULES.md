@@ -125,8 +125,14 @@ NUMBA_NUM_THREADS=1
 - For any **byte-identity** dt-gsk run (regression parity, reproducing the
   committed reference numbers, or a serious campaign whose numbers must match),
   you **MUST** export these six variables to `1` in the launching shell *before*
-  Python imports numpy/numba, and you **MUST** run single-process (`--serial`) or
-  with `--workers 1` so no second axis of parallelism reorders the math.
+  Python imports numpy/numba. For a *parity check* you **MUST** additionally run
+  single-process (`--serial`) or with `--workers 1`. For a *campaign*,
+  process-level parallelism is safe provided Numba itself resolves to one thread
+  per worker — pass `--numba-threads 1` rather than trusting the auto cap —
+  because each cell's seed is a pure function of `(base_seed, dim, func, run)`,
+  independent of worker count or execution order. The committed reference banks
+  were produced that way: `benchmarks/cec_reference_results/cec2017/dt-gsk/environment.json`
+  records `workers: 15` with `numba_runtime.numba_threads_active: 1`.
 - These are process-environment variables. Several (notably `OMP`/`MKL`/
   `OPENBLAS`/`VECLIB`/`NUMEXPR`) are read by their libraries *at import time*, so
   setting them after import has no effect — set them in the shell, not in Python.
@@ -155,8 +161,11 @@ import-time BLAS variables — those are the launcher's responsibility per 2.2):
 
 2.4 **Rules.**
 - For a byte-identity dt-gsk run, set the six env vars to `1` **and** pass
-  `--numba-threads 1` (or rely on `--serial`/`--workers 1` driving the auto cap
-  to 1). NEVER trust an unpinned shell for parity work.
+  `--numba-threads 1`. `--serial` / `--workers 1` are **not** a substitute: the
+  auto cap only engages when parallel execution is on *and* `workers > 1`
+  (Section 2.3), so a serial run leaves Numba at its default thread count unless
+  `NUMBA_NUM_THREADS=1` or `--numba-threads 1` pins it. NEVER trust an unpinned
+  shell for parity work.
 - For exploratory throughput on the cheaper optimizers / low dims, you MAY leave
   the env unset and let the auto cap manage Numba threads.
 - NEVER assume thread count is irrelevant for dt-gsk at D >= 50 — it is the
@@ -293,22 +302,44 @@ already present, logging `[resume] skipped N already completed run task(s)`. So:
 |-------------|---------------------------|---------------------------------|
 | cec2017     | `10000 * D`               | D = 10 / 30 / 50 / 100          |
 | cec2011     | `150000` (fixed)          | native, per-problem (22 probs)  |
-| cec2013     | suite default             | 10 / 30 / 50                    |
-| cec2020     | suite default             | 5 / 10 / 15 / 20                |
-| cec2013lsgo | suite default             | native D=1000 / D=905           |
-| sphere      | suite default             | 10                              |
+| cec2013     | `10000 * D`               | 10 / 30 / 50                    |
+| cec2020     | 50k/1M/3M/**10M** by D    | 5 / 10 / 15 / 20                |
+| cec2013lsgo | `3000000` (fixed)         | native D=1000 / D=905           |
+| sphere      | `10000 * D`               | 10                              |
 
 CEC2017's scored set excludes F2 (F1, F3–F30), 51 runs. CEC2011 uses native
 per-problem dimensions and heterogeneous per-dimension bounds, ~25 runs. Budgets
 and run counts are fixed by protocol and **MUST NOT** be changed for speed; see
 [BENCHMARK_RULES.md](BENCHMARK_RULES.md).
 
-6.2 **Where the time goes.** `dt-gsk` at **D=50 and D=100 is the slow part** of
-any campaign: the SGSM overlay (D >= 50) and TERRA/SP-NLPSR controllers (D >= 100)
-do substantially more per-generation work than the lighter GSK-family
-comparators. The reference D100 CEC2017 logs are visibly the longest. Plan wall
-time around these cells, not around the cheap D10 sweeps. Budget large
-`cec2013lsgo` runs separately.
+6.2 **Where the time goes.** Within a `dt-gsk` campaign, **D=50 and D=100 are
+the slow part**: the SGSM overlay (D >= 50) and TERRA/SP-NLPSR controllers
+(D >= 100) add per-generation work, and those two dimensions carry roughly
+four-fifths of dt-gsk's committed CEC2017 per-run seconds. Do **not** read that
+as dt-gsk being the expensive member of the panel — summed over
+`benchmarks/cec_reference_results/cec2017/*/per_run.csv`, dt-gsk's D100 cost is
+the second *lowest* of the seven optimizers, below every adaptive comparator.
+Plan wall time around these cells, not around the cheap D10 sweeps. Budget
+`cec2013lsgo` separately — by a wide margin the most expensive bank — and note
+that the `cec2020` D=20 cell, on its 10,000,000-NFE budget, is the heaviest
+single cell outside `cec2013lsgo`.
+
+6.3 **The interaction-structure memory is the largest measured dt-gsk
+overhead.** The `no_sgsm` isolation prices the interaction-structure memory (the
+ISM interaction graph and its `ig_*` kernels, gated on at
+`interaction_graph_min_dim = 50`) at **+57.3 %** wall-clock on CEC2017 D50,
+**+36.3 %** on CEC2017 D100, and **+30.3 %** on CEC2013 D50, measured on the
+backend-corrected compiled path
+(`papers/analysis/ablation_overlay/ism_isolation_effects_cec2017.csv` and
+`..._cec2013.csv`; published in Supplementary S6.5, with the measurement
+provenance in S6.7). The same isolation found **no significant standalone
+accuracy return** for that cost (Holm p = 0.983 / 0.897 / 0.647), so ISM is a
+specified negative result, not a contribution. This is the one place where a
+large speedup is visibly available — and it is **NOT** yours to take: disabling
+ISM changes produced numbers, which is a regression and not an optimization
+(7.4), and it invalidates the committed evidence under the read-only evidence
+policy (see [BENCHMARK_RULES.md](BENCHMARK_RULES.md)). Report the cost; do not
+"optimize" it away.
 
 ---
 

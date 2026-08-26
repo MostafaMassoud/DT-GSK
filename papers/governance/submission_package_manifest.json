@@ -1,55 +1,56 @@
 {
   "schema": "submission_package_manifest/v1",
-  "generated_utc": "2026-08-01T18:48:21Z",
-  "manuscript_version_id": "v2.13",
-  "manuscript_version_note": "Freeze pass-38, tag v2.13 (D-0044). Supersedes v2.12 as the submission basis. The repository is public and cited in the Data Availability Statement (https://github.com/MostafaMassoud/DT-GSK). No Zenodo deposit and no repository DOI; the article DOI is assigned by Algorithms (MDPI) after acceptance.",
+  "generated_utc": "2026-08-27T10:15:00Z",
+  "manuscript_version_id": "v2.14",
+  "manuscript_version_note": "Freeze pass-41, tag v2.14 (D-0049). The round-one major-revision response to algorithms-4507562. Supersedes v2.13 as the submission basis; v2.13 remains the frozen record of what was originally submitted and is never edited in place. The repository is public and cited in the Data Availability Statement (https://github.com/MostafaMassoud/DT-GSK), which now names v2.13 for the submitted version and v2.14 for this revised one. No Zenodo deposit and no repository DOI; the article DOI is assigned by the journal after acceptance.",
   "target_journal": "Algorithms (MDPI)",
   "evidence_release": [
     "rel-2026-07-20-67d9345f9 (CEC2017, CEC2011, CEC2013 - primary)",
     "lsgo-rel-2026-07-28-ff1a046ef (CEC2013LSGO)",
-    "cec2020-rel-2026-07-29-5867abe1e (CEC2020)"
+    "cec2020-rel-2026-07-29-5867abe1e (CEC2020)",
+    "rev-rel-2026-08-26-dd42d37eb (round-one revision experiments E1-E4; additive and non-superseding - the primary release is byte-identical)"
   ],
-  "authoritative_commit": "d12989add7769efa097ce9283d8fe773837df136",
-  "pre_freeze_base_commit": "420cac4e8b66dc52c4fd5e50cfd2e7b2c2cb1434",
+  "authoritative_commit": "86e231039c29223ec10065fe9705e0a2fd49d1ce",
+  "pre_freeze_base_commit": "b9846e47024e48a0f8ce3e4f22bffbd794b2a355",
   "hash_algorithm": "SHA-256",
   "submission_files": [
     {
       "role": "main-manuscript-pdf",
       "path": "papers/DT-GSK.pdf",
-      "pages": 47,
+      "pages": 48,
       "build_epoch": 1783468800,
-      "sha256": "77c740a6360f53ac42c2c955662f24afd8c2be89e5fb84921e630e99a0885efb",
-      "bytes": 818170
+      "sha256": "de4b16711b147c98445516c56c1bc068fba65554af61e4b9f3b2ea0f3f7dd6cc",
+      "bytes": 821930
     },
     {
       "role": "main-manuscript-docx",
       "path": "papers/DT-GSK.docx",
       "build": "deterministic docx render",
-      "sha256": "7f31d3008c6381637f5d8c3d0bffc4ee63e07a95ae1bfa00b81af806a32ce63c",
-      "bytes": 1009705
+      "sha256": "b4b1ceca4df8711ab148851880bec643bdcef60f673bd73c94ec867aef41dd63",
+      "bytes": 1011624
     },
     {
       "role": "supplement-pdf",
       "path": "papers/supplementary.pdf",
-      "pages": 75,
+      "pages": 80,
       "build_epoch": 1783468800,
-      "sha256": "0347dc80bd58e18eb7cfc1301facfefe2c51fc3a6bb3de80c9b7789c42c1c296",
-      "bytes": 1722053
+      "sha256": "574b6c8ba765f59a6073d4f3963edf5248406756072421da4aba7740aac9d457",
+      "bytes": 1747133
     },
     {
       "role": "supplement-docx",
       "path": "papers/supplementary.docx",
       "build": "deterministic docx render",
-      "sha256": "4a29ae25b254b1642d3caf0ea497fd1ee8ade82c76a022da023c448782a2a95f",
-      "bytes": 9611004
+      "sha256": "3ff062187369f0b150064b3bc9096dc23aeea411d4d169e1fc9a4beabff1a63e",
+      "bytes": 9622136
     },
     {
       "role": "cover-letter-pdf",
       "path": "papers/cover_letter.pdf",
-      "pages": 2,
+      "pages": 3,
       "build_epoch": 1783468800,
-      "sha256": "b1d13db013e8f656a4ea4946189602b6d559589d1ab1fcc93736360905d6b608",
-      "bytes": 125517
+      "sha256": "4895e49b6fa9c95d0b66de3e27ddc057e860247c8cddda4dde6b093ee60162b2",
+      "bytes": 127117
     }
   ],
   "excluded_from_package": [
@@ -59,5 +60,19 @@
       "reason": "Visio flowchart working file: an optional editable-OLE variant of the DOCX, never a submission artifact (C-001 5.4). Removed from the tree before the authoritative commit, as required; rebuildable on demand from papers/scripts/build_visio_flowcharts.py + embed_visio_ole.py."
     }
   ],
-  "notes": "Source .tex, references.bib, and governance CSVs are pinned in main_manuscript_freeze_manifest.json. authoritative_commit is stamped at the freeze commit."
+  "notes": "Source .tex, references.bib and governance CSVs are pinned in main_manuscript_freeze_manifest.json. authoritative_commit is stamped at the freeze commit. Two upload artifacts are deliberately NOT in the repository and are listed under author_local_upload_artifacts.",
+  "author_local_upload_artifacts": [
+    {
+      "role": "response-to-reviewers",
+      "path": "papers/review_2026_08_24/response_to_reviewers.md",
+      "tracked": false,
+      "note": "Point-by-point response. Withheld from the repository under D-0049 because it reproduces both reviewers' reports verbatim and both reviewers declined to sign. Rendered to PDF for upload; regenerable from the Markdown source on disk."
+    },
+    {
+      "role": "changes-marked-register",
+      "path": "(generated) change_register.pdf",
+      "tracked": false,
+      "note": "Every manuscript passage that differs between v2.13 and v2.14, given as submitted and as revised, with the reviewer point each answers. Generated from the git diff; latexdiff was unavailable (MiKTeX ships only a Perl shim and the script was not installed)."
+    }
+  ]
 }

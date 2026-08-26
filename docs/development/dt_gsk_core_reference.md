@@ -21,12 +21,22 @@ component name survives. Glossing the algorithm as "DT-GSK (Interaction-Structur
 Memory GSK)" --- as several pages of this documentation once did --- is wrong: the
 **D** and the **T** stand for *Dimension-Tiered*.
 
-ISM is a **supporting** mechanism, not a headline contribution. The paper's three
-contributions are the eigenframe final polish (C1), the dimension-tiered adaptive
-scaffold (C2), and the controlled seven-algorithm family evaluation (C3). The
-interaction graph's direct-isolation overlay — the `no_sgsm` ablation cell that toggles
-the graph off at its active tiers — finds **no statistically significant standalone
-benefit** under Holm correction. Never describe that null as an improvement or a gain.
+ISM is a **specified negative result**, not a contribution — and it has been dropped from
+the paper's keywords. The paper's three contributions are the **deterministic** final
+polish (C1), the dimension-tiered adaptive scaffold (C2), and the controlled
+seven-algorithm family evaluation (C3); C1 is claimed **basis-neutrally** — the endgame is
+what is claimed, not the basis it searches along. Two isolations bound the memory. The
+`no_sgsm` ablation cell, which toggles the graph off at its active tiers, finds **no
+statistically significant standalone benefit** under Holm correction. The three-arm basis
+isolation added in revision (Supplementary Section S9.1) goes further: at fixed enablement
+the plain coordinate axes **outperform** the learned eigenframe at D=50 (Holm 1.4e-4, 25
+of 29 functions) and are not separated from it at D=100 — while the polish itself beats no
+refinement at both active dimensions (22/2/5 at D=50, 23/1/5 at D=100; the coordinate arm
+28/1/0 and 25/1/3). Never describe either result as an improvement or a gain from ISM.
+
+Describing what the code *does* — computing an eigenbasis of the signed interaction matrix
+and polishing along it — is **correct**, and that is what the rest of this page does.
+Presenting that eigenbasis as a contribution, as a benefit, or as an open question is not.
 
 ## The locked surface
 

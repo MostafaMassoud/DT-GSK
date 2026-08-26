@@ -1,8 +1,9 @@
 # SuSy submission kit — everything pasteable, in portal order
 
-Generated 2026-08-01 from the frozen pass-37 / v2.12 sources. Every value below
-is copied from the shipped manuscript; do not retype from memory — copy from
-here so the form matches the paper exactly (D16.5).
+Regenerated 2026-08-26 from the pass-40 / v2.14 REVISION-1 sources (the
+round-one response to algorithms-4507562). Every value below is copied from
+the shipped manuscript; do not retype from memory — copy from here so the
+form matches the paper exactly (D16.5).
 
 ---
 
@@ -14,31 +15,32 @@ here so the form matches the paper exactly (D16.5).
 
 ## 2. Title (paste exactly)
 
-DT-GSK: Dimension-Tiered Adaptive Control and Deterministic Refinement for Gaining-Sharing Knowledge Optimization
+DT-GSK: Dimension-Tiered Adaptive Configuration Selection and Deterministic Refinement for Gaining-Sharing Knowledge Optimization
 
 ## 3. Abstract (plain-text version of the shipped abstract)
 
-Published gaining-sharing knowledge (GSK) variants adapt scalar control and
-donor/selection policy at one operating point. Dimension-Tiered Gaining-Sharing
-Knowledge (DT-GSK) instead resolves control by dimension: an adaptive scaffold
-serves every tier, a deterministic, budget-exact eigenframe refinement runs
-once from D = 50 upward, and the GSK vector-update equations are retained; an
-exploratory interaction-structure memory, learned from strictly improving
-accepted moves at no extra evaluations, supplies the refinement basis. Against
-six GSK-family baselines re-executed in-repository on CEC2017 (primary),
-CEC2011, CEC2013, CEC2020, and CEC2013LSGO under one budget-fair paired
-protocol, DT-GSK attains the best descriptive family-rank aggregate on CEC2017
-(2.48) and CEC2013 (2.80); it is second behind eGSK at CEC2017's D = 30 and on
-CEC2011; the CEC2011 loss is Holm-significant. On AGSK's strongest suite — the
-CEC2020 competition in which it was the runner-up — DT-GSK places fourth; the
-family panel corroborates AGSK's published strength in this regime, consistent
-with the tiering thesis: every dimension-gated DT-GSK subsystem is inactive at
-D <= 20. On CEC2013LSGO the comparison is family-internal: tied-first
-descriptive rank; paired tests do not separate DT-GSK from AGSK. Suite roles:
-CEC2017 selection-exposed; CEC2011 and CEC2013 corroborative; CEC2020
-pre-registered confirmatory; CEC2013LSGO post-hoc. A direct isolation finds no
-detectable standalone benefit from that memory — a controlled negative result.
-All findings are scoped to the GSK-family panel.
+Published gaining-sharing knowledge (GSK) variants adapt scalar control
+and donor/selection policy to a single operating point. Dimension-Tiered
+GSK (DT-GSK) resolves control by dimension: an adaptive scaffold serves
+every tier, a deterministic, budget-exact final refinement runs once at
+D >= 50, with the GSK vector-update equations retained; an exploratory
+interaction-structure memory, learned from accepted moves, supplies its
+basis. Against six GSK-family baselines re-executed on five CEC suites
+under one budget-fair paired protocol, DT-GSK attains the best
+descriptive family-rank aggregate on CEC2017 (2.48) and CEC2013 (2.80),
+though the Holm-corrected tests separate it from eGSK only at CEC2017's
+D = 10; it is second behind eGSK at D = 30 and on CEC2011 (a
+Holm-significant loss). On AGSK's strongest suite—the CEC2020
+competition in which it was the runner-up—DT-GSK places fourth; the
+family panel corroborates AGSK's published strength in this regime,
+consistent with the tiering thesis: every dimension-gated DT-GSK
+subsystem is inactive at D <= 20. On CEC2013LSGO the comparison is
+family-internal: tied-first descriptive rank; paired tests do not
+separate DT-GSK from AGSK. Suite roles: CEC2017 selection-exposed;
+CEC2011 and CEC2013 corroborative; CEC2020 pre-registered confirmatory;
+CEC2013LSGO post-hoc. Direct isolations find no standalone benefit from
+that memory; its basis is outperformed by coordinate axes—controlled
+negative results. All findings are scoped to the GSK-family panel.
 
 (If the abstract above ever disagrees with papers/DT-GSK.pdf, the PDF wins —
 re-copy from it.)
@@ -46,8 +48,8 @@ re-copy from it.)
 ## 4. Keywords (paste as-is; semicolon-separated)
 
 metaheuristic optimization; gaining-sharing knowledge; dimension-tiered
-adaptive control; deterministic final refinement; adaptive operator selection;
-population-size reduction; interaction-structure memory; CEC benchmark suites;
+adaptive configuration selection; deterministic final refinement; adaptive
+operator selection; population-size reduction; CEC benchmark suites;
 nonparametric statistical comparison; reproducibility
 
 ## 5. Authors (enter in this order; affiliation identical for all three)
@@ -77,6 +79,8 @@ in production, `papers/DT-GSK.docx` exists and validates.
 | Figures | `papers/submission/DT-GSK-figures-600dpi.zip` |
 | Supplementary Materials | `papers/supplementary.pdf` |
 | Cover letter | paste text from `papers/cover_letter.md`, or upload `papers/cover_letter.pdf` |
+| **Response to reviewers** | `response_to_reviewers.pdf` — 10 pages, rendered from `papers/review_2026_08_24/response_to_reviewers.md`, which is on disk but withheld from the repository because it quotes both reports (D-0049). Upload the PDF, or paste the Markdown point-by-point into the form. |
+| **Revised manuscript, changes marked** | `change_register.pdf` — 17 pages: all 54 changed passages, each given as submitted and as revised, with the reviewer point it answers. MDPI asks for changes to be marked; `latexdiff` is unusable here (MiKTeX ships only a Perl shim and never installed the script), so this is the equivalent in a form an editor can act on. |
 | ~~Word files~~ | skip — LaTeX submission |
 
 ## 7. Cover letter (textbox)
@@ -106,8 +110,10 @@ version (D-0036), and the form must match the manuscript.
 ## 8b. Code/data availability field (if the form asks for a URL)
 
 Paste: https://github.com/MostafaMassoud/DT-GSK
-The submitted version corresponds to repository tag v2.13. No Zenodo/DOI
-for the repository; the article DOI is assigned by the journal (D-0044).
+The originally submitted version corresponds to repository tag v2.13 and
+this revised version to tag v2.14 — matching the manuscript's own Data
+Availability Statement exactly. No Zenodo/DOI for the repository; the
+article DOI is assigned by the journal (D-0044).
 
 ## 9. Conflicts of interest (if the form asks separately)
 
@@ -147,8 +153,17 @@ nonparametric comparison of metaheuristics, or adjacent DE/PSO families.
 
 ## 12. After pressing Submit
 
-1. Save the manuscript ID from the confirmation page/email (algorithms-XXXXXXX).
-2. Tell Claude the ID — it gets recorded in the governance log (AG-0006 row).
-3. Do NOT rebuild anything in the repo afterwards: the submitted five files
-   are hash-recorded in submission_package_manifest.json at v2.12. If a
-   revision is ever requested, that becomes pass-38 through change control.
+1. The manuscript ID is already known: **algorithms-4507562**. A revision keeps
+   it; there is no new ID to record.
+2. Do NOT rebuild anything in the repo afterwards. The five uploaded files are
+   hash-recorded in `submission_package_manifest.json` at **v2.14**, and that
+   record is what makes the submitted bytes checkable. Freeze pass-41 and tag
+   v2.14 are the frozen state of this resubmission, exactly as pass-38 / v2.13
+   is the frozen state of the original.
+3. If a SECOND revision is requested, it becomes pass-42 through change
+   control: a new freeze pass and a new superseding tag, never an edit to
+   v2.14 in place (D-0045).
+4. Two of the uploaded artifacts — the response letter and the change register —
+   are deliberately not in the repository (D-0049). They are regenerable: the
+   response letter from its Markdown source on disk, the register from
+   `git diff v2.13 v2.14` over the manuscript sources.

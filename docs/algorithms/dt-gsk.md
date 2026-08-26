@@ -69,22 +69,40 @@ memory), every one of these subsystems is gated and tuned **by dimension tier**.
 
 The subsystems below map onto the three contributions the project claims:
 
-- **C1 — Eigenframe final polish.** A one-shot deterministic compass search on the
-  eigenbasis of the signed interaction graph, run in the final budget slice at the
-  `D>=50` tiers.
+- **C1 — A deterministic final polish.** A one-shot deterministic compass search on
+  the eigenbasis of the signed interaction graph — coordinate axes when the graph
+  carries no signal — run in the final budget slice at the `D>=50` tiers. The
+  contribution is the deterministic endgame itself, **not the basis it searches
+  along**: a three-arm isolation at fixed enablement finds the polish beating no
+  refinement at both active dimensions (22/2/5 at `D=50`, 23/1/5 at `D=100`), while
+  the *learned* eigenframe is **beaten by the plain coordinate axes** at `D=50`
+  (Holm 1.4e-4, 25 of 29 functions) and is not separated from them at `D=100`
+  (Supplementary Materials, Section S9.1). C1 is therefore claimed **basis-neutrally**.
 - **C2 — Dimension-tiered adaptive scaffold.** The `pub` profile itself: ACE/ARGP
-  operator control, the NLPSR population schedule, and BSE + the diversity archive
-  + the deep-stall restart, each gated and tuned by dimension tier.
+  operator selection, the NLPSR population schedule, and BSE + the diversity archive
+  + the deep-stall restart, each gated and tuned by dimension tier. The claim is
+  narrowed to the dimensions where tiering was **demonstrated** against a
+  high-dimension transplant — `D=10` and `D=50` — with the `20–49` tier disclosed as
+  **mis-specified**: at `D=30` the parameter set the profile resolves at `D=10` beats
+  the set it ships, on 20 of 29 functions (Holm 5.5e-3; Supplementary Materials,
+  Section S9.3).
 - **C3 — Controlled family evaluation.** The seven-algorithm GSK-family panel run
   under one frozen protocol (see [the panel section](#in-the-7-algorithm-panel)).
 
-The **interaction-structure memory (ISM/SGSM) is a *supporting* mechanism, not a
-contribution.** Its direct-isolation overlay finds **no significant standalone
-benefit** at its active tiers once the family-wise error is Holm-corrected, so the
-method's standing is attributed to the *complete dimension-tiered system*, never to
-ISM alone. Its role is purely to supply linkage evidence (to the block crossover)
-and an eigenbasis (to C1's polish), both at **zero extra evaluation cost**. See the
-Supplementary Materials (Section S6) for the isolation design and result.
+The **interaction-structure memory (ISM/SGSM) is a specified *negative result*, not
+a contribution.** Its direct-isolation overlay finds **no significant standalone
+benefit** at its active tiers once the family-wise error is Holm-corrected, and the
+three-arm basis isolation added in revision sharpens that to **harm**: in the basis
+C1's polish searches along, the learned eigenframe is **beaten by the plain
+coordinate axes** at `D=50` (Holm 1.4e-4, 25 of 29 functions) and is not separated
+from them at `D=100` — while the polish itself beats no refinement at both active
+dimensions, so what failed is the learned geometry, not the endgame. The method's
+standing is therefore attributed to the *complete dimension-tiered system*, never to
+ISM. Its role is to supply linkage evidence (to the block crossover) and an
+eigenbasis (to C1's polish); both cost **zero extra evaluations**, though enabling
+the memory costs +57.3% wall-clock on CEC2017 at `D=50`, +36.3% at `D=100`, and
++30.3% on CEC2013 at `D=50`. See the Supplementary Materials (Sections S6 and S9.1)
+for the two isolation designs and their results.
 
 ## Main components
 
@@ -93,7 +111,7 @@ and how each one works:
 
 | Subsystem | Role |
 |---|---|
-| **ACE** — Adaptive Control Engine | A multi-armed bandit over a 5-arm (+DE) pool of `(KF, KR, Kexp)` operator settings. EMA credit-tracking concentrates draws on arms with the higher realised improvement (the credit is the positive fitness delta, `max(parent-child, 0)`); at `D>=20` it keeps a top/bottom acceptance memory. |
+| **ACE** — Adaptive Configuration Engine | A multi-armed bandit over a 5-arm (+DE) pool of `(KF, KR, Kexp)` operator settings. EMA credit-tracking concentrates draws on arms with the higher realised improvement (the credit is the positive fitness delta, `max(parent-child, 0)`); at `D>=20` it keeps a top/bottom acceptance memory. |
 | **NLPSR** — Nonlinear Population-Size Reduction | Shrinks `NP` from `NP_init` toward a tier floor `N_min` along a nonlinear schedule, so breadth early gives way to concentrated budget late. |
 | **ARGP** — Acceptance-Rate Gated Pruning | Watches operator-pool acceptance over a window and prunes entries whose acceptance falls below a tier threshold, after a warm-up fraction. |
 | **Linkage-aware block crossover** | Recombines in arbitrary (non-contiguous) coordinate blocks --- chunks of a random coordinate permutation (block size 5 or 10 by dimension) for a dimension-dependent fraction of the population (`linkage_block_mix_prob` = 0.70 at `D<20` and `D>=50`, 0.40 at mid dim), preserving variable groupings instead of treating every coordinate independently. |
@@ -342,7 +360,7 @@ block of settings (`_PUB_COMMON`) with tier-specific overrides selected by
 | Tier | Adds / changes |
 |---|---|
 | **`D<20`** | ACE single-pool memory (`ace_memory_mode="single"`), no DE arm entry, NLPSR; aggressive escape — extra restarts (`bse_max_restarts=4`, `bse_restart_frac=0.30`) and Cauchy rescue enabled; dense linkage mixing (`linkage_block_mix_prob=0.70`, block size 5); late coordinate local search (`local_search_start_frac=0.80`). |
-| **`20–49`** | ACE top/bottom memory (`ace_memory_mode="top_bottom"`), DE arm enabled (`ace_de_entry=True`), triple-trigger BSE with Cauchy, lighter linkage mixing (`0.40`); a best-status override across the whole tier (`_D30_BEST_STATUS_OVERRIDES`: `bse_restart_frac=0.30`, `p_senior=0.15`). |
+| **`20–49`** | ACE top/bottom memory (`ace_memory_mode="top_bottom"`), DE arm enabled (`ace_de_entry=True`), triple-trigger BSE with Cauchy, lighter linkage mixing (`0.40`); a best-status override across the whole tier (`_D30_BEST_STATUS_OVERRIDES`: `bse_restart_frac=0.30`, `p_senior=0.15`). **This tier is mis-specified:** at `D=30` the set the profile resolves at `D=10` beats the set shipped here, on 20 of 29 CEC2017 functions (Holm 5.5e-3; Supplementary Materials, Section S9.3). |
 | **`50–99`** | Population floor `n_min=25`; **SGSM/ISM** turned on (`interaction_graph_enabled`, `interaction_graph_min_dim=50`) with adaptive confidence, steering the linkage block crossover (the graph-steered subspace local search stays dormant — `local_search_method="coordinate"`); block size 10; **eigenframe final polish** enabled (`final_polish_start_frac=0.96`); a senior split (`p_senior_split_enabled`) and promoted local-search budget. |
 | **`>=100`** | Everything in the `>=50` tier **plus** the upper-tier controllers (`_PUB_D_GE_100_EXTRA`): TERRA budget policy, basin memory, SP-NLPSR subspace floor, coordinate local search with cooldowns, A1 late-accept clip (`late_accept_clip_enabled`), A2 frozen-streak broaden (`frozen_broaden_enabled`), FC4 linkage random-mix (`link_random_mix_enabled`), and a reduced restart cap (`bse_max_restarts=2`). |
 
@@ -490,12 +508,21 @@ overall). On the real-world CEC2011 suite it places **#2** in the family. It is 
 to scale across dimensions — the eigenframe polish and `D>=100` controllers target
 the upper dimension tiers — while its aggressive escape, dense linkage mixing, and
 the default-on deep-stall multi-start keep it strong at low dimension. The standing
-is a property of the **complete dimension-tiered system**: a direct component
+is a property of the **complete dimension-tiered system**, and two isolations
+say why it is not attributed to any single subsystem. A direct component
 isolation finds no detectable standalone benefit from the interaction-structure
-memory at its active tiers, so the performance is not attributed to that one
-subsystem (see the Supplementary Materials, Section S6). Reach for DT-GSK when you
-want the strongest out-of-the-box result and do not want to tune by hand. (See
-`FINAL_RELEASE_REPORT.md` for the exact ranks.)
+memory at its active tiers (Supplementary Materials, Section S6). A three-arm
+isolation of the refinement basis, added in revision, sharpens that to harm: in
+the memory's only fitness-affecting channel — the basis the deterministic final
+polish searches along — the learned eigenframe is **beaten by the plain
+coordinate axes** at D50 (Holm 1.4e-4, 25 of 29 functions) and is not separated
+from them at D100 (Section S9.1). The polish itself survives, beating no
+refinement at both active dimensions, so it is claimed basis-neutrally and the
+memory is reported as a specified negative result rather than as a contribution.
+Reach for DT-GSK when you want the strongest out-of-the-box result and do not
+want to tune by hand. (Ranks are in the manuscript and its Supplementary
+Materials; `FINAL_RELEASE_REPORT.md` is a historical CEC2017-only record from
+before submission and is not current.)
 
 For the baselines and variants it is compared against:
 

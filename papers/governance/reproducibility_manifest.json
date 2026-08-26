@@ -491,31 +491,32 @@
     "lsgo": "lsgo-rel-2026-07-28-ff1a046ef  (CEC2013LSGO)",
     "cec2020": "cec2020-rel-2026-07-29-5867abe1e  (CEC2020)",
     "ablation": "abl-rel-2026-07-13  (component isolation, incl. the promoted CEC2017 D50/D100 overlay)",
-    "note": "Four immutable releases back this manuscript. Earlier revisions of this file named only the primary one and a superseded ablation id (abl-rel-2026-07-11); corrected 2026-08-01 at the pass-31 mint."
+    "note": "Four immutable releases back this manuscript. Earlier revisions of this file named only the primary one and a superseded ablation id (abl-rel-2026-07-11); corrected 2026-08-01 at the pass-31 mint.",
+    "revision": "rev-rel-2026-08-26-dd42d37eb  (round-one revision experiments E1-E4; additive, non-superseding)"
   },
-  "superseded_anchor": "262fc16c91fbe5608a1a0b0c5df3cbcd009edc21",
-  "updated_utc": "2026-08-01T12:48:37Z",
-  "update_note": "Refreshed 2026-08-01 at the freeze pass-36 mint. The five shipped-artifact digests are recomputed from the artifacts on disk at each refresh. NOTE: this file is not covered by check_manifest.py, which validates only main_manuscript_freeze_manifest.json, so two of these five digests went silently stale between pass-31 and pass-35 before the pre-submission sweep caught it. Re-verify these five whenever a new pass is minted. `project_root` and `git_root` above still record the private monorepo because that is where Phase 0 ran; they are a dated historical record, not a pointer to this repository.",
+  "superseded_anchor": "0d2bed9907faae38134c3e2969d250b1680a7305",
+  "updated_utc": "2026-08-27T10:15:00Z",
+  "update_note": "Refreshed 2026-08-27 at the freeze pass-41 mint. The five shipped artifact digests are recomputed from the artifacts on disk at each refresh. The Phase-0 and Phase-12 blocks above are historical records of when this project was built and are not updated -- including project_root, which names the monorepo path the work began in before it moved to its own repository. Round-one revision: four pre-registered experiments, 32,451 runs, promoted as rev-rel-2026-08-26-dd42d37eb; the primary release is untouched and check_frozen_analysis reports 115/115 files byte-identical.",
   "shipped_artifacts": {
     "papers/DT-GSK.pdf": {
-      "sha256": "77c740a6360f53ac42c2c955662f24afd8c2be89e5fb84921e630e99a0885efb",
-      "bytes": 818170
+      "sha256": "de4b16711b147c98445516c56c1bc068fba65554af61e4b9f3b2ea0f3f7dd6cc",
+      "bytes": 821930
     },
     "papers/DT-GSK.docx": {
-      "sha256": "7f31d3008c6381637f5d8c3d0bffc4ee63e07a95ae1bfa00b81af806a32ce63c",
-      "bytes": 1009705
+      "sha256": "b4b1ceca4df8711ab148851880bec643bdcef60f673bd73c94ec867aef41dd63",
+      "bytes": 1011624
     },
     "papers/supplementary.pdf": {
-      "sha256": "0347dc80bd58e18eb7cfc1301facfefe2c51fc3a6bb3de80c9b7789c42c1c296",
-      "bytes": 1722053
+      "sha256": "574b6c8ba765f59a6073d4f3963edf5248406756072421da4aba7740aac9d457",
+      "bytes": 1747133
     },
     "papers/supplementary.docx": {
-      "sha256": "4a29ae25b254b1642d3caf0ea497fd1ee8ade82c76a022da023c448782a2a95f",
-      "bytes": 9611004
+      "sha256": "3ff062187369f0b150064b3bc9096dc23aeea411d4d169e1fc9a4beabff1a63e",
+      "bytes": 9622136
     },
     "papers/cover_letter.pdf": {
-      "sha256": "b1d13db013e8f656a4ea4946189602b6d559589d1ab1fcc93736360905d6b608",
-      "bytes": 125517
+      "sha256": "4895e49b6fa9c95d0b66de3e27ddc057e860247c8cddda4dde6b093ee60162b2",
+      "bytes": 127117
     }
   },
   "determinism_record": {
@@ -523,6 +524,9 @@
     "pdf_double_build": "byte-identical (DT-GSK.pdf, supplementary.pdf, cover_letter.pdf)",
     "docx_build": "papers/scripts/build_docx.py",
     "python": "3.10.11",
-    "platform": "win32"
-  }
+    "platform": "win32",
+    "docx_source_date_epoch": 1783641600,
+    "revision_release_correction": "Before first publication the revision release's provenance path fields were rewritten from absolute to repository-relative across 61 files, matching every earlier release; its manifest was re-minted and the correction recorded in the manifest's own correction field (D-0049)."
+  },
+  "anchor_commit_current": "86e231039c29223ec10065fe9705e0a2fd49d1ce"
 }

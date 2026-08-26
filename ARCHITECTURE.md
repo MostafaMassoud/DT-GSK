@@ -28,14 +28,19 @@ This is PhD research software for the **GSK optimizer family**. It is three
 cooperating subsystems in one pure-Python package (`src/gsk_family/`, CPython
 3.10):
 
-1. **An optimizer runtime.** Seven runnable optimizers behind one uniform
+1. **An optimizer runtime.** Seven GSK-family optimizers behind one uniform
    contract: `gsk`, `agsk`, `apgsk`, `fdb-agsk`, `atmals-gsk`, `egsk`, and the
    project's proposed method `dt-gsk` (Dimension-Tiered Gaining-Sharing Knowledge). `egsk`
    is **both** runnable (`optimizers/egsk.py`, a MATLAB port whose interior-point
    refinement uses `scipy`-SLSQP in place of `fmincon`) **and** a reference
    comparator -- the statistical panel reports `egsk` from the committed
    `scipy`-SLSQP **port** CSVs (the comparator of record), not a MATLAB `fmincon`
-   reference.
+   reference. Eight external SOTA baselines (`mos-cec2013lsgo`, `shade-ils`,
+   `decc-g`, `cmaes`, `ebowithcmar`, `jso`, `lshade`, `lshade-spacma`) live under
+   `optimizers/external/` and are runnable behind the same contract, but they sit
+   **outside** the seven-method panel and support no claim in the manuscript;
+   `optimizers/__init__.py` keeps that boundary explicit as `FAMILY_OPTIMIZER_IDS`
+   vs `EXTERNAL_OPTIMIZER_IDS`.
 2. **A CEC benchmark runtime.** A benchmark adapter and runner stack that turns a
    `(suite, function, dimension, run)` cell into a deterministic optimization run
    and writes CEC-style result tables. Six suites are wired:
@@ -90,6 +95,7 @@ DT-GSK/
 |   |   |-- _dt_profiles.py        # build_pub_config (dim-aware overlays)
 |   |   |-- _dt_rng.py             # 13-substream RNG layer
 |   |   |-- _kernels.py  atmals_helpers.py  fdb_scores.py
+|   |   |-- external/              # 8 non-GSK baselines, outside the published panel
 |   |-- common/                     # shared optimizer building blocks
 |   |   |-- rng.py  threefry_rng.py  reference_rng.py
 |   |   |-- population.py  bounds.py  donors.py
@@ -103,7 +109,7 @@ DT-GSK/
 |-- benchmarks/
 |   |-- cec_suite_python/           # benchmark function data (default data_root)
 |   |-- cec_reference_results/      # READ-ONLY imported reference evidence
-|-- results/_run_all/               # reproduced results (write target)
+|-- results/                        # runner write targets: _run_all/ (default), _ablation/, _revision/ (committed)
 |-- scripts/                        # build/run/validate helpers (build_docs_html.py, run_ablation.py ...)
 |-- papers/                         # manuscript + papers/scripts review-pack pipeline
 |-- reference_papers/               # bibliography acquisition bundle (bib + index; PDFs gitignored)
@@ -156,7 +162,7 @@ call into `runners`/`analysis`. Console scripts are declared in `pyproject.toml`
   `egsk.py` is a MATLAB port (its interior-point refinement uses `scipy`-SLSQP in
   place of `fmincon`); its statistical-panel cell is sourced from the committed
   `scipy`-SLSQP port CSVs (the comparator of record).
-- `dt_gsk.py`: the **adapter** wrapping `_dt_core.ism_gsk_optimize` into the
+- `dt_gsk.py`: the **adapter** wrapping `_dt_core.dt_gsk_optimize` into the
   uniform contract (Section 4.2).
 - `_dt_core.py` + `_dt_subsystems/`: **VENDORED, byte-identity-locked.** The
   subsystems cover bound constraint handling, the evaluation budget controller
@@ -167,6 +173,12 @@ call into `runners`/`analysis`. Console scripts are declared in `pyproject.toml`
   with the SGSM overlay at `dim >= 50` and TERRA / SP-NLPSR at `dim >= 100`.
 - `_dt_rng.py`: the DT-GSK 13-substream RNG layer (Section 5.2).
 - `_kernels.py`, `atmals_helpers.py`, `fdb_scores.py`: shared numeric helpers.
+- `external/`: eight non-GSK baselines (`cmaes`, `decc-g`, `ebowithcmar`, `jso`,
+  `lshade`, `lshade-spacma`, `mos-cec2013lsgo`, `shade-ils`) behind the same
+  `optimize(...)` contract, registered in `optimizers/__init__.py` as
+  `EXTERNAL_OPTIMIZER_IDS` and wired into `run_experiment.OPTIMIZER_FUNCTIONS`.
+  Runnable, but **outside** the published seven-method panel -- no manuscript
+  claim is computed over them.
 
 **`common/`** -- reusable, optimizer-agnostic building blocks shared by the
 *comparator* optimizers (the dt-gsk core does not route its draws through
@@ -298,8 +310,8 @@ optimizer. Do not widen or reshape these dataclasses casually; see
 ### 4.2 The dt-gsk adapter pattern
 
 `optimizers/dt_gsk.py` is an **adapter**, not a reimplementation. It bridges the
-uniform contract to the vendored core (`_dt_core.ism_gsk_optimize` with its
-`ISMGSKConfig` / `ISMGSKResult` types):
+uniform contract to the vendored core (`_dt_core.dt_gsk_optimize` with its
+`DTGSKConfig` / `DTGSKResult` types):
 
 1. Reads `seed` and `rand_generator` (defaulting to `"threefry"`) from
    `options`.
@@ -307,12 +319,12 @@ uniform contract to the vendored core (`_dt_core.ism_gsk_optimize` with its
    scalar `(lo, hi)` (so CEC2017/sphere configs stay byte-identical to the
    source); heterogeneous **per-dimension** bounds (CEC2011) pass through as
    `(lb_array, ub_array)`.
-3. Builds the dimension-aware "pub" `ISMGSKConfig` via
+3. Builds the dimension-aware "pub" `DTGSKConfig` via
    `_dt_profiles.build_pub_config(dim, seed=..., max_nfes=..., bounds=...,
    rand_generator=...)` (SGSM overlay at `dim >= 50`, TERRA/SP-NLPSR at
    `dim >= 100`).
 4. Applies optional per-run overrides from `options.values` that name real
-   `ISMGSKConfig` fields (run-level fields `dim`/`seed`/`max_nfes`/`bounds`/
+   `DTGSKConfig` fields (run-level fields `dim`/`seed`/`max_nfes`/`bounds`/
    `rand_generator` are reserved).
 5. Wraps `problem.evaluate` as a batch `objective(population) -> fitness` and a
    `curve_callback` that records best-so-far convergence points.
@@ -433,7 +445,15 @@ Two result trees with strictly different ownership:
 | `results/_run_all/<opt>/<suite>/` | Locally **reproduced** runs (this machine) | Written by the runner; safe to regenerate |
 | `benchmarks/cec_reference_results/<suite>/<alg>/` | **Imported** comparator evidence | **READ-ONLY** -- never overwrite |
 
-- The runner only ever writes under `results/_run_all/` (default `output_root`).
+- The runner only ever writes under `results/`: `results/_run_all/` is the
+  `ExperimentConfig` default for `output_root`, and campaign drivers point it at
+  sibling staging roots instead -- e.g. `scripts/run_ablation.py` ->
+  `results/_ablation/`, `scripts/run_revision_experiments.py` ->
+  `results/_revision/`, `scripts/run_campaign.py` -> `results/_telemetry/` and
+  the `results/_ablation_sgsm*` overlay roots. A guard
+  (`runners/verification.py:ensure_output_root_allowed`) refuses any
+  `output_root` at or inside `reference_root`
+  (`benchmarks/cec_reference_results/`).
 - `cec_reference_results/` is consumed read-only by the analysis layer and the
   paper scripts as the **single source of truth for paper statistics**: full
   7-optimizer panels (the proposed `dt-gsk` included) are committed for

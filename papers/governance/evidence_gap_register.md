@@ -170,7 +170,9 @@ Sources of this seed: `reference_inventory.csv`, all 57 cards in `evidence_cards
   were NOT exported). `generate_parametric_tables.py` was NOT run for output;
   the parameter-sensitivity tables T21/T22 (T-SENS, `tab:sensitivity`) remain
   **unavailable**, no Word-native source was emitted for them, and the
-  committed `papers/tables/T21.tex` / `T22.tex` fragments stay stale-excluded.
+  `papers/tables/T21.tex` / `T22.tex` were never committed and do not exist in
+  the tree (verified 2026-08-25, CR-0023); nothing in the manuscript references
+  them. This entry is the citation for the absence.
   This entry is the citation for the absence.
 
 ## EG-007 — ACE controller as an inherited bandit mechanism

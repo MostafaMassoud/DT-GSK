@@ -7,9 +7,13 @@
 Project documentation, grouped by folder. Browse the rendered site at
 [html/index.html](html/index.html).
 
-> **Project status (2026-07-20).** The manuscript is built and in final
-> pre-submission remediation. Current evidence releases:
-> `rel-2026-07-20-67d9345f9` (primary) and `abl-rel-2026-07-20` (ablation).
+> **Project status (2026-08-25).** The manuscript was submitted to *Algorithms*
+> (MDPI) as `algorithms-4507562` from freeze pass-38 / tag v2.13, and has
+> received a **MAJOR REVISION** from two reviewers. Revision work is in
+> progress — see **[REVISION_STATUS.md](../REVISION_STATUS.md)** for the current
+> state, which reviewer points are closed, and what remains.
+> Evidence releases are unchanged: `rel-2026-07-20-67d9345f9` (primary) and
+> `abl-rel-2026-07-20` (ablation).
 > The proposed method is **DT-GSK** (Dimension-Tiered Gaining-Sharing
 > Knowledge); "ISM" names only its internal interaction-structure-memory
 > mechanism, never the algorithm.

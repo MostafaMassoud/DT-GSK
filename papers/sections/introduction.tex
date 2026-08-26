@@ -25,7 +25,7 @@ statistically tested analysis of the algorithm families that already
 exist~\cite{hussain2019metaheuristic,del2019bio}.
 This paper follows that prescription. It stays inside one family --- the
 gaining-sharing knowledge (GSK) algorithm and its published descendants ---
-and asks a single design question. Published GSK variants adapt control at one
+and asks a single design question. Published GSK variants adapt control to a single
 operating point. Can control instead be resolved by \emph{dimension}, through
 an adaptive scaffold that reconfigures per tier and is closed by a
 deterministic, budget-exact refinement? And does that yield a measurable,
@@ -62,7 +62,7 @@ additions, meets a hard-capped budget-safe escape and a restart
 that can never lose the global best. Late refinement that depends on a
 gradient-based solver or on randomized local search gives way to a
 deterministic, one-shot final polish --- the deterministic refinement of
-the title, realized as the eigenframe final polish (C1). And the weakness that no
+the title, realized as the deterministic final polish (C1). And the weakness that no
 descendant addresses --- recombination that treats every coordinate
 independently of the run's own improvement history --- is targeted by the
 interaction-structure memory (ISM), which this paper evaluates as an
@@ -83,7 +83,7 @@ a signal, once recovered, improves the optimizer is a hypothesis this paper
 tests; under the design reported here, and for GSK at these dimensions, it
 finds no detectable improvement. This paper proposes
 Dimension-Tiered Gaining-Sharing Knowledge (\dtgsk{}),
-which layers an adaptive control-and-budget scaffold and a deterministic final polish on the gaining-sharing vector-update operator, leaving that core unchanged, and is assessed through a controlled family evaluation; an interaction-structure memory feeds the polish basis and block crossover as a supporting mechanism. % BIND: MT-01 (frozen contribution wording)
+which layers an adaptive configuration-and-budget scaffold and a deterministic final polish on the gaining-sharing vector-update operator, leaving that core unchanged, and is assessed through a controlled family evaluation; an interaction-structure memory feeds the polish basis and block crossover as a supporting mechanism. % BIND: MT-01 (frozen contribution wording)
 Section~\ref{sec:related} bounds this gap against structure-learning
 approaches outside the family. The empirical question the paper answers
 is deliberately bounded as well: within the seven-algorithm GSK-family
@@ -94,22 +94,25 @@ tiers?
 The contributions are:
 
 \begin{itemize}[leftmargin=*,labelsep=4.9mm]
-\item \textbf{C1 --- an eigenframe final polish.} A one-shot, RNG-free
+\item \textbf{C1 --- a deterministic final polish.} A one-shot, RNG-free
   deterministic compass search executed on the eigenbasis of the ISM
   signed interaction matrix in the final budget slice (coordinate axes
   when the graph carries no signal). Every probe is charged through
   the strict budget-accounting path; the substreams driving the rest of
   the run are byte-identical whether the polish fires or not (its own
   probes still consume budget and can change the final incumbent); and
-  no convergence guarantee is claimed. The component isolation removes the
-  \emph{entire} compass endgame, so any effect it measures attaches to that
-  deterministic phase as a whole, not to the \emph{learned} eigenbasis it consumes;
-  whether that eigenbasis outperforms
-  coordinate axes or a matched random orthonormal basis is not isolated by
-  that contrast and remains
-  open. % BIND: MT-09; basis-isolation gap (no learned-basis claim)
+  no convergence guarantee is claimed. The contribution is the deterministic
+  endgame itself, not the basis it searches along: a direct three-arm isolation
+  at fixed enablement (Supplementary Materials
+  Section~S9.1) shows the endgame beating no refinement at
+  both active dimensions, while the \emph{learned} eigenbasis is beaten by the
+  plain coordinate axes at $D = 50$ ($p_{\mathrm{Holm}} = 1.4\times10^{-4}$)
+  and not separated from them at $D = 100$. C1 is therefore claimed
+  basis-neutrally, and the eigenbasis is retained as a specified, reproducible
+  negative result rather than as a source of the
+  benefit. % BIND: MT-09; E1 basis isolation (rev-rel-2026-08-26-dd42d37eb)
 \item \textbf{C2 --- a dimension-tiered adaptive scaffold.} The
-  Adaptive Control Engine (ACE), an exponential-moving-average
+  Adaptive Configuration Engine (ACE), an exponential-moving-average
   credit-based adaptive selector over a pool of complete operator settings, with
   Acceptance-Rate Gated Pruning (ARGP) of unproductive arms; a
   tier-floored Nonlinear Population-Size Reduction (NLPSR) schedule
@@ -146,7 +149,7 @@ The contributions are:
   in origin, subject to those disclosed exceptions. % BIND: MT-10, CN-02 (C3; validation bullet carries no numbers)
 \end{itemize}
 
-The interaction-structure memory is an online, decaying, evidence-gated coordinate-pair graph learned from strictly improving accepted moves without additional objective evaluations. It provides candidate linkage blocks for blockwise crossover and a candidate eigenbasis for the eigenframe final polish (C1). However, the present component isolation does not establish a consistent standalone performance contribution from ISM at the dimensions where it is active, and the function-class analysis reveals no systematic advantage on the hybrid or composition categories (Supplementary Materials, Sections~S6.5 and S6.6). ISM is therefore positioned as a secondary exploratory mechanism rather than as the primary source of \dtgsk{}'s performance standing. Its inclusion provides a fully specified and reproducible investigation of structure learning from strictly improving accepted moves, while the paper's principal contributions remain the dimension-tiered adaptive scaffold (C2), the eigenframe final polish (C1), and the controlled, budget-fair family evaluation (C3).
+The interaction-structure memory is an online, decaying, evidence-gated coordinate-pair graph learned from strictly improving accepted moves without additional objective evaluations. It provides candidate linkage blocks for blockwise crossover and a candidate eigenbasis for the deterministic final polish (C1). However, the component isolation does not establish a consistent standalone performance contribution from ISM at the dimensions where it is active, and the function-class analysis reveals no systematic advantage on the hybrid or composition categories (Supplementary Materials, Sections~S6.5 and S6.6). The direct basis isolation added in revision goes further: in the memory's only fitness-affecting channel, the polish basis, the learned eigenframe is outperformed by the plain coordinate axes at $D = 50$ (Supplementary Materials, Section~S9.1), so at that dimension the exploitation of the learned structure subtracts from a refinement that works without it. ISM is therefore positioned as a specified negative result rather than as a source of \dtgsk{}'s performance standing. Its inclusion provides a fully specified and reproducible investigation of structure learning from strictly improving accepted moves, while the paper's principal contributions remain the dimension-tiered adaptive scaffold (C2), the deterministic final polish (C1), and the controlled, budget-fair family evaluation (C3).
 
 The remainder of the paper is organized as follows.
 Section~\ref{sec:related} reviews the GSK family, positions the
@@ -154,7 +157,7 @@ interaction-structure memory against structure learning outside the
 family, and states the resulting gaps. Section~\ref{sec:algorithm}
 specifies \dtgsk{}: notation and the inherited base operators, the
 adaptive scaffold, the interaction-structure memory and its
-exploitation channels, the eigenframe final polish, the frozen
+exploitation channels, the deterministic final polish, the frozen
 configuration, and the complexity and evaluation accounting.
 Section~\ref{sec:experiments} reports the experimental study on the
 five suites, including the statistical analysis, the convergence

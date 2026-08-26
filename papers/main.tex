@@ -1,6 +1,6 @@
 %  LaTeX support: latex@mdpi.com
-%  DT-GSK: Dimension-Tiered Adaptive Control and Deterministic Refinement
-%           for Gaining-Sharing Knowledge Optimization
+%  DT-GSK: Dimension-Tiered Adaptive Configuration Selection and Deterministic
+%           Refinement for Gaining-Sharing Knowledge Optimization
 %  Phase 8 rewrite: title/abstract/back matter bound to the frozen claim set
 %  (papers/governance/claims_evidence_matrix.csv) and to evidence release
 %  rel-2026-07-20-67d9345f9. Abstract carries ONE bound result number
@@ -92,8 +92,8 @@
 
 %=================================================================
 % Title
-\Title{DT-GSK: Dimension-Tiered Adaptive Control and Deterministic Refinement
-for Gaining-Sharing Knowledge Optimization}
+\Title{DT-GSK: Dimension-Tiered Adaptive Configuration Selection and Deterministic
+Refinement for Gaining-Sharing Knowledge Optimization}
 
 % Author ORCID IDs
 % AG-0002 (administrative_gap_register.md): real iDs are an author-side item and
@@ -150,19 +150,19 @@ moustafa.masoud@gmail.com (M.E.M.\ ORCID 0009-0003-8415-2158); hmhmdss@yahoo.com
 % Amendment 2 A2.3; the CEC2013LSGO sentence is the registered ceiling wording.
 \abstract{%
 Published gaining-sharing knowledge (GSK) variants adapt scalar control and
-donor/selection policy at one operating point. Dimension-Tiered
-Gaining-Sharing Knowledge (DT-GSK) instead resolves control by
+donor/selection policy to a single operating point. Dimension-Tiered
+GSK (DT-GSK) resolves control by
 dimension: an adaptive scaffold serves every tier, a deterministic,
-budget-exact eigenframe refinement runs once from $D = 50$ upward, and the
-GSK vector-update equations are retained; an exploratory
-interaction-structure memory, learned from strictly improving accepted
-moves at no extra evaluations, supplies the refinement basis.
-Against six GSK-family baselines re-executed in-repository on CEC2017
-(primary), CEC2011, CEC2013, CEC2020, and CEC2013LSGO under one
+budget-exact final refinement runs once at $D \geq 50$, with the
+GSK vector-update equations retained; an exploratory
+interaction-structure memory, learned from accepted
+moves, supplies its basis.
+Against six GSK-family baselines re-executed on five CEC suites under one
 budget-fair paired protocol, DT-GSK attains the best descriptive
-family-rank aggregate on CEC2017 (2.48) and CEC2013 (2.80); it is second
-behind eGSK at CEC2017's $D = 30$ and on CEC2011; the CEC2011 loss is
-Holm-significant. % BIND: AN-RANKAGG-2017-OVERALL (friedman_ranks_cec2017_overall.csv; RS-01 NARROWED); AN-RANKAGG-2013-OVERALL (friedman_ranks_cec2013_overall.csv); AN-OMNI-2011-NATIVE (friedman_ranks_cec2011.csv)
+family-rank aggregate on CEC2017 (2.48) and CEC2013 (2.80), though the
+Holm-corrected tests separate it from eGSK only at CEC2017's $D = 10$; it
+is second behind eGSK at $D = 30$ and on CEC2011 (a Holm-significant
+loss). % BIND: AN-RANKAGG-2017-OVERALL (friedman_ranks_cec2017_overall.csv; RS-01 NARROWED); AN-RANKAGG-2013-OVERALL (friedman_ranks_cec2013_overall.csv); AN-OMNI-2011-NATIVE (friedman_ranks_cec2011.csv)
 On AGSK's strongest suite---the CEC2020 competition in which it was the
 runner-up---DT-GSK places fourth; the family panel corroborates AGSK's
 published strength in this regime, consistent with the tiering thesis:
@@ -174,9 +174,9 @@ AGSK. % BIND: RS-13 (registered ceiling wording; friedman_ranks_cec2013lsgo_nati
 Suite roles: CEC2017 selection-exposed; CEC2011 and CEC2013
 corroborative; CEC2020 pre-registered confirmatory; CEC2013LSGO
 post-hoc. % BIND: LM-01; RS-10; RS-12; RS-13; negative_findings.md items 2, 4
-A direct isolation finds no detectable standalone benefit from that
-memory---a controlled negative
-result. % BIND: X-ABL-02 (S6.5 isolation null) + Path-1 subset (S6.5); honest-framing pass
+Direct isolations find no standalone benefit from that memory; its
+basis is outperformed by coordinate axes---controlled negative
+results. % BIND: X-ABL-02 (S6.5 isolation null) + E1 basis isolation (S9.1, rev-rel-2026-08-26-dd42d37eb); honest-framing pass
 All findings are scoped to the GSK-family panel.%
 }
 
@@ -184,11 +184,10 @@ All findings are scoped to the GSK-family panel.%
 \keyword{%
 metaheuristic optimization;
 gaining-sharing knowledge;
-dimension-tiered adaptive control;
+dimension-tiered adaptive configuration selection;
 deterministic final refinement;
 adaptive operator selection;
 population-size reduction;
-interaction-structure memory;
 CEC benchmark suites;
 nonparametric statistical comparison;
 reproducibility%
@@ -219,7 +218,7 @@ reproducibility%
 % an "S6.x" cross-reference to the start of a line, which trips the main-PDF
 % no_ablation_scan gate (no line in the MAIN may begin with S6).
 \supplementary{The following supporting information accompanies this
-article: Supplementary Sections S1--S8, comprising the complete CEC2017
+article: Supplementary Sections S1--S9, comprising the complete CEC2017
 per-function panel tables (S1); pairwise matrices and additional-suite
 detail for CEC2011 and the CEC2013 second comparison suite, including
 the descriptive rank-stability intervals (S2); the convergence
@@ -232,7 +231,7 @@ supplement-only component-contribution study --- a scaffold
 remove-one decomposition and a direct isolation of the interaction-structure
 memory (which finds no significant standalone benefit at its active
 tiers), drawn from separate component-isolation evidence, reported after the primary
-freeze and altering no primary result, together with the per-component cost accounting, the post-hoc function-class analysis, and the implementation-caveats trail for the two corrected defects --- the material the main text cites as~S6.5, S6.6, and~S6.7 (S6); the CEC2013LSGO large-scale study, with its family-internal scope, evidential-tier and provenance disclosures (S7); and the pre-registered CEC2020 confirmatory battery, reported with its registered outcome wording (S8).}
+freeze and altering no primary result, together with the per-component cost accounting, the post-hoc function-class analysis, and the implementation-caveats trail for the two corrected defects --- the material the main text cites as~S6.5, S6.6, and~S6.7 (S6); the CEC2013LSGO large-scale study, with its family-internal scope, evidential-tier and provenance disclosures (S7); the pre-registered CEC2020 confirmatory battery, reported with its registered outcome wording (S8); and the four round-one revision experiments --- the refinement-basis isolation, the matched-population-size control, the tiered-versus-tier-constant transplant, and the exploratory parameter-sensitivity screen --- each pre-registered before it produced a result (S9).}
 
 % Author Contributions: AG-0001 CLOSED 2026-07-25 -- the author restated the
 % CRediT allocation and it matches the rendered block below EXACTLY, so no text
@@ -275,8 +274,9 @@ All authors have read and agreed to the published version of the manuscript.}
 \noindent\textbf{Data Availability Statement:}\quad The source code,
 configuration files, and experimental result data supporting the findings of
 this study are openly available in the public \dtgsk{} repository at
-\url{https://github.com/MostafaMassoud/DT-GSK}; the submitted version
-corresponds to the repository tag v2.13, and any further materials are
+\url{https://github.com/MostafaMassoud/DT-GSK}; the originally submitted
+version corresponds to the repository tag v2.13 and this revised version to
+tag v2.14, and any further materials are
 available from the corresponding author upon reasonable request. The
 supplementary materials accompanying the manuscript provide the additional
 methodological and experimental details needed to evaluate the reported
@@ -287,11 +287,13 @@ SHA-256 checksum for every released file; the two suites added after
 that release was minted are carried by their own separate,
 non-superseding releases, lsgo-rel-2026-07-28-ff1a046ef (CEC2013LSGO)
 and cec2020-rel-2026-07-29-5867abe1e (CEC2020), each with its own
-checksummed manifest; and the derived statistical artifacts
+checksummed manifest; the four round-one revision experiments are carried by a
+fourth additive, non-superseding release, rev-rel-2026-08-26-dd42d37eb, which
+leaves every primary value unchanged; and the derived statistical artifacts
 behind every table and figure are versioned as checksummed analysis
 bundles alongside them. The supplementary component-isolation study
 (Section~S6) draws on a separate immutable component-isolation release,
-identified and checksummed in the Supplementary Materials. % BIND: CN-02 (evidence_release_manifest.json; evidence_release_manifest_cec2013lsgo.json; evidence_release_manifest_cec2020.json; analysis_checksums.sha256; _ablation/manifest.json)
+identified and checksummed in the Supplementary Materials. % BIND: CN-02 (evidence_release_manifest.json; evidence_release_manifest_cec2013lsgo.json; evidence_release_manifest_cec2020.json; analysis_checksums.sha256; _ablation/manifest.json; _revision/manifest.json)
 Beyond the analyzed suites, the implementation also includes runnable
 versions of eight non-GSK baseline optimizers and, for three of
 them (SHADE-ILS, MOS and DECC-G), complete result banks on CEC2013LSGO
@@ -416,7 +418,7 @@ statistical protocol, or interpretation of the reported experiments.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Abbreviations conform to the frozen terminology register
-% (phase_04/terminology_glossary.md): ACE = Adaptive Control Engine;
+% (phase_04/terminology_glossary.md): ACE = Adaptive Configuration Engine;
 % NLPSR = Nonlinear Population-Size Reduction; ARGP = Acceptance-Rate Gated
 % Pruning.
 \abbreviations{The following abbreviations are used in this manuscript:\\
@@ -426,7 +428,7 @@ statistical protocol, or interpretation of the reported experiments.}
 GSK      & Gaining-Sharing Knowledge \\
 \dtgsk{} & Dimension-Tiered Gaining-Sharing Knowledge (this paper) \\
 ISM      & interaction-structure memory \\
-ACE      & Adaptive Control Engine \\
+ACE      & Adaptive Configuration Engine \\
 ARGP     & Acceptance-Rate Gated Pruning \\
 NLPSR    & Nonlinear Population-Size Reduction \\
 BSE      & Budget-Safe Escape \\

@@ -1,5 +1,5 @@
 %% Supplementary Material -- compiled separately from main.tex
-%% Phase 8 (drafting order step 12): supplement S1..S8, written from the
+%% Phase 8 (drafting order step 12): supplement S1..S9, written from the
 %% frozen claim set (papers/governance/claims_evidence_matrix.csv), the Phase 7
 %% caption registry (papers/build_prompt_phases/phase_07/captions_registry.md),
 %% and papers/governance/artifact_binding.csv. Every empirical value traces to
@@ -82,7 +82,7 @@
 % Title
 % Gate 8 QA fix (2026-07-11): title aligned to the main document's frozen
 % Phase-8 title (main.tex \Title) -- stale "Adaptive" removed.
-\Title{Supplementary Material for: DT-GSK: Dimension-Tiered Adaptive Control and Deterministic Refinement for Gaining-Sharing Knowledge Optimization}
+\Title{Supplementary Material for: DT-GSK: Dimension-Tiered Adaptive Configuration Selection and Deterministic Refinement for Gaining-Sharing Knowledge Optimization}
 
 % Author ORCID IDs. Kept in sync with main.tex:113-115; the iDs are written
 % literally in the \address block below because pandoc does not expand custom
@@ -134,10 +134,11 @@ direct interaction-structure-memory isolation, and a by-class conditional-benefi
 breakdown, Section~S6), the complete CEC2013LSGO large-scale suite record
 (protocol, evidential tiers, family statistics, effect sizes, and
 per-function detail, Section~S7), and the pre-registered CEC2020
-confirmatory suite record (Section~S8).  Every empirical value in Sections~S1--S5 derives from the
+confirmatory suite record (Section~S8), and the four round-one revision
+experiments (Section~S9).  Every empirical value in Sections~S1--S5 derives from the
 promoted, read-only evidence release accompanying this article;
 the Section~S6 scaffold and isolation results derive from a separate, immutable
-ablation release; the Section~S7 and Section~S8 values derive from two
+ablation release; the Section~S7, Section~S8 and Section~S9 values derive from three
 further separate, non-superseding evidence releases identified in those
 sections; no primary result is
 altered by any of it.  All comparative
@@ -148,11 +149,10 @@ wording is scoped to the seven-algorithm GSK-family panel.%
 \keyword{%
 metaheuristic optimization;
 gaining-sharing knowledge;
-dimension-tiered adaptive control;
+dimension-tiered adaptive configuration selection;
 deterministic final refinement;
 adaptive operator selection;
 population-size reduction;
-interaction-structure memory;
 CEC benchmark suites;
 nonparametric statistical comparison;
 reproducibility%
@@ -162,7 +162,7 @@ reproducibility%
 \begin{document}
 
 % Supplement numbering scheme (presentation register, Dimension 20):
-% sections S1..S8; tables A.n; figures B.n; every exhibit cited by exact label.
+% sections S1..S9; tables A.n; figures B.n; every exhibit cited by exact label.
 \renewcommand{\thesection}{S\arabic{section}}
 \renewcommand{\thesubsection}{S\arabic{section}.\arabic{subsection}}
 \renewcommand{\thetable}{A\arabic{table}}
@@ -1396,19 +1396,23 @@ rank --- so its standing is a performance estimate on a tuned-against
 suite rather than an untouched confirmatory one. The
 final-polish isolation removes the \emph{entire} deterministic compass
 endgame, so any effect it measures attaches to that phase as a whole, not to the
-\emph{learned} eigenbasis it consumes: whether that basis beats coordinate
-axes or a matched random orthonormal basis is not isolated by any contrast
-reported here and remains open. And the evidence-bearing runs carry no
+\emph{learned} eigenbasis it consumes.  That question is now answered for the
+coordinate comparison: Section~\ref{sec:supp:rev:basis} isolates the three arms
+directly and finds the plain coordinate axes \emph{outperform} the learned
+eigenframe at $D = 50$.  A matched random orthonormal basis was not tested and
+remains open. And the evidence-bearing runs carry no
 component-level evaluation ledger or memory-activation trace, so we cannot
 report how many evaluations each modifier consumed, nor how often the
 learned structure was actually exposed to its consumers; the standalone
 null is therefore ``no detectable benefit under this design'' and not a
 demonstration that the memory was active and neutral.
 % BIND: development-exposure disclosure; basis-isolation gap (M036); component-FES/activation ledger absent (M031, M052)
-Ninth, no parameter-sensitivity study was performed: the tier constants
-are frozen and hash-locked, and the individual influence of each is
-unmeasured; neither ARGP nor the deep-stall restart is isolated by the
-remove-one study, which excludes both by
+Ninth, the parameter-sensitivity evidence is exploratory and narrow.  The
+sweep of Section~\ref{sec:supp:rev:sensitivity} covers seven constants at two
+levels, at $D = 30$ and $D = 100$ only, with 15 repetitions per cell against the
+frozen panel's 51, and it perturbs no tier threshold; the tier constants
+themselves remain frozen and hash-locked.  Neither ARGP nor the deep-stall
+restart is isolated by the remove-one study, which excludes both by
 pre-specification (Section~S6.2).
 
 Beyond these, the statistical scope is itself bounded: inference rests
@@ -1495,7 +1499,7 @@ out of order does not have to search for its first use.
 \toprule
 \textbf{Acronym} & \textbf{Expansion}\\
 \midrule
-ACE & Adaptive Control Engine (operator-configuration selector)\\
+ACE & Adaptive Configuration Engine (operator-configuration selector)\\
 ARGP & Acceptance-Rate Gated Pruning\\
 BSE & Budget-Safe Escape\\
 CD & Critical Difference (Nemenyi post-hoc)\\
@@ -2060,7 +2064,12 @@ three from this scaffold matrix.
 
 Per dimension, the seven cells are ranked over the common 29-function set by
 the Friedman test~\cite{friedman1937use, demsar2006statistical} on the
-per-function mean final error (lower rank is better);
+per-function mean final error (lower rank is better).  The omnibus
+$p$-value is reported as the Iman--Davenport $F$ on the tie-corrected
+Friedman statistic, matching the convention used for the primary suites in
+the main text; the exact-value ties created by the success floor are
+material here, and since the correction factor satisfies $C \leq 1$ it can
+only increase the statistic and leaves every mean rank untouched.
 Table~\ref{tab:abl-scaffold} reports the resulting mean-rank matrix and
 Figure~\ref{fig:abl-rankdelta} the rank change from the baseline.  The
 inferential weight is carried by the full-vs-cell paired Wilcoxon signed-rank
@@ -2163,7 +2172,7 @@ quoted.
 
 % BIND: X-ABL-01 (AB-01) D100 omnibus; X-ABL-03 (no contrast survives Holm at D100);
 %   ablation_matrix_rank_summary_cec2017_D100.csv; abl-rel-2026-07-20
-At $D=100$ the Friedman omnibus signal is weakest ($p = 3.5\times10^{-2}$) and
+At $D=100$ the omnibus signal is weakest ($p = 2.7\times10^{-2}$) and
 no contrast survives Holm; the $D=100$ ordering is descriptive only.  All six
 disabled cells changed at least one function's per-run trajectory at every
 dimension (active on 20--29 of 29 functions), so there are no null-contrast
@@ -2200,14 +2209,21 @@ as a second suite, CEC2013 at $D = 50$).  Cells are compared on per-function
 mean final error by a paired Wilcoxon signed-rank test across functions,
 Holm-corrected over the prespecified three-comparison family, with Friedman
 ranks over the four cells and Vargha--Delaney $A_{12}$ effect sizes on the raw
-runs; the four cells differ overall (Friedman $p = 2.4\times10^{-3}$,
-$5.2\times10^{-3}$, and $3.8\times10^{-3}$ for CEC2017 $D50$, CEC2017 $D100$,
-and CEC2013 $D50$).  These component-study omnibus $p$-values are the
-classical Friedman chi-square approximation (no tie-variance correction is
-applied in these component studies), not the Iman--Davenport $F$
-that serves as the omnibus decision criterion for the primary suites in the
-main text.  The two statistics are not interchangeable, so these figures
-should not be read against main-text omnibus values.
+runs; the four cells differ overall (Iman--Davenport $F(3,84) = 5.59$,
+$p = 1.5\times10^{-3}$; $F(3,84) = 4.87$, $p = 3.6\times10^{-3}$; and
+$F(3,81) = 5.96$, $p = 1.0\times10^{-3}$ for CEC2017 $D50$, CEC2017 $D100$,
+and CEC2013 $D50$).  These omnibus values use the tie-corrected Friedman
+statistic with the Iman--Davenport $F$ --- the same decision criterion the
+main text applies to the primary suites --- so component and primary
+omnibus figures are now directly comparable.  The classical chi-square
+approximation reported previously ($p = 2.4\times10^{-3}$,
+$5.2\times10^{-3}$, and $3.8\times10^{-3}$) is retained as an audit
+companion in the released contrasts files.  Because the tie-correction
+factor satisfies $C \leq 1$, the correction can only increase the
+statistic: every $p$-value decreases and no ranking or Holm decision in
+this section changes.  The findings below are carried by the
+Holm-corrected paired Wilcoxon tests of Table~\ref{tab:ism-isolation},
+which the choice of omnibus statistic does not affect.
 % BIND: X-ABL-02 overlay isolation; generate_ablation_matrix.py; _ablation/overlay evidence
 
 \begin{table}[H]
@@ -2440,6 +2456,12 @@ report substantially stronger published results on this suite than any
 GSK-family member, and no competitiveness with such specialists is claimed
 here; cross-paradigm comparison is outside this paper's scope.
 % BIND: disclosure sentence (a), FINAL_PUBLICATION_PLAN 0.4, adopted 2026-07-28 (verbatim); LM-06; RS-13
+For completeness: the public repository cited in the Data Availability
+Statement additionally holds exploratory first-party ports of SHADE-ILS, MOS
+and DECC-G, executed on this suite under the same harness and seed schedule.
+They are retained there as exploratory material outside the registered
+panel; they are not analysed in this paper, they enter no ranking or test
+reported here, and no claim in this paper rests on them.
 
 \subsection{Configuration Provenance on This Suite}\label{sec:supp:lsgo:config}
 
@@ -2449,6 +2471,15 @@ other suite: the shipped dimension-tier table does not extend to the
 suite's native $D = 905$ and $D = 1000$, so two linkage-block-size entries
 ($905 \rightarrow 50$ and $1000 \rightarrow 50$) were added for this
 suite alone, while all six comparators ran with empty optimizer options.
+A second configuration asymmetry is disclosed here because it is larger on
+this suite than anywhere else in the paper: \dtgsk{}'s
+$NP_{\mathrm{init}} = 5D$ rule gives $5{,}000$ individuals at $D = 1000$
+against the comparators' reference-implementation value of $100$ --- a
+fifty-fold ratio at initialization, where the corresponding ratio is
+five-fold at $D = 100$ on the bound-constrained suites. The budget is
+equalized on function evaluations rather than on population size, so the
+larger initial population buys proportionally fewer generations; as on the
+other suites, the population rule was not a controlled variable.
 The value 50 follows a structural rule recorded in the configuration file
 at the time the entries were introduced: it matches the benchmark's own
 declared group structure --- the suite builds its partially separable
@@ -3592,6 +3623,238 @@ F10 & Best & 3.99E+02 & 3.99E+02 & 3.99E+02 & 3.99E+02 & 4.01E+02 & 3.99E+02 & 3
 
 %==================================================================
 %==================================================================
+
+%==================================================================
+% S9 -- Round-one revision experiments (E1-E4). Every value in this
+% section is machine-transcribed by papers/scripts/generate_revision_exhibits.py
+% from the release-bound bundle papers/analysis/rev-rel-2026-08-26-dd42d37eb/,
+% which is generated strict-source from the promoted evidence release
+% rev-rel-2026-08-26-dd42d37eb with seed-verified pairing and fail-closed
+% known-answer pins.  Designs and reporting constraints were fixed in
+% papers/review_2026_08_24/revision_experiments_preregistration.md, signed
+% 2026-08-25 before any result from these experiments existed.
+%==================================================================
+\section{Round-One Revision Experiments}\label{sec:supp:revision}
+
+\noindent The four experiments in this section were requested by the round-one
+reviewers to isolate mechanisms that the submitted manuscript had introduced
+together.  Their designs, estimands, statistical conventions and the wording to
+be used for each unfavourable outcome were registered in a signed addendum
+before any of them produced a result; two subsequent deviations discovered
+during post-hoc verification are recorded there as dated amendments and are
+disclosed at the point of use below.  That addendum is published with the code
+and data, as revision\_experiments\_preregistration.md under the review folder
+of the repository named in the Data Availability Statement, so a reader can
+check that the unfavourable-outcome wording predates the outcomes rather than
+take it on trust.
+% BIND: pre-registration made checkable (D-0049; published 2026-08-27)
+The experiments ran under the same
+unified Threefry seed schedule, base seed and protocol budget as the primary
+panel, so every new cell pairs with the frozen evidence at matched
+(dimension, function, run); pairing was verified by seed identity before any
+statistic was computed, with no mismatch in any comparison.  Nothing in the
+primary release was re-run or re-minted.
+% BIND: rev-rel-2026-08-26-dd42d37eb; prereg papers/review_2026_08_24/revision_experiments_preregistration.md
+
+\subsection{Refinement Basis: Eigenframe, Coordinate Axes, or None}\label{sec:supp:rev:basis}
+
+The final polish was previously evaluated only as a whole: the released
+component study removed the entire final search procedure rather than testing
+the contribution of the basis it searches along
+(Section~\ref{sec:supp:ablation:sgsm}).  This experiment separates the two.
+Three arms differ in the direction set alone --- no refinement, the coordinate
+axes, and the learned eigenframe --- at the shipped configuration in every
+other respect, with the interaction-structure memory and the linkage channel
+live, at $D \in \{50, 100\}$ with $51$ paired repetitions.
+
+The coordinate arm is produced by supplying the identity matrix through a
+keyword-only research parameter of the optimizer core.  That parameter is
+deliberately unreachable from every configuration, profile, command-line and
+adapter path in the shipped package, and a regression test asserts as much;
+it is exercised here from a driver outside that package, with no shipped
+source modified.  The identity basis reproduces exactly the fallback the polish
+already uses whenever the interaction graph carries no signal, so the contrast
+isolates the basis and nothing else.
+
+\begin{table}[H]
+\caption{Refinement-basis contrast on CEC2017 at the two dimensions where the
+polish is active.  Paired Wilcoxon signed-rank across the 29 scored functions on
+per-function mean error, Holm-corrected within dimension over the registered
+two-contrast family; $A_{12}$ on the raw paired runs, computed with the first-named
+arm as reference, so $A_{12} < 0.5$ favours the second.  W/T/L counts functions,
+ties at a tolerance of $10^{-8}$.  $^{\dagger}$The coordinate-versus-none row is a
+supplementary single-test contrast added after verification, outside the registered
+family, so its Holm value equals its raw value; it is reported because the value of
+the axes endgame would otherwise rest only on a transitive
+argument.}\label{tab:rev-e1}
+\resizebox{\textwidth}{!}{\input{tables/SA05}}
+\end{table}
+% BIND: E1 (rev-rel-2026-08-26-dd42d37eb; e1_basis_contrast.json); R2.3
+
+Two findings follow, and they point in opposite directions.  The refinement
+itself is confirmed: against no refinement it wins on 22 of 29 functions at
+$D = 50$ and 23 of 29 at $D = 100$, and the coordinate arm alone wins on 28 of
+29 and 25 of 29 respectively.  The learned basis, however, does not merely fail
+to add value --- at $D = 50$ it is beaten by the plain coordinate axes on 25 of
+29 functions at $p_{\mathrm{Holm}} = 1.4\times10^{-4}$, and the single worst
+function shows the eigenframe arm four orders of magnitude behind.  At $D = 100$
+the same direction appears without reaching significance
+($p_{\mathrm{Holm}} = 0.054$).  The conclusion the paper draws is therefore
+restricted to what was tested: at $D = 50$ on this suite, with this estimator and
+this exploitation channel, the learned eigenbasis degrades a refinement that
+works without it.  This is consistent with the configuration record noting that
+the learned basis matches the coordinate axes to $5\times10^{-5}$ --- an
+estimator carrying almost no information, whose residual rotations subtract from
+a search that the axes serve well.  Contribution~C1 is accordingly stated in
+basis-neutral terms throughout: the mechanism that earns its place is the
+deterministic, budget-exact compass endgame, not the geometry it was given.
+% BIND: E1 headline; C1 basis-neutral restatement
+
+\subsection{Matched Population Size}\label{sec:supp:rev:np}
+
+\dtgsk{} initializes $NP = 5D$ while the six comparators run their
+reference-implementation value of $100$, a five-fold difference at $D = 100$
+that the submitted manuscript disclosed but did not control.  This experiment
+controls it: \dtgsk{} is re-run at $NP = 100$ across all four dimensions with
+$51$ repetitions, and the panel is re-ranked with the six frozen comparator
+columns reused unchanged.
+
+The single-factor scope is declared.  Only the initial population size changes:
+the nonlinear reduction floor keeps its tier value, the high-dimension floor
+governor is untouched, and the elite archive --- contrary to a statement in the
+registration, corrected there by amendment --- is capped at a fixed size in both
+arms rather than scaling with $NP$, which makes the contrast cleaner than
+registered rather than wider.  Because $NP = 5D$ is a declared component of the
+dimension-tiered method and not an incidental setting, this experiment is an
+ablation of that component; it is not a correction to a mis-specified baseline.
+
+\begin{table}[H]
+\caption{\dtgsk{} at the comparators' population value.  Mean ranks and ordinal
+positions are computed over the seven-algorithm panel with only the \dtgsk{}
+column substituted.  The paired test compares \dtgsk{} against itself across the
+29 functions, Holm-corrected across the four dimensions; $A_{12}$ takes the
+$NP = 5D$ arm as reference.}\label{tab:rev-e2}
+\resizebox{\textwidth}{!}{\input{tables/SA06}}
+\end{table}
+% BIND: E2 (rev-rel-2026-08-26-dd42d37eb; e2_np100.json); R1.3/R2.2
+
+The population rule is not the source of the reported standing.  At the
+comparators' value \dtgsk{} still places first at $D = 10$ and second at the
+three remaining dimensions, so it remains within the top two of the panel at
+every dimension tested.  The rule does contribute, and it does so exactly where
+a dimension-dependent rule should: the paired difference is indistinguishable
+from zero at $D = 10$ and $D = 30$ and significant at $D = 50$ and $D = 100$,
+where holding $NP$ at the panel constant costs \dtgsk{} first place.  The rank
+claims for those two dimensions are therefore configuration-dependent in the
+sense that they rest in part on a component of the method, and this is stated
+wherever those claims appear.
+% BIND: E2 headline; rank-claim qualification
+
+\subsection{Tiered Versus Tier-Constant Configuration}\label{sec:supp:rev:tiering}
+
+The manuscript attributes its standing to resolving configuration by dimension,
+but the submitted evidence never compared the tiered configuration against an
+otherwise identical one that does not vary.  This experiment supplies that
+comparison by transplant: the parameter set resolved at $D = 10$, and separately
+the set resolved at $D = 100$, are applied unchanged at every dimension and
+compared against the frozen tiered leg.  Both dictionaries are generated
+programmatically from the shipped profile rather than transcribed; 88 keys
+differ between them.
+% BIND: E3 design (rev-rel-2026-08-26-dd42d37eb; _dt_profiles.pub_overrides key diff, generated not transcribed)
+
+A transplant is not a component removal, and the reading is bounded accordingly.
+Carrying a tier's dictionary verbatim also carries the dimension-keyed gates
+inside it, so an arm may have mechanisms switched on or off relative to the
+tiered baseline at a given dimension --- that change in activation is the
+treatment, not a confound.  The experiment therefore licenses exactly one class
+of statement, that the tiered configuration does or does not outperform a
+tier-constant one at a given dimension.  No difference reported here may be
+attributed to any individual subsystem; the component studies of
+Section~\ref{sec:supp:ablation} and Section~\ref{sec:supp:rev:basis} exist for
+that purpose.  No arm is described as dimension-independent, since some scaling
+is irreducible: the population rule, the junior--senior split and the
+$1/\sqrt{D}$ scaling vary with dimension in every arm.
+
+\begin{table}[H]
+\caption{Tiered configuration versus the two tier-constant transplants on
+CEC2017.  Paired Wilcoxon across the 29 functions, Holm-corrected across the four
+dimensions within each arm; W/T/L is counted from the tiered arm, and
+$A_{12}$ takes it as reference.  At $D = 10$ the U-low arm and at $D = 100$ the
+U-high arm coincide with the tiered configuration by construction, which the
+tie counts confirm and which serves as the design's internal
+control.}\label{tab:rev-e3}
+\resizebox{\textwidth}{!}{\input{tables/SA07}}
+\end{table}
+% BIND: E3 (rev-rel-2026-08-26-dd42d37eb; e3_uniform_vs_tiered.json); R2.1
+
+The result is mixed and is reported as such.  Tiering is demonstrated against
+the high-dimension transplant at $D = 10$ and at $D = 50$, where the tiered
+configuration wins on 22 and 19 of 29 functions respectively.  Against the
+low-dimension transplant it is not separated at three of four dimensions, and at
+$D = 30$ it is beaten: the parameter set that \dtgsk{} resolves at $D = 10$
+outperforms the set it actually ships at $D = 30$, on 20 of 29 functions at
+$p_{\mathrm{Holm}} = 5.5\times10^{-3}$.  Contribution~C2 is narrowed to match:
+the evidence supports resolving configuration by dimension at the dimensions
+where it was demonstrated, and it identifies the $20 \le D < 50$ tier as
+mis-specified rather than the tiering principle as unsound.  This localizes a
+weakness the submitted manuscript already disclosed descriptively --- $D = 30$
+is \dtgsk{}'s weakest tier on both general suites --- and attributes it to that
+tier's values.  Which of the 88 differing keys carries the effect is not
+resolved by this design and is stated as open.
+% BIND: E3 headline; C2 narrowed; D30 tier mis-specification
+
+\subsection{Parameter Sensitivity (Exploratory)}\label{sec:supp:rev:sensitivity}
+
+This study is exploratory by registration.  It is reported descriptively; no
+hypothesis test is performed on it, no corrected $p$-value is computed from it,
+and it is deliberately kept apart from the component-contribution material of
+Section~\ref{sec:supp:ablation}, whose conclusions it neither supports nor
+qualifies.  Seven constants spanning the adaptive selector, its pruning gate,
+the escape trigger, the population floor, and the local-search budget and elite
+count were perturbed one at a time at two levels each, at $D = 30$ and
+$D = 100$, over all 29 functions with 15 repetitions per cell: 27 cells in all,
+one of the 28 combinations being unreachable because its perturbation coincides
+with the shipped value.  Runs were reduced rather than functions, so every cell
+spans the full scored set.
+% BIND: E4 design (rev-rel-2026-08-26-dd42d37eb; e4_sensitivity.csv 27 cells, 15 runs); prereg section 3.4
+
+One deviation from the registered design was found after execution and is
+disclosed rather than smoothed.  The driver derived one perturbation pair per
+real-valued constant from the $D = 30$ tier values and applied that same pair at
+both dimensions.  For three constants whose shipped value differs at $D = 100$,
+the executed levels are consequently larger than the registered twenty per cent
+and lie on one side of the shipped value only.  Those rows are marked in the
+table, which prints the levels actually executed rather than the registered
+formula.  Stability under a larger perturbation implies stability under a
+smaller one, so the robustness reading holds for those cells in magnitude; what
+is absent is coverage on the untested side, and no claim is made there.
+
+\begin{table}[H]
+\caption{Exploratory one-factor sensitivity of \dtgsk{}'s panel standing.
+Descriptive only: no test is performed and no $p$-value is reported.  Rank and
+ordinal are recomputed over the seven-algorithm panel with only the \dtgsk{}
+column substituted; W/T/L counts functions where the shipped configuration beats
+the perturbed one; Ratio is the median across functions of perturbed over
+shipped mean error.  Perturbed cells use 15 repetitions against the frozen
+panel's 51.  $^{\ast}$Executed levels at $D = 100$ exceed the registered
+twenty per cent and are one-sided (registration amendment
+A1).}\label{tab:rev-e4}
+\resizebox{\textwidth}{!}{\input{tables/SA08}}
+\end{table}
+% BIND: E4 (rev-rel-2026-08-26-dd42d37eb; e4_sensitivity.csv); R2.7; EXPLORATORY
+
+The registered headline form is an ordinal statement, and it holds: \dtgsk{}'s
+position within the family panel is unchanged in 26 of the 27 cells, with median
+error ratios within roughly two per cent of unity throughout.  The single
+exception is favourable and instructive --- raising the population floor by one
+at $D = 30$ moves \dtgsk{} from second to first at that dimension --- and it
+falls on the same tier that the transplant experiment of
+Section~\ref{sec:supp:rev:tiering} identifies as mis-specified.  The two
+observations are consistent, and neither is a test of the other.  No constant
+tested here is knife-edge under the levels executed; that includes the one
+constant the project's own configuration record had previously flagged as
+sensitive on a different suite.
+% BIND: E4 headline (ordinal-stability wording, as registered)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Flush all deferred floats (the S8.6 per-function detail tables A39-A42)

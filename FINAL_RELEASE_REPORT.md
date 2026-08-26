@@ -1,5 +1,24 @@
 # DT-GSK — Final Release Report (CEC2017)
 
+> ⚠️ **HISTORICAL DOCUMENT — do not read this for current project state.**
+> This report covers CEC2017 only and was written **before** submission. Its closing
+> "PUBLISH READY" verdict describes the state as of the pre-submission release, not today:
+> the manuscript has since been submitted to *Algorithms* (MDPI) as `algorithms-4507562`
+> and has received a **MAJOR REVISION** from two reviewers.
+> For current state — including which reviewer points are open and which claims the review
+> put in question — see **[REVISION_STATUS.md](REVISION_STATUS.md)**.
+> Retained for provenance. The section 9 mean-rank ordinals still hold against the frozen releases,
+> but three framings below are superseded by the round-1 revision and must not be carried forward:
+> the unqualified "#1-ranked algorithm in the GSK family" reading (Reviewer 2 asked that the best
+> aggregate rank not be read as overall superiority — on CEC2017 the Holm-corrected tests separate
+> DT-GSK from EGSK only at D10, and the two are never Nemenyi-separable at any dimension of that
+> suite); the D50/D100 standing, now qualified as resting in part on the NP = 5D rule (re-run at
+> the panel's NP = 100, DT-GSK is first at D10 and second at D30, D50 and D100); and the D30
+> account in §11 and §13, which is incomplete rather than wrong — the uniform deep-stall trade-off
+> is real, but the 20 ≤ D < 50 tier is also mis-specified: the parameter set DT-GSK resolves at
+> D10 beats the set it ships at D30 on 20 of 29 functions (Holm 5.5e-3). The §9 rank decimals do
+> not match any frozen release either; see the note there.
+
 ## 1. Executive summary
 DT-GSK is the **#1-ranked algorithm in the GSK family** on CEC2017 (51 runs, 29 functions,
 F2 excluded, unified Threefry seed schedule, error vs known optimum). It is **#1 at D10, D50,
@@ -155,7 +174,7 @@ effect sizes, win/tie/loss, and Nemenyi CD diagrams in `results/_run_all/_analys
 
 ## 12. Tests & quality gates
 `tests/unit + tests/smoke + tests/regression`: **303 passed** (at the 2026-07-05 release
-snapshot; the suite has since grown to 324 — re-check with `python -m pytest --collect-only -q`);
+snapshot; the suite has since grown substantially — re-check with `python -m pytest --collect-only -q`);
 ruff `F,E9` clean;
 `validate_profile_lock` passed (3 configs); reference validation OK; byte-stability KAT green
 with the mechanism default-on (min-budget guard).
@@ -172,3 +191,5 @@ with the mechanism default-on (min-budget guard).
 both mean and median, under the canonical protocol, with the sole catastrophic outlier fixed by
 a validated default-on mechanism, all gates passing, and the outlier disclosed. Remaining items
 are release hygiene (archive/delete stale `results/_experimental` traces; see cleanup manifest).
+(Since actioned — §6 records the purge; neither `results/_experimental` nor the cleanup
+manifest remains in the tree.)

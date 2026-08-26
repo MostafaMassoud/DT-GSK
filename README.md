@@ -2,9 +2,11 @@
 
 **Dimension-Tiered Gaining-Sharing Knowledge Optimization** -- the reference
 implementation, benchmark evidence, and reproducibility chain accompanying the
-manuscript *DT-GSK: Dimension-Tiered Adaptive Control and Deterministic
-Refinement for Gaining-Sharing Knowledge Optimization* (submitted to
-*Algorithms*, MDPI; not yet peer-reviewed).
+manuscript *DT-GSK: Dimension-Tiered Adaptive Configuration Selection and
+Deterministic Refinement for Gaining-Sharing Knowledge Optimization* (submitted to
+*Algorithms*, MDPI as `algorithms-4507562`; under revision after peer review).
+Current project state, including the open revision work, is recorded in
+[REVISION_STATUS.md](REVISION_STATUS.md).
 
 The repository ships seven runnable optimizers -- DT-GSK together with six
 re-implemented GSK-family baselines -- adapters for five CEC benchmark suites,
@@ -46,8 +48,7 @@ with CEC benchmark support and production-grade research tooling. Alongside the
 `dt-gsk`, this project's own proposed method (Dimension-Tiered
 Gaining-Sharing Knowledge Optimization), which resolves control by dimension
 rather than at a single operating point and supplies its refinement basis from
-an exploratory interaction-structure memory (ISM) learned from accepted moves
-at no extra evaluations.
+an exploratory interaction-structure memory (ISM) learned from accepted moves.
 
 Implemented optimizer IDs (seven runnable algorithms):
 
@@ -76,6 +77,13 @@ Every standing below is **family-internal**: it compares the seven GSK-family
 members implemented here and claims nothing against specialist optimizers
 outside that panel. Figures are descriptive Friedman mean ranks over the seven
 members; the manuscript attaches the statistical tests and states their scope.
+They also rest in part on DT-GSK's `NP = 5D` rule. A matched-population
+control added in revision re-runs DT-GSK at `NP = 100`, the comparators'
+setting, on CEC2017 only: it stays top-two at every dimension -- first at
+`D = 10`, second at `D = 30`, `D = 50` and `D = 100` -- so the `D = 50` and
+`D = 100` first places below are not reproduced at common `NP`. The `NP = 5D`
+leg wins the paired comparison at `D = 50` (Holm 0.0064) and `D = 100`
+(Holm 0.0051); neither leg separates at `D = 10` or `D = 30`.
 
 | Suite | Role | DT-GSK standing | Mean rank |
 |---|---|---|---|
@@ -91,15 +99,27 @@ one.
 The advantage is **dimension-tiered and not monotone in dimension** -- it does
 not simply grow as `D` grows. DT-GSK leads at every tier except `D = 30`, its
 weak tier on both general suites (CEC2017 D30: eGSK 2.293 vs DT-GSK 2.500;
-CEC2013 D30: eGSK 3.071, ATMALS-GSK 3.339, DT-GSK 3.375). A second and separate
-regime sits below `D` around 20, where every dimension-gated subsystem is
-structurally inactive and DT-GSK runs as base machinery -- which is why it
-places fourth on CEC2020, a boundary condition the pre-registration predicted
-in advance.
+CEC2013 D30: eGSK 3.071, ATMALS-GSK 3.339, DT-GSK 3.375). A configuration
+transplant added in revision locates part of that weakness in the tier itself:
+at `D = 30` the parameter set DT-GSK resolves at `D = 10` beats the set it
+ships, on 20 of 29 functions (Holm 5.5e-3), so the `20 <= D < 50` tier is
+**mis-specified** rather than the tiering principle being unsupported -- the
+same experiment demonstrates tiering against a high-dimension transplant at
+`D = 10` and `D = 50`. A second and separate regime sits below `D` around 20,
+where every dimension-gated subsystem is structurally inactive and DT-GSK runs
+as base machinery -- which is why it places fourth on CEC2020, a boundary
+condition the pre-registration predicted in advance.
 
 A direct isolation of the interaction-structure memory finds **no detectable
-standalone benefit** at its active tiers. That controlled negative result is
-reported in the abstract and conclusions rather than confined to a supplement.
+standalone benefit** at its active tiers, and a three-arm isolation of the
+refinement basis added in revision sharpens that to harm: in the memory's only
+fitness-affecting channel -- the basis the deterministic final polish searches
+along -- the learned eigenframe is **beaten by the plain coordinate axes** at
+`D = 50` (Holm 1.4e-4, 25 of 29 functions) and is not separated from them at
+`D = 100`. The polish itself survives: it beats no refinement at both active
+dimensions, so ISM is a specified negative result rather than a contribution,
+and the polish is claimed basis-neutrally. Both negative findings are reported
+in the abstract and conclusions rather than confined to a supplement.
 
 DT-GSK also ships the **deep-stall multi-start** (a default-on standard
 mechanism): when the incumbent stalls for a quarter of the budget the working
@@ -152,8 +172,9 @@ Main capabilities:
   validation evidence.
 - Read-only imported reference evidence under `benchmarks/cec_reference_results`
   -- the single source of truth for all paper data and statistics, carrying the
-  full 7-optimizer panel (proposed `dt-gsk` included) for `cec2017`, `cec2011`,
-  and `cec2013`.
+  full 7-optimizer panel (proposed `dt-gsk` included) for all five CEC suites
+  (`cec2017`, `cec2011`, `cec2013`, `cec2013lsgo`, and `cec2020`), plus the
+  `_ablation` and `_revision` evidence trees.
 - Full Markdown documentation organized into themed `docs/` subfolders, plus a
   generated static HTML site.
 
@@ -225,12 +246,14 @@ original paper for each optimizer that appears in the experiment.
 | `apgsk` | Mohamed, A. W.; Abutarboush, H. F.; Hadi, A. A.; Mohamed, A. K. "Gaining-sharing knowledge based algorithm with adaptive parameters for engineering optimization." IEEE Access, 9, 65934-65946, 2021. DOI: [10.1109/ACCESS.2021.3076091](https://doi.org/10.1109/ACCESS.2021.3076091). |
 | `fdb-agsk` | Bakir, H.; Duman, S.; Guvenc, U.; Kahraman, H. T. "Improved adaptive gaining-sharing knowledge algorithm with FDB-based guiding mechanism for optimization of optimal reactive power flow problem." Electrical Engineering, 105, 3121-3160, 2023. DOI: [10.1007/s00202-023-01803-9](https://doi.org/10.1007/s00202-023-01803-9). |
 | `atmals-gsk` | Alfadli, N. M.; Oun, E. M.; Mohamed, A. W. "Auto-Tuning Memory-Based Adaptive Local Search Gaining-Sharing Knowledge-Based Algorithm for Solving Optimization Problems." Algorithms, 18(7), 398, 2025. DOI: [10.3390/a18070398](https://doi.org/10.3390/a18070398). |
-| `dt-gsk` | This project's proposed method (Dimension-Tiered Gaining-Sharing Knowledge Optimization). Masoud, M. E.; Roshdy, H. S. M.; Mohamed, A. W. "DT-GSK: Dimension-Tiered Adaptive Control and Deterministic Refinement for Gaining-Sharing Knowledge Optimization." Submitted to *Algorithms* (MDPI), 2026; not yet peer-reviewed. Cite the software metadata in [CITATION.cff](CITATION.cff) until the article appears. |
+| `dt-gsk` | This project's proposed method (Dimension-Tiered Gaining-Sharing Knowledge Optimization). Masoud, M. E.; Roshdy, H. S. M.; Mohamed, A. W. "DT-GSK: Dimension-Tiered Adaptive Configuration Selection and Deterministic Refinement for Gaining-Sharing Knowledge Optimization." Submitted to *Algorithms* (MDPI), 2026 as `algorithms-4507562`; under revision after peer review. Cite the software metadata in [CITATION.cff](CITATION.cff) until the article appears. |
 
 ## Repository Map
 
 ```text
 DT-GSK/
+  CLAUDE.md            <- session entry point (short; points everywhere else)
+  REVISION_STATUS.md   <- current state: review, progress, next steps
   README.md
   SKILL.md
   runbook.md
@@ -245,6 +268,7 @@ DT-GSK/
   benchmarks/
   configs/
   docs/
+  papers/
   results/
   scripts/
   src/gsk_family/
@@ -267,6 +291,9 @@ Directory roles:
   examples), `prompt/` (the review and audit prompts), and `html/` (generated
   site). The folder root also holds `index.md` and `LICENSES.md`.
 - `docs/html/`: generated static HTML documentation site.
+- `papers/`: manuscript and Supplementary LaTeX sources, the governance
+  registers and decision log, and the frozen, immutable analysis bundles under
+  `papers/analysis/`.
 - `results/`: generated experiment and validation output.
 - `scripts/`: CEC campaign launchers, the DT-GSK ablation driver
   (`run_ablation.py`), the documentation builder, and developer utilities.
@@ -292,8 +319,8 @@ docs/
   algorithms/              # gsk, agsk, apgsk, fdb-agsk, atmals-gsk, egsk, dt-gsk
   development/             # developer_guide, contributor_guide,
                            #   maintenance_guide, extension_guide,
-                           #   code_reading_guide, egsk_port_spec,
-                           #   history/ (archived completed-work records)
+                           #   code_reading_guide, egsk_port_spec, plus
+                           #   campaign, port and plan records
   research/                # researcher_handbook, reproducibility, performance,
                            #   validation_report, numerical_examples
   prompt/                  # project-review, documentation-review,
@@ -783,8 +810,13 @@ Use these instead:
 
 - Current release ids: resolve them from the manifests, never from prose —
   `papers/governance/evidence_release_manifest.json` (primary),
-  `..._cec2013lsgo.json`, `..._cec2020.json`, and
-  `benchmarks/cec_reference_results/_ablation/manifest.json`.
+  `..._cec2013lsgo.json`, `..._cec2020.json`,
+  `benchmarks/cec_reference_results/_ablation/manifest.json`, and
+  `benchmarks/cec_reference_results/_revision/manifest.json` for the round-one
+  journal revision experiments, whose analysis bundle is
+  `papers/analysis/rev-rel-2026-08-26-dd42d37eb/`. Releases are additive and
+  non-superseding: the revision release pairs read-only with the primary and
+  ablation releases and re-mints nothing in either.
 - Evidence index: `benchmarks/cec_reference_results/_index/BENCHMARK_EVIDENCE_INDEX.md`
   (moved there 2026-07-28; the frozen README still points at the old path).
 
@@ -816,11 +848,28 @@ Intelligence* statement, which is the authoritative account. In short: it
 assisted with language editing, drafting of descriptive prose, and
 software-engineering and tooling support. It designed no experiments, produced
 no data, computed no statistics, and generated no scientific claim, result, or
-conclusion. The commit history is consistent with that: no commit carrying an
-AI co-authorship trailer modifies any file under
-`benchmarks/cec_reference_results/` or `papers/analysis/` -- the evidence and
-the derived statistics -- and the single such commit touching optimizer source
-adds a documentation header.
+conclusion.
+
+The commit history shows what that looked like in practice. It is stated here in
+checkable terms rather than as a blanket negative, because the blanket negative
+this paragraph used to carry stopped being true and nobody noticed. **No** commit
+carrying an AI co-authorship trailer modifies any of the four hash-gated
+optimizer modules (`dt_gsk.py`, `_dt_core.py`, `_dt_profiles.py`, `_dt_rng.py`) --
+`papers/scripts/validate_provenance_claims.py` enforces that by hash, so it is a
+gate rather than a promise. Two such commits touch other files under
+`src/gsk_family/optimizers/`, and both are documentation-only: one updates a
+comment's cross-reference, the other adds a source-attribution docstring to a
+comparator. Neither changes behaviour.
+Trailered commits DO appear under `benchmarks/cec_reference_results/` and
+`papers/analysis/`, and every one of them is a promotion or a re-derivation, not
+an authored number: files are copied byte-for-byte from a completed run into a
+read-only release and then checksummed, or a statistic is recomputed by a
+committed script from frozen inputs. The round-one revision release
+`rev-rel-2026-08-26-dd42d37eb` was promoted this way in a single commit of 259
+files, each byte-verified against its staging copy before the manifest was
+minted. No evidence file was hand-edited, and no reported value was typed by
+hand at any point: the exhibit generators read the analysis bundle and emit both
+the LaTeX and its Word twin from the same source.
 
 **The instruments themselves:**
 

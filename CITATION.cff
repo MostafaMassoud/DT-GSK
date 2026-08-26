@@ -6,8 +6,8 @@ message: >-
   preferred-citation. If you use the GSK-family baselines re-implemented here,
   please also cite their original sources, listed under references.
 type: software
-version: "2.13"
-date-released: 2026-08-01
+version: "2.14"
+date-released: 2026-08-26
 license: MIT
 repository-code: "https://github.com/MostafaMassoud/DT-GSK"
 # No DOI field. Author decision 2026-08-01 (D-0037): no Zenodo deposit and no
@@ -34,11 +34,10 @@ abstract: >-
 keywords:
   - metaheuristic optimization
   - gaining-sharing knowledge
-  - dimension-tiered adaptive control
+  - dimension-tiered adaptive configuration selection
   - deterministic final refinement
   - adaptive operator selection
   - population-size reduction
-  - interaction-structure memory
   - CEC benchmark suites
   - nonparametric statistical comparison
   - reproducibility
@@ -68,8 +67,8 @@ preferred-citation:
   type: article
   status: submitted
   title: >-
-    DT-GSK: Dimension-Tiered Adaptive Control and Deterministic Refinement for
-    Gaining-Sharing Knowledge Optimization
+    DT-GSK: Dimension-Tiered Adaptive Configuration Selection and Deterministic
+    Refinement for Gaining-Sharing Knowledge Optimization
   journal: Algorithms
   year: 2026
   authors:
@@ -84,8 +83,10 @@ preferred-citation:
       given-names: Ali Wagdy
       orcid: "https://orcid.org/0000-0002-5895-2632"
   notes: >-
-    Submitted to Algorithms (MDPI); not yet peer-reviewed or accepted. Update
-    this entry with the volume, article number, and DOI on publication.
+    Under revision at Algorithms (MDPI): submitted 2026-08-01, major revision
+    received 2026-08-24, revised version resubmitted 2026-08-26. Not yet
+    accepted. Update this entry with the volume, article number, and DOI on
+    publication.
 references:
   - type: article
     authors:

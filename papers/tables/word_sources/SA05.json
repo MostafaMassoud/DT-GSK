@@ -1,0 +1,79 @@
+{
+ "table_id": "SA05",
+ "manuscript_label": "Table A43",
+ "caption_stub": "Refinement-basis contrast on CEC2017 (E1, reviewer point R2.3): eigenframe versus coordinate axes versus no refinement at fixed enablement.",
+ "headers": [
+  [
+   "D",
+   "Contrast",
+   "raw p",
+   "Holm p",
+   "Sig.",
+   "W/T/L",
+   "A12"
+  ]
+ ],
+ "rows": [
+  [
+   "50",
+   "Eigenframe vs. coordinate axes",
+   "6.9e-5",
+   "1.4e-4",
+   "yes",
+   "4/0/25",
+   "0.493"
+  ],
+  [
+   "50",
+   "Eigenframe vs. no refinement",
+   "6.1e-4",
+   "6.1e-4",
+   "yes",
+   "22/2/5",
+   "0.511"
+  ],
+  [
+   "50",
+   "Coordinate axes vs. no refinement +",
+   "3.0e-6",
+   "3.0e-6",
+   "yes",
+   "28/1/0",
+   "0.518"
+  ],
+  [
+   "100",
+   "Eigenframe vs. coordinate axes",
+   "0.0543",
+   "0.0543",
+   "no",
+   "11/1/17",
+   "0.497"
+  ],
+  [
+   "100",
+   "Eigenframe vs. no refinement",
+   "0.0015",
+   "0.003",
+   "yes",
+   "23/1/5",
+   "0.503"
+  ],
+  [
+   "100",
+   "Coordinate axes vs. no refinement +",
+   "0.0012",
+   "0.0012",
+   "yes",
+   "25/1/3",
+   "0.506"
+  ]
+ ],
+ "notes": [
+  "paired Wilcoxon on per-function means; Holm within dimension over the registered two-contrast family",
+  "+ coordinate-vs-none is a supplementary single-test contrast outside the registered family, so its Holm value equals its raw value",
+  "machine-transcribed from papers/analysis/rev-rel-2026-08-26-dd42d37eb/e1_basis_contrast.json"
+ ],
+ "number_format": "as-is",
+ "source": "papers/analysis/rev-rel-2026-08-26-dd42d37eb/"
+}

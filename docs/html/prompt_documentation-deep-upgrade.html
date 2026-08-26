@@ -197,19 +197,25 @@
 <blockquote>diagrams, and per-optimizer deep dives exist. Use this prompt now as the</blockquote>
 <blockquote><strong>authoring spec</strong> when a NEW page (optimizer, suite, or guide) is added,</blockquote>
 <blockquote>not as a pending whole-repo task.</blockquote>
-<blockquote><strong>Current project status (2026-07-20)</strong> *(project-phase pointer — the</blockquote>
+<blockquote><strong>Current project status (2026-08-26)</strong> *(project-phase pointer — the</blockquote>
 <blockquote>doc-coverage note above is about this prompt&#x27;s own coverage; this is about the</blockquote>
-<blockquote>project the docs describe).* The manuscript is <strong>built</strong> and in **final</blockquote>
-<blockquote>pre-submission remediation**, not from-scratch construction: the 80-ticket</blockquote>
-<blockquote>remediation ledger (<code>papers/governance/remediation_2026_07_18/ticket_status.csv</code>)</blockquote>
-<blockquote>stands at <strong>80/80 terminal</strong> and all quality gates are green. **RT-001 is</blockquote>
+<blockquote>project the docs describe).* The manuscript is <strong>submitted and revised</strong>, not</blockquote>
+<blockquote>from-scratch construction: it went to *Algorithms* (MDPI) as</blockquote>
+<blockquote><code>algorithms-4507562</code> on 2026-08-01, came back <strong>major revision</strong>, and the</blockquote>
+<blockquote>revision is complete — all ten reviewer points answered, four new experiments</blockquote>
+<blockquote>run, analysed and written up as Supplementary Section S9 (Tables A43-A46). The</blockquote>
+<blockquote>pre-submission 80-ticket remediation ledger</blockquote>
+<blockquote>(<code>papers/governance/remediation_2026_07_18/ticket_status.csv</code>) closed at</blockquote>
+<blockquote><strong>80/80 terminal</strong>. Read <code>REVISION_STATUS.md</code> at the repository root before</blockquote>
+<blockquote>acting on anything in this box or the one above it: the revision retired several</blockquote>
+<blockquote>DT-GSK claims (see Phase E). **RT-001 is</blockquote>
 <blockquote>CLOSED — do not re-run it:** the six-comparator re-timing was executed, failed</blockquote>
 <blockquote>its determinism gate (3,772 differing rows), and was not adopted; the runtime</blockquote>
 <blockquote>table (<code>tab:runtime</code>) was narrowed to <strong>DT-GSK-only, single-session</strong> instead,</blockquote>
 <blockquote>and no cross-algorithm wall-clock claim is made. The two terminal</blockquote>
 <blockquote>tickets <strong>C-008</strong> (mint a fresh <code>main_manuscript_freeze_manifest.json</code>) →</blockquote>
-<blockquote><strong>C-001</strong> (single authoritative commit + manuscript version id) remain pending</blockquote>
-<blockquote>and run last. Current evidence ids: <strong>primary release <code>rel-2026-07-20-67d9345f9</code></strong></blockquote>
+<blockquote><strong>C-001</strong> (single authoritative commit + manuscript version id) were both</blockquote>
+<blockquote><strong>closed and verified on 2026-07-21</strong>; nothing in that ledger is pending. Current evidence ids: <strong>primary release <code>rel-2026-07-20-67d9345f9</code></strong></blockquote>
 <blockquote>and <strong>ablation <code>abl-rel-2026-07-20</code></strong> (derived bundle</blockquote>
 <blockquote><code>papers/analysis/rel-2026-07-20-67d9345f9/</code>); the superseded ids</blockquote>
 <blockquote>(<code>rel-2026-07-16-78f075cb0</code>, <code>abl-rel-2026-07-16</code>, and earlier) may appear only</blockquote>
@@ -242,9 +248,9 @@
 <li><strong>Runnable optimizers (7):</strong> <code>gsk</code>, <code>agsk</code>, <code>apgsk</code>, <code>fdb-agsk</code>, <code>atmals-gsk</code>,</li>
 <p><code>egsk</code>, <code>dt-gsk</code> (<code>dt-gsk</code> is this family&#x27;s own proposed/headline method; the others are baselines/variants). Kernels live under <code>src/gsk_family/optimizers/</code>; the canonical tuple is <code>OPTIMIZER_IDS</code> in <code>src/gsk_family/optimizers/__init__.py</code>. <strong>eGSK</strong> is a runnable optimizer (<code>src/gsk_family/optimizers/egsk.py</code>, registered in <code>OPTIMIZER_IDS</code>, <code>RUNNABLE_OPTIMIZERS</code>, and the runner dispatch; <code>python run.py --optimizer egsk</code> works and <code>gsk-list</code> shows it): it is a faithful port whose only deviation is the interior-point refinement, which uses <code>scipy.optimize.minimize(method=&quot;SLSQP&quot;)</code> in place of the reference&#x27;s <code>fmincon</code>. eGSK *also* remains a reference comparator — its statistical-comparison-panel cells are reported from the committed reference CSVs under <code>benchmarks/cec_reference_results/</code> (the comparator of record). Document eGSK as runnable; do <strong>not</strong> flag eGSK-runnable docs as errors.</p>
 <li><strong>Benchmark suites (6, in code):</strong> <code>cec2017</code>, <code>cec2011</code>, <code>cec2020</code>,</li>
-<p><code>cec2013</code>, <code>cec2013lsgo</code>, <code>sphere</code> — all six are dispatched by <code>make_problem</code> in <code>src/gsk_family/benchmark_adapter/factory.py</code>. <strong>CEC2017 excludes F2:</strong> the run-all path covers functions F1, F3–F30 across D=10/30/50/100. State this wherever CEC2017&#x27;s function coverage is enumerated. Keep two counts distinct: *suites present in code* (six, above) versus *suites with committed reference evidence* (<strong>three</strong> — <code>cec2017</code>, <code>cec2013</code>, <code>cec2011</code>, the ones with full 7-optimizer trees under <code>benchmarks/cec_reference_results/</code>). <code>cec2020</code> is present in code but carries <strong>no</strong> committed reference results; <code>sphere</code> is the pure-Python smoke problem. Do not assert a suite count without checking which sense you mean, and do not claim reference evidence for <code>cec2020</code> or <code>sphere</code>.</p>
+<p><code>cec2013</code>, <code>cec2013lsgo</code>, <code>sphere</code> — all six are dispatched by <code>make_problem</code> in <code>src/gsk_family/benchmark_adapter/factory.py</code>. <strong>CEC2017 excludes F2:</strong> the run-all path covers functions F1, F3–F30 across D=10/30/50/100. State this wherever CEC2017&#x27;s function coverage is enumerated. Keep two counts distinct: *suites present in code* (six, above) versus *suites with committed reference evidence* (<strong>five</strong> — <code>cec2017</code>, <code>cec2013</code>, <code>cec2011</code>, <code>cec2013lsgo</code>, and <code>cec2020</code>, each with a full 7-optimizer tree under <code>benchmarks/cec_reference_results/</code>). The three primary suites are covered by the primary release <code>rel-2026-07-20-67d9345f9</code>; <code>cec2013lsgo</code> and <code>cec2020</code> are separate, non-superseding per-suite releases whose cells carry a <code>NOT_VERIFIED</code> verdict with reason <code>NO_REFERENCE</code> by design — no external ground-truth bank exists for either suite. <code>sphere</code> is the pure-Python smoke problem and carries none. Do not assert a suite count without checking which sense you mean, and do not claim reference evidence for <code>sphere</code>.</p>
 <li><strong>Statistical-comparison surface:</strong> the <code>gsk-stats</code> CLI</li>
-<p>(<code>src/gsk_family/cli/stats.py</code>) and the runner <code>--stats</code> flag drive <code>src/gsk_family/analysis/</code> to build the <strong>7-algorithm GSK-family panel</strong> (the seven runnable optimizers, with eGSK&#x27;s cells reported from the committed reference CSVs — the comparator of record): Friedman mean ranks, pairwise Wilcoxon signed-rank with a Holm correction, Vargha–Delaney effect sizes, Nemenyi critical-difference diagrams, rank charts, and <code>\input{}</code>-ready LaTeX fragments. The data policy is <strong>reference-first</strong>: every panel algorithm — the proposed optimizer included — is loaded from the committed read-only tables under <code>benchmarks/cec_reference_results/&lt;suite&gt;/&lt;optimizer&gt;/</code> (flat layout with <code>per_run.csv</code>, <code>curves/</code>, <code>gen_logs/</code>; full 7-optimizer coverage for cec2017, cec2011, and cec2013), and a locally reproduced run under <code>results/_run_all/&lt;optimizer&gt;/&lt;suite&gt;/summary/</code> is only a fallback for cells the reference tree does not carry (<code>analysis/result_loader.py::load_algorithm</code>). Default analysis output root is <code>results/_run_all/_analysis/&lt;suite&gt;/</code> (override with <code>--out</code>). These fragments feed the on-demand <code>papers/</code> review-pack (<code>papers/DT-GSK-CEC2017-review.pdf</code>, regenerated by <code>generate_review_pack.py</code>, not committed); treat <code>papers/</code> as author material — describe it, never regenerate or hand-edit it from a docs pass.</p>
+<p>(<code>src/gsk_family/cli/stats.py</code>) and the runner <code>--stats</code> flag drive <code>src/gsk_family/analysis/</code> to build the <strong>7-algorithm GSK-family panel</strong> (the seven runnable optimizers, with eGSK&#x27;s cells reported from the committed reference CSVs — the comparator of record): Friedman mean ranks, pairwise Wilcoxon signed-rank with a Holm correction, Vargha–Delaney effect sizes, Nemenyi critical-difference diagrams, rank charts, and <code>\input{}</code>-ready LaTeX fragments. The data policy is <strong>reference-first</strong>: every panel algorithm — the proposed optimizer included — is loaded from the committed read-only tables under <code>benchmarks/cec_reference_results/&lt;suite&gt;/&lt;optimizer&gt;/</code> (flat layout with <code>per_run.csv</code>, <code>curves/</code>, <code>gen_logs/</code>; full 7-optimizer coverage for cec2017, cec2011, and cec2013, and for <code>cec2013lsgo</code> and <code>cec2020</code> without <code>curves/</code>), and a locally reproduced run under <code>results/_run_all/&lt;optimizer&gt;/&lt;suite&gt;/summary/</code> is only a fallback for cells the reference tree does not carry (<code>analysis/result_loader.py::load_algorithm</code>). Default analysis output root is <code>results/_run_all/_analysis/&lt;suite&gt;/</code> (override with <code>--out</code>). These fragments feed the on-demand <code>papers/</code> review-pack (<code>papers/DT-GSK-CEC2017-review.pdf</code>, regenerated by <code>generate_review_pack.py</code>, not committed); treat <code>papers/</code> as author material — describe it, never regenerate or hand-edit it from a docs pass.</p>
 <li><strong>Seed policies (4):</strong> <code>unified</code> (default), <code>reference</code>, <code>native</code>, <code>derived</code></li>
 <p>— declared as <code>SEED_POLICIES</code> in <code>src/gsk_family/runners/seed_policy.py</code>. <code>unified</code> is the fair cross-family statistical match; <code>reference</code> reproduces the published CEC tables bit-for-bit; <code>native</code> and <code>derived</code> both route to the hashed <code>derive_run_seed</code> diagnostic path (distinct from <code>unified</code>).</p>
 <li><strong>Unified seed formula (cite <code>seed_policy.py:get_cec_seed</code>):</strong></li>
@@ -266,7 +272,7 @@
 <li><strong>HTML site:</strong> generated by <code>python scripts/build_docs_html.py</code> into</li>
 <p><code>docs/html/</code> (the default output root). It <strong>flattens</strong> every source path by replacing <code>/</code> with <code>_</code> on the suffix-less path: <code>reference/seed_policy.md</code> → <code>docs/html/reference_seed_policy.html</code>, <code>algorithms/gsk.md</code> → <code>docs/html/algorithms_gsk.html</code>. The left-nav <strong>groups pages by their top-level folder</strong>. <strong>Rebuild after every Markdown or docstring edit.</strong></p>
 </ul>
-<h3 id="1-2-scripts-inventory-scripts-19-python-files-plus-a-readme-re-check-against-the-directory">1.2 Scripts inventory (<code>scripts/</code> — 19 Python files plus a README; re-check against the directory)</h3>
+<h3 id="1-2-scripts-inventory-scripts-21-python-files-plus-a-readme-re-check-against-the-directory">1.2 Scripts inventory (<code>scripts/</code> — 21 Python files plus a README; re-check against the directory)</h3>
 <pre><code class="code-block">scripts/
   README.md                  build_docs_html.py        validate_profile_lock.py
   parity_trace.py            wilcoxon_reference.py      run_gsk_family.py
@@ -274,6 +280,7 @@
   run_all_cec2013.py   run_all_cec2013lsgo.py
   run_ablation.py            run_overlay_ablation_51.py
   run_campaign.py            retime_comparators.py
+  run_revision_experiments.py  run_e1_basis_contrast.py
   analyze_dt_diagnostics.py plot_convergence_from_curves.py
   validate_egsk_vs_reference.py
   promote_evidence.py        recover_apgsk_perrun.py</code></pre>
@@ -672,7 +679,7 @@ grep -rnIE &quot;^\s*\&quot;[^\&quot;]+\&quot;\s*(--|==|-\.)&quot; docs --includ
 <a class="toc-level-1" href="#deep-documentation-review-upgrade-prompt-gsk-family-python">Deep Documentation Review &amp; Upgrade Prompt — GSK Family Python</a>
 <a class="toc-level-2" href="#1-ground-truth-do-not-contradict-verify-against-code-before-writing">1. Ground truth (do not contradict; verify against code before writing)</a>
 <a class="toc-level-3" href="#1-1-fixed-facts-must-match-exactly">1.1 Fixed facts (must match exactly)</a>
-<a class="toc-level-3" href="#1-2-scripts-inventory-scripts-19-python-files-plus-a-readme-re-check-against-the-directory">1.2 Scripts inventory (`scripts/` — 19 Python files plus a README; re-check against the directory)</a>
+<a class="toc-level-3" href="#1-2-scripts-inventory-scripts-21-python-files-plus-a-readme-re-check-against-the-directory">1.2 Scripts inventory (`scripts/` — 21 Python files plus a README; re-check against the directory)</a>
 <a class="toc-level-3" href="#1-3-tests-inventory-the-testing-pyramid">1.3 Tests inventory (the testing pyramid)</a>
 <a class="toc-level-3" href="#1-4-current-docs-map-themed-folders">1.4 Current `docs/` map (themed folders)</a>
 <a class="toc-level-2" href="#2-hard-guardrails-a-violation-fails-the-task">2. Hard guardrails (a violation fails the task)</a>

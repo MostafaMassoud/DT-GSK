@@ -6,7 +6,7 @@
 
 | Term | Meaning |
 |---|---|
-| ACE | Adaptive Control Engine: DT-GSK's multi-armed bandit over a 5-arm (+DE) pool of `(KF, KR, Kexp)` operator settings; EMA credit-tracking concentrates draws on the arms with the higher realised improvement (credit = the positive fitness delta). Part of contribution C2. |
+| ACE | Adaptive Configuration Engine: DT-GSK's multi-armed bandit over a 5-arm (+DE) pool of `(KF, KR, Kexp)` operator settings; EMA credit-tracking concentrates draws on the arms with the higher realised improvement (credit = the positive fitness delta). Part of contribution C2. |
 | AGSK | Adaptive Gaining-Sharing Knowledge optimizer with adaptive parameter pools and population reduction. |
 | APGSK | Adaptive-parameters GSK variant with a mixed positive/negative `KF` pool and stochastic junior schedule. |
 | ARGP | Acceptance-Rate Gated Pruning: prunes ACE pool entries whose windowed acceptance falls below a dimension-tier threshold after a warm-up fraction of the budget. Part of C2. |
@@ -14,7 +14,7 @@
 | BCa bootstrap | Bias-corrected-and-accelerated bootstrap confidence interval (Efron 1987); implemented in `analysis.statistics.bootstrap_bca_ci`. |
 | BenchmarkProblem | Python object that wraps suite metadata, bounds, budget, known optimum, and evaluator. |
 | BSE | Budget-Safe Escape: a triple-trigger (acceptance / diversity / signal) stagnation detector that fires a Cauchy rescue and an archive-seeded restart, capped so it can never overshoot the budget. Part of C2. |
-| C1 | DT-GSK contribution 1 — eigenframe final polish: a one-shot deterministic compass search on the eigenbasis of the signed interaction graph, active at the `D>=50` tiers. |
+| C1 | DT-GSK contribution 1 — a deterministic final polish: a one-shot, RNG-free compass search fired in the final budget slice, active at the `D>=50` tiers. The mechanism searches the eigenbasis of the signed interaction graph (falling back to the coordinate axes when the graph carries no signal), but C1 is claimed *basis-neutrally*: the three-arm basis isolation (Supplementary Materials, Section S9.1) shows the polish beating no refinement at both active dimensions, while the learned eigenbasis is beaten by the plain coordinate axes at `D=50` (Holm 1.4e-4, 25 of 29 functions) and not separated at `D=100`. The contribution is the deterministic endgame, not the basis it searches along. |
 | C2 | DT-GSK contribution 2 — dimension-tiered adaptive scaffold: the `pub` profile's ACE/ARGP operator control, the NLPSR population schedule, and BSE + the diversity archive + the deep-stall restart, each gated and tuned by dimension tier. |
 | C3 | DT-GSK contribution 3 — controlled family evaluation: the seven-algorithm GSK-family panel run under one frozen protocol. |
 | CEC | Congress on Evolutionary Computation benchmark family. |
@@ -33,7 +33,7 @@
 | GSK | Baseline Gaining-Sharing Knowledge optimizer. |
 | GSK-family panel | The 7-algorithm statistical comparison set: the six reference comparators (`gsk`, `agsk`, `apgsk`, `fdb-agsk`, `egsk`, `atmals-gsk`) plus the proposed `dt-gsk`. |
 | Holm correction | Step-down multiple-comparison adjustment applied to the pairwise Wilcoxon p-values in the family report. |
-| ISM | Interaction-structure memory (a.k.a. SGSM): a confidence-gated success graph that records the co-movement of strictly improving accepted moves at zero extra evaluation cost (active at `D>=50`), supplying linkage evidence to the block crossover and an eigenbasis to C1's polish. A *supporting mechanism, not a contribution* — its direct-isolation overlay shows no significant standalone benefit at its active tiers once Holm-corrected. The algorithm is named DT-GSK, never "ISM-GSK". |
+| ISM | Interaction-structure memory (a.k.a. SGSM): a confidence-gated success graph that records the co-movement of strictly improving accepted moves without additional objective evaluations (active at `D>=50`), supplying linkage evidence to the block crossover and an eigenbasis to C1's polish. A *specified negative result, not a contribution*, and dropped from the paper's keywords — the direct-isolation overlay shows no significant standalone benefit at its active tiers once Holm-corrected, and the three-arm basis isolation (Supplementary Section S9.1) goes further: in the memory's only fitness-affecting channel, the polish basis, the learned eigenframe is *outperformed* by the plain coordinate axes at `D=50` (Holm 1.4e-4, 25 of 29 functions) and not separated at `D=100`. Nor is it free in compute: enabling it costs +57.3% wall-clock on CEC2017 at `D=50`, +36.3% at `D=100`, and +30.3% on CEC2013 at `D=50`. The algorithm is named DT-GSK, never "ISM-GSK". |
 | Junior phase | Early-stage gaining-sharing where an individual learns from its fitness-rank neighbours and a random peer (exploration). |
 | Knowledge factor (`kf`) | Step scale applied to a gained vector in the GSK update. |
 | Knowledge ratio (`kr`) | Per-dimension probability that a gained value replaces the parent value. |

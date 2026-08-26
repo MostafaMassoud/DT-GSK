@@ -168,10 +168,18 @@
 <blockquote>the manuscript&#x27;s *Use of Generative Artificial Intelligence* statement, which</blockquote>
 <blockquote>is the authoritative account. See the README section &quot;Internal</blockquote>
 <blockquote>Quality-Assurance Instruments&quot;.</blockquote>
-<blockquote><strong>Status:</strong> PLANNING. The manuscript remains frozen at</blockquote>
-<blockquote><code>dtgsk-submission-v1.0-2026-07-25</code> (commit <code>41726c544</code>). Nothing in this plan</blockquote>
-<blockquote>has been executed. The dt-gsk LSGO run is in progress (125/375 runs; F1-F5</blockquote>
-<blockquote>complete; roughly 11 h wall remaining at 13 workers, from a measured</blockquote>
+<blockquote><strong>HISTORICAL RECORD — executed.</strong> This plan was written while the campaign was</blockquote>
+<blockquote>still being scoped, and its status line below is preserved as written. It is</blockquote>
+<blockquote><strong>not</strong> current: the CEC2013LSGO leg ran to completion, was promoted as the</blockquote>
+<blockquote>immutable evidence release <code>lsgo-rel-2026-07-28-ff1a046ef</code>, and is reported in</blockquote>
+<blockquote>the manuscript and in Supplementary Section S7. The manuscript freeze it names</blockquote>
+<blockquote>(<code>dtgsk-submission-v1.0-2026-07-25</code>) has been superseded many times; for the</blockquote>
+<blockquote>current pass and tag read papers/governance/main_manuscript_freeze_manifest.json (its <code>phase</code> field) and the newest entry in papers/governance/decision_log.md.</blockquote>
+<blockquote></blockquote>
+<blockquote>*Status as written, retained for the record:* PLANNING. The manuscript remains</blockquote>
+<blockquote>frozen at <code>dtgsk-submission-v1.0-2026-07-25</code> (commit <code>41726c544</code>). Nothing in</blockquote>
+<blockquote>this plan has been executed. The dt-gsk LSGO run is in progress (125/375 runs;</blockquote>
+<blockquote>F1-F5 complete; roughly 11 h wall remaining at 13 workers, from a measured</blockquote>
 <blockquote>dt-gsk/agsk cost ratio of 2.08x).</blockquote>
 <h2 id="two-blocking-findings-verified-first-hand">Two blocking findings, verified first-hand</h2>
 <p><strong>BLOCKER 1 — the Ackley variant makes F3/F6/F10 non-comparable to MOS.</strong> <code>ackley_raw_scope</code> exists in <code>benchmarks/cec_suite_python/cec2013lsgo/_kernel_mode.py</code> but is <strong>unwired</strong>: no reference to it exists anywhere in <code>src/</code>, <code>configs/</code>, <code>tests/</code> or <code>papers/scripts/</code>. Every family cell therefore ran the <strong>transformed</strong> Ackley (T_osz, T_asy(0.2), Lambda(10)) - Molina&#x27;s package form, the same one SHADE-ILS used - while LaTorre&#x27;s published MOS table was measured on the <strong>raw</strong> <code>benchmark_func.m</code> form. The numbers confirm it decisively: on F3 the family spans 2.001e+01..2.159e+01 against SHADE-ILS 2.01e+01 and MOS 1.69e-12; on F6, family 1.052e+06..1.061e+06 against SHADE-ILS 1.02e+06 and MOS 1.43e+05; on F10, family 9.281e+07..9.401e+07 against SHADE-ILS 9.18e+07 and MOS 9.38e+05. The family lands on top of SHADE-ILS and one to thirteen orders away from MOS on precisely the three Ackley-based functions. That is the signature of a different objective, not a performance gap.</p>

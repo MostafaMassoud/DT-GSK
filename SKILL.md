@@ -40,7 +40,7 @@ produce the paper-grade statistical comparison that backs the proposed method
     baseline (the runner-up overall). When
     citing a specific rank decimal, source it from `FINAL_RELEASE_REPORT.md`
     rather than hard-coding it. It ships a **default-on deep-stall multi-start**
-    (`deep_stall_restart_enabled=True` in `ISMGSKConfig`): when the incumbent
+    (`deep_stall_restart_enabled=True` in `DTGSKConfig`): when the incumbent
     stalls for `deep_stall_frac` (0.25) of the budget the working population fully
     re-initialises while a preserved global-best can never lose ground. This is a
     standard mechanism (not an `experimental_*` flag) that fixes the lone
@@ -51,6 +51,17 @@ produce the paper-grade statistical comparison that backs the proposed method
     refinement substituting `fmincon`), so `--optimizer egsk` works. The
     statistical panel reports `egsk` from the committed `scipy`-SLSQP **port**
     CSVs (the comparator of record), not a MATLAB `fmincon` reference.
+- **External SOTA baselines (8):** `mos-cec2013lsgo`, `shade-ils`, `decc-g`,
+  `cmaes`, `ebowithcmar`, `jso`, `lshade`, `lshade-spacma`, in
+  `src/gsk_family/optimizers/external/`. These are runnable too — the runner
+  accepts all **15** ids — but the seven above are the statistical panel; these
+  eight enter **no** panel, table, figure or claim, and the manuscript's scope
+  stays GSK-family only. Three of them carry committed CEC2013LSGO banks under
+  `benchmarks/cec_reference_results/_external_baselines/cec2013lsgo/` (`mos`,
+  `shade-ils`, `decc-g`), retained as exploratory material and analysed nowhere
+  in the paper. `optimizers/__init__.py` holds `FAMILY_OPTIMIZER_IDS` /
+  `EXTERNAL_OPTIMIZER_IDS`, and `tests/test_registry_consistency.py` guards them
+  against drift with `run_experiment.OPTIMIZER_FUNCTIONS`.
 - **Suites (6):** `sphere`, `cec2011`, `cec2013`, `cec2013lsgo`, `cec2017`,
   `cec2020`. The CEC2017 **scored** set excludes F2 (functions F1, F3-F30)
   across D=10/30/50/100; the statistical loaders drop F2 accordingly.
@@ -82,6 +93,19 @@ Hard workspace rules:
   (`benchmarks/cec_reference_results/`).
 - Do **not** revert user changes unless explicitly asked.
 - Do **not** delete retained evidence under `results/` unless explicitly asked.
+- Do **not** edit the frozen manuscript under `papers/` outside a freeze pass.
+  It is under change control (D-0045): a revision is a **new** pass, never an
+  edit to the submitted state. Any change to a file tracked by
+  `papers/governance/main_manuscript_freeze_manifest.json` (`main.tex`, the five
+  `sections/*.tex`, `references.bib`, the built `.pdf`/`.docx` deliverables, and
+  the three governance CSVs) voids that manifest until it is re-minted — so the
+  derived figure/table generators in §6.2 are fine, but `build_pdf.py` and
+  `build_docx.py` rebuild tracked deliverables and belong to a freeze pass.
+- The append-only trees `papers/build_prompt_phases/`,
+  `papers/review_2026_07_22/`, and `papers/governance/remediation_2026_07_18/`
+  are **correct when stale** — do not "fix" them.
+- Do **not** run `papers/scripts/finalize_evidence.py` (standing instruction);
+  drive promotion manually.
 - Agent (subagent) Bash calls reset the working directory between calls; always
   use **absolute paths** or `cd` into the root first.
 
@@ -89,9 +113,19 @@ Hard workspace rules:
 
 ### 3.1 Root files
 
-The project root holds three Markdown **operating** files, a newcomer
-**orientation map**, the **governance** set, and the **release report** (do not
-add further root guides or collapse these without an explicit request):
+The project root holds a **current-state** file, an auto-loaded **session
+brief**, three Markdown **operating** files, a newcomer **orientation map**, the
+**governance** set, and the **release report** (do not add further root guides
+or collapse these without an explicit request):
+
+Current state — read before anything else:
+
+- [`REVISION_STATUS.md`](REVISION_STATUS.md) — the single source of truth for
+  *current* state: the editorial status of `algorithms-4507562`, which reviewer
+  points are done vs open, the freeze pass, the open author decisions, and the
+  verified trap table.
+- `CLAUDE.md` — the short auto-loaded session brief; it points at
+  `REVISION_STATUS.md` and carries the never-break invariants.
 
 Operating files:
 
@@ -239,7 +273,7 @@ Per-suite campaign launchers (parameters fixed inside `configs/*.yml`):
   `run_all_cec2013.py`, `run_all_cec2013lsgo.py`
 - `run_gsk_family.py` — generic family launcher.
 - `run_ablation.py` — DT-GSK scaffold ablation driver: toggles six mechanisms
-  (ACE, NLPSR, BSE, linkage-blockwise crossover, Nelder-Mead local search,
+  (ACE, NLPSR, BSE, linkage-blockwise crossover, coordinate local search,
   elite archive) plus a baseline cell — 7 cells, with the SGSM interaction
   graph off in every cell. Flags: `--suite {cec2017,cec2011,cec2013}`
   (`cec2011` uses native dims), `--mode {remove-one,add-one}`, `--dimension`,
@@ -589,6 +623,26 @@ python scripts\validate_profile_lock.py --root .
 python scripts\build_docs_html.py
 ```
 
+**Manuscript and evidence gates** — only when `papers/` or an evidence tree is
+in scope. All three take optional arguments only, so they run bare:
+
+```powershell
+python papers\scripts\check_manifest.py
+python papers\scripts\check_frozen_analysis.py
+python papers\scripts\validate_provenance_claims.py
+```
+
+At freeze pass-40, `check_manifest.py` reads **15/15** against its default
+`papers/governance/main_manuscript_freeze_manifest.json` (`--manifest` is
+repeatable for the other governance manifests), and `check_frozen_analysis.py`
+reads **115/115** byte-identical against the primary release. Note that
+`check_manifest.py` hashes the **working tree**, not the committed blob —
+confirm committed bytes with `git cat-file -s`.
+`validate_provenance_claims.py` hashes `src/gsk_family/optimizers/_dt_core.py`
+on a SHIPPED list, so **even a comment edit fails it**; §11 treats that vendored
+core as reference-locked for the same reason. Never run
+`papers/scripts/finalize_evidence.py`.
+
 If a gate is too expensive to run, say exactly which command was deferred and
 why.
 
@@ -813,11 +867,12 @@ python scripts\build_docs_html.py
 python run.py <args> --seed-policy reference
 ```
 
-Expected root Markdown inventory (exactly these eleven, sorted):
+Expected root Markdown inventory (exactly these thirteen, sorted):
 
 ```text
 ARCHITECTURE.md
 BENCHMARK_RULES.md
+CLAUDE.md
 CODING_STANDARD.md
 DESIGN_GUIDE.md
 FINAL_RELEASE_REPORT.md
@@ -825,6 +880,7 @@ PERFORMANCE_RULES.md
 PROJECT_RULES.md
 README.md
 REPO_MAP.md
+REVISION_STATUS.md
 SKILL.md
 runbook.md
 ```

@@ -83,6 +83,12 @@ _FIG_DIR = _PAPER_DIR / "figures" / "ablation"
 
 _DIMS = [10, 30, 50, 100]
 
+# CR-0023 (R1.4): relative tolerance for the fail-closed check that the
+# recomputed UNCORRECTED Friedman p reproduces the manifest's recorded value.
+# Observed maximum deviation across the four dimensions is 0.21% (D10), which
+# reflects the manifest's rounded storage, not a data difference.
+_OMNIBUS_TOL = 0.005
+
 # Fixed presentation order (pre-registration Section 1.1 cell order;
 # baseline first as the full-scaffold reference cell).
 _CELL_ORDER = ["baseline", "no_ace", "no_psr", "no_bse",
@@ -161,6 +167,71 @@ def _load_manifest() -> dict:
     if not _MANIFEST.is_file():
         raise SystemExit(f"HARD FAIL: manifest missing: {_MANIFEST}")
     return json.loads(_MANIFEST.read_text(encoding="utf-8"))
+
+
+def _corrected_omnibus(manifest: dict) -> dict[str, float]:
+    """Iman-Davenport omnibus p per dimension, on the tie-corrected chi2.
+
+    CR-0023 (journal round-1 major revision, R1.4).  The manifest's
+    ``friedman_p_by_dimension`` holds the classical chi-square approximation,
+    while the main text decides on the tie-corrected chi2 with the
+    Iman-Davenport F (M-026 / D-0016).  The component-study exhibits now use
+    the same convention.
+
+    The manifest is append-only and is NOT edited: the corrected values are
+    recomputed here from the same promoted immutable release the rank matrices
+    aggregate.  As a fail-closed release binding, recomputing the *uncorrected*
+    statistic must reproduce the manifest's recorded p to within
+    ``_OMNIBUS_TOL`` -- otherwise this generator is reading different data than
+    the manifest recorded and must refuse to emit.
+
+    Direction is bounded a priori: the tie-correction factor C <= 1, so the
+    corrected statistic is always >= the uncorrected one and every p can only
+    decrease.  No rank, sign, or Holm decision can change as a result.
+    """
+    import sys as _sys
+    if str(_SCRIPT_DIR) not in _sys.path:
+        _sys.path.insert(0, str(_SCRIPT_DIR))
+    import generate_ablation_matrix as _gam
+    from scipy.stats import f as _scipy_f
+    from gsk_family.analysis.statistics import friedman_rank as _friedman_rank
+
+    scaffold = _PROJECT_ROOT / "benchmarks/cec_reference_results/_ablation/scaffold"
+    if not scaffold.is_dir():
+        raise SystemExit(f"HARD FAIL: scaffold release missing: {scaffold}")
+
+    recorded = manifest["friedman_p_by_dimension"]
+    out: dict[str, float] = {}
+    for d in _DIMS:
+        means = _gam._discover_cells(scaffold, "cec2017", d)
+        funcs = sorted(set.intersection(*(set(m) for m in means.values())))
+        cells = sorted(means)
+        fr = _friedman_rank({c: [means[c][f] for f in funcs] for c in cells})
+        n, k = len(funcs), len(cells)
+
+        # fail-closed: the uncorrected recomputation must match the manifest
+        rec = float(recorded[f"D{d}"])
+        got = float(fr.p_value)
+        if rec <= 0.0 or abs(got - rec) / rec > _OMNIBUS_TOL:
+            raise SystemExit(
+                f"HARD FAIL: D{d} uncorrected Friedman p does not reproduce the "
+                f"manifest value (manifest {rec:.6e}, recomputed {got:.6e}); "
+                "the generator is not reading the release the manifest recorded.")
+
+        chi2 = float(fr.statistic_tie_corrected)
+        if not np.isfinite(chi2):
+            chi2 = float(fr.statistic)
+        denom = n * (k - 1) - chi2
+        if denom <= 1e-12:
+            raise SystemExit(f"HARD FAIL: D{d} Iman-Davenport denominator <= 0.")
+        f_id = (n - 1) * chi2 / denom
+        p_id = float(_scipy_f.sf(f_id, k - 1, (k - 1) * (n - 1)))
+        if p_id > rec:
+            raise SystemExit(
+                f"HARD FAIL: D{d} corrected p ({p_id:.6e}) exceeds the "
+                f"uncorrected p ({rec:.6e}); C <= 1 makes this impossible.")
+        out[f"D{d}"] = p_id
+    return out
 
 
 def _verify_source(rel_path: str, manifest: dict) -> Path:
@@ -273,7 +344,7 @@ def _write_sa01(per_dim: dict[int, dict[str, dict]], fried_p: dict[int, float]) 
                 cells_txt.append(rf"{rank:.2f}\,({row['delta']:+.2f}){star}")
         lines.append(" & ".join(cells_txt) + r" \\")
     lines.append(r"\midrule")
-    fried_txt = [r"\textit{Friedman omnibus $p$}"]
+    fried_txt = [r"\textit{Iman--Davenport omnibus $p$}"]
     for d in _DIMS:
         fried_txt.append(_fmt_friedman_p(fried_p[f"D{d}"]))
     lines.append(" & ".join(fried_txt) + r" \\")
@@ -302,7 +373,7 @@ def _write_sa02(per_dim: dict[int, dict[str, dict]], fried_p: dict[int, float]) 
         cells.sort(key=lambda c: (rows[c]["wilcoxon_p"], c))
         fam = len(cells)
         header = (rf"\multicolumn{{5}}{{@{{}}l}}{{\textbf{{$D={d}$}}\quad "
-                  rf"Friedman $p={_fmt_friedman_p(fried_p[f'D{d}']).strip('$')}$; "
+                  rf"Iman--Davenport $p={_fmt_friedman_p(fried_p[f'D{d}']).strip('$')}$; "
                   rf"Holm family size $={fam}$}}")
         if i > 0:
             lines.append(r"\midrule")
@@ -341,7 +412,7 @@ def _write_sa01_json(per_dim: dict[int, dict[str, dict]],
                 star = "*" if c["sig"] else ""
                 row.append(f"{c['mean_rank']:.2f} ({c['delta']:+.2f}){star}")
         rows.append(row)
-    rows.append(["Friedman omnibus p"] +
+    rows.append(["Iman-Davenport omnibus p"] +
                 [_fmt_friedman_p_plain(fried_p[f"D{d}"]) for d in _DIMS])
     doc = {
         "table_id": "SA01",
@@ -357,6 +428,12 @@ def _write_sa01_json(per_dim: dict[int, dict[str, dict]],
             "via generate_ablation_exhibits.py (release-bound; same values as tables/SA01.tex)",
             "each parenthesised value is a conditional remove-one delta (ISM off), "
             "not an independent causal effect; not averaged across dimensions",
+            "omnibus p is the Iman-Davenport F on the tie-corrected Friedman "
+            "statistic, the same convention the main text uses (M-026/D-0016); "
+            "the classical chi-square approximation previously reported gives "
+            "1.8e-06, 2.5e-08, 5.8e-03, 3.5e-02 and is retained as an audit "
+            "companion. Because the tie-correction factor C <= 1, the correction "
+            "can only increase the statistic; no rank or Holm decision changes.",
         ],
         "number_format": "as-is",
         "source": "papers/build_prompt_phases/phase_12/ablation_results/"
@@ -487,7 +564,11 @@ def _write_figure(per_dim: dict[int, dict[str, dict]]) -> list[Path]:
 
 def main() -> int:
     manifest = _load_manifest()
-    fried_p = manifest["friedman_p_by_dimension"]
+    # CR-0023 (R1.4): report the Iman-Davenport omnibus on the tie-corrected
+    # chi2, the same decision statistic the main text uses. The manifest's
+    # uncorrected values are retained as the fail-closed reproduction anchor.
+    fried_p_uncorrected = manifest["friedman_p_by_dimension"]
+    fried_p = _corrected_omnibus(manifest)
 
     # verify + read every source rank CSV against the manifest SHA-256
     per_dim: dict[int, dict[str, dict]] = {}

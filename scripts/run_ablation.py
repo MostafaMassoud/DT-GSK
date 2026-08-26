@@ -61,7 +61,7 @@ MECHANISMS: list[tuple[str, str, str]] = [
     ("psr_enabled", "psr", "NLPSR population reduction"),
     ("bse_enabled", "bse", "Budget-Safe Escape"),
     ("linkage_blockwise_enabled", "linkage", "Linkage-aware crossover"),
-    ("local_search_enabled", "localsearch", "Nelder-Mead endgame"),
+    ("local_search_enabled", "localsearch", "coordinate local search"),
     ("arch_enabled", "arch", "Elite archive"),
 ]
 # Excluded extras -- add a tuple back to MECHANISMS to ablate one too:

@@ -33,7 +33,7 @@ def optimize(problem: BenchmarkProblem, options: OptimizerOptions | dict) -> Opt
 
 ### 1.2 Thin adapters over algorithm cores
 
-An optimizer module is an *adapter*, not the algorithm. Its job is to translate the uniform contract into whatever the underlying numerical kernel wants, and translate the kernel's output back. The cleanest example is `optimizers/dt_gsk.py` (~309 lines): it builds a config, wraps `problem.evaluate` as a batch objective, calls the vendored core `ism_gsk_optimize`, and packs the result. The heavy numerics live elsewhere (vendored `_dt_core.py`, `_dt_subsystems/`, `_kernels.py`).
+An optimizer module is an *adapter*, not the algorithm. Its job is to translate the uniform contract into whatever the underlying numerical kernel wants, and translate the kernel's output back. The cleanest example is `optimizers/dt_gsk.py` (~328 lines): it builds a config, wraps `problem.evaluate` as a batch objective, calls the vendored core `dt_gsk_optimize`, and packs the result. The heavy numerics live elsewhere (vendored `_dt_core.py`, `_dt_subsystems/`, `_kernels.py`).
 
 **SHOULD**: keep adapter logic (option parsing, bounds normalization, result packing) separate from algorithm logic (the update rules). Numba-JIT hot loops belong in dedicated kernel modules, not inline in the adapter.
 
@@ -62,10 +62,10 @@ A run is reproducible from `(seed_policy, base_seed, dim, func, run)` alone. The
 
 `dt-gsk` is THIS project's proposed method, byte-identically migrated from the source DT-GSK v2.1. Its core is **vendored and byte-identity-locked**:
 
-- `optimizers/_dt_core.py` (~4983 lines) and `optimizers/_dt_subsystems/*` (bound_constraint, budget, budget_policy, basin_memory, gained_shared_junior, gained_shared_senior, interaction_graph, `_numba_accel`, `_dt_provenance`),
+- `optimizers/_dt_core.py` (~5186 lines) and `optimizers/_dt_subsystems/*` (bound_constraint, budget, budget_policy, basin_memory, gained_shared_junior, gained_shared_senior, interaction_graph, `_numba_accel`, `_dt_provenance`),
 - the config builder `optimizers/_dt_profiles.py` and the 13-substream RNG `optimizers/_dt_rng.py`.
 
-**NEVER edit these for behavior.** They are exempt from the docstring gate precisely because they are frozen imports, and their byte-identity is protected by KAT/regression gates. New DT-GSK functionality is added *around* the core (in the adapter or new sibling modules), never inside it. Details in section 5; rationale in [PROJECT_RULES.md](PROJECT_RULES.md).
+**NEVER edit these for behavior.** They are exempt from the docstring gate precisely because they are frozen imports, and their byte-identity is protected by KAT/regression gates. **The adapter is not a free surface either:** `papers/scripts/validate_provenance_claims.py` hashes `SHIPPED = ["dt_gsk.py", "_dt_core.py", "_dt_profiles.py", "_dt_rng.py"]` and requires each module's *current* SHA-256 prefix to be the one the manuscript prints, so even a comment-only edit to `dt_gsk.py` fails the gate; `tests/regression/test_dormant_mechanisms_unreachable.py` additionally reads the adapter's source and asserts that it never names a dormant research hook and never splats `**kwargs` into the core. New DT-GSK functionality therefore goes in new sibling modules, never inside the core and never as an edit to one of the four SHIPPED files -- and a behavior-changing edit there is a new-evidence-release change, not an ordinary commit. Details in section 5; rationale in [PROJECT_RULES.md](PROJECT_RULES.md).
 
 ### 1.6 Decoupled stats: pure functions in, loading separate
 
@@ -115,7 +115,7 @@ This separation means the statistical functions are unit-testable on synthetic a
 
 ### 2.3 Options / values overrides
 
-Per-run hyper-parameter overrides flow through `options.values`. The dt-gsk adapter filters `values` against the `ISMGSKConfig` field set and against a `_RESERVED_FIELDS` set (`dim`, `seed`, `max_nfes`, `bounds`, `rand_generator`) that are resolved from the problem and never overridable, then applies the survivors with `dataclasses.replace`. A new optimizer SHOULD adopt the same pattern: a documented, whitelisted override surface, with run-level fields reserved.
+Per-run hyper-parameter overrides flow through `options.values`. The dt-gsk adapter filters `values` against the `DTGSKConfig` field set and against a `_RESERVED_FIELDS` set (`dim`, `seed`, `max_nfes`, `bounds`, `rand_generator`) that are resolved from the problem and never overridable, then applies the survivors with `dataclasses.replace`. A new optimizer SHOULD adopt the same pattern: a documented, whitelisted override surface, with run-level fields reserved.
 
 ### 2.4 Convergence trace
 
@@ -129,7 +129,7 @@ Adding a runnable optimizer touches a small, fixed set of registration points. M
 
 1. **Implement the adapter.** Create `src/gsk_family/optimizers/<name>.py` exposing `optimize(problem, options) -> OptimizerResult`. Keep it thin (section 1.2); put hot loops in a kernel module. Every public symbol needs a docstring (docstring gate; see [CODING_STANDARD.md](CODING_STANDARD.md)).
 
-2. **Register the id** in `optimizers/__init__.py` `OPTIMIZER_IDS` (the canonical tuple, currently `gsk, agsk, apgsk, atmals-gsk, egsk, fdb-agsk, dt-gsk`). Use a lowercase, hyphenated id.
+2. **Register the id** in `optimizers/__init__.py`, in the tuple that matches its role: `FAMILY_OPTIMIZER_IDS` (the seven-method GSK-family panel every statistical claim is computed over -- `gsk, agsk, apgsk, atmals-gsk, egsk, fdb-agsk, dt-gsk`) or `EXTERNAL_OPTIMIZER_IDS` (runnable SOTA baselines that are deliberately *not* in the panel -- `mos-cec2013lsgo, shade-ils, decc-g, cmaes, ebowithcmar, jso, lshade, lshade-spacma`, implemented under `optimizers/external/`). `OPTIMIZER_IDS` is the derived concatenation of the two and is never edited directly. `tests/test_registry_consistency.py` pins the family at exactly seven, so a new baseline MUST go in the external tuple. Use a lowercase, hyphenated id.
 
 3. **Wire dispatch** in `runners/run_experiment.py` `OPTIMIZER_FUNCTIONS` -- add `"<name>": optimize_<name>` and the matching import.
 
@@ -182,7 +182,7 @@ Schema/format rules are normative in [BENCHMARK_RULES.md](BENCHMARK_RULES.md).
 
 | Piece | File | Role |
 |-------|------|------|
-| Vendored core | `optimizers/_dt_core.py` + `_dt_subsystems/*` | `ism_gsk_optimize(objective, config, curve_callback)` and all subsystem math (junior/senior gained-shared, interaction graph, basin memory, budget controllers, bound constraint). Frozen. |
+| Vendored core | `optimizers/_dt_core.py` + `_dt_subsystems/*` | `dt_gsk_optimize(objective, config, curve_callback)` and all subsystem math (junior/senior gained-shared, interaction graph, basin memory, budget controllers, bound constraint). Frozen. |
 | Profile builder | `optimizers/_dt_profiles.py` | `build_pub_config(dim, *, seed, max_nfes, bounds, rand_generator)` -- reproduces the source `pub` profile per dimension tier. |
 | Substream RNG | `optimizers/_dt_rng.py` | 13 named, independent substreams from one run seed. |
 | Adapter | `optimizers/dt_gsk.py` | the contract bridge described in section 2. |
@@ -207,6 +207,8 @@ DT-GSK seeds its *own* substream RNG from `options.seed` and draws its *own* ini
 | `D >= 100` | all of the above **plus** `_PUB_D_GE_100_EXTRA`: **TERRA** controllers, budget policy, basin memory, **SP-NLPSR**, coordinate local search, late-accept clipping |
 
 These tiers are why DT-GSK at `D>=50` needs single-thread numba/BLAS for byte-stable determinism (prange/SGSM) and at `D>=100` runs TERRA -- a [PERFORMANCE_RULES.md](PERFORMANCE_RULES.md) concern. The exact field values are an oracle locked by `tests/unit/test_dt_profiles.py`; treat `_dt_profiles.py` as data, not logic, and never hand-edit a value.
+
+**One of these four rows is a disclosed mis-specification.** The round-1 revision ran a configuration-transplant experiment (E3, reviewer point R2.1, evidence release `rev-rel-2026-08-26-dd42d37eb`): two tier override sets -- the `D < 20` set and the `D >= 100` set -- were each applied unchanged at every dimension and paired against the frozen tiered leg on CEC2017. Against the high-dimension transplant the tiering holds, significantly at `D = 10` and `D = 50`; at `D = 100` neither arm separates. But at `D = 30` the result inverts: the `D < 20` parameter set beats the shipped `20 <= D < 50` tier on 20 of 29 functions (Holm p = 0.0055). The tiering *principle* stands; that one row is not a tuned optimum. It ships byte-identical regardless -- `_dt_profiles.py` is on the hash-gated `SHIPPED` list in `papers/scripts/validate_provenance_claims.py` -- so **do not** substitute "obviously better" values there, and do not cite the `20 <= D < 50` row as a worked example of a tuned tier. Re-tuning it is a new evidence release, not a fix. Which of the differing configuration keys carries the effect is unresolved, and E3 licenses no claim about any individual subsystem.
 
 ### 5.5 The 13 substreams
 
