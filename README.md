@@ -795,6 +795,17 @@ release identifiers and governance records — for example the `67d9345f9` in
 monorepo**. They identify a release; they do not resolve to objects in this
 repository's history, and no attempt to look them up here will succeed.
 
+A second, independent cause was added by the round-one revision. That revision's
+development history could not be published -- some of its commit messages
+characterise a reviewer who declined to sign, and some intermediate trees carry
+material the published tree withholds -- so it was squashed into one commit
+before publication (D-0049). Commit SHAs recorded by governance records written
+during that work, including the `anchor_commit` in
+`papers/governance/main_manuscript_freeze_manifest.json`, name commits in that
+discarded line and do not resolve here either. The same manifest records a
+`published_commit` alongside, which does resolve and carries a byte-identical
+tree.
+
 For the same reason, internal working records written before the move may
 reference monorepo paths, sibling project names, or the old repository URL.
 Those references resolve against this repository, which is the repository of
