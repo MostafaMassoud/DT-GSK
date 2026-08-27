@@ -69,6 +69,14 @@ the author's SuSy resubmission, the GitHub Support ticket, and one confirmed def
 
 **One confirmed defect, and a verification pass over eleven more.**
 
+**Scope note — read this before deciding urgency.** "Published" throughout this section means
+published to the **public repository** at `v2.14`. The manuscript itself is still in round-1
+revision at *Algorithms* and has **not** been resubmitted through SuSy; the Preprints.org posting
+was withdrawn the same day it went up (D-0046). Every defect below is therefore still correctable
+in the version the reviewers will actually read, at the cost of one ordinary change-control pass.
+After resubmission the same edits become a correction to a live submission. **Fix before
+resubmitting.**
+
 **CONFIRMED — Table A45 caption.** Supplementary S9.3's caption says the two identity controls
 "coincide with the tiered configuration by construction, which the tie counts confirm". The
 U-low/D = 10 control does (0/29/0). The U-high/D = 100 control prints **2/25/2**. Traced: the
@@ -86,15 +94,83 @@ DOCX agree — both carrying the same wrong caption — and `validate_evidence_b
 `% BIND:` comment text from token extraction by design. This is the third defect in this project
 caught only by reading the built PDF rather than the sources. **Read the PDF.**
 
-**UNDER VERIFICATION when this was written.** A prior assessment alleged eleven further defects.
-Spot-checking already refuted one (the claim that the NP qualification appears nowhere — the main
-text mentions matched population 11 times and cites S9.2 twice) and downgraded another ("ordinals
-identical in every variant reported here" is scoped to rank-computation robustness variants, so it
-is ambiguous rather than false). **Do not act on that assessment unverified.** The remaining claims
-concern: an S6.5-vs-S9.1 arithmetic contradiction on the ISM channel; "only fitness-affecting
-channel" versus "two active channels"; "perturbs no tier threshold" versus `argp_threshold`;
-"no constant is knife-edge" versus the n_min flip; effect-size language against A12 values in
-[0.493, 0.518]; and an Overall-column recomputation at matched NP.
+**VERIFICATION ADJUDICATED — 11 further claims, 4 of them adversarially challenged.** The
+verification pass was interrupted before its challenge stage finished. The verdicts below were
+recovered from the workflow journal and re-checked against the sources in this repository. Counting
+the caption above as C1:
+
+| # | The charge | Verdict | Severity | Act? |
+|---|---|---|---|---|
+| C1 | Table A45 caption contradicts its own tie counts | **CONFIRMED** | serious | **yes** |
+| C2 | "this is stated wherever those claims appear" — self-audit is false | **VERIFIED** (challenge upheld) | serious | **yes** |
+| C3 | "as on the other suites, the population rule was not a controlled variable" | **VERIFIED — stale text** (challenge *overturned* the original AMBIGUOUS) | moderate | **yes** |
+| C4 | "the population rule is not the source of the reported standing" | **REFUTED** (challenge upheld) | cosmetic | **no — and do not apply its proposed fix** |
+| C5 | "no constant tested here is knife-edge" vs the n_min 2→1 flip | AMBIGUOUS-NOT-FALSE (challenge upheld) | cosmetic | optional |
+| C6 | "perturbs no tier threshold" vs `argp_threshold` and S5.9 | **VERIFIED** — internal contradiction | serious | **yes** — *unchallenged* |
+| C7 | "identical in every variant reported here" | AMBIGUOUS-NOT-FALSE | moderate | optional — *unchallenged* |
+| C8 | "only fitness-affecting channel" vs two active channels | PARTLY-VERIFIED | serious | **yes** — *unchallenged* |
+| C9 | the same two sentences, framed as a contradiction | **VERIFIED** | serious | folds into C8 — *unchallenged* |
+| C10 | "four orders of magnitude behind" on the worst function | PARTLY-VERIFIED | serious | **yes** — *unchallenged* |
+| C11 | S9.3 transplant leaves the disclosure incomplete | **REFUTED** | moderate | no — *unchallenged* |
+| C12 | Overall column at matched NP is never reported | PARTLY-VERIFIED | moderate | contested — *unchallenged* |
+
+**Seven of the eleven were never challenged** — the run died first. Of the four that were, one
+verdict was *overturned* (C3) and one proposed fix was *rejected as a regression* (C4). That is a
+50 % correction rate on the challenged subset. **Do not apply an unchallenged fix without
+challenging it first.**
+
+**Cross-cutting defect in the fix list itself: every proposed fix but one undercounts its sites.**
+The verifiers wrote fixes against the LaTeX sources and — except for C8 — missed the
+`_pandoc.tex` mirrors that build the DOCX. Applying them as written fixes the PDF, leaves the DOCX
+carrying the defect, and fails `validate_cross_format_parity`. True site counts, swept with a
+multi-line regex because every one of these phrases wraps across a line break and single-line
+`grep` undercounts them:
+
+| Claim | Sites the fix names | Sites that actually exist |
+|---|---|---|
+| C2 | 2 | 3 — `supplementary.tex:3749`, `supplementary_pandoc.tex:3703`, `DT-GSK-plain-summary.tex:273` |
+| C3 | 1 | 2 — adds `supplementary_pandoc.tex:2461` |
+| C5 | 1 | 2 — adds `supplementary_pandoc.tex:3813` |
+| C6 | 2 | 4 — adds `main_pandoc.tex:3379` and `supplementary_pandoc.tex:1305` |
+| C7 | 1 | 4 — adds `main_pandoc.tex:2654`, `supplementary.tex:562`, `supplementary_pandoc.tex:463` |
+| C8 | 6 | 6 in the tracked tree (+1 in the untracked response letter) — the only complete one |
+| C9 | 2 | 7 — same phrase as C8; C9's fix is C8's minus the mirrors |
+| C10 | 1 | 2 — adds `supplementary_pandoc.tex:3651` |
+
+**C8 and C9 rewrite the same two sentences.** Both target `introduction.tex:152` and
+`conclusions.tex:170`. They propose different replacements for the identical phrase, so they must be
+merged into one edit, not applied in sequence. C8's site list is the complete one; C9's replacement
+wording ("terminal exploitation channel") is the one that uses vocabulary already in Sec. 3.4.
+
+**C4's proposed fix is a trap, and the challenge caught it.** Inserting "overall" would retarget the
+sentence at a four-dimension aggregate under NP = 100 that appears nowhere in the shipped record —
+`SA06.tex` has no Overall row and `e2_np100.json` has no aggregate key — while the paragraph is
+bind-tagged to that artifact. It would convert a self-resolving ambiguity into an unsupported
+thin-margin assertion on the exact page a reviewer is auditing. C4 needs **no edit at all**.
+
+**C12 rests on a number that does not reconcile.** Its proposed sentence prints the matched-NP
+Overall as 2.780 vs 2.858. Two independent recomputations give eGSK 2.8578; a third gives 2.8621.
+DT-GSK's 2.7802 is agreed. Recompute before printing, and note this is the same quantity the C4
+challenge argues the paper should not lean on — C12 and C4 pull in opposite directions on it.
+
+**C10 is independently confirmed by recomputation, and is the one unchallenged claim you may treat
+as settled.** Recomputed here from the strict source — the coordinate arm at
+`benchmarks/cec_reference_results/_revision/e1_basis_coordinate/dt-gsk/cec2017/summary/per_run.csv`
+against the shipped eigenframe arm at `benchmarks/cec_reference_results/cec2017/dt-gsk/per_run.csv`,
+29 functions x 51 runs each at D = 50. The worst function is F6: eigenframe mean error
+8.345e-05 against coordinate 7.716e-07, a ratio of **108.2, or 2.03 orders of magnitude**. The
+Supplementary says "four orders of magnitude behind". The error overstates the harm done by the
+paper's own method, so it is not self-serving — but it is false by a factor of one hundred, it sits
+in the adverse-result paragraph a reviewer reads most carefully, and the bound artifact
+`e1_basis_contrast.json` carries no per-function means, so nothing in the evidence tree could have
+caught it. Fix is one word, at `supplementary.tex:3700` **and** `supplementary_pandoc.tex:3651`.
+
+**Where the raw verdicts live.** The verification run was `wf_31d2bb3d-9ef`; it was interrupted, so
+no result file was written, but its journal survived at
+`~/.claude/projects/D--AI-Research-Lab-DT-GSK/fa6ff0bb-d40d-4a30-8407-92084aef9ddc/subagents/workflows/wf_31d2bb3d-9ef/journal.jsonl`
+(11 verdicts + 4 challenges), with per-agent transcripts beside it. Each verdict carries an
+`evidence`, `reasoning` and `minimal_fix` field far longer than the summary above. Session
+scratch is transient — if that tree is needed, copy it out before it is cleaned.
 
 **A leaked meta-note was published and is now removed.** An agent's instruction to the applier
 ("[APPLY NOTE: join these two lines with CRLF...]") was written into this file verbatim and reached
@@ -331,7 +407,7 @@ Gate battery, all green: `validate_document_consistency`, `validate_docx` (both 
 `check_manifest` is **2/15** — 13 tracked files moved. That is the expected pre-re-mint state and is
 exactly what Phase 6 exists to reconcile.
 
-### Phase 6 (governance + re-mint) — applied 2026-08-25 · **TAG WITHHELD**
+### Phase 6 (governance + re-mint) — applied 2026-08-25 · ~~**TAG WITHHELD**~~ → **superseded: `v2.14` was cut and pushed 2026-08-27**
 
 **Freeze pass-39 is minted; `check_manifest` reads 15/15.** Thirteen of the fifteen tracked files
 moved; the manifest was re-minted surgically after verifying it round-trips byte-exactly
@@ -343,9 +419,11 @@ zero bare LF). Anchor commit `2bdd9bc`; pre-freeze base `b9846e4`, the submitted
 > memo claimed it did not and prescribed regex surgery. The re-mint verifies the round-trip against
 > the original bytes *before* rewriting, so the check is enforced rather than assumed.
 
-**⚠️ No tag was cut. `v2.13` is still the newest tag.** By author directive (2026-08-25), **v2.14 is
-held until all four experiments are complete and their results integrated and validated.** The
-repository is left *tag-ready*, not tagged.
+**⚠️ Historical — true on 2026-08-25, no longer true.** At the time of Phase 6 no tag had been
+cut: by author directive **v2.14 was held** until all four experiments were complete and their
+results integrated and validated, and the repository was left *tag-ready*, not tagged. The
+condition was met, and `v2.14` is now cut and published — see §2. Retained because the Phase 6
+record is a history, not a status.
 
 `CITATION.cff` is nonetheless advanced to **2.14** (date-released 2026-08-25). That is deliberate and
 is what the gate wants: `validate_citation_cff` enforces that the working tree is *not behind* the
@@ -508,43 +586,39 @@ worktree blind spot.
 
 ## 6. What to do next
 
-**Zero-compute track (start any time, nothing gated on experiments):**
+**Everything below the line in §3 is done.** Phases 1-7 are applied, all four experiments
+(E1-E4, ~32,000 runs) completed on 2026-08-26, freeze pass-41 is minted at 15/15, and `v2.14` is
+published with `v2.13` still resolving. What follows is the *remaining* work only.
 
-- **Phase 2** — R2.5 + R2.4 body softening. R2.5: insert the non-separation qualifier at
-  `performance.tex:9-12`, `conclusions.tex:47-51`, optionally `performance.tex:1193-1199`. The honest
-  numbers already exist at `performance.tex:525-532` (Holm 0.0035 / 0.199 / 1.000 / 0.795) and
-  `:569-575` ("never Nemenyi-separable at any CEC2017 dimension") — this is a *placement* problem, not a
-  new-evidence problem. R2.4: surface the ISM overhead triple **+57.3 % / +36.3 % / +30.3 %** at
-  `performance.tex:1073-1076`.
-- **Phase 3** — R1.2 title across **32 sites in 15 files** + one 30-row CSV replace-all, and the
-  **merged abstract** (R1.1 + R2.4 + R2.5 in ONE edit — see the warning in §7).
-- **Phase 4** — R2.6 scope visibility (rides along free inside the Phase 2 edits) + the optional S7
-  disclosures + three housekeeping corrections.
-- **Phase 5** — single build + validate tail. **Phase 6** — CR-0023, D-0047, re-mint pass-39 / tag v2.14.
-- **Phase 7** — rebuttal letter: six complete answers + four placeholders.
+**1. Pass-42 — the correction pass (agent work, unblocked).** Six edits are owed against the
+published sources: C1, C2, C3, C6, C8+C9 merged, C10. Two claims are refuted and need no edit
+(C4, C11); three are optional wording (C5, C7, C12). Read §2a first — it carries the verdicts, the
+true site counts, and two hazards that will bite anyone who applies the list naively:
 
-**Experiment track (needs the deadline answered first):**
+- Seven of the eleven verdicts were **never adversarially challenged**. On the four that were, one
+  verdict was overturned and one proposed fix was rejected as a regression. Challenge first.
+- Almost every proposed fix **undercuts its own site list** by missing the `_pandoc.tex` mirrors.
+  Fix the PDF alone and `validate_cross_format_parity` fails.
 
-Run order is deliberate — cheapest P0 first, riskiest not last:
+Sequence it as a normal change-control pass: challenge the seven → merge C8/C9 → apply across all
+sites including mirrors → rebuild → **read the built PDF**, because all three defects this project
+has shipped were caught there and nowhere else → re-mint the freeze → CR-0025 / D-0050 → `v2.15`.
 
-| # | Experiment | Runs | Wall-h @15 |
-|---|---|---|---|
-| E1 | Refinement-basis contrast (only the coordinate arm is new) | 2,958 | 2–3.5 |
-| E2 | DT-GSK at NP = 100 | 5,916 | 4–6 |
-| E3 | Uniform vs tiered (2 arms) | 11,832 | 8–11 |
-| E4 | Parameter sensitivity (26 cells) | 11,310 | 9–12 |
+**2. The C3 decision the fix list cannot make for you.** C1 is a counterexample to contribution
+**C3**'s byte-stable determinism claim, printed inside the paper's own table. Three honest
+responses: report the observed tie counts and disclose the residual as open (cheap, honest, no
+investigation); find the cause first (open-ended); or narrow C3 (touches a headline contribution).
+The cause is **not** established — do not assert one. This is an author decision, not an agent one.
 
-**These experiments can backfire, and the author must accept that before compute is spent.** If DT-GSK's
-advantage shrinks at matched NP, or a uniform configuration matches the tiered one, or the eigenframe
-matches coordinate axes, the paper's central claims weaken. Pre-commit the null-result wording *before*
-running — the project's own pre-registration discipline is otherwise the next reviewer's target.
+**3. Author-only, outside this repository.** The SuSy resubmission (§5 item 5 — new title and
+revised keywords must be re-entered by hand; portal metadata does not update from the PDF); the
+GitHub Support ticket to garbage-collect `b9846e4`; GitHub Insights → Traffic → Clones, which
+expires on a rolling 14-day window; and telling the co-authors their biographies were public for
+twenty days.
 
-⚠️ **E1 is expected to return null.** The repo's own config comment at
-`configs/_ablation/dtgsk_cec2017_51_no_ism.yml:18` states the ISM "learned basis == coordinate axes to
-5e-05, i.e. the estimator carries no information." That measurement has **no backing artifact anywhere** —
-its provenance is an open question for the author. If E1 is null, the honest response is to rename
-contribution C1 basis-neutral; the Holm-significant polish effect (p = 0.0018 / 0.0052 / 0.0017) survives
-regardless, because it is the compass endgame, not the basis.
+**Do not** re-run the experiment track, re-derive the phases, or regenerate
+`benchmarks/cec_reference_results/`. If you are reading this section for a plan of the revision
+itself, you are one section too late — that history is §3.
 
 ## 7. Traps — every one verified in this repository
 

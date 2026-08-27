@@ -24,12 +24,27 @@ The round-1 revision is **done and published**. `origin/main` carries it, `v2.14
 `archive/revision-pass-39-full` and **must never be pushed**: some of its commit messages gender an
 anonymous reviewer, and its intermediate trees carry the reviewers' reports.
 
-**One confirmed defect is open against the published paper.** Table A45's caption in the
-Supplementary Materials says the two identity controls are confirmed by their tie counts; the
-D = 100 control prints 2/25/2, and 27 of 1479 run cells differ by up to 5.3 % relative under an
-identical configuration, environment and budget. That needs a pass-42. A verification pass over
-eleven further alleged defects was running when this was written — read
-[REVISION_STATUS.md](REVISION_STATUS.md) §2 before assuming the fix list is only that one item.
+**A pass-42 is owed against the published paper, and the fix list is now adjudicated.** Twelve
+alleged defects were verified independently and then challenged in the opposite direction. **Six
+need an edit** (C1, C2, C3, C6, C8+C9 merged, C10), **two are refuted** (C4, C11 — C4's proposed
+"fix" is a regression; do not apply it), and three are optional wording (C5, C7, C12). The anchor
+defect: Table A45's caption says the two identity controls are confirmed by their tie counts, but
+the D = 100 control prints 2/25/2, and 27 of 1479 run cells differ by up to 5.3 % relative under an
+identical configuration, environment and budget.
+
+**"Published" here means the public repository, not the journal.** The round-1 revision has **not**
+been resubmitted through SuSy, and the Preprints.org posting was withdrawn the same day (D-0046).
+So these six edits can still land in the version the reviewers will read, as an ordinary pass-42.
+That window closes the moment the author resubmits, after which the same edits become a correction
+to a manuscript already under the editor's eye. **Fix before resubmitting.**
+
+**Two things about that list must survive into the next session.** First, **seven of the eleven
+were never adversarially challenged** — the run was interrupted — and of the four that were, one
+verdict was overturned and one fix was rejected as a regression. Challenge before applying. Second,
+**every proposed fix but one undercounts its sites**, because the verifiers missed the
+`_pandoc.tex` mirrors that build the DOCX; applying them as written fixes the PDF and fails
+cross-format parity. Full table, true site counts and the C8/C9 collision:
+[REVISION_STATUS.md](REVISION_STATUS.md) §2a.
 
 **Author-only, still outstanding:** the SuSy resubmission; a GitHub Support ticket to
 garbage-collect commit `b9846e4` (seven copyrighted PDFs are off every ref but still served by
