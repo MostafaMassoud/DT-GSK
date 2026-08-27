@@ -17,9 +17,19 @@ are frozen or hash-bound. Assume nothing is casually editable.
 
 ## Right now (2026-08-27)
 
-**Pass-45 is applied, minted, tagged and pushed.** `origin/main` carries it, **`v2.18` is live**,
-and `v2.13` through `v2.18` all resolve — the Data Availability Statement names `v2.18`, and
-`main.tex` was edited to say so in the same pass.
+**⏳ RESUBMISSION DEADLINE: 2026-09-01 — CONFIRMED by the author on 2026-08-27, and it is also the
+planned resubmission date, so there is ZERO slack.** An earlier **2026-09-03** was an *inference*
+from the decision letter's ten-day window; the real date is two days tighter, so the margin these
+documents assumed does not exist. Nothing in the repository blocks it — everything agent-side is
+complete. The letter invites a request for more time, which is now the only source of margin there
+is. Detail: [REVISION_STATUS.md](REVISION_STATUS.md) §5 item 1.
+
+**Pass-48 is applied, minted, tagged and pushed.** `origin/main` carries it, **`v2.21` is live**,
+and `v2.13` through `v2.21` all resolve (verified) — the Data Availability Statement names `v2.21`,
+and `main.tex` says so. **Passes 46–48 filed no decision entries**; the log ends at **D-0053**
+(pass-45), so the next free ids are **CR-0029** and **D-0054** — still verify them free at apply
+time. The paragraphs below about passes 42–45 are kept because their *lessons* stand, not because
+they describe the current tag.
 
 **Pass-45 came out of a deep application of this project's own review instrument** (97 agents over
 `papers/PAPER_REVIEW_PROMPT.md`, 14 stage-mapped dimensions, every finding adversarially verified).

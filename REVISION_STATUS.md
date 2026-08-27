@@ -1320,15 +1320,18 @@ worktree blind spot.
 
 ## 5. Open decisions — blocking, author only
 
-1. **Revision deadline — ANSWERED 2026-08-27, and it is the binding constraint.** This entry
-   previously read "never answered, no longer gating". The decision e-mail sets a **ten-day**
-   window to upload the revised file. Both reviews were in by 2026-08-24, so a ten-day window
-   closes on or about **2026-09-03**. It is now the only dated constraint left: the GitHub
-   Traffic → Clones expiry these documents had been treating as the most urgent item was
-   discharged by capture on 2026-08-27 (row 0a). **Confirm the
-   true date on the SuSy portal rather than inferring it here.** The e-mail explicitly invites a
-   request for more time; asking is free and removes this as a risk. The letter is withheld under
-   D-0049 and transcribed at `papers/review_2026_08_24/journal_decision_email.md`.
+1. **Revision deadline — CONFIRMED 2026-09-01 (author, 2026-08-27). This is the binding
+   constraint and there is no slack in it.** This entry previously read "never answered, no
+   longer gating", then carried **2026-09-03** as an *inference* from the letter's ten-day
+   window. The confirmed date is **two days earlier than that inference** and falls **on the
+   author's planned resubmission date**, so planned and required now coincide: a slip of one
+   day is a missed deadline, not a late-but-safe upload. Five days remain from 2026-08-27.
+   It is the only dated constraint left — the GitHub Traffic → Clones expiry these documents
+   had been treating as the most urgent item was discharged by capture on 2026-08-27 (row 0a),
+   and the purge request is parked (row 0b). **The e-mail explicitly invites a request for more
+   time.** With zero margin that is no longer merely cheap insurance; it is the only thing that
+   creates any. The letter is withheld under D-0049 and transcribed at
+   `papers/review_2026_08_24/journal_decision_email.md`.
    ⚠ **One check-list item is not discharged:** the letter asks that revisions be *highlighted in
    the manuscript*. The project builds a change register (the tagged diff, as-submitted against
    as-revised), which is a companion document, not in-text highlighting. Whether that satisfies
@@ -1504,11 +1507,12 @@ identical contrast). See the pass-45 ticket list.
 
 ### Phase 7 — resubmit (author-only; the point of no return)
 
-**Author's planned resubmission date: 2026-09-01.** Everything agent-side is complete at pass-48 /
-`v2.21`; nothing in the repository blocks that date. The portal deadline was never confirmed — the
-decision letter says ten days and the SuSy list view shows only "Pending major revision" with no due
-date, so 2026-09-03 remains an *inference*. If the true date is tighter, the letter invites a request
-for more time.
+**Deadline CONFIRMED 2026-09-01, and the planned resubmission date is the same day.** Everything
+agent-side is complete at pass-48 / `v2.21`; nothing in the repository blocks that date. The
+earlier **2026-09-03** figure was an *inference* from the letter's ten-day window and is
+**superseded** — the real date is two days tighter, so the margin the documents assumed does not
+exist. Plan and deadline now coincide and the resubmission has **zero slack**. The letter invites
+a request for more time; that request is now the only source of margin there is.
 
 **Confirmed from the portal 2026-08-27:** it still carries the **submitted** title
 ("… Adaptive **Control** …"), 26 days after submission. That is direct evidence for the standing
