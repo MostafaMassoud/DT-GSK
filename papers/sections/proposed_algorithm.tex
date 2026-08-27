@@ -296,7 +296,7 @@ rule among the surveyed GSK variants.
 The individual contribution of the scaffold subsystems is examined in a
 remove-one component study in the Supplementary Materials (with
 the interaction-structure memory held off in every cell); ARGP, the final
-polish and the deep-stall restart are pre-specified exclusions from that study
+polish and the deep-stall restart are prespecified exclusions from that study
 and are therefore not isolated. A direct isolation
 of the memory overlay itself is reported in the Supplementary Materials
 (Section~S6.5) and finds no significant standalone benefit at the
@@ -653,11 +653,13 @@ always refer to the same individual. A probe is accepted only if strictly
 better, so the stage never returns a
 point worse than the incumbent and cannot corrupt any reported result. Any out-of-bounds probe component here is repaired by a hard clip to the violated bound (an element-wise projection onto $[\ell_j,u_j]$), not by the parent-and-bound midpoint of Eq.~(\ref{eq:midpoint-repair}) used for the junior/senior and DE trials, matching the standard feasibility rule for a bound-constrained direct search.
 Second, its basis is drawn from the interaction-structure memory's accepted-move
-record rather than from the coordinate frame. Whether this learned basis
-outperforms coordinate axes is not established at $D\le100$: the direct
-isolation of Supplementary Materials Section~S6.5 cannot separate them.
-Any effect that isolation measures therefore attaches to the deterministic,
-budget-exact compass endgame as a whole, not to the learned directions.
+record rather than from the coordinate frame. The direct isolation of
+Supplementary Materials Section~S6.5 cannot separate the learned basis from
+coordinate axes: any effect that isolation measures therefore attaches to the
+deterministic, budget-exact compass endgame as a whole, not to the learned
+directions. The three-arm contrast added in revision (Supplementary
+Materials, Section~S9.1) does separate them, and finds against the learned
+basis; contribution~C1 is accordingly stated basis-neutrally.
 Its one-time cost is the $O(D^{3})$ eigendecomposition of the
 $D\times D$ matrix, incurred once per run
 (Section~\ref{sec:alg:complexity}). % BIND: phase_03/complexity_analysis.md (polish row)

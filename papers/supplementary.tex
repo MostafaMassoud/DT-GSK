@@ -3688,7 +3688,8 @@ isolates the basis and nothing else.
 \caption{Refinement-basis contrast on CEC2017 at the two dimensions where the
 polish is active.  Paired Wilcoxon signed-rank across the 29 scored functions on
 per-function mean error, Holm-corrected within dimension over the registered
-two-contrast family; $A_{12}$ on the raw paired runs, computed with the first-named
+two-contrast family; $A_{12}$ over the paired runs of all scored functions
+pooled --- not the per-function-averaged $A_{12}$ of Section~S6.5 --- computed with the first-named
 arm as reference, so $A_{12} < 0.5$ favours the second.  W/T/L counts functions,
 ties at a tolerance of $10^{-8}$.  $^{\dagger}$The coordinate-versus-none row is a
 supplementary single-test contrast added after verification, outside the registered
@@ -3729,7 +3730,7 @@ columns reused unchanged.
 
 The single-factor scope is declared.  Only the initial population size changes:
 the nonlinear reduction floor keeps its tier value, the high-dimension floor
-governor is untouched, and the elite archive --- contrary to a statement in the
+governor is untouched, and the diversity archive --- contrary to a statement in the
 registration, corrected there by amendment --- is capped at a fixed size in both
 arms rather than scaling with $NP$, which makes the contrast cleaner than
 registered rather than wider.  Because $NP = 5D$ is a declared component of the

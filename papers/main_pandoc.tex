@@ -1289,7 +1289,7 @@ rule among the surveyed GSK variants.
 The individual contribution of the scaffold subsystems is examined in a
 remove-one component study in the Supplementary Materials (with
 the interaction-structure memory held off in every cell); ARGP, the final
-polish and the deep-stall restart are pre-specified exclusions from that study
+polish and the deep-stall restart are prespecified exclusions from that study
 and are therefore not isolated. A direct isolation
 of the memory overlay itself is reported in the Supplementary Materials
 (Section~S6.5) and finds no significant standalone benefit at the
@@ -1743,11 +1743,13 @@ always refer to the same individual. A probe is accepted only if strictly
 better, so the stage never returns a
 point worse than the incumbent and cannot corrupt any reported result. Any out-of-bounds probe component here is repaired by a hard clip to the violated bound (an element-wise projection onto $[\ell_j,u_j]$), not by the parent-and-bound midpoint of Eq.~(@@REF!eq:midpoint-repair@@) used for the junior/senior and DE trials, matching the standard feasibility rule for a bound-constrained direct search.
 Second, its basis is drawn from the interaction-structure memory's accepted-move
-record rather than from the coordinate frame. Whether this learned basis
-outperforms coordinate axes is not established at $D\le100$: the direct
-isolation of Supplementary Materials Section~S6.5 cannot separate them.
-Any effect that isolation measures therefore attaches to the deterministic,
-budget-exact compass endgame as a whole, not to the learned directions.
+record rather than from the coordinate frame. The direct isolation of
+Supplementary Materials Section~S6.5 cannot separate the learned basis from
+coordinate axes: any effect that isolation measures therefore attaches to the
+deterministic, budget-exact compass endgame as a whole, not to the learned
+directions. The three-arm contrast added in revision (Supplementary
+Materials, Section~S9.1) does separate them, and finds against the learned
+basis; contribution~C1 is accordingly stated basis-neutrally.
 Its one-time cost is the $O(D^{3})$ eigendecomposition of the
 $D\times D$ matrix, incurred once per run
 (Section~@@REF!sec:alg:complexity@@). 
@@ -2074,10 +2076,9 @@ evidence release: all seven
 panel algorithms were re-run in-repository under one identical
 protocol, and the analysis pipeline
 (SciPy~1.15.3) runs
-restricted so that it can read only the three such releases identified in
-the Data Availability Statement --- the primary three-suite release and
-the two later, separate, non-superseding single-suite releases for
-CEC2013LSGO and CEC2020 --- never staging data and never
+restricted so that it can read only the immutable evidence releases
+identified in the Data Availability Statement and the Supplementary
+Materials --- never staging data and never
 literature-copied numbers
 presented as comparable.
 
@@ -2543,7 +2544,7 @@ across-function Wilcoxon signed-rank $p$ and its Holm-corrected value
 (family $= 6$ comparators per dimension, $\alpha = 0.05$), win/tie/loss
 counts with tie rule $|\Delta| < 10^{-8}$, the matched-pairs rank-biserial
 effect size $r$ ($> 0$ favors \dtgsk{}), and the Holm decision ($+$ better,
-$\approx$ no significant difference, $-$ worse).
+$=$ no significant difference, $-$ worse).
 
 @@NATIVETABLE!T15@@
 
@@ -3577,7 +3578,7 @@ configuration files, and experimental result data supporting the findings of
 this study are openly available in the public \dtgsk{} repository at
 \url{https://github.com/MostafaMassoud/DT-GSK}; the originally submitted
 version corresponds to the repository tag v2.13 and this revised version to
-tag v2.17, and any further materials are
+tag v2.18, and any further materials are
 available from the corresponding author upon reasonable request. The
 supplementary materials accompanying the manuscript provide the additional
 methodological and experimental details needed to evaluate the reported
