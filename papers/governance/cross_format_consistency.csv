@@ -76,7 +76,7 @@ DT-GSK.docx,caption,Table 15.  DT-GSK vs. each GSK-family comparator on CEC2017
 DT-GSK.docx,caption,Figure 4.  Nemenyi mean-rank plots with critical-difference (CD) span ,PASS,alnum-containment,,,de3b67891a8a
 DT-GSK.docx,caption,Figure 5.  Friedman mean ranks over the 22 CEC2011 real-world problems,PASS,alnum-containment,,,b1699afe5ffb
 DT-GSK.docx,caption,Table 16.  Friedman mean ranks (lower is better) of the seven-algorith,PASS,alnum-containment,,,cf3ce3ccdeba
-DT-GSK.docx,caption,Table 17.  CEC2020 final panel results: tie-corrected Friedman mean ra,PASS,alnum-containment,,,7972d093ccc0
+DT-GSK.docx,caption,Table 17.  CEC2020 final panel results: tie-corrected Friedman mean ra,PASS,alnum-containment,,,bb1b27f0ac74
 DT-GSK.docx,caption,Table 18.  CEC2013LSGO final family panel: tie-corrected Friedman mean,PASS,alnum-containment,,,2cb83e944f2f
 DT-GSK.docx,caption,Figure 6.  Family-overlay convergence on CEC2017 at D=30 for the four ,PASS,alnum-containment,,,3dd5c56ddb6b
 DT-GSK.docx,caption,Figure 7.  Family-overlay convergence on CEC2017 at D=100 (tier where ,PASS,alnum-containment,,,5ede0c86d36e
@@ -288,7 +288,7 @@ DT-GSK.docx,paragraph,"Conceptualization, M.E.M.; methodology, M.E.M. and A.W.M.
 DT-GSK.docx,paragraph,This research received no external funding.,PASS,alnum-containment,,,f0a8acde1574
 DT-GSK.docx,paragraph,Institutional Review Board Statement: Not applicable.,PASS,alnum-containment,,,e347cc3a4a40
 DT-GSK.docx,paragraph,Informed Consent Statement: Not applicable.,PASS,alnum-containment,,,89bd59ac9b67
-DT-GSK.docx,paragraph,"Data Availability Statement: The source code, configuration ",PASS,alnum-containment,,,3e8820b4bf00
+DT-GSK.docx,paragraph,"Data Availability Statement: The source code, configuration ",PASS,alnum-containment,,,c70dc6026d90
 DT-GSK.docx,paragraph,Use of Generative Artificial Intelligence: During the prepar,PASS,alnum-containment,,,04213b9238fd
 DT-GSK.docx,paragraph,"During the preparation and revision of this manuscript, the ",PASS,alnum-containment,,,2fe3fbc5bd15
 DT-GSK.docx,paragraph,Author A.W.M. is the originator of the baseline Gaining-Shar,PASS,alnum-containment,,,83921bdcc640
@@ -651,14 +651,14 @@ supplementary.docx,paragraph,This subsection records the operator-level constant
 supplementary.docx,paragraph,The adaptive credit-based selector samples one of five fixed,PASS,alnum-containment,,,f20572a22835
 supplementary.docx,paragraph,The credit is an exponential moving average at learning rate,PASS,alnum-containment,,,6c7edb0f38b7
 supplementary.docx,paragraph,"The following states the order of operations, the timing con",PASS,alnum-containment,,,e09a034c674c
-supplementary.docx,paragraph,Eligibility to update. No credit update is applied until the,PASS,alnum-containment,,,5ec8d0fedeed
+supplementary.docx,paragraph,Eligibility to update. No credit update is applied until the,PASS,alnum-containment,,,c552fa45773e
 supplementary.docx,paragraph,Arm assignment. Each individual independently draws one arm ,PASS,alnum-containment,,,65d78443efca
 supplementary.docx,paragraph,Optional differential-evolution arm. For 20≤D<100 a sixth ar,PASS,alnum-containment,,,3b1363d344c2
-supplementary.docx,paragraph,Credit accumulation. Every individual contributes its signed,PASS,alnum-containment,,,a7042ebf32e7
-supplementary.docx,paragraph,Target selection (two branches). With S=m​dm: if S>0 the tar,PASS,alnum-containment,,,5a9a5b0d1509
-supplementary.docx,paragraph,"Mixing and projection. The target is projected, mixed into π",PASS,alnum-containment,,,478d8ab60df9
-supplementary.docx,paragraph,"ARGP freeze. After a warm-up fraction of the budget, an unfr",PASS,alnum-containment,,,ae2719434271
-supplementary.docx,paragraph,ARGP unfreeze (recoverable). A frozen arm that is sampled ag,PASS,alnum-containment,,,16e71ead41d2
+supplementary.docx,paragraph,Credit accumulation. Every individual contributes its signed,PASS,alnum-containment,,,5a9cdbe076ab
+supplementary.docx,paragraph,Target selection (two branches). With S=m​dm: if S>0 the tar,PASS,alnum-containment,,,392d21764eb8
+supplementary.docx,paragraph,"Mixing and projection. The target is projected, mixed into π",PASS,alnum-containment,,,8be08430c323
+supplementary.docx,paragraph,"ARGP freeze. After a warm-up fraction of the budget, an unfr",PASS,alnum-containment,,,d06d43bd2595
+supplementary.docx,paragraph,ARGP unfreeze (recoverable). A frozen arm that is sampled ag,PASS,alnum-containment,,,c02829a93374
 supplementary.docx,paragraph,The selector consumes no objective evaluations of its own: c,PASS,alnum-containment,,,e5f57a270e18
 supplementary.docx,paragraph,The interaction-structure memory maintains an unsigned magni,PASS_FORMAT_DIFF,alnum-window-coverage,coverage=0.92,OMML vs PDF math glyph order/spacing,2364ddbfffba
 supplementary.docx,paragraph,and the accumulators receive an improvement-weighted rank-on,PASS,alnum-containment,,,d111a4e3f9da
@@ -675,7 +675,7 @@ supplementary.docx,paragraph,The active local search uses the coordinate method 
 supplementary.docx,paragraph,The per-coordinate scale σcoord is floored at 10−3 span (i.e,PASS,alnum-containment,,,df5cc6cda226
 supplementary.docx,paragraph,Two endgame guards share a single absolute-scale signal: the,PASS_FORMAT_DIFF,alnum-split-containment,paragraph verbatim in two contiguous runs,page-break/float interleaves PDF extraction mid-paragraph,6ea910730838
 supplementary.docx,paragraph,The NLPSR population schedule carries a minimum-size floor g,PASS,alnum-containment,,,e7c970caa0e2
-supplementary.docx,paragraph,"All CEC2017, CEC2011 and CEC2013 values in the main paper an",PASS,alnum-containment,,,d6b3046dac0a
+supplementary.docx,paragraph,"All CEC2017, CEC2011 and CEC2013 values in the main paper an",PASS,alnum-containment,,,ae0b3831ad6c
 supplementary.docx,paragraph,The derived statistical artifacts behind every table and fig,PASS,alnum-containment,,,be2decf12827
 supplementary.docx,paragraph,Seeded stochastic analyses are themselves reproducible: the ,PASS,alnum-containment,,,09ed9e4545fd
 supplementary.docx,paragraph,The software state itself is attested rather than asserted. ,PASS,alnum-containment,,,13d6d9bb06ab
@@ -726,8 +726,8 @@ supplementary.docx,paragraph,"Two registered layers are reported, both Holm-corr
 supplementary.docx,paragraph,Table A37 reports the registered effect-size family: run-lev,PASS_FORMAT_DIFF,alnum-split-containment,paragraph verbatim in two contiguous runs,page-break/float interleaves PDF extraction mid-paragraph,4321b58e9b9b
 supplementary.docx,paragraph,All three registered robustness variants were computed. The ,PASS,alnum-containment,,,25c356a17eaf
 supplementary.docx,paragraph,Tables A39–A42 report the five-statistic per-function record,PASS,alnum-containment,,,566097cd0ea6
-supplementary.docx,paragraph,The four experiments in this section were requested by the r,PASS,alnum-containment,,,31b398adba91
-supplementary.docx,paragraph,The experiments ran under the same unified Threefry seed sch,PASS,alnum-containment,,,830612339bd2
+supplementary.docx,paragraph,The four experiments in this section were requested by the r,PASS,alnum-containment,,,1d4d0d70baba
+supplementary.docx,paragraph,"The evidence for this section is compound, and is named here",PASS_FORMAT_DIFF,alnum-split-containment,paragraph verbatim in two contiguous runs,page-break/float interleaves PDF extraction mid-paragraph,bc253cae7a4f
 supplementary.docx,paragraph,The final polish was previously evaluated only as a whole: t,PASS,alnum-containment,,,6a3cb9049ed2
 supplementary.docx,paragraph,The coordinate arm is produced by supplying the identity mat,PASS,alnum-containment,,,00c9c4688aae
 supplementary.docx,paragraph,"Two findings follow, and they point in opposite directions. ",PASS,alnum-containment,,,3c38a5d61c44

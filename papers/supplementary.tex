@@ -138,9 +138,9 @@ confirmatory suite record (Section~S8), and the four round-one revision
 experiments (Section~S9).  Every empirical value in Sections~S1--S5 derives from the
 promoted, read-only evidence release accompanying this article;
 the Section~S6 scaffold and isolation results derive from a separate, immutable
-ablation release; the Section~S7, Section~S8 and Section~S9 values derive from three
-further separate, non-superseding evidence releases identified in those
-sections; no primary result is
+ablation release; the Section~S7, Section~S8 and Section~S9 values derive from
+further separate, non-superseding evidence releases named where they are used;
+no primary result is
 altered by any of it.  All comparative
 wording is scoped to the seven-algorithm GSK-family panel.%
 }
@@ -1591,7 +1591,7 @@ source that implements it, so the specification can be checked line by line.
 \begin{enumerate}\itemsep2pt
 \item \textbf{Eligibility to update.} No credit update is applied until the
   consumed-budget fraction reaches $0.05$; before that the probabilities remain
-  at $\pi_0$. \hfill ace\_start\_frac, \_dt\_core.py:210--212
+  at $\pi_0$. \hfill ace\_start\_frac, \_dt\_core.py
 \item \textbf{Arm assignment.} Each individual independently draws one arm from
   the current probability vector $\pi$ on the ACE substream; at $D\ge 20$ the
   draw uses the top/bottom memory that the individual's fitness rank selects,
@@ -1604,27 +1604,27 @@ source that implements it, so the specification can be checked line by line.
 \item \textbf{Credit accumulation.} Every individual contributes its signed
   fitness delta to the arm that drew it, giving the per-arm aggregate $d_m$ of
   main-text Equation~(7). Credit is an improvement magnitude, not an acceptance
-  count. \hfill\_ace\_update\_probs, \_dt\_core.py:1203
+  count. \hfill\_ace\_update\_probs, \_dt\_core.py
 \item \textbf{Target selection (two branches).} With $S=\sum_m d_m$: if $S>0$
   the target is the full-pool share $d/S$; if $S<0$ and at least one arm
   improved, the target is restricted to the improving arms. If $S=0$, if $S$ is
   non-finite, or if no arm improved, no target is formed and $\pi$ is carried
   forward unchanged apart from its projection.
-  \hfill\_dt\_core.py:1236--1264
+  \hfill\_ace\_apply\_credit, \_dt\_core.py
 \item \textbf{Mixing and projection.} The target is projected, mixed into $\pi$
   by an exponential moving average at rate $c=0.10$, and the result projected
   again. The projection is the Euclidean projection onto
   $\{\pi_m\ge\pi_{\min}=0.05,\ \sum_m \pi_m = 1\}$ --- not a floor followed by
-  renormalization. \hfill\_ace\_project\_probs, \_dt\_core.py:694
+  renormalization. \hfill\_ace\_project\_probs, \_dt\_core.py
 \item \textbf{ARGP freeze.} After a warm-up fraction of the budget, an unfrozen
   arm whose rolling acceptance over the trailing window falls below the tier
   threshold is frozen and its mass redistributed. Freezing stops while only
   min\_active arms remain unfrozen, so the pool can never collapse to a
-  single arm. \hfill\_argp\_update\_memory\_probs, \_dt\_core.py:1271
+  single arm. \hfill ARGP retirement branch, \_dt\_core.py
 \item \textbf{ARGP unfreeze (recoverable).} A frozen arm that is sampled again
   and whose rolling acceptance recovers to the threshold is unfrozen. Pruning is
   therefore soft and reversible; no arm is permanently removed.
-  \hfill\_dt\_core.py:1271
+  \hfill ARGP retirement branch, \_dt\_core.py
 \end{enumerate}
 
 \noindent The selector consumes no objective evaluations of its own: credit is
@@ -1896,7 +1896,9 @@ always supplied the callback.
 
 All CEC2017, CEC2011 and CEC2013 values in the main paper and in this
 Supplementary Material derive from the promoted, read-only primary
-evidence release accompanying this article (release
+evidence release accompanying this article, except those of
+Section~\ref{sec:supp:revision}, whose compound provenance that section
+states (release
 rel-2026-07-20-67d9345f9, anchor commit
 67d9345f9502a9a584e645fa8948f60a61d70e29), whose manifest
 records a SHA-256 checksum for every one of its 3{,}403 files (per-run
@@ -3648,14 +3650,20 @@ F10 & Best & 3.99E+02 & 3.99E+02 & 3.99E+02 & 3.99E+02 & 4.01E+02 & 3.99E+02 & 3
 reviewers to isolate mechanisms that the submitted manuscript had introduced
 together.  Their designs, estimands, statistical conventions and the wording to
 be used for each unfavourable outcome were registered in a signed addendum
-before any of them produced a result; two subsequent deviations discovered
-during post-hoc verification are recorded there as dated amendments and are
+before any of them produced a result; the deviations discovered during
+post-hoc verification are recorded there as dated amendments and are
 disclosed at the point of use below.  That addendum is published with the code
 and data, as revision\_experiments\_preregistration.md under the review folder
 of the repository named in the Data Availability Statement, so a reader can
 check that the unfavourable-outcome wording predates the outcomes rather than
 take it on trust.
 % BIND: pre-registration made checkable (D-0049; published 2026-08-27)
+The evidence for this section is compound, and is named here because no
+single release carries it: the arms added in revision come from the separate,
+non-superseding release rev-rel-2026-08-26-dd42d37eb; the comparator columns
+against which they are read come from the primary release; and the
+no-refinement arm of Section~\ref{sec:supp:rev:basis} comes from the frozen
+ablation release.  Nothing in any of them is re-minted by this section.
 The experiments ran under the same
 unified Threefry seed schedule, base seed and protocol budget as the primary
 panel, so every new cell pairs with the frozen evidence at matched
