@@ -1396,25 +1396,31 @@ Three design decisions worth keeping:
 it recorded that the byte-stability KAT "could not catch this because its cells are D<=30". It does
 **not** resolve the Table A45 residual, which is a cross-build question (§2a).
 
-### Phase 4 — apply
+### Phases 4–6 — DONE (2026-08-27)
 
-Apply **E1–E12 + E13–E16** in §2b's order, **highest line number first within each file**. Take
-**O2** (true, number-free, and it repairs a BIND-eviction hazard). **Defer O1 and C5** — both
-cosmetic, and C5's fix is unaudited.
+Applied, built, verified, minted, tagged and pushed. 43 edits across 17 files; every FROM anchor
+verified byte-exact and unique before any write; per-file line endings preserved. All five
+artifacts rebuilt **twice** and byte-compared — reproducible, so the DOCX-epoch trap is cleared.
+The `_pandoc` shims and `docs/html` were **regenerated**, never hand-edited. Thirteen gates green,
+`check_manifest` 15/15, `check_frozen_analysis` 115/115. Every edit verified in the **built PDF**
+and in the DOCX. Freeze **pass-42**, **CR-0025 / D-0050**, tag **v2.15** pushed; anchor `4a2291bd`,
+published `ebcdefe`.
 
-### Phase 5 — build and verify
+Three things worth carrying forward:
 
-PDFs at `SOURCE_DATE_EPOCH=1783468800`, **DOCX at 1783641600** (verify the variable twice — a
-persisted value yields a non-reproducible DOCX that still passes `check_manifest`). Let
-`build_docx.py` **regenerate** both `_pandoc` shims. Re-run `build_submission_zips.py` if any
-`sections/*.tex` or `main.tex` changed. Full gate battery (runbook §8b). Then **read the built
-PDF** — all three shipped defects were caught there and nowhere else, and both newest traps (the
-6-line BIND window, the DAS tag) are gate-invisible.
-
-### Phase 6 — governance and release
-
-Re-mint → **pass-42** · file **CR-0025 / D-0050** (verified free: CR-0024 and D-0049 are currently
-highest) · tag **v2.15** · push `main` + tag · confirm v2.13, v2.14 **and** v2.15 all resolve.
+- **The cover letter was nearly missed.** The manifest hashes `cover_letter.pdf` but not
+  `cover_letter.tex`, so editing the source left the render matching its recorded hash while still
+  carrying a retracted phrasing — and it **ships to the editor**. Caught only when the manifest
+  listed which of the fifteen files had moved. If you edit a `.tex` whose render is hashed, rebuild
+  the render.
+- **The last unaudited draft was rejected on challenge.** Mirroring the approved caption wording
+  into the reviewer letter would have asserted that the D = 10 arm ties "below the D ≥ 50 gate",
+  which in that document reads as covering D = 10 **and D = 30** — directly above a table printing
+  the D = 30 arm at 6/3/20, Holm-significant. It would have read as retracting the revision's own
+  tier mis-specification finding.
+- **Two pre-existing defects were fixed alongside**, both verified pre-existing at HEAD: a
+  generated-docs link emitted at the wrong relative depth, and two ruff findings — one genuinely
+  dead, one **load-bearing** (its subscript is a fail-closed guard, kept with a `noqa`).
 
 ### Phase 7 — resubmit (author-only; the point of no return)
 

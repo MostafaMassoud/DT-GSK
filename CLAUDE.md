@@ -17,50 +17,39 @@ are frozen or hash-bound. Assume nothing is casually editable.
 
 ## Right now (2026-08-27)
 
-The round-1 revision is **done and published**. `origin/main` carries it, `v2.14` is pushed, and
-`v2.13` still resolves — so both tags the Data Availability Statement names are live.
+**Pass-42 is applied, minted, tagged and pushed.** `origin/main` carries it, **`v2.15` is live**,
+and `v2.13`, `v2.14` and `v2.15` all resolve — the Data Availability Statement now names `v2.15`
+for the revised version, and `main.tex` was edited to say so in the same pass.
 
 **Work on `main`.** It tracks origin. The development history lives on
 `archive/revision-pass-39-full` and **must never be pushed**: some of its commit messages gender an
-anonymous reviewer, and its intermediate trees carry the reviewers' reports.
+anonymous reviewer, and its intermediate trees carry the reviewers' reports, the co-author handoff
+and the seven copyrighted PDFs. `revision/pass-39` carries the reports too. **Never merge either
+into `main`** — `main` is the published line and is clean; `public/squash-candidate` holds nothing
+that is not already on `main`.
 
-**A pass-42 is owed against the published paper, and the fix list is now adjudicated.** Twelve
-alleged defects were verified independently and then challenged in the opposite direction. Nine
-need an edit (C1, C2, C3, C6, C7, C8+C9 merged, C10, C12), **C4 is refuted and its proposed "fix"
-is a regression — do not apply it**, and C5/C11 are deferrable. The written work order is
-[REVISION_STATUS.md](REVISION_STATUS.md) §2b.
+**What pass-42 did.** Twelve alleged defects were verified and then challenged in the opposite
+direction; nine survived and are corrected (C1, C2, C3, C6, C7, C8+C9 merged, C10, C11, C12).
+**C4 is refuted and deliberately not edited** — its proposed "fix" was a regression.
+**Contribution C3 is NOT narrowed.** No number, rank, p-value or decision changed. Freeze pass-42,
+CR-0025 / D-0050, `check_manifest` 15/15, thirteen gates green, all five artifacts byte-reproducible.
 
-**The anchor defect is diagnosed, and it is milder than it looked. Contribution C3 is NOT falsified
-— do not narrow it.** Table A45's caption says the tie counts confirm both identity controls; the
-D = 100 control prints 2/25/2, with 27 of 1479 cells differing. Configuration, pairing, threading and
-telemetry are all ruled out. Measured directly: at a **fixed build with threads pinned**, D = 50 and
-D = 100 reproduce **bit-identically** — so byte-stability holds in the tier the regression KAT never
-covered — while 8 threads vs 1 does diverge at D = 100, exactly as `performance.tex:250` already
-discloses. The residual's cause is **narrowed but unresolved**: the two legs are different builds,
-and the bit-identity certification chain has exactly one hole — CR-0015 never listed cec2017 D100.
-**State the gap, never the causation.** The caption fix (§2c E13a) is deliberately
-decision-independent and ships regardless; correcting the bound claim at `supplementary.tex:1254-1267`
-is an author decision. The real remedy is extending the byte-stability KAT to D ≥ 50. Trace: §2a.
+**The lesson that generalises:** the diagnoses were reliable, the prescriptions were not — 10 of 11
+audited fixes were unsafe as written and had to be repaired before use. **Challenge a proposed fix,
+not just the finding.** And read the built PDF: every defect this project has shipped was caught
+there and nowhere else.
 
-**"Published" here means the public repository, not the journal.** The round-1 revision has **not**
-been resubmitted through SuSy, and the Preprints.org posting was withdrawn the same day (D-0046).
-So these six edits can still land in the version the reviewers will read, as an ordinary pass-42.
-That window closes the moment the author resubmits, after which the same edits become a correction
-to a manuscript already under the editor's eye. **Fix before resubmitting.**
-
-**All twelve are now verified and adversarially challenged, and there is a written work order.**
-[REVISION_STATUS.md](REVISION_STATUS.md) **§2b** carries edits E1–E12 with every FROM anchor
-verified byte-exact and unique. Three things must survive into the next session:
-
-1. **The work order covers C6–C12 only.** C1 (the anchor caption defect), C2 and C3 have no
-   specified edits, and C1 waits on an author decision. Do not read §2b as complete.
-2. **The diagnoses held; the prescriptions did not.** 7 of 7 challenged verdicts survived, but
-   **7 of 7 proposed fixes were rejected as written** — several would have made the paper worse.
-   Treat any un-audited draft fix as a first draft, C2's and C3's included.
-3. **`main_pandoc.tex` and `supplementary_pandoc.tex` are GENERATED shims**, overwritten by
-   `build_docx.py` on every run. Never hand-edit them — the edit is clobbered and reads as done.
-   Edit canonical sources and rebuild. (An earlier version of this file said the opposite and
-   reached `origin/main`; it is corrected in §2a.)
+**Two things are still open against the paper, both author decisions.**
+1. **`supplementary.tex:1254-1267`** states, bound, that the CR-0013…CR-0018 edits were "certified
+   bit-identical" with "zero divergence". Table A45's D = 100 row is a counterexample, and the
+   certification chain has exactly one hole — **CR-0015 lists cec2017 D10, cec2017 D50 and
+   cec2013lsgo D1000, but never cec2017 D100**. Correcting it needs scope, the three CR ids and an
+   evidence binding. Recorded as OPEN in D-0050.
+2. The Table A45 residual's **cause is narrowed but unresolved**. Configuration, pairing, threading
+   and telemetry are excluded; the two legs are different builds and the earlier one is
+   unrecoverable. **State the gap, never the causation.** Byte-stability itself now has a D ≥ 50
+   regression (`tests/regression/test_dt_gsk_byte_stable_high_dim.py`) — it asserts repeat-identity,
+   never golden values, because at D ≥ 50 the value follows the BLAS reduction order.
 
 **Author-only, still outstanding:** the SuSy resubmission; a GitHub Support ticket to
 garbage-collect commit `b9846e4` (seven copyrighted PDFs are off every ref but still served by
