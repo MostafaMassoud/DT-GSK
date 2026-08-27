@@ -125,12 +125,24 @@ cross-build explanation **collides with a printed, bound claim**: `supplementary
 (bound at `:1268`) says the CR-0013…CR-0018 edits to `_dt_core.py` were "certified *bit-identical*",
 re-verified "with zero divergence", and that "No reported number, rank, $p$-value or decision …
 depends on which of the two revisions is used." Table A45's D = 100 row is a counterexample to that
-sentence. **The certification has exactly one hole, and the residual sits in it:** CR-0015's
-hex-identity evidence lists cec2017 D10, cec2017 D50 and cec2013lsgo D1000 — **cec2017 D100 is
-absent** (CR-0016, by contrast, lists D10/D50/D100). CR-0015 is the dead-work-removal link that
-introduced the `_need_coverage` gate.
+sentence.
 
-*Proven vs probable.* The certification gap is **fact**. That it caused the residual is
+**⚠ WITHDRAWN — an earlier revision of this section claimed the certification chain has "exactly one
+hole", CR-0015, because its hex-identity evidence omits cec2017 D100. That is REFUTED**: CR-0014
+certifies cec2017 D100, CR-0016 certifies D10/D50/D100, and CR-0018 certifies an 84-cell ledger
+including that cell bit-for-bit. CR-0015's list is indeed shorter, but the cell is covered three
+other ways, so nothing rests on it. **Do not revive that reading** (D-0050 status, D-0051).
+
+**ANSWERED by re-execution (D-0051).** The five carrier functions were re-run at D = 100, 51 runs
+each, current build, threads pinned: on the 26 divergent cells the fresh run reproduces the
+transplant arm on all 26 and the archive on none; on the 229 agreeing cells it reproduces both.
+Independently replicated in a separate process, byte-identically. **The residual is a difference
+between builds, demonstrated.** What survives is narrower: the campaign's identity evidence samples
+about one run per (algorithm, suite, dimension), so a divergence at this rate is below its
+resolution — underpowered for this question, not wrong.
+
+*Proven vs probable.* That the residual is cross-build is now **demonstrated**. What caused the two
+builds to differ is
 **unproven** — state the gap, never the causation. And the first write-up's appeal to
 `np.linalg.eigh` as the *cause* is **withdrawn**: given identical input on identical LAPACK it is
 deterministic, so it can **amplify** a divergence but never originate one. The thread probe above is
@@ -1347,10 +1359,11 @@ and asserts no cause, so it ships now. Do **not** put a vintage explanation in t
 non-discriminating (both controls share one reference file) and it would falsify the bound claim at
 `supplementary.tex:1254-1267`.
 
-**The author decision is §2c E13c**: whether to correct `:1254-1267`, which certifies the
-CR-0013…CR-0018 edits "bit-identical" with "zero divergence" while Table A45's D = 100 row is a
-counterexample, and whose certification chain has exactly one hole — CR-0015 never listed cec2017
-D100. That is a body edit with scope, CR ids and a binding, or it is left alone. Not a caption.
+**~~The author decision is §2c E13c~~ — CLOSED (D-0051).** The "one hole at CR-0015" reading that
+motivated it is **refuted** (CR-0014, CR-0016 and CR-0018 all certify cec2017 D100), and the
+residual is now **demonstrated to be a build difference** by a pinned re-execution, independently
+replicated. Pass-43 reconciled the Supplementary with the response letter, which is the whole of
+what was owed. **No body edit to `:1254-1267` is required.**
 
 ### Phase 2 — close the specification gap
 

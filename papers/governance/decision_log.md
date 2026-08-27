@@ -2162,11 +2162,23 @@ applying all surfaced fixes.
   thin-margin assertion. Contribution **C3 is not narrowed**. The bound claim at
   `supplementary.tex:1254-1267`, that the CR-0013..CR-0018 edits were certified
   bit-identical with zero divergence, is **left standing and flagged**: Table
-  A45's D = 100 row is a counterexample to it, and the certification chain has
-  exactly one hole - CR-0015 lists cec2017 D10, cec2017 D50 and cec2013lsgo
-  D1000, but never cec2017 D100. Correcting that paragraph needs scope, the
-  three CR ids and an evidence binding, and is an author decision, not a caption
-  clause. **Status**: OPEN.
+  A45's D = 100 row is a counterexample to it.
+  **Status**: SUPERSEDED by D-0051 (2026-08-27). Two parts of this bullet as
+  first written are now withdrawn. (1) The claim that the certification chain
+  has "exactly one hole - CR-0015 ... but never cec2017 D100" is **REFUTED**:
+  CR-0014 certifies cec2017 D100, CR-0016 certifies cec2017 D10/D50/D100, and
+  CR-0018 certifies an eighty-four-cell ledger that includes that cell
+  bit-for-bit. A referee following the pointer would find it certified three
+  ways, so the disclosure this bullet contemplated was drafted, challenged and
+  rejected. (2) The residual itself is no longer unexplained: a pinned
+  re-execution under the current build reproduces the transplant arm on all 26
+  divergent cells and the archive on none, so the difference is **between
+  builds**, demonstrated. What survives is narrower and is recorded in D-0051:
+  the campaign's identity evidence samples about one run per (algorithm, suite,
+  dimension), so a divergence at this rate sits below its resolution - those
+  certifications are underpowered for this question, not wrong. **No paragraph
+  edit is owed**; pass-43 reconciled the Supplementary with the response letter
+  and that is the whole of what was required.
 - **The residual is reported, not explained.** The D = 100 identity control
   prints 2/25/2 and 27 of 1479 run cells differ. Configuration (108/108 resolved
   keys), pairing (seed, nfes and termination on all 1479), threading (both
