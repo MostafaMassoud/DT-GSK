@@ -1359,14 +1359,42 @@ audited) and the **E13c** author decision. Note that "no gate checks the tag" wa
 scoped**: `validate_citation_cff.py` gates `CITATION.cff`, which must move to `2.15` in the same
 mint, and three further files hardcode the tag — see §2c §5.
 
-### Phase 3 — triage two loose ends (cheap, before the build)
+### Phase 3 — DONE (2026-08-27)
 
-- The **A12 convention** discrepancy: the same contrast may print `0.59` in Table A25 and `0.511`
-  in Table A43, same data, same precision, no distinguishing note. **Unverified** — confirm or
-  refute. If real it rides along free instead of becoming pass-43.
-- **Extend the byte-stability KAT to D ≥ 50** (§2a). Cheap, and it turns C3 from asserted into
-  demonstrated. Runs in `tests/`, touches no frozen artifact, and is the single highest-value
-  addition available to the paper's integrity story.
+**A12 convention discrepancy — REFUTED as a defect.** The alleged collision was that the same
+contrast prints `0.59` and `0.511` with no distinguishing note. It does not hold: the S6.5 table
+header at `supplementary.tex:2238` reads **"mean $A_{12}$"**, which distinguishes it from S9.1's
+pooled statistic, and the two are drawn from **different releases** (`abl-rel-2026-07-20` vs
+`rev-rel-2026-08-26`) — different runs, not the same data. Different conventions legitimately give
+different values, so there is no factual error. **One residual, optional and cosmetic:** the prose
+at `:2275` writes "$A_{12} = 0.59$, $0.53$, $0.64$" *without* the "mean" qualifier the table
+carries, which is the one place a reader could collide it with Table A43's `0.511`. Adding "mean"
+there is a one-word edit. Not worth a pass on its own; take it only if the pass is open anyway.
+
+**Byte-stability KAT extended to D ≥ 50 — APPLIED.** New file
+`tests/regression/test_dt_gsk_byte_stable_high_dim.py` (LF, matching its sibling), 5 cec2017 cells
+at D = 50 and D = 100 on F7/F13/F20 — among the functions that diverged across builds, so it
+exercises the sensitive path rather than a quiet one. **10 passed in 14 s**; the full regression
+suite is **278 passed**; `check_manifest` remains **15/15** (nothing under `papers/` is touched).
+
+Three design decisions worth keeping:
+
+1. **It asserts repeat-identity, not golden values.** At D ≥ 50 the polish basis is an
+   eigendecomposition, so the *value* depends on BLAS reduction order: one cell was observed at
+   three different values under one thread, eight threads and inherited settings. Repeat-identity
+   holds at **any fixed thread count** (verified at 1 and at 8), so the test is portable and needs
+   no thread pinning and no new dependency. **Do not add expected constants to that file** — they
+   would encode one machine's LAPACK.
+2. **It guards its own activation.** A companion test asserts `interaction_graph_enabled`,
+   `final_polish_enabled` and `dim >= interaction_graph_min_dim` at each cell, so a profile change
+   cannot leave it passing while covering nothing — which is exactly how the D ≤ 30 cells silently
+   covered nothing.
+3. **It was negative-tested.** Perturbing the seed on the second run makes both assertions fail
+   (`best_fitness` and the `best_x` byte comparison), so neither is dead code.
+
+**This is what turns C3 from asserted into demonstrated**, and it closes the gap CR-0007 named when
+it recorded that the byte-stability KAT "could not catch this because its cells are D<=30". It does
+**not** resolve the Table A45 residual, which is a cross-build question (§2a).
 
 ### Phase 4 — apply
 
