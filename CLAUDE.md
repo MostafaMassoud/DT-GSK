@@ -17,9 +17,11 @@ are frozen or hash-bound. Assume nothing is casually editable.
 
 ## Right now (2026-08-27)
 
-**Pass-42 is applied, minted, tagged and pushed.** `origin/main` carries it, **`v2.15` is live**,
-and `v2.13`, `v2.14` and `v2.15` all resolve — the Data Availability Statement now names `v2.15`
-for the revised version, and `main.tex` was edited to say so in the same pass.
+**Pass-43 is applied, minted, tagged and pushed.** `origin/main` carries it, **`v2.16` is live**,
+and `v2.13` through `v2.16` all resolve — the Data Availability Statement names `v2.16` for the
+revised version, and `main.tex` was edited to say so in the same pass. **Every tag bump drags
+`CITATION.cff`, `SUBMISSION_KIT.md` and `submission_package_manifest.json` with it**; the citation
+file is gated and carries no leading `v`, so a `v2.1x` sweep misses it.
 
 **Work on `main`.** It tracks origin. The development history lives on
 `archive/revision-pass-39-full` and **must never be pushed**: some of its commit messages gender an
@@ -39,24 +41,32 @@ audited fixes were unsafe as written and had to be repaired before use. **Challe
 not just the finding.** And read the built PDF: every defect this project has shipped was caught
 there and nowhere else.
 
-**Two things are still open against the paper, both author decisions.**
-1. **`supplementary.tex:1254-1267`** states, bound, that the CR-0013…CR-0018 edits were "certified
-   bit-identical" with "zero divergence". Table A45's D = 100 row is a counterexample, and the
-   certification chain has exactly one hole — **CR-0015 lists cec2017 D10, cec2017 D50 and
-   cec2013lsgo D1000, but never cec2017 D100**. Correcting it needs scope, the three CR ids and an
-   evidence binding. Recorded as OPEN in D-0050.
-2. The Table A45 residual's **cause is narrowed but unresolved**. Configuration, pairing, threading
-   and telemetry are excluded; the two legs are different builds and the earlier one is
-   unrecoverable. **State the gap, never the causation.** Byte-stability itself now has a D ≥ 50
-   regression (`tests/regression/test_dt_gsk_byte_stable_high_dim.py`) — it asserts repeat-identity,
-   never golden values, because at D ≥ 50 the value follows the BLAS reduction order.
+**The two author decisions that were open are now RESOLVED (pass-43, D-0051).**
 
-**Author-only, still outstanding:** the SuSy resubmission; a GitHub Support ticket to
-garbage-collect commit `b9846e4` (seven copyrighted PDFs are off every ref but still served by
-direct SHA — verified HTTP 206); and GitHub Insights → Traffic → Clones, on a rolling 14-day
-window that expires **~2026-09-10**, the one item that becomes permanently impossible.
-~~Telling the co-authors their biographies were public~~ — **DONE by the author 2026-08-27**;
-D-0049's status is updated to match.
+1. The Supplementary no longer contradicts the response letter. The letter concedes the D = 100
+   internal control does not hold; `supplementary.tex` had still asserted that no reported number
+   depends on which revision is used. Both ship in one package, so both would have reached the
+   referees. The exception is now recorded, pointed at the caption that already reports it as
+   unresolved, and bounded — the archived release every reported number derives from is unchanged.
+2. **A larger disclosure was drafted and REJECTED on challenge. Do not revive it.** It would have
+   named CR-0015 as the one bit-identity certification not spanning cec2017 D = 100 — refutable
+   from the register it cites, since **CR-0014, CR-0016 and CR-0018 all certify that cell**, the
+   last in an 84-cell bit-for-bit ledger. It also named a cause while disclaiming one, and located
+   it at contribution **C1**. **The standing rule holds: state the gap, never the causation.**
+
+**What is genuinely open, and is now in governance rather than the paper (D-0051, OPEN):** the
+campaign's bit-identity evidence samples roughly one run per (algorithm, suite, dimension), so a
+divergence in 27 of 1479 cells is *below its resolution*. The certifications are not wrong, they
+are underpowered for this question. Asserting that in the manuscript would impeach every
+certification in the campaign on one uncontrolled cross-build comparison, so it is recorded and not
+claimed. **The honest route to closing it is a re-execution under the current revision, not prose.**
+
+**The hashed-render / unhashed-source blind spot is now gated.** The freeze hashed renders but only
+`main.tex` among their sources, which is how pass-42 edited `cover_letter.tex`, skipped the rebuild,
+and left the render matching its digest while the gate stayed green — on a letter that ships to the
+editor. The manifest now carries `source_files` and `check_manifest` reports
+`sources N/N` on its own line, so every recorded "15/15" stays true. Negative-tested: perturb a
+source, leave its render, and `files` still reads 15/15 while `sources` drops and the gate exits 1.
 
 ## Read this first
 

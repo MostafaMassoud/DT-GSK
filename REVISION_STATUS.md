@@ -1422,16 +1422,49 @@ Three things worth carrying forward:
   generated-docs link emitted at the wrong relative depth, and two ruff findings — one genuinely
   dead, one **load-bearing** (its subscript is a fail-closed guard, kept with a `noqa`).
 
+### Phase 6b — pass-43, DONE (2026-08-27)
+
+Cut because pass-42 left the **package** self-contradictory: the response letter concedes the
+D = 100 internal control does not hold, while `supplementary.tex` still asserted no reported number
+depends on which revision is used. Both ship to the referees together. One prose edit reconciles
+them; tag **v2.16**, **CR-0026 / D-0051**, anchor `ae4d4e76`, published `fe813ff`. All four main and
+supplementary renders rebuilt twice and byte-compared; eleven gates green; the edit read back out of
+the built PDF, where the reference resolves to Table A45.
+
+**A larger disclosure was drafted and REJECTED on challenge — do not revive it.** It would have
+named CR-0015 as the one bit-identity certification not spanning cec2017 D = 100. The register
+refutes that three times over: **CR-0014 certifies cec2017 D100, CR-0016 certifies D10/D50/D100,
+and CR-0018 certifies an 84-cell ledger including that cell bit-for-bit.** It also asserted the
+divergence was confined to the tier where the memory and the polish are active — a cause — while
+disclaiming any cause in the next clause, and there is no identity control at D = 50 at all.
+
+**The real limitation is recorded in governance, not in the paper (D-0051, OPEN):** the campaign's
+identity evidence samples about one run per (algorithm, suite, dimension), so a divergence in 27 of
+1479 cells sits below its resolution. The certifications are underpowered here, not wrong. Claiming
+that in the manuscript would impeach every certification in the campaign on one uncontrolled
+cross-build comparison. **The route to closing it is a re-execution, not prose.**
+
+**H1 is done, and gated.** `source_files` now records `supplementary.tex` and `cover_letter.tex`;
+`check_manifest` reports `sources N/N` separately, so `files` stays at 15 and every recorded
+"15/15" remains true. Negative-tested: perturb a source, leave its render, and `files` reads 15/15
+while `sources` drops to 1/2 and the gate exits 1 — exactly the pass-42 failure, now caught.
+
 ### Phase 7 — resubmit (author-only; the point of no return)
 
 SuSy upload; **re-enter the new title and revised keywords by hand** — portal metadata does not
 update from the PDF. After this, **no rebuilds**: v2.15 becomes the frozen record of what was
 resubmitted, and any further defect becomes a correction to a live submission.
 
-### Phase 8 — housekeeping, whenever
+### Phase 8 — housekeeping, DONE (2026-08-27)
 
-`PAPER_REVIEW_PROMPT.md:1771` still names the old title as "CURRENT" — a false-alarm source for
-every future review run.
+- `PAPER_REVIEW_PROMPT.md` — four occurrences of the pre-Phase-3 title retired, two of them
+  asserting it as FINAL/CURRENT inside the residual-gap audit step.
+- `run_experiment.py` — the console banner announced `Pop=100` for DT-GSK, a value no run ever
+  used: DT-GSK carries no `np` option, the population is `np_init_mult * dim` = 5D. Now prints the
+  rule. Display-only; nothing parses it.
+- Generated-docs link depth and two ruff findings — fixed earlier the same day, both verified
+  pre-existing at HEAD. One ruff finding was **load-bearing** and kept with a `noqa`: its subscript
+  is a fail-closed guard on the manifest key.
 
 **Do not** re-run the experiment track, re-derive the phases, or regenerate
 `benchmarks/cec_reference_results/`. If you are reading this for a plan of the revision *itself*,
