@@ -2317,8 +2317,16 @@ applying all surfaced fixes.
   true, and are now evidenced rather than asserted. Stating the stronger claim
   in the manuscript would require **promoting this diagnostic as cited
   evidence** - a new release id, manifest and binding - because every reported
-  number is bound to a promoted release and staging is never cited. That option
-  is available to the author and is **not** taken here.
+  number is bound to a promoted release and staging is never cited.
+  **CLOSED by author decision (2026-08-28): the promotion will not be done.**
+  This previously read that the option was available to the author and not taken
+  here, which leaves it looking like pending work. It is not pending. The
+  diagnostic stays diagnostic: `results/_g1_recheck/` remains gitignored staging,
+  it is cited nowhere, and no release id, manifest or binding will be minted for
+  it. Nothing is lost by that - the finding it supports is recorded in full in
+  this entry, and the two manuscript statements it would have strengthened are
+  already true and already shipped. **Do not re-raise this as outstanding work,
+  and do not promote the run without the author asking for it.**
 - **The blind spot that pass-42 fell into is now gated.** The freeze manifest
   hashes renders but hashed only one of their sources: `main.tex` was tracked,
   `supplementary.tex` and `cover_letter.tex` were not. Editing

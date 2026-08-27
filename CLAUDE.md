@@ -94,7 +94,9 @@ reading here went wrong exactly that way; the discriminating cells are the ones 
 runs and does not reproduce them exactly, and the caption reports the residual as unresolved *in the
 paper*; both stay true and are now evidenced. Claiming more would mean **promoting a diagnostic
 staging run as cited evidence** — new release id, manifest, binding — since every reported number is
-bound to a promoted release. That option is the author's and is not taken. Still recorded, and still
+bound to a promoted release. **That promotion is CLOSED (author, 2026-08-28) and will not be done:**
+the diagnostic stays diagnostic, cited nowhere, with no release id minted for it. It is not pending
+work and should not be re-raised. Still recorded, and still
 true: the campaign's identity evidence samples ~one run per (algorithm, suite, dimension), so a
 27-in-1479 divergence sits below its resolution — those certifications are underpowered here, not
 wrong.

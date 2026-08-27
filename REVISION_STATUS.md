@@ -1504,9 +1504,11 @@ the re-execution this entry called for"**; only this sentence still said otherwi
 **What is not taken is a separate thing, and it is a closed decision rather than an open item.**
 Stating the stronger claim in the manuscript would mean **promoting a diagnostic staging run as
 cited evidence** — new release id, manifest and binding — because every reported number is bound
-to a promoted release. That option belongs to the author and is deliberately **not** taken; the
-Supplementary and the Table A45 caption both already say the control does not reproduce the
-archived runs exactly, and both stay true. Do not re-raise this as work outstanding.
+to a promoted release. **That promotion is CLOSED by author decision (2026-08-28) and will not be
+done** - the diagnostic stays diagnostic, `results/_g1_recheck/` stays gitignored staging, and no
+release id, manifest or binding will be minted for it. The Supplementary and the Table A45 caption
+both already say the control does not reproduce the archived runs exactly, both stay true, and the
+finding itself is recorded in full at D-0051. Do not re-raise this as work outstanding.
 
 **H1 is done, and gated.** `source_files` now records `supplementary.tex` and `cover_letter.tex`;
 `check_manifest` reports `sources N/N` separately, so `files` stays at 15 and every recorded
