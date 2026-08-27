@@ -34,7 +34,7 @@
   ],
   [
    "50",
-   "Coordinate axes vs. no refinement +",
+   "Coordinate axes vs. no refinement †",
    "3.0e-6",
    "3.0e-6",
    "yes",
@@ -61,7 +61,7 @@
   ],
   [
    "100",
-   "Coordinate axes vs. no refinement +",
+   "Coordinate axes vs. no refinement †",
    "0.0012",
    "0.0012",
    "yes",
@@ -71,7 +71,7 @@
  ],
  "notes": [
   "paired Wilcoxon on per-function means; Holm within dimension over the registered two-contrast family",
-  "+ coordinate-vs-none is a supplementary single-test contrast outside the registered family, so its Holm value equals its raw value",
+  "† coordinate-vs-none is a supplementary single-test contrast outside the registered family, so its Holm value equals its raw value",
   "machine-transcribed from papers/analysis/rev-rel-2026-08-26-dd42d37eb/e1_basis_contrast.json"
  ],
  "number_format": "as-is",

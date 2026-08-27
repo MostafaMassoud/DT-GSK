@@ -1580,7 +1580,7 @@ source that implements it, so the specification can be checked line by line.
   improved, the target is restricted to the improving arms. If $S=0$, if $S$ is
   non-finite, or if no arm improved, no target is formed and $\pi$ is carried
   forward unchanged apart from its projection.
-  \hfill\_ace\_apply\_credit, \_dt\_core.py
+  \hfill\_ace\_update\_probs, \_dt\_core.py
 \item \textbf{Mixing and projection.} The target is projected, mixed into $\pi$
   by an exponential moving average at rate $c=0.10$, and the result projected
   again. The projection is the Euclidean projection onto
@@ -1590,7 +1590,12 @@ source that implements it, so the specification can be checked line by line.
   arm whose rolling acceptance over the trailing window falls below the tier
   threshold is frozen and its mass redistributed. Freezing stops while only
   min\_active arms remain unfrozen, so the pool can never collapse to a
-  single arm. \hfill ARGP retirement branch, \_dt\_core.py
+  single arm. In the frozen configuration the freeze test, the recovery test
+  and the mass redistribution act on the pooled acceptance record and the
+  mixed probability vector, and the redistributed vector is written back over
+  both halves of the top/bottom memory, so that memory is reset whenever any
+  arm is frozen; a per-half scope is implemented but not enabled.
+  \hfill ARGP retirement branch, \_dt\_core.py
 \item \textbf{ARGP unfreeze (recoverable).} A frozen arm that is sampled again
   and whose rolling acceptance recovers to the threshold is unfrozen. Pruning is
   therefore soft and reversible; no arm is permanently removed.
@@ -1810,7 +1815,11 @@ The active local search uses the \emph{coordinate} method (the subspace variant 
 implemented but not enabled in the frozen configuration).  In the endgame it is admitted
 by the joint of a time gate (consumed fraction $\ge$ start\_frac), an
 evaluation-budget cap ($eval\_budget\_frac\cdot\mathrm{MaxFES}$), a call period,
-and a post-search cooldown.  The coordinate branch carries no confidence gate; the
+a post-search cooldown, and a post-restart block of $8$ generations, the same at
+every tier, that is armed only when a budget-safe escape has actually reseeded
+rows --- an escape whose Cauchy rescue cancelled the restart does not arm it.
+The parameter table's budget/ROI gate adds one further condition at the highest
+tier.  The coordinate branch carries no confidence gate; the
 local-search confidence gate ($\kappa_{\mathrm{ls}}=0.45$ at $D\ge 50$, the static
 warm-up value, thereafter superseded by the same adaptive rolling-median rule
 as the linkage gate) governs only the dormant ISM-block subspace variant, not

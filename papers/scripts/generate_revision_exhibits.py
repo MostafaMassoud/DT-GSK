@@ -109,7 +109,7 @@ def e1() -> None:
     d = json.loads((BUNDLE / "e1_basis_contrast.json").read_text(encoding="utf-8"))
     names = (("eigenframe_vs_coordinate", "Eigenframe vs. coordinate axes"),
              ("eigenframe_vs_none", "Eigenframe vs. no refinement"),
-             ("coordinate_vs_none_supplementary", "Coordinate axes vs. no refinement +"))
+             ("coordinate_vs_none_supplementary", "Coordinate axes vs. no refinement \u2020"))
     rows, tex_flat = [], []
     for i, dim in enumerate(("D50", "D100")):
         c = d["dimensions"][dim]["contrasts"]
@@ -121,7 +121,7 @@ def e1() -> None:
                          wtl(v["wtl_ref_vs_cmp"]), f"{v['a12_ref_vs_cmp']:.3f}"])
             tex_flat.append(" & ".join([
                 f"${dnum}$",
-                shown.replace(" +", "$^{\\dagger}$"),
+                shown.replace(" \u2020", "$^{\\dagger}$"),
                 p_tex(v["raw_p"]), p_tex(v["holm_p"]),
                 r"\textbf{yes}" if v["significant"] else "no",
                 wtl(v["wtl_ref_vs_cmp"]), f"{v['a12_ref_vs_cmp']:.3f}"]) + r" \\")
@@ -135,7 +135,7 @@ def e1() -> None:
                   "enablement."),
          notes=["paired Wilcoxon on per-function means; Holm within dimension over the "
                 "registered two-contrast family",
-                "+ coordinate-vs-none is a supplementary single-test contrast outside "
+                "\u2020 coordinate-vs-none is a supplementary single-test contrast outside "
                 "the registered family, so its Holm value equals its raw value",
                 f"machine-transcribed from papers/analysis/{RELID}/e1_basis_contrast.json"])
 
@@ -157,7 +157,8 @@ def e2() -> None:
     emit("SA06", "lcccccccc",
          ["D", "Rank NP=5D", "Rank NP=100", "Ordinal 5D", "Ordinal 100",
           "Holm p", "Sig.", "W/T/L", "A12"], rows,
-         tex_headers=["Dim.", "$NP = 5D$", "$NP = 100$", "$5D$", "$100$",
+         tex_headers=["Dim.", "Rank $NP = 5D$", "Rank $NP = 100$",
+                     "Ordinal $5D$", "Ordinal $100$",
                       "Holm $p$", "Sig.", "W/T/L", "$A_{12}$"],
          tex_rows=tex, label="Table A44",
          caption=("DT-GSK at the comparators' population value (E2, reviewer points "
@@ -190,7 +191,7 @@ def e3() -> None:
             ]) + r" \\")
     emit("SA07", "llcccl",
          ["Arm", "D", "Holm p", "Tiered W/T/L", "A12", "Reading"], rows,
-         tex_headers=["Arm", "$D$", "Holm $p$", "T W/T/L", "$A_{12}$", "Reading"],
+         tex_headers=["Arm", "$D$", "Holm $p$", "Tiered W/T/L", "$A_{12}$", "Reading"],
          tex_rows=tex_flat, label="Table A45",
          caption=("Tiered configuration versus the two tier-constant transplants "
                   "(E3, reviewer point R2.1) on CEC2017."),
