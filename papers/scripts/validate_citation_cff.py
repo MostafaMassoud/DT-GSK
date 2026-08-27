@@ -105,7 +105,6 @@ def main() -> int:
                 "are never re-pointed in this project)." % (tag, got, want, got, CFF))
 
     newest_ver, newest_tag = tags[-1]
-    newest_str = "%d.%d" % newest_ver
 
     # (2) the working tree must not be behind the newest tag
     with open(CFF, encoding="utf-8") as fh:

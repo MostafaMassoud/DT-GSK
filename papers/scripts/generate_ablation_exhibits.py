@@ -567,7 +567,10 @@ def main() -> int:
     # CR-0023 (R1.4): report the Iman-Davenport omnibus on the tie-corrected
     # chi2, the same decision statistic the main text uses. The manifest's
     # uncorrected values are retained as the fail-closed reproduction anchor.
-    fried_p_uncorrected = manifest["friedman_p_by_dimension"]
+    # Read deliberately and left unused: the subscript is the fail-closed guard.
+    # If the manifest ever loses this key the generator must stop, not silently
+    # emit exhibits whose reproduction anchor has gone missing.
+    fried_p_uncorrected = manifest["friedman_p_by_dimension"]  # noqa: F841
     fried_p = _corrected_omnibus(manifest)
 
     # verify + read every source rank CSV against the manifest SHA-256
