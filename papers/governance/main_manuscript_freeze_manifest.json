@@ -1,8 +1,8 @@
 {
   "schema": "main_manuscript_freeze_manifest/v1",
-  "phase": "PASS-43 reconcile the Supplementary Material with the response letter, and close the hashed-render / unhashed-source blind spot that pass-42 fell into.",
-  "generated_utc": "2026-08-27T13:20:00+00:00",
-  "anchor_commit": "ae4d4e76eb27a4e5955ab26818204951e26b0c9d",
+  "phase": "PASS-44 three optional wording items, two relocated by challenge: 'knife-edge' scoped to magnitude, the differencing prohibition carried to the one exhibit that lacked it, and the A12 convention declared once at its definition.",
+  "generated_utc": "2026-08-27T15:05:00+00:00",
+  "anchor_commit": "4b5c6ae8f6be20509d3cd95f8357e5633d923b22",
   "pre_freeze_base_commit": "b9846e47024e48a0f8ce3e4f22bffbd794b2a355",
   "evidence_release": {
     "primary": "rel-2026-07-20-67d9345f9",
@@ -11,8 +11,8 @@
     "ablation": "abl-rel-2026-07-20",
     "revision": "rev-rel-2026-08-26-dd42d37eb"
   },
-  "scientific_content_status": "CORRECTED AND PUBLISHABLE. One text change: the Supplementary asserted that no reported number depends on which revision of the optimizer source is used, while the response letter that ships with it already concedes the D = 100 internal control does not hold. The two documents now agree. The exception is named, pointed at the table whose caption already reports it as unresolved, and bounded - the archived release from which every reported number derives is itself unchanged. No number, rank, p-value or decision changes. Contribution C3 is NOT narrowed and no cause is asserted.",
-  "freeze_statement": "Freeze for resubmission. The submitted package no longer contradicts itself: the response letter's concession that the D = 100 identity control does not hold, and the Supplementary's statement about revision-independence, are reconciled. A larger disclosure drafted alongside this one was REJECTED on adversarial challenge and deliberately not applied: its central claim, that CR-0015 is the one certification not spanning cec2017 D100, is refutable from the register it cites - CR-0014, CR-0016 and CR-0018 all certify that cell - and it named a cause while disclaiming one. Every FROM anchor was verified byte-exact and unique before application; the BIND audit showed 192 contexts and 597 numeric tokens before and after, with none lost or gained.",
+  "scientific_content_status": "CORRECTED AND PUBLISHABLE. Three wording changes, no number, rank, p-value or decision moved. Two of the three were relocated on challenge: the Table A44 caption edit was dropped as a duplicate of a body sentence seventeen lines below it, and the A12 qualifier moved from one prose clause to the subsection's own definition, because the same column feeds six values in that paragraph and qualifying three of them would have implied two conventions where there is one.",
+  "freeze_statement": "Freeze for resubmission. P1 scopes 'knife-edge' to the magnitude register; the ordinal register is settled by the preceding sentence and the one flipping cell has Ratio 1.000, so the two are orthogonal in the data. P2 carries the differencing prohibition to Table A46's caption - the document's only such prohibition was attached to Table A44 alone. P3 declares the A12 convention once, per function and averaged, at the definition whose earlier phrasing collided with Table A43's caption for the pooled statistic. BIND audit: 192 contexts and 597 numeric tokens before and after, none lost or gained.",
   "hash_algorithm": "SHA-256",
   "build_environment": {
     "pdf_source_date_epoch": 1783468800,
@@ -28,7 +28,7 @@
   "files": [
     {
       "path": "papers/main.tex",
-      "sha256": "b8c346b63c5b19998c4f29d1c93e0252b335768bf0b166061fd64db2adf7fceb",
+      "sha256": "b19950e58eeb3301a93a05594d673e2adf0a61f6f76e3df7dbc7922319d45185",
       "bytes": 26099
     },
     {
@@ -58,23 +58,23 @@
     },
     {
       "path": "papers/DT-GSK.pdf",
-      "sha256": "54de82b62727037062dbe84e9da5dd00587b7573e751470f003d6539e8e297e5",
+      "sha256": "73e3226041e3cf34a2cb52db8df68f5d98861144a2359593744ac20ea9801e8c",
       "bytes": 821929
     },
     {
       "path": "papers/DT-GSK.docx",
-      "sha256": "d926c30a21f881e2220e33ff97885ff02a68557a4c444b8717a3623571f2cb34",
-      "bytes": 1011613
+      "sha256": "8e25289e65d60cbf0a716068f19fc7113872684cccc88fd2e6123f73e1acc1e4",
+      "bytes": 1011614
     },
     {
       "path": "papers/supplementary.pdf",
-      "sha256": "3b687b8b44deed2f68887055cea3e4b56f83eee1a5b3dff2bd872bb589fd67e4",
-      "bytes": 1749022
+      "sha256": "21bdbffdc4dc842fd5b050bbe584a34fab188cd0df0a38c04d204fcb2c2c403d",
+      "bytes": 1749332
     },
     {
       "path": "papers/supplementary.docx",
-      "sha256": "a33c18708305061a13727297cd25e7910fe0ae0d4784889cdea9b0e4613be008",
-      "bytes": 9622840
+      "sha256": "b34624e9f8d2b19c3db8d51f258b640fb60e7b2147f35112a16fbd22ddf5cb27",
+      "bytes": 9622913
     },
     {
       "path": "papers/cover_letter.pdf",
@@ -111,24 +111,24 @@
     "citation_controls": "PASS: C1-C5 hold across all three citation-control files",
     "citation_cff": "PASS: CITATION.cff version is consistent with every tag",
     "provenance_claims": "OK - prose matches the manifests",
-    "evidence_bindings": "PASS. Audited directly for this pass: 192 BIND contexts and 597 numeric tokens before and after the edit, zero lost and zero gained, so the +5-line growth evicted nothing bound.",
+    "evidence_bindings": "PASS. Audited directly: 192 BIND contexts and 597 numeric tokens before and after, zero lost and zero gained.",
     "frozen_analysis": "115/115 files byte-identical; no evidence artifact touched",
     "reproducibility": "the four main and supplementary artifacts rebuilt at the pinned epochs and byte-compared across two independent builds, all identical; cover_letter.pdf unchanged and not rebuilt",
-    "swallowed_prose_sweep": "NOT RE-RUN at pass-43. Its pass-42 result was 0 suspicious resumptions introduced. This pass makes one multi-line prose edit; the rendered paragraph was read back out of the built PDF instead.",
-    "confidentiality_audit": "NOT RE-RUN at pass-43, and not required: no file added or removed, and the one text change is manuscript prose. The pass-42 result stands.",
+    "swallowed_prose_sweep": "NOT RE-RUN at pass-44; all three edits were read back out of the built PDF instead.",
+    "confidentiality_audit": "NOT RE-RUN at pass-44: no file added or removed, three prose edits only.",
     "pytest": "611 passed, 2 skipped",
     "ruff": "All checks passed",
     "audit_manuscript": "NOT RE-RUN at pass-43. Pass-41 result: exit 0; terminology_hits 0; blocked_wording_hits 2 (pre-existing). Should be re-run before resubmission if the author wants it current.",
     "revision_analysis_pins": "NOT RE-RUN at pass-43, and not required: no analysis artifact was touched, which check_frozen_analysis confirms at 115/115."
   },
-  "remint_note": "pass-43 MINTED 2026-08-27. Five of the fifteen tracked files move: main.tex for the tag, and all four main/supplementary renders. cover_letter.pdf does not move - cover_letter.tex was not touched this pass. NEW: the manifest now carries a source_files list, checked by check_manifest.py alongside the tracked files but counted separately, so the tracked-file count and every recorded 15/15 stay true.",
-  "published_commit": "fe813ff2431527f8991a843eb2686b9d7c348c06",
-  "published_commit_note": "Pass-43 was made directly on the published branch, as pass-42 was, so no squash was required and both anchor_commit and published_commit resolve in the public history. anchor_commit is the commit that froze the tree; published_commit is the mint commit that tag v2.16 points at, recorded after the tag was cut because a commit cannot name its own SHA. The pass-41 disclosure that anchor_commit does not resolve remains true of pass-41 and every earlier pass.",
+  "remint_note": "pass-44 MINTED 2026-08-27. Five of the fifteen tracked files move: main.tex for the tag and the four main and supplementary renders. cover_letter.pdf does not move. source_files carries supplementary.tex, which did move, and cover_letter.tex, which did not - the guard added at pass-43 doing exactly what it was added for.",
+  "published_commit": "4b5c6ae8f6be20509d3cd95f8357e5633d923b22",
+  "published_commit_note": "Pass-44 was made directly on the published branch, as pass-42 and pass-43 were, so no squash was required and both anchor_commit and published_commit resolve publicly. published_commit is recorded after the tag is cut, because a commit cannot name its own SHA.",
   "source_files": [
     {
       "path": "papers/supplementary.tex",
-      "sha256": "10e0d2a1cd381dd6cd9fe21594fdc904fd101d9e22c3d63a7e4cfc7c1659a028",
-      "bytes": 235926
+      "sha256": "3c50d5b16e09519f37895989135c2d73310645f99f171dea184c4f8cec65a652",
+      "bytes": 236090
     },
     {
       "path": "papers/cover_letter.tex",

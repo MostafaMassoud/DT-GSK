@@ -2299,3 +2299,39 @@ applying all surfaced fixes.
   true. Negative-tested: perturbing a source with its render untouched leaves
   `files` at 15/15 and takes `sources` to 1/2, and the gate exits 1.
 - **Anchor.** `ae4d4e76eb27a4e5955ab26818204951e26b0c9d`.
+
+## D-0052 (2026-08-27) - Pass-44: the last three wording items, two relocated by challenge
+
+- **Decision.** Carry the three remaining optional wording items before
+  resubmission, mint freeze **pass-44**, cut tag **v2.17**. Registered as
+  **CR-0027**. Taken as ONE pass, not three: every manuscript pass forces a tag
+  bump that drags `CITATION.cff`, `SUBMISSION_KIT.md` and
+  `submission_package_manifest.json` with it.
+- **Two of the three were relocated on challenge, and the relocations are the
+  point.** The Table A44 caption edit was **dropped**: the body seventeen lines
+  below it already says Friedman ranks are relative *and* carries the
+  differencing prohibition, so the caption would have duplicated its own page.
+  The real hole was Table A46 - grepping every differencing mention in the
+  supplement shows the document's **only** such prohibition sits at `:3760`,
+  attached to A44 alone. A46's caption now carries the bar rather than the
+  premise.
+- **The A12 qualifier moved from the prose to the definition.** Adding "mean" at
+  `:2280` would have qualified three of the **six** values that one paragraph
+  draws from the same column, while a clause two lines earlier calls that column
+  "the raw-run effect size" - asserting two conventions where there is one. The
+  subsection now declares once, at `:2216`, that $A_{12}$ is computed per
+  function and averaged over functions. That sentence is also the one whose
+  earlier phrasing ("on the raw runs") collided with Table A43's caption for the
+  **pooled** statistic, so fixing it closes the collision at its source.
+- **The recorded O1 spec was wrong about the cost, and that is why this shipped
+  at all.** It claimed the caption edit "touches a generated exhibit chain
+  (generator -> tables/SA0*.tex + word_sources/*.json -> native DOCX table)".
+  Verified false: `SA06.json`'s `caption_stub` does **not** render - none of its
+  distinctive phrases appear in `supplementary.docx` - and the rendered DOCX
+  caption is pandoc's conversion of the `.tex` caption. A `.tex`-only edit
+  suffices. The spec's cost estimate had been the main argument for deferring.
+- **The pass-43 source guard earned itself.** `source_files` reported
+  `supplementary.tex` moved and `cover_letter.tex` unmoved - exactly the
+  discrimination it was added to provide after pass-42 edited a source without
+  rebuilding its render.
+- **Anchor.** `4b5c6ae8f6be20509d3cd95f8357e5633d923b22`.
