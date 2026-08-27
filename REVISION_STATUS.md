@@ -1466,11 +1466,28 @@ and CR-0018 certifies an 84-cell ledger including that cell bit-for-bit.** It al
 divergence was confined to the tier where the memory and the polish are active — a cause — while
 disclaiming any cause in the next clause, and there is no identity control at D = 50 at all.
 
-**The real limitation is recorded in governance, not in the paper (D-0051, OPEN):** the campaign's
-identity evidence samples about one run per (algorithm, suite, dimension), so a divergence in 27 of
-1479 cells sits below its resolution. The certifications are underpowered here, not wrong. Claiming
-that in the manuscript would impeach every certification in the campaign on one uncontrolled
-cross-build comparison. **The route to closing it is a re-execution, not prose.**
+**The real limitation is recorded in governance, not in the paper — and D-0051 is ANSWERED, not
+open.** The campaign's identity evidence samples about one run per (algorithm, suite, dimension),
+so a divergence in 27 of 1479 cells sits below its resolution. The certifications are underpowered
+here, not wrong. Claiming that in the manuscript would impeach every certification in the campaign
+on one uncontrolled cross-build comparison.
+
+This paragraph used to end "the route to closing it is a re-execution, not prose" and to label
+D-0051 **OPEN**. **The re-execution was then run, on 2026-08-27, and it closed the question**:
+the five carrier functions re-run at CEC2017 $D = 100$, 51 runs each, threads pinned as
+`run_campaign.py::pinned_env` pins them; 255 cells, zero seed mismatches; on the 26 cells where
+the archive and the transplant arm differ the fresh run reproduces the transplant arm on all 26
+and the archive on none, and on the 229 where they agree it reproduces both. The difference is
+**between builds, not within one** — inferred before, demonstrated now, and independently
+replicated the same day in a separate process and shell. D-0051 records **"ANSWERED 2026-08-27 by
+the re-execution this entry called for"**; only this sentence still said otherwise.
+
+**What is not taken is a separate thing, and it is a closed decision rather than an open item.**
+Stating the stronger claim in the manuscript would mean **promoting a diagnostic staging run as
+cited evidence** — new release id, manifest and binding — because every reported number is bound
+to a promoted release. That option belongs to the author and is deliberately **not** taken; the
+Supplementary and the Table A45 caption both already say the control does not reproduce the
+archived runs exactly, and both stay true. Do not re-raise this as work outstanding.
 
 **H1 is done, and gated.** `source_files` now records `supplementary.tex` and `cover_letter.tex`;
 `check_manifest` reports `sources N/N` separately, so `files` stays at 15 and every recorded
