@@ -17,9 +17,11 @@ are frozen or hash-bound. Assume nothing is casually editable.
 
 ## Right now (2026-08-27)
 
-**Pass-43 is applied, minted, tagged and pushed.** `origin/main` carries it, **`v2.16` is live**,
-and `v2.13` through `v2.16` all resolve — the Data Availability Statement names `v2.16` for the
-revised version, and `main.tex` was edited to say so in the same pass. **Every tag bump drags
+**Pass-44 is applied, minted, tagged and pushed.** `origin/main` carries it, **`v2.17` is live**,
+and `v2.13` through `v2.17` all resolve — the Data Availability Statement names `v2.16` for the
+revised version, and `main.tex` was edited to say so in the same pass. **Pass-44 carried the last
+three optional wording items and the open list is now empty of agent work** — what remains is the
+author's alone (D-0052). **Every tag bump drags
 `CITATION.cff`, `SUBMISSION_KIT.md` and `submission_package_manifest.json` with it**; the citation
 file is gated and carries no leading `v`, so a `v2.1x` sweep misses it.
 
