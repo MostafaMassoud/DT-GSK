@@ -2190,3 +2190,52 @@ applying all surfaced fixes.
   the published history and equals `published_commit`; the pass-41 disclosure
   that it does not resolve remains true of pass-41 and every earlier pass.
 - **Anchor.** `4a2291bd6c718e92f5cb39f3329db424562fc64b`.
+
+## D-0051 (2026-08-27) - Pass-43: make the package agree with itself
+
+- **Decision.** Correct one sentence in the Supplementary Material so that it no
+  longer contradicts the response letter that ships beside it, mint freeze
+  **pass-43**, and cut tag **v2.16**. Registered as **CR-0026**.
+- **The defect was package-level, not page-level.** Pass-42 had already made the
+  Table A45 caption honest, and the response letter states plainly that the
+  D = 100 internal control does not hold and that the residual is unexplained.
+  What remained was `supplementary.tex`, 2,500 lines away from that table,
+  asserting that no reported number depends on which revision of the optimizer
+  source is used. Shipping the letter and the manuscript together would have
+  submitted a package in which one document concedes what the other denies. The
+  Supplementary now records the exception, points at the table whose caption
+  already reports it as unresolved, and bounds it: the archived release from
+  which every reported number derives is itself unchanged.
+- **A larger disclosure was drafted and REJECTED on challenge. Do not revive
+  it.** It would have named CR-0015 as the one bit-identity certification whose
+  evidence does not span cec2017 D = 100. That is refutable from the register it
+  cites: **CR-0014 certifies cec2017 D100, CR-0016 certifies cec2017
+  D10/D50/D100, and CR-0018 certifies an eighty-four-cell ledger that includes
+  cec2017 D100 bit-for-bit.** A referee following the pointer would find the
+  cell certified three ways. The draft also asserted the divergence was
+  "confined to the tier at which the interaction-structure memory and the
+  deterministic final polish are active" while disclaiming any cause in the next
+  clause - naming a mechanism, and locating it at contribution C1, on no
+  evidence: there is no identity control at D = 50 at all, and the repository's
+  own thread probe found D = 50 invariant and D = 100 not. **The standing rule
+  holds: state the gap, never the causation.**
+- **What the certifications actually cannot do, recorded here and claimed
+  nowhere.** The campaign's bit-identity evidence samples on the order of one
+  run per (algorithm, suite, dimension). A divergence affecting 27 of 1479 run
+  cells is below that resolution. The certifications are therefore not wrong;
+  they are underpowered for this question. This is stated in the governance
+  record rather than in the manuscript, because asserting it in the paper would
+  impeach every bit-identity certification in the campaign on the strength of a
+  single uncontrolled cross-build comparison. **Status**: OPEN, and the honest
+  route to closing it is a re-execution under the current revision, not prose.
+- **The blind spot that pass-42 fell into is now gated.** The freeze manifest
+  hashes renders but hashed only one of their sources: `main.tex` was tracked,
+  `supplementary.tex` and `cover_letter.tex` were not. Editing
+  `cover_letter.tex` without rebuilding therefore left `cover_letter.pdf`
+  matching its recorded digest, and the gate stayed green while the letter that
+  ships to the editor still carried a retracted phrasing. The manifest now
+  carries a `source_files` list which `check_manifest.py` verifies and reports
+  on its own line, so the tracked-file count and every recorded "15/15" stay
+  true. Negative-tested: perturbing a source with its render untouched leaves
+  `files` at 15/15 and takes `sources` to 1/2, and the gate exits 1.
+- **Anchor.** `ae4d4e76eb27a4e5955ab26818204951e26b0c9d`.

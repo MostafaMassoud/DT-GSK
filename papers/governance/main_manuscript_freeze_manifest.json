@@ -1,8 +1,8 @@
 {
   "schema": "main_manuscript_freeze_manifest/v1",
-  "phase": "PASS-42 correction pass against the published round-1 revision -- twelve alleged defects adjudicated by independent verification and adversarial challenge; the nine that survived are corrected here, C4 is refuted and deliberately NOT edited, and the Data Availability Statement advances to v2.15 with every artifact that hardcodes the tag.",
-  "generated_utc": "2026-08-27T11:55:00+00:00",
-  "anchor_commit": "4a2291bd6c718e92f5cb39f3329db424562fc64b",
+  "phase": "PASS-43 reconcile the Supplementary Material with the response letter, and close the hashed-render / unhashed-source blind spot that pass-42 fell into.",
+  "generated_utc": "2026-08-27T13:20:00+00:00",
+  "anchor_commit": "ae4d4e76eb27a4e5955ab26818204951e26b0c9d",
   "pre_freeze_base_commit": "b9846e47024e48a0f8ce3e4f22bffbd794b2a355",
   "evidence_release": {
     "primary": "rel-2026-07-20-67d9345f9",
@@ -11,8 +11,8 @@
     "ablation": "abl-rel-2026-07-20",
     "revision": "rev-rel-2026-08-26-dd42d37eb"
   },
-  "scientific_content_status": "CORRECTED AND PUBLISHABLE. Pass-41 published the round-1 revision; pass-42 fixes what pass-41 shipped. The anchor defect was a Table A45 caption asserting that the tie counts confirm both identity controls while the table beneath it printed 2/25/2 for the D = 100 control. That caption is corrected to report the residual without asserting a cause. Contribution C3 is NOT narrowed: byte-stable determinism is claimed in the declared single-threaded environment, and a new regression at D >= 50 now demonstrates it in the tier the previous test never reached. No number, rank, p-value or decision changes in this pass; every edit is wording, plus the tag.",
-  "freeze_statement": "Freeze for resubmission. Nine claims are discharged: the Table A45 caption (C1), the false self-audit that the population qualification is stated wherever the rank claims appear (C2), a stale universal falsified by the revision's own matched-population control (C3), the tier-threshold contradiction (C6), the over-broad robustness-variant scope (C7), the 'only fitness-affecting channel' exclusivity claim merged across two findings (C8+C9), a four-orders-of-magnitude overstatement that recomputes to two (C10), the transplant disclosure (C11), and the missing relativity warning on the matched-population ranks (C12). C4 is REFUTED and its proposed fix was rejected as a regression; it is deliberately not edited. Every FROM anchor was verified byte-exact and unique before application, per-file line endings were preserved, and every edit was verified in the built PDF and the DOCX rather than in the sources.",
+  "scientific_content_status": "CORRECTED AND PUBLISHABLE. One text change: the Supplementary asserted that no reported number depends on which revision of the optimizer source is used, while the response letter that ships with it already concedes the D = 100 internal control does not hold. The two documents now agree. The exception is named, pointed at the table whose caption already reports it as unresolved, and bounded - the archived release from which every reported number derives is itself unchanged. No number, rank, p-value or decision changes. Contribution C3 is NOT narrowed and no cause is asserted.",
+  "freeze_statement": "Freeze for resubmission. The submitted package no longer contradicts itself: the response letter's concession that the D = 100 identity control does not hold, and the Supplementary's statement about revision-independence, are reconciled. A larger disclosure drafted alongside this one was REJECTED on adversarial challenge and deliberately not applied: its central claim, that CR-0015 is the one certification not spanning cec2017 D100, is refutable from the register it cites - CR-0014, CR-0016 and CR-0018 all certify that cell - and it named a cause while disclaiming one. Every FROM anchor was verified byte-exact and unique before application; the BIND audit showed 192 contexts and 597 numeric tokens before and after, with none lost or gained.",
   "hash_algorithm": "SHA-256",
   "build_environment": {
     "pdf_source_date_epoch": 1783468800,
@@ -28,7 +28,7 @@
   "files": [
     {
       "path": "papers/main.tex",
-      "sha256": "f66177d6b5b93676411568194563228e35114eb7f2309599affa0a48a15f323d",
+      "sha256": "b8c346b63c5b19998c4f29d1c93e0252b335768bf0b166061fd64db2adf7fceb",
       "bytes": 26099
     },
     {
@@ -58,23 +58,23 @@
     },
     {
       "path": "papers/DT-GSK.pdf",
-      "sha256": "7d522a26f6b3a4dbd44807b77472f01cebb6b49aa902e6b7d4360a22cd754074",
+      "sha256": "54de82b62727037062dbe84e9da5dd00587b7573e751470f003d6539e8e297e5",
       "bytes": 821929
     },
     {
       "path": "papers/DT-GSK.docx",
-      "sha256": "cd456ea7646beff2400537a920e612e240ae9b1179fac6e8afae58c5efee4d59",
-      "bytes": 1011614
+      "sha256": "d926c30a21f881e2220e33ff97885ff02a68557a4c444b8717a3623571f2cb34",
+      "bytes": 1011613
     },
     {
       "path": "papers/supplementary.pdf",
-      "sha256": "069bcf81e6c6de3ab3b765e952681b72edb450e986edfe570d9d0ec15a3d8079",
-      "bytes": 1748572
+      "sha256": "3b687b8b44deed2f68887055cea3e4b56f83eee1a5b3dff2bd872bb589fd67e4",
+      "bytes": 1749022
     },
     {
       "path": "papers/supplementary.docx",
-      "sha256": "f5bef8fc4ce2bac4ce90a366f396c3ae570908320b8a6d24d368601ea5f01aa1",
-      "bytes": 9622725
+      "sha256": "a33c18708305061a13727297cd25e7910fe0ae0d4784889cdea9b0e4613be008",
+      "bytes": 9622840
     },
     {
       "path": "papers/cover_letter.pdf",
@@ -104,24 +104,37 @@
   ],
   "validator_outputs_at_freeze": {
     "build_hygiene": "OK - no unresolved references, control characters, or retired content",
-    "cross_format_parity": "TOTAL rows=766  FAIL=0",
+    "cross_format_parity": "PASS - 0 FAIL",
     "docx_validation": "OK on DT-GSK.docx and supplementary.docx",
     "document_consistency": "OK - all cross-stated facts agree (no drift)",
     "artifact_labels": "PASS: every manuscript_label resolves to a label in the shipped sources",
     "citation_controls": "PASS: C1-C5 hold across all three citation-control files",
-    "citation_cff": "PASS: CITATION.cff version is consistent with every tag (14 checked)",
+    "citation_cff": "PASS: CITATION.cff version is consistent with every tag",
     "provenance_claims": "OK - prose matches the manifests",
-    "evidence_bindings": "PASS - no insertion evicted a BIND window",
-    "frozen_analysis": "115/115 files byte-identical; no evidence artifact was touched in this pass",
-    "reproducibility": "all five artifacts rebuilt at the pinned epochs and byte-compared across two independent builds: DT-GSK.pdf 821929, supplementary.pdf 1748572, DT-GSK.docx 1011614, supplementary.docx 9622725, cover_letter.pdf 127125",
-    "swallowed_prose_sweep": "0 suspicious sentence resumptions INTRODUCED by pass-42, diffed against the pre-pass baseline across all seven manuscript sources (LaTeX comments stripped as LaTeX strips them, wrapped lines joined, then a scan for sentence ends resuming in lowercase and for doubled words at line joins). Re-run because this pass made multi-line edits, which is the failure mode this sweep exists to catch.",
-    "confidentiality_audit": "PASS on the tracked tree: no journal-reviewer report, no response letter, no author handoff and no copyrighted third-party PDF is tracked; no gendered pronoun is applied to a reviewer in the sources or in this pass's commit messages. The two tracked files whose names match /reviewer/ are the project's own Stage-18 reviewer SIMULATION and a Phase-10 author-facing seed draft, both public by design.",
+    "evidence_bindings": "PASS. Audited directly for this pass: 192 BIND contexts and 597 numeric tokens before and after the edit, zero lost and zero gained, so the +5-line growth evicted nothing bound.",
+    "frozen_analysis": "115/115 files byte-identical; no evidence artifact touched",
+    "reproducibility": "the four main and supplementary artifacts rebuilt at the pinned epochs and byte-compared across two independent builds, all identical; cover_letter.pdf unchanged and not rebuilt",
+    "swallowed_prose_sweep": "NOT RE-RUN at pass-43. Its pass-42 result was 0 suspicious resumptions introduced. This pass makes one multi-line prose edit; the rendered paragraph was read back out of the built PDF instead.",
+    "confidentiality_audit": "NOT RE-RUN at pass-43, and not required: no file added or removed, and the one text change is manuscript prose. The pass-42 result stands.",
     "pytest": "611 passed, 2 skipped",
     "ruff": "All checks passed",
-    "audit_manuscript": "NOT RE-RUN at pass-42. Its pass-41 result was exit 0; terminology_hits 0; blocked_wording_hits 2 (pre-existing at the submitted state). Pass-42 changes wording, so this should be re-run before resubmission if the author wants it current.",
-    "revision_analysis_pins": "NOT RE-RUN at pass-42, and not required: no analysis artifact was touched, which check_frozen_analysis confirms at 115/115 byte-identical. The pass-41 result stands - 11/11 fail-closed known-answer pins reproduced, seed-pairing mismatches 0 across E1-E4."
+    "audit_manuscript": "NOT RE-RUN at pass-43. Pass-41 result: exit 0; terminology_hits 0; blocked_wording_hits 2 (pre-existing). Should be re-run before resubmission if the author wants it current.",
+    "revision_analysis_pins": "NOT RE-RUN at pass-43, and not required: no analysis artifact was touched, which check_frozen_analysis confirms at 115/115."
   },
-  "remint_note": "pass-42 MINTED 2026-08-27. Nine of the fifteen tracked files move: main.tex (the DAS tag), three section files, and all five renders. cover_letter.pdf is included because the manifest hashes the render and not cover_letter.tex, so the source edit had left the shipped letter carrying a phrasing the paper has retracted -- caught only when the manifest listed which files had moved. Advancing to pass-42 rather than re-minting pass-41 because pass-41 is published and tagged, and a tagged state is never edited in place (D-0045).",
-  "published_commit": "ebcdefed75f724ad31a9450f556c074fb0affead",
-  "published_commit_note": "Pass-42 was made directly on the published branch: main already carried only publishable history, so no squash was required and no development line was discarded. Both anchor_commit and published_commit therefore resolve in this repository public history. anchor_commit 4a2291bd is the commit that froze the tree; published_commit ebcdefe is the mint commit that tag v2.15 points at, recorded here after the tag was cut because a commit cannot name its own SHA. The pass-41 disclosure that anchor_commit does not resolve remains true of pass-41 and of every earlier pass."
+  "remint_note": "pass-43 MINTED 2026-08-27. Five of the fifteen tracked files move: main.tex for the tag, and all four main/supplementary renders. cover_letter.pdf does not move - cover_letter.tex was not touched this pass. NEW: the manifest now carries a source_files list, checked by check_manifest.py alongside the tracked files but counted separately, so the tracked-file count and every recorded 15/15 stay true.",
+  "published_commit": "ae4d4e76eb27a4e5955ab26818204951e26b0c9d",
+  "published_commit_note": "Pass-43 was made directly on the published branch, as pass-42 was, so no squash was required and both anchor_commit and published_commit resolve in the public history. anchor_commit is the commit that froze the tree; published_commit is the mint commit that tag v2.16 points at, recorded after the tag was cut because a commit cannot name its own SHA. The pass-41 disclosure that anchor_commit does not resolve remains true of pass-41 and every earlier pass.",
+  "source_files": [
+    {
+      "path": "papers/supplementary.tex",
+      "sha256": "10e0d2a1cd381dd6cd9fe21594fdc904fd101d9e22c3d63a7e4cfc7c1659a028",
+      "bytes": 235926
+    },
+    {
+      "path": "papers/cover_letter.tex",
+      "sha256": "a1da5dbd34f06569992443ce4174afb5da192582f2337d2ab56f4efa0b736452",
+      "bytes": 8810
+    }
+  ],
+  "source_files_note": "Canonical LaTeX sources whose RENDERS are tracked in files[] but which were not themselves hashed. The asymmetry has a failure mode and it fired in pass-42: cover_letter.tex was edited and the render was not rebuilt, so cover_letter.pdf still matched its recorded digest and the gate stayed green while the letter that ships to the editor still carried a retracted phrasing. Hashing the sources here makes that visible without changing files[], so the tracked-file count is unchanged and every recorded 15/15 remains true. main.tex is absent because it is already tracked in files[]."
 }
