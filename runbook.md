@@ -193,9 +193,16 @@ reference-seed, per-optimizer, targeted).
 
 ```powershell
 # --- 1. Generate run data: the three benchmark campaigns ---
-python run.py --root . --optimizer gsk,agsk,apgsk,fdb-agsk,atmals-gsk,egsk,dt-gsk --suite cec2017 --function 1:30 --dimension 10,30,50,100 --runs 51 --parallel --workers 15 --convergence-graphs --overwrite
-python run.py --root . --optimizer gsk,agsk,apgsk,fdb-agsk,atmals-gsk,egsk,dt-gsk --suite cec2011 --function 1:22 --dimension native --runs 25 --parallel --workers 15 --convergence-graphs --overwrite
-python run.py --root . --optimizer gsk,agsk,apgsk,fdb-agsk,atmals-gsk,egsk,dt-gsk --suite cec2013 --function 1:28 --dimension 10,30,50 --runs 51 --parallel --workers 15 --convergence-graphs --overwrite
+# --numba-threads 1 is NOT optional at D >= 50. run.py pins nothing by itself
+# (only scripts/run_campaign.py does), and thread count sets the reduction order
+# of the eigendecomposition behind the final polish, so an unpinned re-run is not
+# comparable with a pinned one. It is NOT a promise that a pinned re-run
+# reproduces archived bytes: D-0051 demonstrated the opposite across builds --
+# a pinned re-execution reproduced the transplant arm on all 26 divergent cells
+# and the archive on none. Pin it so a run is comparable with itself.
+python run.py --root . --optimizer gsk,agsk,apgsk,fdb-agsk,atmals-gsk,egsk,dt-gsk --suite cec2017 --function 1:30 --dimension 10,30,50,100 --runs 51 --parallel --workers 15 --numba-threads 1 --convergence-graphs --overwrite
+python run.py --root . --optimizer gsk,agsk,apgsk,fdb-agsk,atmals-gsk,egsk,dt-gsk --suite cec2011 --function 1:22 --dimension native --runs 25 --parallel --workers 15 --numba-threads 1 --convergence-graphs --overwrite
+python run.py --root . --optimizer gsk,agsk,apgsk,fdb-agsk,atmals-gsk,egsk,dt-gsk --suite cec2013 --function 1:28 --dimension 10,30,50 --runs 51 --parallel --workers 15 --numba-threads 1 --convergence-graphs --overwrite
 
 # --- 1b. The two additional suites (five-suite scope, CR-0019): campaign launchers
 #     with per-suite locked configs and resume support ---

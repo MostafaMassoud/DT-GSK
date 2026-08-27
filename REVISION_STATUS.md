@@ -1463,6 +1463,34 @@ cross-build comparison. **The route to closing it is a re-execution, not prose.*
 "15/15" remains true. Negative-tested: perturb a source, leave its render, and `files` reads 15/15
 while `sources` drops to 1/2 and the gate exits 1 — exactly the pass-42 failure, now caught.
 
+### Phase 6c — pass-44, DONE (2026-08-27)
+
+The three optional wording items (C5, O1, the A12 qualifier) carried as **one** pass, not three,
+because every manuscript pass forces a tag bump that drags `CITATION.cff`, `SUBMISSION_KIT.md` and
+`submission_package_manifest.json` with it. Tag **v2.17**, **CR-0027 / D-0052**, anchor `4b5c6ae`.
+
+**Two of the three were relocated on challenge, and the relocations are the point.**
+
+- The **Table A44 caption** edit was **dropped**: the body seventeen lines below already states that
+  Friedman ranks are relative *and* carries the differencing prohibition. The real hole was **Table
+  A46** — the supplement's only differencing prohibition sat at `:3760`, attached to A44 alone. A46
+  now carries the bar rather than the premise.
+- The **A12 qualifier moved from the prose to the definition.** Adding "mean" at `:2280` would have
+  qualified three of the six values that paragraph draws from one column, while a clause two lines
+  earlier called it "the raw-run effect size" — asserting two conventions where there is one. S6.5
+  now declares once at `:2216` that $A_{12}$ is per-function, averaged over functions.
+- **The recorded O1 cost estimate was wrong, which is why the item had been deferred at all.** It
+  claimed the edit touched the generated exhibit chain; verified false — `SA06.json`'s
+  `caption_stub` does not render, and the DOCX caption is pandoc's conversion of the `.tex`. A
+  `.tex`-only edit sufficed.
+- **The pass-43 source guard earned itself**, reporting `supplementary.tex` moved and
+  `cover_letter.tex` unmoved — exactly the discrimination it was added for.
+
+⚠ **The A12 collision is NOT fully closed.** Fixing the S6.5 side sharpened it: `:2216` now says
+"per function … averaged over functions" while Table A43's caption at `:3688` still says
+"$A_{12}$ on the raw paired runs" for the **pooled** statistic (0.511 against S6.5's 0.59 on the
+identical contrast). See the pass-45 ticket list.
+
 ### Phase 7 — resubmit (author-only; the point of no return)
 
 SuSy upload; **re-enter the new title and revised keywords by hand** — portal metadata does not
