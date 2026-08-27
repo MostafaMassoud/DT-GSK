@@ -2132,15 +2132,24 @@ applying all surfaced fixes.
   **Status**: PARTLY DISCHARGED (updated 2026-08-27). The rewind, the push and
   the tag were taken: `v2.14` was cut on the published commit `02d1791` and
   `v2.15` on `ebcdefe` at pass-42, and the never-push local tag it warns about
-  is superseded. **The GitHub Support purge request remains OPEN, and it covers
-  TWO unreachable commits rather than one** - `b9846e4`, the seven copyrighted
-  PDFs at 38.8 MiB, and its parent `bddfe24`, which carries
-  `AUTHOR_DATA_HANDOFF.md` and so the co-authors' biographical data. Both are off
-  every ref and both are still served by direct SHA: HTTP 206 re-verified
-  2026-08-27, with the web UI still rendering the tree at HTTP 200. Purging only
-  the child would leave the parent serving the personal data. The request can
-  succeed - 0 forks, network_count 0 and 0 pull requests, so no fork network holds
-  a competing reference. Full SHAs, the request text and the post-purge check:
+  is superseded. **The GitHub Support purge request is PARKED by author decision
+  (2026-08-27), not discharged.** It covers TWO unreachable commits rather than
+  one - `b9846e4`, the seven copyrighted PDFs at 38.8 MiB, and its parent
+  `bddfe24`, which carries `AUTHOR_DATA_HANDOFF.md` and so the co-authors'
+  biographical data. Both are off every ref and both are still served by direct
+  SHA: HTTP 206 re-verified 2026-08-27, with the web UI still rendering the tree
+  at HTTP 200. Purging only the child would leave the parent serving the personal
+  data. The request would succeed if filed - 0 forks, network_count 0 and 0 pull
+  requests, so no fork network holds a competing reference.
+  **The deferral was taken on a corrected premise.** It was first proposed on the
+  belief that the exposure ends on 2026-09-10; that date belongs to the Traffic
+  clone counter, which is separately discharged. Unreachable objects carry **no
+  expiry date** - GitHub collects on an unannounced schedule with no guarantee -
+  so this does not lapse on its own. The author was told so and reaffirmed the
+  deferral: the material needs an exact 40-character SHA to reach, the repository
+  drew 2 web views in 14 days, and the 2026-09-01 resubmission has priority.
+  **Parked, not closed. Do not re-raise it as urgent; do not treat it as done.**
+  Full SHAs, the ready-to-send request and the post-purge check:
   `docs/development/github_exposure_traffic_record.md`.
   **The co-authors were told their biographies had been public** (author,
   2026-08-27), discharging the obligation recorded in the co-author limb above;
