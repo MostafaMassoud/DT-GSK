@@ -1500,10 +1500,17 @@ because every manuscript pass forces a tag bump that drags `CITATION.cff`, `SUBM
 - **The pass-43 source guard earned itself**, reporting `supplementary.tex` moved and
   `cover_letter.tex` unmoved — exactly the discrimination it was added for.
 
-⚠ **The A12 collision is NOT fully closed.** Fixing the S6.5 side sharpened it: `:2216` now says
-"per function … averaged over functions" while Table A43's caption at `:3688` still says
-"$A_{12}$ on the raw paired runs" for the **pooled** statistic (0.511 against S6.5's 0.59 on the
-identical contrast). See the pass-45 ticket list.
+✅ **The A12 collision is CLOSED — pass-45 (`5fa4d38`) did it; the flag was simply never retired.**
+This paragraph pointed *forward* to the pass-45 ticket list, pass-45 executed it, and nobody came
+back to strike the warning. Re-verified 2026-08-27: both conventions now declare themselves, and
+the caption disambiguates against the other **by name**. S6.5 at `supplementary.tex:2227` reads
+"computed per function on the raw runs and averaged over functions"; Table A43's caption at
+`:3708` reads "$A_{12}$ over the paired runs of all scored functions pooled --- *not* the
+per-function-averaged $A_{12}$ of Section~S6.5". So 0.511 and 0.59 on the identical contrast are
+now two **named** statistics rather than one self-contradicting one — which is the correct
+resolution, since both values are right under their own convention and neither needed changing.
+The `:2216` / `:3688` line numbers above are pre-pass-46 and no longer resolve; the current ones
+are given here.
 
 ### Phase 7 — resubmit (author-only; the point of no return)
 
