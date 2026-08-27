@@ -122,7 +122,7 @@
     "revision_analysis_pins": "NOT RE-RUN at pass-43, and not required: no analysis artifact was touched, which check_frozen_analysis confirms at 115/115."
   },
   "remint_note": "pass-44 MINTED 2026-08-27. Five of the fifteen tracked files move: main.tex for the tag and the four main and supplementary renders. cover_letter.pdf does not move. source_files carries supplementary.tex, which did move, and cover_letter.tex, which did not - the guard added at pass-43 doing exactly what it was added for.",
-  "published_commit": "4b5c6ae8f6be20509d3cd95f8357e5633d923b22",
+  "published_commit": "5af5114ad318eb63dc7c1d6d5bcb671db761db01",
   "published_commit_note": "Pass-44 was made directly on the published branch, as pass-42 and pass-43 were, so no squash was required and both anchor_commit and published_commit resolve publicly. published_commit is recorded after the tag is cut, because a commit cannot name its own SHA.",
   "source_files": [
     {
