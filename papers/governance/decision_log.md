@@ -2137,10 +2137,17 @@ applying all surfaced fixes.
   `b9846e4` (HTTP 206 verified), and only GitHub can garbage-collect them.
   **The co-authors were told their biographies had been public** (author,
   2026-08-27), discharging the obligation recorded in the co-author limb above;
-  `AUTHOR_DATA_HANDOFF.md` remains withheld. Also still open, and expiring:
-  GitHub Insights -> Traffic -> Clones runs on a rolling 14-day window, so the
-  record of who cloned the tree while the PDFs were public is gone after roughly
-  2026-09-10.
+  `AUTHOR_DATA_HANDOFF.md` remains withheld. **The traffic record is captured**
+  (author, 2026-08-27), discharging the expiring limb: 11 clones from 9 unique
+  cloners over 08/13-08/26, every one of those 14 days inside the exposure
+  window, against 2 web views. The window itself is now dated from the reflog -
+  `b9846e4` was the tip of `main` from 2026-08-07 23:45:59 +0300 until the reset
+  at 2026-08-27 01:17:02 +0300. Six days of it, 08/07 to 08/12, had already
+  rolled off GitHub's 14-day counter before the capture and are permanently
+  unmeasured, so those counts are floors and not estimates. Transcription and
+  what the counts do not establish (they identify nobody, and do not separate
+  automated from human traffic):
+  `docs/development/github_exposure_traffic_record.md`.
 
 
 ## D-0050 (2026-08-27) - Pass-42: correct the published revision before resubmitting

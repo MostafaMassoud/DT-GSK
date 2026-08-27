@@ -1323,8 +1323,9 @@ worktree blind spot.
 1. **Revision deadline — ANSWERED 2026-08-27, and it is the binding constraint.** This entry
    previously read "never answered, no longer gating". The decision e-mail sets a **ten-day**
    window to upload the revised file. Both reviews were in by 2026-08-24, so a ten-day window
-   closes on or about **2026-09-03** — *earlier* than the GitHub Traffic → Clones expiry
-   (~2026-09-10) that these documents have been treating as the most urgent item. **Confirm the
+   closes on or about **2026-09-03**. It is now the only dated constraint left: the GitHub
+   Traffic → Clones expiry these documents had been treating as the most urgent item was
+   discharged by capture on 2026-08-27 (row 0a). **Confirm the
    true date on the SuSy portal rather than inferring it here.** The e-mail explicitly invites a
    request for more time; asking is free and removes this as a risk. The letter is withheld under
    D-0049 and transcribed at `papers/review_2026_08_24/journal_decision_email.md`.
@@ -1357,7 +1358,7 @@ Ordered. Phase 0 is author-only and one item **expires**; everything else is age
 
 | | Action | Why now |
 |---|---|---|
-| 0a | **GitHub → Insights → Traffic → Clones** — capture the count | Exposure closed 2026-08-27 (`02d1791`). Rolling 14-day window ⇒ gone ~**2026-09-10**. The only item that becomes *permanently impossible*. |
+| ~~0a~~ | ~~**GitHub → Insights → Traffic → Clones** — capture the count~~ — **DONE 2026-08-27** | Captured: 11 clones, 9 unique cloners, 08/13–08/26 — all 14 days inside the exposure window; 2 web views. **Six days (08/07–08/12) had already rolled off and are permanently lost**, so the counts are floors. Record: `docs/development/github_exposure_traffic_record.md`. |
 | 0b | **GitHub Support ticket** to garbage-collect `b9846e4` | Seven copyrighted PDFs are off every ref but still served by direct SHA (HTTP 206 verified). Turnaround is days–weeks; start the clock. |
 | ~~0c~~ | ~~Tell the co-authors their biographies were public~~ — **DONE 2026-08-27** | Discharged by the author; D-0049's co-author limb is closed. |
 
