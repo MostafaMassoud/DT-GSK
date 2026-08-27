@@ -1224,8 +1224,8 @@ into the manuscript, the response letter is written, and freeze **pass-40** is m
 
 **Main text**, exactly the wording pre-registered for these outcome branches: C1 renamed *a
 deterministic final polish* and claimed basis-neutrally; its "remains open" caveat replaced by the
-E1 result that closed it; ISM strengthened from "no standalone benefit" to harm in its only
-fitness-affecting channel; C2 narrowed with the 20 <= D < 50 tier disclosed as mis-specified; the
+E1 result that closed it; ISM strengthened from "no standalone benefit" to harm in its terminal
+exploitation channel; C2 narrowed with the 20 <= D < 50 tier disclosed as mis-specified; the
 D = 50 / D = 100 rank claims qualified as resting in part on the NP = 5D rule.
 
 **Response letter:** `papers/review_2026_08_24/response_to_reviewers.md`. Every reviewer sentence is

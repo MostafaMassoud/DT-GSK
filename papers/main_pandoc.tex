@@ -229,7 +229,7 @@ The contributions are:
   in origin, subject to those disclosed exceptions. 
 \end{itemize}
 
-The interaction-structure memory is an online, decaying, evidence-gated coordinate-pair graph learned from strictly improving accepted moves without additional objective evaluations. It provides candidate linkage blocks for blockwise crossover and a candidate eigenbasis for the deterministic final polish (C1). However, the component isolation does not establish a consistent standalone performance contribution from ISM at the dimensions where it is active, and the function-class analysis reveals no systematic advantage on the hybrid or composition categories (Supplementary Materials, Sections~S6.5 and S6.6). The direct basis isolation added in revision goes further: in the memory's only fitness-affecting channel, the polish basis, the learned eigenframe is outperformed by the plain coordinate axes at $D = 50$ (Supplementary Materials, Section~S9.1), so at that dimension the exploitation of the learned structure subtracts from a refinement that works without it. ISM is therefore positioned as a specified negative result rather than as a source of \dtgsk{}'s performance standing. Its inclusion provides a fully specified and reproducible investigation of structure learning from strictly improving accepted moves, while the paper's principal contributions remain the dimension-tiered adaptive scaffold (C2), the deterministic final polish (C1), and the controlled, budget-fair family evaluation (C3).
+The interaction-structure memory is an online, decaying, evidence-gated coordinate-pair graph learned from strictly improving accepted moves without additional objective evaluations. It provides candidate linkage blocks for blockwise crossover and a candidate eigenbasis for the deterministic final polish (C1). However, the component isolation does not establish a consistent standalone performance contribution from ISM at the dimensions where it is active, and the function-class analysis reveals no systematic advantage on the hybrid or composition categories (Supplementary Materials, Sections~S6.5 and S6.6). The direct basis isolation added in revision goes further: in the memory's terminal exploitation channel, the polish basis, the learned eigenframe is outperformed by the plain coordinate axes at $D = 50$ (Supplementary Materials, Section~S9.1), so at that dimension the exploitation of the learned structure subtracts from a refinement that works without it. ISM is therefore positioned as a specified negative result rather than as a source of \dtgsk{}'s performance standing. Its inclusion provides a fully specified and reproducible investigation of structure learning from strictly improving accepted moves, while the paper's principal contributions remain the dimension-tiered adaptive scaffold (C2), the deterministic final polish (C1), and the controlled, budget-fair family evaluation (C3).
 
 The remainder of the paper is organized as follows.
 Section~@@REF!sec:related@@ reviews the GSK family, positions the
@@ -2650,8 +2650,8 @@ swaps two comparator pairs, \apgsk{}/\egsk{} at $D = 10$ and
 at $D \leq 50$ swaps GSK and \fdbagsk{} at $D = 30$.
 
 Mean-based ranks are the prespecified primary; \dtgsk{}'s own
-ordinal positions (1/2/1/1 at $D = 10/30/50/100$) are identical in
-every variant reported here, but panel orderings between comparators are not fully
+ordinal positions (1/2/1/1 at $D = 10/30/50/100$) are identical under
+both of these robustness variants, but panel orderings between comparators are not fully
 robust. Under the median endpoint \dtgsk{}'s $D = 100$ first place becomes
 an exact tie with \egsk{} (both 2.59), consistent with their documented
 non-separability. As a deliberate pairing-sensitivity check, an unpaired Mann--Whitney companion was also run over the
@@ -3376,8 +3376,8 @@ moves its $D = 15$ ordinal
 The parameter-sensitivity evidence is exploratory and narrow: a one-factor
 sweep over seven constants at two levels, at $D = 30$ and $D = 100$ only, with
 15 repetitions per cell against the frozen panel's 51 (Supplementary Materials,
-Section~S9.4). It is descriptive, carries no hypothesis test, and perturbs no
-tier threshold; the tier constants themselves remain frozen and hash-locked.
+Section~S9.4). It is descriptive, carries no hypothesis test, and leaves the
+dimension-tier boundaries themselves unvaried, so their sensitivity is untested.
 Neither ARGP nor the deep-stall restart is isolated by the remove-one study,
 which excludes both by pre-specification.
 
@@ -3454,7 +3454,7 @@ computed, so the result places no numerical ceiling on how large a benefit the
 design could have missed.
 
 The basis isolation added in revision sharpens this. In the
-memory's only fitness-affecting channel --- the basis the final polish searches
+memory's terminal exploitation channel --- the basis the final polish searches
 along --- the learned eigenframe is outperformed by the plain coordinate axes at
 $D = 50$ ($p_{\mathrm{Holm}} = 1.4\times10^{-4}$, 25 of 29 functions), while the
 polish itself beats no refinement at both active dimensions (Supplementary
@@ -3577,7 +3577,7 @@ configuration files, and experimental result data supporting the findings of
 this study are openly available in the public \dtgsk{} repository at
 \url{https://github.com/MostafaMassoud/DT-GSK}; the originally submitted
 version corresponds to the repository tag v2.13 and this revised version to
-tag v2.14, and any further materials are
+tag v2.15, and any further materials are
 available from the corresponding author upon reasonable request. The
 supplementary materials accompanying the manuscript provide the additional
 methodological and experimental details needed to evaluate the reported

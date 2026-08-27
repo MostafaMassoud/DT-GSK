@@ -460,8 +460,8 @@ $D = 50$ (\fdbagsk{}/\atmals{} swap) and shifts win/tie/loss counts,
 and disputed-cell exclusion (variant r04, \apgsk{} removed at
 $D = 10$--$50$) changes the $D = 30$ ordering (GSK and \fdbagsk{} swap
 ordinal positions 4/5); mean-based ranks are the prespecified
-primary, \dtgsk{}'s own ordinal position is identical in every
-variant reported here, but panel orderings between comparators are not fully robust.
+primary, \dtgsk{}'s own ordinal position is identical under both of these
+robustness variants, but panel orderings between comparators are not fully robust.
 Under the median endpoint \dtgsk{}'s $D = 100$ first place becomes an
 exact tie with \egsk{} (both 2.59).
 
@@ -1302,8 +1302,8 @@ demonstration that the memory was active and neutral.
 Ninth, the parameter-sensitivity evidence is exploratory and narrow.  The
 sweep of Section~@@REF!sec:supp:rev:sensitivity@@ covers seven constants at two
 levels, at $D = 30$ and $D = 100$ only, with 15 repetitions per cell against the
-frozen panel's 51, and it perturbs no tier threshold; the tier constants
-themselves remain frozen and hash-locked.  Neither ARGP nor the deep-stall
+frozen panel's 51, and it leaves the dimension-tier boundaries
+themselves unvaried, so their sensitivity is untested.  Neither ARGP nor the deep-stall
 restart is isolated by the remove-one study, which excludes both by
 pre-specification (Section~S6.2).
 
@@ -2261,10 +2261,10 @@ upper-tier behavior is a property of the full tier configuration rather
 than of the interaction-structure memory in isolation, and \dtgsk{}'s
 family-best standing rests on the complete dimension-tiered system --- of whose
 added mechanisms only the final polish carries an isolated, statistically
-significant effect at these tiers (and the no\_sgsm row, in which the
-polish runs on coordinate axes rather than the learned eigenbasis, is itself
-null, so the significant effect is the compass endgame, not the learned basis
-specifically).  The interaction-structure memory's isolated
+significant effect at these tiers (the no\_sgsm row is itself null, but it
+disables the memory entirely --- removing its linkage channel as well as its
+eigenbasis --- so it cannot separate the basis from the endgame;
+Section~@@REF!sec:supp:rev:basis@@ does that directly).  The interaction-structure memory's isolated
 utility at $D \le 100$ therefore remains unestablished; whether its
 structure-building role becomes decisive at larger scales is left to future work.
 
@@ -2458,8 +2458,10 @@ against the comparators' reference-implementation value of $100$ --- a
 fifty-fold ratio at initialization, where the corresponding ratio is
 five-fold at $D = 100$ on the bound-constrained suites. The budget is
 equalized on function evaluations rather than on population size, so the
-larger initial population buys proportionally fewer generations; as on the
-other suites, the population rule was not a controlled variable.
+larger initial population buys proportionally fewer generations; the
+population rule is not a controlled variable on this suite, and the
+matched-population control of Section~@@REF!sec:supp:rev:np@@ covers
+CEC2017 only.
 The value 50 follows a structural rule recorded in the configuration file
 at the time the entries were introduced: it matches the benchmark's own
 declared group structure --- the suite builds its partially separable
@@ -3648,7 +3650,7 @@ $D = 50$ and 23 of 29 at $D = 100$, and the coordinate arm alone wins on 28 of
 29 and 25 of 29 respectively.  The learned basis, however, does not merely fail
 to add value --- at $D = 50$ it is beaten by the plain coordinate axes on 25 of
 29 functions at $p_{\mathrm{Holm}} = 1.4\times10^{-4}$, and the single worst
-function shows the eigenframe arm four orders of magnitude behind.  At $D = 100$
+function shows the eigenframe arm two orders of magnitude behind.  At $D = 100$
 the same direction appears without reaching significance
 ($p_{\mathrm{Holm}} = 0.054$).  The conclusion the paper draws is therefore
 restricted to what was tested: at $D = 50$ on this suite, with this estimator and
@@ -3700,8 +3702,17 @@ a dimension-dependent rule should: the paired difference is indistinguishable
 from zero at $D = 10$ and $D = 30$ and significant at $D = 50$ and $D = 100$,
 where holding $NP$ at the panel constant costs \dtgsk{} first place.  The rank
 claims for those two dimensions are therefore configuration-dependent in the
-sense that they rest in part on a component of the method, and this is stated
-wherever those claims appear.
+sense that they rest in part on a component of the method, and the main text
+records this where the asymmetry is introduced and again in its discussion.
+  Friedman ranks are relative:
+substituting the \dtgsk{} column re-ranks the whole panel, so the six
+comparator columns move as well.  No entry here may be differenced against the
+corresponding entry in the main-text rank table, and no descriptive aggregate
+formed from this table is comparable with the one reported there.  $D = 10$ is
+also the one dimension at which $NP = 5D$ falls below the panel constant, so
+the control raises rather than lowers \dtgsk{}'s initial population there; the
+paired difference at that dimension is nonetheless indistinguishable from zero
+(Holm $p = 0.517$).
 
 
 \subsection{@@SECNUM!sec:supp:rev:tiering!S9.3.@@ Tiered Versus Tier-Constant Configuration}\label{sec:supp:rev:tiering}
@@ -3709,8 +3720,8 @@ wherever those claims appear.
 The manuscript attributes its standing to resolving configuration by dimension,
 but the submitted evidence never compared the tiered configuration against an
 otherwise identical one that does not vary.  This experiment supplies that
-comparison by transplant: the parameter set resolved at $D = 10$, and separately
-the set resolved at $D = 100$, are applied unchanged at every dimension and
+comparison by transplant: the $D = 10$ tier's parameter dictionary, and separately
+the $D = 100$ tier's dictionary, are applied unchanged at every dimension and
 compared against the frozen tiered leg.  Both dictionaries are generated
 programmatically from the shipped profile rather than transcribed; 88 keys
 differ between them.
@@ -3735,9 +3746,10 @@ $1/\sqrt{D}$ scaling vary with dimension in every arm.
 CEC2017.  Paired Wilcoxon across the 29 functions, Holm-corrected across the four
 dimensions within each arm; W/T/L is counted from the tiered arm, and
 $A_{12}$ takes it as reference.  At $D = 10$ the U-low arm and at $D = 100$ the
-U-high arm coincide with the tiered configuration by construction, which the
-tie counts confirm and which serves as the design's internal
-control.
+U-high arm carry the tiered configuration by construction and serve as the
+design's internal control.  Below the $D \ge 50$ gate the $D = 10$ arm ties
+throughout; at $D = 100$ it does not, and that residual is not resolved
+here.
 
 @@NATIVETABLE!SA07@@
 

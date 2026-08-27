@@ -513,7 +513,7 @@ say why it is not attributed to any single subsystem. A direct component
 isolation finds no detectable standalone benefit from the interaction-structure
 memory at its active tiers (Supplementary Materials, Section S6). A three-arm
 isolation of the refinement basis, added in revision, sharpens that to harm: in
-the memory's only fitness-affecting channel — the basis the deterministic final
+the memory's terminal exploitation channel — the basis the deterministic final
 polish searches along — the learned eigenframe is **beaten by the plain
 coordinate axes** at D50 (Holm 1.4e-4, 25 of 29 functions) and is not separated
 from them at D100 (Section S9.1). The polish itself survives, beating no

@@ -76,7 +76,7 @@ transplant. That standing is a property of the complete
 dimension-tiered system, not of any single subsystem — a direct component
 isolation found no detectable standalone benefit from the interaction-structure
 memory at its active tiers, and a three-arm isolation of the refinement basis
-added in revision sharpens that to harm: in the memory's only fitness-affecting
+added in revision sharpens that to harm: in the memory's terminal exploitation
 channel — the basis the deterministic final polish searches along — the learned
 eigenframe is **beaten by the plain coordinate axes** at D50 (Holm 1.4e-4, 25
 of 29 functions) and is not separated from them at D100. The polish itself
