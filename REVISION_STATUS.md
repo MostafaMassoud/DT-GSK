@@ -1336,7 +1336,7 @@ Ordered. Phase 0 is author-only and one item **expires**; everything else is age
 |---|---|---|
 | 0a | **GitHub → Insights → Traffic → Clones** — capture the count | Exposure closed 2026-08-27 (`02d1791`). Rolling 14-day window ⇒ gone ~**2026-09-10**. The only item that becomes *permanently impossible*. |
 | 0b | **GitHub Support ticket** to garbage-collect `b9846e4` | Seven copyrighted PDFs are off every ref but still served by direct SHA (HTTP 206 verified). Turnaround is days–weeks; start the clock. |
-| 0c | **Tell the co-authors** their biographies were public for twenty days | Courtesy and consent. Independent of everything else. |
+| ~~0c~~ | ~~Tell the co-authors their biographies were public~~ — **DONE 2026-08-27** | Discharged by the author; D-0049's co-author limb is closed. |
 
 ### Phase 1 — C1, resolved for the caption; one author decision left
 

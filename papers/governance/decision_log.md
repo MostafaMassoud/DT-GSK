@@ -2124,8 +2124,18 @@ applying all surfaced fixes.
 - **The local v2.14 tag must never be pushed.** Its tree contains all seven
   copyrighted PDFs and both reviewer reports. It is superseded by a tag cut on
   the published commit.
-  **Status**: OPEN - the rewind, the GitHub Support purge request, the push and
-  the tag are author actions and had not been taken when this entry was written.
+  **Status**: PARTLY DISCHARGED (updated 2026-08-27). The rewind, the push and
+  the tag were taken: `v2.14` was cut on the published commit `02d1791` and
+  `v2.15` on `ebcdefe` at pass-42, and the never-push local tag it warns about
+  is superseded. **The GitHub Support purge request remains OPEN** - the seven
+  copyrighted PDFs are off every ref but are still served by direct SHA from
+  `b9846e4` (HTTP 206 verified), and only GitHub can garbage-collect them.
+  **The co-authors were told their biographies had been public** (author,
+  2026-08-27), discharging the obligation recorded in the co-author limb above;
+  `AUTHOR_DATA_HANDOFF.md` remains withheld. Also still open, and expiring:
+  GitHub Insights -> Traffic -> Clones runs on a rolling 14-day window, so the
+  record of who cloned the tree while the PDFs were public is gone after roughly
+  2026-09-10.
 
 
 ## D-0050 (2026-08-27) - Pass-42: correct the published revision before resubmitting

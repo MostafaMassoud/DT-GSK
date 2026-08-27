@@ -53,8 +53,10 @@ there and nowhere else.
 
 **Author-only, still outstanding:** the SuSy resubmission; a GitHub Support ticket to
 garbage-collect commit `b9846e4` (seven copyrighted PDFs are off every ref but still served by
-direct SHA — verified HTTP 206); GitHub Insights → Traffic → Clones, which expires on a 14-day
-window; and telling the co-authors their biographies were public for twenty days.
+direct SHA — verified HTTP 206); and GitHub Insights → Traffic → Clones, on a rolling 14-day
+window that expires **~2026-09-10**, the one item that becomes permanently impossible.
+~~Telling the co-authors their biographies were public~~ — **DONE by the author 2026-08-27**;
+D-0049's status is updated to match.
 
 ## Read this first
 
