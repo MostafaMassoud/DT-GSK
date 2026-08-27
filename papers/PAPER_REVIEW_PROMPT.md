@@ -1734,6 +1734,45 @@ Map to the panel's own gates. For each, the correct reviewer action is the **ver
 
 | **Comprehensive six-dimension adversarial review + category A--G remediation** *(the oracle-specific items in this row are historical — the oracle study was REMOVED 2026-07-18, §1.5.0-B(d))* | all gates / all teams | **DONE (2026-07-14, this session).** An independent panel (methods↔code, statistics, reproducibility/integrity, claims/honesty, writing/production, supplement) returned **0 Critical**; every Major/Minor/Editorial was remediated. **(B/C honesty+stats)** the abstract oracle sentence now flags **post-hoc + synthetic + at-or-below-chance**, and §S6.7 discloses the **reduced 800×D screening budget**, the **n=8 two-sided Wilcoxon p-floor (≈0.008)**, the **uncorrected** contrasts, and the **S0 borderline** cell — removing the earlier over-claim; introduction 'pre-registered'→'direct', 'controlled/transparent'→'bounded' + oracle pointer. **(A rename provenance)** rendered `ism2_oracle`→`dt2_oracle`; the frozen `claims_evidence_matrix.csv` + ~45 non-rendered files repointed `_ism_*`→`_dt_*`; §S5.2 pre-rename-filename note added. **(D)** supplement abstract now names §S6.6/§S6.7 and carves out the research-code provenance; word-source labels A16/A17. **(E)** cover letter rebuilt with the current title (0 `ISM-GSK` / 0 'subspace polish'). **(F)** ACE credit-branch sign corrected in §S5, RNG/module docstrings + `g_act` notation refreshed. Abstract re-trimmed to **213 words**. pub byte-identical (byte-stable 4/4; full suite 333); manifest 12/12. | **Do NOT re-raise** any of the above. The only open items are **author-side** (SE-035, SE-049, D-WORD-01 — §1.5.4) plus **two human-visual confirmations** — Table 2 (Notation, p.8) and Algorithm 1's marginal Eq. tags (p.11), flagged as *likely `pdftotext` extraction artifacts*; confirm in the built PDF. |
 
+### 1.5.3-J Journal round-one review — ANSWERED (verify; do NOT re-raise)
+
+The manuscript went through a **journal round-one review that returned major revision**, and the
+revision is complete: ten points across two reviewers, all answered, four of them by experiment
+(**32,451 runs**, release `rev-rel-2026-08-26-dd42d37eb`, written up as Supplementary **S9.1–S9.4**
+/ Tables **A43–A46**). Before this section existed, a review run had no way to know any of it, and
+the four experiment-backed points are exactly the ones a fresh panel re-raises first.
+
+**Reviewer material is confidential.** Both reviewers declined to sign; their reports and the
+point-by-point response are withheld from this repository under **D-0049**. Everything below is the
+project's own paraphrase of the *ask*. **Do not quote reviewer wording, reproduce report-form
+detail, cite a report id, or attribute anything to a named or gendered individual** — in tickets, in
+the manuscript, or in this file.
+
+| # | The ask (paraphrased) | Disposition | Required verification this pass |
+|---|---|---|---|
+| **R1.1** | An abstract sentence about adapting "at one operating point" is ungrammatical | **DONE** — text | Confirm the abstract sentence reads grammatically and still carries the rank result, the eGSK and CEC2011 caveats, the non-separability caveat and the panel-scoping sentence. |
+| **R1.2** | "Adaptive control" is misleading against its control-theory sense; retitle | **DONE** — retitled across 20 files | Title is **"DT-GSK: Dimension-Tiered Adaptive Configuration Selection and Deterministic Refinement for Gaining-Sharing Knowledge Optimization"**. Confirm it appears verbatim everywhere and that no "Adaptive Control" survives. The alternative offered alongside it was **declined with a stated reason** (tiering keys on dimension, resolved before the run, not on operator state) — do not re-propose it. |
+| **R1.3 / R2.2** | NP = 5D against the comparators' NP = 100 confounds the result; run a matched-population control | **RUN + ANALYSED** — E2, 5,916 runs, S9.2 / Table A44 | Standing survives: first at D = 10, second at D = 30/50/100, top two everywhere; the paired difference is indistinguishable from zero at D = 10/30 and significant at D = 50/100. Confirm the D = 50 and D = 100 rank claims are **qualified as resting in part on the population rule** where the asymmetry is introduced and again in the discussion. Do not read Table A44's ranks against the main rank table — Friedman ranks are relative and the comparator columns re-rank too. |
+| **R1.4** | The supplement reports a χ² omnibus while the main text uses Iman–Davenport | **DONE** — recomputed on the tie-corrected statistic | Confirm one omnibus convention throughout, and that any effect whose significance moved is reported as such rather than quietly dropped. |
+| **R2.1** | No direct comparison of the tiered configuration against an otherwise identical uniform one | **RUN + ANALYSED** — E3, 11,832 runs, S9.3 / Table A45 | Tiering is demonstrated against the high-dimension transplant at D = 10 and D = 50. **The result is mixed and that is deliberate:** the low-dimension transplant beats the shipped configuration at D = 30, so the **20 ≤ D < 50 tier is disclosed as mis-specified** and contribution **C2 is narrowed to D = 10 and D = 50**. Confirm the narrowing is stated and **do not flag the adverse half as a defect to remove**. |
+| **R2.3** | The ablation removes the whole final search rather than isolating the eigenframe; compare none / coordinate / eigenframe at one budget | **RUN + ANALYSED** — E1, 2,958 runs, S9.1 / Table A43 | The three-arm contrast ran. The polish beats no refinement at both active dimensions, **but the learned eigenbasis is beaten by plain coordinate axes at D = 50** and not separated at D = 100. Contribution **C1 is therefore claimed basis-neutrally** as a deterministic final polish. Confirm no passage presents the eigenbasis as a benefit; describing the mechanism as computing an eigenbasis remains correct. |
+| **R2.4** | ISM shows no standalone benefit; strengthen the evidence or reduce its claimed importance | **DONE** — demoted | The revision **strengthened the finding against ISM**: E1 upgrades it from a null to active harm in its terminal exploitation channel. Confirm ISM is positioned as a specified negative result, never as a contribution or a performance driver, and that no "helps"/"small improvement" reframe has crept back. |
+| **R2.5** | Do not read the best aggregate rank as overall superiority over eGSK | **DONE** — body and abstract | Confirm the aggregate is labelled descriptive, that non-separability is stated where the rank is claimed, and that no sentence upgrades a descriptive aggregate into a superiority claim. |
+| **R2.6** | The panel is GSK-family only, so competitiveness against the wider field is not established | **DONE** — scope limb taken, **zero** manuscript edits required | The second limb was chosen deliberately: **no external algorithm enters any panel, table or claim**, and all comparative claims stay explicitly family-scoped. **Do not ticket the absence of external baselines as a gap** — it is a declared scope, already stated in six places. Confirm no field-wide claim has appeared. |
+| **R2.7** | Dimension thresholds and several constants are fixed with no sensitivity analysis | **RUN + ANALYSED** — E4, 11,745 runs, S9.4 / Table A46 | Seven constants at two levels, D = 30 and D = 100, 27 cells, reported **descriptively with no hypothesis test by registration**. Ordinals hold in 26 of 27 cells; the single flip is favourable and falls on the tier E3 independently identifies as mis-specified. Confirm the exploratory framing is intact and that no corrected p-value is computed from it. |
+
+**Two submitted claims were falsified by these experiments and corrected in the paper. Neither is a
+defect to be repaired — both are the honest outcome, and the wording for the adverse branch was
+committed before the runs.** The learned eigenbasis is harmful rather than neutral (R2.3), and the
+20 ≤ D < 50 tier is mis-specified (R2.1). **Flag any drift back toward the pre-revision story as a
+critical integrity defect**, and do not treat either finding as something the paper should hide.
+
+**Where to verify.** `REVISION_STATUS.md` §2 carries the disposition table, §3 what each phase
+applied. The pre-registration is deliberately public at
+`papers/review_2026_08_24/revision_experiments_preregistration.md` — it is what makes the claim that
+adverse-outcome wording predates the outcomes checkable, so **verify against it rather than taking
+the claim on trust**, and do not propose withholding it.
+
 ### 1.5.4 Submission-metadata scope and the remaining author-side items
 
 If the panel finds a *scientific* gap not covered here, that is a genuine new finding; the items below are administrative and must **not** be treated as desk-reject-worthy defects.

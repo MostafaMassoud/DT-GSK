@@ -51,12 +51,20 @@ reference_papers/**/*.pdf
 # withheld with them because it reproduces both reports verbatim. All three stay
 # on disk for the authors and are retained in git only on the never-pushed
 # branch archive/revision-pass-39-full.
-papers/review_2026_08_24/reviewer1_report.pdf
-papers/review_2026_08_24/reviewer_reports_verbatim.md
-papers/review_2026_08_24/response_to_reviewers.md
+# DENY BY DEFAULT, then allow back the one file that must stay public. The
+# previous form listed the three withheld files by exact name, which is an
+# ALLOW-by-default rule wearing a deny's clothing: any reviewer artifact added
+# later - a second reviewer's PDF, a revised report, an editor letter - landed
+# unignored and one `git add -A` from being published. That is the same failure
+# shape as the `reference_papers/*.pdf` glob that never matched a subdirectory
+# and put 38.8 MiB of copyrighted PDFs on the public remote. Verify additions
+# with `git check-ignore -v <path>`, never by reading the pattern.
+papers/review_2026_08_24/**
 # NOT ignored, deliberately: revision_experiments_preregistration.md. It is the
 # authors' own document, quotes no reviewer, and is what the Supplementary
 # Materials' pre-registration claim depends on being checkable.
+!papers/review_2026_08_24/
+!papers/review_2026_08_24/revision_experiments_preregistration.md
 
 # Co-author material supplied privately, including two biographies marked in the
 # file itself as awaiting their subjects' approval.
