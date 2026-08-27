@@ -63,11 +63,15 @@ The decision letter set a **short revision window** and a five-point check-list.
 discharged or inapplicable: references are relevant, the point-by-point response exists, no reviewer
 recommended a reference, and nothing was found impossible to address.
 
-**One is not settled.** The letter asks that revisions be *highlighted in the manuscript* so editors
-and reviewers can see the changes. What the project builds is a **change register** — every changed
-passage as-submitted against as-revised, generated from the tagged diff — which is a companion
-document rather than in-text highlighting. Whether that satisfies the requirement is an editorial
-question nobody has put to the journal.
+**The fifth is discharged on the repository side (2026-08-27/28).** The letter asks that revisions
+be *highlighted in the manuscript* so editors and reviewers can see the changes. The project now
+produces exactly that: a **latexdiff marked-up manuscript** (additions underlined, deletions struck
+through, in place) *and* a **change register** listing all 75 changed passages as-submitted against
+as-revised with the reviewer point each answers — both derived from the tagged diff, both
+rebuildable from `papers/scripts/`. One rendering limit is disclosed in the response rather than
+left to be discovered: latexdiff emits preamble changes as comments, so the retitle does not appear
+as visible markup and is named in the letter instead. Whether the editors accept this treatment is
+their call, but what is being sent is the thing the check-list asks for, not a substitute.
 
 **A claim recorded here earlier was wrong and is withdrawn.** This paragraph used to say the
 manuscript already highlights a few author-flagged passages, so a blanket pass would collide with
