@@ -2213,8 +2213,9 @@ overlay's active tiers, $D \in \{50, 100\}$, on the primary CEC2017 suite (and,
 as a second suite, CEC2013 at $D = 50$).  Cells are compared on per-function
 mean final error by a paired Wilcoxon signed-rank test across functions,
 Holm-corrected over the prespecified three-comparison family, with Friedman
-ranks over the four cells and Vargha--Delaney $A_{12}$ effect sizes on the raw
-runs; the four cells differ overall (Iman--Davenport $F(3,84) = 5.59$,
+ranks over the four cells and Vargha--Delaney $A_{12}$ effect sizes computed
+per function on the raw runs and averaged over functions; the four cells
+differ overall (Iman--Davenport $F(3,84) = 5.59$,
 $p = 1.5\times10^{-3}$; $F(3,84) = 4.87$, $p = 3.6\times10^{-3}$; and
 $F(3,81) = 5.96$, $p = 1.0\times10^{-3}$ for CEC2017 $D50$, CEC2017 $D100$,
 and CEC2013 $D50$).  These omnibus values use the tie-corrected Friedman
@@ -3850,8 +3851,10 @@ is absent is coverage on the untested side, and no claim is made there.
 \caption{Exploratory one-factor sensitivity of \dtgsk{}'s panel standing.
 Descriptive only: no test is performed and no $p$-value is reported.  Rank and
 ordinal are recomputed over the seven-algorithm panel with only the \dtgsk{}
-column substituted; W/T/L counts functions where the shipped configuration beats
-the perturbed one; Ratio is the median across functions of perturbed over
+column substituted, so the whole panel re-ranks and no rank here may be
+differenced against the main-text rank table; W/T/L counts functions where the
+shipped configuration beats the perturbed one; Ratio is the median across
+functions of perturbed over
 shipped mean error.  Perturbed cells use 15 repetitions against the frozen
 panel's 51.  $^{\ast}$Executed levels at $D = 100$ exceed the registered
 twenty per cent and are one-sided (registration amendment
@@ -3868,9 +3871,9 @@ at $D = 30$ moves \dtgsk{} from second to first at that dimension --- and it
 falls on the same tier that the transplant experiment of
 Section~\ref{sec:supp:rev:tiering} identifies as mis-specified.  The two
 observations are consistent, and neither is a test of the other.  No constant
-tested here is knife-edge under the levels executed; that includes the one
-constant the project's own configuration record had previously flagged as
-sensitive on a different suite.
+tested here is knife-edge in magnitude under the levels executed; that
+includes the one constant the project's own configuration record had
+previously flagged as sensitive on a different suite.
 % BIND: E4 headline (ordinal-stability wording, as registered)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

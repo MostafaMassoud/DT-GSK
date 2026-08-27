@@ -1,6 +1,6 @@
 # SuSy submission kit — everything pasteable, in portal order
 
-Regenerated 2026-08-27 from the pass-43 / v2.16 REVISION-1 sources (the
+Regenerated 2026-08-27 from the pass-44 / v2.17 REVISION-1 sources (the
 round-one response to algorithms-4507562). Every value below is copied from
 the shipped manuscript; do not retype from memory — copy from here so the
 form matches the paper exactly (D16.5).
@@ -111,7 +111,7 @@ version (D-0036), and the form must match the manuscript.
 
 Paste: https://github.com/MostafaMassoud/DT-GSK
 The originally submitted version corresponds to repository tag v2.13 and
-this revised version to tag v2.16 — matching the manuscript's own Data
+this revised version to tag v2.17 — matching the manuscript's own Data
 Availability Statement exactly. No Zenodo/DOI for the repository; the
 article DOI is assigned by the journal (D-0044).
 
@@ -156,14 +156,14 @@ nonparametric comparison of metaheuristics, or adjacent DE/PSO families.
 1. The manuscript ID is already known: **algorithms-4507562**. A revision keeps
    it; there is no new ID to record.
 2. Do NOT rebuild anything in the repo afterwards. The five uploaded files are
-   hash-recorded in `submission_package_manifest.json` at **v2.16**, and that
-   record is what makes the submitted bytes checkable. Freeze pass-43 and tag
-   v2.16 are the frozen state of this resubmission, exactly as pass-38 / v2.13
+   hash-recorded in `submission_package_manifest.json` at **v2.17**, and that
+   record is what makes the submitted bytes checkable. Freeze pass-44 and tag
+   v2.17 are the frozen state of this resubmission, exactly as pass-38 / v2.13
    is the frozen state of the original.
-3. If a SECOND revision is requested, it becomes pass-44 through change
+3. If a SECOND revision is requested, it becomes pass-45 through change
    control: a new freeze pass and a new superseding tag, never an edit to
-   v2.16 in place (D-0045).
+   v2.17 in place (D-0045).
 4. Two of the uploaded artifacts — the response letter and the change register —
    are deliberately not in the repository (D-0049). They are regenerable: the
    response letter from its Markdown source on disk, the register from
-   `git diff v2.13 v2.16` over the manuscript sources.
+   `git diff v2.13 v2.17` over the manuscript sources.
