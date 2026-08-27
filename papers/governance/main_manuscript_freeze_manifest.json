@@ -122,7 +122,7 @@
     "revision_analysis_pins": "NOT RE-RUN at pass-43, and not required: no analysis artifact was touched, which check_frozen_analysis confirms at 115/115."
   },
   "remint_note": "pass-43 MINTED 2026-08-27. Five of the fifteen tracked files move: main.tex for the tag, and all four main/supplementary renders. cover_letter.pdf does not move - cover_letter.tex was not touched this pass. NEW: the manifest now carries a source_files list, checked by check_manifest.py alongside the tracked files but counted separately, so the tracked-file count and every recorded 15/15 stay true.",
-  "published_commit": "ae4d4e76eb27a4e5955ab26818204951e26b0c9d",
+  "published_commit": "fe813ff2431527f8991a843eb2686b9d7c348c06",
   "published_commit_note": "Pass-43 was made directly on the published branch, as pass-42 was, so no squash was required and both anchor_commit and published_commit resolve in the public history. anchor_commit is the commit that froze the tree; published_commit is the mint commit that tag v2.16 points at, recorded after the tag was cut because a commit cannot name its own SHA. The pass-41 disclosure that anchor_commit does not resolve remains true of pass-41 and every earlier pass.",
   "source_files": [
     {
