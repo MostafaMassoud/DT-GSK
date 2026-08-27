@@ -1336,17 +1336,26 @@ worktree blind spot.
    dropped so it is not re-raised as an oversight: it was offered, considered and declined, and
    the consequence — that a one-day slip is a missed deadline — is accepted knowingly. The
    invitation stays open in the letter if that changes.
-   ⚠ **One check-list item is not discharged:** the letter asks that revisions be *highlighted in
-   the manuscript*. The project builds a change register (the tagged diff, as-submitted against
-   as-revised), which is a companion document, not in-text highlighting. Whether that satisfies
-   the requirement has not been put to the journal.
-   **The stated obstacle was checked on 2026-08-27 and does not exist.** This entry used to say the
-   manuscript already uses `\hl` for a few author-flagged passages, so a blanket pass would collide
-   with existing markup. It carries **no highlighting at all** — no `\hl`, no `soul`, no
-   `colorbox`, no highlight macro anywhere in `main.tex`, `supplementary.tex` or the six section
-   files. Two consequences: a highlighted manuscript is not blocked the way this entry claimed, and
-   the change register is **not** built — `change_register.pdf` exists nowhere and no script
-   produces it, so route A is manual work at resubmission over the 75 hunks of `v2.13..v2.21`.
+   ✅ **Check-list item (II) is DISCHARGED (2026-08-27).** The letter asks that revisions be
+   *highlighted in the manuscript*, and the project now produces exactly that:
+   `DT-GSK-changes-marked.pdf`, a latexdiff marked-up manuscript with additions underlined and
+   deletions struck through in place, from `papers/scripts/build_change_marked_pdf.py` (48 pp; 47
+   added and 40 deleted blocks). Beside it `DT-GSK-change-register.pdf`, from
+   `build_change_register.py`, lists all 75 changed passages as-submitted against as-revised with
+   the reviewer point each answers (21 pp). Both are derived and gitignored; both rebuild from the
+   tags, and the register independently reproduces the kit's "75 hunks across 7 files".
+   **Two claims this entry previously made were false and are withdrawn.** It said the manuscript
+   already uses `\hl`, so a blanket pass would collide with existing markup: it carries **no
+   highlighting at all** — no `\hl`, no `soul`, no `colorbox`, nowhere in `main.tex`,
+   `supplementary.tex` or the six section files. And the kit said latexdiff was unusable because
+   MiKTeX ships only a Perl shim: half right. Plain `latexdiff` does fail, on a missing
+   `Algorithm::Diff`, but **`latexdiff-so` bundles it and works**; with `ulem` added the four-pass
+   build is clean. The cheaper option had been made to look like the only option.
+   ⚠ **One caveat survives, and it is author-side at upload.** latexdiff records preamble changes
+   as comments, so **the retitle does not appear marked** in the PDF although it was made. That is
+   stated twice in the point-by-point response — in the artifact overview and under R1.2 itself —
+   so it is covered; it is recorded here only so nobody re-discovers it as a defect. Whether MDPI
+   accepts these two documents remains an editorial question that has not been put to the journal.
 2. ~~MT-01 bound wording~~ — **SETTLED and applied.** MT-01 binds the *no-novel-operator* claim, not
    the layer's name; renamed in all three sites with the inheritance clause intact, and the matrix
    `permitted_wording` updated to match.
