@@ -1335,8 +1335,14 @@ worktree blind spot.
    ⚠ **One check-list item is not discharged:** the letter asks that revisions be *highlighted in
    the manuscript*. The project builds a change register (the tagged diff, as-submitted against
    as-revised), which is a companion document, not in-text highlighting. Whether that satisfies
-   the requirement has not been put to the journal, and the manuscript already uses `\hl` for a
-   few author-flagged passages, so a blanket pass would collide with existing markup.
+   the requirement has not been put to the journal.
+   **The stated obstacle was checked on 2026-08-27 and does not exist.** This entry used to say the
+   manuscript already uses `\hl` for a few author-flagged passages, so a blanket pass would collide
+   with existing markup. It carries **no highlighting at all** — no `\hl`, no `soul`, no
+   `colorbox`, no highlight macro anywhere in `main.tex`, `supplementary.tex` or the six section
+   files. Two consequences: a highlighted manuscript is not blocked the way this entry claimed, and
+   the change register is **not** built — `change_register.pdf` exists nowhere and no script
+   produces it, so route A is manual work at resubmission over the 75 hunks of `v2.13..v2.21`.
 2. ~~MT-01 bound wording~~ — **SETTLED and applied.** MT-01 binds the *no-novel-operator* claim, not
    the layer's name; renamed in all three sites with the inheritance clause intact, and the matrix
    `permitted_wording` updated to match.

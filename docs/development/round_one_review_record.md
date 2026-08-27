@@ -67,8 +67,14 @@ recommended a reference, and nothing was found impossible to address.
 and reviewers can see the changes. What the project builds is a **change register** — every changed
 passage as-submitted against as-revised, generated from the tagged diff — which is a companion
 document rather than in-text highlighting. Whether that satisfies the requirement is an editorial
-question nobody has put to the journal, and the manuscript already uses highlighting for a few
-author-flagged passages, so a blanket pass would collide with existing markup.
+question nobody has put to the journal.
+
+**A claim recorded here earlier was wrong and is withdrawn.** This paragraph used to say the
+manuscript already highlights a few author-flagged passages, so a blanket pass would collide with
+existing markup. **It does not.** Checked 2026-08-27 across `main.tex`, `supplementary.tex` and
+all six section files: no `\hl`, no `soul`, no `colorbox`, no highlighting macro of any kind. The
+only hits are the word "highlighted" in ordinary prose. There is no markup to collide with, so
+the obstacle that reasoning rested on does not exist.
 
 ## Where the rest lives
 

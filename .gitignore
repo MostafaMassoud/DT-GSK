@@ -105,3 +105,9 @@ papers/figures/concept/*_src.log
 # Visio OLE build product (C-001 5.4: never commit; regenerate with
 # papers/scripts/embed_visio_ole.py). Committed once by accident 2026-08-01.
 papers/DT-GSK_visio.docx
+
+# Change-marked manuscript for MDPI check-list item (II). Derived: rebuild with
+# papers/scripts/build_change_marked_pdf.py, which diffs v2.13 against the
+# submitted tag. Not committed, for the same reason the change register is not:
+# it is a rendering of the tagged diff, and the tags are the record.
+papers/submission/DT-GSK-changes-marked.pdf
