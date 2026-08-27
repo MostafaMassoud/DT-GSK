@@ -2132,9 +2132,16 @@ applying all surfaced fixes.
   **Status**: PARTLY DISCHARGED (updated 2026-08-27). The rewind, the push and
   the tag were taken: `v2.14` was cut on the published commit `02d1791` and
   `v2.15` on `ebcdefe` at pass-42, and the never-push local tag it warns about
-  is superseded. **The GitHub Support purge request remains OPEN** - the seven
-  copyrighted PDFs are off every ref but are still served by direct SHA from
-  `b9846e4` (HTTP 206 verified), and only GitHub can garbage-collect them.
+  is superseded. **The GitHub Support purge request remains OPEN, and it covers
+  TWO unreachable commits rather than one** - `b9846e4`, the seven copyrighted
+  PDFs at 38.8 MiB, and its parent `bddfe24`, which carries
+  `AUTHOR_DATA_HANDOFF.md` and so the co-authors' biographical data. Both are off
+  every ref and both are still served by direct SHA: HTTP 206 re-verified
+  2026-08-27, with the web UI still rendering the tree at HTTP 200. Purging only
+  the child would leave the parent serving the personal data. The request can
+  succeed - 0 forks, network_count 0 and 0 pull requests, so no fork network holds
+  a competing reference. Full SHAs, the request text and the post-purge check:
+  `docs/development/github_exposure_traffic_record.md`.
   **The co-authors were told their biographies had been public** (author,
   2026-08-27), discharging the obligation recorded in the co-author limb above;
   `AUTHOR_DATA_HANDOFF.md` remains withheld. **The traffic record is captured**

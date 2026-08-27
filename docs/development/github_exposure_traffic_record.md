@@ -83,3 +83,52 @@ floors, not estimates.
   reading the pattern.
 - **The branches that must never be pushed:** `archive/revision-pass-39-full` and
   `revision/pass-39` both carry this material in their histories.
+
+---
+
+# Remediation: the GitHub Support purge request
+
+## Scope -- TWO unreachable commits, not one
+
+D-0049 and the Phase 0 work order originally named only `b9846e4`. Verified 2026-08-27, the
+rewind left **two** commits unreachable from every branch and tag, and **both are still served**:
+
+| Commit (full SHA is what Support needs) | Carries | Still served |
+|---|---|---|
+| `b9846e47024e48a0f8ce3e4f22bffbd794b2a355` | seven third-party copyrighted PDFs, 38.8 MiB, under `reference_papers/Academic_Research_Guidelines/` | **HTTP 206** |
+| `bddfe24ede2dbf934bc76636a61b4f14ff3ff470` | `papers/submission/AUTHOR_DATA_HANDOFF.md` (16.9 KiB) -- co-author biographical data published before its subjects approved it | **HTTP 206** |
+
+`bddfe24` is the parent of `b9846e4`. Purging only the child leaves the parent serving the
+handoff, and the parent is the one carrying other people's personal data. **A request naming one
+SHA is an incomplete request.**
+
+The web UI also still renders the tree: `GET /tree/b9846e4.../reference_papers` returns **HTTP 200**.
+
+Last good commit before the pair, and still on `main`: `de762a4745845e625c6c264df1e31a421c7634e0`.
+
+## Why this request can actually succeed
+
+Checked against the public API on 2026-08-27: **0 forks, `network_count` 0, 0 pull requests in any
+state.** Nothing outside the repository holds a reference to these objects. Forks are the usual
+reason a purge request fails -- objects in a fork network survive because another repository
+legitimately references them, and GitHub will not delete another account's data. That failure mode
+does not apply here, so a garbage collection should be complete.
+
+This is **not** a DMCA matter. DMCA is for reporting someone else's infringement; here the
+repository owner published the material and is asking for their own remediation.
+
+## After the purge
+
+Re-run the reachability check and expect **404** where it now returns 206:
+
+    curl -s -o NUL -w "%{http_code}\n" -r 0-0 \
+      https://raw.githubusercontent.com/MostafaMassoud/DT-GSK/<full-sha>/<path>
+
+Until then, and permanently afterwards: **never push `archive/revision-pass-39-full` or
+`revision/pass-39`.** Both carry this material in their histories, and pushing either would
+re-anchor the very objects the request asks GitHub to collect -- making the purge pointless and
+the second request harder to justify.
+
+The two SHAs will stop resolving on GitHub once collected. They still resolve in any local clone
+that has them, which is where the evidence for this record lives; nothing here depends on GitHub
+continuing to serve them.

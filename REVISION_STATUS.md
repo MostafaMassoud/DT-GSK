@@ -1359,7 +1359,7 @@ Ordered. Phase 0 is author-only and one item **expires**; everything else is age
 | | Action | Why now |
 |---|---|---|
 | ~~0a~~ | ~~**GitHub → Insights → Traffic → Clones** — capture the count~~ — **DONE 2026-08-27** | Captured: 11 clones, 9 unique cloners, 08/13–08/26 — all 14 days inside the exposure window; 2 web views. **Six days (08/07–08/12) had already rolled off and are permanently lost**, so the counts are floors. Record: `docs/development/github_exposure_traffic_record.md`. |
-| 0b | **GitHub Support ticket** to garbage-collect `b9846e4` | Seven copyrighted PDFs are off every ref but still served by direct SHA (HTTP 206 verified). Turnaround is days–weeks; start the clock. |
+| 0b | **GitHub Support ticket** — garbage-collect **`b9846e4` *and* `bddfe24`** | **Two** unreachable commits, not one: the seven copyrighted PDFs, and the parent carrying `AUTHOR_DATA_HANDOFF.md`. Both re-verified still served, HTTP 206, 2026-08-27. 0 forks / 0 PRs, so a purge can be complete. Full SHAs and request text: `docs/development/github_exposure_traffic_record.md`. Turnaround days–weeks; start the clock. |
 | ~~0c~~ | ~~Tell the co-authors their biographies were public~~ — **DONE 2026-08-27** | Discharged by the author; D-0049's co-author limb is closed. |
 
 ### Phase 1 — C1, resolved for the caption; one author decision left
