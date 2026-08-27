@@ -1951,7 +1951,12 @@ applying all surfaced fixes.
 - **Change request**: CR-0023 (sub-items a-f). **Open**: seven author decisions,
   the revision deadline foremost, and the four experiments. `main.tex:156`
   ("eigenframe refinement") is held pending the E1 outcome.
-  **Status**: OPEN (revision in progress; R1.4 applied and verified, uncommitted).
+  **Status**: DISCHARGED (updated 2026-08-27). The revision completed: all four
+  experiments ran, R1.4 is applied and committed, and `main.tex:156` was resolved
+  by the E1 outcome - the abstract now reads "budget-exact final refinement" and
+  contribution C1 is claimed basis-neutrally. Of the seven author decisions the
+  entry lists, the deadline stopped gating when the campaign completed; the only
+  survivor is the SuSy resubmission, tracked in REVISION_STATUS.md section 5.
 
 ## D-0048 (2026-08-26) - Round-one revision experiments closed: two submitted claims falsified, both accepted
 

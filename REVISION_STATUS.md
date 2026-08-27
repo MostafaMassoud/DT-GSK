@@ -1317,9 +1317,10 @@ worktree blind spot.
 3. ~~`main.tex:156` "eigenframe refinement"~~ — **RESOLVED by E1 and applied.** The abstract now
    reads "budget-exact final refinement"; zero occurrences of "eigenframe refinement" survive in
    `main.tex` or any section. C1 is basis-neutral throughout.
-4. **`PAPER_REVIEW_PROMPT.md:1771`** still names the OLD title as "CURRENT". The live `PROJECT_TITLE`
-   field at :1621 *is* updated; :1771 is an audit instruction and remains a false-alarm source for any
-   future review run. Low priority.
+4. ~~`PAPER_REVIEW_PROMPT.md` names the OLD title as "CURRENT"~~ — **DONE 2026-08-27.** All four
+   stale occurrences retired, including the two inside the residual-gap audit step. The one
+   surviving mention of the old fragment is deliberate: §1.5.3-J instructs a reviewer to confirm
+   none survives.
 5. **SuSy portal (author-only)** — the new title and the revised keyword list must be re-entered in the
    revision form. Portal metadata does not update from the PDF.
 
