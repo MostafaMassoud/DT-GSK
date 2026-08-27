@@ -163,7 +163,18 @@ def rewrite_link(target: str, link_map: dict[str, str], current_dir: str = "") -
         return f"{link_map[normalized]}{anchor}"
     if normalized.endswith(".md") and normalized in link_map:
         return f"{link_map[normalized]}{anchor}"
-    return f"{target}{anchor}"
+    # No generated page for this target, so the link points at a real file that
+    # is NOT rewritten: a root document (REVISION_STATUS.md, README.md), or an
+    # artifact under papers/. Such a link was authored relative to its Markdown
+    # SOURCE under docs/, but every Markdown page is emitted flattened into
+    # docs/html/ -- one directory deeper than docs/ -- so passing the link
+    # through unchanged leaves it exactly one hop short. Resolve it against the
+    # source's own directory to get a path relative to docs/, then add the hop
+    # back out of html/.
+    if normalized.startswith("/"):
+        return f"{target}{anchor}"
+    resolved = posixpath.normpath(posixpath.join(current_dir, normalized))
+    return f"../{resolved}{anchor}"
 
 
 def render_table(lines: list[str], link_map: dict[str, str], current_dir: str = "") -> str:
