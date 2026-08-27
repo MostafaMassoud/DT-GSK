@@ -2253,6 +2253,20 @@ applying all surfaced fixes.
   control drawn from the cells where the two legs already AGREE proves nothing
   about which build is which; an early reading of this experiment went wrong for
   exactly that reason. The discriminating cells are the ones where they differ.
+- **Independently replicated the same day, and it establishes something extra.**
+  The author re-ran the identical command in a separate shell and process and
+  obtained the identical verdict: 255 of 255 cells, zero seed mismatches, 26 of
+  26 divergent cells matching the transplant arm and none matching the archive,
+  229 of 229 agreeing cells matching both. Because both executions matched the
+  same fixed reference values on every cell, the two runs produced **byte-
+  identical results across separate processes and shells**. That is a stronger
+  statement of the determinism claim than the D >= 50 regression test makes:
+  `tests/regression/test_dt_gsk_byte_stable_high_dim.py` asserts repeat-identity
+  **within one process**, whereas this is repeat-identity **across processes**
+  at D = 100 with the numeric stack pinned - which is the form a referee would
+  actually check. It is recorded here rather than claimed in the paper, for the
+  same reason as everything else in this entry: the run is diagnostic staging,
+  not a promoted release.
 - **No manuscript change follows, and that is deliberate.** The Supplementary
   already states that the control "re-executes, under the current revision, runs
   archived under the earlier one; it does not reproduce them exactly", and the
