@@ -1,8 +1,8 @@
 {
   "schema": "main_manuscript_freeze_manifest/v1",
-  "phase": "PASS-47 S9 provenance stated, six unresolvable source anchors made subtractive, one caption convention, and a pass-46 regression corrected.",
-  "generated_utc": "2026-08-27T18:00:00+00:00",
-  "anchor_commit": "959f4440bd2ec7ded7088366bde17603936d7d35",
+  "phase": "PASS-48 repair of a phantom source anchor introduced by pass-47, the specification gap it concealed, and four generator/prose riders.",
+  "generated_utc": "2026-08-27T20:30:00+00:00",
+  "anchor_commit": "0ef96e9360df83e4b98b5b450d2ef87d1475868b",
   "pre_freeze_base_commit": "b9846e47024e48a0f8ce3e4f22bffbd794b2a355",
   "evidence_release": {
     "primary": "rel-2026-07-20-67d9345f9",
@@ -11,8 +11,8 @@
     "ablation": "abl-rel-2026-07-20",
     "revision": "rev-rel-2026-08-26-dd42d37eb"
   },
-  "scientific_content_status": "CORRECTED. Section S9 now states its own compound provenance and S5.10 no longer claims primary-release provenance for it. Six per-step source anchors no longer carry line numbers that do not resolve. No number, rank, p-value or decision changes.",
-  "freeze_statement": "Freeze for resubmission. T6, T8 and T27 discharged, plus a regression from pass-46: appending Amendment A3 to the pre-registration had left S9's preamble stating a deviation count that was one short. The count is dropped rather than incremented. T8 was made purely subtractive after two drafted function names proved wrong.",
+  "scientific_content_status": "CORRECTED. Supplementary S5 step 5 named a frozen source symbol that does not exist; it now names _ace_update_probs, verified against the module. The ACE/ARGP operating cycle states that ARGP retirement acts in shared scope and writes back over both halves of the D>=20 split memory. The local-search admission list is no longer closed at four gates. No number, rank, p-value or decision changes.",
+  "freeze_statement": "Freeze for resubmission. Driven by a defect pass-47 introduced, not by the six open tickets: the phantom anchor _ace_apply_credit rendered inside the paragraph promising the specification can be checked line by line. T12, T13, T21, T23 and T24 ride at near-zero marginal cost. T28 is deliberately left alone. T12 was applied at a bound-free locus, NOT the one the ticket filed, which would have evicted three tier constants from a live BIND window with the gate green.",
   "hash_algorithm": "SHA-256",
   "build_environment": {
     "pdf_source_date_epoch": 1783468800,
@@ -28,7 +28,7 @@
   "files": [
     {
       "path": "papers/main.tex",
-      "sha256": "1d5087866c66cc89705e92a580e1d31560bc3d9a5790034f24e34163034a7c72",
+      "sha256": "f1de50ec0bfdf06a331de8200a1aa3d7fffd3049aed396587a206a52189b2ffa",
       "bytes": 26099
     },
     {
@@ -58,23 +58,23 @@
     },
     {
       "path": "papers/DT-GSK.pdf",
-      "sha256": "8fc13740b198d46978e10f04a5147f6b4e1f8a7587dc5c19462c7bfab0e5fac0",
+      "sha256": "0e62550ed32a0ae0fb0c03232178499ddf31875f37e84a3ee2cf624a06870d69",
       "bytes": 822023
     },
     {
       "path": "papers/DT-GSK.docx",
-      "sha256": "158fc92ae237da355717ceca9677cbac1d24631d4076c6dff2441de5f2907086",
-      "bytes": 1011621
+      "sha256": "7ab773ec66e5104034b90d7b97770b9b268920cb0390351b52135848876f7ed4",
+      "bytes": 1011622
     },
     {
       "path": "papers/supplementary.pdf",
-      "sha256": "2d0c36600e3d0e965b3e0b615ade17de76463bae2eb2bd1fd21b35d3be6af36d",
-      "bytes": 1750085
+      "sha256": "aaa88d7f9a2cc18ed6fa2d767ae903078b9e761ba4c9d318d42ed27cdcaa9b62",
+      "bytes": 1750647
     },
     {
       "path": "papers/supplementary.docx",
-      "sha256": "6a65676792b32bf2cc291761e8cef03fa26ed11ee82163b10bfc34edce185f9b",
-      "bytes": 9623123
+      "sha256": "cc16264eea4b50260e3c4dd69e4274e6100be624b7375f57de1c4e3462f6e138",
+      "bytes": 9623371
     },
     {
       "path": "papers/cover_letter.pdf",
@@ -121,14 +121,14 @@
     "audit_manuscript": "NOT RE-RUN at pass-43. Pass-41 result: exit 0; terminology_hits 0; blocked_wording_hits 2 (pre-existing). Should be re-run before resubmission if the author wants it current.",
     "revision_analysis_pins": "NOT RE-RUN at pass-43, and not required: no analysis artifact was touched, which check_frozen_analysis confirms at 115/115."
   },
-  "remint_note": "pass-47 MINTED 2026-08-27. Six review tickets remain, all Editorial or Minor: T12, T13, T21, T23, T24, T28. T22 is author-side (open-in-Word check, D-WORD-01).",
-  "published_commit": "959f4440bd2ec7ded7088366bde17603936d7d35",
+  "remint_note": "pass-48 MINTED 2026-08-27. The lesson is procedural: pass-47's applier printed a success message it never verified, so a replacement that silently failed to match shipped a false symbol. Assert the END STATE after a batch, never per-edit success - the same rule D-0039 recorded and this pass re-learned.",
+  "published_commit": "0ef96e9360df83e4b98b5b450d2ef87d1475868b",
   "published_commit_note": "Pass-45 was made directly on the published branch, so anchor_commit and published_commit are the same commit and both resolve. The pass-41 disclosure that anchor_commit does not resolve remains true of pass-41 and every earlier pass.",
   "source_files": [
     {
       "path": "papers/supplementary.tex",
-      "sha256": "8f0719c467195d14bf59a65575d768659ad45c13e0df5ae25d62f4fd4ad77548",
-      "bytes": 236727
+      "sha256": "8a6e96f1be8e45ca08f4fcbc418d04d18e017fa3e827f11570e4ce4145df62ac",
+      "bytes": 237392
     },
     {
       "path": "papers/cover_letter.tex",
