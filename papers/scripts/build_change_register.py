@@ -62,11 +62,14 @@ RULES = [
     ("R2.3", "Eigenframe isolation -- C1 claimed basis-neutrally",
      ["eigenframe", "eigenbasis", "basis-neutral", "coordinate axes", "s9.1",
       "learned basis", "three-arm"]),
+    # S9.2 is Matched Population Size and S9.3 is Tiered Versus Tier-Constant.
+    # These two keys were transposed in the first version of this file, which
+    # attributed each experiment's passages to the other reviewer's point.
     ("R2.1", "Tiered versus uniform -- C2 narrowed to where tiering was shown",
-     ["s9.2", "mis-specified", "misspecified", "uniform parameter", "tiering is",
-      "low-dimension parameter set"]),
+     ["s9.3", "mis-specified", "misspecified", "uniform parameter", "tiering is",
+      "tier-constant", "low-dimension parameter set"]),
     ("R1.3 / R2.2", "Population rule NP = 5D against the comparators' NP = 100",
-     ["np = 100", "np=100", "population rule", "matched population", "s9.3",
+     ["np = 100", "np=100", "population rule", "matched population", "s9.2",
       "matched np", "$np$"]),
     ("R2.7", "Sensitivity of thresholds and constants",
      ["s9.4", "sensitivity analys", "knife-edge", "ordinal"]),
