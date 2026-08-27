@@ -85,52 +85,62 @@ between the two legs (the one apparent config difference was a `json.dump` artif
 the integer keys correctly), and NP was not transplanted, so E3 is budget-fair. Yet **27 of 1479**
 run cells differ at D = 100, median relative 1.6e-4, **max 5.3e-2** — not floating-point noise.
 
-**INVESTIGATED 2026-08-27 — the residual is a cross-vintage comparison artifact, and contribution
-C3 is NOT falsified.** Every step below was verified in this repository.
+**INVESTIGATED 2026-08-27 — contribution C3 is NOT falsified, and the residual's cause is narrowed
+to one uncertified link but is NOT resolved.** Corrected after adversarial challenge; two steps of
+the first write-up of this block were wrong and are marked below.
 
 *Ruled out.* **Configuration:** identical — all 108 resolved keys match `pub_overrides(100)`; the
-one apparent difference is a `json.dump` artifact in `environment.json`, and the generated YAML at
+apparent difference is a `json.dump` artifact, and the generated YAML at
 `_configs/e3_uniform_high_cec2017.yml:36` carries genuine unquoted integer keys. **Pairing:** seed,
 `nfes` and termination match on all 1479 cells; zero seed mismatches. **Threading:** both drivers
 pin `OMP`/`MKL`/`OPENBLAS`/`NUMEXPR`/`NUMBA` to 1, and `numba_threads_active` is 1 in both records.
-**Telemetry:** the legs differ on `generation_logs_enabled` and `convergence_graphs_enabled`, which
-gate an O(NP·D) coverage kernel — but that kernel is **inert**, because its only search-affecting
-consumer sits behind `ace_coverage_weighted`, which resolves `False` in both legs.
+**Telemetry:** ruled out, but **not for the reason first recorded here.** The first write-up said
+`generation_logs_enabled` gates the coverage kernel through `_need_coverage`. **That is wrong — do
+not repeat it.** `generation_callback` is set only by the opt-in `dt_diagnostics` path
+(`dt_gsk.py:107-128`), which the campaign never used; those two YAML flags are consumed only in
+post-run persistence (`run_experiment.py:1736-1737`). The conclusion survives by a **stronger**
+route: the flags never reach the optimizer at all.
 
-*What actually explains it.* The divergence is **confined to the D ≥ 50 tier**.
-`interaction_graph_min_dim = 50`, so the U-low/D = 10 control exercises neither the ISM nor the
-eigenframe polish — which is precisely why it prints a clean 0/29/0 — while D = 100 exercises both.
-The 27 cells cluster on **5 of 29 functions** (F7 ×9, F13 ×8, F20 ×7, F30 ×2, F14 ×1); under random
-scatter 27 cells would touch roughly 20 functions, and three of the five are **hybrids**, whose
-group structure is exactly what makes the interaction matrix near-degenerate. At D ≥ 50 the polish
-basis is `np.linalg.eigh` of the symmetrised ISM matrix (`_dt_core.py:1909`) ordered by a stable
-argsort: the sort fixes *ordering*, but cannot canonicalise eigenvector **sign** or resolve a
-**degenerate subspace**, where any orthonormal rotation is a valid LAPACK answer. The project
-already concedes the fragility — `run_revision_experiments.py`'s own docstring reads "Single-thread
-the numeric stack; D>=50 byte-stability depends on it."
+*Measured directly this session.* Two probes, threads pinned before `numpy` import, `dt_gsk.optimize`
+in-process, 60k evaluations, seed 12345:
 
-*And the two legs are not the same binary.* Shipped ran **2026-07-18** at commit `251fc8cb`, which
-is **unrecoverable** (squashed out of every ref). The revision ran **2026-08-26** at `63bd484`.
-CR-0007 records that a `_dt_core.py` correction **"CHANGES TRAJECTORIES wherever the polish fires
-(D>=50)"**, and the module's current hash `3ce5db52…` differs from CR-0007's own recorded post-fix
-hash `dc2d59db…`, so it moved again after that fix.
+| Probe | Result |
+|---|---|
+| Same build, 1 thread, repeated — cec2017 F13/F20/F7 at D = 50 and F13 at D = 100 | **Bit-identical**, including on the functions that diverge across builds |
+| Same build, 8 threads vs 1 thread | D = 50 identical; **D = 100 F13 differs** (`…10924.327439041834` vs `…041108`, ~7e-14 relative) |
 
-**Consequence for contribution C3 — do not narrow it.** C3 claims that fixed code, fixed
-configuration and the declared environment reproduce byte-identically. This residual compares two
-builds five weeks apart, so **it is not a counterexample to C3**, and conceding it as one would give
-away a headline contribution for free.
+So **byte-stability holds at D ≥ 50 for a fixed build in the pinned environment** — the tier the
+regression KAT never covered — and it is genuinely thread-sensitive at D = 100.
 
-**But C3 is under-evidenced, and that is the real finding.**
-`tests/regression/test_dt_gsk_byte_stable.py:10` states in terms that its cells are "D<=30 (below
-the D>=50 SGSM/parallel-kernel tier)". **The only test backing byte-stability stops below the tier
-where the thread-sensitive eigendecomposition lives.** CR-0007 already noted this gap let C006
-through. Extending that KAT to D ≥ 50 is cheap and converts C3 from asserted to demonstrated — and
-if it fails, a genuine bug surfaces before a reviewer finds it.
+*The paper already says this.* `performance.tex:250-258` states that "byte-identical reproduction at
+$D \geq 50$ requires single-threaded numerical kernels", that the shipped runs use one thread, and
+that determinism "is established for \dtgsk{} in its declared single-threaded environment"; it
+further records that reproduction **across producer commits** is not claimed, citing a comparator
+re-execution where "a floating-point path shifted between" commits. **C3 is therefore already
+correctly scoped, and must NOT be narrowed.**
 
-**Proven vs probable.** Everything above is verified except the specific channel: the
-eigh sign/degeneracy mechanism is *available*, *consistent with the clustering* and *consistent with
-the project's own thread-sensitivity note*, but the shipped binary is unrecoverable, so it cannot be
-demonstrated by re-running. **State the vintage difference; do not assert the mechanism.**
+*Where it actually stands.* The two legs are not the same binary: shipped ran 2026-07-18 at
+`251fc8cb` (unrecoverable — squashed off every ref), revision 2026-08-26 at `63bd484`. But a
+cross-build explanation **collides with a printed, bound claim**: `supplementary.tex:1254-1267`
+(bound at `:1268`) says the CR-0013…CR-0018 edits to `_dt_core.py` were "certified *bit-identical*",
+re-verified "with zero divergence", and that "No reported number, rank, $p$-value or decision …
+depends on which of the two revisions is used." Table A45's D = 100 row is a counterexample to that
+sentence. **The certification has exactly one hole, and the residual sits in it:** CR-0015's
+hex-identity evidence lists cec2017 D10, cec2017 D50 and cec2013lsgo D1000 — **cec2017 D100 is
+absent** (CR-0016, by contrast, lists D10/D50/D100). CR-0015 is the dead-work-removal link that
+introduced the `_need_coverage` gate.
+
+*Proven vs probable.* The certification gap is **fact**. That it caused the residual is
+**unproven** — state the gap, never the causation. And the first write-up's appeal to
+`np.linalg.eigh` as the *cause* is **withdrawn**: given identical input on identical LAPACK it is
+deterministic, so it can **amplify** a divergence but never originate one. The thread probe above is
+what it actually demonstrates.
+
+**Consequence.** The caption fix (§2c E13a) is deliberately **decision-independent**: it deletes the
+false clause and asserts no cause, so it ships regardless. Correcting `:1254-1267` is a **body**
+edit needing scope, the three CR ids, an evidence binding and an **author decision** — it cannot be
+smuggled into a caption. **The real remedy is Phase 3: extend the byte-stability KAT to D ≥ 50**,
+which converts C3 from asserted to demonstrated; the probes above are a working prototype.
 
 **Why every gate passed over it:** `validate_cross_format_parity` was green because the PDF and the
 DOCX agree — both carrying the same wrong caption — and `validate_evidence_bindings` excludes
@@ -175,12 +185,21 @@ clobbered on the next build and yields false completion.** The underlying worry 
 the C8 and C9 dossiers made this same error, and so did this file. Edit canonical sources only;
 regenerate everything downstream (§2b §6).
 
-**New trap, found this pass: the BIND window is 6 lines and silently truncates.**
-`validate_evidence_bindings.py:103` sets `budget = 2 if inline else 6`, so a standalone `% BIND:`
-annotates the **6 preceding non-blank lines**. Adding lines to a bound paragraph pushes its earliest
-lines out of the window, un-binding the numbers they carry — **and the gate still exits 0**. Every
-insertion in the work order is therefore line-count-capped. This is the fourth defect class in this
-project that no gate detects.
+**New trap, found this pass: the BIND window truncates silently — and it is smaller than 6 lines.**
+`validate_evidence_bindings.py` sets `budget = 2 if inline else 6`, so a standalone `% BIND:` reaches
+back at most **6 non-blank lines** — but the walk **also stops early** at a blank line and at any
+`STOP_LINE`, which matches `\section`/`\subsection`, `\paragraph`, `\caption`, and
+`\begin{`/`\end{` of `figure|table|equation|algorithm`. Adding lines to a bound paragraph can push
+its earliest lines out of the window, un-binding the numbers they carry — **and the gate still
+exits 0**. This is the fourth defect class here that no gate detects.
+
+⚠ **The early stop cuts both ways, and it invalidated one of this file's own constraints.** The
+Table A45 caption was assumed to be inside BIND@`:3788`'s window; it is not — the walk hits
+`\end{table}` immediately, so the context is that single line and `extract_tokens` returns `[]`.
+Growing that caption to 8 lines changes 0 of 192 BIND contexts. **The line-count caps recorded for
+E1–E12 in §2b were computed without `STOP_LINE`; re-verify each against the real algorithm before
+treating a cap as binding.** A cap that is too tight only costs wording quality — but the reasoning
+behind it should not be trusted as stated.
 
 **C4's proposed fix is a trap, and the challenge caught it.** Inserting "overall" would retarget the
 sentence at a four-dimension aggregate under NP = 100 that appears nowhere in the shipped record —
@@ -586,6 +605,320 @@ check_manifest                     # then verify with `git cat-file -s`, not the
  - The A12 convention collision (0.59 in Table A25 vs 0.511 in Table A43 for the same contrast) — needs its own id.
  - `conclusions.tex:104` still says "the parameter set \dtgsk{} resolves at $D = 10$", the same verb E8a replaces in the supplement — a mild main/supplement drift if E8 is applied and this is not.
  - `validate_cross_format_parity.py`'s `table_value_precision` note claims the DOCX renders full semantic precision (`2.879310`); `DT-GSK.docx` contains zero such occurrences. Unconditional `PASS_FORMAT_DIFF`, not a gate — stale convention, triage separately.
+
+## 2c. Pass-42 work order addendum — E13–E17 (C1, C2, C3, DAS)
+
+Produced by the second challenge run and **checked here before being recorded**. All four drafts had
+real defects behind them; **three of four drafted fixes were unsafe** and were repaired — E13's
+replacement was non-discriminating and would have falsified a bound claim elsewhere in the document;
+E14/E15's replaced a false universal with a *false specific*; E17's named 1 site where 24 exist,
+including `CITATION.cff:9`, which carries `version: "2.14"` with no leading `v` and so is invisible
+to a `v2.14` sweep while being gated by `validate_citation_cff.py`. **Nothing below has been
+applied.**
+
+Companion to §2b (E1–E12). **Nothing below has been applied.** Every FROM anchor was re-verified in this session on **raw bytes**: byte-exact, exactly one occurrence, correct line ending, zero occurrences under LF normalisation where the file is CRLF. Every BIND claim was recomputed by re-implementing `validate_evidence_bindings.py:96–119` (`collect_bind_contexts` + `extract_tokens`) against in-memory copies — the validator itself was **not** run (it writes `evidence_binding_verification.csv`).
+
+**Scope:** discharges **C1 (partially), C2, C3** and the DAS tag pointer. With §2b this closes all six adjudicated defects except the C1 body correction, which stays author-gated (§2 below).
+
+**Governance:** pass-**42**, tag **v2.15**, **CR-0025 / D-0050**. All three verified free this session (`git tag` → v2.1…v2.14 only, no gaps; register ends CR-0024; decision log ends D-0049).
+
+---
+
+#### 0. Facts governing these five edits — including three corrections to the drafts' own mechanics
+
+| Fact | Verified value |
+|---|---|
+| `papers/supplementary.tex` | **CRLF**, 3869/3869, 0 bare LF |
+| `papers/main.tex` | **CRLF**, 454/454, 0 bare LF |
+| `papers/DT-GSK-plain-summary.tex` | **LF**, 964 LF / 0 CR |
+| `CITATION.cff` | **LF**, 170 LF / 0 CR |
+| `papers/submission/SUBMISSION_KIT.md` | **CRLF**, 169/169 |
+| `papers/governance/submission_package_manifest.json` | **CRLF**, 78/78 |
+| `papers/review_2026_08_24/response_to_reviewers.md` | **LF**, 541 LF / 0 CR (gitignored `.gitignore:56`, D-0049) |
+| **CORRECTION 1** | The Table A45 BIND is at **`supplementary.tex:3788`, not `:3789`** (3789 is blank). Its window is the **single line `\end{table}`** (STOP_LINE fires immediately), and `extract_tokens` on it returns **`[]`**. |
+| **CORRECTION 2** | The draft's "keep the caption at 4 lines or it un-binds its numbers" is **false**. Stress-tested 4 → 1,2,3,4,5,6,7,8 lines: **0 of 192** BIND contexts changed at every value. The caption is in no window and annotates no token. |
+| **CORRECTION 3** | The E16 site is in **no** BIND window at **any** delta. Nearest windows recomputed: BIND@2449 → 2443–2448; BIND@2458 → 2452–2457; BIND@2497 → 2491–2496. Stress-tested 2 → 10 lines: **0 of 192** contexts changed. |
+| Merged apply order, `supplementary.tex`, highest line first | **E13 (3782) → E8 (3758) → E9 (insert after 3750) → E14 (3749) → E7 (3699) → E16 (2481) → E6 (2283) → E2 (1413) → E4 (562)** |
+| ⚠ E14 × §2b-E9 interaction | Both touch the S9.2 closing paragraph. Apply **E14 first, then E9**. After E9's +8 insert the `% BIND: E2 headline` window becomes the last six lines of the E9 block, so E14's lines leave the window entirely — harmless (E14 introduces and removes no numeral either way), and §2b §7.8 already adjudicated that eviction. |
+
+**Never author these strings through a bash heredoc** (CLAUDE.md rule 4). E13/E16 contain `\ge`, `\label`, `\ref`; E17c:114 contains a real **em dash U+2014**. Reproducing E16 through a heredoc during the audit produced `Section~ef{sec:supp:rev:np}` — the exact failure mode that shipped `oindent`/`imes`.
+
+---
+
+#### 1. Ordered edit list
+
+#### E13a — C1 · Table A45 caption · `papers/supplementary.tex:3782–3785` **(CRLF)** · delta **0**
+
+FROM (4 lines, CRLF; 1 exact occurrence at byte offset **229321**, 0 under LF):
+```
+$A_{12}$ takes it as reference.  At $D = 10$ the U-low arm and at $D = 100$ the
+U-high arm coincide with the tiered configuration by construction, which the
+tie counts confirm and which serves as the design's internal
+control.}\label{tab:rev-e3}
+```
+TO (4 lines, CRLF — **challenger text, use verbatim**):
+```
+$A_{12}$ takes it as reference.  At $D = 10$ the U-low arm and at $D = 100$ the
+U-high arm carry the tiered configuration by construction and serve as the
+design's internal control.  Below the $D \ge 50$ gate the $D = 10$ arm ties
+throughout; at $D = 100$ it does not, and that residual is not resolved here.}\label{tab:rev-e3}
+```
+
+**Discharges:** C1's anchor defect — the caption is refuted by the table printed beneath it on the same rendered page (`SA07.tex` row 8: `U-high & $100$ & 1.000 & 2/25/2 & 0.500 & not separated`; `e3_uniform_vs_tiered.json` `arms.U_high.dimensions.D100.wtl_ref_vs_cmp = {W:2,T:25,L:2}`). Four of 29 functions are not ties, so "which the tie counts confirm" is false for one of the two controls it covers. Self-refuting in print, in the document whose C3 is a determinism claim.
+
+**Why the challenger's text beats the draft (one sentence):** it deletes the one false clause and asserts no cause, where the draft's "at $D = 100$ the reference cells predate the current build" is **non-discriminating** — both controls take their reference from the same file `benchmarks/cec_reference_results/cec2017/dt-gsk/per_run.csv` (one run, one `environment.json`, 1479 cells at each of D=10/30/50/100, verified this session), so the drafted contrast explains the clean D=10 result away as readily as the dirty D=100 one — **and** it falsifies a printed, BIND-annotated claim 2500 lines earlier (see E13c).
+
+**BIND:** cannot evict. BIND@3788's window is the single line `\end{table}`; `extract_tokens` → `[]`. Caption growth to 8 lines changes 0 of 192 contexts (verified). Delta 0 regardless.
+**Cosmetic option:** TO line 4 is 96 chars against a 60–81 caption convention. Re-wrapping the **identical words** over 5 lines is equally safe.
+
+#### E13b — C1 companion, reviewer-facing · `papers/review_2026_08_24/response_to_reviewers.md:216–217` and `:230` **(LF)** — ⚠ **SITE VERIFIED, TEXT NOT AUDITED**
+
+Missed by the draft. Same defect, sharper, in the document the reviewers actually read:
+- `:216–217` — `Each arm coincides with the tiered configuration by construction at its own home dimension, which gives` ⏎ `the experiment a built-in null control.`
+- `:230` — `| U-high | 100 | 1.000 | 2/25/2 | not separated (construction control) |`
+
+Both anchors verified unique. Precedent for editing this file: §2b **E12**. Constraint set for the drafter: (i) the D=100 row must stop being presented as a *null* control while printing 2/25/2 in the same row; (ii) assert no cause — the vintage explanation is not available until E13c is decided; (iii) the file carries **no** BIND, so line delta is free.
+**Candidate (mechanical mirror of the approved E13a wording — challenge before applying):** replace `:216–217` with `Each arm carries the tiered configuration by construction at its own home dimension, which gives` ⏎ `the experiment an internal control. Below the D >= 50 gate the D = 10 arm ties throughout; at` ⏎ `D = 100 it does not, and that residual is not resolved here.`, and re-label the `:230` Reading cell to match.
+
+#### E13c — C1 body correction · `papers/supplementary.tex:1254–1267` **(CRLF)** — 🚫 **DO NOT APPLY. AUTHOR DECISION.** See §2.
+
+#### E14 — C2 · supplement · `papers/supplementary.tex:3749–3750` **(CRLF)** · delta **0**
+
+FROM (2 lines, CRLF; 1 occurrence, byte offset 227245):
+```
+sense that they rest in part on a component of the method, and this is stated
+wherever those claims appear.
+```
+TO (2 lines, CRLF — **challenger text**):
+```
+sense that they rest in part on a component of the method, and the main text
+records this where the asymmetry is introduced and again in its discussion.
+```
+
+**Discharges:** C2. The universal is false: the qualification is carried at exactly **two** main-text sites, both identifiable by their `Section~S9.2` citation — `proposed_algorithm.tex:169–170` (§3.2) and `performance.tex:1132–1133` (§4.9). Exhaustive in source (2 hits) and in the rendered PDF (2 hits). The D=50/D=100 rank claims are given in §4.2.2 / Table 14 / Figure 3 (p.30) and restated in §5 (p.41), and **none** of those carries it — Table 14's caption names two qualifications and not this one.
+
+**Why the challenger's text beats the draft:** the draft's "where the ranks are given" is *also false*, and falsifiable in one page-turn to Table 14 — a referee following it lands on the rank table and finds nothing; "again in its discussion" points at §4.9, the main text's one section titled Discussion, which does carry it.
+
+**BIND:** the edit sits **inside** BIND@3751's window (3745–3750). Verified by recomputation: window stays 6 lines, and the annotated token set is **identical before and after** — `[('int','10'),('int','30'),('int','50'),('int','100')]`. Nothing evicted, nothing un-bound. Delta 0 by design; do not use a 3-line variant.
+
+#### E15 — C2 · plain summary · `papers/DT-GSK-plain-summary.tex:273` **(LF)** · delta **0**
+
+FROM (1 line, LF; 1 occurrence):
+```
+claims as resting in part on this rule, wherever those claims appear.
+```
+TO (1 line, LF — **challenger text**):
+```
+claims as resting in part on this rule.
+```
+
+**Discharges:** C2 in the plain register. Full sentence becomes "The paper therefore qualifies its 50- and 100-unknown rank claims as resting in part on this rule." — true (it does, twice), asserts no universal.
+**Why it beats the draft:** the draft transplanted the same false locative into a document whose lay reader is not holding the paper, so a structural pointer earns nothing there even when true; deleting the clause is both true and shorter. Delta **0** rather than the draft's +1.
+**BIND:** `grep -c "% BIND"` on this file = **0**. No window exists at any delta.
+
+#### E15b — C2 · reviewer-facing · `papers/review_2026_08_24/response_to_reviewers.md:141–142` **(LF, gitignored `.gitignore:56`, D-0049)** · delta **0**
+
+**Missed by the draft.** Highest-stakes instance: a **bolded** representation to the referee who raised R1.3/R2.2. Wraps the line break, so single-line grep misses it.
+
+FROM (2 lines, LF; 1 occurrence):
+```
+We report that plainly rather than minimising it: **the D = 50 and D = 100 rank claims are now
+qualified as resting in part on the population rule**, wherever those claims appear.
+```
+TO (2 lines, LF — **challenger text**):
+```
+We report that plainly rather than minimising it: **the D = 50 and D = 100 rank claims are now
+qualified as resting in part on the population rule**, where the asymmetry is introduced and in the discussion.
+```
+**BIND:** file carries none. TO line 2 is 110 chars against a p90 of 103 (file max 197) — acceptable; a 3-line rewrap of the identical words is equally safe.
+
+#### E16 — C3 · `papers/supplementary.tex:2481–2482` **(CRLF)** · delta **+2** (2 → 4)
+
+FROM (2 lines, CRLF; 1 occurrence, byte offset 147773):
+```
+larger initial population buys proportionally fewer generations; as on the
+other suites, the population rule was not a controlled variable.
+```
+TO (4 lines, CRLF — **challenger re-wrap; not one word differs from the draft**):
+```
+larger initial population buys proportionally fewer generations; the
+population rule is not a controlled variable on this suite, and the
+matched-population control of Section~\ref{sec:supp:rev:np} covers
+CEC2017 only.
+```
+
+**Discharges:** C3. **This is the only one of the four whose draft wording was judged safe.** The decisive evidence for the defect is the paper's own already-corrected parallel sentence at `performance.tex:1131–1133`: "The asymmetry was not a controlled variable **at submission**; it was **controlled in revision** (Supplementary Materials, Section S9.2)". The revision qualified exactly this proposition in the main text and missed the LSGO instance in the supplement — a missed site in the revision's own sweep, not a register choice. The bare universal now self-contradicts S9.2 inside one document.
+**Truth of clause 2, checked against the bound release not the prose:** `e2_np100.json` `strict_sources` = `_revision/`, `cec2017/`, `_ablation/overlay/` only, D10/D30/D50/D100, n_funcs 29, 5916 shared cells, 0 seed mismatches; `_revision/manifest.json` — of 252 released files, 224 carry a `cec2017` token and **zero** carry `cec2011`, `cec2013`, `cec2013lsgo` or `cec2020`; the config is literally `_configs/e2_np100_cec2017.yml`.
+**Why the re-wrap beats the draft (one sentence):** identical words, but wrapped to 68/67/66/13 columns to match this paragraph's own 54–74 hand-wrap, where the draft's first line was 79.
+**BIND:** in no window at any delta (Correction 3). Delta is irrelevant here, which is why +2 costs nothing. The edit does not cross a paragraph boundary — 2481–2496 is one LaTeX paragraph ending at the `:2497` BIND.
+
+#### E17a — DAS · `papers/main.tex:279` **(CRLF)** · delta **0**
+
+FROM (**single line** — narrower than the draft's 2-line anchor, and still unique: `tag v2.14,` occurs exactly once in the file; this removes all exposure to the CRLF multi-line failure mode):
+```
+tag v2.14, and any further materials are
+```
+TO:
+```
+tag v2.15, and any further materials are
+```
+
+**Discharges:** the DAS pointer. "This revised version" denotes the document in the reader's hand; after pass-42 that document lives at v2.15, so the pointer becomes **false**, not merely stale. The invariant is empirical, not discretionary: `git show v2.13:papers/main.tex` names v2.13, `git show v2.14:papers/main.tex` names v2.14 — every published tag of this manuscript names the tag it ships inside. D-0044 constrains **which identifiers** the DAS may carry (one URL, no DOI, no Zenodo); it does not freeze the tag number, and E17 adds no identifier. The defect renders: `DT-GSK.pdf` extracted line 2539.
+**Tag-agnostic rewording rejected:** `archive/v2.14-original` (26ea4b28) vs `v2.14` (02d17910) looks like a re-pointed tag but is not — the archive tree still contains the seven copyrighted PDFs; decision_log.md:2124 records it as publication hygiene, not tag reuse. v2.15 is the plan of record (REVISION_STATUS.md:256, :1051). Residual risk is procedural and is discharged by cutting and pushing v2.15 **in the same mint**.
+**BIND:** lines 278–279 are covered by **no** BIND. Recomputed windows in the region: BIND@296 (inline) → 294–296; BIND@307 → 305–307; BIND@320 → 318–320. ⚠ Because the DAS sits outside every window, `validate_evidence_bindings.py` will **not** catch a botched application here; the gates that react are `check_manifest` and `validate_cross_format_parity.py`.
+
+#### E17b — 🔴 **COUPLED, GATED, INVISIBLE TO A `v2.14` SWEEP** · `CITATION.cff:9` **(LF)** · delta 0
+
+FROM: `version: "2.14"` → TO: `version: "2.15"`
+
+No leading `v`, so the draft's own "no validator matches v2.1x" sweep misses it. `papers/scripts/validate_citation_cff.py` check (1) requires the `CITATION.cff` committed **inside** tag `vN.M` to declare exactly `N.M`. Cutting v2.15 with `2.14` inside is precisely the S8-01 defect that gate exists for (recurred at v2.3, v2.4, v2.5). D-0044 set the precedent: "CITATION.cff bumped to 2.13 in the tagged state."
+✅ Check (3) verified clean after the bump: `COMMENT_VERSION_RE` finds **zero** version-naming comments in the file.
+✅ Check (2) permits the transient tree-ahead-of-tag state; it fails only when the tree is *behind*.
+Also move `date-released: 2026-08-26` (`:10`) to the pass-42 mint date — ungated, but stale otherwise.
+
+#### E17c — 🔴 **COUPLED, UNGATED, EDITOR-FACING** · `papers/submission/SUBMISSION_KIT.md` **(CRLF)**
+
+Hand-maintained: `grep` for `SUBMISSION_KIT` across all `.py` returns nothing. `papers/scripts/build_submission_bundle.py` writes `dtgsk_reproduction_pack_manifest.json`, a different file. **Must be hand-edited.** `:113–114` is the literal text the author pastes into the SuSy code/data-availability field — apply E17a alone and the author types v2.14 into the journal form while the PDF says v2.15, and the kit's claim of exact match becomes false. All six anchors verified unique.
+
+| Line | FROM | TO |
+|---|---|---|
+| `:3` | `Regenerated 2026-08-26 from the pass-40 / v2.14 REVISION-1 sources (the` | `Regenerated <pass-42 mint date> from the pass-42 / v2.15 REVISION-1 sources (the` |
+| `:114` | `this revised version to tag v2.14 — matching the manuscript's own Data` | `this revised version to tag v2.15 — matching the manuscript's own Data` (**em dash U+2014**, match bytes) |
+| `:159` | `   hash-recorded in \`submission_package_manifest.json\` at **v2.14**, and that` | `…at **v2.15**, and that` |
+| `:160–161` | `   record is what makes the submitted bytes checkable. Freeze pass-41 and tag`⏎`   v2.14 are the frozen state of this resubmission, exactly as pass-38 / v2.13` | `…Freeze pass-42 and tag`⏎`   v2.15 are the frozen state…` |
+| `:163`, `:165` | `3. If a SECOND revision is requested, it becomes pass-42 through change` … `   v2.14 in place (D-0045).` | `…it becomes pass-43 through change` … `   v2.15 in place (D-0045).` |
+| `:169` | `   \`git diff v2.13 v2.14\` over the manuscript sources.` | `   \`git diff v2.13 v2.15\` over the manuscript sources.` |
+
+⚠ `:163` is a real label collision, not bookkeeping: the kit reserves "pass-42" for a *second journal revision*, which this pass consumes.
+⚠ Pre-existing drift, fix while here: `:3` says "pass-40" where `:160` says "pass-41" for the same state.
+
+#### E17d — 🔴 **COUPLED, UNGATED** · `papers/governance/submission_package_manifest.json` **(CRLF)**
+
+No generator (confirmed). Not among the 15 manifest-hashed files.
+
+| Line | Action |
+|---|---|
+| `:3` | `"generated_utc"` → mint timestamp |
+| `:4` | `"manuscript_version_id": "v2.14"` → `"v2.15"` |
+| `:5` | **Rewrite the note at mint.** Two load-bearing falsehoods, both verified unique: `"Freeze pass-41, tag v2.14 (D-0049).` (→ pass-42 / v2.15; cite **D-0050** if that is the decision authorising this pass's tag, verified free at apply time) and `which now names v2.13 for the submitted version and v2.14 for this revised one` — **falsified outright by E17a the instant it lands**. Also reconcile "Supersedes v2.13 as the submission basis". |
+| `:75` | `differs between v2.13 and v2.14` → `differs between v2.13 and v2.15` |
+
+---
+
+#### 2. DO NOT APPLY
+
+**No edit in E13–E17 was judged unsafe *and* left unrepaired.** All four challenged drafts were repaired (E13/E14/E15 by replacement text, E17 by an expanded site list; E16 needed only a re-wrap). Two follow-ons are nevertheless blocked:
+
+🚫 **E13c — `papers/supplementary.tex:1254–1267` (CRLF) — AUTHOR DECISION, NO AUDITED TEXT.**
+The paragraph states in print, bound by the `% BIND:` at `:1268`, that `_dt_core.py` changed after `rel-2026-07-20-67d9345f9` by CR-0013…CR-0018, that "the release was produced by dc2d59db91a288ee", that "Every one of those edits was certified *bit-identical*", that the cross-suite ledger was re-verified "with zero divergence", and that "No reported number, rank, $p$-value or decision in this paper or this Supplementary Material depends on which of the two revisions is used." **Table A45's D=100 row (2/25/2) is a counterexample to that last sentence.** It also silently reopens three APPROVED change requests: CR-0014, CR-0015 and CR-0016 all carry `rerun_plan "NONE - bit-identical"` and `affected_claims "NONE"`; CR-0016 states "Output bit-identical; rel-2026-07-20-67d9345f9 remains valid" — the release supplying every DT-GSK number in the paper. The certification gap is documented: **cec2017 D=100 is absent from exactly one link's hex-identity list (CR-0015)**, and that link is dead-work removal inside the per-generation loop.
+Correcting this belongs in the **body**, with scope, with the three CRs named, with an evidence binding, and behind an author decision. It cannot be smuggled into a caption. E13a is deliberately decision-independent, so it ships now regardless of how this lands.
+
+🚫 **E13b text** — site required, prose unaudited. Draft and challenge before applying (§1).
+
+⚠ **E17a alone** — do not apply without E17b/c/d. Shipping the manuscript at v2.15 with `CITATION.cff` at 2.14 is the exact defect `validate_citation_cff.py` was written to catch.
+
+---
+
+#### 3. REJECTED — do not re-litigate
+
+| Source | Rejected text / claim | Reason |
+|---|---|---|
+| E13 draft | `…resolve to the tiered configuration by construction and serve as the design's internal control; the $D = 10$ tie count reflects that, while at $D = 100$ the reference cells predate the current build.` | Four independent disqualifiers. (1) **Non-discriminating**: both controls take their reference from the same `cec2017/dt-gsk/per_run.csv` (one run, `environment.json` 2026-07-18T18:23:52, git_commit 251fc8cb), so the clause is equally true of the clean D=10 arm and explains nothing; the real discriminator is the **D ≥ 50 gate** (`interaction_graph_enabled`/`final_polish_enabled` False at D=10/30, True at D=50/100), already in print at `supplementary.tex:1331` and `proposed_algorithm.tex:150/223/244`. (2) **Falsifies `supplementary.tex:1254–1267`** and reopens CR-0014/15/16, with no discussion and no binding — a caption cannot carry that. (3) **Term collision**: "resolve" is the paper's technical verb for DT-GSK resolving a configuration by dimension, used twice in the very next paragraph (`:3794`, `:3797`); and "the current build" appears nowhere in the rendered supplement. "coincide" was never the defective word — the false clause was "which the tie counts confirm". (4) Its stated 4-line constraint is **false** (Correction 2). |
+| E13 draft rationale | "the standalone BIND at `:3789` covers the 6 preceding non-blank lines … growing it evicts the opening line" | BIND is at `:3788`; window is one line (`\end{table}`); zero tokens; growth to 8 lines changes 0 of 192 contexts. |
+| E14 / E15 drafts | `…records this where the asymmetry is introduced and where the ranks are given.` / `both where the asymmetry is introduced and where the ranks are given.` | Replaces a false universal with a **false specific**, which is worse — falsifiable in one page-turn. Ranks are given at §4.2.2 / Table 14 / Figure 3 (p.30) and §5 (p.41); the qualification is at §3.2 (p.16) and §4.9 (p.40), ten PDF pages away. Table 14's caption names two qualifications and not this one. |
+| E14 draft rationale | "the supplement never hardcodes main-text section numbers (see `supplementary.tex:545`, `:1119`, `:2380`)" | Those three are **table** references ("the main-text rank table" etc.) and support only §2b-E9's already-recorded table-number fact. Generalised to sections it is false: `supplementary.tex:261` reads "the statistical exhibits of the main paper (Section~4)". The design choice (stay descriptive) stands; the stated reason does not. |
+| E17 draft rationale | "No gate greps the tag string" | True but misleading. Confirmed: **zero** literal `v2.1x` strings in any `.py/.yml/.toml/Makefile` in the tree. But `validate_citation_cff.py` gates the tag via `git tag` + the cff `version` field; `check_manifest` hashes the **working tree**, so `main.tex`, `DT-GSK.pdf`, `DT-GSK.docx` go red until rebuilt; and `validate_cross_format_parity.py` does alnum-containment on body paragraphs, so an un-rebuilt `DT-GSK.docx` is **expected to FAIL** parity. The edit mandates a full rebuild. |
+| E17 draft scope | one site (`main.tex`) | Three coupled sites omitted, two of them ungated and one invisible to a `v2.14` sweep. |
+| §6 Phase 1 (REVISION_STATUS.md:1010–1014) | "state that the controls compare against a reference produced by an earlier build, and that the D ≥ 50 learned-basis path is sensitive to that" | **Superseded by the E13 challenge.** The vintage explanation is the only surviving one — but it is a correction to `:1254–1267`, not a caption clause. Update §6 Phase 1 when this addendum is recorded. |
+| C1 fallout | narrowing **contribution C3** | **Not falsified and must not be narrowed.** C3 is byte-stable determinism *in the declared environment*, which pins the build (four hash-gated modules, config-lock validator, byte-stability regression). Two runs of the same build under those pins are byte-stable; the 27 cells are a **cross-build** comparison C3 never claimed to cover. |
+| Diagnosis chain, for the record | "`generation_logs_enabled` / `convergence_graphs_enabled` gate the coverage kernel via `_need_coverage` at `_dt_core.py:2644`" | **Factually wrong; do not repeat.** `_need_coverage` = `_cfg_ace_coverage_weighted or (generation_callback is not None)`, and `generation_callback` is set only by the opt-in `dt_diagnostics` path (`dt_gsk.py:107–128`, `:278–287`), which the campaign did not use. Those two YAML flags are consumed only at `run_experiment.py:1736–1737` → `runners/output.py:314–358`, i.e. post-run persistence. The conclusion (telemetry ruled out) holds — by a **stronger** route: the flags never reach the optimizer. |
+| Diagnosis chain, for the record | `np.linalg.eigh` (`_dt_core.py:1904–1916`) as the *cause* of the residual | It is deterministic given identical input on identical LAPACK: it can **amplify** a divergence, never originate one. Sensitivity argument only. |
+
+---
+
+#### 4. BIND / vocabulary audit (requirement 4)
+
+| Edit | Introduces | Shipped? | BIND status |
+|---|---|---|---|
+| **E13a** | `$D \ge 50$`; `gate`; `residual` | Gate in print: `supplementary.tex:1331` (`$D \geq 50$`), `proposed_algorithm.tex:150/223/244` (`$D{\ge}100$`, `$D\ge50$`). `\ge` is the dominant macro in `supplementary.tex` (23 vs 3 `\geq`). `gate`/`gated` = 21/5 occurrences. `residual` = 3, incl. `:3707` in the same section. | **In no window; annotates no token.** |
+| **E13a** | numeral `50` (only numeral not already in the FROM) | Prints in the U-low/U-high D=50 rows of the same table, in **both** renders (PDF p.76, DOCX) | Not gate-enforced (no window). ✅ |
+| **E14** | `the main text`; `again in its discussion` | Supplement's own descriptive idiom (`:545`, `:1119`, `:2380`); §4.9 is the main text's one section titled Discussion | **Inside BIND@3751's window.** Token set verified **identical** before/after: `10, 30, 50, 100`. **No numeral added or removed.** |
+| **E15 / E15b** | — none — | — | No BIND in either file. |
+| **E16** | `matched-population control`; `Section~\ref{sec:supp:rev:np}` | `main.tex:234` "matched-population-size control"; `README.md:80` "A matched-population control"; `PROJECT_RULES.md:207`. Label defined **once**, `supplementary.tex:3713`, currently zero references; renders **S9.2**, matching the main text's hardcoded "Section S9.2" and `cross_format_consistency.csv:419`. Forward `Section~\ref` is the supplement's dominant idiom (51 forward / 16 back), and `:1411–1413` is a near-exact stylistic clone ("The sweep of Section~\ref{…} covers seven constants … at $D = 30$ and $D = 100$ only"). | **`extract_tokens` on the replacement returns `[]` — zero numeric tokens.** `CEC2017` yields nothing under the `int` pattern (digits preceded by `C`); `\ref{…}` args are stripped by `_STRIP_ARGS`. This matters: S7.1 (`:2429–2431`) declares every number in the section derives from `lsgo-rel-2026-07-28-ff1a046ef`. The replacement **points instead of quoting**, so that declaration survives. |
+| **E17** | `v2.15` | Recorded plan at REVISION_STATUS.md:256, :1051; sentence pattern unchanged from v2.13/v2.14 | Lines 278–279 in **no** window. ✅ |
+
+**Nothing in E13–E17 adds an unbindable number.** E13a is the only replacement introducing a numeral absent from its FROM (`50`), and it is both already rendered on the same page and outside every window.
+
+---
+
+#### 5. Sites the drafts missed
+
+**MUST MOVE with E17 (tag hardcodes):**
+
+| Site | Why the drafts missed it |
+|---|---|
+| `CITATION.cff:9` | `version: "2.14"` — **no leading `v`**, invisible to a `v2\.14` sweep; the only one an actual gate enforces |
+| `papers/submission/SUBMISSION_KIT.md:3, 114, 159, 160–161, 163, 165, 169` | Hand-maintained, ungated, and `:113–114` is the literal SuSy paste text |
+| `papers/governance/submission_package_manifest.json:3, 4, 5, 75` | Ungated; `:5` is falsified outright by E17a |
+
+**MUST NOT MOVE — historical records; append CR-0025 / D-0050 instead:**
+
+- `papers/governance/change_request_register.csv` **CR-0023, CR-0024** — record what those CRs did at the time.
+- `papers/governance/decision_log.md:1759, :1872, :2040, :2124` — same.
+- `papers/submission/AUTHOR_DATA_HANDOFF.md:129` — **untracked** (D-0049), generated 2026-08-07 from v2.13; its "must run as a new freeze pass (v2.14)" was true then.
+- `papers/review_2026_08_24/reviewer_reports_verbatim.md` — untracked verbatim reviewer text.
+- `README.md:65` — "DT-GSK **v2.1** optimizer" is an **optimizer** version, not a repo tag. A loose `v2\.1` sweep false-positives here. README carries no repository-tag string at all.
+- `docs/index.md:11`, `docs/html/index.html:167` — name only pass-38 / v2.13; unaffected.
+- `REVISION_STATUS.md:111` and the C-defect quotations — must keep quoting the defective strings to track them.
+- `papers/review_2026_08_24/revision_experiments_preregistration.md` — "The headline rank claims will be qualified accordingly" is a future-tense pre-registration commitment; public and append-only **by design** (D-0049).
+
+**VERIFIED CLEAN — no repository-tag string:** `supplementary.tex`, `supplementary.pdf`, `supplementary.docx`, `cover_letter.*`, `DT-GSK-plain-summary.*`, `papers/governance/claims_evidence_matrix.csv`, `artifact_binding.csv`.
+
+**Other missed carriers (already folded in above):** `response_to_reviewers.md:141–142` (E15b), `:216–217` and `:230` (E13b), `supplementary.tex:1254–1267` (E13c).
+
+---
+
+#### 6. Generated — regenerate, never hand-edit (requirement 6)
+
+**`papers/main_pandoc.tex` and `papers/supplementary_pandoc.tex` are GENERATED SHIMS.** `papers/scripts/build_docx.py:2910` does `spec["shim"].write_text(build_shim(doc_kind))`; docstring line 46: "the shim files are overwritten on every run." A hand-edit is clobbered on the next build **and reads as done**. Confirmed carriers of these five defects, none of which is an edit site:
+
+| Shim line | Carries |
+|---|---|
+| `supplementary_pandoc.tex:3736–3739` | E13's caption verbatim |
+| `supplementary_pandoc.tex:3704` | E14's sentence verbatim |
+| `supplementary_pandoc.tex:2461–2462` | E16's sentence verbatim |
+| `main_pandoc.tex:3580` | E17's DAS sentence verbatim |
+
+Also generated, **not** edit sites:
+- `papers/tables/word_sources/SA07.json:84` — provenance note; its `notes` array does **not** reach `supplementary.docx`, and it **omits** "which the tie counts confirm", so its claim stays true after E13a. Leave it. Its generator is `papers/scripts/generate_revision_exhibits.py:201–202` — touch only if the note text is to change (it need not).
+- `papers/submission/DT-GSK-latex-source.zip!main.tex:279` — rebuilt by `build_submission_zips.py`, which walks `\input` transitively from `main.tex`.
+- `papers/DT-GSK.pdf:2539` (extracted), `papers/DT-GSK.docx!word/document.xml`, `papers/supplementary.pdf` p.76 / S9.2 / S7.2, `papers/supplementary.docx!word/document.xml:489`, `papers/DT-GSK-plain-summary.pdf` p.9 — rendered carriers, fixed by rebuild only.
+
+---
+
+#### 7. Rebuild / re-mint delta on top of §2b §6
+
+| Newly edited | Downstream |
+|---|---|
+| `papers/main.tex` (E17a) | `DT-GSK.pdf` (epoch **1783468800**) → `build_docx.py` (epoch **1783641600**, regenerates `main_pandoc.tex`) → `DT-GSK.docx` → **re-run `build_submission_zips.py`** (the zip bundles `main.tex` **and** `DT-GSK.pdf`) |
+| `papers/supplementary.tex` (E13a, E14, E16) | already in §2b's list — `supplementary.pdf` + `build_docx.py --supplementary` + `supplementary.docx` |
+| `papers/DT-GSK-plain-summary.tex` (E15) | `DT-GSK-plain-summary.pdf` (not manifest-hashed) |
+| `CITATION.cff`, `SUBMISSION_KIT.md`, `submission_package_manifest.json` | none — not manifest-hashed, no generator |
+| `response_to_reviewers.md` (E15b, E13b) | none — untracked, ships to reviewers as-is |
+
+**Freeze manifest:** §2b's 8 changed entries become **9 of 15** — add `main.tex`. Manifest is **CRLF + 2-space**; re-mint surgically per its own `remint_note`. Set `published_commit` alongside `anchor_commit`.
+**Extra validator to run for this addendum:** `papers/scripts/validate_citation_cff.py` (gates E17b).
+**Tag:** cut and push **v2.15 in the same mint** as the DAS edit, so the pointer is self-consistent as D-0044 requires; confirm v2.13, v2.14 and v2.15 all resolve.
+
+---
+
+#### 8. Adjacent defects surfaced, not prescribed
+
+1. **`CITATION.cff:87`** — "revised version resubmitted 2026-08-26" is **already false**; the revision has not gone through SuSy. Same file as E17b, so it is free to fix — but the replacement wording is an author call.
+2. **A cheap decisive test, worth running before any vintage claim is printed anywhere.** Re-run the tiered pub profile under the **current** build at D=100 on the five affected functions (**F7, F13, F14, F20, F30**) with the recorded seeds and compare against the revision U-high D=100 cells. **Match** ⇒ the current build is self-consistent, the residual is purely cross-vintage, and `:1254–1267` is what needs correcting. **Mismatch** ⇒ a live determinism problem at D ≥ 50 and contribution C3 is genuinely at risk. ~27–255 runs; minutes to an hour, against a permanent claim in a frozen manuscript. This is the cheapest way to close E13c.
+3. **`supplementary.tex:2477`** (two lines above E16) — "against the comparators' reference-implementation value of $100$", vs `papers/governance/comparability_audit.md:28` (CR-0023, 2026-08-25): "the resulting NP = 100 is a panel normalization traceable to eGSK's published CEC2017 panel, **NOT** each comparator's own published rule (AGSK specifies 20D, APGSK 200D, FDB-AGSK 40n)". S9.2 at `:3715–3717` repeats it. The main text's "the family's reference-implementation setting" (`performance.tex:1130`) is more defensible. Unadjudicated; same paragraph as E16, so pass-42 is the cheapest moment.
+4. **Extend the byte-stability KAT to D ≥ 50.** `tests/regression/test_dt_gsk_byte_stable.py:10–11` states its cells are D ≤ 30 "below the D ≥ 50 SGSM/parallel-kernel tier", so C3's machine-checked support does not currently reach the tier where the residual lives.
+5. **Number-reporting caution for whoever writes the E13c correction:** the residual is **27 of 1479 cells, max 5.282 % relative**, measured on the **`error`** column (`statistics_basis = error_vs_optimum`). Re-deriving from `best_fitness` gives **26 and 2.514 %**. If either figure is printed, **name the column**. Distribution on `error`: F7 ×9, F13 ×8, F14 ×1, F20 ×7, F30 ×2 (F13/F14/F20 are CEC2017 hybrids). D=10 is exactly clean: **0 of 1479**, 0 seed mismatches. Every other recorded difference between the two D=100 legs is eliminated — configuration 108/108 keys, seeds 0/1479, nfes and termination 0/1479, threading (`numba_threads_active` 1 both), platform, Python 3.10.11, numba 0.64.0, backend, fp regime, X0 policy, 15 workers.
 
 ## 3. What has already been applied
 
@@ -1005,22 +1338,26 @@ Ordered. Phase 0 is author-only and one item **expires**; everything else is age
 | 0b | **GitHub Support ticket** to garbage-collect `b9846e4` | Seven copyrighted PDFs are off every ref but still served by direct SHA (HTTP 206 verified). Turnaround is days–weeks; start the clock. |
 | 0c | **Tell the co-authors** their biographies were public for twenty days | Courtesy and consent. Independent of everything else. |
 
-### Phase 1 — C1, now largely resolved
+### Phase 1 — C1, resolved for the caption; one author decision left
 
-The investigation in §2a has already done the hard part: the residual is a **cross-vintage
-artifact**, not a determinism failure, and **contribution C3 must not be narrowed**. What remains is
-a wording decision on the caption — state that the controls compare against a reference produced by
-an earlier build, and that the D ≥ 50 learned-basis path is sensitive to that. Do **not** disclose
-"an unexplained determinism residual": that overstates the problem and invites an attack on C3.
+§2a settles what matters: **contribution C3 is not falsified and must not be narrowed**, and the
+caption fix (§2c **E13a**) is deliberately **decision-independent** — it deletes the false clause
+and asserts no cause, so it ships now. Do **not** put a vintage explanation in the caption: it is
+non-discriminating (both controls share one reference file) and it would falsify the bound claim at
+`supplementary.tex:1254-1267`.
+
+**The author decision is §2c E13c**: whether to correct `:1254-1267`, which certifies the
+CR-0013…CR-0018 edits "bit-identical" with "zero divergence" while Table A45's D = 100 row is a
+counterexample, and whose certification chain has exactly one hole — CR-0015 never listed cec2017
+D100. That is a body edit with scope, CR ids and a binding, or it is left alone. Not a caption.
 
 ### Phase 2 — close the specification gap
 
-1. Draft **C1** (per Phase 1), **C2** and **C3** edits — §2b covers C6–C12 only.
-2. **Add the DAS edit.** `main.tex:278-279` hardcodes "this revised version to tag v2.14". Pass-42
-   produces **v2.15**, so that sentence goes false, and **no gate checks it** (verified: no
-   validator greps the tag string). The edit is self-consistent — tag v2.15 contains a DAS naming
-   v2.15 — but it must be *inside* this pass. `main.tex` is one of the 15 hashed files.
-3. Challenge all four the same way; verify anchors byte-exact and unique; fold in as E13–E16.
+**Done — the drafts exist, were challenged, and are recorded as §2c (E13–E17).** What remains
+inside Phase 2 is only what §2c marks unfinished: **E13b**'s prose (site verified, text not
+audited) and the **E13c** author decision. Note that "no gate checks the tag" was **wrong as
+scoped**: `validate_citation_cff.py` gates `CITATION.cff`, which must move to `2.15` in the same
+mint, and three further files hardcode the tag — see §2c §5.
 
 ### Phase 3 — triage two loose ends (cheap, before the build)
 

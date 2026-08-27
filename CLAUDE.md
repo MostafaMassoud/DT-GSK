@@ -30,15 +30,17 @@ need an edit (C1, C2, C3, C6, C7, C8+C9 merged, C10, C12), **C4 is refuted and i
 is a regression — do not apply it**, and C5/C11 are deferrable. The written work order is
 [REVISION_STATUS.md](REVISION_STATUS.md) §2b.
 
-**The anchor defect is diagnosed, and it is milder than it looked.** Table A45's caption says the
-tie counts confirm both identity controls; the D = 100 control prints 2/25/2, with 27 of 1479 cells
-differing by up to 5.3 % relative. Investigated 2026-08-27: configuration, pairing, threading and
-telemetry are all ruled out, and the residual is a **cross-vintage comparison artifact** — the two
-legs are not the same binary (shipped 2026-07-18 at the now-unrecoverable `251fc8cb`; revision
-2026-08-26 at `63bd484`), and the divergence is confined to the D ≥ 50 tier where the ISM and the
-`eigh`-derived polish basis are live. **Contribution C3 is therefore NOT falsified — do not narrow
-it.** What *is* true is that C3 is under-evidenced: the byte-stability KAT covers only D ≤ 30, below
-the tier that matters. Full trace and the recommended KAT extension: §2a.
+**The anchor defect is diagnosed, and it is milder than it looked. Contribution C3 is NOT falsified
+— do not narrow it.** Table A45's caption says the tie counts confirm both identity controls; the
+D = 100 control prints 2/25/2, with 27 of 1479 cells differing. Configuration, pairing, threading and
+telemetry are all ruled out. Measured directly: at a **fixed build with threads pinned**, D = 50 and
+D = 100 reproduce **bit-identically** — so byte-stability holds in the tier the regression KAT never
+covered — while 8 threads vs 1 does diverge at D = 100, exactly as `performance.tex:250` already
+discloses. The residual's cause is **narrowed but unresolved**: the two legs are different builds,
+and the bit-identity certification chain has exactly one hole — CR-0015 never listed cec2017 D100.
+**State the gap, never the causation.** The caption fix (§2c E13a) is deliberately
+decision-independent and ships regardless; correcting the bound claim at `supplementary.tex:1254-1267`
+is an author decision. The real remedy is extending the byte-stability KAT to D ≥ 50. Trace: §2a.
 
 **"Published" here means the public repository, not the journal.** The round-1 revision has **not**
 been resubmitted through SuSy, and the Preprints.org posting was withdrawn the same day (D-0046).
