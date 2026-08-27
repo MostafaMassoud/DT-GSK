@@ -2231,8 +2231,37 @@ applying all surfaced fixes.
   they are underpowered for this question. This is stated in the governance
   record rather than in the manuscript, because asserting it in the paper would
   impeach every bit-identity certification in the campaign on the strength of a
-  single uncontrolled cross-build comparison. **Status**: OPEN, and the honest
-  route to closing it is a re-execution under the current revision, not prose.
+  single uncontrolled cross-build comparison. **Status**: ANSWERED 2026-08-27 by
+  the re-execution this entry called for.
+- **The re-execution, and what it settles.** The five functions carrying the
+  divergence (F7, F13, F14, F20, F30) were re-run at CEC2017 D = 100, 51 runs
+  each, under the CURRENT build with the numeric stack pinned to one thread as
+  `run_campaign.py::pinned_env` does, into `results/_g1_recheck/` (diagnostic
+  staging, gitignored, never promoted). 255 cells, **zero seed mismatches**
+  against both archived legs. Result, on `best_fitness`: **on the 26 cells where
+  the archive and the transplant arm differ, the fresh run reproduces the
+  TRANSPLANT ARM on all 26 and the archive on none; on the 229 cells where they
+  agree, it reproduces both on all 229 and differs on none.** The current build
+  therefore produces the transplant arm's values wherever the two legs disagree,
+  and the archive is what the earlier build produced. **The difference is
+  between builds, not within one** - inferred by D-0050 and this entry, now
+  demonstrated.
+- **Method note, so the check is repeatable and not accidentally invalidated.**
+  Thread pinning is load-bearing: `run.py` does not pin, only `run_campaign.py`
+  does, and D = 100 is thread-sensitive - one cell was observed at three
+  different values under one thread, eight threads and inherited settings. And a
+  control drawn from the cells where the two legs already AGREE proves nothing
+  about which build is which; an early reading of this experiment went wrong for
+  exactly that reason. The discriminating cells are the ones where they differ.
+- **No manuscript change follows, and that is deliberate.** The Supplementary
+  already states that the control "re-executes, under the current revision, runs
+  archived under the earlier one; it does not reproduce them exactly", and the
+  Table A45 caption reports the residual as unresolved *in the paper*. Both stay
+  true, and are now evidenced rather than asserted. Stating the stronger claim
+  in the manuscript would require **promoting this diagnostic as cited
+  evidence** - a new release id, manifest and binding - because every reported
+  number is bound to a promoted release and staging is never cited. That option
+  is available to the author and is **not** taken here.
 - **The blind spot that pass-42 fell into is now gated.** The freeze manifest
   hashes renders but hashed only one of their sources: `main.tex` was tracked,
   `supplementary.tex` and `cover_letter.tex` were not. Editing

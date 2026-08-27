@@ -54,12 +54,27 @@ there and nowhere else.
    last in an 84-cell bit-for-bit ledger. It also named a cause while disclaiming one, and located
    it at contribution **C1**. **The standing rule holds: state the gap, never the causation.**
 
-**What is genuinely open, and is now in governance rather than the paper (D-0051, OPEN):** the
-campaign's bit-identity evidence samples roughly one run per (algorithm, suite, dimension), so a
-divergence in 27 of 1479 cells is *below its resolution*. The certifications are not wrong, they
-are underpowered for this question. Asserting that in the manuscript would impeach every
-certification in the campaign on one uncontrolled cross-build comparison, so it is recorded and not
-claimed. **The honest route to closing it is a re-execution under the current revision, not prose.**
+**ANSWERED 2026-08-27 by re-execution (D-0051): the residual is a BUILD difference, demonstrated.**
+The five functions carrying it were re-run at CEC2017 D = 100, 51 runs each, under the current build
+with threads pinned as the campaign driver pins them. 255 cells, zero seed mismatches. **On the 26
+cells where the archive and the transplant arm differ, the fresh run reproduces the transplant arm
+on all 26 and the archive on none; on the 229 where they agree it reproduces both.** So the current
+build makes the transplant arm's values and the archive is what the earlier build made — between
+builds, not within one.
+
+**Two traps this experiment sets for anyone repeating it.** `run.py` does **not** pin threads (only
+`run_campaign.py` does) and D = 100 is thread-sensitive, so an unpinned re-run is meaningless. And a
+control drawn from cells where the two legs already *agree* cannot distinguish the builds — an early
+reading here went wrong exactly that way; the discriminating cells are the ones that differ.
+
+**No manuscript change follows.** The Supplementary already says the control re-executes archived
+runs and does not reproduce them exactly, and the caption reports the residual as unresolved *in the
+paper*; both stay true and are now evidenced. Claiming more would mean **promoting a diagnostic
+staging run as cited evidence** — new release id, manifest, binding — since every reported number is
+bound to a promoted release. That option is the author's and is not taken. Still recorded, and still
+true: the campaign's identity evidence samples ~one run per (algorithm, suite, dimension), so a
+27-in-1479 divergence sits below its resolution — those certifications are underpowered here, not
+wrong.
 
 **The hashed-render / unhashed-source blind spot is now gated.** The freeze hashed renders but only
 `main.tex` among their sources, which is how pass-42 edited `cover_letter.tex`, skipped the rebuild,
