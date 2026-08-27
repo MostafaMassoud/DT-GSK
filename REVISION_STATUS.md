@@ -1328,14 +1328,14 @@ worktree blind spot.
    day is a missed deadline, not a late-but-safe upload. Five days remain from 2026-08-27.
    It is the only dated constraint left — the GitHub Traffic → Clones expiry these documents
    had been treating as the most urgent item was discharged by capture on 2026-08-27 (row 0a),
-   and the purge request is parked (row 0b). The letter is withheld under D-0049 and transcribed
+   and the purge request is closed unfiled (row 0b). The letter is withheld under D-0049 and transcribed
    at `papers/review_2026_08_24/journal_decision_email.md`.
-   ~~**Request more time.**~~ — **DECLINED 2026-08-27, author decision.** The e-mail explicitly
-   invites one, and with plan and deadline on the same day it was the only available source of
-   margin; the author has decided to resubmit on 2026-09-01 without asking. Recorded rather than
-   dropped so it is not re-raised as an oversight: it was offered, considered and declined, and
-   the consequence — that a one-day slip is a missed deadline — is accepted knowingly. The
-   invitation stays open in the letter if that changes.
+   ~~**Request more time.**~~ — **CLOSED 2026-08-28: will not be requested.** The e-mail invites
+   one, and with plan and deadline on the same day it was the only available source of margin.
+   The author declined on 2026-08-27 and closed it on 2026-08-28. **Not a to-do; do not re-raise
+   it.** The consequence is accepted knowingly: resubmission is on 2026-09-01 and a one-day slip
+   is a missed deadline. The invitation remains in the letter should the author ever choose to
+   use it, but no agent should propose it again.
    ✅ **Check-list item (II) is DISCHARGED (2026-08-27).** The letter asks that revisions be
    *highlighted in the manuscript*, and the project now produces exactly that:
    `DT-GSK-changes-marked.pdf`, a latexdiff marked-up manuscript with additions underlined and
@@ -1381,7 +1381,7 @@ Ordered. Phase 0 is author-only and one item **expires**; everything else is age
 | | Action | Why now |
 |---|---|---|
 | ~~0a~~ | ~~**GitHub → Insights → Traffic → Clones** — capture the count~~ — **DONE 2026-08-27** | Captured: 11 clones, 9 unique cloners, 08/13–08/26 — all 14 days inside the exposure window; 2 web views. **Six days (08/07–08/12) had already rolled off and are permanently lost**, so the counts are floors. Record: `docs/development/github_exposure_traffic_record.md`. |
-| ~~0b~~ | ~~**GitHub Support ticket** — garbage-collect **`b9846e4` *and* `bddfe24`**~~ — **PARKED 2026-08-27, author decision** | Not withdrawn and not expired — **deliberately deferred**. Both commits are unreachable and both are still served (HTTP 206, re-verified 2026-08-27); unreachable objects carry **no expiry date**, so this does not lapse on its own and no future session should re-raise it as urgent. Deferred because the material needs an exact 40-character SHA to reach, the repository drew 2 web views in 14 days, and the 2026-09-01 resubmission has priority. Everything needed to file it in ~3 minutes is ready: `docs/development/github_exposure_traffic_record.md`. |
+| ~~0b~~ | ~~**GitHub Support ticket** — garbage-collect **`b9846e4` *and* `bddfe24`**~~ — **CLOSED 2026-08-28: will not be filed** | Author decision, taken twice — deferred on 2026-08-27 and closed on 2026-08-28. **This is not a to-do and is not to be re-raised.** State of the world when it was closed, recorded because it does not change on its own: both commits are unreachable from every ref, both are still served by direct SHA (HTTP 206, verified 2026-08-27), unreachable objects carry **no expiry date**, and 0 forks / 0 PRs meant a purge would have succeeded if requested. Reaching the material needs the exact 40-character SHA; the repository drew 2 web views in 14 days. If it is ever revisited, `docs/development/github_exposure_traffic_record.md` holds the SHAs and the request text. |
 | ~~0c~~ | ~~Tell the co-authors their biographies were public~~ — **DONE 2026-08-27** | Discharged by the author; D-0049's co-author limb is closed. |
 
 ### Phase 1 — C1, resolved for the caption; one author decision left

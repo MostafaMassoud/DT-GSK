@@ -86,13 +86,18 @@ floors, not estimates.
 
 ---
 
-# Remediation: the GitHub Support purge request -- PARKED
+# Remediation: the GitHub Support purge request -- CLOSED, WILL NOT BE FILED
 
-**Status: parked by author decision, 2026-08-27. Not filed, not expired, not withdrawn.**
-Unreachable git objects carry no expiry date -- GitHub collects on an unannounced schedule
-with no guarantee -- so nothing here lapses on its own, and a later session should not
-re-raise it as urgent or record it as done. Everything below is ready to file in a few
-minutes if and when the author chooses to.
+**Status: closed by author decision, 2026-08-28. The request will not be made.** It was
+deferred on 2026-08-27 and closed the following day. **This section is a record, not a
+to-do: do not re-raise it, and do not act on it without the author saying so.**
+
+It is kept rather than deleted because it documents a decision about material that is not
+the author's alone -- seven third-party copyrighted PDFs and a co-author's biographical
+data. Recording that the remediation was considered and declined is more honest than
+leaving no trace of it. The state below does not change on its own: unreachable git
+objects carry no expiry date, GitHub collects on an unannounced schedule with no
+guarantee, and both commits were still served when this was closed.
 
 ## Scope -- TWO unreachable commits, not one
 

@@ -2132,8 +2132,11 @@ applying all surfaced fixes.
   **Status**: PARTLY DISCHARGED (updated 2026-08-27). The rewind, the push and
   the tag were taken: `v2.14` was cut on the published commit `02d1791` and
   `v2.15` on `ebcdefe` at pass-42, and the never-push local tag it warns about
-  is superseded. **The GitHub Support purge request is PARKED by author decision
-  (2026-08-27), not discharged.** It covers TWO unreachable commits rather than
+  is superseded. **The GitHub Support purge request is CLOSED by author decision
+  (2026-08-28): it will not be filed.** Deferred on 2026-08-27 and closed the
+  following day. It is closed, not discharged - the objects were still served when
+  the decision was taken, and nothing about them changes on its own. It covers TWO
+  unreachable commits rather than
   one - `b9846e4`, the seven copyrighted PDFs at 38.8 MiB, and its parent
   `bddfe24`, which carries `AUTHOR_DATA_HANDOFF.md` and so the co-authors'
   biographical data. Both are off every ref and both are still served by direct
@@ -2163,7 +2166,12 @@ applying all surfaced fixes.
   unmeasured, so those counts are floors and not estimates. Transcription and
   what the counts do not establish (they identify nobody, and do not separate
   automated from human traffic):
-  `docs/development/github_exposure_traffic_record.md`.
+  `docs/development/github_exposure_traffic_record.md`. **The remediation limb of
+  this decision is therefore closed unfiled. Do not re-raise it as outstanding
+  work.** The record is kept rather than deleted because the material is not the
+  author's alone - seven third-party copyrighted PDFs and a co-author's
+  biographical data - and a considered-and-declined remediation is worth more on
+  the record than no trace of one.
 
 
 ## D-0050 (2026-08-27) - Pass-42: correct the published revision before resubmitting
