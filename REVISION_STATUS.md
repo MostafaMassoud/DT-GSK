@@ -1320,9 +1320,19 @@ worktree blind spot.
 
 ## 5. Open decisions — blocking, author only
 
-1. ~~Revision deadline~~ — **no longer gating.** It was never answered, but the ~32,000-run
-   experiment track completed anyway on 2026-08-26. Worth confirming before resubmission only so
-   the author knows how much slack remains.
+1. **Revision deadline — ANSWERED 2026-08-27, and it is the binding constraint.** This entry
+   previously read "never answered, no longer gating". The decision e-mail sets a **ten-day**
+   window to upload the revised file. Both reviews were in by 2026-08-24, so a ten-day window
+   closes on or about **2026-09-03** — *earlier* than the GitHub Traffic → Clones expiry
+   (~2026-09-10) that these documents have been treating as the most urgent item. **Confirm the
+   true date on the SuSy portal rather than inferring it here.** The e-mail explicitly invites a
+   request for more time; asking is free and removes this as a risk. The letter is withheld under
+   D-0049 and transcribed at `papers/review_2026_08_24/journal_decision_email.md`.
+   ⚠ **One check-list item is not discharged:** the letter asks that revisions be *highlighted in
+   the manuscript*. The project builds a change register (the tagged diff, as-submitted against
+   as-revised), which is a companion document, not in-text highlighting. Whether that satisfies
+   the requirement has not been put to the journal, and the manuscript already uses `\hl` for a
+   few author-flagged passages, so a blanket pass would collide with existing markup.
 2. ~~MT-01 bound wording~~ — **SETTLED and applied.** MT-01 binds the *no-novel-operator* claim, not
    the layer's name; renamed in all three sites with the inheritance clause intact, and the matrix
    `permitted_wording` updated to match.
