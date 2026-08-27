@@ -1,8 +1,8 @@
 {
   "schema": "main_manuscript_freeze_manifest/v1",
-  "phase": "PASS-46 the remaining review-instrument tickets: test-count attestation, unresolvable SHAs, ACE branch wording, and the self-contradictory rows of the artifact register.",
-  "generated_utc": "2026-08-27T17:05:00+00:00",
-  "anchor_commit": "8a509506306fc355f065e34929acf41950e1c3a3",
+  "phase": "PASS-47 S9 provenance stated, six unresolvable source anchors made subtractive, one caption convention, and a pass-46 regression corrected.",
+  "generated_utc": "2026-08-27T18:00:00+00:00",
+  "anchor_commit": "959f4440bd2ec7ded7088366bde17603936d7d35",
   "pre_freeze_base_commit": "b9846e47024e48a0f8ce3e4f22bffbd794b2a355",
   "evidence_release": {
     "primary": "rel-2026-07-20-67d9345f9",
@@ -11,8 +11,8 @@
     "ablation": "abl-rel-2026-07-20",
     "revision": "rev-rel-2026-08-26-dd42d37eb"
   },
-  "scientific_content_status": "CORRECTED. The supplement's test count now matches the suite and the attestation that backs it; two reader-facing commit SHAs that cannot resolve in a squashed public history are gone; the ACE restricted-branch condition matches the equation and both code paths. No number, rank, p-value or decision changes.",
-  "freeze_statement": "Freeze for resubmission. Eight tickets discharged (T5, T14, T15, T16, T17, T19, T20, T25, T29). The artifact register was repaired surgically rather than re-minted, because regeneration deletes two exhibit bindings and turns validate_artifact_labels red. The attestation was regenerated rather than the number patched.",
+  "scientific_content_status": "CORRECTED. Section S9 now states its own compound provenance and S5.10 no longer claims primary-release provenance for it. Six per-step source anchors no longer carry line numbers that do not resolve. No number, rank, p-value or decision changes.",
+  "freeze_statement": "Freeze for resubmission. T6, T8 and T27 discharged, plus a regression from pass-46: appending Amendment A3 to the pre-registration had left S9's preamble stating a deviation count that was one short. The count is dropped rather than incremented. T8 was made purely subtractive after two drafted function names proved wrong.",
   "hash_algorithm": "SHA-256",
   "build_environment": {
     "pdf_source_date_epoch": 1783468800,
@@ -28,7 +28,7 @@
   "files": [
     {
       "path": "papers/main.tex",
-      "sha256": "a5a1ecd72d3c2966981aa34d6ee6169bd3f147a1ea3f16737207777ca1072929",
+      "sha256": "1d5087866c66cc89705e92a580e1d31560bc3d9a5790034f24e34163034a7c72",
       "bytes": 26099
     },
     {
@@ -48,8 +48,8 @@
     },
     {
       "path": "papers/sections/performance.tex",
-      "sha256": "347f06862186b46c1219ebf5f406564739dd973a6506c6b59fadb12ca5128e60",
-      "bytes": 77757
+      "sha256": "7b907bf90fc877128b38063b1ee43defec9a97e8eb617303943cd4b63f5dce1b",
+      "bytes": 77803
     },
     {
       "path": "papers/sections/conclusions.tex",
@@ -58,23 +58,23 @@
     },
     {
       "path": "papers/DT-GSK.pdf",
-      "sha256": "84954e52ae2f94a91756904fe23dd16a7050a532d688be2c1e0cd2e9ca674e4c",
-      "bytes": 822013
+      "sha256": "8fc13740b198d46978e10f04a5147f6b4e1f8a7587dc5c19462c7bfab0e5fac0",
+      "bytes": 822023
     },
     {
       "path": "papers/DT-GSK.docx",
-      "sha256": "a6d88601afadb831dc356117ce756166ed5a46e493b372e18a3ae84efd5a273e",
-      "bytes": 1011601
+      "sha256": "158fc92ae237da355717ceca9677cbac1d24631d4076c6dff2441de5f2907086",
+      "bytes": 1011621
     },
     {
       "path": "papers/supplementary.pdf",
-      "sha256": "6876c0319f19630674b4156329de748a94315257a721efe8f4bfb6e563697244",
-      "bytes": 1749479
+      "sha256": "2d0c36600e3d0e965b3e0b615ade17de76463bae2eb2bd1fd21b35d3be6af36d",
+      "bytes": 1750085
     },
     {
       "path": "papers/supplementary.docx",
-      "sha256": "50244bd1bd017c325ff7215d74507cc2106a3a7521e7d204e12e11737d694842",
-      "bytes": 9622953
+      "sha256": "6a65676792b32bf2cc291761e8cef03fa26ed11ee82163b10bfc34edce185f9b",
+      "bytes": 9623123
     },
     {
       "path": "papers/cover_letter.pdf",
@@ -121,14 +121,14 @@
     "audit_manuscript": "NOT RE-RUN at pass-43. Pass-41 result: exit 0; terminology_hits 0; blocked_wording_hits 2 (pre-existing). Should be re-run before resubmission if the author wants it current.",
     "revision_analysis_pins": "NOT RE-RUN at pass-43, and not required: no analysis artifact was touched, which check_frozen_analysis confirms at 115/115."
   },
-  "remint_note": "pass-46 MINTED 2026-08-27, closing the reader-facing remainder of the review-instrument findings. Nine tickets remain open and are recorded in REVISION_STATUS: all Minor or Editorial after severity correction.",
-  "published_commit": "8a509506306fc355f065e34929acf41950e1c3a3",
+  "remint_note": "pass-47 MINTED 2026-08-27. Six review tickets remain, all Editorial or Minor: T12, T13, T21, T23, T24, T28. T22 is author-side (open-in-Word check, D-WORD-01).",
+  "published_commit": "959f4440bd2ec7ded7088366bde17603936d7d35",
   "published_commit_note": "Pass-45 was made directly on the published branch, so anchor_commit and published_commit are the same commit and both resolve. The pass-41 disclosure that anchor_commit does not resolve remains true of pass-41 and every earlier pass.",
   "source_files": [
     {
       "path": "papers/supplementary.tex",
-      "sha256": "e50c87b27ec236bc1238f929dd6a2b9fe4a7ea28f462c280f062aa34ff5c8ae0",
-      "bytes": 236199
+      "sha256": "8f0719c467195d14bf59a65575d768659ad45c13e0df5ae25d62f4fd4ad77548",
+      "bytes": 236727
     },
     {
       "path": "papers/cover_letter.tex",
