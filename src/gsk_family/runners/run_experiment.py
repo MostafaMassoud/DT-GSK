@@ -722,6 +722,13 @@ def _optimizer_options_line(config: ExperimentConfig, optimizer: str) -> str:
             f"NP_init={int(options.get('np_init', 100))}  "
             f"min_pop_size={int(options.get('min_pop_size', 12))}"
         )
+    if optimizer == "dt-gsk":
+        # DT-GSK sizes its initial population from the problem dimension
+        # (``_dt_core``: ``pop_size`` None -> ``np_init_mult * dim``), so it
+        # carries no ``np`` option at all. The shared fallback below reads the
+        # dict default and therefore announced ``Pop=100`` -- a value no DT-GSK
+        # run has ever used -- in the console banner of every campaign.
+        return f"NP_init={int(options.get('np_init_mult', 5))}D"
     return f"Pop={int(options.get('np', 100))}"
 
 
