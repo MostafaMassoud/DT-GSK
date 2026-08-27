@@ -38,13 +38,19 @@ So these six edits can still land in the version the reviewers will read, as an 
 That window closes the moment the author resubmits, after which the same edits become a correction
 to a manuscript already under the editor's eye. **Fix before resubmitting.**
 
-**Two things about that list must survive into the next session.** First, **seven of the eleven
-were never adversarially challenged** — the run was interrupted — and of the four that were, one
-verdict was overturned and one fix was rejected as a regression. Challenge before applying. Second,
-**every proposed fix but one undercounts its sites**, because the verifiers missed the
-`_pandoc.tex` mirrors that build the DOCX; applying them as written fixes the PDF and fails
-cross-format parity. Full table, true site counts and the C8/C9 collision:
-[REVISION_STATUS.md](REVISION_STATUS.md) §2a.
+**All twelve are now verified and adversarially challenged, and there is a written work order.**
+[REVISION_STATUS.md](REVISION_STATUS.md) **§2b** carries edits E1–E12 with every FROM anchor
+verified byte-exact and unique. Three things must survive into the next session:
+
+1. **The work order covers C6–C12 only.** C1 (the anchor caption defect), C2 and C3 have no
+   specified edits, and C1 waits on an author decision. Do not read §2b as complete.
+2. **The diagnoses held; the prescriptions did not.** 7 of 7 challenged verdicts survived, but
+   **7 of 7 proposed fixes were rejected as written** — several would have made the paper worse.
+   Treat any un-audited draft fix as a first draft, C2's and C3's included.
+3. **`main_pandoc.tex` and `supplementary_pandoc.tex` are GENERATED shims**, overwritten by
+   `build_docx.py` on every run. Never hand-edit them — the edit is clobbered and reads as done.
+   Edit canonical sources and rebuild. (An earlier version of this file said the opposite and
+   reached `origin/main`; it is corrected in §2a.)
 
 **Author-only, still outstanding:** the SuSy resubmission; a GitHub Support ticket to
 garbage-collect commit `b9846e4` (seven copyrighted PDFs are off every ref but still served by

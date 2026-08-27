@@ -94,89 +94,455 @@ DOCX agree — both carrying the same wrong caption — and `validate_evidence_b
 `% BIND:` comment text from token extraction by design. This is the third defect in this project
 caught only by reading the built PDF rather than the sources. **Read the PDF.**
 
-**VERIFICATION ADJUDICATED — 11 further claims, 4 of them adversarially challenged.** The
-verification pass was interrupted before its challenge stage finished. The verdicts below were
-recovered from the workflow journal and re-checked against the sources in this repository. Counting
-the caption above as C1:
+**VERIFICATION COMPLETE — all 12 claims verified and adversarially challenged.** Two runs: the
+first was interrupted after 11 verdicts and 4 challenges; the second supplied the missing 7
+challenges and a merged work order. Every verdict below has been attacked from the opposite
+direction at least once.
 
-| # | The charge | Verdict | Severity | Act? |
+| # | The charge | Final verdict | Severity | Act? |
 |---|---|---|---|---|
 | C1 | Table A45 caption contradicts its own tie counts | **CONFIRMED** | serious | **yes** |
-| C2 | "this is stated wherever those claims appear" — self-audit is false | **VERIFIED** (challenge upheld) | serious | **yes** |
-| C3 | "as on the other suites, the population rule was not a controlled variable" | **VERIFIED — stale text** (challenge *overturned* the original AMBIGUOUS) | moderate | **yes** |
-| C4 | "the population rule is not the source of the reported standing" | **REFUTED** (challenge upheld) | cosmetic | **no — and do not apply its proposed fix** |
-| C5 | "no constant tested here is knife-edge" vs the n_min 2→1 flip | AMBIGUOUS-NOT-FALSE (challenge upheld) | cosmetic | optional |
-| C6 | "perturbs no tier threshold" vs `argp_threshold` and S5.9 | **VERIFIED** — internal contradiction | serious | **yes** — *unchallenged* |
-| C7 | "identical in every variant reported here" | AMBIGUOUS-NOT-FALSE | moderate | optional — *unchallenged* |
-| C8 | "only fitness-affecting channel" vs two active channels | PARTLY-VERIFIED | serious | **yes** — *unchallenged* |
-| C9 | the same two sentences, framed as a contradiction | **VERIFIED** | serious | folds into C8 — *unchallenged* |
-| C10 | "four orders of magnitude behind" on the worst function | PARTLY-VERIFIED | serious | **yes** — *unchallenged* |
-| C11 | S9.3 transplant leaves the disclosure incomplete | **REFUTED** | moderate | no — *unchallenged* |
-| C12 | Overall column at matched NP is never reported | PARTLY-VERIFIED | moderate | contested — *unchallenged* |
+| C2 | "this is stated wherever those claims appear" — self-audit is false | **VERIFIED** | serious | **yes** |
+| C3 | "as on the other suites, the population rule was not a controlled variable" | **VERIFIED — stale text** (challenge *overturned* AMBIGUOUS) | moderate | **yes** |
+| C4 | "the population rule is not the source of the reported standing" | **REFUTED** | cosmetic | **no — and its proposed fix is a regression** |
+| C5 | "no constant tested here is knife-edge" vs the n_min 2→1 flip | AMBIGUOUS-NOT-FALSE | cosmetic | deferred |
+| C6 | "perturbs no tier threshold" vs `argp_threshold` and S5.9 | **VERIFIED** — internal contradiction | serious | **yes** |
+| C7 | "identical in every variant reported here" | AMBIGUOUS-NOT-FALSE | moderate | **yes** — 2 sites, not 1 |
+| C8 | "only fitness-affecting channel" vs two active channels | **VERIFIED** (*upgraded* from PARTLY) | serious | **yes** |
+| C9 | the same two sentences, framed as a contradiction | **VERIFIED** | serious | **merged into C8** |
+| C10 | "four orders of magnitude behind" on the worst function | **VERIFIED** (*upgraded* from PARTLY) | serious | **yes** |
+| C11 | S9.3 transplant leaves the disclosure incomplete | AMBIGUOUS-NOT-FALSE (*changed* from REFUTED) | moderate | deferrable |
+| C12 | Overall column at matched NP is never reported | PARTLY-VERIFIED | moderate | **yes** — but not as proposed |
 
-**Seven of the eleven were never challenged** — the run died first. Of the four that were, one
-verdict was *overturned* (C3) and one proposed fix was *rejected as a regression* (C4). That is a
-50 % correction rate on the challenged subset. **Do not apply an unchallenged fix without
-challenging it first.**
+**The diagnoses held; the prescriptions did not.** Of the 7 claims challenged in the second run,
+**7 of 7 verdicts survived** — but **7 of 7 proposed fixes were judged unsafe as written**. Add the
+first run and the count is 11 of 12 verdicts standing while nearly every minimal fix needed
+rewriting. Treat a verifier's *diagnosis* as strong evidence and its *proposed replacement* as a
+first draft. Every rejected replacement, with its reason, is in §2b §3 — do not re-litigate them.
 
-**Cross-cutting defect in the fix list itself: every proposed fix but one undercounts its sites.**
-The verifiers wrote fixes against the LaTeX sources and — except for C8 — missed the
-`_pandoc.tex` mirrors that build the DOCX. Applying them as written fixes the PDF, leaves the DOCX
-carrying the defect, and fails `validate_cross_format_parity`. True site counts, swept with a
-multi-line regex because every one of these phrases wraps across a line break and single-line
-`grep` undercounts them:
+**⚠ CORRECTION — earlier guidance in this file was wrong and reached `origin/main`.** An earlier
+revision of this section said the fixes "undercount their sites" because they miss the
+`_pandoc.tex` mirrors, and listed those files as sites to edit. **That remedy is wrong.**
+`papers/main_pandoc.tex` and `papers/supplementary_pandoc.tex` are **generated shims**:
+`papers/scripts/build_docx.py:2910` does `spec["shim"].write_text(build_shim(doc_kind))`, and its
+docstring at line 46 states "the shim files are overwritten on every run." **Hand-editing them is
+clobbered on the next build and yields false completion.** The underlying worry was real — a
+`.tex`-only edit with no rebuild does leave the DOCX carrying the defect and does fail
+`validate_cross_format_parity` — but the obligation is to **rebuild**, not to edit the mirror. Both
+the C8 and C9 dossiers made this same error, and so did this file. Edit canonical sources only;
+regenerate everything downstream (§2b §6).
 
-| Claim | Sites the fix names | Sites that actually exist |
-|---|---|---|
-| C2 | 2 | 3 — `supplementary.tex:3749`, `supplementary_pandoc.tex:3703`, `DT-GSK-plain-summary.tex:273` |
-| C3 | 1 | 2 — adds `supplementary_pandoc.tex:2461` |
-| C5 | 1 | 2 — adds `supplementary_pandoc.tex:3813` |
-| C6 | 2 | 4 — adds `main_pandoc.tex:3379` and `supplementary_pandoc.tex:1305` |
-| C7 | 1 | 4 — adds `main_pandoc.tex:2654`, `supplementary.tex:562`, `supplementary_pandoc.tex:463` |
-| C8 | 6 | 6 in the tracked tree (+1 in the untracked response letter) — the only complete one |
-| C9 | 2 | 7 — same phrase as C8; C9's fix is C8's minus the mirrors |
-| C10 | 1 | 2 — adds `supplementary_pandoc.tex:3651` |
-
-**C8 and C9 rewrite the same two sentences.** Both target `introduction.tex:152` and
-`conclusions.tex:170`. They propose different replacements for the identical phrase, so they must be
-merged into one edit, not applied in sequence. C8's site list is the complete one; C9's replacement
-wording ("terminal exploitation channel") is the one that uses vocabulary already in Sec. 3.4.
+**New trap, found this pass: the BIND window is 6 lines and silently truncates.**
+`validate_evidence_bindings.py:103` sets `budget = 2 if inline else 6`, so a standalone `% BIND:`
+annotates the **6 preceding non-blank lines**. Adding lines to a bound paragraph pushes its earliest
+lines out of the window, un-binding the numbers they carry — **and the gate still exits 0**. Every
+insertion in the work order is therefore line-count-capped. This is the fourth defect class in this
+project that no gate detects.
 
 **C4's proposed fix is a trap, and the challenge caught it.** Inserting "overall" would retarget the
 sentence at a four-dimension aggregate under NP = 100 that appears nowhere in the shipped record —
-`SA06.tex` has no Overall row and `e2_np100.json` has no aggregate key — while the paragraph is
-bind-tagged to that artifact. It would convert a self-resolving ambiguity into an unsupported
-thin-margin assertion on the exact page a reviewer is auditing. C4 needs **no edit at all**.
+`SA06.tex` has no Overall row, `e2_np100.json` has no aggregate key — on a bind-tagged paragraph. It
+would convert a self-resolving ambiguity into an unsupported thin-margin assertion on the exact page
+a reviewer is auditing. **C4 needs no edit at all.**
 
-**C12 rests on a number that does not reconcile.** Its proposed sentence prints the matched-NP
-Overall as 2.780 vs 2.858. Two independent recomputations give eGSK 2.8578; a third gives 2.8621.
-DT-GSK's 2.7802 is agreed. Recompute before printing, and note this is the same quantity the C4
-challenge argues the paper should not lean on — C12 and C4 pull in opposite directions on it.
+**C12's contested number is settled by recomputation.** Independently recomputed here over the
+7-algorithm panel, 29 functions x 51 runs, Friedman mean rank per dimension, Overall = unweighted
+mean of the four. The method reproduces the paper's own printed shipped values exactly (2.4828 →
+"2.48"; 2.9612 → "2.96"), then gives at matched NP = 100: **DT-GSK 2.7802, eGSK 2.8578**, margin
+**0.078**. So **2.8578 is right and 2.8621 is wrong.** The surviving margin is carried entirely by
+D = 10 (+0.379) against −0.302 from the other three combined — at matched population eGSK holds the
+better mean rank at D = 30, D = 50 **and** D = 100. That asymmetry is why the work order's C12 edit
+is a *relativity warning*, not a restatement of aggregate superiority.
 
-**C10 is independently confirmed by recomputation, and is the one unchallenged claim you may treat
-as settled.** Recomputed here from the strict source — the coordinate arm at
+**C10 is confirmed by recomputation.** From the strict source — coordinate arm
 `benchmarks/cec_reference_results/_revision/e1_basis_coordinate/dt-gsk/cec2017/summary/per_run.csv`
-against the shipped eigenframe arm at `benchmarks/cec_reference_results/cec2017/dt-gsk/per_run.csv`,
-29 functions x 51 runs each at D = 50. The worst function is F6: eigenframe mean error
-8.345e-05 against coordinate 7.716e-07, a ratio of **108.2, or 2.03 orders of magnitude**. The
-Supplementary says "four orders of magnitude behind". The error overstates the harm done by the
-paper's own method, so it is not self-serving — but it is false by a factor of one hundred, it sits
-in the adverse-result paragraph a reviewer reads most carefully, and the bound artifact
-`e1_basis_contrast.json` carries no per-function means, so nothing in the evidence tree could have
-caught it. Fix is one word, at `supplementary.tex:3700` **and** `supplementary_pandoc.tex:3651`.
+against the shipped eigenframe arm `benchmarks/cec_reference_results/cec2017/dt-gsk/per_run.csv`,
+29 functions x 51 runs at D = 50. Worst function F6: eigenframe 8.345e-05 vs coordinate 7.716e-07,
+ratio **108.2 = 2.03 orders of magnitude**, where the Supplementary says "four orders". Next worst
+is F29 at 1.245x, so "the single worst function" stays a correct referent. The bound artifact
+`e1_basis_contrast.json` carries no per-function means and line 3700 has never sat inside a BIND
+window — two independent reasons no gate could have caught it.
 
-**Where the raw verdicts live.** The verification run was `wf_31d2bb3d-9ef`; it was interrupted, so
-no result file was written, but its journal survived at
-`~/.claude/projects/D--AI-Research-Lab-DT-GSK/fa6ff0bb-d40d-4a30-8407-92084aef9ddc/subagents/workflows/wf_31d2bb3d-9ef/journal.jsonl`
-(11 verdicts + 4 challenges), with per-agent transcripts beside it. Each verdict carries an
-`evidence`, `reasoning` and `minimal_fix` field far longer than the summary above. Session
-scratch is transient — if that tree is needed, copy it out before it is cleaned.
+**Where the raw verdicts live.** Run 1 (11 verdicts + 4 challenges) was `wf_31d2bb3d-9ef` under
+session `fa6ff0bb-d40d-4a30-8407-92084aef9ddc`; run 2 (7 challenges + the work order) was
+`wf_b1409a58-c62` under session `143653b9-1268-4566-b408-14f8572a63c2`. Both journals sit at
+`~/.claude/projects/D--AI-Research-Lab-DT-GSK/<session>/subagents/workflows/<run>/journal.jsonl`,
+one `{"type":"result"}` line per agent, each carrying evidence and reasoning far longer than the
+summary above. **Session scratch is transient** — the decision-relevant content has been distilled
+into §2b; copy the journals out if the full argument is ever needed.
 
 **A leaked meta-note was published and is now removed.** An agent's instruction to the applier
 ("[APPLY NOTE: join these two lines with CRLF...]") was written into this file verbatim and reached
 `origin/main`. The applier matched and wrote proposed text without checking the *replacement* for
 meta-content. A tree-wide scan found no others. If you apply agent-proposed edits, scan the
 replacements, not just the anchors.
+
+## 2b. Pass-42 work order — verified, not yet applied
+
+Produced by the challenge run and **checked here before being recorded**: all 21 FROM anchors were
+confirmed to exist byte-exactly and **exactly once** in their files, with the line endings stated;
+`build_docx.py`'s shim overwrite, the 6-line BIND window, and every per-file line ending in §0 were
+re-verified against the working tree. **Nothing below has been applied.** Line numbers are as of
+`60708a0`; this section's own edits to `REVISION_STATUS.md` (E11e) shift with any edit to §2a, so
+re-locate by anchor text, never by line number.
+
+**⚠ COVERAGE GAP — this work order covers C6–C12 only.** E1–E12 discharge C6, C7, C8, C9, C10,
+C11 and C12. **C1, C2 and C3 have no specified edits here.** Their draft fixes exist only in the
+run-1 dossiers, and those were never safety-audited — which matters, because when the run-2
+challenge did audit prescriptions it rejected **7 of 7**. Before applying anything for C1/C2/C3,
+draft and challenge their edits the same way:
+
+- **C1 (Table A45 caption)** — the anchor defect, and the only one that is not a wording fix. It
+  needs the author decision in §6 item 2 first, because what the caption should say depends on
+  which of the three responses is chosen. No edit can be drafted until then.
+- **C2** — run-1 proposed naming the two sections that actually carry the qualification
+  (Sections 3.2 and 4.9) at `supplementary.tex:3749`, plus `DT-GSK-plain-summary.tex:273`.
+  Anchor unverified, wording unaudited.
+- **C3** — run-1 proposed replacing the universal "as on the other suites" clause at
+  `supplementary.tex:2481–2482` with a scoped statement pointing at S9.2. Anchor unverified,
+  wording unaudited.
+
+**⚠ NAMING COLLISION — do not conflate two different C1/C2/C3.** The defect ids in §2a/§2b
+(C1…C12) are unrelated to the manuscript's **contribution** ids C1/C2/C3 (deterministic final
+polish / dimension-tiered scaffold / evaluation-integrity infrastructure). When §2a says the
+Table A45 residual "sits in tension with contribution C3", that is the *byte-stable determinism*
+contribution — **not** defect C3, which is the stale population-rule sentence. Read every C-number
+in context.
+
+**Scope:** 7 challenged claims (C6–C12) + C1/C2/C3 carried from the earlier settlement. **C4 = NO EDIT** (fix rejected as a regression). **C5 = cosmetic, deferred.**
+**Governance:** new freeze pass **pass-42**, tag **v2.15**, ids **CR-0025 / D-0050** — verify both free at apply time (`papers/governance/decision_log.md`). Never edit the tagged pass-41 state in place (D-0045).
+
+---
+
+### 0. Verified facts that govern every edit
+
+| Fact | Value (verified on disk this session) |
+|---|---|
+| LF files | `papers/sections/conclusions.tex` (203/0), `sections/introduction.tex` (165/0), `papers/cover_letter.tex`, `papers/cover_letter.md`, `papers/DT-GSK-plain-summary.tex`, `README.md`, `docs/**/*.md` |
+| CRLF files | `papers/sections/performance.tex` (1258/1258), `papers/supplementary.tex` (3869/3869), `papers/main_pandoc.tex` (3852/3852), `papers/supplementary_pandoc.tex` (3863/3863), `REVISION_STATUS.md` (666/666), `papers/tables/SA06.tex`, `papers/tables/word_sources/SA06.json` |
+| `*_pandoc.tex` | **DERIVED.** `papers/scripts/build_docx.py:2910` does `spec["shim"].write_text(build_shim(doc_kind))`; docstring line 46: "the shim files are overwritten on every run." **Regenerate, never hand-edit.** |
+| BIND window | `validate_evidence_bindings.py:103` — `budget = 2 if inline else 6`. A standalone `% BIND:` annotates the **6 preceding non-blank lines**. Adding lines to a paragraph silently evicts its earliest lines. Gate still exits 0 — the loss is invisible. |
+| Freeze manifest | `papers/governance/main_manuscript_freeze_manifest.json` hashes **15** files: `main.tex`, the 5 `sections/*.tex`, `DT-GSK.pdf`, `DT-GSK.docx`, `supplementary.pdf`, `supplementary.docx`, `cover_letter.pdf`, 3 governance CSVs, `references.bib`. **`supplementary.tex` and `cover_letter.tex` are NOT hashed; their renders are.** |
+| Submission zip | `papers/submission/DT-GSK-latex-source.zip` bundles `main.tex`, `sections/{introduction,related_work,proposed_algorithm,performance,conclusions}.tex`, `DT-GSK.pdf`. **It does NOT contain `supplementary.tex`** — supplement-only edits do not require re-zipping; main-document edits do. |
+| Build epochs | PDF `SOURCE_DATE_EPOCH=1783468800`; **DOCX `1783641600`** (`papers/build_prompt_phases/cr_0006_apgsk_recovery/cr0006_verification.md:5`). A persisted shell var yields a non-reproducible DOCX that still passes `check_manifest`. |
+
+**Apply order within each file: highest line number first**, so cited line numbers stay valid.
+
+---
+
+### 1. Ordered edit list
+
+#### E1 — C6 · main text · `papers/sections/conclusions.tex:92–93` **(LF)**
+
+FROM (2 lines, LF newline):
+```
+and perturbs no
+tier threshold; the tier constants themselves remain frozen and hash-locked.
+```
+TO (2 lines, LF newline):
+```
+and leaves the
+dimension-tier boundaries themselves unvaried, so their sensitivity is untested.
+```
+**Discharges:** C6 (VERIFIED / serious). Removes a clause that is false under the only sense the paper defines for "tier threshold" (`tau_argp`, main p.16/p.17, supp pp.46/48 — E4 ran it at 0.016/0.024) and a second clause the E4 sweep also falsifies (it perturbed `local_search_eval_budget_frac` and `local_search_elite_count`, two rows of S5.9's own tier-constants table).
+**Line count 2→2 by design** — preserves the 6-line window of `% BIND: E4 …` at `:96`. Do not use a 3-line variant: it evicts line 90 (`$D = 30$`, `$D = 100$`).
+
+#### E2 — C6 · supplement · `papers/supplementary.tex:1413–1414` **(CRLF)**
+
+FROM (2 lines, CRLF newline):
+```
+and it perturbs no tier threshold; the tier constants
+themselves remain frozen and hash-locked.
+```
+TO (2 lines, CRLF newline):
+```
+and it leaves the dimension-tier boundaries
+themselves unvaried, so their sensitivity is untested.
+```
+**Discharges:** C6, second canonical site.
+⚠ The match **must stop at `hash-locked.`** — the file has **two spaces** before `Neither ARGP`. Do not absorb them.
+⚠ The two C6 sites are **not** identical text (the dossier said they were). Supp has `it`, wraps after `constants`, is CRLF, and double-spaces the sentence break. Two separate exact-match edits, never one shared string.
+
+#### E3 — C7 · `papers/sections/performance.tex:618–619` **(CRLF)**
+
+FROM (2 lines, CRLF newline):
+```
+are identical in
+every variant reported here, but
+```
+TO (2 lines, CRLF newline):
+```
+are identical under
+both of these robustness variants, but
+```
+**Discharges:** C7 (AMBIGUOUS-NOT-FALSE / moderate). `under` matches the existing restatements at `conclusions.tex:79-81` and `performance.tex:1249-1251`. Line count 2→2; `% BIND: AN-ROB-2017-01, AN-ROB-2017-04` at `:616` unaffected.
+
+#### E4 — C7 · `papers/supplementary.tex:562–563` **(CRLF)**
+
+FROM (2 lines, CRLF newline):
+```
+is identical in every
+variant reported here, but
+```
+TO (2 lines, CRLF newline):
+```
+is identical under both of these
+robustness variants, but
+```
+**Discharges:** C7, second site. The C7 dossier said "No change needed in supplementary.tex line 562" — **wrong**: this is the one document that prints both counterexamples (Table A44 supp p.75; Table A46 supp p.77), and the phrase **wraps the 562/563 break**, so a single-line matcher finds nothing. Line count 2→2; `% BIND: RANK-ROBUSTNESS` at `:566` unaffected.
+
+#### E5 — **C8 + C9 MERGED** · four sites, one replacement string
+
+**Chosen wording: C9's `terminal exploitation channel`.** *Justification (one sentence): it keeps the possessive frame `the memory's ___ channel` so the ISM attribution survives at the sentence carrying the ISM verdict, both halves already render in the shipped PDFs (`terminally, the eigenframe polish` main p.19; `exploitation channels` main p.3; `this exploitation channel` supp p.74), its definite article now picks out something genuinely unique, and one identical string serves every site — whereas C8's `the channel that experiment isolates` drops `the memory's`, uses a bare demonstrative, is not shipped vocabulary, and is itself mildly false (E1 isolated the direction set *inside* a channel that ran live in all three arms).*
+
+**E5a — `papers/sections/introduction.tex:152` (LF, single long line)**
+FROM: `in the memory's only fitness-affecting channel, the polish basis,`
+TO: `in the memory's terminal exploitation channel, the polish basis,`
+
+**E5b — `papers/sections/conclusions.tex:170` (LF, whole line)**
+FROM: `memory's only fitness-affecting channel --- the basis the final polish searches`
+TO: `memory's terminal exploitation channel --- the basis the final polish searches`
+
+**E5c — `papers/cover_letter.tex:57` (LF, single long line)**
+FROM: `active harm in its only fitness-affecting channel`
+TO: `active harm in its terminal exploitation channel`
+
+**E5d — `papers/cover_letter.md:23` (LF, single long line)**
+FROM: `active harm in its only fitness-affecting channel`
+TO: `active harm in its terminal exploitation channel`
+
+**Discharges:** C8 **and** C9 (both VERIFIED / serious) in one pass. The claim is refuted by the paper's own `proposed_algorithm.tex:548-552` ("two active channels"), shipped Table 4/9 stage header ("3. Exploit (two active channels)"), Section 5's own opening two pages earlier ("consumed twice"), and the roadmap sentence *on page 3 itself* ("its exploitation channels", plural).
+All four edits are single-line, line count unchanged. `conclusions.tex` BINDs at `:168` (covers 162-167) and `:178` (covers 172-177) both unaffected — line 170 sits between them.
+
+#### E6 — C8 secondary · S6.5 parenthetical · `papers/supplementary.tex:2283–2286` **(CRLF)**
+
+FROM (4 lines, CRLF newline):
+```
+(and the no\_sgsm row, in which the
+polish runs on coordinate axes rather than the learned eigenbasis, is itself
+null, so the significant effect is the compass endgame, not the learned basis
+specifically).
+```
+TO (4 lines, CRLF newline):
+```
+(the no\_sgsm row is itself null, but it
+disables the memory entirely --- removing its linkage channel as well as its
+eigenbasis --- so it cannot separate the basis from the endgame;
+Section~S9.1 does that directly).
+```
+**Discharges:** C8's same-root secondary defect — the current parenthetical reaches a correct destination by an invalid route and contradicts "remains unidentified" eight lines above at `:2276-2277`.
+⚠ **`local-search` clause deliberately omitted.** C8's proposed replacement said the memory's "local-search channels"; the ISM-block subspace LS is **not enabled** (`proposed_algorithm.tex:550-552`, `:570-574`, Table 4; `_dt_core.py:4175` gates on `local_search_auto_subspace`, which `pub_overrides()` returns `False` at every tier). Applying it as written would ship a new falsehood and raise the active-channel count from 2 to 3.
+`linkage channel` is verbatim shipped (`supplementary.tex:3666-3668`). Line count 4→4. This text lies *after* the BIND at `:2256-2258`, so it is in no BIND window; no bind change needed.
+
+#### E7 — C10 · `papers/supplementary.tex:3699–3700` **(CRLF)**
+
+FROM (2 lines, CRLF newline):
+```
+and the single worst
+function shows the eigenframe arm four orders of magnitude behind.
+```
+TO (2 lines, CRLF newline):
+```
+and the single worst
+function shows the eigenframe arm two orders of magnitude behind.
+```
+**Discharges:** C10 (VERIFIED / serious). F6 at D=50: eigenframe `8.345223e-05` vs coordinate `7.715655e-07` = **108.16× = 2.034 orders**. Wrong by ~100×. No statistic reaches 4 orders under any like-for-like per-function convention at either dimension. `two` is true and conservative; `the single worst function` remains a correct referent (next worst is F29 at 1.245×). Asserts strictly *less* than the current text, so it needs no new binding. Line count 2→2. (Note: the E1 headline BIND is at **`:3711`**, not `:3712` as the C10 report stated; line 3700 has never been inside any BIND window — the second reason no gate caught this.)
+
+#### E8 — C11 · `papers/supplementary.tex:3758–3762` **(CRLF)** — lowest priority, deferrable
+
+**E8a** — FROM: `comparison by transplant: the parameter set resolved at $D = 10$, and separately`
+TO: `comparison by transplant: the $D = 10$ tier's parameter dictionary, and separately`
+
+**E8b** — FROM: `the set resolved at $D = 100$, are applied unchanged at every dimension and`
+TO: `the $D = 100$ tier's dictionary, are applied unchanged at every dimension and`
+
+**E8c** — insert **exactly 3 lines** after `differ between them.` (line 3762), before the `% BIND: E3 design …` at `:3763`:
+```
+  Each arm applies its tier's dictionary over the
+configuration the profile resolves at the target dimension, so any field the
+carried dictionary does not name keeps that dimension's value.
+```
+**Discharges:** C11, corrected to **AMBIGUOUS-NOT-FALSE / moderate** (`verdict_holds: false` on the original REFUTED). Nothing shipped is untrue — `88 keys differ` reconciles only under the override-dictionary reading — but the verb *resolved* points at `build_pub_config`, which is the resolution function, and a competent reader already drew the false inference that the transplant disables the polish and the ISM. It does not: `dt_gsk.py:242-256` does a **partial** `dataclasses.replace` overlay, and the U-low YAML carries 40 keys with **no** `final_polish_*` and **no** `interaction_*` key.
+⚠ **Hard cap: ≤3 added lines.** At +3 the E3 BIND window becomes 3760-3765 and `88` (line 3761) survives. At +5 (the rejected fix's length) `88` is evicted silently.
+⚠ **`13 of the 72` from the C11 dossier is REJECTED** — 13 resolved fields differ at D=50 but only **12** are in `pub_overrides(50)` (`bse_restart_frac` is not); at D=100 it is **11 of 108**, not a constant over `$D \ge 50$`.
+
+#### E9 — C12 · `papers/supplementary.tex` · append at end of S9.2 closing paragraph, after line 3750, **before** `% BIND: E2 headline` at `:3751` **(CRLF)**
+
+Insert (8 lines, CRLF newline):
+```
+  Friedman ranks are relative:
+substituting the \dtgsk{} column re-ranks the whole panel, so the six
+comparator columns move as well.  No entry here may be differenced against the
+corresponding entry in the main-text rank table, and no descriptive aggregate
+formed from this table is comparable with the one reported there.  $D = 10$ is
+also the one dimension at which $NP = 5D$ falls below the panel constant, so
+the control raises rather than lowers \dtgsk{}'s initial population there; the
+paired difference at that dimension is nonetheless indistinguishable from zero
+(Holm $p = 0.517$).
+```
+**Discharges:** C12 (PARTLY-VERIFIED / moderate). Kills the wrong completion the printed exhibits currently license: averaging Table A44's four re-ranked ranks gives 2.780, differenced against Table 14's 2.961 gives 0.181 — **2.3× the true 0.078**, because all six comparator columns also move (eGSK alone shifts 0.103, larger than the surviving margin).
+✅ Every numeric token is shipped: `0.517` prints in `papers/tables/SA06.tex:9` (Table A44), `$NP = 5D$` is that table's own header, `$D = 10$` is everywhere. Placing this *before* the BIND puts those tokens **inside** the E2 window — deliberate.
+⚠ Uses **"the main-text rank table"**, never `Table~14`: the supplement never hardcodes main-text table numbers (`supplementary.tex:545`, `:1119`, `:2380` all use the descriptive form).
+⚠ **C12's own proposed sentence is REJECTED**: `still panel-best, but a margin of 0.08 rather than Table 14's 0.48` re-asserts aggregate superiority in the supplement answering **R2.5**, which the authors already marked *accepted and applied*; and `2.858` is in no bound artifact (`e2_np100.json` carries no comparator rank), while the remediation it prescribes emits `2.862`. Also rejected: `improves its mean rank from 2.879 to 2.724` — causal register, contradicted three sentences later by the paper's own Holm p = 0.517 (W/T/L 10/4/15).
+
+#### E10 — C9 extension · `papers/DT-GSK-plain-summary.tex` **(LF)** — plain register, not the manuscript wording
+
+**E10a — lines 488–489**
+FROM: `In the one`⏎`place it could change the answer, it subtracted`
+TO: `In the route`⏎`that was tested, it subtracted`
+
+**E10b — lines 482–483**
+FROM: `The pair-map's only route to affecting the`⏎`answer is the basis it hands the deterministic polish,`
+TO: `The route this test could isolate is the`⏎`basis the pair-map hands the deterministic polish,`
+
+**Discharges:** C9's two sites that **neither C8 nor the REVISION_STATUS site table found**. This shipped PDF (p.5) carries the falsehood in its starkest form and **self-refutes it on p.4** (line 377: "Nor is the crossover the memory's only route into the search"). `terminal exploitation channel` is the wrong register for a deliberately jargon-free document — do not transplant E5's string here. No `_pandoc` mirror exists; two lines in one LF file. Line counts preserved.
+
+#### E11 — non-manuscript tranche (public at v2.14) · same claim as E5
+
+| # | File (ending) | FROM | TO |
+|---|---|---|---|
+| E11a | `README.md:115-116` (LF) | `in the memory's only`⏎`fitness-affecting channel -- the basis` | `in the memory's terminal`⏎`exploitation channel -- the basis` |
+| E11b | `docs/algorithms/dt-gsk.md:516` (LF) | `the memory's only fitness-affecting channel — the basis the deterministic final` | `the memory's terminal exploitation channel — the basis the deterministic final` |
+| E11c | `docs/getting-started/explainer.md:79-80` (LF) | `in the memory's only fitness-affecting`⏎`channel — the basis` | `in the memory's terminal exploitation`⏎`channel — the basis` |
+| E11d | `docs/reference/glossary.md:36` (LF, long line) | `in the memory's only fitness-affecting channel, the polish basis,` | `in the memory's terminal exploitation channel, the polish basis,` |
+| E11e | `REVISION_STATUS.md:485-486` (**CRLF**) | `to harm in its only`⏎`fitness-affecting channel;` | `to harm in its terminal`⏎`exploitation channel;` |
+
+⚠ E11b/c/d use a real **em dash U+2014**, not `---`. Match bytes exactly.
+⚠ `docs/html/algorithms_dt-gsk.html:337`, `docs/html/getting-started_explainer.html:190`, `docs/html/reference_glossary.html:165` are **generated** — run `python scripts/build_docs_html.py`, never hand-edit.
+
+#### E12 — reviewer-facing, untracked · `papers/review_2026_08_24/response_to_reviewers.md` **(LF, gitignored at `.gitignore:56` per D-0049)**
+
+**E12a — lines 366–367** — the strongest form of the falsehood anywhere in the record
+FROM: `ISM has exactly one`⏎`fitness-affecting channel — the basis it supplies to the final polish — and in that channel it is`
+TO: `ISM's terminal exploitation`⏎`channel is the basis it supplies to the final polish, and in that channel it is`
+
+**E12b — line 526**
+FROM: `harmful in its only fitness-affecting channel`
+TO: `harmful in its terminal exploitation channel`
+
+**Why it matters:** this file is invisible to any tracked-files sweep but **goes to the reviewers with the resubmission**, and it tells them flatly something the methods section they are reading refutes.
+
+---
+
+### 2. OPTIONAL — specify, but defer unless the author asks
+
+#### O1 — C12 caption relativity note (2 renders + 1 generator)
+- `papers/supplementary.tex:3733` (CRLF): `column substituted.  The paired test compares` → `column substituted; because Friedman ranks are relative, the comparator columns`⏎`re-rank as well.  The paired test compares` **(+1 line; BIND at `:3739` shifts — acceptable, tokens are trivial)**
+- `papers/scripts/generate_revision_exhibits.py:164-165`: append the same clause to the `caption=` string, then re-run to regenerate `papers/tables/word_sources/SA06.json:4` `caption_stub` (the string the **native DOCX** caption is built from).
+- `papers/supplementary.tex:3835` (Table A46, identical wording) + `SA08` caption in the same generator — consistency only.
+
+**Cost:** touches a generated exhibit chain (generator → `tables/SA0*.tex` + `word_sources/*.json` → native DOCX table) and re-runs `validate_cross_format_parity`'s generated-table check. **The E9 body append already discharges the harm.** Give this its own ticket if wanted.
+
+#### O2 — C9 addendum (linkage channel live in all E1 arms)
+Insert **after** the existing `% BIND: E1 (rev-rel-2026-08-26-dd42d37eb); C1 basis-neutral` at `conclusions.tex:178`, then add a fresh standalone BIND below it:
+```
+All three arms of that contrast ran with the memory and its linkage channel
+live, so the comparison isolates the direction set the polish searches along,
+not the memory as a whole.
+% BIND: E1 (rev-rel-2026-08-26-dd42d37eb); linkage channel live in all arms
+```
+Placing it **after** line 178 leaves that BIND's window (172-177, carrying `$D = 50$`, `1.4\times10^{-4}`, `25`, `29`) intact. Inserting it *before* line 178 — as C9 directed — silently evicts line 172 and un-binds the passage's own numbers while the gate still exits 0. Content is true and number-free (verified: all three E1 `run_config.json` carry `interaction_graph_enabled: true`; the coordinate arm's note reads "ISM live, linkage live").
+
+---
+
+### 3. REJECTED / DEFERRED replacements — do not re-litigate
+
+| Source | Rejected text | Reason |
+|---|---|---|
+| C6 dossier | `the … cuts themselves remain frozen and hash-locked` | Reproduces the vacuity it diagnoses (E4 edited no file — every perturbation is a runtime `optimizer_options` override, so "frozen and hash-locked" is true of every constant swept or not); converts a Limitations disclosure into a provenance **boast** about the paper's largest untested design choice; `cuts` appears nowhere in either document; its four-cut enumeration collides with `supplementary.tex:1539`'s three-boundaries-plus-extension (S14-016). Same failure class as the rejected C4 fix. |
+| C7 dossier | `every variant of this prespecified battery` | CEC2020 has a prespecified battery too, and its median re-rank **does** move a DT-GSK ordinal (D=15, third→second; supp p.68, stated main p.41). Reopens the ambiguity across suites. |
+| C8 dossier | `removes the memory's linkage **and local-search** channels` | The ISM-block subspace LS is not enabled in the frozen configuration; would ship a new falsehood and a fresh main-vs-supp contradiction. |
+| C8 dossier | `In the channel that experiment isolates` | Superseded by E5; drops `the memory's`, bare demonstrative, unshipped vocabulary, and E1 isolated the *direction set*, not the channel. |
+| C10 dossier | `(F6: $8.3\times10^{-5}$ versus $7.7\times10^{-7}$)` | Two numeric literals present in **no** exhibit and **not** in `e1_basis_contrast.json` (which carries no per-function value of any kind). Admissible only by extending the BIND at `:3711` to name `_revision/e1_basis_coordinate` + `cec2017/dt-gsk` per-run CSVs. Deferred. |
+| C10 dossier "Fix 2" | A12-conventions sentence in the S9 preamble | Out of C10's scope; falls **inside** the `rev-rel-…` BIND window, making 0.5/0.56/0.64/0.71 gate-enforced; and S9's preamble contains no conventions sentence. **Raise separately** — there is a real defect: the same contrast prints `0.59` in Table A25 (mean-per-function, `regen_cec2017_contrasts.py:125`) and `0.511` in Table A43 (pooled all-pairs, `analyze_revision_experiments.py:126/131`), same data, same precision, no distinguishing note. |
+| C11 dossier | `differs from it on 13 of the 72 fields` | Wrong: 13 resolved fields differ at D=50 but only 12 are in `pub_overrides(50)`; at D=100 it is 11 of 108. Also filed under a BIND naming a key-diff artifact that holds no resolved-config data, and its 5 added lines evict `88`. |
+| C11 dossier | `retains the tiered leg's final polish and interaction-structure memory **unchanged**` | The ISM's own 29 params survive, but its consumers do not (`linkage_min_dim` 30→10, `linkage_block_refresh_period` 10→20, four `local_search_*`). "Unchanged" invites the over-reading the next paragraph forbids. |
+| C12 dossier | `still panel-best, but a margin of 0.08 rather than Table 14's 0.48`; `2.858`; `improves … from 2.879 to 2.724` | R2.5 regression; `2.858` unbindable and its own prescribed remediation emits `2.862`; causal claim contradicted by Holm p = 0.517. |
+| C12 dossier | Add an eGSK column + Overall row to `SA06` | New evidence release + 2 generator edits + reshaped native DOCX table + 2 more validators. Not "a regeneration, not a retype." |
+| C4 (settled) | its proposed fix | Already rejected as a regression. **NO EDIT.** |
+
+---
+
+### 4. DO-NOT-EDIT — with reasons, so nobody reopens them
+
+1. **`src/gsk_family/optimizers/_dt_core.py:2035, 4765, 4828, 4844`** — `only fitness-affecting` here means the **FC4 lift-EMA telemetry**, a different and *correct* sense. The module is on the SHIPPED hash list at `papers/scripts/validate_provenance_claims.py:54`; **even a comment edit fails the gate** (CLAUDE.md rule 1). A global find/replace on `only fitness-affecting` hits this file — do not do a global replace.
+2. **`docs/development/dt_gsk_core_reference.md:121`** and **`docs/html/development_dt_gsk_core_reference.html:202`** — same telemetry sense, correct as written.
+3. **`papers/review_2026_08_24/revision_experiments_preregistration.md:170`** (`ISM's fitness-affecting channel`, singular) — D-0049 keeps the pre-registration public *precisely* so adverse-outcome wording can be shown to predate the outcomes. Editing it destroys the property it exists to prove.
+4. **`REVISION_STATUS.md:111`** — must keep quoting the defective phrase to track C8. (Line 485-486 *is* edited: E11e — it asserts the claim as fact.)
+5. **`papers/review_2026_07_22/desk_screening_report.md:409, 772`**; **`papers/build_prompt_phases/phase_07/captions_registry.md:49`**; **`papers/build_prompt_phases/phase_08/paragraph_evidence_audit.csv:328`** — append-only trees (CLAUDE.md rule 6). Stale content there is correct.
+6. **`papers/main_pandoc.tex`, `papers/supplementary_pandoc.tex`** — generated shims, overwritten every `build_docx.py` run. Hand-editing is clobbered and yields **false completion**. Both C8 ("mirrors") and C9 ("if they are re-issued") got this wrong in the same direction. Regenerate.
+7. **`papers/tables/SA0*.tex`, `papers/tables/word_sources/*.json`, `docs/html/*.html`** — generated (`SA06.tex:1` says so explicitly). Regenerate via their generators.
+8. **`papers/analysis/rev-rel-2026-08-26-dd42d37eb/*.json`** and **`benchmarks/cec_reference_results/**`** — frozen evidence (CLAUDE.md rule 2). No number in this pass changes; nothing here is touched.
+9. **`papers/sections/conclusions.tex:101`**, **`papers/supplementary.tex:1331`**, **`papers/supplementary.tex:1706`** — TRUE statements that *invite* the C11 misreading ("gated to $D \geq 50$", "base-configuration defaults are 0.985, full budget and disabled"). They are true of DT-GSK's own profile. **Do not "fix" them.**
+10. **`papers/supplementary.tex:1539`** — the three-boundaries-plus-extension sentence that collides with main Table 5's four dimension tiers. Pre-existing (S14-016), out of scope for pass-42, and E1/E2's wording deliberately enumerates nothing so as not to make it conspicuous.
+11. **`papers/scripts/finalize_evidence.py`** — standing instruction: never run it.
+
+---
+
+### 5. New numbers / terms — BIND audit (requirement 5)
+
+| Edit | Introduces | Shipped? | Action |
+|---|---|---|---|
+| E1/E2 | `dimension-tier boundaries` | `dimension tiers` (main Table 5 caption) + `tier boundaries` (`supplementary.tex:1539`, supp PDF p.45) | **Composed from shipped vocabulary. No numeral. No BIND.** |
+| E1/E2 | — no numeral — | — | The E4 BIND at `conclusions.tex:96` keeps its window (line count held at 2). |
+| E3/E4 | `robustness variants` | `the prespecified r01/r04 robustness variants` (supp p.11); `All three registered robustness variants` (p.68) | **Shipped. No numeral. No BIND.** Text moves *toward* both binds (`AN-ROB-2017-01/04`; `RANK-ROBUSTNESS`), which name exactly the r01/r04 pair. |
+| E5 | `terminal exploitation channel` | `terminally, the eigenframe polish` (main p.19), `exploitation channels` (main p.3), `this exploitation channel` (supp p.74) | **Composed from rendered vocabulary. No numeral. No BIND.** Both `conclusions.tex` BIND windows unaffected. |
+| E6 | `linkage channel`; `Section~S9.1` | verbatim `supplementary.tex:3666-3668`; S9.1 is a shipped label | **No BIND** — the text sits after the `:2256-2258` BIND, inside no window. |
+| E7 | `two orders of magnitude` | word, not a numeric token; asserts strictly **less** than current text | **No BIND** (line 3700 has never been in a BIND window — noted as a residual, not fixed here). |
+| E8 | `parameter dictionary` | `parameter set` (:3758) + `dictionaries` (:3760), same paragraph | **No numeral. No BIND.** ⚠ `override` does not render in supplement prose — do **not** write "override dictionary". |
+| E8c | — no numeral by construction — | — | **≤3 lines is a hard constraint**; at +3 `88` (line 3761) stays inside the E3 BIND window. |
+| **E9** | `0.517`, `$D = 10$`, `$NP = 5D$` | **`0.517` prints in `papers/tables/SA06.tex:9`** → Table A44, both renders; `$NP = 5D$` is that table's header | **All shipped. No new BIND.** Deliberately placed *inside* the existing `% BIND: E2 headline` window at `:3751` so the tokens are gate-enforced in both formats. |
+| E10 | `the route that was tested` | plain register, no term of art | **No BIND** (plain summary carries none). |
+| O2 | — none — | — | Requires its **own** standalone BIND line, placed *after* the existing one at `:178`. |
+
+**Nothing in this pass adds an unbindable number.** Every rejected item in §3 that does add one is rejected for that reason.
+
+---
+
+### 6. Rebuild, re-mint, validate
+
+**Files edited → downstream obligations:**
+
+| Edited | Rebuild |
+|---|---|
+| `sections/introduction.tex`, `sections/conclusions.tex`, `sections/performance.tex` | `DT-GSK.pdf` (epoch **1783468800**) → `build_docx.py` (epoch **1783641600**, regenerates `main_pandoc.tex`) → `DT-GSK.docx` → **re-run `papers/scripts/build_submission_zips.py`** (the zip bundles all three edited section files **and** `DT-GSK.pdf`) |
+| `supplementary.tex` | `supplementary.pdf` (1783468800) → `build_docx.py --supplementary` (1783641600, regenerates `supplementary_pandoc.tex`) → `supplementary.docx`. **Not** in the submission zip. |
+| `cover_letter.tex` (+ `.md` mirror) | `cover_letter.pdf` |
+| `DT-GSK-plain-summary.tex` | `DT-GSK-plain-summary.pdf` (not manifest-hashed) |
+| `docs/**/*.md` | `python scripts/build_docs_html.py` |
+
+**Freeze manifest re-mint** — `papers/governance/main_manuscript_freeze_manifest.json`, **8 of 15 hashed entries change**: `sections/introduction.tex`, `sections/performance.tex`, `sections/conclusions.tex`, `DT-GSK.pdf`, `DT-GSK.docx`, `supplementary.pdf`, `supplementary.docx`, `cover_letter.pdf`. Manifest is **CRLF + 2-space** — re-mint surgically per its own `remint_note`; `sed -i` / `read_text()` normalise to LF and break the hashes. Set `published_commit` alongside `anchor_commit` (publication is a squash; the anchor does not resolve publicly).
+
+**Validators (all must pass before tagging):**
+```
+validate_provenance_claims.py      # must still pass — NO src/ file is touched
+validate_evidence_bindings.py      # exit 0; also eyeball the windows named above
+validate_cross_format_parity.py    # PDF vs DOCX body paragraphs, both documents
+validate_document_consistency.py   # M-003 main/conclusion/supplement drift
+validate_docx.py  validate_artifact_labels.py  validate_build_hygiene.py
+check_manifest                     # then verify with `git cat-file -s`, not the worktree
+```
+
+---
+
+### 7. What can still go wrong
+
+1. **Line endings, per file.** `conclusions.tex` and `introduction.tex` are **LF**; `performance.tex` and `supplementary.tex` are **CRLF**. Every multi-line FROM above spans a newline — a matcher built with `\n` against a CRLF file **matches nothing and fails silently**. Verified counts in §0. Confirm with a byte read before each multi-line edit, never with a text-mode read.
+2. **Never author LaTeX or regex through a bash heredoc.** Backslash collapse has already shipped `oindent` and `imes` into a released PDF. E1/E2/E6/E8c/E9 all contain `\dtgsk{}`, `\_`, `\times`, `---`. Use exact-match file editing (Write/Edit) only. One of the C11 challengers hit this trap again *this week* while writing a read-only sweep script.
+3. **The double space at `supplementary.tex:1414`.** `hash-locked.` is followed by **two** spaces before `Neither ARGP`. The FROM string must stop at the period. Same convention throughout `supplementary.tex` sentence breaks (`:3700`, `:3762`).
+4. **Em dash vs `---`.** E11b/c/d are U+2014 in Markdown; E1/E5b/E6 are ASCII `---` in LaTeX. Do not normalise.
+5. **Cross-format parity.** `validate_cross_format_parity.py` compares canonical `.tex` body paragraphs against the **DOCX**, which is built from the `_pandoc` shim. Editing `sections/*.tex` or `supplementary.tex` **without rebuilding the DOCX produces a FAIL row** — and worse, its `split_containment` rule (a key appearing as exactly two contiguous runs) can record a *mid-paragraph* insertion like E9 as `PASS_FORMAT_DIFF` rather than FAIL, so a stale DOCX may pass while missing the disclosure. Verify the DOCX by reading `word/document.xml`, not by re-grepping the `.tex`.
+6. **DOCX epoch.** `1783641600`, **not** the PDF's `1783468800`. A persisted `SOURCE_DATE_EPOCH` in the shell silently yields a non-reproducible DOCX that still passes `check_manifest`. Unset it between builds; build twice and diff.
+7. **`check_manifest` hashes the working tree, not the committed blob.** A Word-resaved DOCX once passed 15/15. Verify with `git cat-file -s` after committing.
+8. **BIND-window drift is silent.** `validate_evidence_bindings.py` only checks that each extracted token's digits appear in both renders — it never reports tokens that *left* a window. Three edits change paragraph line counts (E8c +3, E9 +8, O1 +1). E8c is capped at 3 specifically to keep `88` bound; E9's shift only evicts trivially-present dimension labels. Re-read the six lines above each touched `% BIND:` after applying.
+9. **Wrong repo.** Work only in `D:/AI/Research-Lab/DT-GSK`. The divergent PhD-Projects copy hashes only its own tree — both can report "15/15" while disagreeing.
+10. **Branch.** Work on `main`. **Never push `archive/revision-pass-39-full`** — its commit messages gender an anonymous reviewer and its trees carry the reviewers' reports.
+11. **Untracked-by-design files.** E12 edits `response_to_reviewers.md`, which is gitignored at `.gitignore:56` (D-0049, verified `rc=0`). It will not show in `git status` and will not be reviewed by any tracked-files sweep — but it ships to the reviewers. Do not re-add it to git.
+12. **Residuals accepted, not fixed, in pass-42** — record them in the decision log so they are not re-discovered as new defects:
+ - `supplementary.tex:1539` three-vs-four tier boundaries (S14-016).
+ - The A12 convention collision (0.59 in Table A25 vs 0.511 in Table A43 for the same contrast) — needs its own id.
+ - `conclusions.tex:104` still says "the parameter set \dtgsk{} resolves at $D = 10$", the same verb E8a replaces in the supplement — a mild main/supplement drift if E8 is applied and this is not.
+ - `validate_cross_format_parity.py`'s `table_value_precision` note claims the DOCX renders full semantic precision (`2.879310`); `DT-GSK.docx` contains zero such occurrences. Unconditional `PASS_FORMAT_DIFF`, not a gate — stale convention, triage separately.
 
 ## 3. What has already been applied
 
@@ -590,19 +956,21 @@ worktree blind spot.
 (E1-E4, ~32,000 runs) completed on 2026-08-26, freeze pass-41 is minted at 15/15, and `v2.14` is
 published with `v2.13` still resolving. What follows is the *remaining* work only.
 
-**1. Pass-42 — the correction pass (agent work, unblocked).** Six edits are owed against the
-published sources: C1, C2, C3, C6, C8+C9 merged, C10. Two claims are refuted and need no edit
-(C4, C11); three are optional wording (C5, C7, C12). Read §2a first — it carries the verdicts, the
-true site counts, and two hazards that will bite anyone who applies the list naively:
+**1. Pass-42 — the correction pass (specified, unblocked for C6–C12).** The work order is
+**§2b**: twelve edits E1–E12 plus two optional items, with every FROM anchor verified byte-exact
+and unique, every per-file line ending stated, and every insertion line-count-capped so it cannot
+silently evict a BIND window. It discharges C6, C7, C8+C9 merged, C10, C11 and C12.
 
-- Seven of the eleven verdicts were **never adversarially challenged**. On the four that were, one
-  verdict was overturned and one proposed fix was rejected as a regression. Challenge first.
-- Almost every proposed fix **undercuts its own site list** by missing the `_pandoc.tex` mirrors.
-  Fix the PDF alone and `validate_cross_format_parity` fails.
+**C1, C2 and C3 are not in it** — see the coverage gap at the top of §2b. C1 additionally waits on
+the author decision in item 2 below.
 
-Sequence it as a normal change-control pass: challenge the seven → merge C8/C9 → apply across all
-sites including mirrors → rebuild → **read the built PDF**, because all three defects this project
-has shipped were caught there and nowhere else → re-mint the freeze → CR-0025 / D-0050 → `v2.15`.
+Apply in §2b's order, **highest line number first within each file**, then follow §2b §6: rebuild
+the PDFs at `SOURCE_DATE_EPOCH=1783468800` and the DOCX at **1783641600** (a persisted shell var
+here yields a non-reproducible DOCX that still passes `check_manifest`), let `build_docx.py`
+regenerate both `_pandoc` shims rather than editing them, re-run `build_submission_zips.py` if any
+`sections/*.tex` or `main.tex` changed, then **read the built PDF** — all three defects this project
+has shipped were caught there and nowhere else. Finally re-mint the freeze, file **CR-0025 /
+D-0050** after verifying both ids are still free, and tag **v2.15**.
 
 **2. The C3 decision the fix list cannot make for you.** C1 is a counterexample to contribution
 **C3**'s byte-stable determinism claim, printed inside the paper's own table. Three honest
