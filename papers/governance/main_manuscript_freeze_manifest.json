@@ -1,8 +1,8 @@
 {
   "schema": "main_manuscript_freeze_manifest/v1",
-  "phase": "PASS-45 review-instrument findings: two Major main-text corrections and four smaller items, from a 97-agent application of papers/PAPER_REVIEW_PROMPT.md.",
-  "generated_utc": "2026-08-27T16:10:00+00:00",
-  "anchor_commit": "5fa4d389a77e372acec3c5a133c6f96ac833f483",
+  "phase": "PASS-46 the remaining review-instrument tickets: test-count attestation, unresolvable SHAs, ACE branch wording, and the self-contradictory rows of the artifact register.",
+  "generated_utc": "2026-08-27T17:05:00+00:00",
+  "anchor_commit": "8a509506306fc355f065e34929acf41950e1c3a3",
   "pre_freeze_base_commit": "b9846e47024e48a0f8ce3e4f22bffbd794b2a355",
   "evidence_release": {
     "primary": "rel-2026-07-20-67d9345f9",
@@ -11,8 +11,8 @@
     "ablation": "abl-rel-2026-07-20",
     "revision": "rev-rel-2026-08-26-dd42d37eb"
   },
-  "scientific_content_status": "CORRECTED. Section 3.5 no longer asserts the pre-revision position on the polish basis - the subsection defining C1 had kept the submitted 'not established' caveat and routed to the superseded S6.5 while the revision's S9.1 had established the opposite. The evidence-discipline paragraph no longer states a release count that the Data Availability Statement contradicts. No number, rank, p-value or decision changes; contribution C3 is untouched.",
-  "freeze_statement": "Freeze for resubmission. Six tickets discharged: T1 (section 3.5 pre-revision position, Major), T2 (false release count, Major), T3 (two A12 estimands under one phrase), T9 (Table 15 caption legends a symbol its cells never print), T10 (reverted terminology correction M011), T26 (spelling). Every FROM anchor verified byte-exact and unique before application; BIND contexts and numeric tokens unchanged in all three edited sources.",
+  "scientific_content_status": "CORRECTED. The supplement's test count now matches the suite and the attestation that backs it; two reader-facing commit SHAs that cannot resolve in a squashed public history are gone; the ACE restricted-branch condition matches the equation and both code paths. No number, rank, p-value or decision changes.",
+  "freeze_statement": "Freeze for resubmission. Eight tickets discharged (T5, T14, T15, T16, T17, T19, T20, T25, T29). The artifact register was repaired surgically rather than re-minted, because regeneration deletes two exhibit bindings and turns validate_artifact_labels red. The attestation was regenerated rather than the number patched.",
   "hash_algorithm": "SHA-256",
   "build_environment": {
     "pdf_source_date_epoch": 1783468800,
@@ -28,7 +28,7 @@
   "files": [
     {
       "path": "papers/main.tex",
-      "sha256": "02e2ef3b15703ec321a77219aae91cc49475e2da89cf82fb598e2afecc0b6969",
+      "sha256": "a5a1ecd72d3c2966981aa34d6ee6169bd3f147a1ea3f16737207777ca1072929",
       "bytes": 26099
     },
     {
@@ -48,8 +48,8 @@
     },
     {
       "path": "papers/sections/performance.tex",
-      "sha256": "bebcd16c7d8c237af92edb6f557616130c0bd4a24c5f3da36962292b49c01b64",
-      "bytes": 77774
+      "sha256": "347f06862186b46c1219ebf5f406564739dd973a6506c6b59fadb12ca5128e60",
+      "bytes": 77757
     },
     {
       "path": "papers/sections/conclusions.tex",
@@ -58,23 +58,23 @@
     },
     {
       "path": "papers/DT-GSK.pdf",
-      "sha256": "16cfa543dce1ba1bb547bca2e819d0a7fba789aad3abab61fab3f6632d19d5fe",
-      "bytes": 822003
+      "sha256": "84954e52ae2f94a91756904fe23dd16a7050a532d688be2c1e0cd2e9ca674e4c",
+      "bytes": 822013
     },
     {
       "path": "papers/DT-GSK.docx",
-      "sha256": "d6a64d95ad50825613953a9942abaf571c61feff03babd1eef14a1f85518108e",
-      "bytes": 1011611
+      "sha256": "a6d88601afadb831dc356117ce756166ed5a46e493b372e18a3ae84efd5a273e",
+      "bytes": 1011601
     },
     {
       "path": "papers/supplementary.pdf",
-      "sha256": "4debfd33b9d0a80ff65f6aeae5d9a50c7be884319430c3e164904cffc5ec2939",
-      "bytes": 1749436
+      "sha256": "6876c0319f19630674b4156329de748a94315257a721efe8f4bfb6e563697244",
+      "bytes": 1749479
     },
     {
       "path": "papers/supplementary.docx",
-      "sha256": "0f58a1e222ebea3f4dd228fd5a5c2d014802b8b13b14aa75826073e0714b9e9a",
-      "bytes": 9622954
+      "sha256": "50244bd1bd017c325ff7215d74507cc2106a3a7521e7d204e12e11737d694842",
+      "bytes": 9622953
     },
     {
       "path": "papers/cover_letter.pdf",
@@ -93,7 +93,7 @@
     },
     {
       "path": "papers/governance/artifact_binding.csv",
-      "sha256": "68eb896378b0e02fe984ed64d6d2afc4d822e35f739133238b1b33d18816335b",
+      "sha256": "5f40e0a8275049b29d5b043a87bc15477762c70d77d661e58a9d83696ac55e4b",
       "bytes": 82652
     },
     {
@@ -121,14 +121,14 @@
     "audit_manuscript": "NOT RE-RUN at pass-43. Pass-41 result: exit 0; terminology_hits 0; blocked_wording_hits 2 (pre-existing). Should be re-run before resubmission if the author wants it current.",
     "revision_analysis_pins": "NOT RE-RUN at pass-43, and not required: no analysis artifact was touched, which check_frozen_analysis confirms at 115/115."
   },
-  "remint_note": "pass-45 MINTED 2026-08-27 from a deep application of the project's own review instrument: 14 stage-mapped dimensions, every finding adversarially verified, 44 of 82 refuted and 75 of 82 proposed remedies judged unsafe as filed. The applied wording departs from the filed remedy in every case and from the report's own safer remedy for T1, which would have left the paragraph self-contradictory.",
-  "published_commit": "5fa4d389a77e372acec3c5a133c6f96ac833f483",
+  "remint_note": "pass-46 MINTED 2026-08-27, closing the reader-facing remainder of the review-instrument findings. Nine tickets remain open and are recorded in REVISION_STATUS: all Minor or Editorial after severity correction.",
+  "published_commit": "8a509506306fc355f065e34929acf41950e1c3a3",
   "published_commit_note": "Pass-45 was made directly on the published branch, so anchor_commit and published_commit are the same commit and both resolve. The pass-41 disclosure that anchor_commit does not resolve remains true of pass-41 and every earlier pass.",
   "source_files": [
     {
       "path": "papers/supplementary.tex",
-      "sha256": "e5118918f139bb7415b2448086fa3d45ce041722fd033b5368c80340347bdf1d",
-      "bytes": 236186
+      "sha256": "e50c87b27ec236bc1238f929dd6a2b9fe4a7ea28f462c280f062aa34ff5c8ae0",
+      "bytes": 236199
     },
     {
       "path": "papers/cover_letter.tex",
