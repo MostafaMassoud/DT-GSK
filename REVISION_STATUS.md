@@ -85,9 +85,52 @@ between the two legs (the one apparent config difference was a `json.dump` artif
 the integer keys correctly), and NP was not transplanted, so E3 is budget-fair. Yet **27 of 1479**
 run cells differ at D = 100, median relative 1.6e-4, **max 5.3e-2** — not floating-point noise.
 
-Two things follow. The caption states something its own table falsifies, on the same page. And the
-residual sits in tension with contribution **C3**, which claims byte-stable determinism in the
-declared environment. The cause is not established; do not assert one.
+**INVESTIGATED 2026-08-27 — the residual is a cross-vintage comparison artifact, and contribution
+C3 is NOT falsified.** Every step below was verified in this repository.
+
+*Ruled out.* **Configuration:** identical — all 108 resolved keys match `pub_overrides(100)`; the
+one apparent difference is a `json.dump` artifact in `environment.json`, and the generated YAML at
+`_configs/e3_uniform_high_cec2017.yml:36` carries genuine unquoted integer keys. **Pairing:** seed,
+`nfes` and termination match on all 1479 cells; zero seed mismatches. **Threading:** both drivers
+pin `OMP`/`MKL`/`OPENBLAS`/`NUMEXPR`/`NUMBA` to 1, and `numba_threads_active` is 1 in both records.
+**Telemetry:** the legs differ on `generation_logs_enabled` and `convergence_graphs_enabled`, which
+gate an O(NP·D) coverage kernel — but that kernel is **inert**, because its only search-affecting
+consumer sits behind `ace_coverage_weighted`, which resolves `False` in both legs.
+
+*What actually explains it.* The divergence is **confined to the D ≥ 50 tier**.
+`interaction_graph_min_dim = 50`, so the U-low/D = 10 control exercises neither the ISM nor the
+eigenframe polish — which is precisely why it prints a clean 0/29/0 — while D = 100 exercises both.
+The 27 cells cluster on **5 of 29 functions** (F7 ×9, F13 ×8, F20 ×7, F30 ×2, F14 ×1); under random
+scatter 27 cells would touch roughly 20 functions, and three of the five are **hybrids**, whose
+group structure is exactly what makes the interaction matrix near-degenerate. At D ≥ 50 the polish
+basis is `np.linalg.eigh` of the symmetrised ISM matrix (`_dt_core.py:1909`) ordered by a stable
+argsort: the sort fixes *ordering*, but cannot canonicalise eigenvector **sign** or resolve a
+**degenerate subspace**, where any orthonormal rotation is a valid LAPACK answer. The project
+already concedes the fragility — `run_revision_experiments.py`'s own docstring reads "Single-thread
+the numeric stack; D>=50 byte-stability depends on it."
+
+*And the two legs are not the same binary.* Shipped ran **2026-07-18** at commit `251fc8cb`, which
+is **unrecoverable** (squashed out of every ref). The revision ran **2026-08-26** at `63bd484`.
+CR-0007 records that a `_dt_core.py` correction **"CHANGES TRAJECTORIES wherever the polish fires
+(D>=50)"**, and the module's current hash `3ce5db52…` differs from CR-0007's own recorded post-fix
+hash `dc2d59db…`, so it moved again after that fix.
+
+**Consequence for contribution C3 — do not narrow it.** C3 claims that fixed code, fixed
+configuration and the declared environment reproduce byte-identically. This residual compares two
+builds five weeks apart, so **it is not a counterexample to C3**, and conceding it as one would give
+away a headline contribution for free.
+
+**But C3 is under-evidenced, and that is the real finding.**
+`tests/regression/test_dt_gsk_byte_stable.py:10` states in terms that its cells are "D<=30 (below
+the D>=50 SGSM/parallel-kernel tier)". **The only test backing byte-stability stops below the tier
+where the thread-sensitive eigendecomposition lives.** CR-0007 already noted this gap let C006
+through. Extending that KAT to D ≥ 50 is cheap and converts C3 from asserted to demonstrated — and
+if it fails, a genuine bug surfaces before a reviewer finds it.
+
+**Proven vs probable.** Everything above is verified except the specific channel: the
+eigh sign/degeneracy mechanism is *available*, *consistent with the clustering* and *consistent with
+the project's own thread-sensitivity note*, but the shipped binary is unrecoverable, so it cannot be
+demonstrated by re-running. **State the vintage difference; do not assert the mechanism.**
 
 **Why every gate passed over it:** `validate_cross_format_parity` was green because the PDF and the
 DOCX agree — both carrying the same wrong caption — and `validate_evidence_bindings` excludes
@@ -952,41 +995,76 @@ worktree blind spot.
 
 ## 6. What to do next
 
-**Everything below the line in §3 is done.** Phases 1-7 are applied, all four experiments
-(E1-E4, ~32,000 runs) completed on 2026-08-26, freeze pass-41 is minted at 15/15, and `v2.14` is
-published with `v2.13` still resolving. What follows is the *remaining* work only.
+Ordered. Phase 0 is author-only and one item **expires**; everything else is agent work.
 
-**1. Pass-42 — the correction pass (specified, unblocked for C6–C12).** The work order is
-**§2b**: twelve edits E1–E12 plus two optional items, with every FROM anchor verified byte-exact
-and unique, every per-file line ending stated, and every insertion line-count-capped so it cannot
-silently evict a BIND window. It discharges C6, C7, C8+C9 merged, C10, C11 and C12.
+### Phase 0 — today, in parallel, nothing depends on them
 
-**C1, C2 and C3 are not in it** — see the coverage gap at the top of §2b. C1 additionally waits on
-the author decision in item 2 below.
+| | Action | Why now |
+|---|---|---|
+| 0a | **GitHub → Insights → Traffic → Clones** — capture the count | Exposure closed 2026-08-27 (`02d1791`). Rolling 14-day window ⇒ gone ~**2026-09-10**. The only item that becomes *permanently impossible*. |
+| 0b | **GitHub Support ticket** to garbage-collect `b9846e4` | Seven copyrighted PDFs are off every ref but still served by direct SHA (HTTP 206 verified). Turnaround is days–weeks; start the clock. |
+| 0c | **Tell the co-authors** their biographies were public for twenty days | Courtesy and consent. Independent of everything else. |
 
-Apply in §2b's order, **highest line number first within each file**, then follow §2b §6: rebuild
-the PDFs at `SOURCE_DATE_EPOCH=1783468800` and the DOCX at **1783641600** (a persisted shell var
-here yields a non-reproducible DOCX that still passes `check_manifest`), let `build_docx.py`
-regenerate both `_pandoc` shims rather than editing them, re-run `build_submission_zips.py` if any
-`sections/*.tex` or `main.tex` changed, then **read the built PDF** — all three defects this project
-has shipped were caught there and nowhere else. Finally re-mint the freeze, file **CR-0025 /
-D-0050** after verifying both ids are still free, and tag **v2.15**.
+### Phase 1 — C1, now largely resolved
 
-**2. The C3 decision the fix list cannot make for you.** C1 is a counterexample to contribution
-**C3**'s byte-stable determinism claim, printed inside the paper's own table. Three honest
-responses: report the observed tie counts and disclose the residual as open (cheap, honest, no
-investigation); find the cause first (open-ended); or narrow C3 (touches a headline contribution).
-The cause is **not** established — do not assert one. This is an author decision, not an agent one.
+The investigation in §2a has already done the hard part: the residual is a **cross-vintage
+artifact**, not a determinism failure, and **contribution C3 must not be narrowed**. What remains is
+a wording decision on the caption — state that the controls compare against a reference produced by
+an earlier build, and that the D ≥ 50 learned-basis path is sensitive to that. Do **not** disclose
+"an unexplained determinism residual": that overstates the problem and invites an attack on C3.
 
-**3. Author-only, outside this repository.** The SuSy resubmission (§5 item 5 — new title and
-revised keywords must be re-entered by hand; portal metadata does not update from the PDF); the
-GitHub Support ticket to garbage-collect `b9846e4`; GitHub Insights → Traffic → Clones, which
-expires on a rolling 14-day window; and telling the co-authors their biographies were public for
-twenty days.
+### Phase 2 — close the specification gap
+
+1. Draft **C1** (per Phase 1), **C2** and **C3** edits — §2b covers C6–C12 only.
+2. **Add the DAS edit.** `main.tex:278-279` hardcodes "this revised version to tag v2.14". Pass-42
+   produces **v2.15**, so that sentence goes false, and **no gate checks it** (verified: no
+   validator greps the tag string). The edit is self-consistent — tag v2.15 contains a DAS naming
+   v2.15 — but it must be *inside* this pass. `main.tex` is one of the 15 hashed files.
+3. Challenge all four the same way; verify anchors byte-exact and unique; fold in as E13–E16.
+
+### Phase 3 — triage two loose ends (cheap, before the build)
+
+- The **A12 convention** discrepancy: the same contrast may print `0.59` in Table A25 and `0.511`
+  in Table A43, same data, same precision, no distinguishing note. **Unverified** — confirm or
+  refute. If real it rides along free instead of becoming pass-43.
+- **Extend the byte-stability KAT to D ≥ 50** (§2a). Cheap, and it turns C3 from asserted into
+  demonstrated. Runs in `tests/`, touches no frozen artifact, and is the single highest-value
+  addition available to the paper's integrity story.
+
+### Phase 4 — apply
+
+Apply **E1–E12 + E13–E16** in §2b's order, **highest line number first within each file**. Take
+**O2** (true, number-free, and it repairs a BIND-eviction hazard). **Defer O1 and C5** — both
+cosmetic, and C5's fix is unaudited.
+
+### Phase 5 — build and verify
+
+PDFs at `SOURCE_DATE_EPOCH=1783468800`, **DOCX at 1783641600** (verify the variable twice — a
+persisted value yields a non-reproducible DOCX that still passes `check_manifest`). Let
+`build_docx.py` **regenerate** both `_pandoc` shims. Re-run `build_submission_zips.py` if any
+`sections/*.tex` or `main.tex` changed. Full gate battery (runbook §8b). Then **read the built
+PDF** — all three shipped defects were caught there and nowhere else, and both newest traps (the
+6-line BIND window, the DAS tag) are gate-invisible.
+
+### Phase 6 — governance and release
+
+Re-mint → **pass-42** · file **CR-0025 / D-0050** (verified free: CR-0024 and D-0049 are currently
+highest) · tag **v2.15** · push `main` + tag · confirm v2.13, v2.14 **and** v2.15 all resolve.
+
+### Phase 7 — resubmit (author-only; the point of no return)
+
+SuSy upload; **re-enter the new title and revised keywords by hand** — portal metadata does not
+update from the PDF. After this, **no rebuilds**: v2.15 becomes the frozen record of what was
+resubmitted, and any further defect becomes a correction to a live submission.
+
+### Phase 8 — housekeeping, whenever
+
+`PAPER_REVIEW_PROMPT.md:1771` still names the old title as "CURRENT" — a false-alarm source for
+every future review run.
 
 **Do not** re-run the experiment track, re-derive the phases, or regenerate
-`benchmarks/cec_reference_results/`. If you are reading this section for a plan of the revision
-itself, you are one section too late — that history is §3.
+`benchmarks/cec_reference_results/`. If you are reading this for a plan of the revision *itself*,
+you are one section too late — that history is §3.
 
 ## 7. Traps — every one verified in this repository
 
