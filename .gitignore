@@ -111,3 +111,6 @@ papers/DT-GSK_visio.docx
 # submitted tag. Not committed, for the same reason the change register is not:
 # it is a rendering of the tagged diff, and the tags are the record.
 papers/submission/DT-GSK-changes-marked.pdf
+# Change register, same reasoning; rebuild with
+# papers/scripts/build_change_register.py
+papers/submission/DT-GSK-change-register.pdf
