@@ -92,3 +92,22 @@ Context suites **cec2020** (agsk) and **cec2013lsgo** (decc-g, mos) carry no see
 - Uniqueness and deterministic mapping: confirmed in every cell.
 - Pairing: valid for all 21 optimizer pairs on cec2017, cec2011, cec2013 (identical instances, identical seeds, shared initial populations); context suites excluded from pairing by construction.
 - One anomaly (A1) — logged, classified, traced, impact-evaluated above; no unexplained anomaly remains for task 4 scope.
+
+---
+
+## Erratum (2026-08-27) — the DT-GSK carve-out this audit does not state
+
+Basis 3 and the Section 7 summary above assert common random numbers at
+initialization "for all 21 optimizer pairs" without recording the one documented
+exception. The provisioning claim is correct and is **not** what needs
+qualifying: `run_experiment.py` really does supply a shared `X0` to every
+optimizer including DT-GSK. The exception is in **consumption** — DT-GSK
+self-initializes and does not consume the shared payload, which the manuscript
+already records (Table 13 and Supplementary S5.1, "the single documented
+exception is DT-GSK self-initialization").
+
+**No manuscript edit follows**: the shipped sentences are already true at all
+four rendered sites, and Supplementary S5.1 *is* the pairing record a reader can
+check. This note exists so the governance audit is not read as contradicting
+them. Appended rather than rewritten — the audit is a dated, anchor-stamped
+record and its original text stands.

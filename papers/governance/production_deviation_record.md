@@ -531,3 +531,16 @@ re-seed that does not grow the population, and nothing in this repository
 advertises IPOP: all eight occurrences are dated historical notes, a
 context-PDF listing, or an explicit prohibition in the `hansen2001cmaes`
 evidence card.
+
+## Cross-format display convention — Holm p in Table 15 (recorded 2026-08-27)
+
+`build_docx.py` canonicalises a trailing-zero decimal, so five Holm p cells in
+Table 15 print `1` in the DOCX where the PDF prints `1.0000`. The values are
+numerically identical and the PDF is correct.
+
+Recorded rather than fixed. `_clean_tex_cell` has no column context, so a
+column-restricted rule is not implementable there; deleting the normaliser
+outright changes exactly those five cells but removes an unexplained transform
+whose history is unrecoverable (the public history is a squash).
+`validate_cross_format_parity.py` already documents this canonicalisation as
+deliberate, so no gate is blind to it.

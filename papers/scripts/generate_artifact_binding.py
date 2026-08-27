@@ -32,6 +32,7 @@ Usage::
 from __future__ import annotations
 
 import csv
+import json
 import os
 import hashlib
 import subprocess
@@ -47,7 +48,25 @@ ROOT = PAPERS.parent
 # longer the one on disk.
 sys.path.insert(0, str(SCRIPT_DIR))
 import generate_full_convergence  # noqa: E402
-RELEASE_ID = os.environ.get("GSK_REL_ID", "rel-2026-07-16-78f075cb0")
+def _default_release_id() -> str:
+    """Resolve the promoted primary release rather than hardcoding one.
+
+    The default was pinned to ``rel-2026-07-16-78f075cb0``, which has been
+    superseded by ``rel-2026-07-20-67d9345f9`` since the C006 regeneration. A
+    hardcoded default means every regeneration of this registry re-stamps the
+    superseded id over rows whose ``source_paths`` already point at the current
+    release -- which is how 16 rows came to contradict themselves. Read the
+    promoted id from the manifest that owns it, and fall back to the historical
+    literal only if that manifest cannot be read, so this stays runnable.
+    """
+    try:
+        manifest = PAPERS / "governance" / "evidence_release_manifest.json"
+        return json.loads(manifest.read_text(encoding="utf-8"))["release_id"]
+    except Exception:
+        return "rel-2026-07-16-78f075cb0"
+
+
+RELEASE_ID = os.environ.get("GSK_REL_ID", _default_release_id())
 BUNDLE = f"papers/analysis/{RELEASE_ID}"
 REF = "benchmarks/cec_reference_results"
 OUT = PAPERS / "governance" / "artifact_binding.csv"

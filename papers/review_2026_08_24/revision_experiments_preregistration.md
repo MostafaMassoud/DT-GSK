@@ -254,3 +254,30 @@ claiming otherwise is itself wrong). The archive capacity is therefore a flat 20
 Consequence: E2 is a CLEANER single-factor experiment than registered — initial population size
 is the only difference between the arms; the archive is identical. No result changes; the
 declared-scope sentence in any report must describe the flat cap, not the formula.
+
+---
+
+## Amendment A3 (2026-08-27) — the executed Holm family for E2 and E3
+
+The analysis plan above specifies Holm correction **within dimension**. What was
+executed differs, and differs *differently* for the two experiments, so they are
+recorded separately rather than under one clause.
+
+- **E2** admits one comparison per dimension (tiered against the matched-population
+  arm), so a within-dimension family has m = 1 and applies no correction at all.
+  The executed family instead corrects **across the four dimensions**, m = 4.
+- **E3** admits **two** comparisons per dimension (the two tier-constant transplant
+  arms), so a within-dimension family has m = 2. The executed family is a
+  **transpose** of the registered one — correcting across dimensions within each
+  arm — not an expansion of it.
+
+**Direction and effect.** For E2 the executed family is strictly more
+conservative than the registered one. For E3 neither family dominates the other
+in general. Conservatism is therefore claimed here only as **verified over the
+executed values**, not as a theorem: recomputing both experiments under the
+registered within-dimension family leaves every reported decision unchanged in
+all twelve cells.
+
+Recorded as an amendment rather than silently, because the value of this
+pre-registration is that its analysis plan was fixed in advance and any departure
+is visible. The S9 preamble's deviation wording is adjusted to carry no count.

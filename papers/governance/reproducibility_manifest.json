@@ -528,5 +528,7 @@
     "docx_source_date_epoch": 1783641600,
     "revision_release_correction": "Before first publication the revision release's provenance path fields were rewritten from absolute to repository-relative across 61 files, matching every earlier release; its manifest was re-minted and the correction recorded in the manifest's own correction field (D-0049)."
   },
-  "anchor_commit_current": "86e231039c29223ec10065fe9705e0a2fd49d1ce"
+  "anchor_commit_current": "5fa4d389a77e372acec3c5a133c6f96ac833f483",
+  "published_commit_current": "514806ffe5",
+  "anchor_note": "anchor_commit_current is the freeze anchor of the current pass (pass-45). It is recorded alongside published_commit_current rather than being repointed at whatever resolves: the anchor/published distinction is the project's disclosed convention (README, and the freeze manifest's published_commit_note), and collapsing them would destroy the anchor record. The Phase-0 and Phase-12 blocks in this file are self-labelled historical and are left as minted."
 }

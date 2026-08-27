@@ -1574,7 +1574,7 @@ probabilities tabulated above are the DE-off vector: when the sixth arm enters,
 the five are rescaled by $1-\pi_{\mathrm{DE}}$ and the six are re-projected onto
 the simplex under $\pi_{\min}$, giving $(0.05,0.05,0.40,0.05,0.355,0.095)$ at
 $20$--$49$ and $(0.05,0.05,0.35,0.05,0.31,0.19)$ at $50$--$99$.  When a generation yields no net
-improvement (its summed $f_{\mathrm{old}}-f_{\mathrm{new}}$ is non-positive) the
+improvement (its summed $f_{\mathrm{old}}-f_{\mathrm{new}}$ is strictly negative) the
 credit target is restricted to the improving arms, as in main-text
 Equation~(7); when the generation is net-improving the full-pool target is
 used with worsened arms floored at $\pi_{\min}$.  The restricted branch
@@ -1924,7 +1924,7 @@ base seed $20{,}260{,}422$ and re-derive byte-identically.
 % BIND: TAB-T16-BCA (validation status: byte-identical seeded re-derivation)
 
 The software state itself is attested rather than asserted.  The full test
-suite (603 tests) and every release gate --- build hygiene,
+suite (613 tests) and every release gate --- build hygiene,
 provenance-claim consistency, cross-format parity, and both Word validators ---
 were executed twice and completed with zero failures, on an interpreter
 (Python~3.10.11) and dependency set verified to lie inside the support
@@ -2440,8 +2440,8 @@ by this suite.
 % evidence_release_manifest_cec2013lsgo.json (release_id)
 
 Two evidential tiers apply, fixed by the pre-registered analysis-plan
-addendum (statistical\_analysis\_plan\_addendum\_cec2020\_lsgo.md,
-signing commit 5c9bfae82) and binding on every sentence of this section.
+addendum (statistical\_analysis\_plan\_addendum\_cec2020\_lsgo.md), signed
+before any result existed and binding on every sentence of this section.
 Before the addendum was signed, the family-only Friedman mean ranks, the
 omnibus, the Nemenyi view and the per-function win/loss descriptives of
 this suite had been informally inspected; the addendum's Section~6
