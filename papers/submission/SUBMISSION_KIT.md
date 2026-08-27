@@ -79,8 +79,8 @@ in production, `papers/DT-GSK.docx` exists and validates.
 | Figures | `papers/submission/DT-GSK-figures-600dpi.zip` |
 | Supplementary Materials | `papers/supplementary.pdf` |
 | Cover letter | paste text from `papers/cover_letter.md`, or upload `papers/cover_letter.pdf` |
-| **Response to reviewers** | `response_to_reviewers.pdf` — 10 pages, rendered from `papers/review_2026_08_24/response_to_reviewers.md`, which is on disk but withheld from the repository because it quotes both reports (D-0049). Upload the PDF, or paste the Markdown point-by-point into the form. |
-| **Revised manuscript, changes marked** | `change_register.pdf` — 17 pages: all 54 changed passages, each given as submitted and as revised, with the reviewer point it answers. MDPI asks for changes to be marked; `latexdiff` is unusable here (MiKTeX ships only a Perl shim and never installed the script), so this is the equivalent in a form an editor can act on. |
+| **Response to reviewers** | `response_to_reviewers.pdf`, rendered from `papers/review_2026_08_24/response_to_reviewers.md`, which is on disk but withheld from the repository because it quotes both reports (D-0049). Upload the PDF, or paste the Markdown point-by-point into the form. **Render it fresh at resubmission** — the source was edited in passes 42, 43 and 48, so any page count recorded earlier is stale. |
+| **Revised manuscript, changes marked** | `change_register.pdf` — every changed passage, each given as submitted and as revised, with the reviewer point it answers. **Generate it at resubmission from `git diff v2.13 <current tag>` and do not quote a fixed passage or page count**: the figures once recorded here (17 pages, 54 passages) were computed at pass-41 and the diff has grown with every pass since — v2.13..v2.21 spans 75 hunks across 7 files. MDPI asks for changes to be marked; `latexdiff` is unusable here (MiKTeX ships only a Perl shim and never installed the script), so this is the equivalent in a form an editor can act on. |
 | ~~Word files~~ | skip — LaTeX submission |
 
 ## 7. Cover letter (textbox)

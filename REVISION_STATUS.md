@@ -1503,6 +1503,31 @@ identical contrast). See the pass-45 ticket list.
 
 ### Phase 7 — resubmit (author-only; the point of no return)
 
+**Author's planned resubmission date: 2026-09-01.** Everything agent-side is complete at pass-48 /
+`v2.21`; nothing in the repository blocks that date. The portal deadline was never confirmed — the
+decision letter says ten days and the SuSy list view shows only "Pending major revision" with no due
+date, so 2026-09-03 remains an *inference*. If the true date is tighter, the letter invites a request
+for more time.
+
+**Confirmed from the portal 2026-08-27:** it still carries the **submitted** title
+("… Adaptive **Control** …"), 26 days after submission. That is direct evidence for the standing
+warning that portal metadata does not update from the PDF. Re-enter both by hand:
+
+- Title: `DT-GSK: Dimension-Tiered Adaptive Configuration Selection and Deterministic Refinement for
+  Gaining-Sharing Knowledge Optimization`
+- Keywords (9, semicolon-separated) — note the third one moved with the title:
+  `metaheuristic optimization; gaining-sharing knowledge; dimension-tiered adaptive configuration
+  selection; deterministic final refinement; adaptive operator selection; population-size reduction;
+  CEC benchmark suites; nonparametric statistical comparison; reproducibility`
+
+**Generate both companion PDFs fresh.** The response letter's source was edited in passes 42, 43 and
+48, and the change register must come from `git diff v2.13 v2.21` — 75 hunks across 7 files, not the
+54 passages the kit recorded at pass-41. Neither figure should be quoted anywhere.
+
+**After upload, no rebuilds.** `v2.21` becomes the frozen record of what was resubmitted; a second
+revision is pass-49 with a new superseding tag, never an edit to v2.21 in place (D-0045).
+
+
 SuSy upload; **re-enter the new title and revised keywords by hand** — portal metadata does not
 update from the PDF. After this, **no rebuilds**: v2.15 becomes the frozen record of what was
 resubmitted, and any further defect becomes a correction to a live submission.
