@@ -1,0 +1,175 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Section 5 -- Conclusions (Phase 8 rewrite, drafting-order steps 5 and 9).
+% Outline routing: the consolidating discussion is Section 4.7
+% (performance.tex); per phase_04/outline.md the Section-5 file carries the
+% Dim-21 four movements with the Dim-18 HEADED LIMITATIONS paragraph.
+% Claims asserted: CN-01, CN-02 (with RS-01 NARROWED wording), LM-01..LM-05.
+% Every number binds to release rel-2026-07-20-67d9345f9 artifacts via
+% "% BIND:" comments; values mirror Section 4 (paraphrased, not repeated
+% verbatim). No ablation content; one neutral supplement pointer with NO
+% result preview.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Conclusions}\label{sec:conclusions}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+This paper introduced \dtgsk{}, a GSK-family algorithm that retains the
+gaining-sharing vector-update equations and layers an adaptive control-and-budget
+scaffold, a deterministic final polish, and a controlled family evaluation on that
+core, with an interaction-structure memory as a supporting mechanism. % BIND: MT-01 (frozen contribution wording)
+That memory is a decaying, confidence- and evidence-gated
+coordinate-pair graph learned from the strictly improving moves the run
+has already accepted. It is active at $D \geq 50$ and consumed
+twice --- as linkage blocks for the block crossover, and as the eigenbasis of
+the one-shot, RNG-free final polish. An ISM-block subspace local search is
+implemented but not enabled in the frozen configuration. % BIND: MT-08, MT-09
+A dimension-tiered scaffold (ACE with ARGP pruning, the tier-floored
+NLPSR schedule, the hard-capped BSE, and a deep-stall restart that
+preserves the global best) carries the tiers where the memory is
+inactive, and one hash-frozen configuration serves every dimension of
+the four bound-constrained suites, with a single disclosed large-scale
+exception
+(Supplementary Section~S7). % BIND: MT-02..MT-07; ART-PARAMS (no per-suite tuning, bound-constrained scope); production_deviation_record.md D-8.4
+
+The empirical findings are panel-scoped and dimension-resolved --- the
+study characterizes the algorithm's standing tier by tier rather than
+claiming uniform dominance --- and the unfavorable cells are stated with
+the favorable ones. Within the seven-algorithm GSK-family panel
+on CEC2017, \dtgsk{} attains the best overall Friedman mean rank ---
+2.48, the unweighted mean of the four per-dimension ranks, with
+\egsk{} second at 2.96 --- placing first at $D = 10/50/100$ (2.88,
+2.21, 2.34) and second at $D = 30$ (2.50) behind \egsk{}
+(2.29). % BIND: RS-01 NARROWED, CN-01 (AN-RANKAGG-2017-OVERALL; AN-OMNI-2017-D10/D30/D50/D100)
+Across the 24 Holm-corrected pairwise cells it records 17 significant
+wins, 7 with no significant difference, and no significant loss --- a
+descriptive tally over four independent within-dimension Holm families
+(size 6 each), not a single result controlled family-wise across
+dimensions. % BIND: TAB-T15 (decision-column tally); M-028 (no global FWER claim)
+At the same time, its head-to-head records against \egsk{} at
+$D \geq 30$ are losing ones (11--2--16, 13--0--16, 12--0--17), and the
+two algorithms are never Nemenyi-separable on this suite (all four rank
+gaps lie inside the critical difference of
+1.67). % BIND: negative_findings.md items 3-4 (TAB-T15 eGSK rows; nemenyi_cd_cec2017_D*.csv)
+On CEC2011, \dtgsk{} places second of seven (3.36; \egsk{} first at
+2.52), and its across-problem Wilcoxon against \egsk{} is a
+Holm-significant loss
+($p_{\mathrm{Holm}} = 4.2 \times 10^{-2}$). % BIND: RS-10 ACCEPTED (AN-OMNI-2011-NATIVE; AN-PW-2011-NATIVE)
+On the CEC2013 second comparison suite, the overall descriptive
+aggregate is again the panel's best (2.80), with a per-dimension
+profile of first/third/first --- third at $D = 30$ behind \egsk{} and
+\atmals{}. % BIND: AN-RANKAGG-2013-OVERALL; AN-OMNI-2013-D30 (negative_findings.md item 10)
+On AGSK's strongest suite --- the CEC2020 competition in which it was
+the runner-up~\cite{apgsk2021} --- \dtgsk{} places fourth; the family
+panel corroborates AGSK's published strength in this regime, consistent
+with the tiering thesis: every dimension-gated \dtgsk{} subsystem is
+inactive at $D \leq 20$. That suite is the pre-registered confirmatory
+leg --- its analysis and outcome wording were committed before any of
+its data existed --- and \dtgsk{} is Holm-separated in only five of its
+twenty-four pairwise cells, three favorable and two
+unfavorable. % BIND: RS-12 ([AGSK first] variant verbatim per Amendment 2 A2.3, factual clause corrected per Amendment 3 A3.2; friedman_ranks_cec2020_overall.csv; wilcoxon_holm_cec2020_15.csv; wilcoxon_holm_cec2020_20.csv)
+On CEC2013LSGO the comparison is family-internal: \dtgsk{} and \agsk{}
+share the best descriptive family mean rank (tied-first, 3.13 each),
+and the registered paired tests do not separate \dtgsk{} from \agsk{}
+--- nor from any other family member across functions; at run level it
+is Holm-significantly better than every family member on F4 and F8 and
+worse than every family member on F7 and
+F15. % BIND: RS-13 (friedman_ranks_cec2013lsgo_native.csv; wilcoxon_holm_cec2013lsgo_native.csv; wilcoxon_run_cec2013lsgo_native.csv)
+The CEC2017, CEC2011 and CEC2013 orderings carry the prespecified
+robustness qualification of Section~\ref{sec:exp:stats}: \dtgsk{}'s own ordinal
+positions are identical under the median re-ranking and the
+variants that exclude the disputed cells, while several orderings between
+comparators are not. On CEC2020, \dtgsk{}'s aggregate ordinal is stable
+under both registered across-dimension aggregate variants --- the
+pre-committed instability rule did not fire --- while the median re-rank
+moves its $D = 15$ ordinal
+(Supplementary Section~S8). % BIND: AN-ROB-2017-01, AN-ROB-2017-04 (r01/r04 DIVERGE verdicts); AN-ROB-2020 (robustness_cec2020.csv: dt-gsk aggregate ordinal 4 under both variants, D15 rank diverge under median)
+
+\paragraph{Limitations.}
+No parameter-sensitivity study was performed: the tier constants are frozen
+and hash-locked, and the individual influence of each is unmeasured. Neither
+ARGP nor the deep-stall restart is isolated by the remove-one study, which
+excludes both by pre-specification.
+The remaining limitations bounding these findings are stated in full, with
+their numeric evidence, in the Supplementary Materials, Section~S5. In
+outline: the
+mid-dimension tier favors \egsk{}, which leads at CEC2017 $D = 30$, on CEC2013
+at $D = 30$, and on CEC2011. The structure memory and the polish are gated to
+$D \geq 50$, so at $D \leq 30$ \dtgsk{} is essentially the adaptive scaffold.
+Pairing is by common seed, problem and run rather than by an identical
+starting population: \dtgsk{} self-initializes its own $5D$ population from
+the same seed-paired stream, the one documented departure from the shared
+$X_{0}$ used by the six comparators.
+Every comparative finding is panel-relative by design, with no claim against
+other metaheuristic families, and the \egsk{} cells derive from a port whose
+SLSQP polish substitutes the reference implementation's fmincon solver, so no
+runtime-superiority claim is made in either direction. At $D = 1000$ no
+member of the family, \dtgsk{} included, approaches the performance that
+dedicated large-scale specialists report in the literature; the family's
+evidence of competitiveness therefore ends at the dimensionalities of the
+bound-constrained
+suites. % BIND: LM-06 (adopted limitation sentence (b), verbatim; may not be cut for page budget)
+The study runs on a single host and environment. Five of the six
+comparators were authored or co-authored by two of the present authors, and no
+external non-GSK baseline enters any panel, table, figure or claim ---
+the repository does contain runnable non-GSK implementations and, for
+three large-scale specialists, CEC2013LSGO result banks produced under
+this paper's protocol, all disclosed in the Data Availability Statement
+and none analyzed
+here. % BIND: FINAL_PUBLICATION_PLAN.md 0.4 sentence (c) reconciliation; decision_log D-0025
+This is a deliberate trade of breadth of
+comparison for internal validity: every panel cell reported here was re-executed
+under one protocol, one budget rule and one seed schedule, whereas a wider
+roster assembled from values quoted across source publications would carry
+uncontrolled implementation and environment differences into the comparison. Three attribution gaps bound what the
+component evidence can support, including that the polish isolation removes the
+entire compass endgame rather than the learned basis alone. Finally, the
+statistical scope is itself bounded, with inference within dimension and the
+across-dimension aggregate descriptive.
+% BIND: LM-01..LM-05; see Supplementary Material Section S5 for the full statements
+
+Component-level evidence anchors the mechanisms and frames the open
+questions. A scaffold remove-one
+component study --- each component disabled in turn within the otherwise
+complete system, so that a cell measures that component's marginal
+contribution in context rather than its standalone effect in isolation, with the
+interaction-structure memory held off in
+every cell --- is reported in the Supplementary Materials, as is a
+direct isolation of the interaction-structure memory overlay itself
+(Section~S6.5). The isolation finds \emph{no detectable standalone
+benefit} at the memory's active tiers, at a tier-dependent compute overhead.
+A breakdown by function class shows this null holds even on the hybrid
+and composition functions, so the aggregate null is not explained by the
+separable-problem subset. Both are benchmark categories in which variable
+interaction is present by construction, though they are not a validated
+ground-truth annotation of coordinate interaction. We
+therefore report the interaction-structure memory as a \emph{controlled
+negative result}: under this design, learning coordinate-pair structure from accepted
+moves without additional objective evaluations yields no detectable standalone
+improvement to a GSK optimizer at these
+dimensions. This is a failure to detect an effect, not a demonstration that
+none exists: no equivalence test or confidence bound on the effect size was
+computed, so the result places no numerical ceiling on how large a benefit the
+design could have missed. It is
+presented alongside the reproducible dimension-tiered system rather than as a
+fourth claimed contribution. Reporting it, together with the mid-dimension
+second place and the Holm-significant CEC2011 loss, is part of what the
+evaluation contribution (C3) is for: the locked protocol that supports the
+favorable findings fixes the unfavorable ones in the same record, and both are
+re-derivable from the same release.
+The mid-dimension deficit
+motivates studying the structure memory's activation boundary below its
+current $D \geq 50$ gate. At $D = 1000$ the family's standing is
+consistent with the Supplementary Section~S6.5 isolation null rather than an
+independent measurement of it: no component contrast was run at that
+scale, so the large-scale result attributes nothing to the memory or the
+polish in either direction, and pairing the memory with
+decomposition-style scaling in the differential-grouping
+line~\cite{omidvar2014dg} remains future work.
+% BIND: LM-05 (revised, CR-0019: component-isolation ceiling D<=100; no component attribution at D=1000)
+And evaluation beyond the family --- non-GSK baselines under the same
+locked, budget-fair protocol --- is the natural external test of the
+panel-scoped findings reported here. The implementation, the frozen
+configuration, per-run raw results, seed schedules, and the versioned
+evidence releases accompanying this article are identified in the Data
+Availability Statement, and the byte-stable determinism layer
+lets the released analysis pipeline re-derive the reported
+numbers from them in the declared supported environment. % BIND: CN-02
