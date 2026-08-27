@@ -1154,9 +1154,14 @@ matrix (seven optimizers across six benchmark suites, exact hexadecimal
 \mbox{best-fitness} values) and re-verified all eighty-four cells of a
 cross-suite measurement ledger against their pre-campaign values, with zero
 divergence, alongside the generator known-answer tests and the byte-stability
-pins. No reported number, rank, $p$-value or decision in this paper or this
-Supplementary Material depends on which of the two revisions is used; the
-release remains reproducible from either.
+pins. One exception is recorded rather than left to be found. The internal
+control of Table~@@REF!tab:rev-e3@@ re-executes, under the current revision,
+runs archived under the earlier one; it does not reproduce them exactly, and
+its win/tie/loss count carries that residual, which that table's caption
+reports as unresolved. No other reported number, rank, $p$-value or decision
+in this paper or this Supplementary Material depends on which of the two
+revisions is used, and the archived release from which every reported number
+is derived is itself unchanged.
 
 Any post-freeze change to the frozen sources, the configuration, or the
 mechanism inventory requires a recorded change request; the two corrections

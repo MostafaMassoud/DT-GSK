@@ -94,6 +94,38 @@ def _check_one_manifest(manifest_path: Path) -> tuple[dict, list[str], int, int]
     return manifest, bad, n_ok, len(files), details
 
 
+def _check_sources(manifest: dict) -> tuple[list[str], int, int]:
+    """Byte-check the optional ``source_files`` list.
+
+    The freeze manifest hashes RENDERS (``cover_letter.pdf``,
+    ``supplementary.pdf``/``.docx``) but historically did not hash the
+    ``.tex`` they are built from, while ``main.tex`` *was* hashed. That
+    asymmetry has a failure mode, and it fired in pass-42: editing
+    ``cover_letter.tex`` without rebuilding left ``cover_letter.pdf`` matching
+    its recorded digest, so the gate stayed green while the shipped letter --
+    which goes to the editor -- still carried a phrasing the paper had
+    retracted. Nothing in the output changed, so nothing prompted a rebuild.
+
+    ``source_files`` closes that blind spot without touching ``files``: the
+    tracked-file count and its ``N/N match`` line are unchanged, so every
+    recorded "15/15" stays true, and a source edited without a rebuild now
+    shows up as a source mismatch instead of as silence.
+    """
+    entries = manifest.get("source_files") or []
+    bad: list[str] = []
+    for entry in entries:
+        rel = entry["path"]
+        target = (_ROOT / rel).resolve()
+        if not target.exists():
+            bad.append(f"{rel} (missing)")
+            continue
+        if _sha256(target) != entry["sha256"]:
+            bad.append(rel)
+        elif "bytes" in entry and target.stat().st_size != int(entry["bytes"]):
+            bad.append(f"{rel} (disk {target.stat().st_size} != recorded {entry['bytes']})")
+    return bad, len(entries) - len(bad), len(entries)
+
+
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--manifest", action="append", dest="manifests",
@@ -121,6 +153,10 @@ def main(argv: list[str] | None = None) -> int:
             if items:
                 print(f"  {kind} : {items}")
         all_bad.extend(bad)
+        src_bad, src_ok, src_n = _check_sources(manifest)
+        if src_n:
+            print(f"{label}sources {src_ok}/{src_n} match  {src_bad if src_bad else '[]'}")
+            all_bad.extend(f"source: {s}" for s in src_bad)
         root_field = manifest.get("evidence_root")
         if root_field:
             evidence_root = (_ROOT / root_field).resolve()
