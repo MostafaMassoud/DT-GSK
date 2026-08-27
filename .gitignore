@@ -16,6 +16,13 @@ dist/
 # Truncated budget, tiny function set: it is NOT evidence and must never be
 # promoted or committed. Campaign output under results/_revision/ IS tracked.
 results/_revision_smoke/
+# Diagnostic re-execution staging (D-0051). Re-runs already-released cells to
+# answer a provenance question; it is a MEASUREMENT, not new evidence, and every
+# cell it produces is deterministically regenerable from the recorded seeds. It
+# must never be promoted or cited. Note that results/ is deliberately NOT
+# blanket-ignored -- results/_run_all/ IS tracked -- so a diagnostic tree left
+# unnamed here would be swept in by `git add -A`.
+results/_g1_recheck/
 # Revision-campaign staging curves: one representative convergence CSV per
 # (function, dimension), deterministic-regenerable from recorded seeds (same
 # rationale as DTTrace_*.jsonl). The promoted release under
