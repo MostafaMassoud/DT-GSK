@@ -17,11 +17,22 @@ are frozen or hash-bound. Assume nothing is casually editable.
 
 ## Right now (2026-08-27)
 
-**Pass-44 is applied, minted, tagged and pushed.** `origin/main` carries it, **`v2.17` is live**,
-and `v2.13` through `v2.17` all resolve — the Data Availability Statement names `v2.17` for the
-revised version, and `main.tex` was edited to say so in the same pass. **Pass-44 carried the last
-three optional wording items and the open list is now empty of agent work** — what remains is the
-author's alone (D-0052). **Every tag bump drags
+**Pass-45 is applied, minted, tagged and pushed.** `origin/main` carries it, **`v2.18` is live**,
+and `v2.13` through `v2.18` all resolve — the Data Availability Statement names `v2.18`, and
+`main.tex` was edited to say so in the same pass.
+
+**Pass-45 came out of a deep application of this project's own review instrument** (97 agents over
+`papers/PAPER_REVIEW_PROMPT.md`, 14 stage-mapped dimensions, every finding adversarially verified).
+It discharged two **Major** main-text defects the revision had missed — §3.5, the subsection
+defining C1, still asserted the *pre-revision* position on the polish basis and routed to the
+superseded S6.5; and the evidence-discipline paragraph stated a release count the Data Availability
+Statement contradicts — plus four smaller items (CR-0028 / D-0053).
+
+**The calibration is the durable lesson: 44 of 82 findings were REFUTED, and 75 of 82 proposed
+remedies were unsafe as written.** That ratio now holds across four independent rounds. The
+instrument finds real defects; **never apply its prescriptions unexamined.** In pass-45 even the
+*report's own* safer remedy for the §3.5 fix was unsafe — it would have left one paragraph asserting
+both that the question is open and that it is settled. **Every tag bump drags
 `CITATION.cff`, `SUBMISSION_KIT.md` and `submission_package_manifest.json` with it**; the citation
 file is gated and carries no leading `v`, so a `v2.1x` sweep misses it.
 
