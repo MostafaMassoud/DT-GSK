@@ -2127,3 +2127,56 @@ applying all surfaced fixes.
   **Status**: OPEN - the rewind, the GitHub Support purge request, the push and
   the tag are author actions and had not been taken when this entry was written.
 
+
+## D-0050 (2026-08-27) - Pass-42: correct the published revision before resubmitting
+
+- **Decision.** Apply the nine adjudicated corrections to the published round-one
+  revision as an ordinary change-control pass, mint freeze **pass-42**, and cut
+  tag **v2.15**, rather than either shipping the defects or deferring them to a
+  post-resubmission correction. Registered as **CR-0025**.
+- **Why now.** "Published" meant the public repository, not the journal. The
+  revision had not been resubmitted through SuSy and the Preprints.org posting
+  was withdrawn the same day (D-0046), so every defect was still correctable in
+  the version the reviewers will actually read, at the cost of one pass. That
+  window closes at resubmission, after which the same edits become a correction
+  to a manuscript already under the editor's eye.
+- **What was NOT done, deliberately.** C4 is REFUTED and is not edited: its
+  proposed fix would have retargeted a sentence at a matched-population
+  aggregate that appears nowhere in the shipped record, on a bind-tagged
+  paragraph - converting a self-resolving ambiguity into an unsupported
+  thin-margin assertion. Contribution **C3 is not narrowed**. The bound claim at
+  `supplementary.tex:1254-1267`, that the CR-0013..CR-0018 edits were certified
+  bit-identical with zero divergence, is **left standing and flagged**: Table
+  A45's D = 100 row is a counterexample to it, and the certification chain has
+  exactly one hole - CR-0015 lists cec2017 D10, cec2017 D50 and cec2013lsgo
+  D1000, but never cec2017 D100. Correcting that paragraph needs scope, the
+  three CR ids and an evidence binding, and is an author decision, not a caption
+  clause. **Status**: OPEN.
+- **The residual is reported, not explained.** The D = 100 identity control
+  prints 2/25/2 and 27 of 1479 run cells differ. Configuration (108/108 resolved
+  keys), pairing (seed, nfes and termination on all 1479), threading (both
+  drivers pin the numeric stack to one thread) and telemetry are all excluded.
+  The two legs are different builds and the earlier one is unrecoverable, so the
+  cause is narrowed but NOT established. The caption states the residual and
+  asserts no cause.
+- **Determinism was tested rather than asserted.** The byte-stability regression
+  covered only D <= 30 - below the tier where the interaction graph activates -
+  which CR-0007 already recorded as how the C006 defect reached a release. A new
+  regression at D = 50 and D = 100 asserts repeat-identity on both
+  `best_fitness` and the full `best_x`, guards that the memory and the polish
+  are actually enabled at each cell, and was negative-tested. It deliberately
+  pins no golden values: at D >= 50 the value follows the BLAS reduction order,
+  and one cell was observed at three different values under one thread, eight
+  threads and inherited settings, while repeat-identity holds at any fixed
+  thread count.
+- **A shipped artifact was nearly missed.** The freeze manifest hashes
+  `cover_letter.pdf` but not `cover_letter.tex`, so editing the source left the
+  render matching its recorded hash while still carrying a retracted phrasing.
+  The cover letter ships to the editor. It was caught only when the manifest
+  listed which of the fifteen files had moved, and is rebuilt here.
+- **Publication differs from pass-41.** This pass was made directly on `main`,
+  which already carries only publishable history, so no squash was required and
+  no development line was discarded. `anchor_commit` therefore DOES resolve in
+  the published history and equals `published_commit`; the pass-41 disclosure
+  that it does not resolve remains true of pass-41 and every earlier pass.
+- **Anchor.** `4a2291bd6c718e92f5cb39f3329db424562fc64b`.
