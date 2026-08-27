@@ -1,0 +1,201 @@
+% ============================================================================
+% DT-GSK equation registry (E1a-E12) -- LaTeX rendering (Phase 7, task C.1)
+% Canonical source: papers/build_prompt_phases/phase_03/equation_registry.csv
+% Symbols: papers/build_prompt_phases/phase_03/notation_table.md (tab:notation)
+% MDPI-compatible: standard amsmath only. Zero empirical values.
+% Each block is a faithful transcription of one registry row; the eq_id and
+% code anchor are kept as comments. Do NOT edit equations here without a
+% matching change-request against the frozen registry.
+% ============================================================================
+
+% ---- E1a (inherited) --- gained_shared_junior.py:56 ------------------------
+% Junior knowledge-source indices (rank-neighbors; population sorted by
+% fitness, r_i = rank of individual i).
+\begin{equation}\label{eq:junior-idx}
+R_1 = \operatorname{rank}(r_i - 1),\qquad
+R_2 = \operatorname{rank}(r_i + 1),\qquad
+R_3 \sim \mathcal{U}\!\left(P \setminus \{i, R_1, R_2\}\right)
+\end{equation}
+At the rank boundaries the neighbour pair is taken from the two nearest interior ranks: $(R_1,R_2)=(\operatorname{rank}(1),\operatorname{rank}(2))$ for the best individual ($r_i=0$) and $(R_1,R_2)=(\operatorname{rank}(NP{-}3),\operatorname{rank}(NP{-}2))$ for the worst ($r_i=NP{-}1$), as in the reference GSK implementation~\cite{mohamed2020gaining}.
+
+% ---- E1b (inherited) --- gained_shared_senior.py:59 ------------------------
+% Senior knowledge-source indices (top/mid/worst groups of size round(p NP)).
+\begin{equation}\label{eq:senior-idx}
+R_1 \sim \mathcal{U}(P_{\text{best}}),\quad
+R_2 \sim \mathcal{U}(P_{\text{mid}}),\quad
+R_3 \sim \mathcal{U}(P_{\text{worst}}),\qquad
+|P_{\text{best}}| = |P_{\text{worst}}| = \operatorname{round}(p \cdot NP)
+\end{equation}
+The fraction $p$ is population-wide below $D=50$. At $D\ge50$ the frozen profile enables a conditional two-rate partition: while the trailing ten-generation mean acceptance is at most $0.10$, the worse-ranked half of the population draws its senior sources with $p=0.10$ and the better-ranked half keeps $p=0.05$; whenever acceptance is above that floor the single rate $p=0.05$ is used for the whole population.
+
+% ---- E2 (inherited) --- _dt_core.py (Kexp path) ---------------------------
+% Junior dimension schedule.
+\begin{equation}\label{eq:kexp-schedule}
+D_{\text{jun}} = \left\lceil D\,(1-x)^{K_{\exp}} \right\rceil,
+\qquad p_{\text{jun}} = \frac{D_{\text{jun}}}{D},
+\qquad x = \frac{t}{\text{MaxFES}}
+\end{equation}
+Each coordinate joins the junior phase with marginal probability $p_{\text{jun}}$, so $D_{\text{jun}}$ is the \emph{expected}, not the realized, junior-coordinate count. The assignment is an independent per-coordinate Bernoulli draw only on the rows that take the scalar mask; on a linkage-blockwise row (Eq.~(\ref{eq:kr-mask})) a single draw is shared across a whole block, so coordinates within a block are perfectly correlated and the realized count is more dispersed than the independent case.
+
+% ---- E3 (inherited) --- _numba_accel.py:407-414 (gsk kernel) ---------------
+% Gaining-sharing update. Junior and senior use DIFFERENT donor arrangements,
+% exactly as in the original GSK: the JUNIOR phase differences the two
+% rank-neighbours R1,R2 (Eq. junior-idx) and fitness-compares R3 to x_i; the
+% SENIOR phase differences best(R1) and worst(R3) (Eq. senior-idx) and
+% fitness-compares the MIDDLE source R2 to x_i. Because the two phases compare
+% DIFFERENT donors, the sign is per-phase: s_J (junior, vs R3) and s_S (senior,
+% vs R2), each in {+1,-1} (+1 when the compared source is fitter than x_i).
+% R-01: the two signs are separated and DEFINED inside this SAME numbered
+% display, and the convention is restated below in rendered text (it used to
+% live only in this comment, so it reached neither the PDF nor the DOCX).
+\begin{equation}\label{eq:gsk-update}
+\begin{aligned}
+\text{junior:}\quad u_i &= x_i + KF\left[\, (x_{R_1} - x_{R_2}) + s_J\,(x_{R_3} - x_i) \,\right],\\[2pt]
+\text{senior:}\quad u_i &= x_i + KF\left[\, (x_{R_1} - x_{R_3}) + s_S\,(x_{R_2} - x_i) \,\right],\\[4pt]
+s_J &= +1 \ \text{ if } f(x_i) > f(x_{R_3}), \ \text{ else } -1,\\[2pt]
+s_S &= +1 \ \text{ if } f(x_i) > f(x_{R_2}), \ \text{ else } -1
+\end{aligned}
+\end{equation}
+
+Here $s_J,s_S\in\{+1,-1\}$ are the signs of two \emph{different} fitness
+comparisons: the junior phase compares the random source $x_{R_3}$ to $x_i$,
+whereas the senior phase compares the middle source $x_{R_2}$ to $x_i$.
+Both follow the same convention---$+1$ when the compared source is fitter
+than $x_i$, so that the step is oriented towards it, and $-1$ otherwise
+(an exact tie takes $-1$).
+
+% ---- E4 (modified) --- _make_linkage_groups:918 / mask build --------------
+% Crossover mask: per-coordinate Bernoulli(KR), OR a linkage-block mask that
+% copies a whole block together. The random linkage blocks are permutation
+% chunks -- arbitrary coordinate subsets, NOT contiguous index ranges; at
+% D>=50 the SGSM graph's learned components (also arbitrary index sets) can
+% supply the blocks.
+\begin{equation}\label{eq:kr-mask}
+v_{ij} =
+\begin{cases}
+u_{ij} & \text{if } m_{ij} = 1\\[2pt]
+x_{ij} & \text{otherwise}
+\end{cases}
+\qquad
+m_{ij} \sim
+\begin{cases}
+\operatorname{Bernoulli}(KR) & \text{per-coordinate mask}\\[2pt]
+\text{shared across a linkage block } B\ni j & \text{linkage-blockwise mode}
+\end{cases}
+\end{equation}
+Here $KR$ is not the single frozen value of Table~\ref{tab:parameters} but the rate carried by the ACE arm that individual $i$ drew this generation, so it varies per individual and per generation over the arm pool. It is additionally floored at $\min(1,\ \kappa_{\dim}/D)$ with $\kappa_{\dim}=0/20/40/40$ by tier, which raises the low-$KR$ arms above their nominal rates at every $D\ge20$. Finally, a force-nonzero guarantee applies after mask assembly in both modes: if a row's mask would leave the trial identical to its parent, one coordinate is set at random so that every trial differs from its parent in at least one coordinate.
+
+% ---- E5 (modified) --- _dt_core.py:790 / _numba_accel.py:909 --------------
+% Nonlinear population reduction (tier-floored; rounded half-up).
+\begin{equation}\label{eq:nlpsr}
+NP(x) = \operatorname{round}_{\uparrow\frac12}\!\left(
+NP_{\text{init}} + \left(N_{\min} - NP_{\text{init}}\right) x^{(1-x)}
+\right),
+\qquad x = \frac{t}{\text{MaxFES}}
+\end{equation}
+
+% ---- E6 (modified) --- _ace_update_probs:1203 / _ace_project_probs:694 -----
+% ACE probability update, transcribed from the frozen operator. Paper convention
+% d_m = -omega_m and S = -s, where omega/s are the code's variables. Three
+% branches: net improvement (S>0) credits the FULL arm pool d/S; a non-improving
+% generation (S<0) with at least one improving arm credits that subset only;
+% S=0, non-finite S, or no improving arm holds pi (projection only). The target
+% is projected BEFORE the EMA mix and the mixture projected again; the projection
+% is Euclidean onto the floored simplex, not a floor-and-renormalize.
+\begin{equation}\label{eq:ace-update}
+\begin{gathered}
+d_m = \!\!\sum_{i:\,s_i = m}\!\! \bigl(f(x_i) - f(v_i)\bigr),
+\qquad
+S = \sum_{m} d_m,
+\qquad
+\mathcal{P}(z) = \operatorname*{arg\,min}_{\substack{y_m \ge \pi_{\min}\\ \sum_{m} y_m = 1}} \lVert y - z \rVert_2,
+\\[4pt]
+\tau =
+\begin{cases}
+d \,/\, S, & S > 0,\\[2pt]
+\bigl(\max(d_m,0)\bigr)_m \Big/ \sum_{m'}\max(d_{m'},0), & S < 0 \ \text{ and } \ \max_m d_m > 0,
+\end{cases}
+\\[4pt]
+\pi \leftarrow
+\begin{cases}
+\mathcal{P}\bigl((1-c)\,\pi + c\,\mathcal{P}(\tau)\bigr), & \tau \text{ defined},\\[2pt]
+\mathcal{P}(\pi), & \text{otherwise.}
+\end{cases}
+\end{gathered}
+\end{equation}
+
+% ---- E7 (inherited) --- bound_constraint.py:1 ------------------------------
+% L-SHADE midpoint bound repair.
+\begin{equation}\label{eq:midpoint-repair}
+v_{ij} \leftarrow
+\begin{cases}
+\dfrac{x_{ij} + \ell_j}{2} & \text{if } v_{ij} < \ell_j\\[6pt]
+\dfrac{x_{ij} + u_j}{2} & \text{if } v_{ij} > u_j
+\end{cases}
+\end{equation}
+
+% ---- E8 (inherited) --- dt_gsk_optimize accept step (_dt_core.py:3325) ----
+% Greedy selection: the trial replaces the parent when it is no worse (ties
+% accepted, <=), as in the inherited GSK operator. At D>=100 a conditional
+% late-budget acceptance clip can tighten this to a strict relative decrease
+% over a stall streak (the high-dimensional late-accept safeguard).
+\begin{equation}\label{eq:greedy-accept}
+(x_i, f_i) \leftarrow \left(v_i,\, f(v_i)\right)
+\quad\text{iff}\quad f(v_i) \le f(x_i)
+\end{equation}
+The tie-accepting form above is the base rule and is what runs at $D<100$. At $D\ge100$ the late-acceptance clip can replace it, late in the budget and after a stall streak, with the strict test $f(v_i) < f(x_i) - \epsilon_{\mathrm{clip}}\lvert f(x_i)\rvert$ at $\epsilon_{\mathrm{clip}}=10^{-3}$ (a distinct symbol from the stagnation tolerance $\epsilon$), which rejects ties; the clip's own gates are given in Supplementary Section~S5.
+
+% ---- E9 (modified) --- _dt_core.py:3874 (cauchy rescue) -------------------
+% Budget-safe escape: Cauchy rescue of the worst round(r_c NP) UNFROZEN rows
+% (the top n_freeze elites are protected). Per-coordinate scale
+% gamma = r_s (u-l)/sqrt(D) (r_s=bse_cauchy_scale); draws are bound-repaired,
+% charged to the budget, and kept only if not worse (<=).
+\begin{equation}\label{eq:bse-cauchy}
+x_i \leftarrow \operatorname{repair}\!\bigl(x_i + \gamma\,\mathcal{C}(0,1)\bigr),
+\quad \gamma = r_{s}\,\frac{u-\ell}{\sqrt{D}},
+\quad\text{worst } \operatorname{round}(r_{c}\, NP)\text{ unfrozen rows, kept iff } \le
+\end{equation}
+
+% ---- E10 (original) --- _dt_subsystems/interaction_graph.py:222 -----------
+% SGSM interaction memory: four decaying accumulators (magnitude G_abs, signed
+% G_signed, per-dimension activity g_act, and co-occurrence support C) EMA-updated
+% from STRICTLY-IMPROVING accepted moves only (ties and DE-arm moves excluded;
+% local-search moves weighted 0.25). Each displacement is L1-normalized over its
+% active coordinates and weighted by its improvement w_i; the graph acts only
+% when conf(G_abs) reaches kappa_min. The full per-sample normalization, source
+% weighting, and confidence functional are stated normatively in Supplement S5.
+% M-010: this equation is the UPDATE rule only. Consumption (whether a learned
+% block or eigenbasis may be USED) is separately gated on conf(G_abs) >= kappa_min
+% and is stated in the prose, not here -- updating and consuming are distinct.
+\begin{equation}\label{eq:sgsm-graph}
+\begin{aligned}
+G_{\bullet} &\leftarrow \lambda\,G_{\bullet} +
+\eta \sum_{i\,\in\,\mathcal{I}^{+}} w_i\, \phi_{\bullet}(\hat{\delta}_i)\, \phi_{\bullet}(\hat{\delta}_i)^{\!\top},
+\qquad \hat{\delta}_i = \frac{\Delta x_i}{\lVert \Delta x_i\rVert_1},\\[2pt]
+&\bigl(\bullet\in\{\mathrm{abs},\mathrm{signed}\};\ \phi_{\mathrm{abs}}{=}|\cdot|,\ \phi_{\mathrm{signed}}{=}\mathrm{id}\bigr),
+\end{aligned}
+\end{equation}
+
+% ---- E11 (original) --- _final_polish_basis:1882 / _final_polish_compass:1907
+% Eigenframe compass polish: one-shot, RNG-free, strict budget accounting;
+% V = eigenbasis of the SGSM signed matrix (coordinate axes if no signal).
+\begin{equation}\label{eq:eigen-polish}
+x^{*} \leftarrow \operatorname{CompassSearch}\!\left(x^{*},\,
+V = \operatorname{eig}(G_{\mathrm{signed}})\right)
+\end{equation}
+
+% ---- E12 (original) --- _dt_rng.py:1 --------------------------------------
+% RNG substream seeding: 13 append-only, prefix-locked substreams; stream 0
+% is the run seed verbatim; child seeds are a counter offset mod M, then
+% each stream is an independent Threefry generator from its child seed.
+\begin{equation}\label{eq:rng-substreams}
+\begin{aligned}
+\text{stream}_0 &= \operatorname{threefry}(\text{seed}),
+\qquad
+\text{stream}_k = \operatorname{threefry}(s_k),\\
+s_k &= (\text{seed} + 1{,}000{,}003\,(k{+}1)) \bmod M_{\mathrm{seed}} + 1,
+\quad k \in \{1,\dots,12\}
+\end{aligned}
+\end{equation}
+where $M_{\mathrm{seed}} = 2\,147\,483\,646$ is the child-seed modulus
+(Supplementary Material, Section~S5).
