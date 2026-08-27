@@ -1328,10 +1328,14 @@ worktree blind spot.
    day is a missed deadline, not a late-but-safe upload. Five days remain from 2026-08-27.
    It is the only dated constraint left — the GitHub Traffic → Clones expiry these documents
    had been treating as the most urgent item was discharged by capture on 2026-08-27 (row 0a),
-   and the purge request is parked (row 0b). **The e-mail explicitly invites a request for more
-   time.** With zero margin that is no longer merely cheap insurance; it is the only thing that
-   creates any. The letter is withheld under D-0049 and transcribed at
-   `papers/review_2026_08_24/journal_decision_email.md`.
+   and the purge request is parked (row 0b). The letter is withheld under D-0049 and transcribed
+   at `papers/review_2026_08_24/journal_decision_email.md`.
+   ~~**Request more time.**~~ — **DECLINED 2026-08-27, author decision.** The e-mail explicitly
+   invites one, and with plan and deadline on the same day it was the only available source of
+   margin; the author has decided to resubmit on 2026-09-01 without asking. Recorded rather than
+   dropped so it is not re-raised as an oversight: it was offered, considered and declined, and
+   the consequence — that a one-day slip is a missed deadline — is accepted knowingly. The
+   invitation stays open in the letter if that changes.
    ⚠ **One check-list item is not discharged:** the letter asks that revisions be *highlighted in
    the manuscript*. The project builds a change register (the tagged diff, as-submitted against
    as-revised), which is a companion document, not in-text highlighting. Whether that satisfies
