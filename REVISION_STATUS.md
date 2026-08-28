@@ -6,14 +6,14 @@ what is happening, what is done, and what is next.
 
 | | |
 |---|---|
-| **Last updated** | 2026-08-27 |
+| **Last updated** | 2026-08-29 |
 | **Manuscript** | `algorithms-4507562` — *Algorithms* (MDPI) |
 | **Submitted** | 2026-08-01 from freeze **pass-38 / tag v2.13** (anchor `b515907`) |
 | **Editorial status** | **MAJOR REVISION** — 2 reviewers, received 2026-08-24 |
 | **Branch** | `main` — **published** at `02d1791`, tracking `origin/main`, and since 2026-08-28 the **only** branch: the development-history branches were bundled to `D:/AI/Research-Lab/DT-GSK-private-history.bundle` (restore-tested) and deleted. Never fetch that bundle into a repo with a public remote. |
-| **Progress** | **COMPLETE** — all ten reviewer points answered; phases 1–7 applied; five experiments run, analysed and written up (E5 boundary study added ahead of resubmission, pass-49). |
-| **Freeze** | pass-41 re-minted, `check_manifest` 15/15 · anchor `6fb0506` · **v2.14 PUBLISHED** on the squashed commit; `v2.13` still resolves, so both tags the DAS names are live |
-| **Revision deadline** | Still unstated, but no longer gating — the experiment track is complete |
+| **Progress** | **COMPLETE** — all ten reviewer points answered; phases 1–7 applied; five experiments run, analysed and written up (E5 added ahead of resubmission, pass-49); the reopened-items batch (pass-50), the acceptance-readiness review (pass-51) and the seven-lens panel review of the response letter (pass-52) are all applied. |
+| **Freeze** | **pass-52 / tag v2.25** (anchor `b6a18d1`, close `709d6ff`) · `check_manifest` 15/15 + `sources 2/2` · v2.13 … v2.25 all resolve; the DAS names v2.13/v2.25. Repo is **PRIVATE until upload day** — flip public before SuSy upload. Next free ids **CR-0033 / D-0058**. |
+| **Revision deadline** | **2026-09-01 CONFIRMED** — also the planned resubmission date, so **zero slack**; the extension-request draft is the only margin (§5) |
 
 ---
 
@@ -59,14 +59,17 @@ document is what the revision's honesty claim rests on, so it belongs in public.
 analysis bundle at `papers/analysis/rev-rel-2026-08-26-dd42d37eb/` — pairing seed-verified, eleven
 known-answer pins reproduced, Holm family structure recorded per experiment.
 
-**The write-up is done too.** Supplementary Section S9 carries all four experiments as Tables
-A43--A46, the pre-committed C1/ISM/C2 manuscript edits are applied, the point-by-point response letter
-is written, every gate is green, freeze pass-41 is minted at 15/15, and **v2.14 is published**.
-`origin/main` carries the squashed revision commit and both `v2.13` and `v2.14` resolve publicly, so
-the Data Availability Statement works for the submitted and the revised version alike. What is left is
-the author's SuSy resubmission, the GitHub Support ticket, and one confirmed defect — see §2a.
+**The write-up is done too.** Supplementary Section S9 carries all five experiments as Tables
+A43--A47, the pre-committed C1/ISM/C2 manuscript edits are applied, the point-by-point response letter
+is written (and has since been through the pass-51/52 review instruments), every gate is green, and
+the current freeze is **pass-52 / v2.25** at 15/15 + sources 2/2. `origin/main` carries it; every tag
+v2.13 … v2.25 resolves (publicly again once the repo is flipped back). What is left is the author's
+upload day — public flip, purge ticket, SuSy resubmission (§5).
 
 ## 2a. Open against the published paper
+
+**[HISTORICAL — every item below was discharged by pass-42 (CR-0025 / D-0050); §7's trap table
+carries what generalises. Kept as the verification record of that pass.]**
 
 **One confirmed defect, and a verification pass over eleven more.**
 

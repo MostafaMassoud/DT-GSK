@@ -15,7 +15,7 @@ Python package: `gsk_family` (under `src/`). Console entry points are `gsk-*`.
 The repository exists to support a **published claim**, not to be a general framework. Most files
 are frozen or hash-bound. Assume nothing is casually editable.
 
-## Right now (2026-08-27)
+## Right now (2026-08-29)
 
 **⏳ RESUBMISSION DEADLINE: 2026-09-01 — CONFIRMED by the author on 2026-08-27, and it is also the
 planned resubmission date, so there is ZERO slack.** An earlier **2026-09-03** was an *inference*
@@ -26,9 +26,10 @@ is. **The repo was set PRIVATE on 2026-08-28 (author, to finalize) and MUST be p
 the upload** — the DAS names its URL and tags, and reviewers will click. Detail:
 [REVISION_STATUS.md](REVISION_STATUS.md) §5 items 1 and 6.
 
-**Pass-49 is applied, minted, tagged and pushed — the ROUND-TWO batch.** `origin/main` carries it,
-**`v2.22` is live**, and `v2.13` through `v2.22` all resolve — the Data Availability Statement
-names `v2.22`, and `main.tex` says so. Pass-49 answered the external second-round audit: **E5
+**Current freeze: pass-52 / `v2.25`** — minted, tagged, pushed; `v2.13` through `v2.25` all
+resolve (publicly again once the repo is flipped back), the Data Availability Statement names
+`v2.25`, and `main.tex` says so. The chronicle since the round-two audit, newest last:
+**pass-49** answered the external second-round audit: **E5
 dimension-boundary sensitivity** ran (registered as Amendment A4 BEFORE execution; release
 `rev2-rel-2026-08-28-203c78744`; S9.5 / Table A47 — D30's middle profile beaten from BOTH
 neighbouring tiers, D100's upper profile beaten by the T2 set with the family ordinal unchanged,

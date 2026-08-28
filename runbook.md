@@ -272,7 +272,7 @@ python -m ruff check .
 python scripts\validate_profile_lock.py --root .
 python scripts\build_docs_html.py
 
-# --- 8b. Manuscript gate battery (the pass-41 battery). Every one must exit 0;
+# --- 8b. Manuscript gate battery (the pass-41 battery, unchanged through pass-52). Every one must exit 0;
 #     the three counted ones read 15/15, 115/115 and 761 rows / 0 FAIL ---
 python papers/scripts/check_manifest.py
 python papers/scripts/check_frozen_analysis.py
@@ -715,3 +715,45 @@ python -m ruff check .                                # lint
 python scripts\validate_profile_lock.py --root .      # profile-lock validation
 python scripts\build_docs_html.py                     # rebuild the HTML doc site
 ```
+
+
+## Freeze-Pass Cycle (the passes-49..52 recipe)
+
+Any edit to a hash-gated file (the 15 freeze files or the 2 hashed sources)
+voids the current pass and takes a full cycle. The order below is the one that
+worked four times in a row; deviations are where the recorded incidents live.
+
+1. **Edit sources; rebuild the gated renders they feed.** Main PDF:
+   `python papers/scripts/build_pdf.py`; DOCX: `build_docx.py`
+   (+ `--supplementary` if supplementary.tex changed); supplement PDF:
+   `build_supplementary.py`. Cover letter: `pdflatex` x2 in papers/ under
+   `SOURCE_DATE_EPOCH=1783468800 FORCE_SOURCE_DATE=1`, then build twice and
+   byte-compare (it must be deterministic).
+2. **Commit the APPLY.** The marked PDFs and the change register diff
+   `v2.13..HEAD` (committed refs, not the working tree), so they can only be
+   rebuilt AFTER this commit: `build_change_marked_pdf.py --doc main` /
+   `--doc supplementary`, then `build_change_register.py` — read the passage
+   count it prints and sync it wherever it is quoted if it moved.
+3. **Mint the freeze manifest** (papers/governance/main_manuscript_freeze_manifest.json,
+   CRLF): byte-surgical text replacement, never json.dump; update sha256+bytes
+   per changed file, generated_utc, anchor_commit = the apply commit, and the
+   phase text. `check_manifest.py` must then read 15/15 AND sources 2/2.
+4. **Update the package manifest** (submission_package_manifest.json, CRLF):
+   sha256, bytes, pages, version id, note, authoritative_commit. **After
+   writing, re-verify sha AND bytes against disk** — the pass-51 updater's
+   size needle silently never matched and left stale byte counts that no gate
+   checks (found and fixed in pass-52).
+5. **Run the 13-gate ladder twice** (section 8b above plus profile-lock).
+6. **File the governance pair** (next free CR-xxxx / D-xxxx — verify free at
+   apply time), sync the status banners (REVISION_STATUS, CLAUDE.md,
+   papers/PAPER_REVIEW_PROMPT.md), commit the close.
+7. **Bump CITATION.cff BEFORE cutting the tag** (no leading v in the cff
+   version; the tag-before-bump mistake was made twice and is caught by
+   `validate_citation_cff.py`), then tag vN.NN and push main + tag.
+
+The reviewer-facing response letter is untracked (D-0049) and outside the
+freeze; its exact rebuild command — with the load-bearing
+`Ligatures=NoCommon`, `HyphenChar=None` and letter-specific epoch — is
+recorded in papers/submission/SUBMISSION_KIT.md. Sweep phrase-level policies
+against the RENDER (pdftotext), never only the source: line-wrapped phrases
+defeat source grep (pass-51 lesson).

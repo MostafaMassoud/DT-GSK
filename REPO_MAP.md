@@ -77,7 +77,11 @@ scripts/                   Campaign launchers, ablation driver (run_ablation.py)
 papers/                    LaTeX manuscript + review-pack pipeline; governance/ holds
                            the decision log and the freeze manifests; analysis/ the
                            frozen analysis bundles; review_2026_08_24/ the reviewer
-                           reports, pre-registration and response letter
+                           reports, pre-registration and response-letter source
+                           (deny-by-default, D-0049; only the pre-registration is
+                           tracked); submission/ the upload staging — tracked ZIPs
+                           + SUBMISSION_KIT.md, plus the deliberately untracked
+                           marked PDFs, change register and response-letter PDF
 word/                      Word-build assets (reference.docx, field_registry.csv)
 reference_papers/          Bibliography bundle (references.bib + index). Most PDFs are
                            gitignored; Academic_Research_Guidelines/ IS tracked.
