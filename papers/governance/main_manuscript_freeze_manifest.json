@@ -2,7 +2,7 @@
   "schema": "main_manuscript_freeze_manifest/v1",
   "phase": "PASS-49 round-two batch: E5 dimension-boundary sensitivity (S9.5 / Table A47, release rev2-rel-2026-08-28-203c78744), the canonical near-zero rule of pre-registration Amendments A5-A6 applied to every revision statistic (E1 D100 now separated, Holm p = 0.0489), and the second-round audit's P0 text corrections: C1 heading basis-neutral, tiering-thesis wording bounded, population-rule and mis-specification claims narrowed to their evidence, abstract at 195 texcount words, DAS naming the fifth release and tag v2.22.",
   "generated_utc": "2026-08-28T18:20:00+00:00",
-  "anchor_commit": "d543c1435f958b684f713fc99eb1f648eb697836",
+  "anchor_commit": "112a98c80f8f8517a9f04ad79b4160dc803422b0",
   "pre_freeze_base_commit": "b9846e47024e48a0f8ce3e4f22bffbd794b2a355",
   "evidence_release": {
     "primary": "rel-2026-07-20-67d9345f9",
@@ -43,8 +43,8 @@
     },
     {
       "path": "papers/sections/proposed_algorithm.tex",
-      "sha256": "9c898f6e27a6264e15bc25caacd5fa1daaf937c325579fedf92107df351b77dd",
-      "bytes": 58282
+      "sha256": "8befda39f9e282a4b72d7f07e2469766c4b276cfc1176dd198d6e8b015994b4f",
+      "bytes": 58271
     },
     {
       "path": "papers/sections/performance.tex",
@@ -58,23 +58,23 @@
     },
     {
       "path": "papers/DT-GSK.pdf",
-      "sha256": "3cc54c08871a10048ccf6f6f42119725abd9b7d5da5eb41f2ae892b424507760",
-      "bytes": 823169
+      "sha256": "39049a965ede6d50e29fd2415ff18a799fcefb8746363c733fd4d9af3d3b6467",
+      "bytes": 823141
     },
     {
       "path": "papers/DT-GSK.docx",
-      "sha256": "7c084b0642490a97e088619b57e470c172dec297b5ed79e62caad29c16a1f272",
-      "bytes": 1012184
+      "sha256": "6436f293d4e7cd98ffbd1578beab47aadedc65a4a41aa01f6a8e4df5e2a7f5ba",
+      "bytes": 1012185
     },
     {
       "path": "papers/supplementary.pdf",
-      "sha256": "50e51e465c934d392ef2faec912ea4f810c9aace7c7284577b23b3e38a737489",
-      "bytes": 1757613
+      "sha256": "d458273e6c4ac2d2891cc6ada8ab92edb3cd9d6f507be3473149faa1a8ee41d7",
+      "bytes": 1757814
     },
     {
       "path": "papers/supplementary.docx",
-      "sha256": "dc4db27c7eb8afc186fd53f0c2a9e0407ec532d03573eac865e1108c4178ae56",
-      "bytes": 9626332
+      "sha256": "60809858f826487498f554ad9e9ba5408607f32780885d6f7d32238a2f11c203",
+      "bytes": 9626415
     },
     {
       "path": "papers/cover_letter.pdf",
@@ -127,8 +127,8 @@
   "source_files": [
     {
       "path": "papers/supplementary.tex",
-      "sha256": "23da2c3d81ef1c8116376b497b93e81ffd15d2652909e37c83967205dff6c407",
-      "bytes": 241936
+      "sha256": "62d0036439b6f4c0019b9a00e896392dcb7bcd852e9f46c3709e97a6e9857f67",
+      "bytes": 242162
     },
     {
       "path": "papers/cover_letter.tex",
