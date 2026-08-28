@@ -12,6 +12,11 @@ not.
                                                                     -----------
                                                                      32,451 runs
 
+Round 2 adds (preregistration Amendment A4; run with ``--only E5``):
+
+    E5  R2.7        dimension-boundary sensitivity (4 new cells;      1,740 runs
+                    the fifth registered cell reuses E3 U-low at D=30)
+
 Run ``--dry-run`` for the authoritative per-leg breakdown; the plan is derived
 from the profiles at runtime, so these totals are indicative, not a promise.
 One E4 cell is skipped automatically because its perturbation would land on the
@@ -241,6 +246,34 @@ def build_plan(smoke: bool = False) -> list[dict]:
                     "name": tag,
                     "runs_est": RUNS_SENS * n_funcs,
                 })
+
+    # ---- E5 -- dimension-boundary sensitivity (round 2; preregistration
+    # Amendment A4). Each cell shifts ONE tier boundary just far enough to
+    # change the profile assigned to the nearest official CEC2017 dimension,
+    # and runs DT-GSK at that dimension under the transplanted profile --
+    # mechanically an E3-style single-dimension transplant. The fifth
+    # registered cell (boundary 20->31 at D=30, i.e. the low-tier set at
+    # D=30) is IDENTICAL by construction to E3's U-low arm at D=30 and is
+    # reused from that promoted release rather than re-executed.
+    e5_cells = [
+        # (tag,            source tier D, target D, boundary shift)
+        ("e5_b20_lo_D10",   30,  10, "20->10: D10 joins the middle tier"),
+        ("e5_b50_lo_D30",   50,  30, "50->30: D30 joins the structure tier"),
+        ("e5_b50_hi_D50",   30,  50, "50->51: D50 drops to the middle tier"),
+        ("e5_b100_hi_D100", 50, 100, "100->101: D100 drops to the T2 profile"),
+    ]
+    if smoke:
+        e5_cells = e5_cells[:1]
+    for tag, src_d, target_d, shift in e5_cells:
+        ov = dict(pub_overrides(src_d))
+        legs.append({
+            "id": f"E5:{tag[3:]}", "point": "R2.7", "kind": "config",
+            "desc": f"boundary {shift} (pub_overrides({src_d}) at D={target_d})",
+            "config": base_config(["dt-gsk"], [target_d], RUNS_SENS,
+                                  f"{rel}/{tag}", ov),
+            "name": tag,
+            "runs_est": RUNS_SENS * n_funcs,
+        })
     return legs
 
 

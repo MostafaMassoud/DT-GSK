@@ -281,3 +281,86 @@ all twelve cells.
 Recorded as an amendment rather than silently, because the value of this
 pre-registration is that its analysis plan was fixed in advance and any departure
 is visible. The S9 preamble's deviation wording is adjusted to carry no count.
+
+## Amendment A4 (2026-08-28) — E5: dimension-boundary sensitivity, registered before execution
+
+Round-two addition, filed before any E5 run executes. The round-one reviewer point R2.7 names
+"dimension thresholds and several algorithmic constants"; E4 varied seven constants and explicitly
+left the tier boundaries (20, 50, 100) unvaried, which the manuscript concedes. E5 closes that half.
+It is diagnostic and additive: the shipped profiles, the frozen evidence, and every reported number
+of the round-one revision are unchanged.
+
+**Design.** Each cell shifts one tier boundary just far enough to change the profile assigned to the
+nearest official CEC2017 dimension, and runs DT-GSK at that dimension under the transplanted
+profile. Mechanically each cell is a single-dimension profile transplant, identical in kind to E3:
+`pub_overrides(source_tier_dimension)` applied as optimizer options, with every dimension-derived
+quantity (NP = 5D, junior/senior split, 1/sqrt(D) terms) resolving from the actual run dimension,
+exactly as E3's arms did.
+
+| Cell | Boundary shift | Runs at | Transplanted profile | Execution |
+|---|---|---|---|---|
+| b20_lo  | 20 -> 10  | D = 10  | the middle-tier set, `pub_overrides(30)` | 15 new runs |
+| b20_hi  | 20 -> 31  | D = 30  | the low-tier set, `pub_overrides(10)`    | REUSED: identical by construction to E3's U-low arm at D = 30 (51 runs already promoted); not re-executed |
+| b50_lo  | 50 -> 30  | D = 30  | the structure-tier set, `pub_overrides(50)` | 15 new runs |
+| b50_hi  | 50 -> 51  | D = 50  | the middle-tier set, `pub_overrides(30)` | 15 new runs |
+| b100_hi | 100 -> 101| D = 100 | the T2 set, `pub_overrides(50)`          | 15 new runs |
+
+**Coverage disclosure, fixed now.** The T2/T3 boundary is tested one-sided (101 only): a lower-side
+perturbation large enough to move D = 100 out of its tier would collapse adjacent boundaries, and no
+official CEC2017 dimension sits between 50 and 100. This is disclosed rather than patched with a
+non-official benchmark dimension.
+
+**Protocol.** CEC2017, the 29 scored functions, MaxFES = 10^4 D, the unified seed schedule
+(`seed 20240620`), 15 runs per function for the new cells — the FIRST 15 runs of the schedule, so
+every run pairs with the frozen tiered leg. Threads pinned single as the campaign driver pins them.
+Staging under `results/_revision/e5_*`; promotion to an additive evidence release is a separate,
+deliberate step, as for E1–E4.
+
+**Analysis, fixed before results.** Per-function means over the runs each cell has. Pairing against
+the frozen tiered leg restricted to the SAME first 15 runs per function (the reused b20_hi cell
+pairs on its full 51). Paired two-sided Wilcoxon on the 29 per-function mean differences under the
+canonical near-zero rule of Amendment A5 (|d| < 1e-8 zeroed, zero_method='wilcox'); **Holm over the
+five prespecified boundary contrasts (m = 5)**; W/T/L at tolerance 1e-8; rank-biserial and A12 as
+descriptive companions; panel ordinal re-ranked with only the DT-GSK column substituted, per
+dimension. No other comparison belongs to the confirmatory family.
+
+**Pre-committed outcome wording.**
+- Not separated: "the reported standing at D = <d> is insensitive to the tested boundary shift."
+- Transplant significantly better: "the tested boundary shift improves DT-GSK at D = <d>; this
+  identifies boundary-level sensitivity at that dimension and does not identify a responsible
+  mechanism, because the shift changes the complete resolved profile."
+- Transplant significantly worse: "the tested boundary shift degrades DT-GSK at D = <d>; the shipped
+  boundary is supported at that dimension in the tested direction."
+Whatever the split, all five cells are reported, and interpretation is limited to boundary
+sensitivity — no cell licenses a claim about any individual constant or mechanism.
+
+**Outputs.** Raw staging per cell; on promotion: an additive release with checksums, an
+`e5_threshold_sensitivity.json` analysis bundle, Supplementary Section S9.5 with Table A47, a
+limitations update replacing "thresholds unvaried" with the executed coverage, and the revised
+R2.7 response.
+
+## Amendment A5 (2026-08-28) — canonical near-zero rule; a revision-analyzer deviation corrected
+
+**This is a correction record, not an outcome-blind registration, and it says so.** The direction of
+its main consequence was already known when it was filed.
+
+**The defect.** The manuscript states one tie rule for across-function Wilcoxon tests: differences
+with |d| < 1e-8 are discarded before ranking (performance.tex, statistics protocol). The primary
+analysis pipeline implements exactly that (phase6_run_analysis.py applies the 1e-8 band before
+calling `wilcoxon_paired`). The round-one revision analyzer (`analyze_revision_experiments.py`)
+did NOT: it passed per-function means to `wilcoxon_paired` directly, which excludes exact zeros
+only. E1–E3 statistics were therefore computed under a different convention than the paper states
+and the primary tables use.
+
+**The rule, fixed here for everything.** |d| < 1e-8 is zeroed and excluded before ranking
+(zero_method='wilcox'), two-sided, for every across-function Wilcoxon in the paper, the supplement,
+and the revision experiments. W/T/L keeps its stated absolute tolerance of 1e-8. Regression tests
+pin both (a 5e-9 pair must be excluded; a large-magnitude pair must not be).
+
+**Known consequence, stated rather than discovered.** Recomputing E1 under the stated rule moves
+eigenframe-versus-coordinate at D = 100 from p = 0.054296 (n = 29) to p = 0.048869 (n = 28, one
+within-band function excluded), which crosses alpha = 0.05; the D = 50 contrasts are unchanged to
+the printed precision. The manuscript's current "not separated at D = 100" wording is therefore
+convention-dependent and will be regenerated under the canonical rule, together with every E1–E3
+value, Tables A43–A45, and the dependent prose and response text. Any decision that changes in that
+regeneration beyond the one named here will be recorded in this file by a further amendment.
