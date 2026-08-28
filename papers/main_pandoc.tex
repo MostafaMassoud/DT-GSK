@@ -1064,8 +1064,8 @@ receive the identical evaluation budget, so the difference lies in how each
 algorithm spends that budget rather than in how much it is given. We state it
 explicitly because population size is a design choice that can materially
 affect upper-tier behavior, and a reader comparing at $D=100$ should
-know the initial populations differ by a factor of five. That replication was
-carried out in revision: at the comparators' $NP = 100$, \dtgsk{} remains first
+know the initial populations differ by a factor of five. A common-$NP$
+replication was carried out: at the comparators' $NP = 100$, \dtgsk{} remains first
 at $D = 10$ and second at $D = 30$, $50$ and $100$, with the paired difference
 significant only at $D = 50$ and $D = 100$ (Supplementary Materials,
 Section~S9.2).
@@ -3214,8 +3214,8 @@ This reading associates the upper-tier behavior with the bundled
 tier configuration rather than with any isolated component. A direct
 isolation of the interaction-structure memory (Supplementary Materials
 Section~S6.5) finds no significant standalone benefit at its active
-tiers, at a tier-dependent compute overhead; the basis isolation added in
-revision (Supplementary Materials Section~S9.1) finds the
+tiers, at a tier-dependent compute overhead; the basis isolation
+(Supplementary Materials Section~S9.1) finds the
 memory's learned eigenframe outperformed by the coordinate axes in the polish
 at $D = 50$. Per-component attribution to
 the memory is therefore not claimed here (Section~@@REF!sec:conclusions@@).
@@ -3432,8 +3432,9 @@ comparison for internal validity: every panel cell reported here was re-executed
 under one protocol, one budget rule and one seed schedule, whereas a wider
 roster assembled from values quoted across source publications would carry
 uncontrolled implementation and environment differences into the comparison. Attribution gaps bound what the
-component evidence can support; the basis gap among them is closed by the
-revision's three-arm isolation, which separates the deterministic endgame
+component evidence can support; the basis gap among them is closed by a
+direct three-arm isolation (Supplementary Materials, Section~S9.1), which
+separates the deterministic endgame
 (supported) from the learned basis it searches (not supported), leaving open
 alternative bases, other suites, and the conditions under which accepted-move
 geometry becomes informative. Finally, the
@@ -3589,7 +3590,7 @@ configuration files, and experimental result data supporting the findings of
 this study are openly available in the public \dtgsk{} repository at
 \url{https://github.com/MostafaMassoud/DT-GSK}; the originally submitted
 version corresponds to the repository tag v2.13 and this revised version to
-tag v2.23, and any further materials are
+tag v2.24, and any further materials are
 available from the corresponding author upon reasonable request. The
 supplementary materials accompanying the manuscript provide the additional
 methodological and experimental details needed to evaluate the reported

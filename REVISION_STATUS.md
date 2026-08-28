@@ -1372,7 +1372,7 @@ worktree blind spot.
    revision form. Portal metadata does not update from the PDF.
 6. **Make the repository PUBLIC again before uploading (author-only, 2026-09-01).** The author set it
    private on 2026-08-28 to finalize; verified private (API 404). The Data Availability Statement in
-   the revised manuscript names the repo URL and tags v2.13/v2.23, and the Supplementary's
+   the revised manuscript names the repo URL and tags v2.13/v2.24, and the Supplementary's
    pre-registration claim depends on public checkability — a reviewer clicking during round 2 must
    not hit a 404. Flip visibility BEFORE the SuSy upload. Side effect while private: the two
    GitHub-exposed commits are not publicly served; public serving resumes with visibility.
@@ -1561,10 +1561,10 @@ are given here.
 ### Phase 7 — resubmit (author-only; the point of no return)
 
 **Deadline CONFIRMED 2026-09-01, and the planned resubmission date is the same day.** Everything
-agent-side is complete at pass-50 / `v2.23` (pass-49's round-two batch plus the reopened-items
-batch: g1 identity release cited, Figure 4 cohort redesign, caption tightening, cover-letter
-reframe, bibliography prune, and the removal of every revision-process/reviewer reference from
-the published artifacts — D-0055 / CR-0030); nothing in the repository blocks that date. The
+agent-side is complete at pass-51 / `v2.24` (the round-two and reopened-items batches plus the
+acceptance-readiness fixes: the S6.5 stale-open basis claim scoped to S9.1's answer, three
+line-wrapped revision-process references removed, and the environment attestation re-minted at
+618 tests — D-0056 / CR-0031); nothing in the repository blocks that date. The
 earlier **2026-09-03** figure was an *inference* from the letter's ten-day window and is
 **superseded** — the real date is two days tighter, so the margin the documents assumed does not
 exist. Plan and deadline now coincide and the resubmission has **zero slack**. The letter invites
@@ -1585,8 +1585,8 @@ warning that portal metadata does not update from the PDF. Re-enter both by hand
 48, and the change register must come from `git diff v2.13 v2.23` — 92 passages across 7 files, not the
 54 passages the kit recorded at pass-41. Neither figure should be quoted anywhere.
 
-**After upload, no rebuilds.** `v2.23` becomes the frozen record of what was resubmitted; any later
-revision is pass-51 with a new superseding tag, never an edit to v2.23 in place (D-0045).
+**After upload, no rebuilds.** `v2.24` becomes the frozen record of what was resubmitted; any later
+revision is pass-52 with a new superseding tag, never an edit to v2.24 in place (D-0045).
 
 
 SuSy upload; **re-enter the new title and revised keywords by hand** — portal metadata does not

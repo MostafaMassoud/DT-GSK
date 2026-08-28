@@ -1941,7 +1941,7 @@ base seed $20{,}260{,}422$ and re-derive byte-identically.
 % BIND: TAB-T16-BCA (validation status: byte-identical seeded re-derivation)
 
 The software state itself is attested rather than asserted.  The full test
-suite (613 tests) and every release gate --- build hygiene,
+suite (618 tests) and every release gate --- build hygiene,
 provenance-claim consistency, cross-format parity, and both Word validators ---
 were executed twice and completed with zero failures, on an interpreter
 (Python~3.10.11) and dependency set verified to lie inside the support
@@ -2295,9 +2295,10 @@ $+30.3\%$ on CEC2013 $D50$ --- so it costs a third to well over half again in
 wall-clock and buys no measurable accuracy return.  Second,
 \textbf{removing the complete final-polish phase changed performance
 significantly in these cells} (Holm $p = 0.002$, $0.005$, $0.002$;
-$A_{12} = 0.59$, $0.53$, $0.64$); the contrast removes the whole phase, so which
-of its parts carries the effect---and in particular whether the learned
-eigenbasis outperforms coordinate axes---remains unidentified, while the adaptive confidence gate helps directionally but not
+$A_{12} = 0.59$, $0.53$, $0.64$); the contrast removes the whole phase, so it
+does not by itself attribute the effect among the phase's parts---the
+basis-level attribution is provided by the direct isolation of
+Section~\ref{sec:supp:rev:basis}---while the adaptive confidence gate helps directionally but not
 significantly.  This corroborates the bundled-tier reading of the main text: the
 upper-tier behavior is a property of the full tier configuration rather
 than of the interaction-structure memory in isolation, and \dtgsk{}'s
