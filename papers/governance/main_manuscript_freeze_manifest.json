@@ -1,8 +1,8 @@
 {
   "schema": "main_manuscript_freeze_manifest/v1",
-  "phase": "PASS-48 repair of a phantom source anchor introduced by pass-47, the specification gap it concealed, and four generator/prose riders.",
-  "generated_utc": "2026-08-27T20:30:00+00:00",
-  "anchor_commit": "0ef96e9360df83e4b98b5b450d2ef87d1475868b",
+  "phase": "PASS-49 round-two batch: E5 dimension-boundary sensitivity (S9.5 / Table A47, release rev2-rel-2026-08-28-203c78744), the canonical near-zero rule of pre-registration Amendments A5-A6 applied to every revision statistic (E1 D100 now separated, Holm p = 0.0489), and the second-round audit's P0 text corrections: C1 heading basis-neutral, tiering-thesis wording bounded, population-rule and mis-specification claims narrowed to their evidence, abstract at 195 texcount words, DAS naming the fifth release and tag v2.22.",
+  "generated_utc": "2026-08-28T18:20:00+00:00",
+  "anchor_commit": "d543c1435f958b684f713fc99eb1f648eb697836",
   "pre_freeze_base_commit": "b9846e47024e48a0f8ce3e4f22bffbd794b2a355",
   "evidence_release": {
     "primary": "rel-2026-07-20-67d9345f9",
@@ -28,13 +28,13 @@
   "files": [
     {
       "path": "papers/main.tex",
-      "sha256": "f1de50ec0bfdf06a331de8200a1aa3d7fffd3049aed396587a206a52189b2ffa",
-      "bytes": 26099
+      "sha256": "bf53394e189eaabd40a1d45070a33782704210ea735b3f1957a39655043d5aa0",
+      "bytes": 26243
     },
     {
       "path": "papers/sections/introduction.tex",
-      "sha256": "e633b761ffd1efd21ec350e3eb4c557aed5a083a4ad383b61fa858c6df797bbf",
-      "bytes": 12309
+      "sha256": "3315f4ac15bf18988791f1ee6392a500bbdb8367540dd4d1707671fbedf3b898",
+      "bytes": 12354
     },
     {
       "path": "papers/sections/related_work.tex",
@@ -43,38 +43,38 @@
     },
     {
       "path": "papers/sections/proposed_algorithm.tex",
-      "sha256": "15a9ec44ce51eb7e4893d23df28fdea45143a150885ebdd39082b194dca9c7eb",
-      "bytes": 58120
+      "sha256": "9c898f6e27a6264e15bc25caacd5fa1daaf937c325579fedf92107df351b77dd",
+      "bytes": 58282
     },
     {
       "path": "papers/sections/performance.tex",
-      "sha256": "7b907bf90fc877128b38063b1ee43defec9a97e8eb617303943cd4b63f5dce1b",
-      "bytes": 77803
+      "sha256": "3474e1ffacadfb2a918ef1454c84ee1d2bc611a263d94779b71c4da0387e5655",
+      "bytes": 77920
     },
     {
       "path": "papers/sections/conclusions.tex",
-      "sha256": "74587b90448b1301830b44c331719a260184d887b3b6cc5247ab8967d963640f",
-      "bytes": 13829
+      "sha256": "d7ad26cdd240de07c911fdad959ad27f6d14ac4f086271faada01373f727c71d",
+      "bytes": 14694
     },
     {
       "path": "papers/DT-GSK.pdf",
-      "sha256": "0e62550ed32a0ae0fb0c03232178499ddf31875f37e84a3ee2cf624a06870d69",
-      "bytes": 822023
+      "sha256": "3cc54c08871a10048ccf6f6f42119725abd9b7d5da5eb41f2ae892b424507760",
+      "bytes": 823169
     },
     {
       "path": "papers/DT-GSK.docx",
-      "sha256": "7ab773ec66e5104034b90d7b97770b9b268920cb0390351b52135848876f7ed4",
-      "bytes": 1011622
+      "sha256": "7c084b0642490a97e088619b57e470c172dec297b5ed79e62caad29c16a1f272",
+      "bytes": 1012184
     },
     {
       "path": "papers/supplementary.pdf",
-      "sha256": "aaa88d7f9a2cc18ed6fa2d767ae903078b9e761ba4c9d318d42ed27cdcaa9b62",
-      "bytes": 1750647
+      "sha256": "50e51e465c934d392ef2faec912ea4f810c9aace7c7284577b23b3e38a737489",
+      "bytes": 1757613
     },
     {
       "path": "papers/supplementary.docx",
-      "sha256": "cc16264eea4b50260e3c4dd69e4274e6100be624b7375f57de1c4e3462f6e138",
-      "bytes": 9623371
+      "sha256": "dc4db27c7eb8afc186fd53f0c2a9e0407ec532d03573eac865e1108c4178ae56",
+      "bytes": 9626332
     },
     {
       "path": "papers/cover_letter.pdf",
@@ -127,8 +127,8 @@
   "source_files": [
     {
       "path": "papers/supplementary.tex",
-      "sha256": "8a6e96f1be8e45ca08f4fcbc418d04d18e017fa3e827f11570e4ce4145df62ac",
-      "bytes": 237392
+      "sha256": "23da2c3d81ef1c8116376b497b93e81ffd15d2652909e37c83967205dff6c407",
+      "bytes": 241936
     },
     {
       "path": "papers/cover_letter.tex",
