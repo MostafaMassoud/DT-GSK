@@ -179,6 +179,21 @@ def listing(lines, empty_note, kind):
             "framexleftmargin=4pt]\n" + body + "\n\\end{lstlisting}\n")
 
 
+def clean_context(context: str) -> str:
+    """Diff hunk context is raw TeX mid-line: strip markup debris and show it
+    only when enough legible text survives to orient the reader."""
+    if not context:
+        return ""
+    t = context
+    for junk in ("\\", "{", "}", "$", "~", "%"):
+        t = t.replace(junk, " ")
+    t = " ".join(t.split())[:110]
+    alnum = sum(ch.isalnum() for ch in t)
+    if alnum < 18 or alnum < 0.55 * max(len(t), 1):
+        return ""
+    return t
+
+
 def build_tex(base, new, per_file, counts, total):
     out = []
     A = out.append
@@ -190,6 +205,7 @@ def build_tex(base, new, per_file, counts, total):
     A(r"\usepackage{xcolor}")
     A(r"\usepackage{booktabs}")
     A(r"\usepackage{longtable}")
+    A(r"\usepackage{needspace}")
     A(r"\usepackage{parskip}")
     A(r"\usepackage[colorlinks=true,linkcolor=accent,urlcolor=accent]{hyperref}")
     A(r"\definecolor{accent}{RGB}{0,84,147}")
@@ -236,7 +252,7 @@ def build_tex(base, new, per_file, counts, total):
     A(r"\subsection*{How to read this document}")
     A(r"\begin{itemize}\setlength\itemsep{1pt}")
     A(r"\item Each entry shows the source location, the reviewer point(s) it answers "
-      r"(\pointbadge{R2.3}-style badges), and the passage in both states: "
+      r"(\pointbadge{R2.3}\,-style badges), and the passage in both states: "
       r"{\color{oldrule}\textbf{red panel}} = as submitted, "
       r"{\color{newrule}\textbf{green panel}} = as revised.")
     A(r"\item Attribution is keyword-derived and deliberately conservative; "
@@ -261,26 +277,34 @@ def build_tex(base, new, per_file, counts, total):
       r"attributions (a passage answering two points appears under both), so it "
       r"sums to more than %d." % (total, total))
 
-    A(r"\clearpage")
-    A(r"\tableofcontents")
+    A(r"\vspace{10pt}")
+    A(r"{\setlength{\parskip}{2pt}\tableofcontents}")
 
+    first_file = True
     for path, entries in per_file:
         if not entries:
             continue
-        A(r"\clearpage")
-        A(r"\section{\texorpdfstring{\texttt{%s}}{%s}}"
-          % (tex_escape(path), tex_escape(path)))
-        A(r"%d changed passage%s in this file.\par"
-          % (len(entries), "" if len(entries) == 1 else "s"))
+        if first_file:
+            A(r"\clearpage")
+            first_file = False
+        else:
+            A(r"\vspace{16pt}\Needspace*{10\baselineskip}")
+            A(r"{\color{accent}\hrule height 1.1pt}")
+            A(r"\vspace{-4pt}")
+        A(r"\section{\texorpdfstring{\texttt{%s}\hspace{0.8em}"
+          r"{\normalfont\small\color{ctxgray}%d passage%s}}{%s}}"
+          % (tex_escape(path), len(entries),
+             "" if len(entries) == 1 else "s", tex_escape(path)))
         for idx, (line_no, context, removed, added, label, _desc) in enumerate(entries, 1):
-            A(r"\vspace{7pt}")
+            A(r"\vspace{7pt}\Needspace*{7\baselineskip}")
             badges = "~".join(r"\pointbadge{%s}" % tex_escape(x.strip())
                               for x in label.split(","))
             A(r"\noindent\textbf{%d.}~\texttt{%s:%d}\hfill %s\par"
               % (idx, tex_escape(path.rsplit('/', 1)[-1]), line_no, badges))
-            if context:
-                A(r"{\small\itshape\color{ctxgray} %s}\par\vspace{2pt}"
-                  % tex_escape(context[:150]))
+            ctx = clean_context(context)
+            if ctx:
+                A(r"{\small\itshape\color{ctxgray} near: %s}\par\vspace{2pt}"
+                  % tex_escape(ctx))
             A(r"\panelhead{oldrule}{As submitted}")
             A(listing(removed, "Not present in the submitted version (this passage is new).", "old"))
             A(r"\panelhead{newrule}{As revised}")
