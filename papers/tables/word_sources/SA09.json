@@ -1,0 +1,90 @@
+{
+ "table_id": "SA09",
+ "manuscript_label": "Table A47",
+ "caption_stub": "Dimension-boundary sensitivity (E5, reviewer point R2.7, threshold half): each cell shifts one tier boundary far enough to change the profile assigned to the nearest official CEC2017 dimension.",
+ "headers": [
+  [
+   "Boundary",
+   "D",
+   "Runs",
+   "Holm p",
+   "Sig.",
+   "Tiered W/T/L",
+   "n_eff",
+   "A12",
+   "Ordinal",
+   "Reading"
+  ]
+ ],
+ "rows": [
+  [
+   "T0/T1 20->10",
+   "10",
+   "15",
+   "0.112",
+   "no",
+   "20/4/5",
+   "25",
+   "0.524",
+   "1->4",
+   "not separated"
+  ],
+  [
+   "T0/T1 20->31 ‡",
+   "30",
+   "51",
+   "0.0055",
+   "yes",
+   "6/3/20",
+   "26",
+   "0.490",
+   "2->1",
+   "transplant better"
+  ],
+  [
+   "T1/T2 50->30",
+   "30",
+   "15",
+   "0.0022",
+   "yes",
+   "5/2/22",
+   "27",
+   "0.478",
+   "2->1",
+   "transplant better"
+  ],
+  [
+   "T1/T2 50->51",
+   "50",
+   "15",
+   "0.411",
+   "no",
+   "16/0/13",
+   "29",
+   "0.529",
+   "1",
+   "not separated"
+  ],
+  [
+   "T2/T3 100->101",
+   "100",
+   "15",
+   "0.0148",
+   "yes",
+   "7/0/22",
+   "29",
+   "0.483",
+   "1",
+   "transplant better"
+  ]
+ ],
+ "notes": [
+  "one Holm family across the five registered boundary contrasts; W/T/L counted from the tiered side; ordinal from per-function means with only the DT-GSK column substituted",
+  "‡ the 20->31 cell is E3's U-low arm at D=30 (51 runs), reused from rev-rel-2026-08-26-dd42d37eb rather than re-executed",
+  "T2/T3 is tested one-sided (101 only): no official dimension lies between 50 and 100",
+  "no cell attributes any difference to an individual mechanism: a boundary shift changes the complete resolved profile",
+  "machine-transcribed from papers/analysis/rev2-rel-2026-08-28-203c78744/e5_threshold_sensitivity.json"
+ ],
+ "number_format": "as-is",
+ "source": "papers/analysis/rev2-rel-2026-08-28-203c78744/"
+}

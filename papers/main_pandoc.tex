@@ -49,14 +49,13 @@ moustafa.masoud@gmail.com (M.E.M.\ ORCID 0009-0003-8415-2158); hmhmdss@yahoo.com
 \end{center}
 
 \begin{abstract}
-Published gaining-sharing knowledge (GSK) variants adapt scalar control and
-donor/selection policy to a single operating point. Dimension-Tiered
-GSK (DT-GSK) resolves control by
+Published gaining-sharing knowledge (GSK) variants adapt scalar parameters
+and donor/selection policy to a single operating point. Dimension-Tiered
+GSK (DT-GSK) selects its configuration by
 dimension: an adaptive scaffold serves every tier, a deterministic,
 budget-exact final refinement runs once at $D \geq 50$, with the
 GSK vector-update equations retained; an exploratory
-interaction-structure memory, learned from accepted
-moves, supplies its basis.
+interaction-structure memory supplies the refinement's basis.
 Against six GSK-family baselines re-executed on five CEC suites under one
 budget-fair paired protocol, DT-GSK attains the best descriptive
 family-rank aggregate on CEC2017 (2.48) and CEC2013 (2.80), though the
@@ -65,9 +64,9 @@ is second behind eGSK at $D = 30$ and on CEC2011 (a Holm-significant
 loss). % BIND: AN-RANKAGG-2017-OVERALL (friedman_ranks_cec2017_overall.csv; RS-01 NARROWED); AN-RANKAGG-2013-OVERALL (friedman_ranks_cec2013_overall.csv); AN-OMNI-2011-NATIVE (friedman_ranks_cec2011.csv)
 On AGSK's strongest suite---the CEC2020 competition in which it was the
 runner-up---DT-GSK places fourth; the family panel corroborates AGSK's
-published strength in this regime, consistent with the tiering thesis:
-every dimension-gated DT-GSK subsystem is inactive at
-$D \leq 20$. % BIND: RS-12 (SAP addendum Sec. 9 [AGSK first] variant, slot filled per Amendment 2 A2.3, factual clause corrected per Amendment 3 A3.2; friedman_ranks_cec2020_overall.csv ordinal 4)
+published strength in this low-dimensional boundary regime, where
+every dimension-gated DT-GSK subsystem is inactive
+($D \leq 20$). % BIND: RS-12 (SAP addendum Sec. 9 [AGSK first] variant, slot filled per Amendment 2 A2.3, factual clause corrected per Amendment 3 A3.2; friedman_ranks_cec2020_overall.csv ordinal 4)
 On CEC2013LSGO the comparison is family-internal: tied-first descriptive
 rank; paired tests do not separate DT-GSK from
 AGSK. % BIND: RS-13 (registered ceiling wording; friedman_ranks_cec2013lsgo_native.csv; wilcoxon_holm_cec2013lsgo_native.csv)
@@ -187,7 +186,8 @@ The contributions are:
   Section~S9.1) shows the endgame beating no refinement at
   both active dimensions, while the \emph{learned} eigenbasis is beaten by the
   plain coordinate axes at $D = 50$ ($p_{\mathrm{Holm}} = 1.4\times10^{-4}$)
-  and not separated from them at $D = 100$. C1 is therefore claimed
+  and, under the stated tie rule, at $D = 100$ as well
+  ($p_{\mathrm{Holm}} = 0.0489$). C1 is therefore claimed
   basis-neutrally, and the eigenbasis is retained as a specified, reproducible
   negative result rather than as a source of the
   benefit. 
@@ -1685,8 +1685,10 @@ to large-scale global optimization beyond the dimensions evaluated.
 strictly improving acceptance events update the interaction-structure
 memory (ISM) graph EMA (Eq.~(@@REF!eq:sgsm-graph@@)), whose confidence-gated
 blocks feed the linkage crossover mask (Eq.~(@@REF!eq:kr-mask@@)), while the
-signed graph feeds the eigenframe final polish (Eq.~(@@REF!eq:eigen-polish@@))
-directly (without the confidence gate).
+signed graph feeds the shipped eigenframe basis of the deterministic final
+polish (Eq.~(@@REF!eq:eigen-polish@@)) directly (without the confidence gate);
+that basis is an implementation choice the revision's isolation does not
+support (Supplementary Materials, Section~S9.1).
 The graph is updated continuously from strictly improving accepted moves; the
 polish fires once. Eligibility is exactly: only strictly positive improvements
 update the ISM (a non-improving move, $\Delta \le 0$, does not; this is the
@@ -1708,7 +1710,7 @@ No measured interaction structure is shown.}
 \end{table}
 
 
-\subsection{@@SECNUM!sec:alg:polish!3.5.@@ Eigenframe Final Polish (Contribution C1)}\label{sec:alg:polish}
+\subsection{@@SECNUM!sec:alg:polish!3.5.@@ Deterministic Final Polish (Contribution C1)}\label{sec:alg:polish}
 
 
 At the end of a budget-limited run, the incumbent typically sits near
@@ -2840,9 +2842,10 @@ basis with the $10^{-8}$ floor.
 
 On AGSK's strongest suite --- the CEC2020 competition in which it was
 the runner-up~@@CITE!apgsk2021@@ --- \dtgsk{} places fourth; the family
-panel corroborates AGSK's published strength in this regime, consistent
-with the tiering thesis: every dimension-gated \dtgsk{} subsystem is
-inactive at $D \leq 20$.
+panel corroborates AGSK's published strength in this regime.  That suite
+evaluates the low-dimensional boundary condition of the tiered design ---
+every dimension-gated \dtgsk{} subsystem is inactive at $D \leq 20$ ---
+and is not affirmative evidence for the tiering choice itself.
 
 The descriptive across-dimension aggregate (the unweighted mean of the
 four per-dimension Friedman mean ranks; no test is attached, the $D = 5$
@@ -3350,9 +3353,10 @@ profile of first/third/first --- third at $D = 30$ behind \egsk{} and
 \atmals{}. 
 On AGSK's strongest suite --- the CEC2020 competition in which it was
 the runner-up~@@CITE!apgsk2021@@ --- \dtgsk{} places fourth; the family
-panel corroborates AGSK's published strength in this regime, consistent
-with the tiering thesis: every dimension-gated \dtgsk{} subsystem is
-inactive at $D \leq 20$. That suite is the pre-registered confirmatory
+panel corroborates AGSK's published strength in this regime.  That suite
+evaluates the low-dimensional boundary condition of the tiered design ---
+every dimension-gated \dtgsk{} subsystem is inactive at $D \leq 20$ ---
+and is not affirmative evidence for the tiering choice itself. That suite is the pre-registered confirmatory
 leg --- its analysis and outcome wording were committed before any of
 its data existed --- and \dtgsk{} is Holm-separated in only five of its
 twenty-four pairwise cells, three favorable and two
@@ -3378,8 +3382,14 @@ moves its $D = 15$ ordinal
 The parameter-sensitivity evidence is exploratory and narrow: a one-factor
 sweep over seven constants at two levels, at $D = 30$ and $D = 100$ only, with
 15 repetitions per cell against the frozen panel's 51 (Supplementary Materials,
-Section~S9.4). It is descriptive, carries no hypothesis test, and leaves the
-dimension-tier boundaries themselves unvaried, so their sensitivity is untested.
+Section~S9.4). It is descriptive and carries no hypothesis test. The
+boundary study registered ahead of resubmission (Supplementary Materials,
+Section~S9.5) varies the tier boundaries themselves: the standing is
+insensitive to the tested shifts at $D = 10$ and $D = 50$, while at $D = 30$
+both neighbouring profiles beat the shipped middle set and at $D = 100$ the
+$50 \leq D < 100$ set beats the shipped upper profile on paired means with
+the family ordinal unchanged --- boundary-level findings, attributed to no
+individual mechanism, that extend the disclosed mis-specification.
 Neither ARGP nor the deep-stall restart is isolated by the remove-one study,
 which excludes both by pre-specification.
 
@@ -3393,11 +3403,12 @@ The configuration-transplant experiment added in revision locates part of that
 weakness: at $D = 30$ the parameter set \dtgsk{} resolves at $D = 10$
 outperforms the set it ships, on 20 of 29 functions
 ($p_{\mathrm{Holm}} = 5.5\times10^{-3}$; Supplementary Materials,
-Section~S9.3), so the $20 \leq D < 50$ tier is
-mis-specified rather than the tiering principle being unsupported --- the same
-experiment demonstrates tiering against a high-dimension transplant at $D = 10$
-and $D = 50$. Which of the differing configuration keys carries the effect is
-not resolved here and is left open.
+Section~S9.3), so the shipped $20 \leq D < 50$ configuration is inferior to
+the tested low-tier transplant at that dimension. This localizes a
+configuration-level weakness; it does not identify the responsible key, and
+the same experiment demonstrates tiering against a high-dimension transplant
+at $D = 10$ and $D = 50$. Which of the differing configuration keys carries
+the effect is not resolved here and is left open.
 
 Pairing is by common seed, problem and run rather than by an identical
 starting population: \dtgsk{} self-initializes its own $5D$ population from
@@ -3424,9 +3435,12 @@ This is a deliberate trade of breadth of
 comparison for internal validity: every panel cell reported here was re-executed
 under one protocol, one budget rule and one seed schedule, whereas a wider
 roster assembled from values quoted across source publications would carry
-uncontrolled implementation and environment differences into the comparison. Three attribution gaps bound what the
-component evidence can support, including that the polish isolation removes the
-entire compass endgame rather than the learned basis alone. Finally, the
+uncontrolled implementation and environment differences into the comparison. Attribution gaps bound what the
+component evidence can support; the basis gap among them is closed by the
+revision's three-arm isolation, which separates the deterministic endgame
+(supported) from the learned basis it searches (not supported), leaving open
+alternative bases, other suites, and the conditions under which accepted-move
+geometry becomes informative. Finally, the
 statistical scope is itself bounded, with inference within dimension and the
 across-dimension aggregate descriptive.
 
@@ -3579,7 +3593,7 @@ configuration files, and experimental result data supporting the findings of
 this study are openly available in the public \dtgsk{} repository at
 \url{https://github.com/MostafaMassoud/DT-GSK}; the originally submitted
 version corresponds to the repository tag v2.13 and this revised version to
-tag v2.21, and any further materials are
+tag v2.22, and any further materials are
 available from the corresponding author upon reasonable request. The
 supplementary materials accompanying the manuscript provide the additional
 methodological and experimental details needed to evaluate the reported
@@ -3592,7 +3606,9 @@ non-superseding releases, lsgo-rel-2026-07-28-ff1a046ef (CEC2013LSGO)
 and cec2020-rel-2026-07-29-5867abe1e (CEC2020), each with its own
 checksummed manifest; the four round-one revision experiments are carried by a
 fourth additive, non-superseding release, rev-rel-2026-08-26-dd42d37eb, which
-leaves every primary value unchanged; and the derived statistical artifacts
+leaves every primary value unchanged; the boundary-sensitivity experiment
+added ahead of resubmission is carried by a fifth additive release,
+rev2-rel-2026-08-28-203c78744, on the same terms; and the derived statistical artifacts
 behind every table and figure are versioned as checksummed analysis
 bundles alongside them. The supplementary component-isolation study
 (Section~S6) draws on a separate immutable component-isolation release,

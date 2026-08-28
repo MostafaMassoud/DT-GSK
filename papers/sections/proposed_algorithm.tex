@@ -594,8 +594,10 @@ to large-scale global optimization beyond the dimensions evaluated.
 strictly improving acceptance events update the interaction-structure
 memory (ISM) graph EMA (Eq.~(\ref{eq:sgsm-graph})), whose confidence-gated
 blocks feed the linkage crossover mask (Eq.~(\ref{eq:kr-mask})), while the
-signed graph feeds the eigenframe final polish (Eq.~(\ref{eq:eigen-polish}))
-directly (without the confidence gate).
+signed graph feeds the shipped eigenframe basis of the deterministic final
+polish (Eq.~(\ref{eq:eigen-polish})) directly (without the confidence gate);
+that basis is an implementation choice the revision's isolation does not
+support (Supplementary Materials, Section~S9.1).
 The graph is updated continuously from strictly improving accepted moves; the
 polish fires once. Eligibility is exactly: only strictly positive improvements
 update the ISM (a non-improving move, $\Delta \le 0$, does not; this is the
@@ -618,7 +620,7 @@ No measured interaction structure is shown.}
 \end{table}
 
 %------------------------------------------------------------------
-\subsection{Eigenframe Final Polish (Contribution C1)}\label{sec:alg:polish}
+\subsection{Deterministic Final Polish (Contribution C1)}\label{sec:alg:polish}
 %------------------------------------------------------------------
 
 At the end of a budget-limited run, the incumbent typically sits near

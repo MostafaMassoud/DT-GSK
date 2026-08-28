@@ -3644,20 +3644,25 @@ F10 & Best & 3.99E+02 & 3.99E+02 & 3.99E+02 & 3.99E+02 & 4.01E+02 & 3.99E+02 & 3
 %==================================================================
 
 %==================================================================
-% S9 -- Round-one revision experiments (E1-E4). Every value in this
-% section is machine-transcribed by papers/scripts/generate_revision_exhibits.py
-% from the release-bound bundle papers/analysis/rev-rel-2026-08-26-dd42d37eb/,
-% which is generated strict-source from the promoted evidence release
-% rev-rel-2026-08-26-dd42d37eb with seed-verified pairing and fail-closed
-% known-answer pins.  Designs and reporting constraints were fixed in
+% S9 -- Revision experiments (E1-E5). Every value in this section is
+% machine-transcribed by papers/scripts/generate_revision_exhibits.py from the
+% release-bound bundle papers/analysis/rev2-rel-2026-08-28-203c78744/, which is
+% generated strict-source from the promoted evidence releases
+% rev-rel-2026-08-26-dd42d37eb (E1-E4 runs) and rev2-rel-2026-08-28-203c78744
+% (E5 runs) with seed-verified pairing and fail-closed known-answer pins,
+% under the canonical near-zero rule of Amendments A5-A6.  Designs and
+% reporting constraints were fixed in
 % papers/review_2026_08_24/revision_experiments_preregistration.md, signed
-% 2026-08-25 before any result from these experiments existed.
+% 2026-08-25 (E1-E4) and 2026-08-28, Amendment A4 (E5), before any result
+% from the respective experiments existed.
 %==================================================================
 \section{Round-One Revision Experiments}\label{sec:supp:revision}
 
-\noindent The four experiments in this section were requested by the round-one
-reviewers to isolate mechanisms that the submitted manuscript had introduced
-together.  Their designs, estimands, statistical conventions and the wording to
+\noindent Four of the five experiments in this section were requested by the
+round-one reviewers to isolate mechanisms that the submitted manuscript had
+introduced together; the fifth (Section~\ref{sec:supp:rev:boundary}) answers
+the boundary half of the same sensitivity request and was added ahead of
+resubmission.  Their designs, estimands, statistical conventions and the wording to
 be used for each unfavourable outcome were registered in a signed addendum
 before any of them produced a result; the deviations discovered during
 post-hoc verification are recorded there as dated amendments and are
@@ -3668,11 +3673,18 @@ check that the unfavourable-outcome wording predates the outcomes rather than
 take it on trust.
 % BIND: pre-registration made checkable (D-0049; published 2026-08-27)
 The evidence for this section is compound, and is named here because no
-single release carries it: the arms added in revision come from the separate,
-non-superseding release rev-rel-2026-08-26-dd42d37eb; the comparator columns
+single release carries it: the arms added in round one come from the separate,
+non-superseding release rev-rel-2026-08-26-dd42d37eb; the boundary arms of
+Section~\ref{sec:supp:rev:boundary} come from the further additive release
+rev2-rel-2026-08-28-203c78744; the comparator columns
 against which they are read come from the primary release; and the
 no-refinement arm of Section~\ref{sec:supp:rev:basis} comes from the frozen
 ablation release.  Nothing in any of them is re-minted by this section.
+Across-function Wilcoxon tests in this section apply the manuscript's stated
+$10^{-8}$ tie rule before ranking; the first analysis release of E1-E3 used
+the exact-zero convention instead, and that deviation, its correction, and its
+one decision-level consequence are recorded as pre-registration Amendments
+A5-A6 and restated at the point of use below.
 The experiments ran under the same
 unified Threefry seed schedule, base seed and protocol budget as the primary
 panel, so every new cell pairs with the frozen evidence at matched
@@ -3708,7 +3720,9 @@ per-function mean error, Holm-corrected within dimension over the registered
 two-contrast family; $A_{12}$ over the paired runs of all scored functions
 pooled --- not the per-function-averaged $A_{12}$ of Section~S6.5 --- computed with the first-named
 arm as reference, so $A_{12} < 0.5$ favours the second.  W/T/L counts functions,
-ties at a tolerance of $10^{-8}$.  $^{\dagger}$The coordinate-versus-none row is a
+ties at a tolerance of $10^{-8}$; the same band is applied before ranking, and
+$n_{\mathrm{eff}}$ reports the functions remaining in each ranking
+(Amendments A5-A6).  $^{\dagger}$The coordinate-versus-none row is a
 supplementary single-test contrast added after verification, outside the registered
 family, so its Holm value equals its raw value; it is reported because the value of
 the axes endgame would otherwise rest only on a transitive
@@ -3724,9 +3738,12 @@ $D = 50$ and 23 of 29 at $D = 100$, and the coordinate arm alone wins on 28 of
 to add value --- at $D = 50$ it is beaten by the plain coordinate axes on 25 of
 29 functions at $p_{\mathrm{Holm}} = 1.4\times10^{-4}$, and the single worst
 function shows the eigenframe arm two orders of magnitude behind.  At $D = 100$
-the same direction appears without reaching significance
-($p_{\mathrm{Holm}} = 0.054$).  The conclusion the paper draws is therefore
-restricted to what was tested: at $D = 50$ on this suite, with this estimator and
+the same direction holds and, under the stated tie rule, is separated
+($p_{\mathrm{Holm}} = 0.0489$, $n_{\mathrm{eff}} = 28$; the exact-zero
+convention of the first analysis release gave $0.054$, and the correction is
+recorded as Amendments A5-A6).  The conclusion the paper draws is
+restricted to what was tested: at both active dimensions on this suite ---
+sharply at $D = 50$, marginally at $D = 100$ --- with this estimator and
 this exploitation channel, the learned eigenbasis degrades a refinement that
 works without it.  This is consistent with the configuration record noting that
 the learned basis matches the coordinate axes to $5\times10^{-5}$ --- an
@@ -3764,7 +3781,8 @@ $NP = 5D$ arm as reference.}\label{tab:rev-e2}
 \end{table}
 % BIND: E2 (rev-rel-2026-08-26-dd42d37eb; e2_np100.json); R1.3/R2.2
 
-The population rule is not the source of the reported standing.  At the
+The matched-initial-population control shows the $5D$ rule does not wholly
+explain the reported standing, but contributes materially to part of it.  At the
 comparators' value \dtgsk{} still places first at $D = 10$ and second at the
 three remaining dimensions, so it remains within the top two of the panel at
 every dimension tested.  The rule does contribute, and it does so exactly where
@@ -3839,7 +3857,7 @@ tier's values.  Which of the 88 differing keys carries the effect is not
 resolved by this design and is stated as open.
 % BIND: E3 headline; C2 narrowed; D30 tier mis-specification
 
-\subsection{Parameter Sensitivity (Exploratory)}\label{sec:supp:rev:sensitivity}
+\subsection{Selected-Constant Sensitivity (Exploratory)}\label{sec:supp:rev:sensitivity}
 
 This study is exploratory by registration.  It is reported descriptively; no
 hypothesis test is performed on it, no corrected $p$-value is computed from it,
@@ -3893,6 +3911,57 @@ tested here is knife-edge in magnitude under the levels executed; that
 includes the one constant the project's own configuration record had
 previously flagged as sensitive on a different suite.
 % BIND: E4 headline (ordinal-stability wording, as registered)
+
+\subsection{Dimension-Boundary Sensitivity}\label{sec:supp:rev:boundary}
+
+Added ahead of resubmission and registered before execution (pre-registration
+Amendment A4): the study of Section~\ref{sec:supp:rev:sensitivity} varies
+constants within tiers, and the reviewer request it answers also names the
+tier boundaries themselves.  Each cell here shifts one boundary of the frozen
+profile just far enough to change the profile assigned to the nearest official
+CEC2017 dimension, and re-runs \dtgsk{} at that dimension under the
+transplanted profile --- mechanically a single-dimension transplant of the
+Section~\ref{sec:supp:rev:tiering} kind, so a shift changes the complete
+resolved profile and, by the registered rule, no difference is attributed to
+any individual mechanism.  Four cells were executed at 15 paired runs on the
+unified schedule, against the frozen tiered leg restricted to the same runs;
+the fifth registered cell (boundary $20 \to 31$ at $D = 30$) coincides by
+construction with the U-low transplant at $D = 30$ and reuses those 51 runs
+rather than re-executing them.  The T2/T3 boundary admits only the upper-side
+shift: no official dimension lies between 50 and 100.  The new arms are
+carried by the separate additive release rev2-rel-2026-08-28-203c78744;
+nothing earlier is re-minted.
+% BIND: E5 (rev2-rel-2026-08-28-203c78744; e5_threshold_sensitivity.json); A4 registered before execution
+
+\begin{table}[H]
+\caption{Dimension-boundary sensitivity on CEC2017 (E5).  One Holm family
+across the five registered boundary contrasts; paired Wilcoxon on
+per-function means under the stated $10^{-8}$ tie rule, against the frozen
+tiered leg restricted to the same runs; W/T/L counted from the tiered side;
+the ordinal column re-ranks the panel with only the \dtgsk{} column
+substituted.  $^{\ddagger}$The $20 \to 31$ cell reuses the U-low arm (51
+runs).}\label{tab:rev-e5}
+\resizebox{\textwidth}{!}{\input{tables/SA09}}
+\end{table}
+% BIND: E5 (rev2-rel-2026-08-28-203c78744); R2.7 boundary half
+
+The result is mixed in an informative way, and the adverse cells are reported
+first.  At $D = 30$ the shipped middle profile is beaten from \emph{both}
+sides --- by the low-tier set ($p_{\mathrm{Holm}} = 5.5\times10^{-3}$; the
+Section~\ref{sec:supp:rev:tiering} finding restated in boundary terms) and by
+the structure-tier set ($p_{\mathrm{Holm}} = 2.2\times10^{-3}$, 22 of 29
+functions), each lifting the descriptive ordinal from second to first.  At
+$D = 100$ the $50 \leq D < 100$ set beats the shipped upper profile on paired
+means ($p_{\mathrm{Holm}} = 1.5\times10^{-2}$, 22 of 29) while the family
+ordinal is unchanged at first.  The boundaries are insensitive where the
+narrowed contribution claims them: at $D = 10$ the shift is not separated
+($p_{\mathrm{Holm}} = 0.11$, the tiered arm ahead on 20 of 29 and the
+transplant dropping the descriptive ordinal to fourth), and at $D = 50$ it is
+not separated ($p_{\mathrm{Holm}} = 0.41$).  Contribution C2, as narrowed to
+$D = 10$ and $D = 50$, is therefore untouched by every cell; the $D = 30$ and
+$D = 100$ findings extend the disclosed profile mis-specification and enter
+the limitations, not the claims.
+% BIND: E5 headline; adverse-first reporting; C2 scope intact
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Flush all deferred floats (the S8.6 per-function detail tables A39-A42)
