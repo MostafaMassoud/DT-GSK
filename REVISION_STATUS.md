@@ -1298,8 +1298,8 @@ worktree blind spot.
 2. **SuSy portal (author only)** --- the one thing left. Re-enter the new title and the revised
    keyword list in the revision form; portal metadata does not update from the PDF. Upload the
    revised manuscript, the supplementary, the figures and LaTeX-source zips, the cover letter,
-   the response letter (`papers/submission/response_to_reviewers.pdf`, 14 pages, rendered
-   2026-08-28 from the pass-51 source), both changes-marked manuscripts and the change register
+   the response letter (`papers/submission/response_to_reviewers.pdf`, 15 pages, rendered
+   2026-08-29 from the pass-52 source), both changes-marked manuscripts and the change register
    (`DT-GSK-change-register.pdf`, 25 pages, all 93 changed passages as-submitted vs
    as-revised). All four sit staged in `papers/submission/`, deliberately NOT in the repository
    (pinned in `.gitignore`) and regenerable --- the letter from its Markdown source on disk, the
@@ -1347,7 +1347,7 @@ worktree blind spot.
    added and 40 deleted blocks). Beside it `DT-GSK-change-register.pdf`, from
    `build_change_register.py`, lists all 93 changed passages as-submitted against as-revised with
    the reviewer point each answers (21 pp). Both are derived and gitignored; both rebuild from the
-   tags, at 93 passages over the same 7 files at v2.24 (92 at v2.23, 84 at v2.22).
+   tags, at 93 passages over the same 7 files at v2.25 (93 at v2.24, 92 at v2.23).
    **Two claims this entry previously made were false and are withdrawn.** It said the manuscript
    already uses `\hl`, so a blanket pass would collide with existing markup: it carries **no
    highlighting at all** — no `\hl`, no `soul`, no `colorbox`, nowhere in `main.tex`,
@@ -1374,7 +1374,7 @@ worktree blind spot.
    revision form. Portal metadata does not update from the PDF.
 6. **Make the repository PUBLIC again before uploading (author-only, 2026-09-01).** The author set it
    private on 2026-08-28 to finalize; verified private (API 404). The Data Availability Statement in
-   the revised manuscript names the repo URL and tags v2.13/v2.24, and the Supplementary's
+   the revised manuscript names the repo URL and tags v2.13/v2.25, and the Supplementary's
    pre-registration claim depends on public checkability — a reviewer clicking during round 2 must
    not hit a 404. Flip visibility BEFORE the SuSy upload. Side effect while private: the two
    GitHub-exposed commits are not publicly served; public serving resumes with visibility.
@@ -1563,10 +1563,10 @@ are given here.
 ### Phase 7 — resubmit (author-only; the point of no return)
 
 **Deadline CONFIRMED 2026-09-01, and the planned resubmission date is the same day.** Everything
-agent-side is complete at pass-51 / `v2.24` (the round-two and reopened-items batches plus the
-acceptance-readiness fixes: the S6.5 stale-open basis claim scoped to S9.1's answer, three
-line-wrapped revision-process references removed, and the environment attestation re-minted at
-618 tests — D-0056 / CR-0031); nothing in the repository blocks that date. The
+agent-side is complete at pass-52 / `v2.25` (pass-51's acceptance-readiness fixes plus the
+seven-lens panel review: the response letter's stale abstract quote and two superseded E1
+p-values corrected, SA01/SA02 renamed to the typeset Tables A23–A24, and the cover letter's
+stale 84-passage count made count-free — D-0057 / CR-0032); nothing in the repository blocks that date. The
 earlier **2026-09-03** figure was an *inference* from the letter's ten-day window and is
 **superseded** — the real date is two days tighter, so the margin the documents assumed does not
 exist. Plan and deadline now coincide and the resubmission has **zero slack**. The letter invites
@@ -1584,11 +1584,11 @@ warning that portal metadata does not update from the PDF. Re-enter both by hand
   CEC benchmark suites; nonparametric statistical comparison; reproducibility`
 
 **Generate both companion PDFs fresh.** The response letter's source was edited in passes 42, 43 and
-48, and the change register must come from `git diff v2.13 v2.24` — 93 passages across 7 files, not the
+48, and the change register must come from `git diff v2.13 v2.25` — 93 passages across 7 files, not the
 54 passages the kit recorded at pass-41. Neither figure should be quoted anywhere.
 
-**After upload, no rebuilds.** `v2.24` becomes the frozen record of what was resubmitted; any later
-revision is pass-52 with a new superseding tag, never an edit to v2.24 in place (D-0045).
+**After upload, no rebuilds.** `v2.25` becomes the frozen record of what was resubmitted; any later
+revision is pass-53 with a new superseding tag, never an edit to v2.25 in place (D-0045).
 
 
 SuSy upload; **re-enter the new title and revised keywords by hand** — portal metadata does not
