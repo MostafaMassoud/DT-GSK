@@ -2120,7 +2120,10 @@ applying all surfaced fixes.
   re-derivation, byte-verified against staging before its manifest was minted.
 - **Publication mechanism.** One squashed commit on the rewound public branch,
   carrying the audited tree. The 26-commit development history is retained
-  locally on `archive/revision-pass-39-full` and is NOT published: ten of its
+  locally on `archive/revision-pass-39-full` *(since 2026-08-28: in the private
+  bundle `D:/AI/Research-Lab/DT-GSK-private-history.bundle`, the branch itself bundled,
+  restore-tested and deleted — the retention and the never-publish rule are
+  unchanged, only the container moved)* and is NOT published: ten of its
   commit messages characterise a reviewer who declined to sign, including with
   gendered pronouns that were never established, and several intermediate trees
   carry a verbatim reviewer sentence the published tree redacts. Squashing

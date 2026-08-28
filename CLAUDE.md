@@ -46,13 +46,18 @@ both that the question is open and that it is settled. **Every tag bump drags
 `CITATION.cff`, `SUBMISSION_KIT.md` and `submission_package_manifest.json` with it**; the citation
 file is gated and carries no leading `v`, so a `v2.1x` sweep misses it.
 
-**Work on `main`.** It tracks origin. The development history lives on
-`archive/revision-pass-39-full` and **must never be pushed**: some of its commit messages gender an
-anonymous reviewer, and its intermediate trees carry the reviewers' reports, the co-author handoff
-and the seven copyrighted PDFs. `revision/pass-39` carries the reports too. **Never merge either
-into `main`** — `main` is the published line and is clean. (`public/squash-candidate`, which held
-nothing not already on `main`, was deleted 2026-08-28; its commit `02d1791` remains reachable as
-`main`'s squash root.)
+**Work on `main` — it is now the ONLY branch** (author decision, 2026-08-28). The private
+development history — formerly the branches `archive/revision-pass-39-full` and
+`revision/pass-39` — was moved whole into **`D:/AI/Research-Lab/DT-GSK-private-history.bundle`**
+(outside the repo tree; restore-tested: both refs, matching tips, the withheld files and the two
+GitHub-exposed commits all readable). The old rule transfers to the bundle: it carries the
+reviewers' reports, the co-author handoff, the seven copyrighted PDFs, and commit messages that
+gender an anonymous reviewer — so **never fetch it into a repo with a public remote, never merge
+its refs into `main`, never copy the bundle into the repo tree or any public location.** Restore,
+whenever needed, only into a detached private clone: `git init x && git -C x fetch <bundle>
+"refs/heads/*:refs/heads/*"`. (`public/squash-candidate`, which held nothing not already on
+`main`, was deleted the same day; its commit `02d1791` remains reachable as `main`'s squash
+root.)
 
 **What pass-42 did.** Twelve alleged defects were verified and then challenged in the opposite
 direction; nine survived and are corrected (C1, C2, C3, C6, C7, C8+C9 merged, C10, C11, C12).

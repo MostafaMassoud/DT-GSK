@@ -185,8 +185,10 @@ Never edit or reinterpret primary evidence merely to make it agree with the manu
 >
 > **Publication topology (SQUASH):** the public history is one commit per published state, so an
 > `anchor_commit` in a governance record does **not** resolve on origin — `published_commit` does
-> (disclosed in README). **Never push or merge `archive/revision-pass-39-full` or
-> `revision/pass-39`** — their trees carry the reviewer reports and copyrighted PDFs. Withheld
+> (disclosed in README). The never-push development-history branches were **bundled to
+> `D:/AI/Research-Lab/DT-GSK-private-history.bundle` and deleted (2026-08-28)** — `main` is the
+> only branch. The bundle carries the reviewer reports and copyrighted PDFs: **never fetch it
+> into a repo with a public remote, never merge its refs, never copy it into the tree.** Withheld
 > under **D-0049** (on disk, deliberately untracked): both reviewer reports, the point-by-point
 > response, the decision e-mail, `AUTHOR_DATA_HANDOFF.md`. The pre-registration is **public on
 > purpose** — it is what makes the adverse-wording-predates-outcomes claim checkable.

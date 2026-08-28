@@ -81,8 +81,10 @@ floors, not estimates.
 - **The `.gitignore` trap that caused it:** `CLAUDE.md` "Never break these" item 10 -- a glob that
   does not cross `/` is not an exclusion. Verify with `git check-ignore -v <path>`, never by
   reading the pattern.
-- **The branches that must never be pushed:** `archive/revision-pass-39-full` and
-  `revision/pass-39` both carry this material in their histories.
+- **The private history bundle:** the never-push branches `archive/revision-pass-39-full` and
+  `revision/pass-39` were bundled to `D:/AI/Research-Lab/DT-GSK-private-history.bundle` and
+  deleted (2026-08-28). The bundle carries this material; the never-push rule now applies to its
+  refs and to the bundle file itself.
 
 ---
 
@@ -135,10 +137,14 @@ Re-run the reachability check and expect **404** where it now returns 206:
     curl -s -o NUL -w "%{http_code}\n" -r 0-0 \
       https://raw.githubusercontent.com/MostafaMassoud/DT-GSK/<full-sha>/<path>
 
-Until then, and permanently afterwards: **never push `archive/revision-pass-39-full` or
-`revision/pass-39`.** Both carry this material in their histories, and pushing either would
-re-anchor the very objects the request asks GitHub to collect -- making the purge pointless and
-the second request harder to justify.
+Until then, and permanently afterwards: the branches that carried this material
+(`archive/revision-pass-39-full`, `revision/pass-39`) were **bundled and deleted 2026-08-28**;
+their history lives only in `D:/AI/Research-Lab/DT-GSK-private-history.bundle`. **Never fetch
+that bundle into a repository with a public remote and never push its refs** -- doing so would
+re-anchor the very objects a purge would ask GitHub to collect, making it pointless and a second
+request harder to justify. Note the local-evidence consequence: with the branches gone, the two
+commits are unreachable in the working repo and a future `git gc` will prune the local copies;
+the bundle is then the only local evidence of what they contained.
 
 The two SHAs will stop resolving on GitHub once collected. They still resolve in any local clone
 that has them, which is where the evidence for this record lives; nothing here depends on GitHub
