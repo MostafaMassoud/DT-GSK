@@ -229,7 +229,7 @@ The contributions are:
   in origin, subject to those disclosed exceptions. 
 \end{itemize}
 
-The interaction-structure memory is an online, decaying, evidence-gated coordinate-pair graph learned from strictly improving accepted moves without additional objective evaluations. It provides candidate linkage blocks for blockwise crossover and a candidate eigenbasis for the deterministic final polish (C1). However, the component isolation does not establish a consistent standalone performance contribution from ISM at the dimensions where it is active, and the function-class analysis reveals no systematic advantage on the hybrid or composition categories (Supplementary Materials, Sections~S6.5 and S6.6). The direct basis isolation added in revision goes further: in the memory's terminal exploitation channel, the polish basis, the learned eigenframe is outperformed by the plain coordinate axes at $D = 50$ (Supplementary Materials, Section~S9.1), so at that dimension the exploitation of the learned structure subtracts from a refinement that works without it. ISM is therefore positioned as a specified negative result rather than as a source of \dtgsk{}'s performance standing. Its inclusion provides a fully specified and reproducible investigation of structure learning from strictly improving accepted moves, while the paper's principal contributions remain the dimension-tiered adaptive scaffold (C2), the deterministic final polish (C1), and the controlled, budget-fair family evaluation (C3).
+The interaction-structure memory is an online, decaying, evidence-gated coordinate-pair graph learned from strictly improving accepted moves without additional objective evaluations. It provides candidate linkage blocks for blockwise crossover and a candidate eigenbasis for the deterministic final polish (C1). However, the component isolation does not establish a consistent standalone performance contribution from ISM at the dimensions where it is active, and the function-class analysis reveals no systematic advantage on the hybrid or composition categories (Supplementary Materials, Sections~S6.5 and S6.6). A direct basis isolation goes further: in the memory's terminal exploitation channel, the polish basis, the learned eigenframe is outperformed by the plain coordinate axes at $D = 50$ (Supplementary Materials, Section~S9.1), so at that dimension the exploitation of the learned structure subtracts from a refinement that works without it. ISM is therefore positioned as a specified negative result rather than as a source of \dtgsk{}'s performance standing. Its inclusion provides a fully specified and reproducible investigation of structure learning from strictly improving accepted moves, while the paper's principal contributions remain the dimension-tiered adaptive scaffold (C2), the deterministic final polish (C1), and the controlled, budget-fair family evaluation (C3).
 
 The remainder of the paper is organized as follows.
 Section~@@REF!sec:related@@ reviews the GSK family, positions the
@@ -1295,8 +1295,9 @@ of the memory overlay itself is reported in the Supplementary Materials
 (Section~S6.5) and finds no significant standalone benefit at the
 memory's active tiers. The dimension-tiering itself --- resolving control
 by dimension rather than at a single fixed operating point --- is likewise
-not isolated at submission. A controlled tiered-versus-tier-constant contrast
-was added in revision (Supplementary Materials, Section~S9.3): it separates the
+not isolated by the component studies above. A controlled
+tiered-versus-tier-constant contrast (Supplementary Materials,
+Section~S9.3) separates the
 two at $D = 10$ and $D = 50$ against a high-dimension transplant, while at
 $D = 30$ a low-dimension transplant outperforms the shipped configuration. C2 is
 therefore claimed for the dimensions where tiering was demonstrated, with the
@@ -1687,7 +1688,7 @@ memory (ISM) graph EMA (Eq.~(@@REF!eq:sgsm-graph@@)), whose confidence-gated
 blocks feed the linkage crossover mask (Eq.~(@@REF!eq:kr-mask@@)), while the
 signed graph feeds the shipped eigenframe basis of the deterministic final
 polish (Eq.~(@@REF!eq:eigen-polish@@)) directly (without the confidence gate);
-that basis is an implementation choice the revision's isolation does not
+that basis is an implementation choice the direct isolation does not
 support (Supplementary Materials, Section~S9.1).
 The graph is updated continuously from strictly improving accepted moves; the
 polish fires once. Eligibility is exactly: only strictly positive improvements
@@ -1749,7 +1750,7 @@ record rather than from the coordinate frame. The direct isolation of
 Supplementary Materials Section~S6.5 cannot separate the learned basis from
 coordinate axes: any effect that isolation measures therefore attaches to the
 deterministic, budget-exact compass endgame as a whole, not to the learned
-directions. The three-arm contrast added in revision (Supplementary
+directions. The three-arm contrast (Supplementary
 Materials, Section~S9.1) does separate them, and finds against the learned
 basis; contribution~C1 is accordingly stated basis-neutrally.
 Its one-time cost is the $O(D^{3})$ eigendecomposition of the
@@ -2602,8 +2603,8 @@ pairwise non-significant cells above.
 
 
 
-Figure~@@REF!fig:cd-cec2017@@ shows the Nemenyi mean-rank
-plots with CD span (one panel per dimension), emitted only because the omnibus is significant at every
+Figure~@@REF!fig:cd-cec2017@@ shows the Nemenyi critical-difference view
+(one panel per dimension, the within-one-CD-of-best cohort shaded), emitted only because the omnibus is significant at every
 dimension; for $k = 7$ algorithms and $N = 29$ functions at
 $\alpha = 0.05$, $\mathrm{CD} =
 q_{0.05}\sqrt{k(k+1)/(6N)} = 1.67$ rank units
@@ -2620,18 +2621,13 @@ separations.
 
 \begin{figure}[htbp]
 \includegraphics[width=\textwidth]{figures/nemenyi/nemenyi_cd_cec2017_grid.png}
-\caption{@@FIGCAP!fig:cd-cec2017@@ Nemenyi mean-rank plots with critical-difference (CD) span for the
-CEC2017 GSK-family Friedman mean ranks (lower is better), one panel per
-dimension
-($D = 10, 30, 50, 100$; $k = 7$, $N = 29$, $\alpha = 0.05$,
-$\mathrm{CD} = 1.67$ rank units, $q_{0.05} = 2.949$); emitted only because the
-Friedman omnibus is significant at every dimension.  The within-one-CD-of-best
-cohort (the algorithms not separated from the best by more than one CD) is
-\{\dtgsk{}, \agsk{}, \fdbagsk{}, \apgsk{}, \egsk{}\} at $D{=}10$;
-\{\egsk{}, \dtgsk{}\} at $D{=}30$ (best rank \egsk{}); \{\dtgsk{}, \egsk{}\}
-at $D{=}50$; and \{\dtgsk{}, \egsk{}, \atmals{}\} at $D{=}100$.  Rank-robustness
-and APGSK-gap qualifications as in
-Table~@@REF!tab:friedman-cec2017@@.}\label{fig:cd-cec2017}
+\caption{@@FIGCAP!fig:cd-cec2017@@ Critical-difference view of the CEC2017 GSK-family Friedman mean
+ranks (lower is better), one panel per dimension.  Bars are mean ranks; the
+shaded rows are the cohort within one critical difference of the best rank,
+and the dashed line marks best rank $+$ CD ($\mathrm{CD} = 1.67$ for
+$k = 7$, $N = 29$, $\alpha = 0.05$).  A bar crossing the line is
+Nemenyi-separated from the best; \dtgsk{} and \egsk{} fall inside one
+cohort at every dimension.}\label{fig:cd-cec2017}
 
 \end{figure}
 
@@ -3054,33 +3050,33 @@ above GSK ($3.69 \times 10^{3}$) and \egsk{}
 ($3.05 \times 10^{3}$).
 
 
+Both convergence figures share one reading basis, stated once here rather
+than repeated in each caption: panels follow the fixed, prespecified
+function-selection rule frozen before rendering (each set includes a mandated
+unfavorable case); every curve is the per-checkpoint mean error over the 51
+runs on an identical checkpoint grid with no smoothing; the $y$-axis is
+log-error with a display-only floor of $10^{-14}$ for exact zeros, which
+never enters any statistic; and one legend serves all panels.
+
 \begin{figure}[H]
 \includegraphics[width=0.92\textwidth]{figures/convergence/main_cec2017_D30.png}
-\caption{@@FIGCAP!fig:conv-cec2017-d30@@ Family-overlay convergence on CEC2017 at $D = 30$ for the
-four functions selected by a fixed, prespecified rule and frozen before rendering:
-F3 (unimodal; easy/strong), F10 (simple multimodal;
+\caption{@@FIGCAP!fig:conv-cec2017-d30@@ Family-overlay convergence on CEC2017 at $D = 30$ ---
+\dtgsk{}'s known-weak tier, ranked second behind \egsk{} --- for the four
+prespecified functions: F3 (unimodal; easy/strong), F10 (simple multimodal;
 hard/comparable), F12 (hybrid; hard/comparable), F26 (composition;
-hard/weak --- the mandated unfavorable case). Each panel overlays all
-7 panel algorithms; every curve is the per-checkpoint mean error
-across 51 runs (identical basis; no smoothing); log-error $y$-axis
-with a display-only floor of $10^{-14}$ for exact zeros (never enters
-any statistic); one shared legend. $D = 30$ is \dtgsk{}'s known-weak
-tier: rank \#2 behind \egsk{}. 
+hard/weak, the mandated unfavorable case). Shared basis as stated above;
 APGSK checkpoint evidence at $D = 30$ carries the per-run availability
-qualification of
-Section~@@REF!sec:exp:settings@@.}\label{fig:conv-cec2017-d30}
+qualification of Section~@@REF!sec:exp:settings@@.}\label{fig:conv-cec2017-d30}
 
 \end{figure}
 
 \begin{figure}[H]
 \includegraphics[width=0.92\textwidth]{figures/convergence/main_cec2017_D100.png}
-\caption{@@FIGCAP!fig:conv-cec2017-d100@@ Family-overlay convergence on CEC2017 at $D = 100$ (tier
-where the structure-memory and polish subsystems are active) for the
-four prespecified functions: F1 (unimodal; easy/strong), F5 (simple
-multimodal; easy/strong), F12 (hybrid; hard/comparable), F26
-(composition; hard/comparable). Per-checkpoint mean error across 51
-runs per algorithm, 7-curve overlay, log-error $y$-axis (display
-floor $10^{-14}$), one shared legend. }\label{fig:conv-cec2017-d100}
+\caption{@@FIGCAP!fig:conv-cec2017-d100@@ Family-overlay convergence on CEC2017 at $D = 100$, the tier where
+the structure-memory and polish subsystems are active, for the four
+prespecified functions: F1 (unimodal; easy/strong), F5 (simple multimodal;
+easy/strong), F12 (hybrid; hard/comparable), F26 (composition;
+hard/comparable). Shared basis as stated above.}\label{fig:conv-cec2017-d100}
 
 \end{figure}
 
@@ -3157,9 +3153,9 @@ alone, so the advantage may rest on classical direct search rather than on
 anything learned during the run. Second, \dtgsk{} begins from
 $NP = 5D$ against the comparators' $NP = 100$ --- a five-fold difference
 at $D = 100$. The comparators' value is the family's
-reference-implementation setting. The asymmetry was not a controlled variable
-at submission; it was controlled in revision (Supplementary Materials,
-Section~S9.2), and \dtgsk{} stays within the top two of the panel at every
+reference-implementation setting. A matched-initial-population control
+isolates the asymmetry (Supplementary Materials,
+Section~S9.2): \dtgsk{} stays within the top two of the panel at every
 dimension at the common value, though its $D = 50$ and $D = 100$ first places
 are not reproduced there.
 
@@ -3382,8 +3378,8 @@ moves its $D = 15$ ordinal
 The parameter-sensitivity evidence is exploratory and narrow: a one-factor
 sweep over seven constants at two levels, at $D = 30$ and $D = 100$ only, with
 15 repetitions per cell against the frozen panel's 51 (Supplementary Materials,
-Section~S9.4). It is descriptive and carries no hypothesis test. The
-boundary study registered ahead of resubmission (Supplementary Materials,
+Section~S9.4). It is descriptive and carries no hypothesis test. A
+pre-registered boundary study (Supplementary Materials,
 Section~S9.5) varies the tier boundaries themselves: the standing is
 insensitive to the tested shifts at $D = 10$ and $D = 50$, while at $D = 30$
 both neighbouring profiles beat the shipped middle set and at $D = 100$ the
@@ -3399,7 +3395,7 @@ outline: the
 mid-dimension tier favors \egsk{}, which leads at CEC2017 $D = 30$, on CEC2013
 at $D = 30$, and on CEC2011. The structure memory and the polish are gated to
 $D \geq 50$, so at $D \leq 30$ \dtgsk{} is essentially the adaptive scaffold.
-The configuration-transplant experiment added in revision locates part of that
+A configuration-transplant experiment locates part of that
 weakness: at $D = 30$ the parameter set \dtgsk{} resolves at $D = 10$
 outperforms the set it ships, on 20 of 29 functions
 ($p_{\mathrm{Holm}} = 5.5\times10^{-3}$; Supplementary Materials,
@@ -3469,7 +3465,7 @@ none exists: no equivalence test or confidence bound on the effect size was
 computed, so the result places no numerical ceiling on how large a benefit the
 design could have missed.
 
-The basis isolation added in revision sharpens this. In the
+A direct basis isolation sharpens this. In the
 memory's terminal exploitation channel --- the basis the final polish searches
 along --- the learned eigenframe is outperformed by the plain coordinate axes at
 $D = 50$ ($p_{\mathrm{Holm}} = 1.4\times10^{-4}$, 25 of 29 functions), while the
@@ -3539,7 +3535,7 @@ supplement-only component-contribution study --- a scaffold
 remove-one decomposition and a direct isolation of the interaction-structure
 memory (which finds no significant standalone benefit at its active
 tiers), drawn from separate component-isolation evidence, reported after the primary
-freeze and altering no primary result, together with the per-component cost accounting, the post-hoc function-class analysis, and the implementation-caveats trail for the two corrected defects --- the material the main text cites as~S6.5, S6.6, and~S6.7 (S6); the CEC2013LSGO large-scale study, with its family-internal scope, evidential-tier and provenance disclosures (S7); the pre-registered CEC2020 confirmatory battery, reported with its registered outcome wording (S8); and the four round-one revision experiments --- the refinement-basis isolation, the matched-population-size control, the tiered-versus-tier-constant transplant, and the exploratory parameter-sensitivity screen --- each pre-registered before it produced a result (S9).
+freeze and altering no primary result, together with the per-component cost accounting, the post-hoc function-class analysis, and the implementation-caveats trail for the two corrected defects --- the material the main text cites as~S6.5, S6.6, and~S6.7 (S6); the CEC2013LSGO large-scale study, with its family-internal scope, evidential-tier and provenance disclosures (S7); the pre-registered CEC2020 confirmatory battery, reported with its registered outcome wording (S8); and the mechanism-isolation and sensitivity experiments --- the refinement-basis isolation, the matched-population-size control, the tiered-versus-tier-constant transplant, the exploratory selected-constant screen, and the dimension-boundary study --- each pre-registered before it produced a result (S9).
 
 
 
@@ -3593,7 +3589,7 @@ configuration files, and experimental result data supporting the findings of
 this study are openly available in the public \dtgsk{} repository at
 \url{https://github.com/MostafaMassoud/DT-GSK}; the originally submitted
 version corresponds to the repository tag v2.13 and this revised version to
-tag v2.22, and any further materials are
+tag v2.23, and any further materials are
 available from the corresponding author upon reasonable request. The
 supplementary materials accompanying the manuscript provide the additional
 methodological and experimental details needed to evaluate the reported
@@ -3604,11 +3600,14 @@ SHA-256 checksum for every released file; the two suites added after
 that release was minted are carried by their own separate,
 non-superseding releases, lsgo-rel-2026-07-28-ff1a046ef (CEC2013LSGO)
 and cec2020-rel-2026-07-29-5867abe1e (CEC2020), each with its own
-checksummed manifest; the four round-one revision experiments are carried by a
-fourth additive, non-superseding release, rev-rel-2026-08-26-dd42d37eb, which
-leaves every primary value unchanged; the boundary-sensitivity experiment
-added ahead of resubmission is carried by a fifth additive release,
-rev2-rel-2026-08-28-203c78744, on the same terms; and the derived statistical artifacts
+checksummed manifest; four of the mechanism-isolation experiments (E1--E4)
+are carried by a fourth additive, non-superseding release,
+rev-rel-2026-08-26-dd42d37eb, which
+leaves every primary value unchanged; the dimension-boundary experiment (E5)
+is carried by a fifth additive release,
+rev2-rel-2026-08-28-203c78744, on the same terms; the identity re-execution
+behind the Table A45 residual is carried by a further additive release,
+g1-rel-2026-08-28-65b3d39e6; and the derived statistical artifacts
 behind every table and figure are versioned as checksummed analysis
 bundles alongside them. The supplementary component-isolation study
 (Section~S6) draws on a separate immutable component-isolation release,

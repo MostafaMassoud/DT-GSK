@@ -302,8 +302,9 @@ of the memory overlay itself is reported in the Supplementary Materials
 (Section~S6.5) and finds no significant standalone benefit at the
 memory's active tiers. The dimension-tiering itself --- resolving control
 by dimension rather than at a single fixed operating point --- is likewise
-not isolated at submission. A controlled tiered-versus-tier-constant contrast
-was added in revision (Supplementary Materials, Section~S9.3): it separates the
+not isolated by the component studies above. A controlled
+tiered-versus-tier-constant contrast (Supplementary Materials,
+Section~S9.3) separates the
 two at $D = 10$ and $D = 50$ against a high-dimension transplant, while at
 $D = 30$ a low-dimension transplant outperforms the shipped configuration. C2 is
 therefore claimed for the dimensions where tiering was demonstrated, with the
@@ -596,7 +597,7 @@ memory (ISM) graph EMA (Eq.~(\ref{eq:sgsm-graph})), whose confidence-gated
 blocks feed the linkage crossover mask (Eq.~(\ref{eq:kr-mask})), while the
 signed graph feeds the shipped eigenframe basis of the deterministic final
 polish (Eq.~(\ref{eq:eigen-polish})) directly (without the confidence gate);
-that basis is an implementation choice the revision's isolation does not
+that basis is an implementation choice the direct isolation does not
 support (Supplementary Materials, Section~S9.1).
 The graph is updated continuously from strictly improving accepted moves; the
 polish fires once. Eligibility is exactly: only strictly positive improvements
@@ -659,7 +660,7 @@ record rather than from the coordinate frame. The direct isolation of
 Supplementary Materials Section~S6.5 cannot separate the learned basis from
 coordinate axes: any effect that isolation measures therefore attaches to the
 deterministic, budget-exact compass endgame as a whole, not to the learned
-directions. The three-arm contrast added in revision (Supplementary
+directions. The three-arm contrast (Supplementary
 Materials, Section~S9.1) does separate them, and finds against the learned
 basis; contribution~C1 is accordingly stated basis-neutrally.
 Its one-time cost is the $O(D^{3})$ eigendecomposition of the

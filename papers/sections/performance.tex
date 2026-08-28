@@ -562,8 +562,8 @@ pairwise non-significant cells above.
 % supplement only -- supplement scope per artifact_binding.csv; Phase 8
 % assembly decision recorded in build_record.md)
 
-Figure~\ref{fig:cd-cec2017} shows the Nemenyi mean-rank
-plots with CD span (one panel per dimension), emitted only because the omnibus is significant at every
+Figure~\ref{fig:cd-cec2017} shows the Nemenyi critical-difference view
+(one panel per dimension, the within-one-CD-of-best cohort shaded), emitted only because the omnibus is significant at every
 dimension; for $k = 7$ algorithms and $N = 29$ functions at
 $\alpha = 0.05$, $\mathrm{CD} =
 q_{0.05}\sqrt{k(k+1)/(6N)} = 1.67$ rank units
@@ -581,18 +581,13 @@ separations.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/nemenyi/nemenyi_cd_cec2017_grid.pdf}
-\caption{Nemenyi mean-rank plots with critical-difference (CD) span for the
-CEC2017 GSK-family Friedman mean ranks (lower is better), one panel per
-dimension
-($D = 10, 30, 50, 100$; $k = 7$, $N = 29$, $\alpha = 0.05$,
-$\mathrm{CD} = 1.67$ rank units, $q_{0.05} = 2.949$); emitted only because the
-Friedman omnibus is significant at every dimension.  The within-one-CD-of-best
-cohort (the algorithms not separated from the best by more than one CD) is
-\{\dtgsk{}, \agsk{}, \fdbagsk{}, \apgsk{}, \egsk{}\} at $D{=}10$;
-\{\egsk{}, \dtgsk{}\} at $D{=}30$ (best rank \egsk{}); \{\dtgsk{}, \egsk{}\}
-at $D{=}50$; and \{\dtgsk{}, \egsk{}, \atmals{}\} at $D{=}100$.  Rank-robustness
-and APGSK-gap qualifications as in
-Table~\ref{tab:friedman-cec2017}.}\label{fig:cd-cec2017}
+\caption{Critical-difference view of the CEC2017 GSK-family Friedman mean
+ranks (lower is better), one panel per dimension.  Bars are mean ranks; the
+shaded rows are the cohort within one critical difference of the best rank,
+and the dashed line marks best rank $+$ CD ($\mathrm{CD} = 1.67$ for
+$k = 7$, $N = 29$, $\alpha = 0.05$).  A bar crossing the line is
+Nemenyi-separated from the best; \dtgsk{} and \egsk{} fall inside one
+cohort at every dimension.}\label{fig:cd-cec2017}
 % BIND: FIG-CD-D10/D30/D50/D100 (captions_registry; consolidated 2x2 grid image)
 \end{figure}
 
@@ -1022,35 +1017,35 @@ above GSK ($3.69 \times 10^{3}$) and \egsk{}
 ($3.05 \times 10^{3}$).
 % BIND: AN-DESC-2017-D100 (descriptive_stats_cec2017_D100.csv, F26 rows)
 
+Both convergence figures share one reading basis, stated once here rather
+than repeated in each caption: panels follow the fixed, prespecified
+function-selection rule frozen before rendering (each set includes a mandated
+unfavorable case); every curve is the per-checkpoint mean error over the 51
+runs on an identical checkpoint grid with no smoothing; the $y$-axis is
+log-error with a display-only floor of $10^{-14}$ for exact zeros, which
+never enters any statistic; and one legend serves all panels.
+
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.92\textwidth]{figures/convergence/main_cec2017_D30.pdf}
-\caption{Family-overlay convergence on CEC2017 at $D = 30$ for the
-four functions selected by a fixed, prespecified rule and frozen before rendering:
-F3 (unimodal; easy/strong), F10 (simple multimodal;
+\caption{Family-overlay convergence on CEC2017 at $D = 30$ ---
+\dtgsk{}'s known-weak tier, ranked second behind \egsk{} --- for the four
+prespecified functions: F3 (unimodal; easy/strong), F10 (simple multimodal;
 hard/comparable), F12 (hybrid; hard/comparable), F26 (composition;
-hard/weak --- the mandated unfavorable case). Each panel overlays all
-7 panel algorithms; every curve is the per-checkpoint mean error
-across 51 runs (identical basis; no smoothing); log-error $y$-axis
-with a display-only floor of $10^{-14}$ for exact zeros (never enters
-any statistic); one shared legend. $D = 30$ is \dtgsk{}'s known-weak
-tier: rank \#2 behind \egsk{}. 
+hard/weak, the mandated unfavorable case). Shared basis as stated above;
 APGSK checkpoint evidence at $D = 30$ carries the per-run availability
-qualification of
-Section~\ref{sec:exp:settings}.}\label{fig:conv-cec2017-d30}
+qualification of Section~\ref{sec:exp:settings}.}\label{fig:conv-cec2017-d30}
 % BIND: FIG-CONV-MAIN-D30 (captions_registry)
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.92\textwidth]{figures/convergence/main_cec2017_D100.pdf}
-\caption{Family-overlay convergence on CEC2017 at $D = 100$ (tier
-where the structure-memory and polish subsystems are active) for the
-four prespecified functions: F1 (unimodal; easy/strong), F5 (simple
-multimodal; easy/strong), F12 (hybrid; hard/comparable), F26
-(composition; hard/comparable). Per-checkpoint mean error across 51
-runs per algorithm, 7-curve overlay, log-error $y$-axis (display
-floor $10^{-14}$), one shared legend. }\label{fig:conv-cec2017-d100}
+\caption{Family-overlay convergence on CEC2017 at $D = 100$, the tier where
+the structure-memory and polish subsystems are active, for the four
+prespecified functions: F1 (unimodal; easy/strong), F5 (simple multimodal;
+easy/strong), F12 (hybrid; hard/comparable), F26 (composition;
+hard/comparable). Shared basis as stated above.}\label{fig:conv-cec2017-d100}
 % BIND: FIG-CONV-MAIN-D100 (captions_registry)
 \end{figure}
 
@@ -1129,9 +1124,9 @@ alone, so the advantage may rest on classical direct search rather than on
 anything learned during the run. Second, \dtgsk{} begins from
 $NP = 5D$ against the comparators' $NP = 100$ --- a five-fold difference
 at $D = 100$. The comparators' value is the family's
-reference-implementation setting. The asymmetry was not a controlled variable
-at submission; it was controlled in revision (Supplementary Materials,
-Section~S9.2), and \dtgsk{} stays within the top two of the panel at every
+reference-implementation setting. A matched-initial-population control
+isolates the asymmetry (Supplementary Materials,
+Section~S9.2): \dtgsk{} stays within the top two of the panel at every
 dimension at the common value, though its $D = 50$ and $D = 100$ first places
 are not reproduced there.
 % BIND: E2 (rev-rel-2026-08-26-dd42d37eb); rank-claim qualification

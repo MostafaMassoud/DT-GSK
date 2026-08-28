@@ -210,6 +210,15 @@ def _draw_cd_on_ax(ax, ranks: dict[str, float], cd: float, dim: int,
     within_cd = [lbl for lbl, r in zip(labels, values) if r - best_rank <= cd]
 
     y = np.arange(len(labels))
+
+    # Cohort made explicit (P1-06): shade the within-one-CD rows as one
+    # block and mark best+CD with a dashed line, so separation is read off
+    # the bars themselves instead of a detached ruler.
+    n_coh = len(within_cd)
+    ax.axhspan(-0.5, n_coh - 0.5, color=COHORT_COLOUR, alpha=0.14, zorder=0,
+               linewidth=0)
+    ax.axvline(best_rank + cd, color=HEADLINE_COLOUR, linewidth=1.1,
+               linestyle=(0, (4, 3)), zorder=1)
     ax.barh(
         y, values,
         color=palette, edgecolor="white", linewidth=0.4, height=0.68,
@@ -244,29 +253,16 @@ def _draw_cd_on_ax(ax, ranks: dict[str, float], cd: float, dim: int,
     for side in ("left", "bottom"):
         ax.spines[side].set_linewidth(0.8)
 
-    # CD scale bar in a buffer strip above the top-ranked row.
-    top_buffer = 1.7
-    ax.set_ylim(top=-top_buffer)
-
-    cd_bar_y = -0.85
-    cd_label_y = -1.35
-    cap = 0.13
-    ax.plot(
-        [best_rank, best_rank + cd],
-        [cd_bar_y, cd_bar_y],
-        color=HEADLINE_COLOUR, linewidth=2.0, solid_capstyle="butt",
-    )
-    for xi in (best_rank, best_rank + cd):
-        ax.plot(
-            [xi, xi], [cd_bar_y - cap, cd_bar_y + cap],
-            color=HEADLINE_COLOUR, linewidth=2.0,
-        )
+    # Threshold annotation in a slim strip above the top row; the shaded
+    # block plus dashed line replace the former detached CD ruler (P1-06).
+    ax.set_ylim(top=-1.05)
     ax.text(
-        (best_rank + best_rank + cd) / 2.0,
-        cd_label_y,
-        f"CD = {cd:.2f}",
-        ha="center", va="center", fontsize=9 if compact else 10.5,
+        best_rank + cd, -0.72,
+        f"best + CD ({cd:.2f})",
+        ha="center", va="center", fontsize=8 if compact else 9.5,
         color=HEADLINE_COLOUR,
+        bbox={"facecolor": "white", "edgecolor": "none", "pad": 1.2},
+        zorder=3,
     )
 
     if compact:

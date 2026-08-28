@@ -134,8 +134,8 @@ direct interaction-structure-memory isolation, and a by-class conditional-benefi
 breakdown, Section~S6), the complete CEC2013LSGO large-scale suite record
 (protocol, evidential tiers, family statistics, effect sizes, and
 per-function detail, Section~S7), and the pre-registered CEC2020
-confirmatory suite record (Section~S8), and the four round-one revision
-experiments (Section~S9).  Every empirical value in Sections~S1--S5 derives from the
+confirmatory suite record (Section~S8), and the mechanism-isolation and
+sensitivity experiments (Section~S9).  Every empirical value in Sections~S1--S5 derives from the
 promoted, read-only evidence release accompanying this article;
 the Section~S6 scaffold and isolation results derive from a separate, immutable
 ablation release; the Section~S7, Section~S8 and Section~S9 values derive from
@@ -1265,8 +1265,14 @@ divergence, alongside the generator known-answer tests and the byte-stability
 pins. One exception is recorded rather than left to be found. The internal
 control of Table~\ref{tab:rev-e3} re-executes, under the current revision,
 runs archived under the earlier one; it does not reproduce them exactly, and
-its win/tie/loss count carries that residual, which that table's caption
-reports as unresolved. No other reported number, rank, $p$-value or decision
+its win/tie/loss count carries that residual. The residual's origin has since
+been demonstrated by a promoted re-execution (release g1-rel-2026-08-28-65b3d39e6):
+re-running the five carrier functions at $D = 100$ under the current build,
+with the numeric stack pinned to one thread, reproduces the transplant arm on
+all 26 divergent cells and the archived values on none, while reproducing
+both on all 229 agreeing cells, with zero seed mismatches --- a difference
+between builds, not a within-build instability, and that table's caption now
+reports it as such. No other reported number, rank, $p$-value or decision
 in this paper or this Supplementary Material depends on which of the two
 revisions is used, and the archived release from which every reported number
 is derived is itself unchanged.
@@ -2211,8 +2217,8 @@ contradicted, and none is amended.
 
 \subsection{ISM-Overlay Isolation: Direct Component Study}\label{sec:supp:ablation:sgsm}
 
-The direct contribution of the interaction-structure memory --- the isolation
-reviewers requested --- is a \emph{separate} experimental design from the
+The direct contribution of the interaction-structure memory is measured by a
+\emph{separate} experimental design from the
 scaffold matrix above, and is reported here.  Four ISM-active configurations
 share one seed schedule (paired, common random numbers): the full overlay and
 three single-toggle variants that disable, in turn, the interaction-structure
@@ -3657,25 +3663,26 @@ F10 & Best & 3.99E+02 & 3.99E+02 & 3.99E+02 & 3.99E+02 & 4.01E+02 & 3.99E+02 & 3
 % 2026-08-25 (E1-E4) and 2026-08-28, Amendment A4 (E5), before any result
 % from the respective experiments existed.
 %==================================================================
-\section{Round-One Revision Experiments}\label{sec:supp:revision}
+\section{Mechanism-Isolation and Sensitivity Experiments}\label{sec:supp:revision}
 
-\noindent Four of the five experiments in this section were requested by the
-round-one reviewers to isolate mechanisms that the submitted manuscript had
-introduced together; the fifth (Section~\ref{sec:supp:rev:boundary}) answers
-the boundary half of the same sensitivity request and was added ahead of
-resubmission.  Their designs, estimands, statistical conventions and the wording to
+\noindent The five experiments in this section isolate design choices that
+the original design introduced together --- the refinement basis, the
+population rule, the tier profiles, and the sensitivity of the
+configuration's constants (Section~\ref{sec:supp:rev:sensitivity}) and of
+its tier boundaries (Section~\ref{sec:supp:rev:boundary}).
+Their designs, estimands, statistical conventions and the wording to
 be used for each unfavourable outcome were registered in a signed addendum
 before any of them produced a result; the deviations discovered during
 post-hoc verification are recorded there as dated amendments and are
 disclosed at the point of use below.  That addendum is published with the code
-and data, as revision\_experiments\_preregistration.md under the review folder
-of the repository named in the Data Availability Statement, so a reader can
+and data, as revision\_experiments\_preregistration.md in the repository
+named in the Data Availability Statement, so a reader can
 check that the unfavourable-outcome wording predates the outcomes rather than
 take it on trust.
 % BIND: pre-registration made checkable (D-0049; published 2026-08-27)
 The evidence for this section is compound, and is named here because no
-single release carries it: the arms added in round one come from the separate,
-non-superseding release rev-rel-2026-08-26-dd42d37eb; the boundary arms of
+single release carries it: the arms of the first four experiments come from
+the separate, non-superseding release rev-rel-2026-08-26-dd42d37eb; the boundary arms of
 Section~\ref{sec:supp:rev:boundary} come from the further additive release
 rev2-rel-2026-08-28-203c78744; the comparator columns
 against which they are read come from the primary release; and the
@@ -3836,8 +3843,11 @@ dimensions within each arm; W/T/L is counted from the tiered arm, and
 $A_{12}$ takes it as reference.  At $D = 10$ the U-low arm and at $D = 100$ the
 U-high arm carry the tiered configuration by construction and serve as the
 design's internal control.  Below the $D \ge 50$ gate the $D = 10$ arm ties
-throughout; at $D = 100$ it does not, and that residual is not resolved
-here.}\label{tab:rev-e3}
+throughout; at $D = 100$ it does not.  A promoted re-execution (release
+g1-rel-2026-08-28-65b3d39e6) resolves that residual as a build difference:
+the current build reproduces the transplant arm on all 26 divergent cells and
+the archived values on none, and reproduces both wherever the two legs
+agree.}\label{tab:rev-e3}
 \resizebox{\textwidth}{!}{\input{tables/SA07}}
 \end{table}
 % BIND: E3 (rev-rel-2026-08-26-dd42d37eb; e3_uniform_vs_tiered.json); R2.1
@@ -3917,10 +3927,9 @@ previously flagged as sensitive on a different suite.
 
 \subsection{Dimension-Boundary Sensitivity}\label{sec:supp:rev:boundary}
 
-Added ahead of resubmission and registered before execution (pre-registration
-Amendment A4): the study of Section~\ref{sec:supp:rev:sensitivity} varies
-constants within tiers, and the reviewer request it answers also names the
-tier boundaries themselves.  Each cell here shifts one boundary of the frozen
+Registered before execution as pre-registration Amendment A4: the study of
+Section~\ref{sec:supp:rev:sensitivity} varies constants within tiers; this
+one varies the tier boundaries themselves.  Each cell shifts one boundary of the frozen
 profile just far enough to change the profile assigned to the nearest official
 CEC2017 dimension, and re-runs \dtgsk{} at that dimension under the
 transplanted profile --- mechanically a single-dimension transplant of the

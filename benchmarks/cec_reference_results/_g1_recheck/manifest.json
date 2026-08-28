@@ -1,0 +1,66 @@
+{
+  "schema": "revision_evidence_manifest/v1",
+  "release_id": "g1-rel-2026-08-28-65b3d39e6",
+  "title": "D-0051 cross-build identity re-execution: the divergent CEC2017 D=100 cells re-run under the current build, threads pinned",
+  "generated_utc": "2026-08-28T18:49:44+00:00",
+  "git_head_at_promotion": "65b3d39e6041e4153bbf03c0359ebd11249b980a",
+  "governance": "D-0051 (executed and independently replicated 2026-08-27, kept as staging by decision); promotion reopened and ordered by the author 2026-08-28, recorded in D-0055. Verdict re-derived fail-closed at promotion from the staged bytes.",
+  "verdict": {
+    "cells": 255,
+    "functions": [
+      7,
+      13,
+      14,
+      20,
+      30
+    ],
+    "divergent_cells": 26,
+    "agreeing_cells": 229,
+    "statement": "On every cell where the archived leg and the round-one transplant arm disagree, the current build reproduces the transplant arm and never the archive; on every cell where they agree it reproduces both. The residual is a build difference, not a within-build instability.",
+    "method_note": "run_campaign-style single-thread pinning is load-bearing; an unpinned re-run is meaningless at D=100."
+  },
+  "supersedes_release": null,
+  "supersession_note": "Non-superseding and additive. Reads the frozen primary release (archived leg) and rev-rel-2026-08-26-dd42d37eb (transplant arm) without re-minting either.",
+  "exclusions": "curves/, gen_logs/ and per-session console logs, per release precedent.",
+  "totals": {
+    "files": 7,
+    "bytes": 39166
+  },
+  "files": [
+    {
+      "path": "dt-gsk/cec2017/summary/dt-gsk_cec2017_D100.csv",
+      "sha256": "e451e556ac877c4e53312a82cb10136a765edac26383d5124bab32f88d31a80d",
+      "bytes": 568
+    },
+    {
+      "path": "dt-gsk/cec2017/summary/environment.json",
+      "sha256": "515fa5d22d3da34008428e1a6f1bf589dc24c15145fd871edfd17987e421932f",
+      "bytes": 3700
+    },
+    {
+      "path": "dt-gsk/cec2017/summary/per_run.csv",
+      "sha256": "754fcc94c3376c80f9080f5f591fad42b8ddc9d17297b1bd01199621d9e8472d",
+      "bytes": 26521
+    },
+    {
+      "path": "dt-gsk/cec2017/summary/phase0_protocol.json",
+      "sha256": "8750acb1a3227dad294bb337ce436ab405e5f3ce54bd3c03f5096a5d860f88ee",
+      "bytes": 1102
+    },
+    {
+      "path": "dt-gsk/cec2017/summary/run_config.json",
+      "sha256": "b354471d13ad308e23f6ec4bc477c53278423083cd77f7c19494691f9c1be759",
+      "bytes": 1469
+    },
+    {
+      "path": "dt-gsk/cec2017/summary/seed_schedule.csv",
+      "sha256": "8e2421bb2d569a26171b53fe1f9537a452c110ca748f68370e560a5b97f75b4f",
+      "bytes": 5282
+    },
+    {
+      "path": "dt-gsk/cec2017/summary/verification.json",
+      "sha256": "2bdb4b32b0f1908ddaaa0f39ada30fcc1b7102ba833dc35a0daf1c9eb20e2778",
+      "bytes": 524
+    }
+  ]
+}

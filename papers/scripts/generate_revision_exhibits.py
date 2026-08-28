@@ -139,7 +139,7 @@ def e1() -> None:
          tex_headers=["$D$", "Contrast", "raw $p$", "Holm $p$", "Sig.", "W/T/L",
                       "$n_{\\mathrm{eff}}$", "$A_{12}$"],
          tex_rows=tex_flat, label="Table A43",
-         caption=("Refinement-basis contrast on CEC2017 (E1, reviewer point R2.3): "
+         caption=("Refinement-basis contrast on CEC2017 (E1): "
                   "eigenframe versus coordinate axes versus no refinement at fixed "
                   "enablement."),
          notes=["paired Wilcoxon on per-function means under the canonical near-zero "
@@ -171,8 +171,8 @@ def e2() -> None:
                      "Ordinal $5D$", "Ordinal $100$",
                       "Holm $p$", "Sig.", "W/T/L", "$A_{12}$"],
          tex_rows=tex, label="Table A44",
-         caption=("DT-GSK at the comparators' population value (E2, reviewer points "
-                  "R1.3/R2.2): the panel re-ranked with only the DT-GSK column "
+         caption=("DT-GSK at the comparators' population value (E2): "
+                  "the panel re-ranked with only the DT-GSK column "
                   "substituted."),
          notes=["Holm corrected across the four dimensions",
                 "reported as an ablation of a declared method component, not a "
@@ -204,7 +204,7 @@ def e3() -> None:
          tex_headers=["Arm", "$D$", "Holm $p$", "Tiered W/T/L", "$A_{12}$", "Reading"],
          tex_rows=tex_flat, label="Table A45",
          caption=("Tiered configuration versus the two tier-constant transplants "
-                  "(E3, reviewer point R2.1) on CEC2017."),
+                  "(E3) on CEC2017."),
          notes=["Holm corrected across the four dimensions within each arm; W/T/L "
                 "counted from the tiered arm",
                 "no difference reported here may be attributed to any individual "
@@ -242,8 +242,8 @@ def e4() -> None:
     emit("SA08", "llllcccc",
          ["Parameter", "D", "Level", "Value", "Rank", "Ordinal", "W/T/L", "Ratio"],
          rows, tex_rows=tex, label="Table A46",
-         caption=("EXPLORATORY one-factor parameter sensitivity (E4, reviewer point "
-                  "R2.7). Descriptive only: no test is performed and no p-value is "
+         caption=("EXPLORATORY one-factor parameter sensitivity (E4). "
+                  "Descriptive only: no test is performed and no p-value is "
                   "reported."),
          notes=["registered exploratory: descriptive only, no hypothesis tests, no "
                 "corrected p-values",
@@ -292,8 +292,8 @@ def e5() -> None:
                       "Tiered W/T/L", "$n_{\\mathrm{eff}}$", "$A_{12}$",
                       "Ordinal", "Reading"],
          tex_rows=tex, label="Table A47",
-         caption=("Dimension-boundary sensitivity (E5, reviewer point R2.7, "
-                  "threshold half): each cell shifts one tier boundary far enough "
+         caption=("Dimension-boundary sensitivity (E5, "
+                  "boundary half): each cell shifts one tier boundary far enough "
                   "to change the profile assigned to the nearest official CEC2017 "
                   "dimension."),
          notes=["one Holm family across the five registered boundary contrasts; "
