@@ -66,7 +66,7 @@ recommended a reference, and nothing was found impossible to address.
 **The fifth is discharged on the repository side (2026-08-27/28).** The letter asks that revisions
 be *highlighted in the manuscript* so editors and reviewers can see the changes. The project now
 produces exactly that: a **latexdiff marked-up manuscript** (additions underlined, deletions struck
-through, in place) *and* a **change register** listing all 75 changed passages as-submitted against
+through, in place) *and* a **change register** listing all 81 changed passages as-submitted against
 as-revised with the reviewer point each answers — both derived from the tagged diff, both
 rebuildable from `papers/scripts/`. One rendering limit is disclosed in the response rather than
 left to be discovered: latexdiff emits preamble changes as comments, so the retitle does not appear
@@ -79,6 +79,24 @@ existing markup. **It does not.** Checked 2026-08-27 across `main.tex`, `supplem
 all six section files: no `\hl`, no `soul`, no `colorbox`, no highlighting macro of any kind. The
 only hits are the word "highlighted" in ordinary prose. There is no markup to collide with, so
 the obstacle that reasoning rested on does not exist.
+
+## Round-two addendum (2026-08-28)
+
+Ahead of resubmission, a fifth pre-registered experiment was added: **E5, dimension-boundary
+sensitivity** (pre-registration Amendment A4, filed before execution; 1,740 new runs promoted as
+the additive release `rev2-rel-2026-08-28-203c78744`, with the fifth registered cell reused from
+round one's E3). It answers the *threshold* half of the sensitivity request that the round-one
+study E4 had answered only for constants. Result, adverse cells first: at D = 30 the shipped
+middle profile is beaten from **both** neighbouring tiers; at D = 100 the 50 ≤ D < 100 set beats
+the shipped upper profile on paired means while the family ordinal is unchanged; the boundaries
+are insensitive at D = 10 and D = 50 — exactly where the narrowed contribution claims them.
+Reported in Supplementary S9.5 / Table A47, limitations updated.
+
+The same pass fixed a statistical-convention deviation the round-one analyzer carried (the
+manuscript's stated 10⁻⁸ tie rule was not applied to E1–E3; Amendments A5–A6 record the
+correction and its one decision-level consequence — the E1 D = 100 basis contrast is separated
+under the stated rule), and retired the last pre-revision claim sites named by an external
+second-round audit. Frozen state: pass-49 / tag v2.22.
 
 ## Where the rest lives
 

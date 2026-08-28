@@ -11,7 +11,7 @@ what is happening, what is done, and what is next.
 | **Submitted** | 2026-08-01 from freeze **pass-38 / tag v2.13** (anchor `b515907`) |
 | **Editorial status** | **MAJOR REVISION** — 2 reviewers, received 2026-08-24 |
 | **Branch** | `main` — **published** at `02d1791`, tracking `origin/main`, and since 2026-08-28 the **only** branch: the development-history branches were bundled to `D:/AI/Research-Lab/DT-GSK-private-history.bundle` (restore-tested) and deleted. Never fetch that bundle into a repo with a public remote. |
-| **Progress** | **COMPLETE** — all ten reviewer points answered; phases 1–7 applied; four experiments run, analysed and written up. |
+| **Progress** | **COMPLETE** — all ten reviewer points answered; phases 1–7 applied; five experiments run, analysed and written up (E5 boundary study added ahead of resubmission, pass-49). |
 | **Freeze** | pass-41 re-minted, `check_manifest` 15/15 · anchor `6fb0506` · **v2.14 PUBLISHED** on the squashed commit; `v2.13` still resolves, so both tags the DAS names are live |
 | **Revision deadline** | Still unstated, but no longer gating — the experiment track is complete |
 
@@ -1343,9 +1343,9 @@ worktree blind spot.
    `DT-GSK-changes-marked.pdf`, a latexdiff marked-up manuscript with additions underlined and
    deletions struck through in place, from `papers/scripts/build_change_marked_pdf.py` (48 pp; 47
    added and 40 deleted blocks). Beside it `DT-GSK-change-register.pdf`, from
-   `build_change_register.py`, lists all 75 changed passages as-submitted against as-revised with
+   `build_change_register.py`, lists all 81 changed passages as-submitted against as-revised with
    the reviewer point each answers (21 pp). Both are derived and gitignored; both rebuild from the
-   tags, and the register independently reproduces the kit's "75 hunks across 7 files".
+   tags, at 81 passages over the same 7 files at v2.22 (75 at v2.21, the kit's original figure).
    **Two claims this entry previously made were false and are withdrawn.** It said the manuscript
    already uses `\hl`, so a blanket pass would collide with existing markup: it carries **no
    highlighting at all** — no `\hl`, no `soul`, no `colorbox`, nowhere in `main.tex`,
