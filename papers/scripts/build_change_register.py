@@ -96,6 +96,41 @@ def sh(cmd, **kw):
                           errors="replace", **kw)
 
 
+S9_ORDER = [
+    ("sec:supp:rev:basis", "S9.1", "Refinement Basis"),
+    ("sec:supp:rev:np", "S9.2", "Matched Population Size"),
+    ("sec:supp:rev:tiering", "S9.3", "Tiered Versus Tier-Constant"),
+    ("sec:supp:rev:sensitivity", "S9.4", "Parameter Sensitivity"),
+]
+
+
+def verify_s9_mapping(ref):
+    """Abort if the S9 subsection order at ``ref`` contradicts the S9.x
+    numbers RULES assumes. An S9.2/S9.3 transposition shipped once in this
+    script's rules; the mapping is a checkable fact, so check it instead of
+    trusting memory."""
+    res = sh(["git", "show", ref + ":papers/supplementary.tex"])
+    if res.returncode != 0:
+        sys.exit("S9 mapping check: cannot read papers/supplementary.tex at %s" % ref)
+    # anchor on the DEFINITION site: a bare find() would hit the first
+    # cross-reference to the label, which scrambles the order test
+    pos = [(res.stdout.find("\label{" + label + "}"), label, num, title)
+           for label, num, title in S9_ORDER]
+    missing = [l for p, l, _n, _t in pos if p < 0]
+    if missing:
+        sys.exit("S9 mapping check: label(s) %s absent at %s -- RULES may be stale" % (missing, ref))
+    if [p for p, *_ in pos] != sorted(p for p, *_ in pos):
+        sys.exit("S9 mapping check: subsection order at %s contradicts the S9.x "
+                 "numbers in RULES -- fix RULES before building" % ref)
+    for p, label, num, title in pos:
+        window = res.stdout[max(0, p - 200):p]
+        if title.lower() not in window.lower():
+            sys.exit("S9 mapping check: %s (%s) does not carry the title %r at %s"
+                     % (label, num, title, ref))
+    print("  S9 mapping verified at %s: S9.1=basis, S9.2=matched NP, "
+          "S9.3=tiering, S9.4=sensitivity" % ref)
+
+
 def hunks_for(base: str, new: str, path: str):
     """Yield (old_start, context, removed_lines, added_lines) per hunk."""
     res = sh(["git", "diff", "-U0", base, new, "--", path])
@@ -237,6 +272,8 @@ def main() -> int:
     ap.add_argument("--out", default=str(ROOT / "papers" / "submission" / "DT-GSK-change-register.pdf"))
     ap.add_argument("--keep", action="store_true")
     args = ap.parse_args()
+
+    verify_s9_mapping(args.new)
 
     per_file, tally = [], {}
     total = 0

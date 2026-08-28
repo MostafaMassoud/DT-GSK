@@ -10,6 +10,14 @@
 > the README section "Internal Quality-Assurance Instruments" for the full
 > framing.
 
+> **State snapshot refreshed 2026-08-28.** Any dated status, tag, pass number, or open-item
+> list below this line is a point-in-time anchor from an earlier phase and is NOT current
+> state. The live state is [`REVISION_STATUS.md`](../../REVISION_STATUS.md) (start there) and
+> the `CLAUDE.md` "Right now" block. As of this refresh: **pass-48 / tag v2.21**, the
+> round-one revision at *Algorithms* (MDPI) is complete, and resubmission is due **2026-09-01**.
+> Where this file's instructions conflict with current governance (freeze passes, hash-gated
+> files, never-edit trees, material withheld under D-0049), **governance wins**.
+
 
 > **Two parts.** Part I (below) is the prose/consistency-and-staleness gate for
 > `docs/` and Markdown. Part II (appended) is the inline docstring & comment

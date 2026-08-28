@@ -236,6 +236,55 @@ def check_cover_letters() -> None:
         fail(f"contribution-scope markers differ: md={sorted(c_md)} tex={sorted(c_tx)}")
 
 
+def check_docx_titles() -> None:
+    """E1 (2026-08-28): gate the DOCX docProps titles against \\Title{}.
+
+    build_docx.py hard-codes the dc:title strings and nothing validated them
+    against the manuscript, so a retitle could ship stale Word metadata while
+    every other gate stayed green (the trap table carried this as a check-by-
+    hand item). The main document must match \\Title{} exactly and the
+    supplementary must match it under the recorded "Supplementary Material
+    for: " prefix.
+    """
+    print("[3] DOCX docProps titles vs \\Title{}")
+    import zipfile
+
+    tex = read(PAPERS / "main.tex")
+    m = re.search(r"\\Title\{", tex)
+    if not m:
+        fail("main.tex: no \\Title{} found")
+        return
+    # balanced-brace scan -- the title wraps across source lines
+    depth, i = 1, m.end()
+    while i < len(tex) and depth:
+        depth += {"{": 1, "}": -1}.get(tex[i], 0)
+        i += 1
+    raw_title = tex[m.end():i - 1]
+
+    # norm() strips a trailing colon, so norm the CONCATENATION, never the
+    # prefix alone -- the supplementary title keeps its internal "for:".
+    expected = {
+        "DT-GSK.docx": norm(raw_title),
+        "supplementary.docx": norm("Supplementary Material for: " + raw_title),
+    }
+
+    for name, want in expected.items():
+        p = PAPERS / name
+        if not p.is_file():
+            fail(f"{name}: file missing")
+            continue
+        core = zipfile.ZipFile(p).read("docProps/core.xml").decode("utf-8", "replace")
+        got = re.search(r"<dc:title>(.*?)</dc:title>", core, re.S)
+        if not got:
+            fail(f"{name}: docProps/core.xml has no <dc:title>")
+            continue
+        if norm(got.group(1)) == want:
+            ok(f"{name} dc:title matches \\Title{{}}")
+        else:
+            fail(f"{name}: dc:title diverges from \\Title{{}} -- "
+                 f"docx={got.group(1)[:70]!r}...")
+
+
 def main() -> int:
     argparse.ArgumentParser(description=__doc__.splitlines()[0],
                             formatter_class=argparse.RawDescriptionHelpFormatter
@@ -243,6 +292,7 @@ def main() -> int:
     print("[doc-consistency] cross-checking multiply-stated facts\n")
     check_supplement_inventory()
     check_cover_letters()
+    check_docx_titles()
 
     if problems:
         print(f"\n[doc-consistency] DRIFT: {len(problems)} copy/copies disagree")

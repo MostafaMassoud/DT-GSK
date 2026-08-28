@@ -1681,7 +1681,7 @@ with), and latexdiff is **not** unusable — plain `latexdiff` lacks `Algorithm:
 **`latexdiff-so` bundles it** (plus the `ulem` package). Both change artifacts now exist with
 generators (see the banner). Known limits, disclosed rather than discovered: **preamble changes do
 not render** in the marked PDF (the retitle is named twice in the response letter instead), the
-diff covers `main.tex` + sections (Supplementary changes are listed in the register), and the
+diff covers `main.tex` + sections — with `--doc supplementary` producing a marked-up Supplementary as well (added 2026-08-28) — and the
 register's reviewer-point attribution is keyword-derived and self-declared non-authoritative — an
 **S9.2/S9.3 transposition** in its rules already shipped once and is fixed (S9.2 = matched NP,
 S9.3 = tiering; verify against the section titles, not from memory). The response letter also

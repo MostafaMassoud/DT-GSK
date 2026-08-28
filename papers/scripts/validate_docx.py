@@ -500,30 +500,44 @@ def _norm_target(base: str, target: str) -> str:
 
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("docx", help="path to the .docx to validate")
-    ap.add_argument("--json", help="also write the JSON report here")
+    ap.add_argument("docx", nargs="*",
+                    help="path(s) to the .docx to validate; with no argument "
+                         "both shipped documents are validated "
+                         "(papers/DT-GSK.docx + papers/supplementary.docx)")
+    ap.add_argument("--json", help="also write the JSON report here "
+                                   "(requires exactly one docx argument)")
     args = ap.parse_args(argv)
-    path = Path(args.docx)
-    if not path.is_file():
-        # accepted alias per D.6 (papers/main.docx -> recorded mapping)
-        if path.name == "main.docx":
-            alt = path.with_name("DT-GSK.docx")
-            if alt.is_file():
-                print(f"note: {path} not present; validating recorded "
-                      f"filename mapping {alt}", file=sys.stderr)
-                path = alt
-    if not path.is_file():
-        print(f"error: {path} not found", file=sys.stderr)
+    root = Path(__file__).resolve().parents[2]
+    targets = ([Path(p) for p in args.docx] if args.docx else
+               [root / "papers" / "DT-GSK.docx",
+                root / "papers" / "supplementary.docx"])
+    if args.json and len(targets) != 1:
+        print("error: --json requires exactly one docx argument", file=sys.stderr)
         return 1
-    rep = validate(path)
-    out = json.dumps(rep.data, indent=2, ensure_ascii=False)
-    print(out)
-    if args.json:
-        Path(args.json).write_text(out + "\n", encoding="utf-8")
-    fails = [c for c in rep.data["checks"] if c["status"] == "FAIL"]
-    print(f"\n{path.name}: {len(rep.data['checks']) - len(fails)} PASS / "
-          f"{len(fails)} FAIL", file=sys.stderr)
-    return 0 if rep.data["ok"] else 2
+    worst = 0
+    for path in targets:
+        if not path.is_file():
+            # accepted alias per D.6 (papers/main.docx -> recorded mapping)
+            if path.name == "main.docx":
+                alt = path.with_name("DT-GSK.docx")
+                if alt.is_file():
+                    print(f"note: {path} not present; validating recorded "
+                          f"filename mapping {alt}", file=sys.stderr)
+                    path = alt
+        if not path.is_file():
+            print(f"error: {path} not found", file=sys.stderr)
+            return 1
+        rep = validate(path)
+        out = json.dumps(rep.data, indent=2, ensure_ascii=False)
+        print(out)
+        if args.json:
+            Path(args.json).write_text(out + "\n", encoding="utf-8")
+        fails = [c for c in rep.data["checks"] if c["status"] == "FAIL"]
+        print(f"\n{path.name}: {len(rep.data['checks']) - len(fails)} PASS / "
+              f"{len(fails)} FAIL", file=sys.stderr)
+        if not rep.data["ok"]:
+            worst = 2
+    return worst
 
 
 if __name__ == "__main__":
