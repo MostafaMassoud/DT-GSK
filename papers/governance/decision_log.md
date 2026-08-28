@@ -2447,7 +2447,10 @@ applying all surfaced fixes.
   any consumer existed. The never-re-point rule protects consumers of
   published tags; a superseding v2.23 would instead have falsified the DAS in
   the freshly built PDF, which names v2.22. Recorded so the reflog surprise
-  is a documented decision, not an anomaly.
+  is a documented decision, not an anomaly. *Addendum, same evening:* the
+  rendered-sweep addendum (anchor 112a98c) forced a re-mint, and v2.22 was
+  re-cut a second time onto the new mint under the same conditions (repo
+  private, zero consumers); the register grew to 84 passages.
 - **Package integrity restored.** submission_package_manifest.json was stale
   on all five upload files (48/80/3 recorded pages vs 47/80/2 actual at
   pass-49); regenerated from the final bytes. CITATION.cff no longer claims a

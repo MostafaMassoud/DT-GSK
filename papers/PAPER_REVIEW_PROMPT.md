@@ -175,7 +175,7 @@ Never edit or reinterpret primary evidence merely to make it agree with the manu
 > gitignored** resubmission artifacts with generators: the marked main (48 pp) and marked
 > supplementary (80 pp) manuscripts — **preamble changes do not render**, so the retitle is
 > invisible there; disclosed twice in the response letter — and `DT-GSK-change-register.pdf`
-> (81 passages, as-submitted vs as-revised, keyword-attributed to reviewer points), rebuilt by
+> (84 passages, as-submitted vs as-revised, keyword-attributed to reviewer points), rebuilt by
 > `papers/scripts/build_change_marked_pdf.py` / `build_change_register.py`.
 >
 > **Freeze:** pass-49, tag **v2.22** (v2.13 … v2.22 all resolve), decision log through **D-0054**,
