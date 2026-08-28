@@ -200,7 +200,9 @@ def build_tex(base, new, per_file, counts, total):
     A(r"\definecolor{badge}{RGB}{234,240,246}")
     A(r"\definecolor{ctxgray}{gray}{0.42}")
     A(r"\lstset{basicstyle=\ttfamily\scriptsize,breaklines=true,"
-      r"breakatwhitespace=false,columns=fullflexible,keepspaces=true,"
+      r"breakatwhitespace=false,columns=fixed,basewidth=0.52em,"
+      r"keepspaces=true,breakindent=14pt,"
+      r"postbreak=\mbox{\textcolor{ctxgray}{$\hookrightarrow$}\space},"
       r"xleftmargin=8pt,aboveskip=3pt,belowskip=7pt,literate={\ }{{\ }}1}")
     A(r"\setlength{\parskip}{4pt}")
     A(r"\newcommand{\pointbadge}[1]{\colorbox{badge}{\footnotesize\textbf{\textcolor{accent}{#1}}}}")
