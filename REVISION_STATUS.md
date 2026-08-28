@@ -1372,7 +1372,7 @@ worktree blind spot.
    revision form. Portal metadata does not update from the PDF.
 6. **Make the repository PUBLIC again before uploading (author-only, 2026-09-01).** The author set it
    private on 2026-08-28 to finalize; verified private (API 404). The Data Availability Statement in
-   the revised manuscript names the repo URL and tags v2.13/v2.21, and the Supplementary's
+   the revised manuscript names the repo URL and tags v2.13/v2.22, and the Supplementary's
    pre-registration claim depends on public checkability — a reviewer clicking during round 2 must
    not hit a 404. Flip visibility BEFORE the SuSy upload. Side effect while private: the two
    GitHub-exposed commits are not publicly served; public serving resumes with visibility.
@@ -1561,7 +1561,9 @@ are given here.
 ### Phase 7 — resubmit (author-only; the point of no return)
 
 **Deadline CONFIRMED 2026-09-01, and the planned resubmission date is the same day.** Everything
-agent-side is complete at pass-48 / `v2.21`; nothing in the repository blocks that date. The
+agent-side is complete at pass-49 / `v2.22` (the round-two batch: E5 boundary sensitivity in
+S9.5/A47, the canonical tie rule of Amendments A5–A6, the audit's P0 text corrections — D-0054 /
+CR-0029); nothing in the repository blocks that date. The
 earlier **2026-09-03** figure was an *inference* from the letter's ten-day window and is
 **superseded** — the real date is two days tighter, so the margin the documents assumed does not
 exist. Plan and deadline now coincide and the resubmission has **zero slack**. The letter invites
@@ -1579,11 +1581,11 @@ warning that portal metadata does not update from the PDF. Re-enter both by hand
   CEC benchmark suites; nonparametric statistical comparison; reproducibility`
 
 **Generate both companion PDFs fresh.** The response letter's source was edited in passes 42, 43 and
-48, and the change register must come from `git diff v2.13 v2.21` — 75 hunks across 7 files, not the
+48, and the change register must come from `git diff v2.13 v2.22` — 81 passages across 7 files, not the
 54 passages the kit recorded at pass-41. Neither figure should be quoted anywhere.
 
-**After upload, no rebuilds.** `v2.21` becomes the frozen record of what was resubmitted; a second
-revision is pass-49 with a new superseding tag, never an edit to v2.21 in place (D-0045).
+**After upload, no rebuilds.** `v2.22` becomes the frozen record of what was resubmitted; any later
+revision is pass-50 with a new superseding tag, never an edit to v2.22 in place (D-0045).
 
 
 SuSy upload; **re-enter the new title and revised keywords by hand** — portal metadata does not

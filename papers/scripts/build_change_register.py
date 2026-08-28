@@ -72,7 +72,9 @@ RULES = [
      ["np = 100", "np=100", "population rule", "matched population", "s9.2",
       "matched np", "$np$"]),
     ("R2.7", "Sensitivity of thresholds and constants",
-     ["s9.4", "sensitivity analys", "knife-edge", "ordinal"]),
+     ["s9.4", "s9.5", "sensitivity analys", "knife-edge", "ordinal",
+      "boundary sensitivity", "dimension-boundary", "rev:boundary",
+      "selected-constant"]),
     ("R1.2", "Retitle -- adaptive control renamed",
      ["adaptive control", "adaptive configuration", "configuration-and-budget",
       "control-and-budget"]),
@@ -100,7 +102,8 @@ S9_ORDER = [
     ("sec:supp:rev:basis", "S9.1", "Refinement Basis"),
     ("sec:supp:rev:np", "S9.2", "Matched Population Size"),
     ("sec:supp:rev:tiering", "S9.3", "Tiered Versus Tier-Constant"),
-    ("sec:supp:rev:sensitivity", "S9.4", "Parameter Sensitivity"),
+    ("sec:supp:rev:sensitivity", "S9.4", "Selected-Constant Sensitivity"),
+    ("sec:supp:rev:boundary", "S9.5", "Dimension-Boundary Sensitivity"),
 ]
 
 

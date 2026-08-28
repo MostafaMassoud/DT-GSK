@@ -2407,3 +2407,54 @@ applying all surfaced fixes.
   instrument finds real defects; its prescriptions are not safe to apply
   unexamined. That ratio is now consistent across four independent rounds.
 - **Anchor.** `5fa4d389a77e372acec3c5a133c6f96ac833f483`.
+
+## D-0054 (2026-08-28) - Pass-49: the round-two batch, driven by the external second-round audit
+
+- **Decision.** Apply, as one freeze pass, the second-round corrections the
+  external Phase 00-40 audit identified and this project verified against the
+  live tree: run and report the missing threshold half of reviewer point R2.7,
+  fix the statistical convention the paper stated but the revision analyzer did
+  not implement, and retire every remaining pre-revision claim site. Mint
+  **pass-49**, tag **v2.22**. Registered as **CR-0029**.
+- **Calibration held again.** Every audit P0 checked was CONFIRMED on the live
+  tree (the C1 heading, the causal tiering prose, the near-zero mismatch with
+  its decision flip reproduced to six decimals, the stale submission manifest,
+  the false CFF resubmission date, the public-docs overclaims); its
+  prescriptions were still not applied unexamined - the full abstract rewrite
+  was declined for a minimal edit (195 texcount words), and the E5 design was
+  improved by reusing E3's U-low arm at D = 30 as the fifth registered cell.
+- **E5 (Amendment A4, registered before execution).** Four new cells, 1,740
+  runs, promoted as the additive release rev2-rel-2026-08-28-203c78744 with the
+  fifth cell reused from round one. Result, adverse first: at D = 30 the
+  shipped middle profile loses to BOTH neighbouring tiers (Holm 5.5e-3 and
+  2.2e-3), each transplant lifting the descriptive ordinal to first; at D = 100
+  the T2 set beats the shipped upper profile on paired means (Holm 1.5e-2)
+  with the family ordinal unchanged; D = 10 and D = 50 are not separated.
+  Contribution C2 as narrowed (D = 10, D = 50) is untouched by every cell.
+  S9.5 / Table A47 carry it; the limitations replace the thresholds-untested
+  concession with the executed coverage.
+- **Canonical near-zero rule (Amendments A5-A6).** The manuscript stated a
+  1e-8 tie band the primary pipeline applied but the revision analyzer did
+  not. The rule is now implemented once and passed everywhere; regenerating
+  E1-E3 moved seven p-values and exactly one decision - E1 D = 100 eigenframe
+  vs coordinate, 0.054296 -> 0.048869, not-separated -> separated - all
+  recorded in A6 before regeneration, with the analyzer's known-answer pins
+  updated to the canonical values and five regression tests pinning the band.
+- **Tag incident, recorded rather than hidden.** v2.22 was first cut before
+  the CITATION.cff bump, so its tree embedded version 2.21; the cff validator
+  caught it. The tag was deleted and re-cut on the bump commit about sixty
+  seconds after the first push, while the repository was PRIVATE and before
+  any consumer existed. The never-re-point rule protects consumers of
+  published tags; a superseding v2.23 would instead have falsified the DAS in
+  the freshly built PDF, which names v2.22. Recorded so the reflog surprise
+  is a documented decision, not an anomaly.
+- **Package integrity restored.** submission_package_manifest.json was stale
+  on all five upload files (48/80/3 recorded pages vs 47/80/2 actual at
+  pass-49); regenerated from the final bytes. CITATION.cff no longer claims a
+  resubmission that has not happened. The three change documents rebuild
+  against v2.22: marked main 48 pp, marked supplementary 80 pp, register 81
+  passages / 22 pp, each generator carrying its own guards (S9 mapping
+  verified at the target ref; the parity spot-check's pypdf arrow-glyph
+  artifact sidestepped by a tier-pair prefix in A47's boundary column).
+- **Anchor.** d543c14 (apply); the mint, tag and CFF bump follow it; NEXT
+  free ids are CR-0030 and D-0055.

@@ -26,12 +26,20 @@ is. **The repo was set PRIVATE on 2026-08-28 (author, to finalize) and MUST be p
 the upload** — the DAS names its URL and tags, and reviewers will click. Detail:
 [REVISION_STATUS.md](REVISION_STATUS.md) §5 items 1 and 6.
 
-**Pass-48 is applied, minted, tagged and pushed.** `origin/main` carries it, **`v2.21` is live**,
-and `v2.13` through `v2.21` all resolve (verified) — the Data Availability Statement names `v2.21`,
-and `main.tex` says so. **Passes 46–48 filed no decision entries**; the log ends at **D-0053**
-(pass-45), so the next free ids are **CR-0029** and **D-0054** — still verify them free at apply
-time. The paragraphs below about passes 42–45 are kept because their *lessons* stand, not because
-they describe the current tag.
+**Pass-49 is applied, minted, tagged and pushed — the ROUND-TWO batch.** `origin/main` carries it,
+**`v2.22` is live**, and `v2.13` through `v2.22` all resolve — the Data Availability Statement
+names `v2.22`, and `main.tex` says so. Pass-49 answered the external second-round audit: **E5
+dimension-boundary sensitivity** ran (registered as Amendment A4 BEFORE execution; release
+`rev2-rel-2026-08-28-203c78744`; S9.5 / Table A47 — D30's middle profile beaten from BOTH
+neighbouring tiers, D100's upper profile beaten by the T2 set with the family ordinal unchanged,
+D10/D50 insensitive; **C2 as narrowed is untouched**), the **canonical 1e-8 tie rule** the paper
+stated but the revision analyzer skipped is implemented and regenerated (Amendments A5–A6; one
+decision flip: E1 D100 eigenframe-vs-coordinate now SEPARATED, Holm 0.0489), the C1 heading is
+basis-neutral, the tiering-thesis and causal-mis-specification prose is bounded, the abstract is
+195 texcount words, and the submission package manifest matches the actual bytes. **D-0054 /
+CR-0029 are filed; next free are CR-0030 and D-0055** — verify free at apply time. The paragraphs
+below about passes 42–45 are kept because their *lessons* stand, not because they describe the
+current tag.
 
 **Pass-45 came out of a deep application of this project's own review instrument** (97 agents over
 `papers/PAPER_REVIEW_PROMPT.md`, 14 stage-mapped dimensions, every finding adversarially verified).
