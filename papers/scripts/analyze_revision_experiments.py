@@ -41,6 +41,7 @@ from __future__ import annotations
 import csv
 import hashlib
 import json
+import os
 import sys
 from collections import defaultdict
 from pathlib import Path
@@ -53,7 +54,7 @@ from gsk_family.analysis.statistics import (  # noqa: E402
     friedman_rank, holm_correction, wilcoxon_paired, win_tie_loss,
 )
 
-REL = "rev-rel-2026-08-26-dd42d37eb"
+REL = os.environ.get("GSK_REV_REL_ID", "rev-rel-2026-08-26-dd42d37eb")
 REV = REPO / "benchmarks" / "cec_reference_results" / "_revision"
 PANEL = REPO / "benchmarks" / "cec_reference_results" / "cec2017"
 OVERLAY = REPO / "benchmarks" / "cec_reference_results" / "_ablation" / "overlay"
@@ -141,11 +142,17 @@ def wtl(m_a: dict[int, float], m_b: dict[int, float]):
 
 
 def contrast(m_ref, m_cmp, raw_ref, raw_cmp) -> dict:
+    # Canonical near-zero rule (pre-registration Amendment A5): |d| < 1e-8 is
+    # zeroed and excluded before ranking, matching the manuscript's stated tie
+    # rule and the primary pipeline. The first release of this analyzer passed
+    # exact zeros only; the deviation and its one decision-level consequence
+    # (E1 D=100, eigenframe vs coordinate) are recorded in the amendment.
     funcs = sorted(set(m_ref) & set(m_cmp))
-    p = float(wilcoxon_paired(np.array([m_ref[f] for f in funcs]),
-                              np.array([m_cmp[f] for f in funcs])).p_value)
-    return {"raw_p": p, "wtl_ref_vs_cmp": wtl(m_ref, m_cmp),
-            "a12_ref_vs_cmp": a12(raw_ref, raw_cmp), "n_funcs": len(funcs)}
+    res = wilcoxon_paired(np.array([m_ref[f] for f in funcs]),
+                          np.array([m_cmp[f] for f in funcs]), zero_tol=1e-8)
+    return {"raw_p": float(res.p_value), "wtl_ref_vs_cmp": wtl(m_ref, m_cmp),
+            "a12_ref_vs_cmp": a12(raw_ref, raw_cmp), "n_funcs": len(funcs),
+            "n_effective": int(res.n_pairs)}
 
 
 def analyse_e1() -> dict:

@@ -306,6 +306,7 @@ def wilcoxon_paired(
     y: np.ndarray,
     *,
     alternative: str = "two-sided",
+    zero_tol: float = 0.0,
 ) -> PairedWilcoxonResult:
     """Paired Wilcoxon signed-rank test (pure NumPy, no scipy required).
 
@@ -331,14 +332,21 @@ def wilcoxon_paired(
     -----
     Uses the exact distribution for n ≤ 25 and normal approximation for n > 25.
     Ties in differences are handled by the midrank method.
-    Zero differences are excluded (standard convention).
+    Zero differences are excluded (standard convention). ``zero_tol``
+    widens that exclusion to ``|d| <= zero_tol``: the manuscript's stated tie
+    rule discards ``|d| < 1e-8`` before ranking, the primary pipeline
+    (phase6_run_analysis) applies that band itself before calling here, and
+    the revision analyzer passes ``zero_tol=1e-8`` so every across-function
+    Wilcoxon follows the one stated rule (pre-registration Amendment A5).
+    The default of 0.0 preserves the historical exact-zero behavior for
+    every other caller.
     """
     x = np.asarray(x, dtype=np.float64)
     y = np.asarray(y, dtype=np.float64)
     d = x - y
 
-    # Exclude zero differences
-    nonzero = np.abs(d) > 0
+    # Exclude zero differences (and, when zero_tol > 0, the stated tie band)
+    nonzero = np.abs(d) > zero_tol
     d = d[nonzero]
     n = len(d)
 

@@ -364,3 +364,31 @@ the printed precision. The manuscript's current "not separated at D = 100" wordi
 convention-dependent and will be regenerated under the canonical rule, together with every E1–E3
 value, Tables A43–A45, and the dependent prose and response text. Any decision that changes in that
 regeneration beyond the one named here will be recorded in this file by a further amendment.
+
+## Amendment A6 (2026-08-28) — the executed value-level delta of A5, and one A5 sentence corrected
+
+A5 was filed before the regeneration ran; the regeneration has now run, its built-in known-answer
+pins correctly refused the stale values, and the complete delta is recorded here. **One A5 sentence
+was wrong and is corrected rather than left standing: A5 said the D = 50 contrasts are "unchanged
+to the printed precision." They are not.** The no-refinement arm carries within-band pairs against
+both other arms, so the vs-none contrasts move at both dimensions, including at A43's printed
+precision.
+
+Under the canonical rule, across E1–E3:
+
+| Contrast | old p | new p | decision |
+|---|---|---|---|
+| E1 D100 eigenframe vs coordinate (raw = Holm) | 0.054296 | **0.048869** | **not separated -> SEPARATED** (the A5-named flip) |
+| E1 D100 coordinate vs none (supplementary)    | 0.001181 | 0.001490 | unchanged (significant) |
+| E1 D100 eigenframe vs none (raw / Holm)       | 0.001480 / 0.002960 | 0.001742 / 0.003484 | unchanged (significant) |
+| E1 D50 coordinate vs none (supplementary)     | 3.01e-06 | 4.01e-06 | unchanged (significant) |
+| E1 D50 eigenframe vs none (raw = Holm)        | 6.10e-04 | 6.75e-04 | unchanged (significant) |
+| E1 D50 eigenframe vs coordinate               | 1.3867e-04 | 1.3867e-04 | unchanged (no within-band pair) |
+| E2 (all four dimensions)                      | — | — | no value moves at all |
+| E3 U-high D100 (the near-identity cell)       | 0.7874 (raw) | 0.5838 (raw) | unchanged (not separated); its ties sit inside the band, so the effective n falls |
+
+**Zero decisions change beyond the one A5 named.** Each affected contrast now also records its
+effective n after band exclusion, which Table A43 will print. The analyzer's known-answer pins are
+updated to the canonical-rule values at promotion, in the same change that mints the round-two
+analysis bundle; until then the shipped bundle remains byte-frozen and the regenerated values live
+in staging only.
