@@ -50,8 +50,9 @@ file is gated and carries no leading `v`, so a `v2.1x` sweep misses it.
 `archive/revision-pass-39-full` and **must never be pushed**: some of its commit messages gender an
 anonymous reviewer, and its intermediate trees carry the reviewers' reports, the co-author handoff
 and the seven copyrighted PDFs. `revision/pass-39` carries the reports too. **Never merge either
-into `main`** — `main` is the published line and is clean; `public/squash-candidate` holds nothing
-that is not already on `main`.
+into `main`** — `main` is the published line and is clean. (`public/squash-candidate`, which held
+nothing not already on `main`, was deleted 2026-08-28; its commit `02d1791` remains reachable as
+`main`'s squash root.)
 
 **What pass-42 did.** Twelve alleged defects were verified and then challenged in the opposite
 direction; nine survived and are corrected (C1, C2, C3, C6, C7, C8+C9 merged, C10, C11, C12).
