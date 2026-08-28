@@ -1298,10 +1298,12 @@ worktree blind spot.
 2. **SuSy portal (author only)** --- the one thing left. Re-enter the new title and the revised
    keyword list in the revision form; portal metadata does not update from the PDF. Upload the
    revised manuscript, the supplementary, the figures and LaTeX-source zips, the cover letter,
-   the response letter (`response_to_reviewers.pdf`, 10 pages) and the changes-marked register
-   (`change_register.pdf`, 17 pages, all 54 changed passages as-submitted vs as-revised). The
-   last two are deliberately NOT in the repository and are regenerable --- the letter from its
-   Markdown source on disk, the register from `git diff v2.13 v2.14`. Paste text and the full
+   the response letter (`papers/submission/response_to_reviewers.pdf`, 14 pages, rendered
+   2026-08-28 from the pass-51 source), both changes-marked manuscripts and the change register
+   (`DT-GSK-change-register.pdf`, 25 pages, all 93 changed passages as-submitted vs
+   as-revised). All four sit staged in `papers/submission/`, deliberately NOT in the repository
+   (pinned in `.gitignore`) and regenerable --- the letter from its Markdown source on disk, the
+   marked copies and the register from `git diff v2.13 v2.24`. Paste text and the full
    upload table are in `papers/submission/SUBMISSION_KIT.md`.
 3. **`runners/run_experiment.py:725`** (and `:714`) --- the cosmetic `Pop=100` banner defect, in
    `_optimizer_options_line`; **not** `_optimizer_population_size` at `:345`, which only sizes the

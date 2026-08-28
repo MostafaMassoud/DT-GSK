@@ -115,3 +115,8 @@ papers/submission/DT-GSK-changes-marked.pdf
 # papers/scripts/build_change_register.py
 papers/submission/DT-GSK-change-register.pdf
 papers/submission/DT-GSK-supplementary-changes-marked.pdf
+# Response-to-reviewers PDF, staged here for the SuSy upload. NEVER commit:
+# it quotes both reviewer reports verbatim (D-0049). Canonical source is
+# papers/review_2026_08_24/response_to_reviewers.md (also withheld);
+# re-render with the pandoc command recorded in SUBMISSION_KIT.md.
+papers/submission/response_to_reviewers.pdf
