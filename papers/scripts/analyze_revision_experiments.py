@@ -56,6 +56,7 @@ from gsk_family.analysis.statistics import (  # noqa: E402
 
 REL = os.environ.get("GSK_REV_REL_ID", "rev-rel-2026-08-26-dd42d37eb")
 REV = REPO / "benchmarks" / "cec_reference_results" / "_revision"
+REV2 = REPO / "benchmarks" / "cec_reference_results" / "_revision2"
 PANEL = REPO / "benchmarks" / "cec_reference_results" / "cec2017"
 OVERLAY = REPO / "benchmarks" / "cec_reference_results" / "_ablation" / "overlay"
 OUT = REPO / "papers" / "analysis" / REL
@@ -75,7 +76,9 @@ PINS = [
     ("E3 U-high D10 Holm p", 5.994e-3, 2e-4),
     # supplementary coordinate-vs-none contrast (added post-QC, 2026-08-26)
     ("E1 D50 coord-vs-none W", 28, 0),
-    ("E1 D100 coord-vs-none raw p", 1.181e-3, 5e-5),
+    # canonical-rule value (Amendments A5/A6): one within-band pair leaves the
+    # ranking, moving this from 1.181e-3; the decision is unchanged.
+    ("E1 D100 coord-vs-none raw p", 1.490e-3, 5e-5),
 ]
 _pin_hits: dict[str, float] = {}
 
@@ -130,6 +133,8 @@ def a12(a: list[float], b: list[float]) -> float:
 
 
 def raw_at(data, funcs, dim, runs=51):
+    # runs caps the schedule prefix used, so 15-run E5 cells pair against the
+    # frozen leg's SAME first 15 runs (Amendment A4 pairing rule).
     out = []
     for f in funcs:
         out += [data[(f, dim, r)][0] for r in range(1, runs + 1) if (f, dim, r) in data]
@@ -318,6 +323,97 @@ def analyse_e4() -> list[dict]:
     return rows
 
 
+E5_CELLS = [
+    # (arm dir under REV2, boundary, shift description, runs)
+    ("e5_b20_lo_D10", "T0/T1", "20->10: D10 joins the middle tier", 15),
+    ("e5_b50_lo_D30", "T1/T2", "50->30: D30 joins the structure tier", 15),
+    ("e5_b50_hi_D50", "T1/T2", "50->51: D50 drops to the middle tier", 15),
+    ("e5_b100_hi_D100", "T2/T3", "100->101: D100 drops to the T2 profile", 15),
+]
+
+
+def analyse_e5() -> dict:
+    """Dimension-boundary sensitivity (Amendment A4; release _revision2).
+
+    Five registered cells: four executed at 15 paired runs, the fifth
+    (boundary 20->31 at D=30) reused from E3's U-low arm (51 runs). The tiered
+    reference is the frozen leg restricted to the SAME runs each cell has.
+    One Holm family across the five boundary contrasts (m=5).
+    """
+    T = load(PANEL / "dt-gsk" / "per_run.csv")
+    panel = {o: load(PANEL / o / "per_run.csv") for o in FAMILY}
+
+    cells: list[dict] = []
+    for arm, boundary, shift, runs in E5_CELLS:
+        dim = int(arm.rsplit("_D", 1)[1])
+        data = load(REV2 / arm / "dt-gsk/cec2017/summary/per_run.csv")
+        cells.append({"arm": arm, "boundary": boundary, "shift": shift,
+                      "dim": dim, "runs": runs, "data": data,
+                      "provenance": "rev2 release (new execution)"})
+    # the reused fifth cell: E3 U-low at D=30 (51 runs, round-one release)
+    ulow = load(REV / "e3_uniform_low/dt-gsk/cec2017/summary/per_run.csv")
+    cells.insert(1, {"arm": "e3_uniform_low@D30", "boundary": "T0/T1",
+                     "shift": "20->31: D30 joins the low tier", "dim": 30,
+                     "runs": 51,
+                     "data": {k: v for k, v in ulow.items() if k[1] == 30},
+                     "provenance": ("REUSED: rev-rel-2026-08-26-dd42d37eb "
+                                    "e3_uniform_low, identical by construction")})
+
+    out = {"experiment": "E5", "reviewer_point": "R2.7 (threshold half)",
+           "design": ("dimension-boundary sensitivity: each cell shifts one tier "
+                      "boundary far enough to change the profile assigned to the "
+                      "nearest official CEC2017 dimension, executed as an E3-style "
+                      "single-dimension profile transplant. Registered rule: only "
+                      "boundary-level sensitivity is licensed -- a shift changes the "
+                      "complete resolved profile, so no cell attributes anything to "
+                      "an individual mechanism."),
+           "holm_family": "one family across the five boundary contrasts (m=5)",
+           "coverage_note": ("T2/T3 tested one-sided (101 only): a lower-side "
+                             "perturbation collapses adjacent boundaries and no "
+                             "official dimension lies between 50 and 100."),
+           "cells": []}
+
+    raws, labels = [], []
+    for c in cells:
+        dim, runs = c["dim"], c["runs"]
+        ref = {k: v for k, v in T.items()
+               if k[1] == dim and k[2] <= runs}
+        verify_pairing(f"E5 {c['arm']}", c["data"], ref, dims=[dim])
+        m_ref, m_cell = pf_means(ref, dim), pf_means(c["data"], dim)
+        funcs = sorted(set(m_ref) & set(m_cell))
+        con = contrast(m_ref, m_cell,
+                       raw_at(ref, funcs, dim, runs=runs),
+                       raw_at(c["data"], funcs, dim, runs=runs))
+        raws.append(con["raw_p"]); labels.append(c["arm"])
+
+        m_pub = {o: pf_means(panel[o], dim) for o in FAMILY}
+        pfuncs = sorted(set.intersection(*(set(v) for v in m_pub.values())))
+        fr_pub = friedman_rank({o: [m_pub[o][f] for f in pfuncs] for o in FAMILY})
+        m_sub = dict(m_pub); m_sub["dt-gsk"] = m_cell
+        fr_sub = friedman_rank({o: [m_sub[o][f] for f in pfuncs] for o in FAMILY})
+        r_pub, r_sub = dict(fr_pub.avg_ranks), dict(fr_sub.avg_ranks)
+
+        c_out = {"arm": c["arm"], "boundary": c["boundary"], "shift": c["shift"],
+                 "dimension": dim, "runs": runs, "provenance": c["provenance"],
+                 "tiered_vs_transplant": con,
+                 "rank_tiered": round(float(r_pub["dt-gsk"]), 4),
+                 "rank_transplant": round(float(r_sub["dt-gsk"]), 4),
+                 "ordinal_tiered": sorted(FAMILY, key=lambda o: r_pub[o]).index("dt-gsk") + 1,
+                 "ordinal_transplant": sorted(FAMILY, key=lambda o: r_sub[o]).index("dt-gsk") + 1,
+                 "rerank_note": ("ordinal from per-function means with only the "
+                                 "DT-GSK column substituted; transplant means use "
+                                 f"{runs} runs vs the panel's 51 (E4 convention)")}
+        out["cells"].append(c_out)
+
+    holm = holm_correction(raws, labels)
+    for h in holm.comparisons:
+        for c_out in out["cells"]:
+            if c_out["arm"] == str(h["label"]):
+                c_out["tiered_vs_transplant"]["holm_p"] = float(h["p_adjusted"])
+                c_out["tiered_vs_transplant"]["significant"] = bool(h["significant"])
+    return out
+
+
 def sha256(p: Path) -> str:
     h = hashlib.sha256()
     with p.open("rb") as fh:
@@ -338,9 +434,16 @@ def main() -> int:
                               "(tool of record); A12 on raw paired runs; Friedman ranks "
                               "descriptive")}
 
-    for name, payload in (("e1_basis_contrast", analyse_e1()),
-                          ("e2_np100", analyse_e2()),
-                          ("e3_uniform_vs_tiered", analyse_e3())):
+    jobs = [("e1_basis_contrast", analyse_e1()),
+            ("e2_np100", analyse_e2()),
+            ("e3_uniform_vs_tiered", analyse_e3())]
+    if (REV2 / "manifest.json").is_file():
+        common["strict_sources"] = common["strict_sources"] + [
+            "benchmarks/cec_reference_results/_revision2/"]
+        jobs.append(("e5_threshold_sensitivity", analyse_e5()))
+    else:
+        print("note: _revision2 not promoted yet -- E5 analysis skipped")
+    for name, payload in jobs:
         payload = {**common, **payload}
         (OUT / f"{name}.json").write_bytes(
             (json.dumps(payload, indent=2, ensure_ascii=False) + "\n").encode("utf-8"))
