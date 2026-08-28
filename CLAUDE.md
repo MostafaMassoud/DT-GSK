@@ -48,7 +48,14 @@ passages), and **every reviewer/revision-process reference is removed from the p
 artifacts** — S9 is now “Mechanism-Isolation and Sensitivity Experiments”; pre-registration
 language stays. The GitHub purge request is REOPENED to be filed after the public flip, and an
 extension-request draft sits withheld beside the response letter (sending is the author's call).
-**D-0055 / CR-0030 are filed; next free are CR-0031 and D-0056** — verify free at apply time. The paragraphs
+**Pass-51 / v2.24 closed the evening (acceptance-readiness review, D-0056 / CR-0031):** the
+tuned review instrument was executed at maximal input over all 92 register passages plus
+rendered-text sweeps; five verified findings fixed — the S6.5 stale-open basis claim scoped to
+S9.1's answer (fourth member of the stale-claim family), three LINE-WRAPPED revision-process
+references the source-side sweep missed (sweep the RENDER for phrase policies, not the source),
+and the environment attestation re-minted at 618 tests after pass-49's statistics.py change.
+Register is now 93 passages. **D-0056 / CR-0031 are filed; next free are CR-0032 and D-0057** —
+verify free at apply time. The paragraphs
 below about passes 42–45 are kept because their *lessons* stand, not because they describe the
 current tag.
 

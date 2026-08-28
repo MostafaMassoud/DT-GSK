@@ -2529,3 +2529,53 @@ applying all surfaced fixes.
   zero consumers). The lesson is now mechanical: bump CFF, commit, then tag.
 - **Anchor.** 095604d (apply); mint, tag v2.23 and the CFF bump follow. NEXT
   free ids: CR-0031 and D-0056.
+
+## D-0056 (2026-08-28) - Pass-51: acceptance-readiness review executed; five verified findings fixed
+
+- **Decision.** The tuned acceptance-readiness review
+  (docs/prompt/change-register-acceptance-review.md) was executed as a live
+  audit at maximal input: fresh Step-1 sweeps over the rendered PDFs, a
+  change-by-change audit of all 92 register passages, and targeted
+  re-verification of every claimed number the audit touched. Five findings
+  survived self-refutation and were fixed in one batch. Mint **pass-51**,
+  tag **v2.24**. Registered as **CR-0031**.
+- **CR-F1 (Major, internal contradiction).** supplementary.tex S6.5 still
+  asserted that whether the learned eigenbasis outperforms coordinate axes
+  'remains unidentified' --- eight lines above the same paragraph's
+  parenthetical stating that Section S9.1 answers it directly. Fourth member
+  of the stale-open-claim family (S3.5 fixed in pass-45, conclusions in
+  pass-50, S6.5 discussion now). The sentence is scoped to phase-level
+  attribution with the basis-level pointer to S9.1; the adverse direction
+  stays stated where S9.1 reports it.
+- **CR-F3a/b/c (policy, three sites).** Three revision-process references
+  survived the pass-50 de-process sweep because each wraps across a source
+  line break ('added in / revision', 'carried out in / revision', 'the /
+  revision's') and none contains the word 'reviewer'. Caught only by the
+  rendered-text sweep (pdftotext), not by source grep --- the lesson
+  generalises: sweep the RENDER for phrase-level policies. The
+  GenAI/Acknowledgments 'preparation and revision' phrasings are the
+  mandated MDPI disclosure and are deliberately kept.
+- **CR-F2 (stale attestation).** The environment attestation predated
+  pass-49's statistics.py zero_tol change and its five KATs: it recorded 613
+  tests at head 31fe38d while the shipped suite collects 618. Re-minted
+  green (618 tests x2, 616 passed + 2 skipped, six gates exit 0);
+  supplementary.tex count corrected 613 -> 618.
+- **Refuted findings (recorded per the instrument's calibration doctrine).**
+  Every 'superior/dominates' hit in the Step-1 sweep proved to be a negated
+  or adverse usage on context check; 'eigenframe final polish' (x6) is
+  settled mechanism naming, not a claim of benefit; the supplement's two
+  remaining 'revision' tokens are the software-revision sense; the E5/E2
+  shared 0.0055 is disclosed cell reuse, not duplication. The #72
+  'strictly negative' edit was verified CORRECT against _dt_core.py: the
+  s == 0 case returns before the restricted branch, so the branch condition
+  is strict --- the as-submitted 'non-positive' was the imprecise version.
+- **Register.** The CR-F1 edit adds one hunk: the register is 93 passages
+  (supplementary.tex 33 -> 34) at v2.24; counts synced in the response
+  letter, the round-one record and REVISION_STATUS. Marked PDFs rebuilt at
+  48/80 pages against the pass-51 apply commit.
+- **Validation.** check_manifest 15/15 + sources 2/2 after mint; all
+  thirteen ladder gates PASS; citation-cff validates all 23 tags with the
+  working tree at 2.24 ahead of the v2.24 tag (bump-before-tag, the D-0055
+  lesson, followed this time).
+- **Anchor.** e8594c5 (apply); mint, close and tag v2.24 follow. NEXT free
+  ids: CR-0032 and D-0057.

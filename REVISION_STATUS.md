@@ -1343,9 +1343,9 @@ worktree blind spot.
    `DT-GSK-changes-marked.pdf`, a latexdiff marked-up manuscript with additions underlined and
    deletions struck through in place, from `papers/scripts/build_change_marked_pdf.py` (48 pp; 47
    added and 40 deleted blocks). Beside it `DT-GSK-change-register.pdf`, from
-   `build_change_register.py`, lists all 92 changed passages as-submitted against as-revised with
+   `build_change_register.py`, lists all 93 changed passages as-submitted against as-revised with
    the reviewer point each answers (21 pp). Both are derived and gitignored; both rebuild from the
-   tags, at 92 passages over the same 7 files at v2.23 (84 at v2.22, 75 at v2.21).
+   tags, at 93 passages over the same 7 files at v2.24 (92 at v2.23, 84 at v2.22).
    **Two claims this entry previously made were false and are withdrawn.** It said the manuscript
    already uses `\hl`, so a blanket pass would collide with existing markup: it carries **no
    highlighting at all** — no `\hl`, no `soul`, no `colorbox`, nowhere in `main.tex`,
@@ -1582,7 +1582,7 @@ warning that portal metadata does not update from the PDF. Re-enter both by hand
   CEC benchmark suites; nonparametric statistical comparison; reproducibility`
 
 **Generate both companion PDFs fresh.** The response letter's source was edited in passes 42, 43 and
-48, and the change register must come from `git diff v2.13 v2.23` — 92 passages across 7 files, not the
+48, and the change register must come from `git diff v2.13 v2.24` — 93 passages across 7 files, not the
 54 passages the kit recorded at pass-41. Neither figure should be quoted anywhere.
 
 **After upload, no rebuilds.** `v2.24` becomes the frozen record of what was resubmitted; any later

@@ -1,8 +1,8 @@
 {
   "schema": "main_manuscript_freeze_manifest/v1",
-  "phase": "PASS-50: reopened-items batch. The D-0051 identity re-execution is promoted (g1-rel-2026-08-28-65b3d39e6) and cited where Table A45 previously reported the residual unresolved; Figure 4 redesigned with the within-one-CD cohort shaded and the detached CD ruler removed; convergence-figure captions tightened with the shared protocol stated once in the body; the cover letter reframed (closure first, adverse findings plainly, five experiments, canonical D100) and rebuilt; references.bib pruned of its 17 uncited entries alongside the three citation-control files (44 keys everywhere); and every revision-process or reviewer reference removed from the published artifacts, with S9 retitled Mechanism-Isolation and Sensitivity Experiments and pre-registration language retained as scientific provenance. DAS names the sixth release and tag v2.23.",
-  "generated_utc": "2026-08-28T20:30:00+00:00",
-  "anchor_commit": "095604dabf2594d9a38b60f4b902dbf59eef899e",
+  "phase": "PASS-51: acceptance-readiness fixes. The tuned change-register acceptance review (docs/prompt/change-register-acceptance-review.md) was executed at maximal input over all 92 register passages plus rendered-text sweeps; five verified findings were fixed. The S6.5 discussion no longer asserts the eigenbasis-vs-coordinate question 'remains unidentified' in the same paragraph whose closing sentence says S9.1 answers it (basis-level attribution now pointed at S9.1); three revision-process references that wrapped across source lines and so survived the pass-50 de-process sweep are removed from performance, proposed-algorithm and conclusions (the GenAI/Acknowledgments 'preparation and revision' phrasings are the mandated MDPI disclosure and stay); and the environment attestation is re-minted after pass-49's statistics.py change, green at 618 tests twice, with the supplement's count corrected 613 -> 618. DAS names tag v2.24.",
+  "generated_utc": "2026-08-28T21:40:00+00:00",
+  "anchor_commit": "e8594c5951b0f54eedd8f17603b8c7e470169f88",
   "pre_freeze_base_commit": "b9846e47024e48a0f8ce3e4f22bffbd794b2a355",
   "evidence_release": {
     "primary": "rel-2026-07-20-67d9345f9",
@@ -28,7 +28,7 @@
   "files": [
     {
       "path": "papers/main.tex",
-      "sha256": "4cc9be8eec3ae2c8f389646ea6fd3d30eb5edae23533e4201e331c2dd85f5873",
+      "sha256": "8aa077c6526f1c53a9b103272313c4d0d6376ccce623e1634f6a75aee0cefb91",
       "bytes": 26399
     },
     {
@@ -43,38 +43,38 @@
     },
     {
       "path": "papers/sections/proposed_algorithm.tex",
-      "sha256": "2c0f7c9e2b4b4cb761cc6e88e0625c2a787ff2bf206536bf4023ae448d955ab1",
-      "bytes": 58241
+      "sha256": "68862904ba9e661ccfd8286843d1788480793611d42b472cf1bc244b9a5a4ab5",
+      "bytes": 58238
     },
     {
       "path": "papers/sections/performance.tex",
-      "sha256": "49b1b6f272f7f2e6be99d469c946f7816fd6650ab0e1ed04ea8dc0da64ff420e",
-      "bytes": 77742
+      "sha256": "3fa598a9864b72aabc6a546165d88699ab0f04abf2a9bc8f64536fb6b37889d7",
+      "bytes": 77724
     },
     {
       "path": "papers/sections/conclusions.tex",
-      "sha256": "b912dd75a8fac761524413bdbe9d2117607356f8a98e9c86ce2df682076b24bb",
-      "bytes": 14641
+      "sha256": "ec7b51cbf43819454abf8aeb118e1287d866382714f7dd480cff3a3585f3867c",
+      "bytes": 14675
     },
     {
       "path": "papers/DT-GSK.pdf",
-      "sha256": "93721bc3adb91389f25d9aacdf2a473dcf38b686e471261f92dd96a2cca5ca77",
-      "bytes": 825146
+      "sha256": "4c210ab8f25dcadddab23bf44c26db4d2ac84ae20d246e43fecd35092a45b4e2",
+      "bytes": 825262
     },
     {
       "path": "papers/DT-GSK.docx",
-      "sha256": "1ce7f3cad0b6f41fabc96211b5f80498450287bd4eef7cada52cd7f2cf965769",
-      "bytes": 1028064
+      "sha256": "d6ff9690eda0cfddf443fb576d1d03e7167422a2d15c8695f200ccaaee148d47",
+      "bytes": 1028068
     },
     {
       "path": "papers/supplementary.pdf",
-      "sha256": "bc2e49f787ffc0e26aac464b8e03f447809f83ce1ad501c2f7c6b6016e7d55ff",
-      "bytes": 1758588
+      "sha256": "074ae5467af9bb504e6edf64e57729f13231882fb3c42ec502ee53ead0cbebf0",
+      "bytes": 1758777
     },
     {
       "path": "papers/supplementary.docx",
-      "sha256": "610f515cc2d1bde7d13d3db931e94a8b99737d6d08277bfed3d3aa7551a2e81b",
-      "bytes": 9626620
+      "sha256": "781f229308b1156e069fe06a2b230c7e8a852a087905c95b2b53f3039f21ac11",
+      "bytes": 9626627
     },
     {
       "path": "papers/cover_letter.pdf",
@@ -127,8 +127,8 @@
   "source_files": [
     {
       "path": "papers/supplementary.tex",
-      "sha256": "66224626b40365993d5fb51ef77096b016ee3744220afbc4765648013c679b07",
-      "bytes": 242804
+      "sha256": "cf9531e86da0bfc024ebd3df28b9293cc09e456e3e8ef307a943e8634cc22443",
+      "bytes": 242835
     },
     {
       "path": "papers/cover_letter.tex",
