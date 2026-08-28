@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Licenses - GSK Family Python Documentation">
-  <title>Licenses | GSK Family Python Documentation</title>
+  <meta name="description" content="GitHub exposure window and the clone record - GSK Family Python Documentation">
+  <title>GitHub exposure window and the clone record | GSK Family Python Documentation</title>
   <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
@@ -35,7 +35,7 @@
 <a class="nav-link" href="reference_fp_regime.html">Floating-Point Regime Verification</a>
 <a class="nav-link" href="reference_diagrams.html">Flowcharts And Diagrams</a>
 <a class="nav-link" href="reference_glossary.html">Glossary</a>
-<a class="nav-link active" href="LICENSES.html">Licenses</a>
+<a class="nav-link" href="LICENSES.html">Licenses</a>
 <a class="nav-link" href="reference_module_dependencies.html">Module Dependencies</a>
 <a class="nav-link" href="reference_project_structure.html">Project Structure</a>
 <a class="nav-link" href="reference_python_optimizer_interface.html">Python Optimizer Interface</a>
@@ -68,7 +68,7 @@
 <a class="nav-link" href="development_extension_guide.html">Extension Guide</a>
 <a class="nav-link" href="development_FAMILY_ACCELERATION_PLAN.html">Family-wide acceleration plan — 7 algorithms x 5 suites, bit-identical only</a>
 <a class="nav-link" href="development_FINAL_PUBLICATION_PLAN.html">FINAL PUBLICATION PLAN — DT-GSK, Four(/Five)-Suite Scope</a>
-<a class="nav-link" href="development_github_exposure_traffic_record.html">GitHub exposure window and the clone record</a>
+<a class="nav-link active" href="development_github_exposure_traffic_record.html">GitHub exposure window and the clone record</a>
 <a class="nav-link" href="development_ACCELERATION_CAMPAIGN_PROMPT.html">GSK-Family Acceleration Campaign — Execution Prompt</a>
 <a class="nav-link" href="development_maintenance_guide.html">Maintenance Guide</a>
 <a class="nav-link" href="development_PAPER_COMPLETION_PLAN.html">Paper Completion Plan — five-suite manuscript to `dtgsk-submission-v2.0`</a>
@@ -160,67 +160,74 @@
 </nav></aside>
     <main class="content">
       <article class="doc-card">
-        <p>﻿# Licenses and Provenance</p>
-<p>This file records the license and provenance of the Python implementation of the GSK optimizer family. It is one of the two <code>license-files</code> targets declared in <code>pyproject.toml</code> (<code>license = &quot;MIT&quot;</code>, <code>license-files = [&quot;LICENSE&quot;, &quot;docs/LICENSES.md&quot;]</code>).</p>
-<blockquote>**License status: settled and final (author-confirmed 2026-07-14; copyright</blockquote>
-<blockquote>line confirmed 2026-08-01).** The code is licensed under the MIT License, an</blockquote>
-<blockquote>OSI-approved open-source licence; the authors&#x27; own derived data and analysis</blockquote>
-<blockquote>artifacts are licensed under CC BY 4.0.</blockquote>
-<blockquote>Third-party benchmark definitions remain under their upstream terms (below).</blockquote>
-<h2 id="project-license">Project license</h2>
+        <h1 id="github-exposure-window-and-the-clone-record">GitHub exposure window and the clone record</h1>
+<p>Seven copyrighted third-party PDFs reached the public GitHub remote and were served from it for about twenty days. This file records <strong>how long that lasted</strong> and <strong>what GitHub&#x27;s traffic counters saw</strong>, because those counters expire on a rolling 14-day window and cannot be reconstructed once they roll off. The incident itself, and what is withheld from this repository and why, is <code>papers/governance/decision_log.md</code> <strong>D-0049</strong>.</p>
+<h2 id="the-exposure-window">The exposure window</h2>
+<p>Derived from the local reflog, which is the only surviving record of when <code>main</code> pointed where:</p>
+<div class="table-wrap"><table><thead><tr><th>Event</th><th>Local time (+0300)</th><th>UTC</th></tr></thead><tbody><tr><td><code>b9846e4</code> &quot;Reference Papers&quot; becomes the tip of <code>main</code></td><td>2026-08-07 23:45:59</td><td>2026-08-07 20:45:59</td></tr><tr><td><code>main</code> reset to <code>public/squash-candidate</code> (<code>02d1791</code>)</td><td>2026-08-27 01:17:02</td><td>2026-08-26 22:17:02</td></tr></tbody></table></div>
+<p><code>b9846e4</code> was <code>main</code>&#x27;s tip for that entire span -- the reflog shows no intervening move. So the tree served to anyone who cloned the default branch between those two instants contained the seven PDFs. <strong>Roughly nineteen days and two hours; twenty UTC calendar days touched (08/07 through 08/26).</strong></p>
+<p>The commit timestamp is a *lower bound* on when the tree reached the remote: it is when the commit was authored locally, not when it was pushed. Nothing local can date the push more precisely.</p>
+<h2 id="the-capture">The capture</h2>
+<p>GitHub -&gt; Insights -&gt; Traffic, captured <strong>2026-08-27</strong>. Window shown: <strong>08/13 -- 08/26</strong> (14 days).</p>
+<div class="table-wrap"><table><thead><tr><th>Panel</th><th>Value</th></tr></thead><tbody><tr><td>Clones in last 14 days</td><td><strong>11</strong></td></tr><tr><td>Unique cloners in last 14 days</td><td><strong>9</strong></td></tr><tr><td>Total views in last 14 days</td><td><strong>2</strong></td></tr><tr><td>Unique visitors in last 14 days</td><td><strong>2</strong></td></tr></tbody></table></div>
+<p>Per-day, read off the plotted lines rather than from printed text:</p>
+<div class="table-wrap"><table><thead><tr><th>Day</th><th>13</th><th>14</th><th>15</th><th>16</th><th>17</th><th>18</th><th>19</th><th>20</th><th>21</th><th>22</th><th>23</th><th>24</th><th>25</th><th>26</th></tr></thead><tbody><tr><td>Clones</td><td>1</td><td>0</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>2</td><td>1</td></tr><tr><td>Unique cloners</td><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>2</td><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>2</td><td>1</td></tr></tbody></table></div>
+<p>The clone row sums to 11, matching the printed total, which corroborates the reading. The unique row sums to 10 against a printed period total of 9; that is expected, not a discrepancy -- GitHub dedupes per day in the chart and across the whole window in the header, so at least one cloner returned on a second day.</p>
+<h2 id="what-the-capture-covers-and-what-was-already-lost">What the capture covers, and what was already lost</h2>
+<p><strong>Every one of the 14 captured days falls inside the exposure window.</strong> The window closed at 22:17 UTC on 08/26, so the final captured day is also the final day of exposure. No post-removal traffic is mixed into these counts.</p>
+<p><strong>Six days were already gone when the capture was taken: 08/07 (from 20:46 UTC) through 08/12.</strong> They had rolled off the 14-day window before anyone looked. Whatever cloned the tree in those six days is unrecoverable -- not by the author, not by GitHub Support, not by any later capture. This is a permanent gap in the record and should be stated as one rather than papered over.</p>
+<p>So the honest summary is: <strong>at least 9 distinct actors, and at least 11 clones, took a tree containing the seven PDFs -- with six days of the exposure window unmeasured.</strong> The true totals are floors, not estimates.</p>
+<h2 id="what-this-does-not-establish">What this does not establish</h2>
 <ul>
-<li><strong>Code:</strong> MIT License. The full grant text and copyright line are in the</li>
-<p>root <code>LICENSE</code> file; <code>pyproject.toml</code> declares <code>license = &quot;MIT&quot;</code> and points <code>license-files</code> at both <code>LICENSE</code> and this document.</p>
-<li><strong>Copyright:</strong> Copyright (c) 2026 by the authors.</li>
-<li><strong>Data and derived artifacts (authored by us):</strong> the per-run result CSVs, seed</li>
-<p>schedules, analysis bundles, and verification manifests we produced are released under the Creative Commons Attribution 4.0 International (CC BY 4.0) License.</p>
-<li><strong>Benchmark definitions (third party):</strong> the CEC2017/CEC2011/CEC2013/</li>
-<p>CEC2020/CEC2013LSGO problem definitions are the property of their respective authors and are used under their original terms; we do not relicense them. The CC BY 4.0 grant above applies only to our own derived data, not to these upstream definitions.</p>
-<li>The manuscript Data Availability Statement is written to match this record.</li>
+<li><strong>It does not identify anyone.</strong> GitHub&#x27;s clone traffic is counts only; it exposes no usernames,</li>
+<p>no IP addresses, no organisations. &quot;9 unique cloners&quot; is a cardinality, nothing more.</p>
+<li><strong>It does not distinguish humans from machines.</strong> CI runners, mirroring services, forks-by-clone</li>
+<p>and archival crawlers all register as clones. A count of 11 over twenty days is consistent with almost entirely automated traffic.</p>
+<li><strong>It does not measure browsing.</strong> Web views over the same window were <strong>2</strong>, from 2 unique</li>
+<p>visitors. The PDFs were reachable by direct URL, but essentially nobody browsed the repository. Clone traffic, which takes the whole tree unconditionally, is the channel that matters here.</p>
+<li><strong>It does not close the incident.</strong> The PDFs are off every ref -- verified: zero hits on <code>main</code>,</li>
+<p><code>v2.13</code> and <code>v2.21</code> -- but remain fetchable by direct SHA from <code>b9846e4</code> until GitHub garbage- collects. That request to GitHub Support is still open (D-0049).</p>
 </ul>
-<h2 id="third-party-dependencies">Third-party dependencies</h2>
-<p>The runtime depends on the packages below, each distributed under its own upstream license (consult each project for the authoritative text):</p>
-<div class="table-wrap"><table><thead><tr><th>Package</th><th>Usual license</th></tr></thead><tbody><tr><td>NumPy</td><td>BSD-3-Clause</td></tr><tr><td>SciPy</td><td>BSD-3-Clause</td></tr><tr><td>pandas</td><td>BSD-3-Clause</td></tr><tr><td>matplotlib</td><td>Matplotlib (BSD-style)</td></tr><tr><td>PyYAML</td><td>MIT</td></tr><tr><td>Numba</td><td>BSD-2-Clause</td></tr></tbody></table></div>
-<p>These are well-known permissive licenses; redistribution of this project must preserve their notices. Version ranges are pinned in <code>pyproject.toml</code> and <code>requirements.txt</code> (with the dev tooling in <code>requirements-dev.txt</code>). &quot;Usual license&quot; reflects the customary upstream license at the time of writing; maintainers should confirm the exact license shipped with the pinned version of each package before redistribution, because upstream projects can relicense.</p>
-<h2 id="benchmark-and-reference-evidence-provenance">Benchmark and reference evidence provenance</h2>
+<h2 id="where-the-rest-lives">Where the rest lives</h2>
 <ul>
-<li>The active benchmark runtime is the bundled Python benchmark suite under</li>
-<p><code>benchmarks/cec_suite_python/</code>. It is the default evaluator for all normal runs (benchmark backend <code>auto</code>).</p>
-<li>Imported reference summary tables under <code>benchmarks/cec_reference_results/</code></li>
-<p>are <strong>read-only</strong> validation evidence with their own provenance, organized as <code>&lt;suite&gt;/&lt;optimizer&gt;/</code>. The runner refuses to write generated output into this tree, and it must not be edited to make generated output pass validation.</p>
-<li>The <code>egsk</code> data under <code>benchmarks/cec_reference_results/&lt;suite&gt;/egsk/</code> is the</li>
-<p>committed comparator of record: it is one of the GSK-family comparators used by the statistical suite and the paper review pack, and the statistical panel reports <code>egsk</code> from these committed CSVs, which are the <strong>Python (<code>scipy</code>-SLSQP) port run</strong> (<code>src/gsk_family/optimizers/egsk.py</code>, a MATLAB port whose interior-point refinement uses <code>scipy</code>-SLSQP in place of <code>fmincon</code>), not a MATLAB <code>fmincon</code> reference. The panel reads these committed CSVs, not a fresh local run, so panel numbers are fixed and reproducible.</p>
-<li>Generated experiment output belongs under <code>results/</code> (default</li>
-<p><code>results/_run_all/&lt;optimizer&gt;/&lt;suite&gt;/</code>, or another user-selected output root) outside the reference evidence.</p>
-<li>The <strong>cited literature</strong> is indexed under <code>reference_papers/</code> (the table there</li>
-<p>is generated from <code>papers/references.bib</code>). Those source PDFs are third-party copyrighted works and are <strong>not committed</strong> to the repository; obtain each via its DOI and keep only copies your license permits redistributing.</p>
+<li><strong>The decision and the withholding policy:</strong> <code>papers/governance/decision_log.md</code> D-0049.</li>
+<li><strong>The <code>.gitignore</code> trap that caused it:</strong> <code>CLAUDE.md</code> &quot;Never break these&quot; item 10 -- a glob that</li>
+<p>does not cross <code>/</code> is not an exclusion. Verify with <code>git check-ignore -v &lt;path&gt;</code>, never by reading the pattern.</p>
+<li><strong>The private history bundle:</strong> the never-push branches <code>archive/revision-pass-39-full</code> and</li>
+<p><code>revision/pass-39</code> were bundled to <code>D:/AI/Research-Lab/DT-GSK-private-history.bundle</code> and deleted (2026-08-28). The bundle carries this material; the never-push rule now applies to its refs and to the bundle file itself.</p>
 </ul>
-<h2 id="reproduction-scope-no-over-claim">Reproduction scope (no over-claim)</h2>
-<p>The optimizer kernels are <strong>behavior-compatible</strong> with the originating research codebase at the algorithm and experiment-contract level. This project does <strong>not</strong> claim bit-exact replay across platforms, nor full statistical equivalence to published tables: reduced-budget runs are consistency checks only, and statistical-equivalence reporting is listed as outstanding work. See <a href="research_validation_report.html">Validation Report</a> and <a href="research_reproducibility.html">Reproducibility</a> for the exact evidence and its limits.</p>
-<h2 id="attribution">Attribution</h2>
-<p>Code author: <strong>Mostafa Masoud</strong> (<code>moustafa.masoud@gmail.com</code>).</p>
-<p>Citation metadata for this software package is in <code>CITATION.cff</code> at the repository root. Algorithm papers should be cited according to the optimizer used in an experiment:</p>
-<div class="table-wrap"><table><thead><tr><th>Optimizer ID</th><th>Reference</th></tr></thead><tbody><tr><td><code>gsk</code></td><td>Mohamed, A. W.; Hadi, A. A.; Mohamed, A. K. &quot;Gaining-sharing knowledge based algorithm for solving optimization problems: a novel nature-inspired algorithm.&quot; International Journal of Machine Learning and Cybernetics, 11, 1501-1529, 2020. DOI: <a href="https://doi.org/10.1007/s13042-019-01053-x">10.1007/s13042-019-01053-x</a>.</td></tr><tr><td><code>agsk</code></td><td>Mohamed, A. W.; Hadi, A. A.; Mohamed, A. K.; Awad, N. H. &quot;Evaluating the performance of adaptive gaining-sharing knowledge based algorithm on CEC 2020 benchmark problems.&quot; 2020 IEEE Congress on Evolutionary Computation (CEC), 1-8, 2020. DOI: <a href="https://doi.org/10.1109/CEC48606.2020.9185901">10.1109/CEC48606.2020.9185901</a>.</td></tr><tr><td><code>apgsk</code></td><td>Mohamed, A. W.; Abutarboush, H. F.; Hadi, A. A.; Mohamed, A. K. &quot;Gaining-sharing knowledge based algorithm with adaptive parameters for engineering optimization.&quot; IEEE Access, 9, 65934-65946, 2021. DOI: <a href="https://doi.org/10.1109/ACCESS.2021.3076091">10.1109/ACCESS.2021.3076091</a>.</td></tr><tr><td><code>fdb-agsk</code></td><td>Bakir, H.; Duman, S.; Guvenc, U.; Kahraman, H. T. &quot;Improved adaptive gaining-sharing knowledge algorithm with FDB-based guiding mechanism for optimization of optimal reactive power flow problem.&quot; Electrical Engineering, 105, 3121-3160, 2023. DOI: <a href="https://doi.org/10.1007/s00202-023-01803-9">10.1007/s00202-023-01803-9</a>.</td></tr><tr><td><code>atmals-gsk</code></td><td>Alfadli, N. M.; Oun, E. M.; Mohamed, A. W. &quot;Auto-Tuning Memory-Based Adaptive Local Search Gaining-Sharing Knowledge-Based Algorithm for Solving Optimization Problems.&quot; Algorithms, 18(7), 398, 2025. DOI: <a href="https://doi.org/10.3390/a18070398">10.3390/a18070398</a>.</td></tr><tr><td><code>egsk</code></td><td>Jawad, M. A.; Roshdy, H. S. M.; Mohamed, A. W. &quot;Enhanced Gaining-Sharing Knowledge-Based Algorithm.&quot; Results in Control and Optimization, 19, 100542, 2025. DOI: <a href="https://doi.org/10.1016/j.rico.2025.100542">10.1016/j.rico.2025.100542</a>.</td></tr><tr><td><code>dt-gsk</code></td><td>DT-GSK (Dimension-Tiered Gaining-Sharing Knowledge), this project&#x27;s proposed method. Forthcoming; until it is published, cite the software metadata in <code>CITATION.cff</code> at the repository root.</td></tr></tbody></table></div>
-<h2 id="before-publication-or-redistribution">Before publication or redistribution</h2>
-<ol>
-<li>~~Confirm the copyright line and year.~~ <strong>DONE 2026-08-01</strong> - confirmed by</li>
-<p>the author; the <strong>Project license</strong> section reads &quot;Copyright (c) 2026 by the authors.&quot; (the MIT grant text is in the root <code>LICENSE</code>).</p>
-<li>Confirm third-party license notices are preserved in the distribution.</li>
-<li>Reconcile the <strong>Attribution</strong> section with the originating research codebase</li>
-<p>and benchmark suite license/citation statements.</p>
-<li>Re-check the <strong>Reproduction scope</strong> wording against the latest</li>
-<p><a href="research_validation_report.html">Validation Report</a>.</p>
-</ol>
+<p>---</p>
+<h1 id="remediation-the-github-support-purge-request-closed-will-not-be-filed">Remediation: the GitHub Support purge request -- CLOSED, WILL NOT BE FILED</h1>
+<p><strong>Status: closed by author decision, 2026-08-28. The request will not be made.</strong> It was deferred on 2026-08-27 and closed the following day. <strong>This section is a record, not a to-do: do not re-raise it, and do not act on it without the author saying so.</strong></p>
+<p>It is kept rather than deleted because it documents a decision about material that is not the author&#x27;s alone -- seven third-party copyrighted PDFs and a co-author&#x27;s biographical data. Recording that the remediation was considered and declined is more honest than leaving no trace of it. The state below does not change on its own: unreachable git objects carry no expiry date, GitHub collects on an unannounced schedule with no guarantee, and both commits were still served when this was closed.</p>
+<h2 id="scope-two-unreachable-commits-not-one">Scope -- TWO unreachable commits, not one</h2>
+<p>D-0049 and the Phase 0 work order originally named only <code>b9846e4</code>. Verified 2026-08-27, the rewind left <strong>two</strong> commits unreachable from every branch and tag, and <strong>both are still served</strong>:</p>
+<div class="table-wrap"><table><thead><tr><th>Commit (full SHA is what Support needs)</th><th>Carries</th><th>Still served</th></tr></thead><tbody><tr><td><code>b9846e47024e48a0f8ce3e4f22bffbd794b2a355</code></td><td>seven third-party copyrighted PDFs, 38.8 MiB, under <code>reference_papers/Academic_Research_Guidelines/</code></td><td><strong>HTTP 206</strong></td></tr><tr><td><code>bddfe24ede2dbf934bc76636a61b4f14ff3ff470</code></td><td><code>papers/submission/AUTHOR_DATA_HANDOFF.md</code> (16.9 KiB) -- co-author biographical data published before its subjects approved it</td><td><strong>HTTP 206</strong></td></tr></tbody></table></div>
+<p><code>bddfe24</code> is the parent of <code>b9846e4</code>. Purging only the child leaves the parent serving the handoff, and the parent is the one carrying other people&#x27;s personal data. <strong>A request naming one SHA is an incomplete request.</strong></p>
+<p>The web UI also still renders the tree: <code>GET /tree/b9846e4.../reference_papers</code> returns <strong>HTTP 200</strong>.</p>
+<p>Last good commit before the pair, and still on <code>main</code>: <code>de762a4745845e625c6c264df1e31a421c7634e0</code>.</p>
+<h2 id="why-this-request-can-actually-succeed">Why this request can actually succeed</h2>
+<p>Checked against the public API on 2026-08-27: <strong>0 forks, <code>network_count</code> 0, 0 pull requests in any state.</strong> Nothing outside the repository holds a reference to these objects. Forks are the usual reason a purge request fails -- objects in a fork network survive because another repository legitimately references them, and GitHub will not delete another account&#x27;s data. That failure mode does not apply here, so a garbage collection should be complete.</p>
+<p>This is <strong>not</strong> a DMCA matter. DMCA is for reporting someone else&#x27;s infringement; here the repository owner published the material and is asking for their own remediation.</p>
+<h2 id="after-the-purge">After the purge</h2>
+<p>Re-run the reachability check and expect <strong>404</strong> where it now returns 206:</p>
+<p>curl -s -o NUL -w &quot;%{http_code}\n&quot; -r 0-0 \ https://raw.githubusercontent.com/MostafaMassoud/DT-GSK/&lt;full-sha&gt;/&lt;path&gt;</p>
+<p>Until then, and permanently afterwards: the branches that carried this material (<code>archive/revision-pass-39-full</code>, <code>revision/pass-39</code>) were <strong>bundled and deleted 2026-08-28</strong>; their history lives only in <code>D:/AI/Research-Lab/DT-GSK-private-history.bundle</code>. <strong>Never fetch that bundle into a repository with a public remote and never push its refs</strong> -- doing so would re-anchor the very objects a purge would ask GitHub to collect, making it pointless and a second request harder to justify. Note the local-evidence consequence: with the branches gone, the two commits are unreachable in the working repo and a future <code>git gc</code> will prune the local copies; the bundle is then the only local evidence of what they contained.</p>
+<p>The two SHAs will stop resolving on GitHub once collected. They still resolve in any local clone that has them, which is where the evidence for this record lives; nothing here depends on GitHub continuing to serve them.</p>
       </article>
     </main>
     <aside class="page-toc" aria-label="On this page">
 <h2>On This Page</h2>
-<a class="toc-level-2" href="#project-license">Project license</a>
-<a class="toc-level-2" href="#third-party-dependencies">Third-party dependencies</a>
-<a class="toc-level-2" href="#benchmark-and-reference-evidence-provenance">Benchmark and reference evidence provenance</a>
-<a class="toc-level-2" href="#reproduction-scope-no-over-claim">Reproduction scope (no over-claim)</a>
-<a class="toc-level-2" href="#attribution">Attribution</a>
-<a class="toc-level-2" href="#before-publication-or-redistribution">Before publication or redistribution</a>
+<a class="toc-level-1" href="#github-exposure-window-and-the-clone-record">GitHub exposure window and the clone record</a>
+<a class="toc-level-2" href="#the-exposure-window">The exposure window</a>
+<a class="toc-level-2" href="#the-capture">The capture</a>
+<a class="toc-level-2" href="#what-the-capture-covers-and-what-was-already-lost">What the capture covers, and what was already lost</a>
+<a class="toc-level-2" href="#what-this-does-not-establish">What this does not establish</a>
+<a class="toc-level-2" href="#where-the-rest-lives">Where the rest lives</a>
+<a class="toc-level-1" href="#remediation-the-github-support-purge-request-closed-will-not-be-filed">Remediation: the GitHub Support purge request -- CLOSED, WILL NOT BE FILED</a>
+<a class="toc-level-2" href="#scope-two-unreachable-commits-not-one">Scope -- TWO unreachable commits, not one</a>
+<a class="toc-level-2" href="#why-this-request-can-actually-succeed">Why this request can actually succeed</a>
+<a class="toc-level-2" href="#after-the-purge">After the purge</a>
 </aside>
   </div>
   <script src="assets/search.js"></script>

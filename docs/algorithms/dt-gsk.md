@@ -2,9 +2,11 @@
 
 > **What this is:** the family's **headline / proposed method** — it keeps the
 > GSK gaining-sharing scaffold and wraps it in a **dimension-aware** stack of
-> adaptive controllers, population reduction, escape, linkage-aware crossover,
+> adaptive configuration selection, population reduction, escape, linkage-aware crossover,
 > an **interaction-structure memory** that records the co-movement of strictly improving accepted moves
-> at zero extra evaluation cost, and a deterministic eigenframe polish. **For:**
+> at zero extra evaluation cost, and a deterministic final polish (its shipped
+> eigenframe basis is a controlled negative result — coordinate axes beat it at
+> D = 50 in the paper's revision experiment E1). **For:**
 > readers who already know the junior/senior core and want to understand every
 > subsystem DT-GSK adds and how the "pub" profile turns them on by dimension.
 > **Prerequisites:** [GSK](gsk.md) (junior/senior gained vectors, midpoint
@@ -501,10 +503,13 @@ Unknown keys are ignored; reserved keys (`dim`, `seed`, `max_nfes`, `bounds`,
 ## When to use
 
 DT-GSK is the **default first choice** of the family and the method this project
-proposes. On CEC2017 (51 runs, 29 functions, F2 excluded) it is the **#1
-GSK-family algorithm overall by both mean and median** — ranked **#1 at D10, D50
-and D100**, and **#2 at D30 behind the strong eGSK baseline** (the runner-up
-overall). On the real-world CEC2011 suite it places **#2** in the family. It is designed
+proposes. On CEC2017 (51 runs, 29 functions, F2 excluded) it attains the **best
+descriptive family-rank aggregate** — first mean rank at D10/D50/D100 and second
+at D30 behind the strong eGSK baseline — but Holm-corrected pairwise tests
+separate it from eGSK **only at D10**, and the paper's matched-population
+control shows the D50/D100 first places rest in part on the NP = 5D population
+rule. On the real-world CEC2011 suite it places second in the family, with a
+Holm-significant loss to eGSK. It is designed
 to scale across dimensions — the eigenframe polish and `D>=100` controllers target
 the upper dimension tiers — while its aggressive escape, dense linkage mixing, and
 the default-on deep-stall multi-start keep it strong at low dimension. The standing
@@ -555,10 +560,14 @@ pairwise Wilcoxon, Vargha-Delaney A12 / Cliff's delta effect sizes, win/tie/loss
 tallies, BCa bootstrap intervals, LaTeX tables, and 7-curve convergence grids, all
 written under `results/_run_all/_analysis/<suite>/`. DT-GSK is the **default
 target** of the runner's live `--stats` stream. The panel bears out the
-dimension-tier story above: on CEC2017 DT-GSK is **#1 overall by both mean and
-median**, **#1 at D10/D50/D100** and **#2 at D30 behind the strong eGSK baseline**,
-with the eigenframe polish and `D>=100` controllers driving its separation from the
-comparators as `D` grows — while the SGSM/ISM memory is a **supporting** mechanism
+dimension-tier story above: on CEC2017 DT-GSK holds the best descriptive mean
+rank at D10/D50/D100 and is second at D30 behind the strong eGSK baseline —
+descriptive ranks, not significance claims: Holm-corrected tests separate it
+from eGSK only at D10, and the D50/D100 first places rest in part on the
+population rule (paper experiment E2). The deterministic final polish earns its
+place (it beats no refinement at both active dimensions), its learned
+eigenframe basis does not (coordinate axes beat it at D = 50, E1) — while the
+SGSM/ISM memory is a **supporting** mechanism
 that a direct isolation shows **no significant standalone benefit** from
 (Holm-corrected; see Section S6), so its separation is never attributed to ISM. See
 [Statistical Analysis](../research/statistical_analysis.md) for the panel

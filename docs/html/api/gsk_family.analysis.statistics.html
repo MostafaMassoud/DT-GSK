@@ -68,11 +68,13 @@
 <a class="nav-link" href="../development_extension_guide.html">Extension Guide</a>
 <a class="nav-link" href="../development_FAMILY_ACCELERATION_PLAN.html">Family-wide acceleration plan — 7 algorithms x 5 suites, bit-identical only</a>
 <a class="nav-link" href="../development_FINAL_PUBLICATION_PLAN.html">FINAL PUBLICATION PLAN — DT-GSK, Four(/Five)-Suite Scope</a>
+<a class="nav-link" href="../development_github_exposure_traffic_record.html">GitHub exposure window and the clone record</a>
 <a class="nav-link" href="../development_ACCELERATION_CAMPAIGN_PROMPT.html">GSK-Family Acceleration Campaign — Execution Prompt</a>
 <a class="nav-link" href="../development_maintenance_guide.html">Maintenance Guide</a>
 <a class="nav-link" href="../development_PAPER_COMPLETION_PLAN.html">Paper Completion Plan — five-suite manuscript to `dtgsk-submission-v2.0`</a>
 <a class="nav-link" href="../development_PORT_05_TUNING_TRIAGE.html">Porting project-05 tuning into 02 — Phase 1 audit and triage</a>
 <a class="nav-link" href="../development_REFERENCE_PROMOTION_PLAN.html">Reference Promotion Plan — CEC2013LSGO now, CEC2020 behind its completeness gate</a>
+<a class="nav-link" href="../development_round_one_review_record.html">Round-one peer review — the public record</a>
 <a class="nav-link" href="../development_SIBLING_CAMPAIGN_TRANSFER.html">Sibling-Campaign Transfer — every tuning that can make the GSK family fast</a>
 </section>
 <section><h2>Research</h2>
@@ -298,7 +300,7 @@ effect sizes) rather than this atomic test-statistic output.</p>
 <section class="api-member" id="function-wilcoxon-paired-304">
 <div class="member-kind">function</div>
 <h2>wilcoxon_paired</h2>
-<pre><code>wilcoxon_paired(x: np.ndarray, y: np.ndarray, *, alternative: str = &#x27;two-sided&#x27;) -&gt; PairedWilcoxonResult</code></pre>
+<pre><code>wilcoxon_paired(x: np.ndarray, y: np.ndarray, *, alternative: str = &#x27;two-sided&#x27;, zero_tol: float = 0.0) -&gt; PairedWilcoxonResult</code></pre>
 <p>Paired Wilcoxon signed-rank test (pure NumPy, no scipy required).</p>
 <p>This is a custom pure-NumPy implementation using normal approximation
 with continuity correction, avoiding the scipy dependency. Results
@@ -318,9 +320,16 @@ PairedWilcoxonResult with statistic W and p-value.</p>
 -----
 Uses the exact distribution for n ≤ 25 and normal approximation for n &gt; 25.
 Ties in differences are handled by the midrank method.
-Zero differences are excluded (standard convention).</p>
+Zero differences are excluded (standard convention). ``zero_tol``
+widens that exclusion to ``|d| &lt;= zero_tol``: the manuscript&#x27;s stated tie
+rule discards ``|d| &lt; 1e-8`` before ranking, the primary pipeline
+(phase6_run_analysis) applies that band itself before calling here, and
+the revision analyzer passes ``zero_tol=1e-8`` so every across-function
+Wilcoxon follows the one stated rule (pre-registration Amendment A5).
+The default of 0.0 preserves the historical exact-zero behavior for
+every other caller.</p>
 </section>
-<section class="api-member" id="function-norm-cdf-401">
+<section class="api-member" id="function-norm-cdf-409">
 <div class="member-kind">function</div>
 <h2>_norm_cdf</h2>
 <pre><code>_norm_cdf(z: float) -&gt; float</code></pre>
@@ -335,7 +344,7 @@ z : float
 float
     Probability P(Z &lt;= *z*) for Z ~ N(0, 1).</p>
 </section>
-<section class="api-member" id="function-erf-419">
+<section class="api-member" id="function-erf-427">
 <div class="member-kind">function</div>
 <h2>_erf</h2>
 <pre><code>_erf(x: float) -&gt; float</code></pre>
@@ -354,13 +363,13 @@ Abramowitz, M. and Stegun, I. A. (1964). *Handbook of Mathematical
 Functions with Formulas, Graphs, and Mathematical Tables*, National
 Bureau of Standards Applied Mathematics Series 55, formula 7.1.26.</p>
 </section>
-<section class="api-member" id="class-holmresult-455">
+<section class="api-member" id="class-holmresult-463">
 <div class="member-kind">class</div>
 <h2>HolmResult</h2>
 <pre><code>HolmResult</code></pre>
 <p>Result of Holm-corrected multiple comparisons.</p>
 </section>
-<section class="api-member" id="function-holm-correction-462">
+<section class="api-member" id="function-holm-correction-470">
 <div class="member-kind">function</div>
 <h2>holm_correction</h2>
 <pre><code>holm_correction(p_values: list[float], labels: list[str], *, alpha: float = 0.05, statistics: list[float] | None = None) -&gt; HolmResult</code></pre>
@@ -379,7 +388,7 @@ statistics : list of float, optional
 -------
 HolmResult with adjusted p-values and significance flags.</p>
 </section>
-<section class="api-member" id="function-benjamini-hochberg-513">
+<section class="api-member" id="function-benjamini-hochberg-521">
 <div class="member-kind">function</div>
 <h2>benjamini_hochberg</h2>
 <pre><code>benjamini_hochberg(p_values: list[float], labels: list[str], *, alpha: float = 0.05) -&gt; HolmResult</code></pre>
@@ -413,7 +422,7 @@ discovery rate: a practical and powerful approach to multiple
 testing. *Journal of the Royal Statistical Society: Series B*,
 57(1), 289-300.</p>
 </section>
-<section class="api-member" id="function-bonferroni-cross-dimension-580">
+<section class="api-member" id="function-bonferroni-cross-dimension-588">
 <div class="member-kind">function</div>
 <h2>bonferroni_cross_dimension</h2>
 <pre><code>bonferroni_cross_dimension(p_values_by_dim: dict[int, list[float]], alpha: float = 0.05) -&gt; dict[int, list[float]]</code></pre>
@@ -439,7 +448,7 @@ Bonferroni is conservative but simple.  For a less conservative
 alternative, use Holm&#x27;s method on the pooled p-value list from all
 dimensions via :func:`holm_correction`.</p>
 </section>
-<section class="api-member" id="class-friedmansummary-624">
+<section class="api-member" id="class-friedmansummary-632">
 <div class="member-kind">class</div>
 <h2>FriedmanSummary</h2>
 <pre><code>FriedmanSummary</code></pre>
@@ -452,7 +461,7 @@ unchanged so that historical results reproduce exactly and the
 correction remains auditable.  ``statistic_tie_corrected`` /
 ``p_value_tie_corrected`` are the reporting values (ticket M-026).</p>
 </section>
-<section class="api-member" id="function-friedman-rank-650">
+<section class="api-member" id="function-friedman-rank-658">
 <div class="member-kind">function</div>
 <h2>friedman_rank</h2>
 <pre><code>friedman_rank(data: dict[str, list[float]]) -&gt; FriedmanSummary</code></pre>
@@ -484,7 +493,7 @@ correction, so no ranking can change as a result of it.</p>
 <p>Ties are material here because the 1e-8 success floor maps many distinct
 solver outcomes onto exactly 0.0, creating genuine exact ties.</p>
 </section>
-<section class="api-member" id="function-chi2-sf-770">
+<section class="api-member" id="function-chi2-sf-778">
 <div class="member-kind">function</div>
 <h2>_chi2_sf</h2>
 <pre><code>_chi2_sf(x: float, df: int) -&gt; float</code></pre>
@@ -502,7 +511,7 @@ df : int
 float
     Upper-tail probability (p-value).</p>
 </section>
-<section class="api-member" id="function-regularized-gamma-793">
+<section class="api-member" id="function-regularized-gamma-801">
 <div class="member-kind">function</div>
 <h2>_regularized_gamma</h2>
 <pre><code>_regularized_gamma(a: float, x: float, max_iter: int = 200) -&gt; float</code></pre>
@@ -529,7 +538,7 @@ Press, W. H., Teukolsky, S. A., Vetterling, W. T. and Flannery, B. P.
 (2007). *Numerical Recipes: The Art of Scientific Computing*, 3rd ed.,
 Cambridge University Press, Sec. 6.2.</p>
 </section>
-<section class="api-member" id="function-log-gamma-861">
+<section class="api-member" id="function-log-gamma-869">
 <div class="member-kind">function</div>
 <h2>_log_gamma</h2>
 <pre><code>_log_gamma(x: float) -&gt; float</code></pre>
@@ -551,13 +560,13 @@ Lanczos, C. (1964). A precision approximation of the gamma function.
 W. T. and Flannery, B. P. (2007). *Numerical Recipes: The Art of
 Scientific Computing*, 3rd ed., Cambridge University Press, Sec. 6.1.</p>
 </section>
-<section class="api-member" id="class-effectsizeresult-915">
+<section class="api-member" id="class-effectsizeresult-923">
 <div class="member-kind">class</div>
 <h2>EffectSizeResult</h2>
 <pre><code>EffectSizeResult</code></pre>
 <p>Vargha–Delaney A₁₂ effect size.</p>
 </section>
-<section class="api-member" id="function-vargha-delaney-923">
+<section class="api-member" id="function-vargha-delaney-931">
 <div class="member-kind">function</div>
 <h2>vargha_delaney</h2>
 <pre><code>vargha_delaney(x: list[float], y: list[float]) -&gt; EffectSizeResult</code></pre>
@@ -591,19 +600,19 @@ Vargha, A. and Delaney, H. D. (2000). A critique and improvement of
 the CL common language effect size statistics of McGraw and Wong.
 *Journal of Educational and Behavioral Statistics*, 25(2), 101--132.</p>
 </section>
-<section class="api-member" id="class-wtlresult-995">
+<section class="api-member" id="class-wtlresult-1003">
 <div class="member-kind">class</div>
 <h2>WTLResult</h2>
 <pre><code>WTLResult</code></pre>
 <p>Win/Tie/Loss summary.</p>
 <div class="method-list"><h3>Methods</h3>
-<section class="api-member" id="method-total-1003">
+<section class="api-member" id="method-total-1011">
 <div class="member-kind">method</div>
 <h2>total</h2>
 <pre><code>total(self) -&gt; int</code></pre>
 <p class="muted">No docstring provided.</p>
 </section>
-<section class="api-member" id="method-str-1006">
+<section class="api-member" id="method-str-1014">
 <div class="member-kind">method</div>
 <h2>__str__</h2>
 <pre><code>__str__(self) -&gt; str</code></pre>
@@ -611,7 +620,7 @@ the CL common language effect size statistics of McGraw and Wong.
 </section>
 </div>
 </section>
-<section class="api-member" id="function-win-tie-loss-1010">
+<section class="api-member" id="function-win-tie-loss-1018">
 <div class="member-kind">function</div>
 <h2>win_tie_loss</h2>
 <pre><code>win_tie_loss(a_means: dict[int, float], b_means: dict[int, float], *, tol: float = 1e-08) -&gt; WTLResult</code></pre>
@@ -631,13 +640,13 @@ WTLResult</p>
 Ties are defined by numerical tolerance, not statistical significance.
 For statistical tie detection, use Wilcoxon p &gt; 0.05 separately.</p>
 </section>
-<section class="api-member" id="class-comparisonreport-1068">
+<section class="api-member" id="class-comparisonreport-1076">
 <div class="member-kind">class</div>
 <h2>ComparisonReport</h2>
 <pre><code>ComparisonReport</code></pre>
 <p>Full statistical comparison report for one dimension.</p>
 </section>
-<section class="api-member" id="function-generate-comparison-report-1079">
+<section class="api-member" id="function-generate-comparison-report-1087">
 <div class="member-kind">function</div>
 <h2>generate_comparison_report</h2>
 <pre><code>generate_comparison_report(results_dir_a: Path, results_dir_b: Path, dim: int, *, alg_a_name: str = &#x27;DT-GSK&#x27;, alg_b_name: str = &#x27;GSK&#x27;, funcs: list[int] | None = None) -&gt; ComparisonReport</code></pre>
@@ -656,7 +665,7 @@ funcs : list of int, optional
 -------
 ComparisonReport with Wilcoxon, W/T/L, effect sizes, and group summaries.</p>
 </section>
-<section class="api-member" id="function-format-comparison-report-1158">
+<section class="api-member" id="function-format-comparison-report-1166">
 <div class="member-kind">function</div>
 <h2>format_comparison_report</h2>
 <pre><code>format_comparison_report(report: ComparisonReport) -&gt; str</code></pre>
@@ -670,7 +679,7 @@ report : ComparisonReport
 str
     Multi-line string suitable for console output or log files.</p>
 </section>
-<section class="api-member" id="function-format-full-table-1205">
+<section class="api-member" id="function-format-full-table-1213">
 <div class="member-kind">function</div>
 <h2>format_full_table</h2>
 <pre><code>format_full_table(results_dirs: dict[str, Path], dim: int, *, funcs: list[int] | None = None) -&gt; str</code></pre>
@@ -687,7 +696,7 @@ funcs : list of int, optional
 -------
 Formatted text table.</p>
 </section>
-<section class="api-member" id="function-generate-full-statistical-report-1277">
+<section class="api-member" id="function-generate-full-statistical-report-1285">
 <div class="member-kind">function</div>
 <h2>generate_full_statistical_report</h2>
 <pre><code>generate_full_statistical_report(results_dirs: dict[str, Path], dims: list[int] | None = None, *, reference_alg: str = &#x27;GSK&#x27;) -&gt; str</code></pre>
@@ -704,7 +713,7 @@ reference_alg : str
 -------
 Complete publication-ready statistical report as text.</p>
 </section>
-<section class="api-member" id="function-norm-ppf-1385">
+<section class="api-member" id="function-norm-ppf-1393">
 <div class="member-kind">function</div>
 <h2>_norm_ppf</h2>
 <pre><code>_norm_ppf(p: float) -&gt; float</code></pre>
@@ -729,7 +738,7 @@ percentage points of the normal distribution.  *Applied
 Statistics*, 26, 118-121.
 Moro, B. (1995).  The full Monte.  *Risk*, 8(2), 57-58.</p>
 </section>
-<section class="api-member" id="function-bootstrap-bca-ci-1451">
+<section class="api-member" id="function-bootstrap-bca-ci-1459">
 <div class="member-kind">function</div>
 <h2>bootstrap_bca_ci</h2>
 <pre><code>bootstrap_bca_ci(rank_samples, *, n_boot: int = 10000, alpha: float = 0.05, rng: np.random.Generator | None = None, statistic = None) -&gt; tuple[float, float, float]</code></pre>
@@ -798,28 +807,28 @@ Applied Probability 57.</p>
 <a class="toc-level-2" href="#function-load-all-run-errors-256">load_all_run_errors</a>
 <a class="toc-level-2" href="#class-pairedwilcoxonresult-291">PairedWilcoxonResult</a>
 <a class="toc-level-2" href="#function-wilcoxon-paired-304">wilcoxon_paired</a>
-<a class="toc-level-2" href="#function-norm-cdf-401">_norm_cdf</a>
-<a class="toc-level-2" href="#function-erf-419">_erf</a>
-<a class="toc-level-2" href="#class-holmresult-455">HolmResult</a>
-<a class="toc-level-2" href="#function-holm-correction-462">holm_correction</a>
-<a class="toc-level-2" href="#function-benjamini-hochberg-513">benjamini_hochberg</a>
-<a class="toc-level-2" href="#function-bonferroni-cross-dimension-580">bonferroni_cross_dimension</a>
-<a class="toc-level-2" href="#class-friedmansummary-624">FriedmanSummary</a>
-<a class="toc-level-2" href="#function-friedman-rank-650">friedman_rank</a>
-<a class="toc-level-2" href="#function-chi2-sf-770">_chi2_sf</a>
-<a class="toc-level-2" href="#function-regularized-gamma-793">_regularized_gamma</a>
-<a class="toc-level-2" href="#function-log-gamma-861">_log_gamma</a>
-<a class="toc-level-2" href="#class-effectsizeresult-915">EffectSizeResult</a>
-<a class="toc-level-2" href="#function-vargha-delaney-923">vargha_delaney</a>
-<a class="toc-level-2" href="#class-wtlresult-995">WTLResult</a>
-<a class="toc-level-2" href="#function-win-tie-loss-1010">win_tie_loss</a>
-<a class="toc-level-2" href="#class-comparisonreport-1068">ComparisonReport</a>
-<a class="toc-level-2" href="#function-generate-comparison-report-1079">generate_comparison_report</a>
-<a class="toc-level-2" href="#function-format-comparison-report-1158">format_comparison_report</a>
-<a class="toc-level-2" href="#function-format-full-table-1205">format_full_table</a>
-<a class="toc-level-2" href="#function-generate-full-statistical-report-1277">generate_full_statistical_report</a>
-<a class="toc-level-2" href="#function-norm-ppf-1385">_norm_ppf</a>
-<a class="toc-level-2" href="#function-bootstrap-bca-ci-1451">bootstrap_bca_ci</a>
+<a class="toc-level-2" href="#function-norm-cdf-409">_norm_cdf</a>
+<a class="toc-level-2" href="#function-erf-427">_erf</a>
+<a class="toc-level-2" href="#class-holmresult-463">HolmResult</a>
+<a class="toc-level-2" href="#function-holm-correction-470">holm_correction</a>
+<a class="toc-level-2" href="#function-benjamini-hochberg-521">benjamini_hochberg</a>
+<a class="toc-level-2" href="#function-bonferroni-cross-dimension-588">bonferroni_cross_dimension</a>
+<a class="toc-level-2" href="#class-friedmansummary-632">FriedmanSummary</a>
+<a class="toc-level-2" href="#function-friedman-rank-658">friedman_rank</a>
+<a class="toc-level-2" href="#function-chi2-sf-778">_chi2_sf</a>
+<a class="toc-level-2" href="#function-regularized-gamma-801">_regularized_gamma</a>
+<a class="toc-level-2" href="#function-log-gamma-869">_log_gamma</a>
+<a class="toc-level-2" href="#class-effectsizeresult-923">EffectSizeResult</a>
+<a class="toc-level-2" href="#function-vargha-delaney-931">vargha_delaney</a>
+<a class="toc-level-2" href="#class-wtlresult-1003">WTLResult</a>
+<a class="toc-level-2" href="#function-win-tie-loss-1018">win_tie_loss</a>
+<a class="toc-level-2" href="#class-comparisonreport-1076">ComparisonReport</a>
+<a class="toc-level-2" href="#function-generate-comparison-report-1087">generate_comparison_report</a>
+<a class="toc-level-2" href="#function-format-comparison-report-1166">format_comparison_report</a>
+<a class="toc-level-2" href="#function-format-full-table-1213">format_full_table</a>
+<a class="toc-level-2" href="#function-generate-full-statistical-report-1285">generate_full_statistical_report</a>
+<a class="toc-level-2" href="#function-norm-ppf-1393">_norm_ppf</a>
+<a class="toc-level-2" href="#function-bootstrap-bca-ci-1459">bootstrap_bca_ci</a>
 </aside>
   </div>
   <script src="../assets/search.js"></script>

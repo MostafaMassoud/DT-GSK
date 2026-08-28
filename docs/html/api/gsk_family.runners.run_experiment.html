@@ -68,11 +68,13 @@
 <a class="nav-link" href="../development_extension_guide.html">Extension Guide</a>
 <a class="nav-link" href="../development_FAMILY_ACCELERATION_PLAN.html">Family-wide acceleration plan — 7 algorithms x 5 suites, bit-identical only</a>
 <a class="nav-link" href="../development_FINAL_PUBLICATION_PLAN.html">FINAL PUBLICATION PLAN — DT-GSK, Four(/Five)-Suite Scope</a>
+<a class="nav-link" href="../development_github_exposure_traffic_record.html">GitHub exposure window and the clone record</a>
 <a class="nav-link" href="../development_ACCELERATION_CAMPAIGN_PROMPT.html">GSK-Family Acceleration Campaign — Execution Prompt</a>
 <a class="nav-link" href="../development_maintenance_guide.html">Maintenance Guide</a>
 <a class="nav-link" href="../development_PAPER_COMPLETION_PLAN.html">Paper Completion Plan — five-suite manuscript to `dtgsk-submission-v2.0`</a>
 <a class="nav-link" href="../development_PORT_05_TUNING_TRIAGE.html">Porting project-05 tuning into 02 — Phase 1 audit and triage</a>
 <a class="nav-link" href="../development_REFERENCE_PROMOTION_PLAN.html">Reference Promotion Plan — CEC2013LSGO now, CEC2020 behind its completeness gate</a>
+<a class="nav-link" href="../development_round_one_review_record.html">Round-one peer review — the public record</a>
 <a class="nav-link" href="../development_SIBLING_CAMPAIGN_TRANSFER.html">Sibling-Campaign Transfer — every tuning that can make the GSK family fast</a>
 </section>
 <section><h2>Research</h2>
@@ -385,91 +387,91 @@ per-run times. When ``cell_wall_seconds`` is absent it falls back to the sum.</p
 <pre><code>_optimizer_options_line(config: ExperimentConfig, optimizer: str) -&gt; str</code></pre>
 <p>Return a concise optimizer-parameter line for the console table header.</p>
 </section>
-<section class="api-member" id="function-dimension-summary-lines-728">
+<section class="api-member" id="function-dimension-summary-lines-735">
 <div class="member-kind">function</div>
 <h2>_dimension_summary_lines</h2>
 <pre><code>_dimension_summary_lines(config: ExperimentConfig, optimizer: str, dim: int, by_func: dict[int, tuple[Any, float, list[RunArtifact]]]) -&gt; list[str]</code></pre>
 <p>Return the main per-dimension summary table.</p>
 </section>
-<section class="api-member" id="function-native-function-summary-lines-751">
+<section class="api-member" id="function-native-function-summary-lines-758">
 <div class="member-kind">function</div>
 <h2>_native_function_summary_lines</h2>
 <pre><code>_native_function_summary_lines(config: ExperimentConfig, optimizer: str, by_func: dict[int, tuple[Any, float, list[RunArtifact]]]) -&gt; list[str]</code></pre>
 <p>Return one CEC2011-style native-dimension summary table.</p>
 </section>
-<section class="api-member" id="function-dimension-summary-header-lines-771">
+<section class="api-member" id="function-dimension-summary-header-lines-778">
 <div class="member-kind">function</div>
 <h2>_dimension_summary_header_lines</h2>
 <pre><code>_dimension_summary_header_lines(config: ExperimentConfig, optimizer: str, dim: int, *, function_count: int, runs: int, first_artifact: RunArtifact) -&gt; list[str]</code></pre>
 <p>Return per-dimension summary table heading lines.</p>
 </section>
-<section class="api-member" id="function-native-function-summary-header-lines-808">
+<section class="api-member" id="function-native-function-summary-header-lines-815">
 <div class="member-kind">function</div>
 <h2>_native_function_summary_header_lines</h2>
 <pre><code>_native_function_summary_header_lines(config: ExperimentConfig, optimizer: str, *, function_count: int, runs: int, first_artifact: RunArtifact) -&gt; list[str]</code></pre>
 <p>Return one native-dimension suite table header for CEC2011.</p>
 </section>
-<section class="api-member" id="function-dimension-summary-row-834">
+<section class="api-member" id="function-dimension-summary-row-841">
 <div class="member-kind">function</div>
 <h2>_dimension_summary_row</h2>
 <pre><code>_dimension_summary_row(func: int, stats: Any, total_time: float) -&gt; str</code></pre>
 <p>Return one per-function summary row for a completed run batch.</p>
 </section>
-<section class="api-member" id="function-dimension-summary-footer-lines-848">
+<section class="api-member" id="function-dimension-summary-footer-lines-855">
 <div class="member-kind">function</div>
 <h2>_dimension_summary_footer_lines</h2>
 <pre><code>_dimension_summary_footer_lines(by_func: dict[int, tuple[Any, float, list[RunArtifact]]]) -&gt; list[str]</code></pre>
 <p>Return per-dimension summary table footer lines.</p>
 </section>
-<section class="api-member" id="function-comparison-lines-860">
+<section class="api-member" id="function-comparison-lines-867">
 <div class="member-kind">function</div>
 <h2>_comparison_lines</h2>
 <pre><code>_comparison_lines(config: ExperimentConfig, optimizer: str, dim: int | None, by_func: dict[int, tuple[Any, float, list[RunArtifact]]]) -&gt; list[str]</code></pre>
 <p>Return a reference-mean comparison table when matching references exist.</p>
 </section>
-<section class="api-member" id="function-write-text-933">
+<section class="api-member" id="function-write-text-940">
 <div class="member-kind">function</div>
 <h2>_write_text</h2>
 <pre><code>_write_text(path: Path, lines: list[str]) -&gt; None</code></pre>
 <p>Write text lines with UTF-8 encoding.</p>
 </section>
-<section class="api-member" id="function-write-skipped-runs-941">
+<section class="api-member" id="function-write-skipped-runs-948">
 <div class="member-kind">function</div>
 <h2>_write_skipped_runs</h2>
 <pre><code>_write_skipped_runs(path: Path, skipped_cells: list[dict[str, Any]]) -&gt; None</code></pre>
 <p>Persist every failed run with its exception text (full rewrite per call).</p>
 </section>
-<section class="api-member" id="function-run-log-lines-952">
+<section class="api-member" id="function-run-log-lines-959">
 <div class="member-kind">function</div>
 <h2>_run_log_lines</h2>
 <pre><code>_run_log_lines(optimizer: str, suite: str, dim: int, by_func: dict[int, tuple[Any, float, list[RunArtifact]]], timestamp: str) -&gt; list[str]</code></pre>
 <p>Return a detailed per-run log.</p>
 </section>
-<section class="api-member" id="function-native-run-log-lines-990">
+<section class="api-member" id="function-native-run-log-lines-997">
 <div class="member-kind">function</div>
 <h2>_native_run_log_lines</h2>
 <pre><code>_native_run_log_lines(optimizer: str, suite: str, by_func: dict[int, tuple[Any, float, list[RunArtifact]]], timestamp: str) -&gt; list[str]</code></pre>
 <p>Return a detailed per-run log for native-dimension CEC2011 functions.</p>
 </section>
-<section class="api-member" id="function-write-compatibility-json-1028">
+<section class="api-member" id="function-write-compatibility-json-1035">
 <div class="member-kind">function</div>
 <h2>_write_compatibility_json</h2>
 <pre><code>_write_compatibility_json(summary_dir: Path, config: ExperimentConfig, optimizer: str, funcs_to_run: set[int], dims_to_run: set[int], statistics_basis: str) -&gt; None</code></pre>
 <p>Write run_config.json and phase0_protocol.json compatibility artifacts.</p>
 </section>
-<section class="api-member" id="function-task-progress-line-1106">
+<section class="api-member" id="function-task-progress-line-1113">
 <div class="member-kind">function</div>
 <h2>_task_progress_line</h2>
 <pre><code>_task_progress_line(optimizer: str, completed: int, total: int, task: RunTask, outcome: Any) -&gt; str</code></pre>
 <p>Return one compact completed-task progress line.</p>
 </section>
-<section class="api-member" id="function-emit-compatibility-outputs-1132">
+<section class="api-member" id="function-emit-compatibility-outputs-1139">
 <div class="member-kind">function</div>
 <h2>_emit_compatibility_outputs</h2>
 <pre><code>_emit_compatibility_outputs(config: ExperimentConfig, optimizer: str, dirs: dict[str, Path], artifacts: list[RunArtifact], project_root: Path, *, cell_wall_seconds: dict[tuple[int, int], float] | None = None, emit_config_lines: bool = True, emit_dimension_lines: bool = True) -&gt; None</code></pre>
 <p>Write and print reference-style summary artifacts.</p>
 </section>
-<section class="api-member" id="function-init-process-worker-1224">
+<section class="api-member" id="function-init-process-worker-1231">
 <div class="member-kind">function</div>
 <h2>_init_process_worker</h2>
 <pre><code>_init_process_worker(cfg: ExperimentConfig, numba_threads: int, expected_fp_sentinel: str | None = None) -&gt; None</code></pre>
@@ -484,13 +486,13 @@ second deterministic floating-point regime (NumPy fallback kernels; see
 the pool-rebuild logic retries and ultimately runs the cell on the
 parent&#x27;s already-verified serial backend instead of mixing regimes.</p>
 </section>
-<section class="api-member" id="function-process-run-task-1264">
+<section class="api-member" id="function-process-run-task-1271">
 <div class="member-kind">function</div>
 <h2>_process_run_task</h2>
 <pre><code>_process_run_task(task: RunTask) -&gt; RunArtifact</code></pre>
 <p>Top-level picklable worker: run one task using the per-process config.</p>
 </section>
-<section class="api-member" id="function-run-experiment-1279">
+<section class="api-member" id="function-run-experiment-1286">
 <div class="member-kind">function</div>
 <h2>run_experiment</h2>
 <pre><code>run_experiment(config: ExperimentConfig | dict[str, Any] | None = None, **kwargs: Any) -&gt; ExperimentRunSummary</code></pre>
@@ -536,23 +538,23 @@ parent&#x27;s already-verified serial backend instead of mixing regimes.</p>
 <a class="toc-level-2" href="#function-stats-by-function-640">_stats_by_function</a>
 <a class="toc-level-2" href="#function-config-lines-666">_config_lines</a>
 <a class="toc-level-2" href="#function-optimizer-options-line-709">_optimizer_options_line</a>
-<a class="toc-level-2" href="#function-dimension-summary-lines-728">_dimension_summary_lines</a>
-<a class="toc-level-2" href="#function-native-function-summary-lines-751">_native_function_summary_lines</a>
-<a class="toc-level-2" href="#function-dimension-summary-header-lines-771">_dimension_summary_header_lines</a>
-<a class="toc-level-2" href="#function-native-function-summary-header-lines-808">_native_function_summary_header_lines</a>
-<a class="toc-level-2" href="#function-dimension-summary-row-834">_dimension_summary_row</a>
-<a class="toc-level-2" href="#function-dimension-summary-footer-lines-848">_dimension_summary_footer_lines</a>
-<a class="toc-level-2" href="#function-comparison-lines-860">_comparison_lines</a>
-<a class="toc-level-2" href="#function-write-text-933">_write_text</a>
-<a class="toc-level-2" href="#function-write-skipped-runs-941">_write_skipped_runs</a>
-<a class="toc-level-2" href="#function-run-log-lines-952">_run_log_lines</a>
-<a class="toc-level-2" href="#function-native-run-log-lines-990">_native_run_log_lines</a>
-<a class="toc-level-2" href="#function-write-compatibility-json-1028">_write_compatibility_json</a>
-<a class="toc-level-2" href="#function-task-progress-line-1106">_task_progress_line</a>
-<a class="toc-level-2" href="#function-emit-compatibility-outputs-1132">_emit_compatibility_outputs</a>
-<a class="toc-level-2" href="#function-init-process-worker-1224">_init_process_worker</a>
-<a class="toc-level-2" href="#function-process-run-task-1264">_process_run_task</a>
-<a class="toc-level-2" href="#function-run-experiment-1279">run_experiment</a>
+<a class="toc-level-2" href="#function-dimension-summary-lines-735">_dimension_summary_lines</a>
+<a class="toc-level-2" href="#function-native-function-summary-lines-758">_native_function_summary_lines</a>
+<a class="toc-level-2" href="#function-dimension-summary-header-lines-778">_dimension_summary_header_lines</a>
+<a class="toc-level-2" href="#function-native-function-summary-header-lines-815">_native_function_summary_header_lines</a>
+<a class="toc-level-2" href="#function-dimension-summary-row-841">_dimension_summary_row</a>
+<a class="toc-level-2" href="#function-dimension-summary-footer-lines-855">_dimension_summary_footer_lines</a>
+<a class="toc-level-2" href="#function-comparison-lines-867">_comparison_lines</a>
+<a class="toc-level-2" href="#function-write-text-940">_write_text</a>
+<a class="toc-level-2" href="#function-write-skipped-runs-948">_write_skipped_runs</a>
+<a class="toc-level-2" href="#function-run-log-lines-959">_run_log_lines</a>
+<a class="toc-level-2" href="#function-native-run-log-lines-997">_native_run_log_lines</a>
+<a class="toc-level-2" href="#function-write-compatibility-json-1035">_write_compatibility_json</a>
+<a class="toc-level-2" href="#function-task-progress-line-1113">_task_progress_line</a>
+<a class="toc-level-2" href="#function-emit-compatibility-outputs-1139">_emit_compatibility_outputs</a>
+<a class="toc-level-2" href="#function-init-process-worker-1231">_init_process_worker</a>
+<a class="toc-level-2" href="#function-process-run-task-1271">_process_run_task</a>
+<a class="toc-level-2" href="#function-run-experiment-1286">run_experiment</a>
 </aside>
   </div>
   <script src="../assets/search.js"></script>

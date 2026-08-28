@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Licenses - GSK Family Python Documentation">
-  <title>Licenses | GSK Family Python Documentation</title>
+  <meta name="description" content="Round-one peer review — the public record - GSK Family Python Documentation">
+  <title>Round-one peer review — the public record | GSK Family Python Documentation</title>
   <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
@@ -35,7 +35,7 @@
 <a class="nav-link" href="reference_fp_regime.html">Floating-Point Regime Verification</a>
 <a class="nav-link" href="reference_diagrams.html">Flowcharts And Diagrams</a>
 <a class="nav-link" href="reference_glossary.html">Glossary</a>
-<a class="nav-link active" href="LICENSES.html">Licenses</a>
+<a class="nav-link" href="LICENSES.html">Licenses</a>
 <a class="nav-link" href="reference_module_dependencies.html">Module Dependencies</a>
 <a class="nav-link" href="reference_project_structure.html">Project Structure</a>
 <a class="nav-link" href="reference_python_optimizer_interface.html">Python Optimizer Interface</a>
@@ -74,7 +74,7 @@
 <a class="nav-link" href="development_PAPER_COMPLETION_PLAN.html">Paper Completion Plan — five-suite manuscript to `dtgsk-submission-v2.0`</a>
 <a class="nav-link" href="development_PORT_05_TUNING_TRIAGE.html">Porting project-05 tuning into 02 — Phase 1 audit and triage</a>
 <a class="nav-link" href="development_REFERENCE_PROMOTION_PLAN.html">Reference Promotion Plan — CEC2013LSGO now, CEC2020 behind its completeness gate</a>
-<a class="nav-link" href="development_round_one_review_record.html">Round-one peer review — the public record</a>
+<a class="nav-link active" href="development_round_one_review_record.html">Round-one peer review — the public record</a>
 <a class="nav-link" href="development_SIBLING_CAMPAIGN_TRANSFER.html">Sibling-Campaign Transfer — every tuning that can make the GSK family fast</a>
 </section>
 <section><h2>Research</h2>
@@ -160,67 +160,49 @@
 </nav></aside>
     <main class="content">
       <article class="doc-card">
-        <p>﻿# Licenses and Provenance</p>
-<p>This file records the license and provenance of the Python implementation of the GSK optimizer family. It is one of the two <code>license-files</code> targets declared in <code>pyproject.toml</code> (<code>license = &quot;MIT&quot;</code>, <code>license-files = [&quot;LICENSE&quot;, &quot;docs/LICENSES.md&quot;]</code>).</p>
-<blockquote>**License status: settled and final (author-confirmed 2026-07-14; copyright</blockquote>
-<blockquote>line confirmed 2026-08-01).** The code is licensed under the MIT License, an</blockquote>
-<blockquote>OSI-approved open-source licence; the authors&#x27; own derived data and analysis</blockquote>
-<blockquote>artifacts are licensed under CC BY 4.0.</blockquote>
-<blockquote>Third-party benchmark definitions remain under their upstream terms (below).</blockquote>
-<h2 id="project-license">Project license</h2>
+        <h1 id="round-one-peer-review-the-public-record">Round-one peer review — the public record</h1>
+<p>This is the <strong>public</strong> record of the round-one review of <code>algorithms-4507562</code> at *Algorithms* (MDPI): what was asked, what was done about it, and what the evidence showed — including where it went against the manuscript.</p>
+<p><strong>What is deliberately not here, and why.</strong> Both reviewers declined to sign. Their reports, the point-by-point response letter (which quotes them), and the editorial correspondence are withheld from this repository under <strong>D-0049</strong>; republishing an unsigned report is the journal&#x27;s act at acceptance, in the journal&#x27;s own form, not the authors&#x27; act mid-revision. Everything below is the project&#x27;s own paraphrase of what was *asked*. No reviewer sentence, no report-form detail, no report identifier and no attribution to any individual appears in this file, and none should be added.</p>
+<p>The one companion document that <strong>is</strong> public is the <a href="../../papers/review_2026_08_24/revision_experiments_preregistration.md">pre-registration</a> — kept public on purpose, because the claim that adverse-outcome wording was fixed *before* the outcomes existed is uncheckable without it.</p>
+<p>---</p>
+<h2 id="outcome">Outcome</h2>
+<p><strong>Major revision</strong>, two reviewers, submitted 1 August 2026. Ten points in total. The revision is complete: all ten are answered, four of them by experiment — <strong>32,451 runs</strong>, promoted as the non-superseding release <code>rev-rel-2026-08-26-dd42d37eb</code> and written up as Supplementary <strong>S9.1–S9.4</strong> / Tables <strong>A43–A46</strong>.</p>
+<h2 id="the-ten-points-and-what-happened">The ten points and what happened</h2>
+<div class="table-wrap"><table><thead><tr><th>#</th><th>The ask (paraphrased)</th><th>Answer</th><th>Cost</th></tr></thead><tbody><tr><td>R1.1</td><td>An abstract sentence reads ungrammatically</td><td>Rewritten</td><td>text</td></tr><tr><td>R1.2</td><td>&quot;Adaptive control&quot; misleads against its control-theory sense; retitle</td><td>Retitled across 20 files. A second suggestion was <strong>declined with a stated reason</strong> — tiering keys on dimension, resolved before the run, not on operator state</td><td>text</td></tr><tr><td>R1.3 / R2.2</td><td>NP = 5D against the comparators&#x27; NP = 100 confounds the result; control for it</td><td><strong>Experiment E2.</strong> Standing survives: first at D = 10, second at D = 30/50/100, top two everywhere. The difference is indistinguishable from zero at D = 10/30 and significant at D = 50/100, so those two rank claims are now qualified as resting in part on the population rule</td><td>5,916 runs</td></tr><tr><td>R1.4</td><td>The supplement reports a χ² omnibus where the main text uses Iman–Davenport</td><td>One convention throughout</td><td>0 runs</td></tr><tr><td>R2.1</td><td>No direct tiered-versus-uniform comparison</td><td><strong>Experiment E3.</strong> Tiering is demonstrated at D = 10 and D = 50 — <strong>and the result is mixed by design</strong>: the low-dimension parameter set *beats* the shipped one at D = 30, so the 20 ≤ D &lt; 50 tier is disclosed as mis-specified and contribution C2 is narrowed to where tiering was actually shown</td><td>11,832 runs</td></tr><tr><td>R2.3</td><td>Isolate the eigenframe: compare none / coordinate / eigenframe at one budget</td><td><strong>Experiment E1.</strong> The polish beats no refinement at both active dimensions — <strong>but the learned eigenbasis is beaten by plain coordinate axes at D = 50</strong> and not separated at D = 100. Contribution C1 is therefore claimed basis-neutrally</td><td>2,958 runs</td></tr><tr><td>R2.4</td><td>ISM shows no standalone benefit; strengthen it or reduce its claimed importance</td><td>Reduced. The revision <strong>strengthened the finding against it</strong>: E1 moved ISM from a null to active harm in its terminal exploitation channel. It is positioned as a specified negative result, never as a performance driver</td><td>text</td></tr><tr><td>R2.5</td><td>Do not read the best aggregate rank as overall superiority</td><td>The aggregate is labelled descriptive; non-separability is stated where the rank is claimed</td><td>text</td></tr><tr><td>R2.6</td><td>The panel is GSK-family only, so wider competitiveness is not established</td><td><strong>Second limb taken deliberately</strong>: no external algorithm enters any panel, table or claim, and every comparative claim is explicitly family-scoped. This required zero manuscript edits — the restriction already existed in six places</td><td>0 runs</td></tr><tr><td>R2.7</td><td>Thresholds and constants are fixed with no sensitivity analysis</td><td><strong>Experiment E4</strong>, exploratory by registration and reported descriptively with no hypothesis test. Ordinals hold in 26 of 27 cells; the single flip is favourable and lands on the tier E3 independently identifies as mis-specified</td><td>11,745 runs</td></tr></tbody></table></div>
+<h2 id="two-submitted-claims-were-falsified-and-both-were-accepted-into-the-paper">Two submitted claims were falsified, and both were accepted into the paper</h2>
+<p>This is the part worth keeping. The experiments were pre-registered, <strong>including the wording to be used for each unfavourable outcome</strong>, before any of them produced a result. Two came back against the manuscript and both were carried:</p>
 <ul>
-<li><strong>Code:</strong> MIT License. The full grant text and copyright line are in the</li>
-<p>root <code>LICENSE</code> file; <code>pyproject.toml</code> declares <code>license = &quot;MIT&quot;</code> and points <code>license-files</code> at both <code>LICENSE</code> and this document.</p>
-<li><strong>Copyright:</strong> Copyright (c) 2026 by the authors.</li>
-<li><strong>Data and derived artifacts (authored by us):</strong> the per-run result CSVs, seed</li>
-<p>schedules, analysis bundles, and verification manifests we produced are released under the Creative Commons Attribution 4.0 International (CC BY 4.0) License.</p>
-<li><strong>Benchmark definitions (third party):</strong> the CEC2017/CEC2011/CEC2013/</li>
-<p>CEC2020/CEC2013LSGO problem definitions are the property of their respective authors and are used under their original terms; we do not relicense them. The CC BY 4.0 grant above applies only to our own derived data, not to these upstream definitions.</p>
-<li>The manuscript Data Availability Statement is written to match this record.</li>
+<li><strong>The learned eigenbasis is harmful, not neutral.</strong> Plain coordinate axes beat it at D = 50.</li>
+<p>Describing the mechanism as computing an eigenbasis remains correct; presenting that eigenbasis as a *benefit* does not, so C1 is now claimed basis-neutrally as a deterministic final polish. The polish itself survives — it still beats no refinement at both active dimensions.</p>
+<li><strong>The 20 ≤ D &lt; 50 tier is mis-specified.</strong> The D = 10 parameter set outperforms the shipped one at</li>
+<p>D = 30, which finally explains a weakness the submitted manuscript had already disclosed descriptively. C2 is narrowed to D = 10 and D = 50.</p>
 </ul>
-<h2 id="third-party-dependencies">Third-party dependencies</h2>
-<p>The runtime depends on the packages below, each distributed under its own upstream license (consult each project for the authoritative text):</p>
-<div class="table-wrap"><table><thead><tr><th>Package</th><th>Usual license</th></tr></thead><tbody><tr><td>NumPy</td><td>BSD-3-Clause</td></tr><tr><td>SciPy</td><td>BSD-3-Clause</td></tr><tr><td>pandas</td><td>BSD-3-Clause</td></tr><tr><td>matplotlib</td><td>Matplotlib (BSD-style)</td></tr><tr><td>PyYAML</td><td>MIT</td></tr><tr><td>Numba</td><td>BSD-2-Clause</td></tr></tbody></table></div>
-<p>These are well-known permissive licenses; redistribution of this project must preserve their notices. Version ranges are pinned in <code>pyproject.toml</code> and <code>requirements.txt</code> (with the dev tooling in <code>requirements-dev.txt</code>). &quot;Usual license&quot; reflects the customary upstream license at the time of writing; maintainers should confirm the exact license shipped with the pinned version of each package before redistribution, because upstream projects can relicense.</p>
-<h2 id="benchmark-and-reference-evidence-provenance">Benchmark and reference evidence provenance</h2>
+<p>Neither is a defect awaiting repair. Any drift back toward the pre-revision story is treated as a critical integrity defect, and the audit instrument says so in terms.</p>
+<h2 id="editorial-obligations-attached-to-the-decision">Editorial obligations attached to the decision</h2>
+<p>The decision letter set a <strong>short revision window</strong> and a five-point check-list. Four of the five are discharged or inapplicable: references are relevant, the point-by-point response exists, no reviewer recommended a reference, and nothing was found impossible to address.</p>
+<p><strong>The fifth is discharged on the repository side (2026-08-27/28).</strong> The letter asks that revisions be *highlighted in the manuscript* so editors and reviewers can see the changes. The project now produces exactly that: a <strong>latexdiff marked-up manuscript</strong> (additions underlined, deletions struck through, in place) *and* a <strong>change register</strong> listing all 75 changed passages as-submitted against as-revised with the reviewer point each answers — both derived from the tagged diff, both rebuildable from <code>papers/scripts/</code>. One rendering limit is disclosed in the response rather than left to be discovered: latexdiff emits preamble changes as comments, so the retitle does not appear as visible markup and is named in the letter instead. Whether the editors accept this treatment is their call, but what is being sent is the thing the check-list asks for, not a substitute.</p>
+<p><strong>A claim recorded here earlier was wrong and is withdrawn.</strong> This paragraph used to say the manuscript already highlights a few author-flagged passages, so a blanket pass would collide with existing markup. <strong>It does not.</strong> Checked 2026-08-27 across <code>main.tex</code>, <code>supplementary.tex</code> and all six section files: no <code>\hl</code>, no <code>soul</code>, no <code>colorbox</code>, no highlighting macro of any kind. The only hits are the word &quot;highlighted&quot; in ordinary prose. There is no markup to collide with, so the obstacle that reasoning rested on does not exist.</p>
+<h2 id="where-the-rest-lives">Where the rest lives</h2>
 <ul>
-<li>The active benchmark runtime is the bundled Python benchmark suite under</li>
-<p><code>benchmarks/cec_suite_python/</code>. It is the default evaluator for all normal runs (benchmark backend <code>auto</code>).</p>
-<li>Imported reference summary tables under <code>benchmarks/cec_reference_results/</code></li>
-<p>are <strong>read-only</strong> validation evidence with their own provenance, organized as <code>&lt;suite&gt;/&lt;optimizer&gt;/</code>. The runner refuses to write generated output into this tree, and it must not be edited to make generated output pass validation.</p>
-<li>The <code>egsk</code> data under <code>benchmarks/cec_reference_results/&lt;suite&gt;/egsk/</code> is the</li>
-<p>committed comparator of record: it is one of the GSK-family comparators used by the statistical suite and the paper review pack, and the statistical panel reports <code>egsk</code> from these committed CSVs, which are the <strong>Python (<code>scipy</code>-SLSQP) port run</strong> (<code>src/gsk_family/optimizers/egsk.py</code>, a MATLAB port whose interior-point refinement uses <code>scipy</code>-SLSQP in place of <code>fmincon</code>), not a MATLAB <code>fmincon</code> reference. The panel reads these committed CSVs, not a fresh local run, so panel numbers are fixed and reproducible.</p>
-<li>Generated experiment output belongs under <code>results/</code> (default</li>
-<p><code>results/_run_all/&lt;optimizer&gt;/&lt;suite&gt;/</code>, or another user-selected output root) outside the reference evidence.</p>
-<li>The <strong>cited literature</strong> is indexed under <code>reference_papers/</code> (the table there</li>
-<p>is generated from <code>papers/references.bib</code>). Those source PDFs are third-party copyrighted works and are <strong>not committed</strong> to the repository; obtain each via its DOI and keep only copies your license permits redistributing.</p>
+<li><strong>Current state, always:</strong> <a href="../../REVISION_STATUS.md"><code>REVISION_STATUS.md</code></a> — §2 for the</li>
+<p>disposition table, §3 for what each phase applied.</p>
+<li><strong>Governance:</strong> <code>papers/governance/decision_log.md</code> (D-0046 onward) and the change-request</li>
+<p>register.</p>
+<li><strong>Evidence:</strong> release <code>rev-rel-2026-08-26-dd42d37eb</code>, with the analysis bundle self-manifested</li>
+<p>under <code>papers/analysis/</code>.</p>
+<li><strong>Audit instrument:</strong> <code>papers/PAPER_REVIEW_PROMPT.md</code> §1.5.3-J carries all ten points with the</li>
+<p>verification each now requires, so a future review run verifies rather than re-raises them.</p>
 </ul>
-<h2 id="reproduction-scope-no-over-claim">Reproduction scope (no over-claim)</h2>
-<p>The optimizer kernels are <strong>behavior-compatible</strong> with the originating research codebase at the algorithm and experiment-contract level. This project does <strong>not</strong> claim bit-exact replay across platforms, nor full statistical equivalence to published tables: reduced-budget runs are consistency checks only, and statistical-equivalence reporting is listed as outstanding work. See <a href="research_validation_report.html">Validation Report</a> and <a href="research_reproducibility.html">Reproducibility</a> for the exact evidence and its limits.</p>
-<h2 id="attribution">Attribution</h2>
-<p>Code author: <strong>Mostafa Masoud</strong> (<code>moustafa.masoud@gmail.com</code>).</p>
-<p>Citation metadata for this software package is in <code>CITATION.cff</code> at the repository root. Algorithm papers should be cited according to the optimizer used in an experiment:</p>
-<div class="table-wrap"><table><thead><tr><th>Optimizer ID</th><th>Reference</th></tr></thead><tbody><tr><td><code>gsk</code></td><td>Mohamed, A. W.; Hadi, A. A.; Mohamed, A. K. &quot;Gaining-sharing knowledge based algorithm for solving optimization problems: a novel nature-inspired algorithm.&quot; International Journal of Machine Learning and Cybernetics, 11, 1501-1529, 2020. DOI: <a href="https://doi.org/10.1007/s13042-019-01053-x">10.1007/s13042-019-01053-x</a>.</td></tr><tr><td><code>agsk</code></td><td>Mohamed, A. W.; Hadi, A. A.; Mohamed, A. K.; Awad, N. H. &quot;Evaluating the performance of adaptive gaining-sharing knowledge based algorithm on CEC 2020 benchmark problems.&quot; 2020 IEEE Congress on Evolutionary Computation (CEC), 1-8, 2020. DOI: <a href="https://doi.org/10.1109/CEC48606.2020.9185901">10.1109/CEC48606.2020.9185901</a>.</td></tr><tr><td><code>apgsk</code></td><td>Mohamed, A. W.; Abutarboush, H. F.; Hadi, A. A.; Mohamed, A. K. &quot;Gaining-sharing knowledge based algorithm with adaptive parameters for engineering optimization.&quot; IEEE Access, 9, 65934-65946, 2021. DOI: <a href="https://doi.org/10.1109/ACCESS.2021.3076091">10.1109/ACCESS.2021.3076091</a>.</td></tr><tr><td><code>fdb-agsk</code></td><td>Bakir, H.; Duman, S.; Guvenc, U.; Kahraman, H. T. &quot;Improved adaptive gaining-sharing knowledge algorithm with FDB-based guiding mechanism for optimization of optimal reactive power flow problem.&quot; Electrical Engineering, 105, 3121-3160, 2023. DOI: <a href="https://doi.org/10.1007/s00202-023-01803-9">10.1007/s00202-023-01803-9</a>.</td></tr><tr><td><code>atmals-gsk</code></td><td>Alfadli, N. M.; Oun, E. M.; Mohamed, A. W. &quot;Auto-Tuning Memory-Based Adaptive Local Search Gaining-Sharing Knowledge-Based Algorithm for Solving Optimization Problems.&quot; Algorithms, 18(7), 398, 2025. DOI: <a href="https://doi.org/10.3390/a18070398">10.3390/a18070398</a>.</td></tr><tr><td><code>egsk</code></td><td>Jawad, M. A.; Roshdy, H. S. M.; Mohamed, A. W. &quot;Enhanced Gaining-Sharing Knowledge-Based Algorithm.&quot; Results in Control and Optimization, 19, 100542, 2025. DOI: <a href="https://doi.org/10.1016/j.rico.2025.100542">10.1016/j.rico.2025.100542</a>.</td></tr><tr><td><code>dt-gsk</code></td><td>DT-GSK (Dimension-Tiered Gaining-Sharing Knowledge), this project&#x27;s proposed method. Forthcoming; until it is published, cite the software metadata in <code>CITATION.cff</code> at the repository root.</td></tr></tbody></table></div>
-<h2 id="before-publication-or-redistribution">Before publication or redistribution</h2>
-<ol>
-<li>~~Confirm the copyright line and year.~~ <strong>DONE 2026-08-01</strong> - confirmed by</li>
-<p>the author; the <strong>Project license</strong> section reads &quot;Copyright (c) 2026 by the authors.&quot; (the MIT grant text is in the root <code>LICENSE</code>).</p>
-<li>Confirm third-party license notices are preserved in the distribution.</li>
-<li>Reconcile the <strong>Attribution</strong> section with the originating research codebase</li>
-<p>and benchmark suite license/citation statements.</p>
-<li>Re-check the <strong>Reproduction scope</strong> wording against the latest</li>
-<p><a href="research_validation_report.html">Validation Report</a>.</p>
-</ol>
       </article>
     </main>
     <aside class="page-toc" aria-label="On this page">
 <h2>On This Page</h2>
-<a class="toc-level-2" href="#project-license">Project license</a>
-<a class="toc-level-2" href="#third-party-dependencies">Third-party dependencies</a>
-<a class="toc-level-2" href="#benchmark-and-reference-evidence-provenance">Benchmark and reference evidence provenance</a>
-<a class="toc-level-2" href="#reproduction-scope-no-over-claim">Reproduction scope (no over-claim)</a>
-<a class="toc-level-2" href="#attribution">Attribution</a>
-<a class="toc-level-2" href="#before-publication-or-redistribution">Before publication or redistribution</a>
+<a class="toc-level-1" href="#round-one-peer-review-the-public-record">Round-one peer review — the public record</a>
+<a class="toc-level-2" href="#outcome">Outcome</a>
+<a class="toc-level-2" href="#the-ten-points-and-what-happened">The ten points and what happened</a>
+<a class="toc-level-2" href="#two-submitted-claims-were-falsified-and-both-were-accepted-into-the-paper">Two submitted claims were falsified, and both were accepted into the paper</a>
+<a class="toc-level-2" href="#editorial-obligations-attached-to-the-decision">Editorial obligations attached to the decision</a>
+<a class="toc-level-2" href="#where-the-rest-lives">Where the rest lives</a>
 </aside>
   </div>
   <script src="assets/search.js"></script>

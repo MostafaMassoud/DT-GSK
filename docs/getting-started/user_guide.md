@@ -90,7 +90,7 @@ Six of the seven **runnable** optimizers (the seventh, `egsk`, is described belo
 | `apgsk` | Adaptive-parameters GSK | Adaptive `kf`/`kr` pools with probability-matching. |
 | `atmals-gsk` | GSK with adaptive memory and local search | Optional local-search refinement; reads a `protocol` option. |
 | `fdb-agsk` | AGSK with fitness-distance-balance donor selection | FDB donor selection on top of AGSK. |
-| `dt-gsk` | Dimension-Tiered Gaining-Sharing Knowledge | **This project's proposed method**; dimension-aware "pub" profile with adaptive control, nonlinear population reduction, an interaction-structure memory, and a default-on deep-stall full restart. On CEC2017 (51 runs, 29 scored functions, F2 excluded) it is the **#1 GSK-family algorithm** — #1 at D10/D50/D100 and #1 overall by both mean and median Friedman rank; at D30 it is led only by the strong `egsk` baseline (the runner-up overall). See [DT-GSK](../algorithms/dt-gsk.md). |
+| `dt-gsk` | Dimension-Tiered Gaining-Sharing Knowledge | **This project's proposed method**; dimension-aware "pub" profile with adaptive configuration selection, nonlinear population reduction, an interaction-structure memory, and a default-on deep-stall full restart. On CEC2017 (51 runs, 29 scored functions, F2 excluded) it attains the best **descriptive** family mean rank — first at D10/D50/D100, second at D30 behind the strong `egsk` baseline — with Holm-corrected separation from `egsk` only at D10, and the D50/D100 first places resting in part on the NP = 5D population rule. See [DT-GSK](../algorithms/dt-gsk.md). |
 
 A seventh family member, `egsk`, is now a runnable optimizer too
 (`gsk-run --optimizer egsk` works); it is a faithful MATLAB port whose only
