@@ -22,7 +22,9 @@ planned resubmission date, so there is ZERO slack.** An earlier **2026-09-03** w
 from the decision letter's ten-day window; the real date is two days tighter, so the margin these
 documents assumed does not exist. Nothing in the repository blocks it — everything agent-side is
 complete. The letter invites a request for more time, which is now the only source of margin there
-is. Detail: [REVISION_STATUS.md](REVISION_STATUS.md) §5 item 1.
+is. **The repo was set PRIVATE on 2026-08-28 (author, to finalize) and MUST be public again before
+the upload** — the DAS names its URL and tags, and reviewers will click. Detail:
+[REVISION_STATUS.md](REVISION_STATUS.md) §5 items 1 and 6.
 
 **Pass-48 is applied, minted, tagged and pushed.** `origin/main` carries it, **`v2.21` is live**,
 and `v2.13` through `v2.21` all resolve (verified) — the Data Availability Statement names `v2.21`,

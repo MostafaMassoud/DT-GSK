@@ -1370,6 +1370,12 @@ worktree blind spot.
    none survives.
 5. **SuSy portal (author-only)** — the new title and the revised keyword list must be re-entered in the
    revision form. Portal metadata does not update from the PDF.
+6. **Make the repository PUBLIC again before uploading (author-only, 2026-09-01).** The author set it
+   private on 2026-08-28 to finalize; verified private (API 404). The Data Availability Statement in
+   the revised manuscript names the repo URL and tags v2.13/v2.21, and the Supplementary's
+   pre-registration claim depends on public checkability — a reviewer clicking during round 2 must
+   not hit a 404. Flip visibility BEFORE the SuSy upload. Side effect while private: the two
+   GitHub-exposed commits are not publicly served; public serving resumes with visibility.
 
 *Resolved in Phase 3:* keyword drop (done, five places), ACE re-gloss (done, acronym kept),
 `related_work.tex:29` heading (done), `citation_usage_map.csv` 30-row rename (done).
