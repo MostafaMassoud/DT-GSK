@@ -1,8 +1,8 @@
 {
   "schema": "main_manuscript_freeze_manifest/v1",
-  "phase": "PASS-51: acceptance-readiness fixes. The tuned change-register acceptance review (docs/prompt/change-register-acceptance-review.md) was executed at maximal input over all 92 register passages plus rendered-text sweeps; five verified findings were fixed. The S6.5 discussion no longer asserts the eigenbasis-vs-coordinate question 'remains unidentified' in the same paragraph whose closing sentence says S9.1 answers it (basis-level attribution now pointed at S9.1); three revision-process references that wrapped across source lines and so survived the pass-50 de-process sweep are removed from performance, proposed-algorithm and conclusions (the GenAI/Acknowledgments 'preparation and revision' phrasings are the mandated MDPI disclosure and stay); and the environment attestation is re-minted after pass-49's statistics.py change, green at 618 tests twice, with the supplement's count corrected 613 -> 618. DAS names tag v2.24.",
-  "generated_utc": "2026-08-28T21:40:00+00:00",
-  "anchor_commit": "e8594c5951b0f54eedd8f17603b8c7e470169f88",
+  "phase": "PASS-52: seven-lens panel-review fixes. A fourteen-agent adversarial review of the response letter (quote fidelity, numbers, claims-vs-manuscript, internal consistency, language, layout, location lines; every finding adversarially verified) confirmed 28 findings; all were fixed. Letter-side (untracked): the R1.1 abstract quote synced to the shipped 'scalar parameters' wording, two E1 table cells moved to the canonical tie-rule values (6.8e-4, 4.0e-6), SA01/SA02 renamed to the typeset Tables A23-A24, Location lines corrected to Sections 3.2/4.9 and 3.3, the diversity archive named correctly, the reviewer's severity sentence restored, and the E5 'new runs' timing, 'no other reported number', run-level-cell gloss, Holm labels, and six-starred-rows count fixed with tone nits. Tracked: the cover letter's stale 84-passage register count (register is at 93) replaced with count-free wording in both twins, rebuilt deterministically; the DAS names tag v2.25.",
+  "generated_utc": "2026-08-29T09:30:00+00:00",
+  "anchor_commit": "b6a18d176447d8c735cb8678c535db2cc5f922e3",
   "pre_freeze_base_commit": "b9846e47024e48a0f8ce3e4f22bffbd794b2a355",
   "evidence_release": {
     "primary": "rel-2026-07-20-67d9345f9",
@@ -28,7 +28,7 @@
   "files": [
     {
       "path": "papers/main.tex",
-      "sha256": "8aa077c6526f1c53a9b103272313c4d0d6376ccce623e1634f6a75aee0cefb91",
+      "sha256": "722061c1f07d03c741855cb70333edfd9d1de40825837eb8cb1aef0d14fce904",
       "bytes": 26399
     },
     {
@@ -58,12 +58,12 @@
     },
     {
       "path": "papers/DT-GSK.pdf",
-      "sha256": "4c210ab8f25dcadddab23bf44c26db4d2ac84ae20d246e43fecd35092a45b4e2",
+      "sha256": "761f646ef94efd9128513e4361834813c9c6b6c635e67db554ea34da472878cc",
       "bytes": 825262
     },
     {
       "path": "papers/DT-GSK.docx",
-      "sha256": "d6ff9690eda0cfddf443fb576d1d03e7167422a2d15c8695f200ccaaee148d47",
+      "sha256": "0be87aafcefcbd32c85e8b7a03d9fbde4d767be81fa43d64a470cbbbe548baf8",
       "bytes": 1028068
     },
     {
@@ -78,8 +78,8 @@
     },
     {
       "path": "papers/cover_letter.pdf",
-      "sha256": "e574ff46cee760a992f9571e4470d18909db67b8f6b4a732de89bbcb923d82d7",
-      "bytes": 122311
+      "sha256": "2fcbd32c39b89761a2beaf386a9d3763951796cee08a5b0e01058bf12c6704e4",
+      "bytes": 122333
     },
     {
       "path": "papers/governance/claims_evidence_matrix.csv",
@@ -132,8 +132,8 @@
     },
     {
       "path": "papers/cover_letter.tex",
-      "sha256": "2c75bd7aa4822f0db640c8156f93fc1e0e9ecd8f17066ec3ab3fa3a7402d49ca",
-      "bytes": 6237
+      "sha256": "2230a46d2a18094db5dfa7eee9c4905da53ba896bd46846c30e4f48833ffa532",
+      "bytes": 6267
     }
   ],
   "source_files_note": "Canonical LaTeX sources whose RENDERS are tracked in files[] but which were not themselves hashed. The asymmetry has a failure mode and it fired in pass-42: cover_letter.tex was edited and the render was not rebuilt, so cover_letter.pdf still matched its recorded digest and the gate stayed green while the letter that ships to the editor still carried a retracted phrasing. Hashing the sources here makes that visible without changing files[], so the tracked-file count is unchanged and every recorded 15/15 remains true. main.tex is absent because it is already tracked in files[]."

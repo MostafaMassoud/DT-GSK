@@ -2579,3 +2579,49 @@ applying all surfaced fixes.
   lesson, followed this time).
 - **Anchor.** e8594c5 (apply); mint, close and tag v2.24 follow. NEXT free
   ids: CR-0032 and D-0057.
+
+## D-0057 (2026-08-29) - Pass-52: seven-lens panel review of the response letter; 28 confirmed findings fixed
+
+- **Decision.** A fourteen-agent adversarial review of the reviewer-facing
+  response letter ran seven independent lenses (quote fidelity, numerical
+  consistency, claims-vs-manuscript, internal consistency, language, layout,
+  location lines), each finder's output adversarially verified. 42 findings
+  raised; 28 CONFIRMED, 8 DOWNGRADED, 2 REFUTED, 4 verified misses added by
+  the verifiers. All confirmed findings fixed. Mint **pass-52**, tag
+  **v2.25**. Registered as **CR-0032**.
+- **The two findings that mattered most.** (1) The letter quoted the revised
+  abstract as 'adapt scalar control ... to a single operating point' - the
+  shipped abstract says 'scalar parameters' (renamed in a later pass; the
+  quote was never resynced), on the exact sentence R1.1 is about. (2) Two
+  E1-table cells carried the superseded exact-zero release values (6.1e-4,
+  3.0e-6) instead of the canonical tie-rule values Table A43 prints (6.8e-4,
+  4.0e-6) - directly under the letter's own claim that every table carries
+  the canonical values. Both corrected from the shipped artifacts.
+- **Also fixed in the letter (untracked, rebuilt):** SA01/SA02 renamed to the
+  typeset Tables A23-A24 (internal \\input filenames a reviewer cannot find);
+  R1.3's Location corrected to Sections 3.2/4.9 (the Conclusions carry no NP
+  qualification) and R2.1's to Section 3.3 for the C2-narrowing sentence;
+  'elite archive' corrected to the manuscript's 'diversity archive'; the
+  reviewer's dropped severity sentence ('Here is a more serious concern.')
+  restored; E5's 'before any of its runs executed' scoped to NEW runs (the
+  reused fifth cell predates Amendment A4); the load-bearing 'other' restored
+  in the build-residual sentence; the protocol-conformance design note no
+  longer attributed to the manuscript; the 26-divergent-cells unit glossed as
+  run-level; Holm labels completed on E5's insensitive contrasts; 'three
+  affected rows' corrected to six; three-companion-documents accounting
+  (the marked Supplement exists and ships); plus grammar/tone nits and
+  monospace hyphenation disabled (identifier integrity).
+- **Tracked changes (the freeze-voiding pair):** the cover letter's stale
+  'all 84 revised passages' (register is at 93; the count drifted twice)
+  replaced with count-free wording in both twins and rebuilt
+  deterministically x2; the DAS names tag v2.25; CFF 2.25 bumped before the
+  tag per the D-0055 lesson.
+- **Latent defect found and fixed while minting:** the package manifest's
+  recorded byte sizes had been stale since pass-51 - the size-update needle
+  in the pass-51 updater silently never matched, and no gate checks those
+  bytes. All five entries now carry disk-true sha256 AND bytes.
+- **Validation.** check_manifest 15/15 + sources 2/2 after mint; thirteen
+  ladder gates PASS x2; register unchanged at 93 passages; cover letter
+  byte-identical across two independent build pairs.
+- **Anchor.** b6a18d1 (apply); mint, close and tag v2.25 follow. NEXT free
+  ids: CR-0033 and D-0058.

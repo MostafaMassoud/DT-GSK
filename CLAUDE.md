@@ -54,7 +54,14 @@ rendered-text sweeps; five verified findings fixed — the S6.5 stale-open basis
 S9.1's answer (fourth member of the stale-claim family), three LINE-WRAPPED revision-process
 references the source-side sweep missed (sweep the RENDER for phrase policies, not the source),
 and the environment attestation re-minted at 618 tests after pass-49's statistics.py change.
-Register is now 93 passages. **D-0056 / CR-0031 are filed; next free are CR-0032 and D-0057** —
+Register is now 93 passages.
+**Pass-52 / v2.25 (2026-08-29, D-0057 / CR-0032) applied a fourteen-agent seven-lens panel review
+of the response letter:** 28 confirmed findings fixed — topmost, the letter's quote of the revised
+abstract said 'scalar control' where the shipped abstract says 'scalar parameters', and two E1
+cells carried superseded exact-zero p-values (now canonical 6.8e-4 / 4.0e-6); SA01/SA02 became
+the typeset Tables A23–A24; the cover letter's stale 84-passage count is now count-free wording
+(both twins). The package manifest's recorded byte sizes had been silently stale since pass-51
+(no gate checks them) — fixed. **D-0057 / CR-0032 are filed; next free are CR-0033 and D-0058** —
 verify free at apply time. The paragraphs
 below about passes 42–45 are kept because their *lessons* stand, not because they describe the
 current tag.
