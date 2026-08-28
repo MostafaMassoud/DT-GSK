@@ -1,0 +1,95 @@
+{
+  "release_id": "rev2-rel-2026-08-28-203c78744",
+  "strict_sources": [
+    "benchmarks/cec_reference_results/_revision/",
+    "benchmarks/cec_reference_results/cec2017/",
+    "benchmarks/cec_reference_results/_ablation/overlay/",
+    "benchmarks/cec_reference_results/_revision2/"
+  ],
+  "preregistration": "papers/review_2026_08_24/revision_experiments_preregistration.md",
+  "conventions": "paired Wilcoxon across per-function means; Holm alpha=0.05 (family per experiment, stated in-file); W/T/L tie tol 1e-8 (tool of record); A12 on raw paired runs; Friedman ranks descriptive",
+  "experiment": "E2",
+  "reviewer_point": "R1.3/R2.2",
+  "design": "DT-GSK at pop_size=100 vs its NP=5D leg; panel re-ranked with the six frozen comparator columns unchanged. Registered framing: an ablation of the declared population component, not a corrected baseline.",
+  "holm_family": "one family across the four dimensions",
+  "shared_cells": 5916,
+  "seed_mismatches": 0,
+  "dimensions": {
+    "D10": {
+      "rank_np5d": 2.8793103448275863,
+      "rank_np100": 2.7241379310344827,
+      "ordinal_np5d": 1,
+      "ordinal_np100": 1,
+      "paired_np5d_vs_np100": {
+        "raw_p": 0.2584382835292762,
+        "wtl_ref_vs_cmp": {
+          "W": 10,
+          "T": 4,
+          "L": 15
+        },
+        "a12_ref_vs_cmp": 0.4950572381152223,
+        "n_funcs": 29,
+        "n_effective": 25,
+        "holm_p": 0.5168765670585524,
+        "significant": false
+      }
+    },
+    "D30": {
+      "rank_np5d": 2.5,
+      "rank_np100": 2.706896551724138,
+      "ordinal_np5d": 2,
+      "ordinal_np100": 2,
+      "paired_np5d_vs_np100": {
+        "raw_p": 0.30656201992790877,
+        "wtl_ref_vs_cmp": {
+          "W": 16,
+          "T": 4,
+          "L": 9
+        },
+        "a12_ref_vs_cmp": 0.5038005596493803,
+        "n_funcs": 29,
+        "n_effective": 25,
+        "holm_p": 0.5168765670585524,
+        "significant": false
+      }
+    },
+    "D50": {
+      "rank_np5d": 2.206896551724138,
+      "rank_np100": 2.6206896551724137,
+      "ordinal_np5d": 1,
+      "ordinal_np100": 2,
+      "paired_np5d_vs_np100": {
+        "raw_p": 0.002137183217499894,
+        "wtl_ref_vs_cmp": {
+          "W": 23,
+          "T": 0,
+          "L": 6
+        },
+        "a12_ref_vs_cmp": 0.5265561448285919,
+        "n_funcs": 29,
+        "n_effective": 29,
+        "holm_p": 0.006411549652499682,
+        "significant": true
+      }
+    },
+    "D100": {
+      "rank_np5d": 2.3448275862068964,
+      "rank_np100": 3.0689655172413794,
+      "ordinal_np5d": 1,
+      "ordinal_np100": 2,
+      "paired_np5d_vs_np100": {
+        "raw_p": 0.0012737530479816073,
+        "wtl_ref_vs_cmp": {
+          "W": 23,
+          "T": 0,
+          "L": 6
+        },
+        "a12_ref_vs_cmp": 0.5658465759762206,
+        "n_funcs": 29,
+        "n_effective": 29,
+        "holm_p": 0.005095012191926429,
+        "significant": true
+      }
+    }
+  }
+}

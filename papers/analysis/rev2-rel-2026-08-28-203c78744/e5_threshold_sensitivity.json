@@ -1,0 +1,148 @@
+{
+  "release_id": "rev2-rel-2026-08-28-203c78744",
+  "strict_sources": [
+    "benchmarks/cec_reference_results/_revision/",
+    "benchmarks/cec_reference_results/cec2017/",
+    "benchmarks/cec_reference_results/_ablation/overlay/",
+    "benchmarks/cec_reference_results/_revision2/"
+  ],
+  "preregistration": "papers/review_2026_08_24/revision_experiments_preregistration.md",
+  "conventions": "paired Wilcoxon across per-function means; Holm alpha=0.05 (family per experiment, stated in-file); W/T/L tie tol 1e-8 (tool of record); A12 on raw paired runs; Friedman ranks descriptive",
+  "experiment": "E5",
+  "reviewer_point": "R2.7 (threshold half)",
+  "design": "dimension-boundary sensitivity: each cell shifts one tier boundary far enough to change the profile assigned to the nearest official CEC2017 dimension, executed as an E3-style single-dimension profile transplant. Registered rule: only boundary-level sensitivity is licensed -- a shift changes the complete resolved profile, so no cell attributes anything to an individual mechanism.",
+  "holm_family": "one family across the five boundary contrasts (m=5)",
+  "coverage_note": "T2/T3 tested one-sided (101 only): a lower-side perturbation collapses adjacent boundaries and no official dimension lies between 50 and 100.",
+  "cells": [
+    {
+      "arm": "e5_b20_lo_D10",
+      "boundary": "T0/T1",
+      "shift": "20->10: D10 joins the middle tier",
+      "dimension": 10,
+      "runs": 15,
+      "provenance": "rev2 release (new execution)",
+      "tiered_vs_transplant": {
+        "raw_p": 0.05608278945065981,
+        "wtl_ref_vs_cmp": {
+          "W": 20,
+          "T": 4,
+          "L": 5
+        },
+        "a12_ref_vs_cmp": 0.5242092746730084,
+        "n_funcs": 29,
+        "n_effective": 25,
+        "holm_p": 0.11216557890131962,
+        "significant": false
+      },
+      "rank_tiered": 2.8793,
+      "rank_transplant": 3.6034,
+      "ordinal_tiered": 1,
+      "ordinal_transplant": 4,
+      "rerank_note": "ordinal from per-function means with only the DT-GSK column substituted; transplant means use 15 runs vs the panel's 51 (E4 convention)"
+    },
+    {
+      "arm": "e3_uniform_low@D30",
+      "boundary": "T0/T1",
+      "shift": "20->31: D30 joins the low tier",
+      "dimension": 30,
+      "runs": 51,
+      "provenance": "REUSED: rev-rel-2026-08-26-dd42d37eb e3_uniform_low, identical by construction",
+      "tiered_vs_transplant": {
+        "raw_p": 0.0013737123406688534,
+        "wtl_ref_vs_cmp": {
+          "W": 6,
+          "T": 3,
+          "L": 20
+        },
+        "a12_ref_vs_cmp": 0.4899515004061824,
+        "n_funcs": 29,
+        "n_effective": 26,
+        "holm_p": 0.005494849362675414,
+        "significant": true
+      },
+      "rank_tiered": 2.5,
+      "rank_transplant": 2.069,
+      "ordinal_tiered": 2,
+      "ordinal_transplant": 1,
+      "rerank_note": "ordinal from per-function means with only the DT-GSK column substituted; transplant means use 51 runs vs the panel's 51 (E4 convention)"
+    },
+    {
+      "arm": "e5_b50_lo_D30",
+      "boundary": "T1/T2",
+      "shift": "50->30: D30 joins the structure tier",
+      "dimension": 30,
+      "runs": 15,
+      "provenance": "rev2 release (new execution)",
+      "tiered_vs_transplant": {
+        "raw_p": 0.0004321822359412142,
+        "wtl_ref_vs_cmp": {
+          "W": 5,
+          "T": 2,
+          "L": 22
+        },
+        "a12_ref_vs_cmp": 0.4784489364513146,
+        "n_funcs": 29,
+        "n_effective": 27,
+        "holm_p": 0.002160911179706071,
+        "significant": true
+      },
+      "rank_tiered": 2.5,
+      "rank_transplant": 2.2241,
+      "ordinal_tiered": 2,
+      "ordinal_transplant": 1,
+      "rerank_note": "ordinal from per-function means with only the DT-GSK column substituted; transplant means use 15 runs vs the panel's 51 (E4 convention)"
+    },
+    {
+      "arm": "e5_b50_hi_D50",
+      "boundary": "T1/T2",
+      "shift": "50->51: D50 drops to the middle tier",
+      "dimension": 50,
+      "runs": 15,
+      "provenance": "rev2 release (new execution)",
+      "tiered_vs_transplant": {
+        "raw_p": 0.4112579992106967,
+        "wtl_ref_vs_cmp": {
+          "W": 16,
+          "T": 0,
+          "L": 13
+        },
+        "a12_ref_vs_cmp": 0.5294411414982164,
+        "n_funcs": 29,
+        "n_effective": 29,
+        "holm_p": 0.4112579992106967,
+        "significant": false
+      },
+      "rank_tiered": 2.2069,
+      "rank_transplant": 2.3448,
+      "ordinal_tiered": 1,
+      "ordinal_transplant": 1,
+      "rerank_note": "ordinal from per-function means with only the DT-GSK column substituted; transplant means use 15 runs vs the panel's 51 (E4 convention)"
+    },
+    {
+      "arm": "e5_b100_hi_D100",
+      "boundary": "T2/T3",
+      "shift": "100->101: D100 drops to the T2 profile",
+      "dimension": 100,
+      "runs": 15,
+      "provenance": "rev2 release (new execution)",
+      "tiered_vs_transplant": {
+        "raw_p": 0.004938653375743396,
+        "wtl_ref_vs_cmp": {
+          "W": 7,
+          "T": 0,
+          "L": 22
+        },
+        "a12_ref_vs_cmp": 0.48327123794424626,
+        "n_funcs": 29,
+        "n_effective": 29,
+        "holm_p": 0.014815960127230188,
+        "significant": true
+      },
+      "rank_tiered": 2.3448,
+      "rank_transplant": 1.9655,
+      "ordinal_tiered": 1,
+      "ordinal_transplant": 1,
+      "rerank_note": "ordinal from per-function means with only the DT-GSK column substituted; transplant means use 15 runs vs the panel's 51 (E4 convention)"
+    }
+  ]
+}

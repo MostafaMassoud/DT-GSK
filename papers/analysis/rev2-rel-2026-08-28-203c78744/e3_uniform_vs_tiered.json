@@ -1,0 +1,149 @@
+{
+  "release_id": "rev2-rel-2026-08-28-203c78744",
+  "strict_sources": [
+    "benchmarks/cec_reference_results/_revision/",
+    "benchmarks/cec_reference_results/cec2017/",
+    "benchmarks/cec_reference_results/_ablation/overlay/",
+    "benchmarks/cec_reference_results/_revision2/"
+  ],
+  "preregistration": "papers/review_2026_08_24/revision_experiments_preregistration.md",
+  "conventions": "paired Wilcoxon across per-function means; Holm alpha=0.05 (family per experiment, stated in-file); W/T/L tie tol 1e-8 (tool of record); A12 on raw paired runs; Friedman ranks descriptive",
+  "experiment": "E3",
+  "reviewer_point": "R2.1",
+  "design": "configuration transplants: pub_overrides(10) and pub_overrides(100) applied unchanged at every dimension (tier-constant arms) vs the frozen tiered leg. Registered rule: no E3 difference may be attributed to any individual subsystem.",
+  "holm_family": "one family across the four dimensions, within each arm",
+  "arms": {
+    "U_low": {
+      "shared_cells": 5916,
+      "seed_mismatches": 0,
+      "dimensions": {
+        "D10": {
+          "tiered_vs_transplant": {
+            "raw_p": 1.0,
+            "wtl_ref_vs_cmp": {
+              "W": 0,
+              "T": 29,
+              "L": 0
+            },
+            "a12_ref_vs_cmp": 0.5000064001726218,
+            "n_funcs": 29,
+            "n_effective": 0,
+            "holm_p": 1.0,
+            "significant": false
+          }
+        },
+        "D30": {
+          "tiered_vs_transplant": {
+            "raw_p": 0.0013737123406688534,
+            "wtl_ref_vs_cmp": {
+              "W": 6,
+              "T": 3,
+              "L": 20
+            },
+            "a12_ref_vs_cmp": 0.4899515004061824,
+            "n_funcs": 29,
+            "n_effective": 26,
+            "holm_p": 0.005494849362675414,
+            "significant": true
+          }
+        },
+        "D50": {
+          "tiered_vs_transplant": {
+            "raw_p": 0.375320482989255,
+            "wtl_ref_vs_cmp": {
+              "W": 17,
+              "T": 0,
+              "L": 12
+            },
+            "a12_ref_vs_cmp": 0.5048437877867334,
+            "n_funcs": 29,
+            "n_effective": 29,
+            "holm_p": 1.0,
+            "significant": false
+          }
+        },
+        "D100": {
+          "tiered_vs_transplant": {
+            "raw_p": 0.9482776831410137,
+            "wtl_ref_vs_cmp": {
+              "W": 14,
+              "T": 0,
+              "L": 15
+            },
+            "a12_ref_vs_cmp": 0.5127182858874823,
+            "n_funcs": 29,
+            "n_effective": 29,
+            "holm_p": 1.0,
+            "significant": false
+          }
+        }
+      }
+    },
+    "U_high": {
+      "shared_cells": 5916,
+      "seed_mismatches": 0,
+      "dimensions": {
+        "D10": {
+          "tiered_vs_transplant": {
+            "raw_p": 0.001498415229608141,
+            "wtl_ref_vs_cmp": {
+              "W": 22,
+              "T": 4,
+              "L": 3
+            },
+            "a12_ref_vs_cmp": 0.5344217284031889,
+            "n_funcs": 29,
+            "n_effective": 25,
+            "holm_p": 0.005993660918432564,
+            "significant": true
+          }
+        },
+        "D30": {
+          "tiered_vs_transplant": {
+            "raw_p": 0.6223571070868653,
+            "wtl_ref_vs_cmp": {
+              "W": 13,
+              "T": 2,
+              "L": 14
+            },
+            "a12_ref_vs_cmp": 0.49741341595041877,
+            "n_funcs": 29,
+            "n_effective": 27,
+            "holm_p": 1.0,
+            "significant": false
+          }
+        },
+        "D50": {
+          "tiered_vs_transplant": {
+            "raw_p": 0.009465100323380882,
+            "wtl_ref_vs_cmp": {
+              "W": 19,
+              "T": 0,
+              "L": 10
+            },
+            "a12_ref_vs_cmp": 0.5244118584226958,
+            "n_funcs": 29,
+            "n_effective": 29,
+            "holm_p": 0.028395300970142645,
+            "significant": true
+          }
+        },
+        "D100": {
+          "tiered_vs_transplant": {
+            "raw_p": 0.5838823689192368,
+            "wtl_ref_vs_cmp": {
+              "W": 2,
+              "T": 25,
+              "L": 2
+            },
+            "a12_ref_vs_cmp": 0.4999860567667882,
+            "n_funcs": 29,
+            "n_effective": 4,
+            "holm_p": 1.0,
+            "significant": false
+          }
+        }
+      }
+    }
+  }
+}

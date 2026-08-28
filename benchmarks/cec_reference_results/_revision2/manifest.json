@@ -1,0 +1,192 @@
+{
+  "schema": "revision_evidence_manifest/v1",
+  "release_id": "rev2-rel-2026-08-28-203c78744",
+  "title": "DT-GSK second-round revision experiment E5: dimension-boundary sensitivity (four single-dimension profile-transplant cells)",
+  "generated_utc": "2026-08-28T17:36:13+00:00",
+  "git_head_at_promotion": "203c78744a436c2cb9f772ba2b17f2fb7d74886e",
+  "governance": "Pre-registered as Amendment A4 (2026-08-28) in papers/review_2026_08_24/revision_experiments_preregistration.md, before any E5 run executed; canonical near-zero analysis rule fixed by Amendments A5/A6.",
+  "supersedes_release": null,
+  "supersession_note": "Non-superseding and additive. Pairs read-only with the frozen primary release rel-2026-07-20-67d9345f9 (the tiered reference restricted to the same first 15 runs of the unified schedule) and with the round-one release rev-rel-2026-08-26-dd42d37eb, whose e3_uniform_low arm at D=30 IS the fifth registered E5 cell (boundary 20->31; 51 runs) and is deliberately not re-executed or re-copied here.",
+  "exclusions": "curves/ (regenerable from the recorded seeds) and per-session console logs (*_log_*.txt), following the round-one and cec2020/lsgo release precedent.",
+  "arms": [
+    "e5_b100_hi_D100",
+    "e5_b20_lo_D10",
+    "e5_b50_hi_D50",
+    "e5_b50_lo_D30"
+  ],
+  "reused_cell": {
+    "boundary": "20->31 at D=30",
+    "source": "_revision/e3_uniform_low (rev-rel-2026-08-26-dd42d37eb)"
+  },
+  "totals": {
+    "files": 33,
+    "bytes": 309199
+  },
+  "files": [
+    {
+      "path": "_configs/e5_b100_hi_D100.yml",
+      "sha256": "9dd6eba9aa8f074c01cb4e6e007ac061808bc0871c3d67cb903304c0c51ca123",
+      "bytes": 3198
+    },
+    {
+      "path": "_configs/e5_b20_lo_D10.yml",
+      "sha256": "31493c7c78871766fd8b6d79052af552968bd6b150c585555311e13264641264",
+      "bytes": 1898
+    },
+    {
+      "path": "_configs/e5_b50_hi_D50.yml",
+      "sha256": "b102f6d3e8493433b71ee0b5eca2d283416423e5d8901285210f970613dbbfad",
+      "bytes": 1898
+    },
+    {
+      "path": "_configs/e5_b50_lo_D30.yml",
+      "sha256": "df684b3f1138e24f79da1bd56007ebafc013123347eeb73310209b9645679160",
+      "bytes": 3195
+    },
+    {
+      "path": "_provenance/driver.log",
+      "sha256": "a743ab740d59bb769e37b20a5abaefe1a493f198c16a7bae8bef8177df835e0a",
+      "bytes": 16039
+    },
+    {
+      "path": "e5_b100_hi_D100/dt-gsk/cec2017/summary/dt-gsk_cec2017_D100.csv",
+      "sha256": "20c5280f4e93d099884f4449750ec06e227c76320f1e6a6638c7bda42ca7c9e9",
+      "bytes": 2609
+    },
+    {
+      "path": "e5_b100_hi_D100/dt-gsk/cec2017/summary/environment.json",
+      "sha256": "de6b09e648fa7f64a72b4642ed2c766456d250415866586aea2d3f5cd0c17f3b",
+      "bytes": 6731
+    },
+    {
+      "path": "e5_b100_hi_D100/dt-gsk/cec2017/summary/per_run.csv",
+      "sha256": "e79a747191a6e0ae3da58e7b8880c62e6da1b6534bf763e97a76b61bd0e83308",
+      "bytes": 44988
+    },
+    {
+      "path": "e5_b100_hi_D100/dt-gsk/cec2017/summary/phase0_protocol.json",
+      "sha256": "0991a5242b36834961dbe67ac0789d5df1e1533c6a48ae16107a259b77ba58cd",
+      "bytes": 4251
+    },
+    {
+      "path": "e5_b100_hi_D100/dt-gsk/cec2017/summary/run_config.json",
+      "sha256": "2d2b230f36bde437d0bb8c43f3f7428f090e4234a3822d8faab47b8cc922d2ac",
+      "bytes": 7371
+    },
+    {
+      "path": "e5_b100_hi_D100/dt-gsk/cec2017/summary/seed_schedule.csv",
+      "sha256": "931a37c7f2a1f251210864908b66aab1ca7ba1a401055243cde39aa021ca860a",
+      "bytes": 8777
+    },
+    {
+      "path": "e5_b100_hi_D100/dt-gsk/cec2017/summary/verification.json",
+      "sha256": "39f47f62ae142c6ff864c3c059e173d36bad6b9757b64b0daa1c79829bc3c9b9",
+      "bytes": 600
+    },
+    {
+      "path": "e5_b20_lo_D10/dt-gsk/cec2017/summary/dt-gsk_cec2017_D10.csv",
+      "sha256": "29cfd48cac02da030a22143ebbe6d1377851f7e167feacfa8221109f6f6a99ce",
+      "bytes": 2609
+    },
+    {
+      "path": "e5_b20_lo_D10/dt-gsk/cec2017/summary/environment.json",
+      "sha256": "007aaadb6392c7cdf0016fec54db0ddcf8d02e122d1f1344c0bc047173fc613a",
+      "bytes": 5255
+    },
+    {
+      "path": "e5_b20_lo_D10/dt-gsk/cec2017/summary/per_run.csv",
+      "sha256": "165fa3df2733a2be78b31f81f9b6687b6cec0af515b84cff880aca51a1d7d098",
+      "bytes": 43349
+    },
+    {
+      "path": "e5_b20_lo_D10/dt-gsk/cec2017/summary/phase0_protocol.json",
+      "sha256": "d7446c9972f7e1f8646c9cb3610a369e0c88deca8433489fb6c6012a801a81a0",
+      "bytes": 2773
+    },
+    {
+      "path": "e5_b20_lo_D10/dt-gsk/cec2017/summary/run_config.json",
+      "sha256": "52cbe64d791712bf477f95ef33edc2cbb0f94f0df75c89f7e11662e535133ee6",
+      "bytes": 4488
+    },
+    {
+      "path": "e5_b20_lo_D10/dt-gsk/cec2017/summary/seed_schedule.csv",
+      "sha256": "31dbec27f969146f2e5bd37cc919ad613a60acdb116e45570d1c38149d937fa6",
+      "bytes": 7907
+    },
+    {
+      "path": "e5_b20_lo_D10/dt-gsk/cec2017/summary/verification.json",
+      "sha256": "1782f8e2aee9afaa8bf4841b3a0e1fa53cfcd7a58571757bd70b5c7e9699abca",
+      "bytes": 598
+    },
+    {
+      "path": "e5_b50_hi_D50/dt-gsk/cec2017/summary/dt-gsk_cec2017_D50.csv",
+      "sha256": "8636480ff926035b4dc1d54247f07ff62b50624f73e26fb69c104fbf40c99468",
+      "bytes": 2609
+    },
+    {
+      "path": "e5_b50_hi_D50/dt-gsk/cec2017/summary/environment.json",
+      "sha256": "144ba38441dda6b849ff44a3a197ac52ce40fbb959b839a0ae46fbc648053f0d",
+      "bytes": 5250
+    },
+    {
+      "path": "e5_b50_hi_D50/dt-gsk/cec2017/summary/per_run.csv",
+      "sha256": "d61914e1039737205a4622a0cd63ff637171a53164a950c64df9f576374f6b67",
+      "bytes": 43786
+    },
+    {
+      "path": "e5_b50_hi_D50/dt-gsk/cec2017/summary/phase0_protocol.json",
+      "sha256": "ce8ac79b2bcc826f557a8dcb1913a1c7fc7a1c5185b1930ab61748c7f60e2e77",
+      "bytes": 2773
+    },
+    {
+      "path": "e5_b50_hi_D50/dt-gsk/cec2017/summary/run_config.json",
+      "sha256": "09152d071df01bc52367b7dcf106d501127533f93afff9a393843e17fe225f49",
+      "bytes": 4488
+    },
+    {
+      "path": "e5_b50_hi_D50/dt-gsk/cec2017/summary/seed_schedule.csv",
+      "sha256": "93a69c2282976d978349b2c195983eca0f4b437b37ee40e43dfae4088f43e56b",
+      "bytes": 8042
+    },
+    {
+      "path": "e5_b50_hi_D50/dt-gsk/cec2017/summary/verification.json",
+      "sha256": "3c5cfc9ee2628fc3de33a4c0c58fd55e8238e8fa29ac99b9376a54bb702d2233",
+      "bytes": 599
+    },
+    {
+      "path": "e5_b50_lo_D30/dt-gsk/cec2017/summary/dt-gsk_cec2017_D30.csv",
+      "sha256": "43848928c9699a5d252edac89a7377dfec2a9ee466395a039bd1af10e270b3ae",
+      "bytes": 2609
+    },
+    {
+      "path": "e5_b50_lo_D30/dt-gsk/cec2017/summary/environment.json",
+      "sha256": "c4d92e6052d0b5e45fa9b2dbc8b98e3829441087e0c87b5a5c7e68b36c467aa2",
+      "bytes": 6733
+    },
+    {
+      "path": "e5_b50_lo_D30/dt-gsk/cec2017/summary/per_run.csv",
+      "sha256": "7b3f69e6f861412feeb48dfbd8a08e641988ee5ac32886cdc47992380c4aec3c",
+      "bytes": 43651
+    },
+    {
+      "path": "e5_b50_lo_D30/dt-gsk/cec2017/summary/phase0_protocol.json",
+      "sha256": "d415c0f2bbd7d706dfeafa5e26a15bd8748bf0b54c3c676363161ee6b444c939",
+      "bytes": 4250
+    },
+    {
+      "path": "e5_b50_lo_D30/dt-gsk/cec2017/summary/run_config.json",
+      "sha256": "94503c72caa586bcce77b112c1d47fa1701480a5b9729f38dc2aa5657bb517f7",
+      "bytes": 7370
+    },
+    {
+      "path": "e5_b50_lo_D30/dt-gsk/cec2017/summary/seed_schedule.csv",
+      "sha256": "d299b648bd76d44314c2caff2c91b8803b64f98e90260bb168e2a69aeecf4936",
+      "bytes": 7907
+    },
+    {
+      "path": "e5_b50_lo_D30/dt-gsk/cec2017/summary/verification.json",
+      "sha256": "0ffd2bff99509fa5f2200c2dad63bb4fa068dfe1051ca3a9771fa1a0858b3b16",
+      "bytes": 598
+    }
+  ]
+}

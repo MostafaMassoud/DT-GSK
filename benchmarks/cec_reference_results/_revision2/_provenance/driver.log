@@ -1,0 +1,167 @@
+[2026-08-25 22:32:39] ========================================================================================
+[2026-08-25 22:32:39] revision experiments: 31 legs, 32,451 runs, 15 workers
+[2026-08-25 22:32:39] resumable -- re-run this exact command after any interruption
+[2026-08-25 22:32:39] ========================================================================================
+[2026-08-25 22:32:39] [1/31] E1 (R2.3) -- coordinate-basis final polish at the shipped configuration
+[2026-08-25 22:32:39]     0/2,958 runs present; resuming
+[2026-08-25 22:32:39]     $ run_e1_basis_contrast.py --workers 15
+[2026-08-26 01:04:51]     done in 152.2 min (2,958/2,958)
+[2026-08-26 01:04:51] [2/31] E2 (R1.3/R2.2) -- DT-GSK at NP = 100 (comparator value); NLPSR floor left at tier value
+[2026-08-26 01:04:51]     0/5,916 runs present; resuming
+[2026-08-26 01:04:51]     $ --config D:\AI\Research-Lab\DT-GSK\results\_revision\_configs\e2_np100_cec2017.yml --root D:\AI\Research-Lab\DT-GSK --workers 15
+[2026-08-26 05:41:42]     done in 276.8 min (5,916/5,916)
+[2026-08-26 05:41:42] [3/31] E3-low (R2.1) -- tier-constant arm: the D=10 parameter set applied at every D
+[2026-08-26 05:41:42]     0/5,916 runs present; resuming
+[2026-08-26 05:41:42]     $ --config D:\AI\Research-Lab\DT-GSK\results\_revision\_configs\e3_uniform_low_cec2017.yml --root D:\AI\Research-Lab\DT-GSK --workers 15
+[2026-08-26 08:54:48]     done in 193.1 min (5,916/5,916)
+[2026-08-26 08:54:48] [4/31] E3-high (R2.1) -- tier-constant arm: the D=100 parameter set applied at every D
+[2026-08-26 08:54:48]     0/5,916 runs present; resuming
+[2026-08-26 08:54:48]     $ --config D:\AI\Research-Lab\DT-GSK\results\_revision\_configs\e3_uniform_high_cec2017.yml --root D:\AI\Research-Lab\DT-GSK --workers 15
+[2026-08-26 11:43:06]     done in 168.3 min (5,916/5,916)
+[2026-08-26 11:43:06] [5/31] E4:ace_learning_rate:lo:D30 (R2.7) -- ace_learning_rate 0.1 -> 0.08 at D=30
+[2026-08-26 11:43:06]     0/435 runs present; resuming
+[2026-08-26 11:43:06]     $ --config D:\AI\Research-Lab\DT-GSK\results\_revision\_configs\e4_ace_learning_rate_lo_D30.yml --root D:\AI\Research-Lab\DT-GSK --workers 15
+[2026-08-26 11:53:26]     done in 10.3 min (435/435)
+[2026-08-26 11:53:26] [6/31] E4:ace_learning_rate:hi:D30 (R2.7) -- ace_learning_rate 0.1 -> 0.12 at D=30
+[2026-08-26 11:53:26]     0/435 runs present; resuming
+[2026-08-26 11:53:26]     $ --config D:\AI\Research-Lab\DT-GSK\results\_revision\_configs\e4_ace_learning_rate_hi_D30.yml --root D:\AI\Research-Lab\DT-GSK --workers 15
+[2026-08-26 12:03:54]     done in 10.5 min (435/435)
+[2026-08-26 12:03:54] [7/31] E4:ace_learning_rate:lo:D100 (R2.7) -- ace_learning_rate 0.1 -> 0.08 at D=100
+[2026-08-26 12:03:54]     0/435 runs present; resuming
+[2026-08-26 12:03:54]     $ --config D:\AI\Research-Lab\DT-GSK\results\_revision\_configs\e4_ace_learning_rate_lo_D100.yml --root D:\AI\Research-Lab\DT-GSK --workers 15
+[2026-08-26 12:33:01]     done in 29.1 min (435/435)
+[2026-08-26 12:33:01] [8/31] E4:ace_learning_rate:hi:D100 (R2.7) -- ace_learning_rate 0.1 -> 0.12 at D=100
+[2026-08-26 12:33:01]     0/435 runs present; resuming
+[2026-08-26 12:33:01]     $ --config D:\AI\Research-Lab\DT-GSK\results\_revision\_configs\e4_ace_learning_rate_hi_D100.yml --root D:\AI\Research-Lab\DT-GSK --workers 15
+[2026-08-26 13:02:02]     done in 29.0 min (435/435)
+[2026-08-26 13:02:02] [9/31] E4:argp_threshold:lo:D30 (R2.7) -- argp_threshold 0.02 -> 0.016 at D=30
+[2026-08-26 13:02:02]     0/435 runs present; resuming
+[2026-08-26 13:02:02]     $ --config D:\AI\Research-Lab\DT-GSK\results\_revision\_configs\e4_argp_threshold_lo_D30.yml --root D:\AI\Research-Lab\DT-GSK --workers 15
+[2026-08-26 13:12:21]     done in 10.3 min (435/435)
+[2026-08-26 13:12:21] [10/31] E4:argp_threshold:hi:D30 (R2.7) -- argp_threshold 0.02 -> 0.024 at D=30
+[2026-08-26 13:12:21]     0/435 runs present; resuming
+[2026-08-26 13:12:21]     $ --config D:\AI\Research-Lab\DT-GSK\results\_revision\_configs\e4_argp_threshold_hi_D30.yml --root D:\AI\Research-Lab\DT-GSK --workers 15
+[2026-08-26 13:22:45]     done in 10.4 min (435/435)
+[2026-08-26 13:22:45] [11/31] E4:argp_threshold:lo:D100 (R2.7) -- argp_threshold 0.01 -> 0.016 at D=100
+[2026-08-26 13:22:45]     0/435 runs present; resuming
+[2026-08-26 13:22:45]     $ --config D:\AI\Research-Lab\DT-GSK\results\_revision\_configs\e4_argp_threshold_lo_D100.yml --root D:\AI\Research-Lab\DT-GSK --workers 15
+[2026-08-26 13:51:46]     done in 29.0 min (435/435)
+[2026-08-26 13:51:46] [12/31] E4:argp_threshold:hi:D100 (R2.7) -- argp_threshold 0.01 -> 0.024 at D=100
+[2026-08-26 13:51:46]     0/435 runs present; resuming
+[2026-08-26 13:51:46]     $ --config D:\AI\Research-Lab\DT-GSK\results\_revision\_configs\e4_argp_threshold_hi_D100.yml --root D:\AI\Research-Lab\DT-GSK --workers 15
+[2026-08-26 14:22:06]     done in 30.3 min (435/435)
+[2026-08-26 14:22:06] [13/31] E4:bse_restart_frac:lo:D30 (R2.7) -- bse_restart_frac 0.3 -> 0.24 at D=30
+[2026-08-26 14:22:06]     0/435 runs present; resuming
+[2026-08-26 14:22:06]     $ --config D:\AI\Research-Lab\DT-GSK\results\_revision\_configs\e4_bse_restart_frac_lo_D30.yml --root D:\AI\Research-Lab\DT-GSK --workers 15
+[2026-08-26 14:32:37]     done in 10.5 min (435/435)
+[2026-08-26 14:32:37] [14/31] E4:bse_restart_frac:hi:D30 (R2.7) -- bse_restart_frac 0.3 -> 0.36 at D=30
+[2026-08-26 14:32:37]     0/435 runs present; resuming
+[2026-08-26 14:32:37]     $ --config D:\AI\Research-Lab\DT-GSK\results\_revision\_configs\e4_bse_restart_frac_hi_D30.yml --root D:\AI\Research-Lab\DT-GSK --workers 15
+[2026-08-26 14:42:55]     done in 10.3 min (435/435)
+[2026-08-26 14:42:55] [15/31] E4:bse_restart_frac:lo:D100 (R2.7) -- bse_restart_frac 0.1 -> 0.24 at D=100
+[2026-08-26 14:42:55]     0/435 runs present; resuming
+[2026-08-26 14:42:55]     $ --config D:\AI\Research-Lab\DT-GSK\results\_revision\_configs\e4_bse_restart_frac_lo_D100.yml --root D:\AI\Research-Lab\DT-GSK --workers 15
+[2026-08-26 15:11:50]     done in 28.9 min (435/435)
+[2026-08-26 15:11:50] [16/31] E4:bse_restart_frac:hi:D100 (R2.7) -- bse_restart_frac 0.1 -> 0.36 at D=100
+[2026-08-26 15:11:50]     0/435 runs present; resuming
+[2026-08-26 15:11:50]     $ --config D:\AI\Research-Lab\DT-GSK\results\_revision\_configs\e4_bse_restart_frac_hi_D100.yml --root D:\AI\Research-Lab\DT-GSK --workers 15
+[2026-08-26 15:40:52]     done in 29.0 min (435/435)
+[2026-08-26 15:40:52] [17/31] E4:n_min:lo:D30 (R2.7) -- n_min 12 -> 11 at D=30
+[2026-08-26 15:40:52]     0/435 runs present; resuming
+[2026-08-26 15:40:52]     $ --config D:\AI\Research-Lab\DT-GSK\results\_revision\_configs\e4_n_min_lo_D30.yml --root D:\AI\Research-Lab\DT-GSK --workers 15
+[2026-08-26 15:51:34]     done in 10.7 min (435/435)
+[2026-08-26 15:51:34] [18/31] E4:n_min:hi:D30 (R2.7) -- n_min 12 -> 13 at D=30
+[2026-08-26 15:51:34]     0/435 runs present; resuming
+[2026-08-26 15:51:34]     $ --config D:\AI\Research-Lab\DT-GSK\results\_revision\_configs\e4_n_min_hi_D30.yml --root D:\AI\Research-Lab\DT-GSK --workers 15
+[2026-08-26 16:01:35]     done in 10.0 min (435/435)
+[2026-08-26 16:01:35] [19/31] E4:n_min:lo:D100 (R2.7) -- n_min 25 -> 24 at D=100
+[2026-08-26 16:01:35]     0/435 runs present; resuming
+[2026-08-26 16:01:35]     $ --config D:\AI\Research-Lab\DT-GSK\results\_revision\_configs\e4_n_min_lo_D100.yml --root D:\AI\Research-Lab\DT-GSK --workers 15
+[2026-08-26 16:30:50]     done in 29.2 min (435/435)
+[2026-08-26 16:30:50] [20/31] E4:n_min:hi:D100 (R2.7) -- n_min 25 -> 26 at D=100
+[2026-08-26 16:30:50]     0/435 runs present; resuming
+[2026-08-26 16:30:50]     $ --config D:\AI\Research-Lab\DT-GSK\results\_revision\_configs\e4_n_min_hi_D100.yml --root D:\AI\Research-Lab\DT-GSK --workers 15
+[2026-08-26 16:59:03]     done in 28.2 min (435/435)
+[2026-08-26 16:59:03] [21/31] E4:local_search_eval_budget_frac:lo:D30 (R2.7) -- local_search_eval_budget_frac 0.01 -> 0.008 at D=30
+[2026-08-26 16:59:03]     0/435 runs present; resuming
+[2026-08-26 16:59:03]     $ --config D:\AI\Research-Lab\DT-GSK\results\_revision\_configs\e4_local_search_eval_budget_frac_lo_D30.yml --root D:\AI\Research-Lab\DT-GSK --workers 15
+[2026-08-26 17:09:42]     done in 10.6 min (435/435)
+[2026-08-26 17:09:42] [22/31] E4:local_search_eval_budget_frac:hi:D30 (R2.7) -- local_search_eval_budget_frac 0.01 -> 0.012 at D=30
+[2026-08-26 17:09:42]     0/435 runs present; resuming
+[2026-08-26 17:09:42]     $ --config D:\AI\Research-Lab\DT-GSK\results\_revision\_configs\e4_local_search_eval_budget_frac_hi_D30.yml --root D:\AI\Research-Lab\DT-GSK --workers 15
+[2026-08-26 17:20:10]     done in 10.5 min (435/435)
+[2026-08-26 17:20:10] [23/31] E4:local_search_eval_budget_frac:lo:D100 (R2.7) -- local_search_eval_budget_frac 0.02 -> 0.008 at D=100
+[2026-08-26 17:20:10]     0/435 runs present; resuming
+[2026-08-26 17:20:10]     $ --config D:\AI\Research-Lab\DT-GSK\results\_revision\_configs\e4_local_search_eval_budget_frac_lo_D100.yml --root D:\AI\Research-Lab\DT-GSK --workers 15
+[2026-08-26 17:49:08]     done in 29.0 min (435/435)
+[2026-08-26 17:49:08] [24/31] E4:local_search_eval_budget_frac:hi:D100 (R2.7) -- local_search_eval_budget_frac 0.02 -> 0.012 at D=100
+[2026-08-26 17:49:08]     0/435 runs present; resuming
+[2026-08-26 17:49:08]     $ --config D:\AI\Research-Lab\DT-GSK\results\_revision\_configs\e4_local_search_eval_budget_frac_hi_D100.yml --root D:\AI\Research-Lab\DT-GSK --workers 15
+[2026-08-26 18:18:18]     done in 29.2 min (435/435)
+[2026-08-26 18:18:18] [25/31] E4:local_search_elite_count:lo:D30 (R2.7) -- local_search_elite_count 3 -> 2 at D=30
+[2026-08-26 18:18:18]     0/435 runs present; resuming
+[2026-08-26 18:18:18]     $ --config D:\AI\Research-Lab\DT-GSK\results\_revision\_configs\e4_local_search_elite_count_lo_D30.yml --root D:\AI\Research-Lab\DT-GSK --workers 15
+[2026-08-26 18:28:46]     done in 10.5 min (435/435)
+[2026-08-26 18:28:46] [26/31] E4:local_search_elite_count:hi:D30 (R2.7) -- local_search_elite_count 3 -> 4 at D=30
+[2026-08-26 18:28:46]     0/435 runs present; resuming
+[2026-08-26 18:28:46]     $ --config D:\AI\Research-Lab\DT-GSK\results\_revision\_configs\e4_local_search_elite_count_hi_D30.yml --root D:\AI\Research-Lab\DT-GSK --workers 15
+[2026-08-26 18:39:00]     done in 10.2 min (435/435)
+[2026-08-26 18:39:00] [27/31] E4:local_search_elite_count:lo:D100 (R2.7) -- local_search_elite_count 2 -> 1 at D=100
+[2026-08-26 18:39:00]     0/435 runs present; resuming
+[2026-08-26 18:39:00]     $ --config D:\AI\Research-Lab\DT-GSK\results\_revision\_configs\e4_local_search_elite_count_lo_D100.yml --root D:\AI\Research-Lab\DT-GSK --workers 15
+[2026-08-26 19:07:26]     done in 28.4 min (435/435)
+[2026-08-26 19:07:26] [28/31] E4:local_search_elite_count:hi:D100 (R2.7) -- local_search_elite_count 2 -> 3 at D=100
+[2026-08-26 19:07:26]     0/435 runs present; resuming
+[2026-08-26 19:07:26]     $ --config D:\AI\Research-Lab\DT-GSK\results\_revision\_configs\e4_local_search_elite_count_hi_D100.yml --root D:\AI\Research-Lab\DT-GSK --workers 15
+[2026-08-26 19:36:32]     done in 29.1 min (435/435)
+[2026-08-26 19:36:32] [29/31] E4:interaction_update_period:hi:D30 (R2.7) -- interaction_update_period 1 -> 2 at D=30
+[2026-08-26 19:36:32]     0/435 runs present; resuming
+[2026-08-26 19:36:32]     $ --config D:\AI\Research-Lab\DT-GSK\results\_revision\_configs\e4_interaction_update_period_hi_D30.yml --root D:\AI\Research-Lab\DT-GSK --workers 15
+[2026-08-26 19:47:16]     done in 10.7 min (435/435)
+[2026-08-26 19:47:16] [30/31] E4:interaction_update_period:lo:D100 (R2.7) -- interaction_update_period 10 -> 9 at D=100
+[2026-08-26 19:47:16]     0/435 runs present; resuming
+[2026-08-26 19:47:16]     $ --config D:\AI\Research-Lab\DT-GSK\results\_revision\_configs\e4_interaction_update_period_lo_D100.yml --root D:\AI\Research-Lab\DT-GSK --workers 15
+[2026-08-26 20:15:49]     done in 28.5 min (435/435)
+[2026-08-26 20:15:49] [31/31] E4:interaction_update_period:hi:D100 (R2.7) -- interaction_update_period 10 -> 11 at D=100
+[2026-08-26 20:15:49]     0/435 runs present; resuming
+[2026-08-26 20:15:49]     $ --config D:\AI\Research-Lab\DT-GSK\results\_revision\_configs\e4_interaction_update_period_hi_D100.yml --root D:\AI\Research-Lab\DT-GSK --workers 15
+[2026-08-26 20:44:08]     done in 28.3 min (435/435)
+[2026-08-26 20:44:08] ========================================================================================
+[2026-08-26 20:44:08] finished in 22.19 h
+[2026-08-26 20:44:08] all legs complete.
+[2026-08-26 20:44:08] results staged under results/_revision/ -- promotion is a separate step.
+[2026-08-26 20:44:08] ========================================================================================
+[2026-08-28 18:43:55] ========================================================================================
+[2026-08-28 18:43:55] revision experiments: 4 legs, 1,740 runs, 15 workers
+[2026-08-28 18:43:55] resumable -- re-run this exact command after any interruption
+[2026-08-28 18:43:55] ========================================================================================
+[2026-08-28 18:43:55] [1/4] E5:b20_lo_D10 (R2.7) -- boundary 20->10: D10 joins the middle tier (pub_overrides(30) at D=10)
+[2026-08-28 18:43:55]     0/435 runs present; resuming
+[2026-08-28 18:43:55]     $ --config D:\AI\Research-Lab\DT-GSK\results\_revision\_configs\e5_b20_lo_D10.yml --root D:\AI\Research-Lab\DT-GSK --workers 15
+[2026-08-28 18:48:35]     done in 4.7 min (435/435)
+[2026-08-28 18:48:35] [2/4] E5:b50_lo_D30 (R2.7) -- boundary 50->30: D30 joins the structure tier (pub_overrides(50) at D=30)
+[2026-08-28 18:48:35]     0/435 runs present; resuming
+[2026-08-28 18:48:35]     $ --config D:\AI\Research-Lab\DT-GSK\results\_revision\_configs\e5_b50_lo_D30.yml --root D:\AI\Research-Lab\DT-GSK --workers 15
+[2026-08-28 18:56:28]     done in 7.9 min (435/435)
+[2026-08-28 18:56:28] [3/4] E5:b50_hi_D50 (R2.7) -- boundary 50->51: D50 drops to the middle tier (pub_overrides(30) at D=50)
+[2026-08-28 18:56:28]     0/435 runs present; resuming
+[2026-08-28 18:56:28]     $ --config D:\AI\Research-Lab\DT-GSK\results\_revision\_configs\e5_b50_hi_D50.yml --root D:\AI\Research-Lab\DT-GSK --workers 15
+[2026-08-28 19:04:29] ========================================================================================
+[2026-08-28 19:04:29] revision experiments: 4 legs, 1,740 runs, 15 workers
+[2026-08-28 19:04:29] resumable -- re-run this exact command after any interruption
+[2026-08-28 19:04:29] ========================================================================================
+[2026-08-28 19:04:29] [1/4] E5:b20_lo_D10: already complete (435/435) -- skipping
+[2026-08-28 19:04:29] [2/4] E5:b50_lo_D30: already complete (435/435) -- skipping
+[2026-08-28 19:04:29] [3/4] E5:b50_hi_D50 (R2.7) -- boundary 50->51: D50 drops to the middle tier (pub_overrides(30) at D=50)
+[2026-08-28 19:04:29]     0/435 runs present; resuming
+[2026-08-28 19:04:29]     $ --config D:\AI\Research-Lab\DT-GSK\results\_revision\_configs\e5_b50_hi_D50.yml --root D:\AI\Research-Lab\DT-GSK --workers 15
+[2026-08-28 19:24:48]     done in 20.3 min (435/435)
+[2026-08-28 19:24:48] [4/4] E5:b100_hi_D100 (R2.7) -- boundary 100->101: D100 drops to the T2 profile (pub_overrides(50) at D=100)
+[2026-08-28 19:24:48]     0/435 runs present; resuming
+[2026-08-28 19:24:48]     $ --config D:\AI\Research-Lab\DT-GSK\results\_revision\_configs\e5_b100_hi_D100.yml --root D:\AI\Research-Lab\DT-GSK --workers 15
+[2026-08-28 20:02:13]     done in 37.4 min (435/435)
+[2026-08-28 20:02:13] ========================================================================================
+[2026-08-28 20:02:13] finished in 0.96 h
+[2026-08-28 20:02:13] all legs complete.
+[2026-08-28 20:02:13] results staged under results/_revision/ -- promotion is a separate step.
+[2026-08-28 20:02:13] ========================================================================================

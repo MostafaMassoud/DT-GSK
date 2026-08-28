@@ -1,0 +1,117 @@
+{
+  "release_id": "rev2-rel-2026-08-28-203c78744",
+  "strict_sources": [
+    "benchmarks/cec_reference_results/_revision/",
+    "benchmarks/cec_reference_results/cec2017/",
+    "benchmarks/cec_reference_results/_ablation/overlay/",
+    "benchmarks/cec_reference_results/_revision2/"
+  ],
+  "preregistration": "papers/review_2026_08_24/revision_experiments_preregistration.md",
+  "conventions": "paired Wilcoxon across per-function means; Holm alpha=0.05 (family per experiment, stated in-file); W/T/L tie tol 1e-8 (tool of record); A12 on raw paired runs; Friedman ranks descriptive",
+  "experiment": "E1",
+  "reviewer_point": "R2.3",
+  "design": "three-arm refinement contrast at the shipped configuration",
+  "holm_family": "within-dimension: {eigenframe-vs-coordinate, eigenframe-vs-none}",
+  "shared_cells": 2958,
+  "seed_mismatches": 0,
+  "dimensions": {
+    "D50": {
+      "mean_of_means": {
+        "none": 22347.169801986416,
+        "coordinate": 22180.29386812774,
+        "eigenframe": 22303.81608674213
+      },
+      "contrasts": {
+        "eigenframe_vs_coordinate": {
+          "raw_p": 6.933345837256688e-05,
+          "wtl_ref_vs_cmp": {
+            "W": 4,
+            "T": 0,
+            "L": 25
+          },
+          "a12_ref_vs_cmp": 0.4930027827036249,
+          "n_funcs": 29,
+          "n_effective": 29,
+          "holm_p": 0.00013866691674513376,
+          "significant": true
+        },
+        "eigenframe_vs_none": {
+          "raw_p": 0.0006751027887560435,
+          "wtl_ref_vs_cmp": {
+            "W": 22,
+            "T": 2,
+            "L": 5
+          },
+          "a12_ref_vs_cmp": 0.5114199651556316,
+          "n_funcs": 29,
+          "n_effective": 27,
+          "holm_p": 0.0006751027887560435,
+          "significant": true
+        },
+        "coordinate_vs_none_supplementary": {
+          "raw_p": 4.007457762189581e-06,
+          "wtl_ref_vs_cmp": {
+            "W": 28,
+            "T": 1,
+            "L": 0
+          },
+          "a12_ref_vs_cmp": 0.5182032338243637,
+          "n_funcs": 29,
+          "n_effective": 28,
+          "holm_p": 4.007457762189581e-06,
+          "significant": true,
+          "family_note": "supplementary single-test contrast, outside the registered E1 family"
+        }
+      }
+    },
+    "D100": {
+      "mean_of_means": {
+        "none": 5001.0966971725475,
+        "coordinate": 4944.790669208044,
+        "eigenframe": 4989.820087182417
+      },
+      "contrasts": {
+        "eigenframe_vs_coordinate": {
+          "raw_p": 0.04886939956400782,
+          "wtl_ref_vs_cmp": {
+            "W": 11,
+            "T": 1,
+            "L": 17
+          },
+          "a12_ref_vs_cmp": 0.49671465424667455,
+          "n_funcs": 29,
+          "n_effective": 28,
+          "holm_p": 0.04886939956400782,
+          "significant": true
+        },
+        "eigenframe_vs_none": {
+          "raw_p": 0.0017418363578405316,
+          "wtl_ref_vs_cmp": {
+            "W": 23,
+            "T": 1,
+            "L": 5
+          },
+          "a12_ref_vs_cmp": 0.5028702488432831,
+          "n_funcs": 29,
+          "n_effective": 28,
+          "holm_p": 0.003483672715681063,
+          "significant": true
+        },
+        "coordinate_vs_none_supplementary": {
+          "raw_p": 0.001490184938759187,
+          "wtl_ref_vs_cmp": {
+            "W": 25,
+            "T": 1,
+            "L": 3
+          },
+          "a12_ref_vs_cmp": 0.5060168479972716,
+          "n_funcs": 29,
+          "n_effective": 28,
+          "holm_p": 0.001490184938759187,
+          "significant": true,
+          "family_note": "supplementary single-test contrast, outside the registered E1 family"
+        }
+      }
+    }
+  }
+}
