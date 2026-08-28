@@ -36,8 +36,19 @@ D10/D50 insensitive; **C2 as narrowed is untouched**), the **canonical 1e-8 tie 
 stated but the revision analyzer skipped is implemented and regenerated (Amendments A5–A6; one
 decision flip: E1 D100 eigenframe-vs-coordinate now SEPARATED, Holm 0.0489), the C1 heading is
 basis-neutral, the tiering-thesis and causal-mis-specification prose is bounded, the abstract is
-195 texcount words, and the submission package manifest matches the actual bytes. **D-0054 /
-CR-0029 are filed; next free are CR-0030 and D-0055** — verify free at apply time. The paragraphs
+195 texcount words, and the submission package manifest matches the actual bytes.
+**Pass-50 / v2.23 followed the same evening (author instruction: implement every reopened
+item):** the D-0051 re-execution is PROMOTED and cited (`g1-rel-2026-08-28-65b3d39e6`; Table A45
+now reports the residual as a demonstrated build difference), Figure 4 shades the within-one-CD
+cohort instead of the detached ruler, the convergence captions state their shared protocol once
+in the body, the cover letter leads with closure and reports the three adverse findings plainly
+(dated 1 September 2026), references.bib is pruned to its 44 cited entries alongside the three
+citation-control files, the change register is redesigned (TOC, badges, color-coded panels; 92
+passages), and **every reviewer/revision-process reference is removed from the published
+artifacts** — S9 is now “Mechanism-Isolation and Sensitivity Experiments”; pre-registration
+language stays. The GitHub purge request is REOPENED to be filed after the public flip, and an
+extension-request draft sits withheld beside the response letter (sending is the author's call).
+**D-0055 / CR-0030 are filed; next free are CR-0031 and D-0056** — verify free at apply time. The paragraphs
 below about passes 42–45 are kept because their *lessons* stand, not because they describe the
 current tag.
 

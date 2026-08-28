@@ -166,95 +166,123 @@ def classify(removed, added):
     return hits or [UNCLASSIFIED]
 
 
-def listing(lines, empty_note):
-    """Render source lines through listings, which needs no escaping."""
-    if not lines or not any(s.strip() for s in lines):
-        return "\\textit{%s}\n\n" % empty_note
-    body = "\n".join(lines)
-    # listings delimits on the literal end tag only; nothing else can break it.
-    body = body.replace("\\end{lstlisting}", "\\end {lstlisting}")
-    return "\\begin{lstlisting}\n%s\n\\end{lstlisting}\n" % body
+def listing(lines, empty_note, kind):
+    """One color-coded panel: kind is 'old' (red-tinted) or 'new' (green)."""
+    bg = "oldbg" if kind == "old" else "newbg"
+    rule = "oldrule" if kind == "old" else "newrule"
+    if not lines or not any(x.strip() for x in lines):
+        return ("\\begin{quote}\\itshape\\small\\color{gray!60!black} "
+                + tex_escape(empty_note) + "\\end{quote}\n")
+    body = "\n".join(lines).replace("\\end{lstlisting}", "\\end {lstlisting}")
+    return ("\\begin{lstlisting}[backgroundcolor=\\color{" + bg + "},"
+            "frame=leftline,framerule=1.6pt,rulecolor=\\color{" + rule + "},"
+            "framexleftmargin=4pt]\n" + body + "\n\\end{lstlisting}\n")
 
 
 def build_tex(base, new, per_file, counts, total):
     out = []
     A = out.append
     A(r"\documentclass[10pt,a4paper]{article}")
-    A(r"\usepackage[margin=2cm]{geometry}")
+    A(r"\usepackage[margin=2.1cm]{geometry}")
+    A(r"\usepackage{lmodern}")
+    A(r"\usepackage[T1]{fontenc}")
     A(r"\usepackage{listings}")
     A(r"\usepackage{xcolor}")
+    A(r"\usepackage{booktabs}")
     A(r"\usepackage{longtable}")
     A(r"\usepackage{parskip}")
-    A(r"\usepackage[hidelinks]{hyperref}")
-    A(r"\definecolor{oldbg}{rgb}{0.97,0.93,0.93}")
-    A(r"\definecolor{newbg}{rgb}{0.92,0.96,0.92}")
+    A(r"\usepackage[colorlinks=true,linkcolor=accent,urlcolor=accent]{hyperref}")
+    A(r"\definecolor{accent}{RGB}{0,84,147}")
+    A(r"\definecolor{oldbg}{RGB}{253,240,240}")
+    A(r"\definecolor{newbg}{RGB}{240,249,241}")
+    A(r"\definecolor{oldrule}{RGB}{192,57,43}")
+    A(r"\definecolor{newrule}{RGB}{39,124,56}")
+    A(r"\definecolor{badge}{RGB}{234,240,246}")
+    A(r"\definecolor{ctxgray}{gray}{0.42}")
     A(r"\lstset{basicstyle=\ttfamily\scriptsize,breaklines=true,"
       r"breakatwhitespace=false,columns=fullflexible,keepspaces=true,"
-      r"xleftmargin=6pt,frame=none,literate={\ }{{\ }}1}")
+      r"xleftmargin=8pt,aboveskip=3pt,belowskip=7pt,literate={\ }{{\ }}1}")
     A(r"\setlength{\parskip}{4pt}")
-    A(r"\title{\vspace{-1.5cm}Change register\\[2pt]"
-      r"\large DT-GSK, manuscript \texttt{algorithms-4507562}}")
-    A(r"\author{Round-one major revision, \emph{Algorithms} (MDPI)}")
-    A(r"\date{Diff of \texttt{%s} (as submitted) against \texttt{%s} (as revised)}"
-      % (tex_escape(base), tex_escape(new)))
+    A(r"\newcommand{\pointbadge}[1]{\colorbox{badge}{\footnotesize\textbf{\textcolor{accent}{#1}}}}")
+    A(r"\newcommand{\panelhead}[2]{\noindent\textcolor{#1}{\rule[0.25ex]{7pt}{7pt}}~\textbf{\small #2}\par\vspace{1.5pt}}")
     A(r"\begin{document}")
-    A(r"\maketitle")
-    A(r"\thispagestyle{empty}")
 
-    A(r"\section*{What this document is}")
-    A("This register lists every changed passage of the manuscript, each given "
-      "as it was submitted and as it now reads. It is the companion to the "
-      "marked-up manuscript, which shows the same changes in place; this "
-      "document exists to make them navigable next to the point-by-point "
-      "response letter.")
+    # ---- title page ----
+    A(r"\begin{center}")
+    A(r"{\LARGE\bfseries Change Register}\\[6pt]")
+    A(r"{\large DT-GSK \textbullet{} manuscript \texttt{algorithms-4507562}}\\[3pt]")
+    A(r"{\normalsize round-one major revision \textbullet{} \emph{Algorithms} (MDPI)}\\[10pt]")
+    A(r"\begin{tabular}{ccc}")
+    A(r"{\Large\bfseries %d} & {\Large\bfseries 7} & {\Large\bfseries %s $\to$ %s}\\"
+      % (total, tex_escape(base), tex_escape(new)))
+    A(r"{\footnotesize changed passages} & {\footnotesize manuscript files} & "
+      r"{\footnotesize as submitted $\to$ as revised}\\")
+    A(r"\end{tabular}\\[8pt]")
+    A(r"\begin{minipage}{0.86\textwidth}\centering\small")
+    A("Every changed passage of the manuscript, shown "
+      r"\panelcolor{oldrule}{as submitted} and \panelcolor{newrule}{as revised}, "
+      "with the reviewer point each answers. Companion to the marked-up manuscripts, "
+      "which show the same changes in place."
+      .replace("\\panelcolor{oldrule}{as submitted}",
+               r"{\color{oldrule}\textbf{as submitted}}")
+      .replace("\\panelcolor{newrule}{as revised}",
+               r"{\color{newrule}\textbf{as revised}}"))
+    A(r"\end{minipage}")
+    A(r"\end{center}")
+    A(r"\vspace{4pt}\hrule\vspace{8pt}")
 
-    A(r"\section*{Scope}")
-    A("The manuscript a reviewer reads: \\texttt{main.tex}, the five section "
-      "files, and \\texttt{supplementary.tex}. Generated artefacts are "
-      "excluded --- the \\texttt{\\_pandoc} mirrors used to build the Word "
-      "twins, and the \\texttt{SA0*} table files generated from the analysis "
-      "bundle --- because they restate changes already listed here. The cover "
-      "letter and the plain-language summary are separate documents and are "
-      "not manuscript text.")
+    A(r"\subsection*{How to read this document}")
+    A(r"\begin{itemize}\setlength\itemsep{1pt}")
+    A(r"\item Each entry shows the source location, the reviewer point(s) it answers "
+      r"(\pointbadge{R2.3}-style badges), and the passage in both states: "
+      r"{\color{oldrule}\textbf{red panel}} = as submitted, "
+      r"{\color{newrule}\textbf{green panel}} = as revised.")
+    A(r"\item Attribution is keyword-derived and deliberately conservative; "
+      r"\pointbadge{Editorial} means \emph{not classified}, not unimportant. "
+      r"The point-by-point response letter is the authoritative mapping.")
+    A(r"\item A passage answering two points is listed under both in the summary, "
+      r"so that column sums to more than the passage count.")
+    A(r"\item Generated artifacts (the \texttt{\_pandoc} mirrors and the "
+      r"\texttt{SA0*} tables) are excluded: they restate changes listed here.")
+    A(r"\end{itemize}")
 
-    A(r"\section*{How the reviewer column was derived, and its limits}")
-    A("Attribution is keyword-based and deliberately conservative. A passage "
-      "is attributed to a reviewer point only where the evidence is "
-      "unambiguous. Everything else is labelled \\textbf{Editorial}, which "
-      "means \\emph{not classified}, not \\emph{unimportant}: consistency "
-      "edits following a substantive change are labelled that way, and so is "
-      "any passage whose wording did not make its own provenance explicit. "
-      "The authoritative account of what each reviewer point asked and how it "
-      "was answered is the point-by-point response letter, not this column. "
-      "A passage that answers two points is listed under both.")
-
-    A(r"\section*{Summary}")
+    A(r"\subsection*{Summary by reviewer point}")
     A(r"\begin{longtable}{@{}llr@{}}")
-    A(r"\textbf{Point} & \textbf{Subject} & \textbf{Passages}\\ \hline")
-    A(r"\endhead")
+    A(r"\toprule")
+    A(r"\textbf{Point} & \textbf{Subject} & \textbf{Passages}\\")
+    A(r"\midrule\endhead")
     for label, desc, n in counts:
-        A(r"%s & %s & %d\\" % (tex_escape(label), tex_escape(desc), n))
+        A(r"\pointbadge{%s} & %s & %d\\" % (tex_escape(label), tex_escape(desc), n))
+    A(r"\bottomrule")
     A(r"\end{longtable}")
-    A(r"\noindent\textbf{%d changed passages in total.} The column above sums to "
-      r"%d because a passage that answers two points is counted under both; it "
-      r"is a count of attributions, not of passages, and the two do not agree."
-      % (total, sum(c[2] for c in counts)))
+    A(r"\noindent\textbf{%d changed passages in total.} The column above counts "
+      r"attributions (a passage answering two points appears under both), so it "
+      r"sums to more than %d." % (total, total))
+
+    A(r"\clearpage")
+    A(r"\tableofcontents")
 
     for path, entries in per_file:
         if not entries:
             continue
         A(r"\clearpage")
-        A(r"\section*{\texttt{%s}}" % tex_escape(path))
-        A("%d changed passage%s." % (len(entries), "" if len(entries) == 1 else "s"))
+        A(r"\section{\texorpdfstring{\texttt{%s}}{%s}}"
+          % (tex_escape(path), tex_escape(path)))
+        A(r"%d changed passage%s in this file.\par"
+          % (len(entries), "" if len(entries) == 1 else "s"))
         for idx, (line_no, context, removed, added, label, _desc) in enumerate(entries, 1):
-            A(r"\subsection*{%d. Line %d \hfill \normalfont\small Answers: \textbf{%s}}"
-              % (idx, line_no, tex_escape(label)))
+            A(r"\vspace{7pt}")
+            badges = "~".join(r"\pointbadge{%s}" % tex_escape(x.strip())
+                              for x in label.split(","))
+            A(r"\noindent\textbf{%d.}~\texttt{%s:%d}\hfill %s\par"
+              % (idx, tex_escape(path.rsplit('/', 1)[-1]), line_no, badges))
             if context:
-                A(r"{\small\itshape Context: %s}" % tex_escape(context[:150]))
-            A(r"\noindent\textbf{As submitted}")
-            A(listing(removed, "Not present in the submitted version (this passage is new)."))
-            A(r"\noindent\textbf{As revised}")
-            A(listing(added, "Removed in revision (this passage no longer appears)."))
+                A(r"{\small\itshape\color{ctxgray} %s}\par\vspace{2pt}"
+                  % tex_escape(context[:150]))
+            A(r"\panelhead{oldrule}{As submitted}")
+            A(listing(removed, "Not present in the submitted version (this passage is new).", "old"))
+            A(r"\panelhead{newrule}{As revised}")
+            A(listing(added, "Removed in revision (this passage no longer appears).", "new"))
     A(r"\end{document}")
     return "\n".join(out) + "\n"
 

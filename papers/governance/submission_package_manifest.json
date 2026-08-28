@@ -1,8 +1,8 @@
 {
   "schema": "submission_package_manifest/v1",
   "generated_utc": "2026-08-28T18:55:00Z",
-  "manuscript_version_id": "v2.22",
-  "manuscript_version_note": "Freeze pass-49, tag v2.22. The round-one major-revision response to algorithms-4507562, extended ahead of resubmission with the E5 dimension-boundary study (S9.5/Table A47) and the canonical near-zero statistical rule (pre-registration Amendments A4-A6). Supersedes v2.13 as the submission basis; v2.13 remains the frozen record of what was originally submitted and is never edited in place. The repository is public and cited in the Data Availability Statement (https://github.com/MostafaMassoud/DT-GSK), which names v2.13 for the submitted version and v2.22 for this revised one. No Zenodo deposit and no repository DOI; the article DOI is assigned by the journal after acceptance.",
+  "manuscript_version_id": "v2.23",
+  "manuscript_version_note": "Freeze pass-50, tag v2.23. The round-one major-revision response to algorithms-4507562, extended ahead of resubmission with the E5 dimension-boundary study (S9.5/Table A47) and the canonical near-zero statistical rule (pre-registration Amendments A4-A6). Supersedes v2.13 as the submission basis; v2.13 remains the frozen record of what was originally submitted and is never edited in place. The repository is public and cited in the Data Availability Statement (https://github.com/MostafaMassoud/DT-GSK), which names v2.13 for the submitted version and v2.23 for this revised one. No Zenodo deposit and no repository DOI; the article DOI is assigned by the journal after acceptance.",
   "target_journal": "Algorithms (MDPI)",
   "evidence_release": [
     "rel-2026-07-20-67d9345f9 (CEC2017, CEC2011, CEC2013 - primary)",
@@ -19,38 +19,38 @@
       "path": "papers/DT-GSK.pdf",
       "pages": 47,
       "build_epoch": 1783468800,
-      "sha256": "39049a965ede6d50e29fd2415ff18a799fcefb8746363c733fd4d9af3d3b6467",
-      "bytes": 823141
+      "sha256": "93721bc3adb91389f25d9aacdf2a473dcf38b686e471261f92dd96a2cca5ca77",
+      "bytes": 825146
     },
     {
       "role": "main-manuscript-docx",
       "path": "papers/DT-GSK.docx",
       "build": "deterministic docx render",
-      "sha256": "6436f293d4e7cd98ffbd1578beab47aadedc65a4a41aa01f6a8e4df5e2a7f5ba",
-      "bytes": 1012185
+      "sha256": "1ce7f3cad0b6f41fabc96211b5f80498450287bd4eef7cada52cd7f2cf965769",
+      "bytes": 1028064
     },
     {
       "role": "supplement-pdf",
       "path": "papers/supplementary.pdf",
       "pages": 80,
       "build_epoch": 1783468800,
-      "sha256": "d458273e6c4ac2d2891cc6ada8ab92edb3cd9d6f507be3473149faa1a8ee41d7",
-      "bytes": 1757814
+      "sha256": "bc2e49f787ffc0e26aac464b8e03f447809f83ce1ad501c2f7c6b6016e7d55ff",
+      "bytes": 1758588
     },
     {
       "role": "supplement-docx",
       "path": "papers/supplementary.docx",
       "build": "deterministic docx render",
-      "sha256": "60809858f826487498f554ad9e9ba5408607f32780885d6f7d32238a2f11c203",
-      "bytes": 9626415
+      "sha256": "610f515cc2d1bde7d13d3db931e94a8b99737d6d08277bfed3d3aa7551a2e81b",
+      "bytes": 9626620
     },
     {
       "role": "cover-letter-pdf",
       "path": "papers/cover_letter.pdf",
       "pages": 2,
       "build_epoch": 1783468800,
-      "sha256": "d8e69bd5c757fc8bb84f43c0fdb047cf313083ed371610fc51fe03fb7f59b71d",
-      "bytes": 127125
+      "sha256": "e574ff46cee760a992f9571e4470d18909db67b8f6b4a732de89bbcb923d82d7",
+      "bytes": 122311
     }
   ],
   "excluded_from_package": [

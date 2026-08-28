@@ -88,11 +88,13 @@ floors, not estimates.
 
 ---
 
-# Remediation: the GitHub Support purge request -- CLOSED, WILL NOT BE FILED
+# Remediation: the GitHub Support purge request -- REOPENED, TO BE FILED
 
-**Status: closed by author decision, 2026-08-28. The request will not be made.** It was
-deferred on 2026-08-27 and closed the following day. **This section is a record, not a
-to-do: do not re-raise it, and do not act on it without the author saying so.**
+**Status: reopened by author instruction, 2026-08-28 (reversing the same-day closure), to be
+FILED by the author.** Timing note: the repository is currently PRIVATE, so the objects are
+not publicly served and the served-by-SHA verification cannot be re-run from outside. File the
+ticket immediately AFTER the repository goes public on upload day (2026-09-01), when the claim
+in the request text is checkable again; the ticket itself is valid either way.
 
 It is kept rather than deleted because it documents a decision about material that is not
 the author's alone -- seven third-party copyrighted PDFs and a co-author's biographical

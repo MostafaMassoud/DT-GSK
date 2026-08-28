@@ -1343,9 +1343,9 @@ worktree blind spot.
    `DT-GSK-changes-marked.pdf`, a latexdiff marked-up manuscript with additions underlined and
    deletions struck through in place, from `papers/scripts/build_change_marked_pdf.py` (48 pp; 47
    added and 40 deleted blocks). Beside it `DT-GSK-change-register.pdf`, from
-   `build_change_register.py`, lists all 84 changed passages as-submitted against as-revised with
+   `build_change_register.py`, lists all 92 changed passages as-submitted against as-revised with
    the reviewer point each answers (21 pp). Both are derived and gitignored; both rebuild from the
-   tags, at 84 passages over the same 7 files at v2.22 (75 at v2.21, the kit's original figure).
+   tags, at 92 passages over the same 7 files at v2.23 (84 at v2.22, 75 at v2.21).
    **Two claims this entry previously made were false and are withdrawn.** It said the manuscript
    already uses `\hl`, so a blanket pass would collide with existing markup: it carries **no
    highlighting at all** — no `\hl`, no `soul`, no `colorbox`, nowhere in `main.tex`,
@@ -1372,7 +1372,7 @@ worktree blind spot.
    revision form. Portal metadata does not update from the PDF.
 6. **Make the repository PUBLIC again before uploading (author-only, 2026-09-01).** The author set it
    private on 2026-08-28 to finalize; verified private (API 404). The Data Availability Statement in
-   the revised manuscript names the repo URL and tags v2.13/v2.22, and the Supplementary's
+   the revised manuscript names the repo URL and tags v2.13/v2.23, and the Supplementary's
    pre-registration claim depends on public checkability — a reviewer clicking during round 2 must
    not hit a 404. Flip visibility BEFORE the SuSy upload. Side effect while private: the two
    GitHub-exposed commits are not publicly served; public serving resumes with visibility.
@@ -1389,7 +1389,7 @@ Ordered. Phase 0 is author-only and one item **expires**; everything else is age
 | | Action | Why now |
 |---|---|---|
 | ~~0a~~ | ~~**GitHub → Insights → Traffic → Clones** — capture the count~~ — **DONE 2026-08-27** | Captured: 11 clones, 9 unique cloners, 08/13–08/26 — all 14 days inside the exposure window; 2 web views. **Six days (08/07–08/12) had already rolled off and are permanently lost**, so the counts are floors. Record: `docs/development/github_exposure_traffic_record.md`. |
-| ~~0b~~ | ~~**GitHub Support ticket** — garbage-collect **`b9846e4` *and* `bddfe24`**~~ — **CLOSED 2026-08-28: will not be filed** | Author decision, taken twice — deferred on 2026-08-27 and closed on 2026-08-28. **This is not a to-do and is not to be re-raised.** State of the world when it was closed, recorded because it does not change on its own: both commits are unreachable from every ref, both are still served by direct SHA (HTTP 206, verified 2026-08-27), unreachable objects carry **no expiry date**, and 0 forks / 0 PRs meant a purge would have succeeded if requested. Reaching the material needs the exact 40-character SHA; the repository drew 2 web views in 14 days. If it is ever revisited, `docs/development/github_exposure_traffic_record.md` holds the SHAs and the request text. |
+| 0b | **GitHub Support ticket** — garbage-collect **`b9846e4` *and* `bddfe24`** — **REOPENED 2026-08-28 (author instruction), to be FILED** | Closed unfiled earlier the same day; the author then instructed it be treated as an active task. While the repository is PRIVATE the objects are not publicly served, so the ticket is best filed immediately AFTER the public flip on upload day, when the served-by-SHA claim is verifiable again. The ready-to-send request text and both full SHAs: `docs/development/github_exposure_traffic_record.md`. |
 | ~~0c~~ | ~~Tell the co-authors their biographies were public~~ — **DONE 2026-08-27** | Discharged by the author; D-0049's co-author limb is closed. |
 
 ### Phase 1 — C1, resolved for the caption; one author decision left
@@ -1561,9 +1561,10 @@ are given here.
 ### Phase 7 — resubmit (author-only; the point of no return)
 
 **Deadline CONFIRMED 2026-09-01, and the planned resubmission date is the same day.** Everything
-agent-side is complete at pass-49 / `v2.22` (the round-two batch: E5 boundary sensitivity in
-S9.5/A47, the canonical tie rule of Amendments A5–A6, the audit's P0 text corrections — D-0054 /
-CR-0029); nothing in the repository blocks that date. The
+agent-side is complete at pass-50 / `v2.23` (pass-49's round-two batch plus the reopened-items
+batch: g1 identity release cited, Figure 4 cohort redesign, caption tightening, cover-letter
+reframe, bibliography prune, and the removal of every revision-process/reviewer reference from
+the published artifacts — D-0055 / CR-0030); nothing in the repository blocks that date. The
 earlier **2026-09-03** figure was an *inference* from the letter's ten-day window and is
 **superseded** — the real date is two days tighter, so the margin the documents assumed does not
 exist. Plan and deadline now coincide and the resubmission has **zero slack**. The letter invites
@@ -1581,11 +1582,11 @@ warning that portal metadata does not update from the PDF. Re-enter both by hand
   CEC benchmark suites; nonparametric statistical comparison; reproducibility`
 
 **Generate both companion PDFs fresh.** The response letter's source was edited in passes 42, 43 and
-48, and the change register must come from `git diff v2.13 v2.22` — 81 passages across 7 files, not the
+48, and the change register must come from `git diff v2.13 v2.23` — 92 passages across 7 files, not the
 54 passages the kit recorded at pass-41. Neither figure should be quoted anywhere.
 
-**After upload, no rebuilds.** `v2.22` becomes the frozen record of what was resubmitted; any later
-revision is pass-50 with a new superseding tag, never an edit to v2.22 in place (D-0045).
+**After upload, no rebuilds.** `v2.23` becomes the frozen record of what was resubmitted; any later
+revision is pass-51 with a new superseding tag, never an edit to v2.23 in place (D-0045).
 
 
 SuSy upload; **re-enter the new title and revised keywords by hand** — portal metadata does not

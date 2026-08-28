@@ -150,7 +150,7 @@ Never edit or reinterpret primary evidence merely to make it agree with the manu
 
 > **HISTORICAL BANNER (superseded).** The 2026-07-25 CEC2013LSGO scope change this banner once announced was EXECUTED in full (five-suite manuscript, sections S7/S8, two additional evidence releases) and the freeze has since advanced to pass-27. Read the DEFINITIVE CURRENT STATE block below, then the newest layer (currently **section 1.5.0-Q**); sections 1.5.0-M/N/O record how the scope change was executed and are historical.
 
-> ## DEFINITIVE CURRENT STATE — 2026-08-28 evening (pass-49 / v2.22; round-two batch APPLIED; resubmission due 2026-09-01) — read this first; it supersedes every layer below on any conflict
+> ## DEFINITIVE CURRENT STATE — 2026-08-28 late (pass-50 / v2.23; round-two + reopened-items batches APPLIED; resubmission due 2026-09-01) — read this first; it supersedes every layer below on any conflict
 >
 > This snapshot is maintained as dated provenance layers (§1.5.0 through §1.5.0-R). The single
 > authoritative current state is stated here; the layers below are the dated record of how it was
@@ -160,8 +160,8 @@ Never edit or reinterpret primary evidence merely to make it agree with the manu
 > **Lifecycle:** submitted to *Algorithms* (MDPI) 2026-08-01 as pass-38 / tag **v2.13**, manuscript
 > ID **algorithms-4507562** · decision **MAJOR REVISION** (two unsigned reviewers, ten points —
 > dispositions and per-point verification duties in **§1.5.3-J**) · the revision is **COMPLETE and
-> published to the public repository** (v2.14 → v2.22, including the round-two
-> pass-49 batch: E5 boundary sensitivity, the canonical tie rule, the audit's P0
+> published to the public repository** (v2.14 → v2.23, including the round-two
+> pass-49/50 batches: E5 boundary sensitivity, the canonical tie rule, the audit's P0/P1/P2
 > corrections) but has **NOT yet been resubmitted through
 > SuSy**. **The resubmission deadline is CONFIRMED as 2026-09-01** — also the author's planned
 > date, so there is **zero slack**; a journal-offered extension was **DECLINED** (author,
@@ -175,14 +175,14 @@ Never edit or reinterpret primary evidence merely to make it agree with the manu
 > gitignored** resubmission artifacts with generators: the marked main (48 pp) and marked
 > supplementary (80 pp) manuscripts — **preamble changes do not render**, so the retitle is
 > invisible there; disclosed twice in the response letter — and `DT-GSK-change-register.pdf`
-> (84 passages, as-submitted vs as-revised, keyword-attributed to reviewer points), rebuilt by
+> (92 passages, as-submitted vs as-revised, keyword-attributed to reviewer points; redesigned layout with TOC, badges and color-coded panels), rebuilt by
 > `papers/scripts/build_change_marked_pdf.py` / `build_change_register.py`.
 >
-> **Freeze:** pass-49, tag **v2.22** (v2.13 … v2.22 all resolve), decision log through **D-0054**,
-> change requests through **CR-0029**; next free ids **CR-0030 / D-0055** (verify free at apply
+> **Freeze:** pass-50, tag **v2.23** (v2.13 … v2.23 all resolve), decision log through **D-0055**,
+> change requests through **CR-0030**; next free ids **CR-0031 / D-0056** (verify free at apply
 > time). `check_manifest` = **15/15 files + sources 2/2** — the `source_files` gate (pass-43)
 > hashes `supplementary.tex` and `cover_letter.tex`, so an unbuilt source edit now fails the gate
-> that pass-42 slipped through. Any manuscript edit voids pass-49 → pass-50 re-mint + tag v2.23
+> that pass-42 slipped through. Any manuscript edit voids pass-50 → pass-51 re-mint + tag v2.24
 > (every bump drags `CITATION.cff` — no leading `v` — `SUBMISSION_KIT.md`,
 > `submission_package_manifest.json`, and the DAS tag in `main.tex`).
 >
@@ -201,7 +201,9 @@ Never edit or reinterpret primary evidence merely to make it agree with the manu
 > release `rev-rel-2026-08-26-dd42d37eb`** (E1–E4, 32,451 runs) **+ the round-two release
 > `rev2-rel-2026-08-28-203c78744`** (E5, 1,740 new runs; Amendment A4 registered before execution;
 > each additive, non-superseding; the round-two analysis bundle carries E1–E3 under the canonical
-> tie rule of Amendments A5–A6, one decision flip: E1 D100 now separated, Holm 0.0489).
+> tie rule of Amendments A5–A6, one decision flip: E1 D100 now separated, Holm 0.0489) **+ the
+> identity release `g1-rel-2026-08-28-65b3d39e6`** (D-0051 re-execution, promoted and cited at
+> Table A45; the residual is a demonstrated build difference).
 > `results/_g1_recheck/` is diagnostic staging —
 > gitignored, cited nowhere; its promotion is **CLOSED** (author, 2026-08-28).
 >

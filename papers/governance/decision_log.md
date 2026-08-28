@@ -2461,3 +2461,71 @@ applying all surfaced fixes.
   artifact sidestepped by a tier-pair prefix in A47's boundary column).
 - **Anchor.** d543c14 (apply); the mint, tag and CFF bump follow it; NEXT
   free ids are CR-0030 and D-0055.
+
+## D-0055 (2026-08-28) - Pass-50: every closed or deferred item reopened and implemented
+
+- **Decision.** On the author's explicit instruction, the items previously
+  closed by author decision or deferred as polish were reopened and, where an
+  agent can implement them, implemented in one pass. Mint **pass-50**, tag
+  **v2.23**. Registered as **CR-0030**. Reversals of earlier decisions in this
+  entry are authorized reversals, not drift.
+- **D-0051 promotion, previously closed: DONE.** promote_g1_recheck.py
+  re-derives the verdict fail-closed from the staged bytes before any copy
+  (255 cells; 26/26 divergent cells equal the transplant arm, none the
+  archive; 229/229 agreeing cells equal both; 0 seed mismatches) and promotes
+  the additive release g1-rel-2026-08-28-65b3d39e6. The Supplementary's
+  package-agreement paragraph and the Table A45 caption now report the
+  residual as a demonstrated BUILD difference citing that release; the DAS
+  names it. The D-0051 standing rule (state the gap, never the causation)
+  is satisfied by stating a demonstrated mechanism, not a conjectured one.
+- **GitHub purge, previously closed unfiled: REOPENED, to be filed.** While
+  the repository is private the objects are not publicly served, so the
+  ticket is best filed immediately after the public flip on upload day; the
+  ready-to-send text and both full SHAs stay in
+  docs/development/github_exposure_traffic_record.md, whose status header now
+  says REOPENED. Filing is the author's action (requires their GitHub login).
+- **Extension request, previously declined: REVIEWED and DRAFTED, not sent.**
+  The work is complete, so the only remaining value is schedule insurance for
+  upload day itself (deadline = planned date, zero slack). A ready-to-send
+  draft with that honest assessment sits withheld beside the response letter
+  (papers/review_2026_08_24/extension_request_draft.md, D-0049 folder).
+  Sending is the author's call; nothing is sent on their behalf.
+- **P1-06 Figure 4: redesigned.** The within-one-CD-of-best cohort rows are
+  shaded as one block and a dashed line marks best+CD, so separation is read
+  off the bars; the detached CD ruler that could be mistaken for group
+  linkage is removed. Caption and intro sentence updated; all nine figure
+  files regenerated from the frozen rel-2026-07-20 bundle with the built-in
+  CD cross-check.
+- **P1-07 captions: tightened.** The two convergence-figure captions drop
+  the shared protocol boilerplate, now stated once in the body; each keeps
+  its function selection and mandated unfavorable case.
+- **P1-10 cover letter: reframed and corrected.** Two stale facts fixed (it
+  still said not-separated at D=100 and counted four experiments); new
+  structure leads with closure, then what held, then the three adverse
+  findings plainly; enclosures and the latexdiff-invisible retitle named;
+  COI/GenAI paragraph verbatim; Markdown twin in parity; dated 1 September
+  2026; rebuilt deterministically x2.
+- **P2 bibliography: pruned.** The 17 uncited entries removed from
+  references.bib (61 -> 44) and from the three citation-control files in the
+  same change, re-verified uncited against the current sources first; C1-C5
+  pass at 44 keys everywhere. fialho2010adaptive verified correct as recorded
+  (ED-8 cosmetic key-year mismatch; entry cites Da Costa et al. 2008, right
+  DOI) and deliberately not renamed.
+- **Author policy question, answered and applied: the published artifacts no
+  longer reference the revision process.** Seventeen sites across main.tex,
+  the sections and the supplement dropped reviewer/round/added-in-revision
+  language; S9 is retitled Mechanism-Isolation and Sensitivity Experiments
+  and every experiment is motivated scientifically; pre-registration and
+  amendment language stays as scientific provenance; the reviewer-facing
+  documents keep reviewer references by design; the Word caption stubs no
+  longer carry reviewer-point tags. The five-experiment enumeration in the
+  supplementary-inventory sentence was corrected from four in the sweep.
+- **Register redesigned (author request):** title page with a stats band,
+  clickable per-file contents, reviewer-point badges, and color-coded
+  as-submitted/as-revised panels; 92 passages at v2.23.
+- **Process notes.** The v2.23 tag was first cut before the CITATION.cff
+  bump - the same sequencing error as v2.22's first cut, caught by the same
+  validator and re-cut under the same conditions (private repo, seconds old,
+  zero consumers). The lesson is now mechanical: bump CFF, commit, then tag.
+- **Anchor.** 095604d (apply); mint, tag v2.23 and the CFF bump follow. NEXT
+  free ids: CR-0031 and D-0056.

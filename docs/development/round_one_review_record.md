@@ -66,7 +66,7 @@ recommended a reference, and nothing was found impossible to address.
 **The fifth is discharged on the repository side (2026-08-27/28).** The letter asks that revisions
 be *highlighted in the manuscript* so editors and reviewers can see the changes. The project now
 produces exactly that: a **latexdiff marked-up manuscript** (additions underlined, deletions struck
-through, in place) *and* a **change register** listing all 84 changed passages as-submitted against
+through, in place) *and* a **change register** listing all 92 changed passages as-submitted against
 as-revised with the reviewer point each answers — both derived from the tagged diff, both
 rebuildable from `papers/scripts/`. One rendering limit is disclosed in the response rather than
 left to be discovered: latexdiff emits preamble changes as comments, so the retitle does not appear
