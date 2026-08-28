@@ -1,8 +1,8 @@
 {
   "schema": "main_manuscript_freeze_manifest/v1",
-  "phase": "PASS-49 round-two batch: E5 dimension-boundary sensitivity (S9.5 / Table A47, release rev2-rel-2026-08-28-203c78744), the canonical near-zero rule of pre-registration Amendments A5-A6 applied to every revision statistic (E1 D100 now separated, Holm p = 0.0489), and the second-round audit's P0 text corrections: C1 heading basis-neutral, tiering-thesis wording bounded, population-rule and mis-specification claims narrowed to their evidence, abstract at 195 texcount words, DAS naming the fifth release and tag v2.22.",
-  "generated_utc": "2026-08-28T18:20:00+00:00",
-  "anchor_commit": "112a98c80f8f8517a9f04ad79b4160dc803422b0",
+  "phase": "PASS-50: reopened-items batch. The D-0051 identity re-execution is promoted (g1-rel-2026-08-28-65b3d39e6) and cited where Table A45 previously reported the residual unresolved; Figure 4 redesigned with the within-one-CD cohort shaded and the detached CD ruler removed; convergence-figure captions tightened with the shared protocol stated once in the body; the cover letter reframed (closure first, adverse findings plainly, five experiments, canonical D100) and rebuilt; references.bib pruned of its 17 uncited entries alongside the three citation-control files (44 keys everywhere); and every revision-process or reviewer reference removed from the published artifacts, with S9 retitled Mechanism-Isolation and Sensitivity Experiments and pre-registration language retained as scientific provenance. DAS names the sixth release and tag v2.23.",
+  "generated_utc": "2026-08-28T20:30:00+00:00",
+  "anchor_commit": "095604dabf2594d9a38b60f4b902dbf59eef899e",
   "pre_freeze_base_commit": "b9846e47024e48a0f8ce3e4f22bffbd794b2a355",
   "evidence_release": {
     "primary": "rel-2026-07-20-67d9345f9",
@@ -28,13 +28,13 @@
   "files": [
     {
       "path": "papers/main.tex",
-      "sha256": "bf53394e189eaabd40a1d45070a33782704210ea735b3f1957a39655043d5aa0",
-      "bytes": 26243
+      "sha256": "4cc9be8eec3ae2c8f389646ea6fd3d30eb5edae23533e4201e331c2dd85f5873",
+      "bytes": 26399
     },
     {
       "path": "papers/sections/introduction.tex",
-      "sha256": "3315f4ac15bf18988791f1ee6392a500bbdb8367540dd4d1707671fbedf3b898",
-      "bytes": 12354
+      "sha256": "24c4f9b438e7cd2c5456840204182a8c2431dc85c349721cd42fcd64fb006e16",
+      "bytes": 12334
     },
     {
       "path": "papers/sections/related_work.tex",
@@ -43,43 +43,43 @@
     },
     {
       "path": "papers/sections/proposed_algorithm.tex",
-      "sha256": "8befda39f9e282a4b72d7f07e2469766c4b276cfc1176dd198d6e8b015994b4f",
-      "bytes": 58271
+      "sha256": "2c0f7c9e2b4b4cb761cc6e88e0625c2a787ff2bf206536bf4023ae448d955ab1",
+      "bytes": 58241
     },
     {
       "path": "papers/sections/performance.tex",
-      "sha256": "3474e1ffacadfb2a918ef1454c84ee1d2bc611a263d94779b71c4da0387e5655",
-      "bytes": 77920
+      "sha256": "49b1b6f272f7f2e6be99d469c946f7816fd6650ab0e1ed04ea8dc0da64ff420e",
+      "bytes": 77742
     },
     {
       "path": "papers/sections/conclusions.tex",
-      "sha256": "d7ad26cdd240de07c911fdad959ad27f6d14ac4f086271faada01373f727c71d",
-      "bytes": 14694
+      "sha256": "b912dd75a8fac761524413bdbe9d2117607356f8a98e9c86ce2df682076b24bb",
+      "bytes": 14641
     },
     {
       "path": "papers/DT-GSK.pdf",
-      "sha256": "39049a965ede6d50e29fd2415ff18a799fcefb8746363c733fd4d9af3d3b6467",
-      "bytes": 823141
+      "sha256": "93721bc3adb91389f25d9aacdf2a473dcf38b686e471261f92dd96a2cca5ca77",
+      "bytes": 825146
     },
     {
       "path": "papers/DT-GSK.docx",
-      "sha256": "6436f293d4e7cd98ffbd1578beab47aadedc65a4a41aa01f6a8e4df5e2a7f5ba",
-      "bytes": 1012185
+      "sha256": "1ce7f3cad0b6f41fabc96211b5f80498450287bd4eef7cada52cd7f2cf965769",
+      "bytes": 1028064
     },
     {
       "path": "papers/supplementary.pdf",
-      "sha256": "d458273e6c4ac2d2891cc6ada8ab92edb3cd9d6f507be3473149faa1a8ee41d7",
-      "bytes": 1757814
+      "sha256": "bc2e49f787ffc0e26aac464b8e03f447809f83ce1ad501c2f7c6b6016e7d55ff",
+      "bytes": 1758588
     },
     {
       "path": "papers/supplementary.docx",
-      "sha256": "60809858f826487498f554ad9e9ba5408607f32780885d6f7d32238a2f11c203",
-      "bytes": 9626415
+      "sha256": "610f515cc2d1bde7d13d3db931e94a8b99737d6d08277bfed3d3aa7551a2e81b",
+      "bytes": 9626620
     },
     {
       "path": "papers/cover_letter.pdf",
-      "sha256": "d8e69bd5c757fc8bb84f43c0fdb047cf313083ed371610fc51fe03fb7f59b71d",
-      "bytes": 127125
+      "sha256": "e574ff46cee760a992f9571e4470d18909db67b8f6b4a732de89bbcb923d82d7",
+      "bytes": 122311
     },
     {
       "path": "papers/governance/claims_evidence_matrix.csv",
@@ -98,8 +98,8 @@
     },
     {
       "path": "papers/references.bib",
-      "sha256": "7b184f78faee2bb8ed76d8a579cfbbefd55fe4fa24fa4bc3d17a8d989ae15be9",
-      "bytes": 30063
+      "sha256": "ed25f0e9edf6f3e3c510b796da48768d8cac62e6b6e7db87e0fca5afdad8e63d",
+      "bytes": 22675
     }
   ],
   "validator_outputs_at_freeze": {
@@ -127,13 +127,13 @@
   "source_files": [
     {
       "path": "papers/supplementary.tex",
-      "sha256": "62d0036439b6f4c0019b9a00e896392dcb7bcd852e9f46c3709e97a6e9857f67",
-      "bytes": 242162
+      "sha256": "66224626b40365993d5fb51ef77096b016ee3744220afbc4765648013c679b07",
+      "bytes": 242804
     },
     {
       "path": "papers/cover_letter.tex",
-      "sha256": "a1da5dbd34f06569992443ce4174afb5da192582f2337d2ab56f4efa0b736452",
-      "bytes": 8810
+      "sha256": "2c75bd7aa4822f0db640c8156f93fc1e0e9ecd8f17066ec3ab3fa3a7402d49ca",
+      "bytes": 6237
     }
   ],
   "source_files_note": "Canonical LaTeX sources whose RENDERS are tracked in files[] but which were not themselves hashed. The asymmetry has a failure mode and it fired in pass-42: cover_letter.tex was edited and the render was not rebuilt, so cover_letter.pdf still matched its recorded digest and the gate stayed green while the letter that ships to the editor still carried a retracted phrasing. Hashing the sources here makes that visible without changing files[], so the tracked-file count is unchanged and every recorded 15/15 remains true. main.tex is absent because it is already tracked in files[]."
