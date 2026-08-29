@@ -163,11 +163,14 @@ receive the identical evaluation budget, so the difference lies in how each
 algorithm spends that budget rather than in how much it is given. We state it
 explicitly because population size is a design choice that can materially
 affect upper-tier behavior, and a reader comparing at $D=100$ should
-know the initial populations differ by a factor of five. A common-$NP$
-replication was carried out: at the comparators' $NP = 100$, \dtgsk{} remains first
+know the initial populations differ by a factor of five. A common-initial-$NP$
+replication was carried out on CEC2017, with \dtgsk{}'s own reduction law and
+tier floors retained: at the comparators' $NP = 100$, \dtgsk{} remains first
 at $D = 10$ and second at $D = 30$, $50$ and $100$, with the paired difference
 significant only at $D = 50$ and $D = 100$ (Supplementary Materials,
-Section~S9.2).
+Section~S9.2). On CEC2013LSGO the corresponding ratio at initialization is
+fifty-fold; it is disclosed but not controlled (Supplementary Materials,
+Section~S7).
 % BIND: E2 (rev-rel-2026-08-26-dd42d37eb); R1.3/R2.2
 
 % Canonical pseudocode (ART-PSEUDOCODE, label alg:dt-gsk).
@@ -201,7 +204,7 @@ adds: the nonlinear population-size reduction (NLPSR) and the ACE selector with
 acceptance-gated pruning, the linkage-aware block crossover, the dimension-gated
 interaction-structure memory, the coordinate local search, the
 budget-safe escape with deep-stall restart,
-and the one-shot eigenframe final polish. At $D\ge100$ the upper-tier controllers are cross-cutting rather than a single stage --- they act within the population-reduction, trial-construction, acceptance, and escape steps above (and gate the local search) --- so they are not drawn as a separate node. The global best is preserved
+and the one-shot deterministic final polish. At $D\ge100$ the upper-tier controllers are cross-cutting rather than a single stage --- they act within the population-reduction, trial-construction, acceptance, and escape steps above (and gate the local search) --- so they are not drawn as a separate node. The global best is preserved
 throughout.}
 \label{fig:dtgsk-flowchart}
 \end{figure}
@@ -220,7 +223,7 @@ Figure~\ref{fig:dtgsk-flowchart} charts.
 of the operator pool.
 \item Stagnation escape by the Budget-Safe Escape (BSE) mechanism.
 \item The charged coordinate local search.
-\item At $D\ge50$, the one-shot eigenframe final polish in the final
+\item At $D\ge50$, the one-shot deterministic final polish in the final
 budget slice.
 \item Global-best update.
 \item The deep-stall restart check.
@@ -241,7 +244,7 @@ The blockwise linkage mask is active from $D\ge10$, applied to a
 tier-dependent fraction of the population, with the remainder keeping
 the per-coordinate $KR$ mask of Eq.~(\ref{eq:kr-mask}).
 The interaction-structure memory and the
-eigenframe final polish activate at $D\ge50$, while the coordinate local search
+deterministic final polish activate at $D\ge50$, while the coordinate local search
 is active at all tiers. The protective
 controllers activate at $D\ge100$. % BIND: phase_03/algorithm_pseudocode.md (dimension-gating note) + phase_03/parameter_table.md
 Below its tier, each gated block is a no-op.
@@ -615,7 +618,7 @@ No measured interaction structure is shown.}
 \midrule
 1. Learn & Strictly improving accepted-move deltas $\Delta x$ update the graph; rejected trials and ties do not. & Improvement signal only; zero extra objective evaluations. \\
 2. Memory (Eq.~(\ref{eq:sgsm-graph})) & Two co-evolving accumulators --- a magnitude graph $G_{\mathrm{abs}}$ and a signed graph $G_{\mathrm{signed}}$ --- share $G_\bullet \gets \lambda G_\bullet + \eta\,\operatorname{outer}(\phi_\bullet(\Delta x))$, with $\lambda{=}0.95$, $\eta{=}1.0$. & The linkage-crossover consumer acts only when the magnitude-graph confidence $\operatorname{conf}(G_{\mathrm{abs}})\ge\kappa_{\min}$; the eigenframe polish reads $G_{\mathrm{signed}}$ and fires on any non-zero signed signal (no confidence gate). \\
-3. Exploit (two active channels) & (i)~magnitude-graph linkage blocks $\to$ block crossover mask (Eq.~(\ref{eq:kr-mask})); (ii)~signed graph $\to$ eigenbasis $\to$ eigenframe final polish (Eq.~(\ref{eq:eigen-polish})). An ISM-block \emph{subspace} local search is implemented but not enabled (the frozen configuration runs a coordinate local search). & Four-part state ($G_{\mathrm{abs}}$, $G_{\mathrm{signed}}$, support $C$, activity $g_{\mathrm{act}}$): the magnitude graph feeds the crossover mask, the signed graph feeds the polish; the polish fires once, in the final budget slice. \\
+3. Exploit (two active channels) & (i)~magnitude-graph linkage blocks $\to$ block crossover mask (Eq.~(\ref{eq:kr-mask})); (ii)~signed graph $\to$ eigenbasis $\to$ deterministic final polish (Eq.~(\ref{eq:eigen-polish})). An ISM-block \emph{subspace} local search is implemented but not enabled (the frozen configuration runs a coordinate local search). & Four-part state ($G_{\mathrm{abs}}$, $G_{\mathrm{signed}}$, support $C$, activity $g_{\mathrm{act}}$): the magnitude graph feeds the crossover mask, the signed graph feeds the polish; the polish fires once, in the final budget slice. \\
 \bottomrule
 \end{tabular}
 \end{table}

@@ -149,7 +149,7 @@ files.
 python run.py --root . --optimizer gsk,agsk,apgsk,fdb-agsk,atmals-gsk,egsk,dt-gsk --suite cec2017 --function 1:30 --dimension 10,30,50,100 --runs 51 --parallel --workers 2 --convergence-graphs --overwrite
 ```
 
-This runs all seven runnable optimizers. `egsk` executes via its scipy-SLSQP
+This runs all seven panel optimizers. `egsk` executes via its scipy-SLSQP
 port of the MATLAB reference, and its statistical-panel cells come from the
 committed `scipy`-SLSQP port run (the comparator of record).
 `--function 1:30` is an inclusive range; the CEC2017 *scored* set excludes the

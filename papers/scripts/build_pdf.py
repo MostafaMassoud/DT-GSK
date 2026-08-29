@@ -60,10 +60,23 @@ def _resolve_tool(name: str) -> str:
     )
 
 
+# Deterministic build epoch. pdflatex stamps /CreationDate and derives /ID
+# from it, so an unpinned build cannot be byte-reproduced. Pinned here rather
+# than left to the caller's shell: pass-51 and pass-52 both built without it
+# and shipped wall-clock timestamps under a manifest claiming determinism.
+SOURCE_DATE_EPOCH = "1783468800"
+
+
+def _build_env() -> dict[str, str]:
+    """Environment with the deterministic epoch pinned."""
+    return dict(os.environ, SOURCE_DATE_EPOCH=SOURCE_DATE_EPOCH,
+                FORCE_SOURCE_DATE="1")
+
+
 def _run(cmd: list[str], *, label: str) -> int:
     """Invoke ``cmd`` from ROOT and stream its exit code back."""
     print(f"[build_pdf] {label}: {' '.join(cmd)}")
-    result = subprocess.run(cmd, cwd=str(ROOT))
+    result = subprocess.run(cmd, cwd=str(ROOT), env=_build_env())
     return result.returncode
 
 

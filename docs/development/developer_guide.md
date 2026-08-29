@@ -56,9 +56,15 @@ gsk-list --optimizers --benchmarks --references benchmarks/cec_reference_results
 gsk-run --config configs/smoke.yml --root .
 ```
 
-`gsk-list` should report the seven runnable optimizers (`gsk`, `agsk`, `apgsk`,
-`fdb-agsk`, `atmals-gsk`, `egsk`, `dt-gsk`) and the six suites (`sphere`, `cec2011`,
-`cec2013`, `cec2013lsgo`, `cec2017`, `cec2020`). Generated output lands under
+`gsk-list` should report **fifteen** optimizer ids: the seven-method GSK-family
+panel (`gsk`, `agsk`, `apgsk`, `fdb-agsk`, `atmals-gsk`, `egsk`, `dt-gsk`) —
+the panel every statistical claim in the manuscript is computed over — plus
+eight external SOTA baselines (`mos-cec2013lsgo`, `shade-ils`, `decc-g`,
+`cmaes`, `ebowithcmar`, `jso`, `lshade`, `lshade-spacma`) that are runnable
+under the project's protocol but are **not** part of that panel. Under
+`benchmarks:` it lists the five CEC suites (`cec2011`, `cec2013`, `cec2013lsgo`,
+`cec2017`, `cec2020`), with `sphere` reported separately under
+`smoke problems:`. Generated output lands under
 `results/_run_all/<optimizer>/<suite>/`; imported reference evidence under
 `benchmarks/cec_reference_results/` is read-only and never written by a run.
 
@@ -88,7 +94,8 @@ src/gsk_family/
   benchmark_adapter/  problem factory, protocol metadata, shape validation
   cli/                thin entry points (run, list, validate, stats)
   common/             reference-faithful rng, donors, bounds, population helpers
-  optimizers/         the seven runnable optimizers (gsk + adaptive variants + egsk + dt-gsk)
+  optimizers/         the seven-method GSK family (gsk + adaptive variants + egsk + dt-gsk);
+                      external/ holds the eight SOTA baselines (runnable, not in the panel)
   runners/            config, seed policy, experiment driver, output, parallel
   stats.py            error and statistics conventions
   types.py            shared dataclasses exchanged across layers

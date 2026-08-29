@@ -35,7 +35,7 @@ Confirm the package can see its optimizers, suites, and reference tables.
 gsk-list --optimizers --benchmarks --references benchmarks/cec_reference_results
 ```
 
-Confirm that all seven runnable optimizers (`gsk`, `agsk`, `apgsk`, `atmals-gsk`,
+Confirm that all seven panel optimizers (`gsk`, `agsk`, `apgsk`, `atmals-gsk`,
 `fdb-agsk`, `dt-gsk`, `egsk`) are listed under `optimizers:`, that the six benchmark
 suites (the five CEC suites plus `sphere`) appear under `benchmarks:` / `smoke problems:`, and that the
 `references:` block reports a non-zero CSV count for each imported suite. The

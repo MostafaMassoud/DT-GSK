@@ -91,7 +91,7 @@ See the per-optimizer guides — [GSK](../algorithms/gsk.md),
 the [Glossary](../reference/glossary.md) for `kf`, `kr`, junior/senior, and
 LPSR.
 
-There are **seven runnable optimizers** in total (the five comparators above,
+The GSK-family panel is **seven optimizers** (the five comparators above,
 the proposed `dt-gsk`, and `egsk`). `egsk` is a faithful MATLAB port whose only
 deviation is the interior-point refinement (SLSQP in place of MATLAB `fmincon`),
 validated as statistically equivalent to the MATLAB `fmincon` reference; its

@@ -59,9 +59,10 @@ matplotlib, PyYAML, and Numba (version ranges pinned in `pyproject.toml`).
 
 ## Journal Revision Experiments (one command)
 
-The four reviewer-requested experiments from the *Algorithms* round-1 major
-revision (D-0047, CR-0023). The other six reviewer points needed no runs and are
-already applied.
+The five reviewer-requested experiments from the *Algorithms* revision: E1-E4
+from the round-1 major revision (D-0047, CR-0023), plus E5, added in round 2 and
+pre-registered as **Amendment A4** before it executed. The other six round-1
+reviewer points needed no runs and are already applied.
 
 **Rehearse first — 20 seconds, and it verifies itself:**
 
@@ -92,9 +93,17 @@ first incomplete cell instead of repeating finished work. Every leg is written
 | E2 | R1.3 / R2.2 | DT-GSK at the comparators' `NP = 100` | 5,916 |
 | E3 | R2.1 | Uniform vs tiered: the D=10 and D=100 parameter sets applied at every dimension | 11,832 |
 | E4 | R2.7 | Parameter sensitivity, 27 one-factor cells | 11,745 |
-| | | **Total** | **32,451** |
+| E5 | R2.7 | Dimension-boundary sensitivity, 4 executed cells (round 2, Amendment A4) | 1,740 |
+| | | **Total** | **34,191** |
 
-Roughly 25–33 hours at 15 workers. Progress is printed and appended to
+E5 registers **five** boundary cells but runs four. The fifth — boundary
+20 -> 31, i.e. the low-tier parameter set applied at D = 30 — is identical by
+construction to E3's uniform-low arm at D = 30 (51 runs per function), so it is
+reused from the promoted round-1 release `rev-rel-2026-08-26-dd42d37eb` rather
+than re-executed. E5's four executed cells use 15 runs per function, as E4 does.
+
+Roughly 25–33 hours at 15 workers for E1–E4; E5's four cells add about five
+percent to that. Progress is printed and appended to
 `results/_revision/driver.log`, so a detached run can be followed with:
 
 ```powershell
@@ -108,6 +117,7 @@ python scripts\run_revision_experiments.py --smoke        # 20 s rehearsal, self
 python scripts\run_revision_experiments.py --status       # progress table, runs nothing
 python scripts\run_revision_experiments.py --dry-run      # the plan, runs nothing
 python scripts\run_revision_experiments.py --only E1,E2   # a subset
+python scripts\run_revision_experiments.py --only E5      # the round-2 leg alone
 python scripts\run_revision_experiments.py --workers 8    # fewer workers
 ```
 

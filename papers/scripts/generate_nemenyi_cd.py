@@ -228,10 +228,14 @@ def _draw_cd_on_ax(ax, ranks: dict[str, float], cd: float, dim: int,
     x_max = max(values)
     offset = x_max * 0.012
     for yi, val in zip(y, values):
+        # Drawn above the critical-difference rule with an opaque backing box:
+        # a label sitting on the dashed line reads as struck through otherwise.
         ax.text(
             val + offset, yi, f"{val:.2f}",
             va="center", ha="left", fontsize=9 if compact else 10,
-            color="#202020",
+            color="#202020", zorder=4,
+            bbox=dict(boxstyle="square,pad=0.12", facecolor="white",
+                      edgecolor="none", alpha=0.92),
         )
 
     ax.set_yticks(y)

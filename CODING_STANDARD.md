@@ -324,7 +324,7 @@ deterministic given a seed.
 
 ## 8. Tests
 
-Tests live under `tests/` in tiers; the suite currently collects 603 tests.
+Tests live under `tests/` in tiers; the suite currently collects 618 tests.
 Re-check the live count with `python -m pytest --collect-only -q` rather than
 hard-coding a number.
 

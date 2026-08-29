@@ -8,7 +8,7 @@ Deterministic Refinement for Gaining-Sharing Knowledge Optimization* (submitted 
 Current project state, including the open revision work, is recorded in
 [REVISION_STATUS.md](REVISION_STATUS.md).
 
-The repository ships seven runnable optimizers -- DT-GSK together with six
+The repository ships a seven-optimizer GSK-family panel -- DT-GSK together with six
 re-implemented GSK-family baselines -- adapters for five CEC benchmark suites,
 the experiment runners and statistical pipeline used in the study, and the
 immutable evidence releases to which every reported number is bound.

@@ -7,7 +7,9 @@
 > [Extension Guide](extension_guide.md). After reading it you will know which
 > commands to run on a schedule, what to verify when a dependency changes, and
 > how to record new reference evidence. The three console commands below
-> (`gsk-list`, `gsk-run`, `gsk-validate`) are the installed entry points; the
+> (`gsk-list`, `gsk-run`, `gsk-validate`) are three of the five installed entry
+> points — `pyproject.toml` `[project.scripts]` also defines `gsk-family-run`
+> (an alias of `gsk-run`) and `gsk-stats`; the
 > [glossary](../reference/glossary.md) defines the terms.
 
 ## Regular Checks
@@ -24,10 +26,16 @@ gsk-run --config configs/smoke.yml --root .
 
 `python -m pytest` also runs the three documentation gates
 (docstring coverage, doc-list resolution, and HTML link resolution); a green run
-therefore confirms both code and docs are healthy. `gsk-list` should report the
-seven runnable optimizers (`gsk`, `agsk`, `apgsk`, `fdb-agsk`, `atmals-gsk`,
-`egsk`, `dt-gsk`) and the six suites (`sphere`, `cec2011`, `cec2013`, `cec2013lsgo`,
-`cec2017`, `cec2020`). Add the ruff correctness lint and the scoped mypy gate to
+therefore confirms both code and docs are healthy. `gsk-list` should report
+**fifteen** optimizer ids: the seven-method GSK-family panel (`gsk`, `agsk`,
+`apgsk`, `fdb-agsk`, `atmals-gsk`, `egsk`, `dt-gsk`) — the panel every
+statistical claim in the manuscript is computed over — plus eight external SOTA
+baselines (`mos-cec2013lsgo`, `shade-ils`, `decc-g`, `cmaes`, `ebowithcmar`,
+`jso`, `lshade`, `lshade-spacma`) that are runnable under the project's protocol
+but are **not** part of that panel. Under `benchmarks:` it lists the five CEC
+suites (`cec2011`, `cec2013`, `cec2013lsgo`, `cec2017`, `cec2020`), with
+`sphere` reported separately under `smoke problems:`.
+Add the ruff correctness lint and the scoped mypy gate to
 the recurring pass as well (the same two commands CI runs):
 
 ```powershell

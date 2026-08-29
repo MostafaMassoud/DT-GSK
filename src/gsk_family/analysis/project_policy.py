@@ -2,8 +2,11 @@
 
 Dependency-free single source of truth for the GSK-family optimizer ids and the
 reference-comparator panel consumed by the statistical-analysis modules.
-Vendored and adapted from the source DT-GSK project; ``RUNNABLE_OPTIMIZERS``
-reflects this project's seven locally executable optimizers.
+Vendored and adapted from the source DT-GSK project. ``RUNNABLE_OPTIMIZERS`` is
+the seven-method GSK family panel every statistical claim is computed over. It is
+NOT the set of optimizers this repository can execute locally: the runner also
+accepts the eight external SOTA baselines in
+``gsk_family.optimizers.EXTERNAL_OPTIMIZER_IDS``, for fifteen runnable ids in all.
 """
 
 from __future__ import annotations
@@ -17,7 +20,13 @@ RUNNABLE_OPTIMIZERS: tuple[str, ...] = (
     "egsk",
     "dt-gsk",
 )
-"""Optimizers this repository can execute locally (egsk also stays a reference comparator)."""
+"""The seven-method GSK family panel every statistical claim is computed over.
+
+NOT the set of optimizers this repository can execute locally -- the runner also
+accepts the eight external SOTA baselines in
+``gsk_family.optimizers.EXTERNAL_OPTIMIZER_IDS``, fifteen runnable ids in total.
+``egsk`` also stays a reference comparator.
+"""
 
 PROPOSED_OPTIMIZER = "dt-gsk"
 BASELINE_OPTIMIZER = "gsk"
@@ -51,7 +60,7 @@ def normalize_algorithm_id(value: str) -> str:
 
 
 def is_runnable_optimizer(value: str) -> bool:
-    """Return True when *value* names a locally executable optimizer."""
+    """Return True when *value* names a member of the seven-method family panel."""
     return normalize_algorithm_id(value) in RUNNABLE_OPTIMIZERS
 
 

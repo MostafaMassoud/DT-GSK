@@ -136,24 +136,31 @@ ambition: a smaller true statement beats a larger guessed one.
 ## 1. Ground truth (do not contradict; verify against code before writing)
 
 This project is a faithful **Python port of an upstream reference
-implementation** (a numerical-computing platform). **Never name that source
-platform anywhere except `docs/reference/seed_policy.md`** — that single file
-(and its generated HTML twin `docs/html/reference_seed_policy.html`) is the
-*only* place the old platform name is permitted. Everywhere else write "the
-reference implementation" or "the upstream source". In this prompt itself, when
-you must show the grep that polices the token, write it obliquely as
-`<platform-name>`. (Scope update: the token is now PERMITTED for factual
-provenance — the eGSK port and docs/reference/seed_policy.md — and prohibited
-only as a description of this project's runtime; the former single-file rule
-is superseded.)
+implementation** (a numerical-computing platform). The platform's literal name
+is **provenance-scoped**: it is permitted wherever it states factual
+provenance — `docs/reference/seed_policy.md` (and its generated HTML twin
+`docs/html/reference_seed_policy.html`), the eGSK port documentation, and the
+port-origin, oracle and parity notes that carry it across `src/`, `tests/`,
+`scripts/` and `benchmarks/` (about 78 occurrences there, all provenance). It is
+**prohibited as a description of this project's runtime** or anywhere it would
+imply the platform is required to run this code; in that role, write "the
+reference implementation" or "the upstream source" instead. **The former
+single-file rule — "allowed ONLY in `seed_policy.md`" — is superseded; do not
+re-apply it.** In this prompt itself, when you must show the grep that polices
+the token, write it obliquely as `<platform-name>`.
 
 ### 1.1 Fixed facts (must match exactly)
 
 - **Runnable optimizers (7):** `gsk`, `agsk`, `apgsk`, `fdb-agsk`, `atmals-gsk`,
   `egsk`, `dt-gsk` (`dt-gsk` is this family's own proposed/headline method; the
   others are baselines/variants). Kernels live under `src/gsk_family/optimizers/`;
-  the canonical tuple is `OPTIMIZER_IDS` in
-  `src/gsk_family/optimizers/__init__.py`. **eGSK** is a runnable optimizer
+  the canonical tuple is `FAMILY_OPTIMIZER_IDS` in
+  `src/gsk_family/optimizers/__init__.py`. The runner accepts **fifteen** ids:
+  `OPTIMIZER_IDS` is those seven plus the eight `EXTERNAL_OPTIMIZER_IDS` SOTA
+  baselines (`mos-cec2013lsgo`, `shade-ils`, `decc-g`, `cmaes`, `ebowithcmar`,
+  `jso`, `lshade`, `lshade-spacma`), which are runnable under this project's
+  protocol but are **not** part of the statistical panel — every statistical
+  claim is computed over the seven. **eGSK** is a runnable optimizer
   (`src/gsk_family/optimizers/egsk.py`, registered in `OPTIMIZER_IDS`,
   `RUNNABLE_OPTIMIZERS`, and the runner dispatch; `python run.py --optimizer egsk`
   works and `gsk-list` shows it): it is a faithful port whose only deviation is
@@ -342,8 +349,12 @@ docs/
    actually contain the claimed symbol and be **in range** for that file. If you
    cannot verify a statement from code, mark it `TODO(verify)` — never invent
    behaviour, numbers, or results.
-2. **Forbidden platform name** appears only in `seed_policy.md` (+ its HTML
-   twin). Grep before finishing (§7). Never write the literal token in this
+2. **Platform name is provenance-scoped** (§1): permitted where it states
+   factual provenance — `seed_policy.md` (+ its HTML twin), the eGSK port
+   documentation, and the port-origin/oracle/parity notes in `src/`, `tests/`,
+   `scripts/` and `benchmarks/` — and prohibited only as a description of this
+   project's runtime. Grep before finishing (§7) and classify each hit; do not
+   apply the superseded single-file rule. Never write the literal token in this
    prompt or any other doc.
 3. **No removed-script references.** Never mention the deleted `phaseNN` scripts
    or methodology (§1.2).
@@ -562,7 +573,7 @@ Bring `research/statistical_analysis.md` (and any statistics section of
 (`family_report.py`, `result_loader.py`, `statistical_tests.py`,
 `statistics.py`, `figures.py`, `latex_tables.py`, `project_policy.py`):
 
-- Define the **7-algorithm panel** precisely: the seven runnable optimizers,
+- Define the **7-algorithm panel** precisely: the seven panel optimizers,
   where **eGSK**'s panel cells are reported from the committed reference CSVs (the
   comparator of record). eGSK is itself runnable — document it as such.
 - Explain each method the reader will see in the paper and the generated tables:
@@ -623,7 +634,9 @@ forbidden-token grep all pass.
 **Reference (`reference/*`).**
 - [ ] Every code-facing fact present, correct, and cited.
 - [ ] At least one concrete example (schema row, config block, or API call).
-- [ ] `seed_policy.md` is the *only* file naming the upstream platform.
+- [ ] Every mention of the upstream platform states factual provenance
+      (seed formulas, port origin, oracle or parity record) — never this
+      project's runtime.
 
 **Research (`research/*`).**
 - [ ] Exact reproduction procedure with copy-pasteable commands.
@@ -730,17 +743,22 @@ python scripts/build_docs_html.py                     # rebuild HTML twins -> do
 gsk-validate --compare results/_run_all/gsk/cec2017 benchmarks/cec_reference_results
 ```
 
-### 7.1 Forbidden-token sweep
+### 7.1 Platform-token scope sweep
 
-The platform name may appear **only** in `seed_policy.md` (+ its HTML twin).
+The platform name is **provenance-scoped**, not confined to one file (§1).
 Substitute the real token for `<forbidden-platform-name>`:
 
 ```bash
-# Expect ONLY: docs/reference/seed_policy.md  and  docs/html/reference_seed_policy.html
+# Classify every hit; expect provenance hits in docs/reference/seed_policy.md,
+# its HTML twin, and the eGSK port pages.
 grep -rniIl "<forbidden-platform-name>" docs
 ```
 
-Any other hit is a Critical failure. Also sweep for removed-script references:
+A hit is a Critical failure only when it describes this project's runtime or
+implies the platform is required to run this code; a hit that states factual
+provenance is correct and must not be "fixed". The same sweep over `src/`,
+`tests/`, `scripts/` and `benchmarks/` returns about 78 hits, all provenance —
+do not report them as leaks. Also sweep for removed-script references:
 
 ```bash
 # Expect NO hits anywhere in docs/
@@ -873,8 +891,8 @@ Use this shape for each non-trivial finding — claim, evidence, impact, fix:
       anchors resolve; `docs/index.md` lists every page once.
 - [ ] Every `path:line` citation points at a real, in-range line holding the
       claimed symbol.
-- [ ] Forbidden platform name confined to `seed_policy.md` (+ HTML twin); no
-      removed-script references.
+- [ ] Every platform-name mention states factual provenance, none describes
+      this project's runtime; no removed-script references.
 - [ ] HTML rebuilt into `docs/html/`; pytest, ruff, link/anchor check,
       citation check, and validation pass.
 - [ ] Full-campaign commands show `--parallel --workers 2`; default backend,

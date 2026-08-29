@@ -293,7 +293,7 @@ is the **comparator of record** the statistical panel reports, and it is the
 **Python (`scipy`-SLSQP) port run**, not a MATLAB `fmincon` reference (the
 committed `egsk` CSVs were produced by the runnable port; e.g. CEC2017 F5 D10
 mean 4.816, the SLSQP value, not the `fmincon` 4.994). The seven-algorithm panel
-= the seven runnable optimizers (§1.2), all evaluated by `gsk-stats`. The panel
+= the seven panel optimizers (Section 1.2), all evaluated by `gsk-stats`. The panel
 reads these committed CSVs rather than a fresh live run so the numbers are fixed
 and reproducible.
 

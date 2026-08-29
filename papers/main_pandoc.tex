@@ -59,7 +59,7 @@ interaction-structure memory supplies the refinement's basis.
 Against six GSK-family baselines re-executed on five CEC suites under one
 budget-fair paired protocol, DT-GSK attains the best descriptive
 family-rank aggregate on CEC2017 (2.48) and CEC2013 (2.80), though the
-Holm-corrected tests separate it from eGSK only at CEC2017's $D = 10$; it
+Holm-corrected tests separate it from eGSK on that suite only at $D = 10$; it
 is second behind eGSK at $D = 30$ and on CEC2011 (a Holm-significant
 loss). % BIND: AN-RANKAGG-2017-OVERALL (friedman_ranks_cec2017_overall.csv; RS-01 NARROWED); AN-RANKAGG-2013-OVERALL (friedman_ranks_cec2013_overall.csv); AN-OMNI-2011-NATIVE (friedman_ranks_cec2011.csv)
 On AGSK's strongest suite---the CEC2020 competition in which it was the
@@ -112,8 +112,9 @@ statistically defensible improvement within the family?
 A second, subordinate question follows from the same design: whether a run's
 own accepted moves carry recoverable coordinate-interaction structure that
 can be exploited at no extra objective evaluations, in particular at
-$D = 50$ and $D = 100$. We answer the first affirmatively and report the
-second as a controlled negative result.
+$D = 50$ and $D = 100$. We answer the first affirmatively at the dimensions
+where tiering was demonstrated, and report the second as a controlled negative
+result.
 
 GSK is a human-inspired metaheuristic whose junior and senior
 knowledge-transfer phases define the base operator family studied in
@@ -202,7 +203,9 @@ The contributions are:
   preserves the global best.
   ACE, NLPSR, BSE, the archive, and the restart modify cited
   antecedents; we did not find ARGP's acceptance-rate-gated arm-freezing
-  rule among the surveyed GSK variants. 
+  rule among the surveyed GSK variants. C2 is claimed for the dimensions where
+  tiering was demonstrated, $D = 10$ and $D = 50$; the $20 \leq D < 50$ tier is
+  disclosed as mis-specified (Section~@@REF!sec:alg:scaffold@@). 
 \item \textbf{C3 --- a controlled, reproducible family evaluation.} A
   13-substream, append-only, prefix-locked random-number layer makes
   runs byte-stable and keeps each subsystem's draws on a named
@@ -532,7 +535,7 @@ The family's two late-refinement mechanisms are \egsk{}'s SQP escape,
 which depends on a gradient-based solver~@@CITE!jawad2024egsk@@, and
 \atmals{}'s randomized shrinking local search, whose computational
 overhead its authors acknowledge~@@CITE!alfadli2025atmals@@. \dtgsk{}'s
-eigenframe final polish is instead one-shot, RNG-free, hard-capped by
+deterministic final polish is instead one-shot, RNG-free, hard-capped by
 the final budget slice, and runs on the eigenbasis the ISM has already
 learned; no convergence guarantee is claimed for it.
 
@@ -1064,11 +1067,14 @@ receive the identical evaluation budget, so the difference lies in how each
 algorithm spends that budget rather than in how much it is given. We state it
 explicitly because population size is a design choice that can materially
 affect upper-tier behavior, and a reader comparing at $D=100$ should
-know the initial populations differ by a factor of five. A common-$NP$
-replication was carried out: at the comparators' $NP = 100$, \dtgsk{} remains first
+know the initial populations differ by a factor of five. A common-initial-$NP$
+replication was carried out on CEC2017, with \dtgsk{}'s own reduction law and
+tier floors retained: at the comparators' $NP = 100$, \dtgsk{} remains first
 at $D = 10$ and second at $D = 30$, $50$ and $100$, with the paired difference
 significant only at $D = 50$ and $D = 100$ (Supplementary Materials,
-Section~S9.2).
+Section~S9.2). On CEC2013LSGO the corresponding ratio at initialization is
+fifty-fold; it is disclosed but not controlled (Supplementary Materials,
+Section~S7).
 
 
 
@@ -1195,7 +1201,7 @@ adds: the nonlinear population-size reduction (NLPSR) and the ACE selector with
 acceptance-gated pruning, the linkage-aware block crossover, the dimension-gated
 interaction-structure memory, the coordinate local search, the
 budget-safe escape with deep-stall restart,
-and the one-shot eigenframe final polish. At $D\ge100$ the upper-tier controllers are cross-cutting rather than a single stage --- they act within the population-reduction, trial-construction, acceptance, and escape steps above (and gate the local search) --- so they are not drawn as a separate node. The global best is preserved
+and the one-shot deterministic final polish. At $D\ge100$ the upper-tier controllers are cross-cutting rather than a single stage --- they act within the population-reduction, trial-construction, acceptance, and escape steps above (and gate the local search) --- so they are not drawn as a separate node. The global best is preserved
 throughout.}
 \label{fig:dtgsk-flowchart}
 \end{figure}
@@ -1214,7 +1220,7 @@ Figure~@@REF!fig:dtgsk-flowchart@@ charts.
 of the operator pool.
 \item Stagnation escape by the Budget-Safe Escape (BSE) mechanism.
 \item The charged coordinate local search.
-\item At $D\ge50$, the one-shot eigenframe final polish in the final
+\item At $D\ge50$, the one-shot deterministic final polish in the final
 budget slice.
 \item Global-best update.
 \item The deep-stall restart check.
@@ -1235,7 +1241,7 @@ The blockwise linkage mask is active from $D\ge10$, applied to a
 tier-dependent fraction of the population, with the remainder keeping
 the per-coordinate $KR$ mask of Eq.~(@@REF!eq:kr-mask@@).
 The interaction-structure memory and the
-eigenframe final polish activate at $D\ge50$, while the coordinate local search
+deterministic final polish activate at $D\ge50$, while the coordinate local search
 is active at all tiers. The protective
 controllers activate at $D\ge100$. 
 Below its tier, each gated block is a no-op.
@@ -1705,7 +1711,7 @@ No measured interaction structure is shown.}
 \midrule
 1. Learn & Strictly improving accepted-move deltas $\Delta x$ update the graph; rejected trials and ties do not. & Improvement signal only; zero extra objective evaluations. \\
 2. Memory (Eq.~(@@REF!eq:sgsm-graph@@)) & Two co-evolving accumulators --- a magnitude graph $G_{\mathrm{abs}}$ and a signed graph $G_{\mathrm{signed}}$ --- share $G_\bullet \gets \lambda G_\bullet + \eta\,\operatorname{outer}(\phi_\bullet(\Delta x))$, with $\lambda{=}0.95$, $\eta{=}1.0$. & The linkage-crossover consumer acts only when the magnitude-graph confidence $\operatorname{conf}(G_{\mathrm{abs}})\ge\kappa_{\min}$; the eigenframe polish reads $G_{\mathrm{signed}}$ and fires on any non-zero signed signal (no confidence gate). \\
-3. Exploit (two active channels) & (i)~magnitude-graph linkage blocks $\to$ block crossover mask (Eq.~(@@REF!eq:kr-mask@@)); (ii)~signed graph $\to$ eigenbasis $\to$ eigenframe final polish (Eq.~(@@REF!eq:eigen-polish@@)). An ISM-block \emph{subspace} local search is implemented but not enabled (the frozen configuration runs a coordinate local search). & Four-part state ($G_{\mathrm{abs}}$, $G_{\mathrm{signed}}$, support $C$, activity $g_{\mathrm{act}}$): the magnitude graph feeds the crossover mask, the signed graph feeds the polish; the polish fires once, in the final budget slice. \\
+3. Exploit (two active channels) & (i)~magnitude-graph linkage blocks $\to$ block crossover mask (Eq.~(@@REF!eq:kr-mask@@)); (ii)~signed graph $\to$ eigenbasis $\to$ deterministic final polish (Eq.~(@@REF!eq:eigen-polish@@)). An ISM-block \emph{subspace} local search is implemented but not enabled (the frozen configuration runs a coordinate local search). & Four-part state ($G_{\mathrm{abs}}$, $G_{\mathrm{signed}}$, support $C$, activity $g_{\mathrm{act}}$): the magnitude graph feeds the crossover mask, the signed graph feeds the polish; the polish fires once, in the final budget slice. \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -3150,7 +3156,9 @@ Three deserve explicit statement. First, the strongest measured component
 effect belongs to the deterministic endgame \emph{as a whole}, and the polish
 isolation removes that entire compass phase rather than the learned basis
 alone, so the advantage may rest on classical direct search rather than on
-anything learned during the run. Second, \dtgsk{} begins from
+anything learned during the run. The three-arm isolation of Supplementary
+Materials Section~S9.1 bears on this explanation and supports it: the coordinate
+arm alone beats no refinement at both active dimensions. Second, \dtgsk{} begins from
 $NP = 5D$ against the comparators' $NP = 100$ --- a five-fold difference
 at $D = 100$. The comparators' value is the family's
 reference-implementation setting. A matched-initial-population control
@@ -3475,6 +3483,13 @@ Materials, Section~S9.1). At that dimension, therefore,
 exploiting the learned structure did not merely fail to help: it subtracted from
 a refinement that works without it. Contribution~C1 is stated basis-neutrally
 for this reason.
+Both mechanisms are retained unchanged. The configuration evaluated here was
+fixed and checksum-locked before these isolations were run, so replacing a
+component in response to the experiment that measured it would define a
+different algorithm, and every number reported here is bound to the one that
+was evaluated. The isolations therefore correct the claims rather than the
+method, and the mechanisms remain in the shipped configuration so that both
+negative results are reproducible from it.
 
 It is
 presented alongside the reproducible dimension-tiered system rather than as a
@@ -3590,7 +3605,7 @@ configuration files, and experimental result data supporting the findings of
 this study are openly available in the public \dtgsk{} repository at
 \url{https://github.com/MostafaMassoud/DT-GSK}; the originally submitted
 version corresponds to the repository tag v2.13 and this revised version to
-tag v2.25, and any further materials are
+tag v2.26, and any further materials are
 available from the corresponding author upon reasonable request. The
 supplementary materials accompanying the manuscript provide the additional
 methodological and experimental details needed to evaluate the reported

@@ -305,6 +305,70 @@ used read-only and nothing in either is re-minted. Protocol, binding:
   `papers/review_2026_08_24/revision_experiments_preregistration.md` (signed
   2026-08-25, before any result existed).
 
+**Round-2 revision evidence (`_revision2/`).** The round-2 experiment E5 —
+dimension-boundary sensitivity — is promoted as release
+**`rev2-rel-2026-08-28-203c78744`** under
+`benchmarks/cec_reference_results/_revision2/`, whose manifest carries 33 files:
+4 `_configs/*.yml`, 28 per-arm result files under
+`<arm>/dt-gsk/cec2017/summary/` (seven per arm), and one `_provenance/` driver
+log. The analysis bundle is `papers/analysis/rev2-rel-2026-08-28-203c78744/`,
+which also carries the **canonical near-zero re-analysis of E1–E5** — the
+`|d| < 1e-8` tie rule the paper states but the round-1 revision analyzer had
+skipped, re-derived over every leg. Governance: pre-registration **Amendment A4**
+(E5, filed 2026-08-28 *before* any E5 run executed) and **Amendments A5/A6** (the
+canonical near-zero rule and its executed value-level delta), all in
+`papers/review_2026_08_24/revision_experiments_preregistration.md`. The release is
+**additive and non-superseding**: it pairs read-only with the frozen primary
+release `rel-2026-07-20-67d9345f9` and with the round-1 release
+`rev-rel-2026-08-26-dd42d37eb`, and re-mints nothing in either. Protocol, binding:
+
+- **CEC2017**, the 29 scored functions (F1, F3–F30), the suite's own protocol
+  budget `10000 * D`, and the **unified Threefry schedule at base seed 20240620**
+  (`seed_policy: unified`) — the same regime as every other leg, so each E5 cell
+  pairs with the tiered reference at matched `(dim, func, run)`.
+- **E5 uses 15 runs**, as E4 does; the tiered reference it is contrasted against
+  is restricted to the same first 15 runs of the unified schedule.
+- The four executed arms are `e5_b20_lo_D10`, `e5_b50_lo_D30`, `e5_b50_hi_D50`
+  and `e5_b100_hi_D100`. Each shifts ONE tier boundary just far enough to hand
+  the nearest official CEC2017 dimension a neighbouring tier's profile, and is
+  mechanically an E3-style single-dimension profile transplant.
+- **A fifth cell is registered but deliberately NOT executed.** Boundary
+  20 -> 31 at D = 30 (the low-tier set applied at D = 30) is identical by
+  construction to the round-1 `e3_uniform_low` arm at D = 30 (51 runs), so it is
+  read from `rev-rel-2026-08-26-dd42d37eb` rather than re-run or re-copied. The
+  manifest records this under `reused_cell`.
+- Exclusions, following the round-1 and cec2020/lsgo precedent: `curves/`
+  (regenerable from the recorded seeds) and per-session console logs.
+
+**Identity re-execution evidence (`_g1_recheck/`).** The D-0051 cross-build
+identity re-execution is promoted as release **`g1-rel-2026-08-28-65b3d39e6`**
+under `benchmarks/cec_reference_results/_g1_recheck/`, whose manifest carries 7
+files — a single `dt-gsk/cec2017/summary/` arm: `dt-gsk_cec2017_D100.csv`,
+`per_run.csv`, `seed_schedule.csv`, `run_config.json`, `phase0_protocol.json`,
+`environment.json`, `verification.json`. Governance: **D-0051** (executed and
+independently replicated 2026-08-27, then kept as staging by decision), with
+promotion reopened and ordered 2026-08-28 under **D-0055**; the verdict was
+re-derived fail-closed at promotion from the staged bytes. Protocol, binding:
+
+- **CEC2017 at D = 100 only**, the five carrier functions **F7, F13, F14, F20 and
+  F30**, **51 runs** each — 255 cells — under the suite's own protocol budget
+  `10000 * D` and the same unified Threefry schedule at base seed 20240620.
+- **The verdict.** Of the 255 cells, 26 are ones where the archived leg and the
+  round-1 transplant arm disagree and 229 are ones where they agree. The fresh
+  run reproduces the transplant arm on all 26 and the archive on none; on the 229
+  it reproduces both. The Table A45 residual is therefore a difference **between
+  builds**, not a within-build instability.
+- **Two traps for anyone repeating it.** `run_campaign`-style single-thread
+  pinning is load-bearing — `scripts/run_campaign.py` pins `OMP_NUM_THREADS`,
+  `MKL_NUM_THREADS`, `OPENBLAS_NUM_THREADS` and `NUMBA_NUM_THREADS`, the plain
+  runner does not, and D = 100 is thread-sensitive, so an unpinned re-run is
+  meaningless. And a control drawn from cells where the two legs already *agree*
+  cannot discriminate between builds; the 26 divergent cells carry the signal.
+- **Additive and non-superseding.** It reads the frozen primary release (the
+  archived leg) and `rev-rel-2026-08-26-dd42d37eb` (the transplant arm) without
+  re-minting either. Exclusions: `curves/`, `gen_logs/` and per-session console
+  logs.
+
 ---
 
 ## 7. Result CSV schema

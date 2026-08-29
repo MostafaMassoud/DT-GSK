@@ -2121,7 +2121,7 @@ applying all surfaced fixes.
 - **Publication mechanism.** One squashed commit on the rewound public branch,
   carrying the audited tree. The 26-commit development history is retained
   locally on `archive/revision-pass-39-full` *(since 2026-08-28: in the private
-  bundle `D:/AI/Research-Lab/DT-GSK-private-history.bundle`, the branch itself bundled,
+  bundle kept outside the repository (location in the withheld `papers/review_2026_08_24/PRIVATE_OPS.md`), the branch itself bundled,
   restore-tested and deleted — the retention and the never-publish rule are
   unchanged, only the container moved)* and is NOT published: ten of its
   commit messages characterise a reviewer who declined to sign, including with

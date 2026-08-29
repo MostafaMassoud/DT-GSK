@@ -46,13 +46,13 @@ The path from idea to merge, and where each gate sits:
 
 ```mermaid
 flowchart LR
-  A[Branch off main] --> B[Edit code + docs together]
-  B --> C[python -m pytest -q<br/>unit / smoke / regression / 3 doc gates]
-  C --> D[ruff check + scoped mypy]
-  D --> E[build_docs_html.py<br/>regenerate HTML twins]
-  E --> F{All green?}
+  A["Branch off main"] --> B["Edit code + docs together"]
+  B --> C["python -m pytest -q<br/>unit / smoke / regression / 3 doc gates"]
+  C --> D["ruff check + scoped mypy"]
+  D --> E["build_docs_html.py<br/>regenerate HTML twins"]
+  E --> F{"All green?"}
   F -- no --> B
-  F -- yes --> G[Open pull request]
+  F -- yes --> G["Open pull request"]
 ```
 
 ### What the local gate enforces

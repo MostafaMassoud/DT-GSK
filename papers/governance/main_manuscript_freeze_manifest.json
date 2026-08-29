@@ -3,13 +3,15 @@
   "phase": "PASS-52: seven-lens panel-review fixes. A fourteen-agent adversarial review of the response letter (quote fidelity, numbers, claims-vs-manuscript, internal consistency, language, layout, location lines; every finding adversarially verified) confirmed 28 findings; all were fixed. Letter-side (untracked): the R1.1 abstract quote synced to the shipped 'scalar parameters' wording, two E1 table cells moved to the canonical tie-rule values (6.8e-4, 4.0e-6), SA01/SA02 renamed to the typeset Tables A23-A24, Location lines corrected to Sections 3.2/4.9 and 3.3, the diversity archive named correctly, the reviewer's severity sentence restored, and the E5 'new runs' timing, 'no other reported number', run-level-cell gloss, Holm labels, and six-starred-rows count fixed with tone nits. Tracked: the cover letter's stale 84-passage register count (register is at 93) replaced with count-free wording in both twins, rebuilt deterministically; the DAS names tag v2.25.",
   "generated_utc": "2026-08-29T09:30:00+00:00",
   "anchor_commit": "b6a18d176447d8c735cb8678c535db2cc5f922e3",
-  "pre_freeze_base_commit": "b9846e47024e48a0f8ce3e4f22bffbd794b2a355",
+  "pre_freeze_base_commit": "b9846e4 (abbreviated deliberately; the full SHA is held in the withheld papers/review_2026_08_24/PRIVATE_OPS.md because this commit is one of two unreachable objects pending a provider-side purge)",
   "evidence_release": {
     "primary": "rel-2026-07-20-67d9345f9",
     "cec2013lsgo": "lsgo-rel-2026-07-28-ff1a046ef",
     "cec2020": "cec2020-rel-2026-07-29-5867abe1e",
     "ablation": "abl-rel-2026-07-20",
-    "revision": "rev-rel-2026-08-26-dd42d37eb"
+    "revision": "rev-rel-2026-08-26-dd42d37eb",
+    "revision_round_two": "rev2-rel-2026-08-28-203c78744 (E5 dimension-boundary study and the canonical near-zero re-analysis of E1-E5; additive, non-superseding)",
+    "identity_recheck": "g1-rel-2026-08-28-65b3d39e6 (D-0051 identity re-execution; demonstrates the Table A45 residual as a build difference; additive, non-superseding)"
   },
   "scientific_content_status": "CORRECTED. Supplementary S5 step 5 named a frozen source symbol that does not exist; it now names _ace_update_probs, verified against the module. The ACE/ARGP operating cycle states that ARGP retirement acts in shared scope and writes back over both halves of the D>=20 split memory. The local-search admission list is no longer closed at four gates. No number, rank, p-value or decision changes.",
   "freeze_statement": "Freeze for resubmission. Driven by a defect pass-47 introduced, not by the six open tickets: the phantom anchor _ace_apply_credit rendered inside the paragraph promising the specification can be checked line by line. T12, T13, T21, T23 and T24 ride at near-zero marginal cost. T28 is deliberately left alone. T12 was applied at a bound-free locus, NOT the one the ticket filed, which would have evicted three tier constants from a live BIND window with the gate green.",
@@ -116,14 +118,14 @@
     "reproducibility": "the four main and supplementary artifacts rebuilt at the pinned epochs and byte-compared across two independent builds, all identical; cover_letter.pdf unchanged and not rebuilt",
     "swallowed_prose_sweep": "NOT RE-RUN at pass-44; all three edits were read back out of the built PDF instead.",
     "confidentiality_audit": "NOT RE-RUN at pass-44: no file added or removed, three prose edits only.",
-    "pytest": "611 passed, 2 skipped",
+    "pytest": "616 passed, 2 skipped (618 collected), two consecutive runs, exit 0 - see governance/environment_attestation/",
     "ruff": "All checks passed",
     "audit_manuscript": "NOT RE-RUN at pass-43. Pass-41 result: exit 0; terminology_hits 0; blocked_wording_hits 2 (pre-existing). Should be re-run before resubmission if the author wants it current.",
     "revision_analysis_pins": "NOT RE-RUN at pass-43, and not required: no analysis artifact was touched, which check_frozen_analysis confirms at 115/115."
   },
   "remint_note": "pass-48 MINTED 2026-08-27. The lesson is procedural: pass-47's applier printed a success message it never verified, so a replacement that silently failed to match shipped a false symbol. Assert the END STATE after a batch, never per-edit success - the same rule D-0039 recorded and this pass re-learned.",
-  "published_commit": "0ef96e9360df83e4b98b5b450d2ef87d1475868b",
-  "published_commit_note": "Pass-45 was made directly on the published branch, so anchor_commit and published_commit are the same commit and both resolve. The pass-41 disclosure that anchor_commit does not resolve remains true of pass-41 and every earlier pass.",
+  "published_commit": "709d6ff3a0ddca2184745fc18951ecf4179ba63d",
+  "published_commit_note": "published_commit is the commit that carried the previous freeze's mint onto the published branch (the v2.25 close). It is NOT the same object as anchor_commit, which names this pass's apply commit; both resolve on the public branch. This field went four passes stale before pass-53 because nothing gates it - recompute it at every mint, and never assume anchor and published are the same commit.",
   "source_files": [
     {
       "path": "papers/supplementary.tex",

@@ -14,7 +14,9 @@ dist/
 !results/
 # Smoke-rehearsal output of scripts/run_revision_experiments.py --smoke.
 # Truncated budget, tiny function set: it is NOT evidence and must never be
-# promoted or committed. Campaign output under results/_revision/ IS tracked.
+# promoted or committed. Campaign staging under results/_revision/ is ALSO
+# ignored -- see the D-0049 block below; the tracked, citable evidence is the
+# promoted release under benchmarks/cec_reference_results/_revision/.
 results/_revision_smoke/
 # Diagnostic re-execution staging (D-0051). Re-runs already-released cells to
 # answer a provenance question; it is a MEASUREMENT, not new evidence, and every
@@ -27,6 +29,10 @@ results/_g1_recheck/
 # (function, dimension), deterministic-regenerable from recorded seeds (same
 # rationale as DTTrace_*.jsonl). The promoted release under
 # benchmarks/cec_reference_results/_revision/ excludes them by manifest.
+# NOTE: now redundant -- the D-0049 block below blanket-ignores results/_revision/,
+# and `git check-ignore -v` attributes the match to that later, broader rule. Kept
+# deliberately: it documents WHY the curves are excluded, and it keeps working if
+# the blanket rule is ever narrowed.
 results/_revision/*/dt-gsk/cec2017/curves/
 # Raw DT-GSK per-generation diagnostics traces: deterministic-regenerable bulk
 # (seeds recorded in run_config/seed_schedule; single files can exceed GitHub's

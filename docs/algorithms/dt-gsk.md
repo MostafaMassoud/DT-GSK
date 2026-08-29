@@ -229,7 +229,7 @@ SP-NLPSR clamps the reduction target (step 2), FC4 acts inside the linkage cross
 
 ```mermaid
 flowchart TD
-    A["Init population (5·D) + evaluate<br/>seed global-best (global_best_f / global_best_x)"] --> B{Budget<br/>exhausted?}
+    A["Init population (5·D) + evaluate<br/>seed global-best (global_best_f / global_best_x)"] --> B{"Budget<br/>exhausted?"}
     B -- yes --> Z["Return GLOBAL-BEST<br/>(replaces working incumbent if better)"]
     B -- no --> C["NLPSR population-size reduction<br/>compute target NP and cull worst (psr_schedule, n_min)"]
     C --> D["ACE knowledge-source selection<br/>bandit over (KF, KR, Kexp) arms (ace_*)"]
@@ -237,10 +237,10 @@ flowchart TD
     E --> F["Bound-handle (midpoint repair) & evaluate<br/>(bound_constraint, BudgetController)"]
     F --> G["Elitist accept<br/>(child replaces parent iff no worse; ties accepted)"]
     G --> I["BSE budget-safe escape<br/>triple trigger -> Cauchy + archive restart (bse_*)"]
-    I --> J{D >= 50?}
+    I --> J{"D >= 50?"}
     J -- yes --> K["SGSM/ISM interaction-graph linkage<br/>(+ coordinate local search; subspace path dormant) (interaction_*, local_search_*)"]
     J -- no --> L
-    K --> M{D >= 100?}
+    K --> M{"D >= 100?"}
     M -- yes --> N["D>=100 controllers (interleaved, shown once):<br/>TERRA budget policy / basin memory / SP-NLPSR / A1 / A2 / FC4<br/>(terra_*, basin_*, sp_nlpsr_*, *_clip / broaden / mix)"]
     M -- no --> L
     N --> L["Eigenframe final polish (D>=50; pub default-on)<br/>one-shot RNG-free compass search (final_polish_*)"]
@@ -345,7 +345,7 @@ faster than a straight line through the first half of the run (the reduction is
 steepest mid-run, since the effective exponent is `1-x`, not `1`), then eases as
 it approaches the floor over the final quarter.
 
-Code: `_psr_target_size()` in `src/gsk_family/optimizers/_dt_core.py:800`
+Code: `_psr_target_size()` in `src/gsk_family/optimizers/_dt_core.py:801`
 (numba hot path `_psr_target_nb` in `_dt_subsystems/_numba_accel.py:909`,
 `nl = frac**(1.0-frac)` at line 933).
 Why it matters: NLPSR is how DT-GSK "spends the budget where it counts" — the

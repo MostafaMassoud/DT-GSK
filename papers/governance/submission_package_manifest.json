@@ -13,7 +13,7 @@
     "g1-rel-2026-08-28-65b3d39e6 (D-0051 identity re-execution; demonstrates the Table A45 residual as a build difference; additive)"
   ],
   "authoritative_commit": "b6a18d176447d8c735cb8678c535db2cc5f922e3",
-  "pre_freeze_base_commit": "b9846e47024e48a0f8ce3e4f22bffbd794b2a355",
+  "pre_freeze_base_commit": "b9846e4 (abbreviated deliberately; the full SHA is held in the withheld papers/review_2026_08_24/PRIVATE_OPS.md because this commit is one of two unreachable objects pending a provider-side purge)",
   "hash_algorithm": "SHA-256",
   "submission_files": [
     {
@@ -72,9 +72,9 @@
     },
     {
       "role": "changes-marked-register",
-      "path": "(generated) change_register.pdf",
+      "path": "papers/submission/DT-GSK-change-register.pdf",
       "tracked": false,
-      "note": "Every manuscript passage that differs between v2.13 and v2.21, given as submitted and as revised, with the reviewer point each answers. Generated from the git diff; latexdiff was unavailable (MiKTeX ships only a Perl shim and the script was not installed)."
+      "note": "Every manuscript passage that differs between v2.13 and the submitted revision tag (93 passages at v2.25; rebuild and read the count off the register's own front page), given as submitted and as revised, with the reviewer point each answers. Generated from the git diff; latexdiff was unavailable (MiKTeX ships only a Perl shim and the script was not installed)."
     }
   ]
 }

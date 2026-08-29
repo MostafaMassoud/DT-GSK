@@ -496,27 +496,27 @@
   },
   "superseded_anchor": "0d2bed9907faae38134c3e2969d250b1680a7305",
   "updated_utc": "2026-08-27T10:15:00Z",
-  "update_note": "Refreshed 2026-08-27 at the freeze pass-41 mint. The five shipped artifact digests are recomputed from the artifacts on disk at each refresh. The Phase-0 and Phase-12 blocks above are historical records of when this project was built and are not updated -- including project_root, which names the monorepo path the work began in before it moved to its own repository. Round-one revision: four pre-registered experiments, 32,451 runs, promoted as rev-rel-2026-08-26-dd42d37eb; the primary release is untouched and check_frozen_analysis reports 115/115 files byte-identical.",
+  "update_note": "Refreshed 2026-08-29 at the freeze pass-53 mint. The five shipped artifact digests and byte counts are recomputed from the artifacts on disk at the pass-53 anchor; anchor_commit_current is that anchor. Previously stale since pass-45 (recorded pass-41-era digests) - no gate reads this file, so the staleness was silent; re-verify sha256 AND bytes against disk whenever it is touched.",
   "shipped_artifacts": {
     "papers/DT-GSK.pdf": {
-      "sha256": "de4b16711b147c98445516c56c1bc068fba65554af61e4b9f3b2ea0f3f7dd6cc",
-      "bytes": 821930
+      "sha256": "009db20587fac406ba110ba48e9889b8a40c8e5e988885e5605d7fa0d2302dc2",
+      "bytes": 827801
     },
     "papers/DT-GSK.docx": {
-      "sha256": "b4b1ceca4df8711ab148851880bec643bdcef60f673bd73c94ec867aef41dd63",
-      "bytes": 1011624
+      "sha256": "665da27bbfe1469502dbf91246c5cf935924917606de7c212b8e7ee7b13acf8a",
+      "bytes": 1021919
     },
     "papers/supplementary.pdf": {
-      "sha256": "574b6c8ba765f59a6073d4f3963edf5248406756072421da4aba7740aac9d457",
-      "bytes": 1747133
+      "sha256": "7ae1cd266d782ec16657011036606e9497ad09111881cc5cb7854e0857988d05",
+      "bytes": 1759320
     },
     "papers/supplementary.docx": {
-      "sha256": "3ff062187369f0b150064b3bc9096dc23aeea411d4d169e1fc9a4beabff1a63e",
-      "bytes": 9622136
+      "sha256": "d319a6ebf54c9143697e2dacd11fd9c281d4dda4becd36709c063885dff54650",
+      "bytes": 9626843
     },
     "papers/cover_letter.pdf": {
-      "sha256": "4895e49b6fa9c95d0b66de3e27ddc057e860247c8cddda4dde6b093ee60162b2",
-      "bytes": 127117
+      "sha256": "2fcbd32c39b89761a2beaf386a9d3763951796cee08a5b0e01058bf12c6704e4",
+      "bytes": 122333
     }
   },
   "determinism_record": {
@@ -528,7 +528,7 @@
     "docx_source_date_epoch": 1783641600,
     "revision_release_correction": "Before first publication the revision release's provenance path fields were rewritten from absolute to repository-relative across 61 files, matching every earlier release; its manifest was re-minted and the correction recorded in the manifest's own correction field (D-0049)."
   },
-  "anchor_commit_current": "5fa4d389a77e372acec3c5a133c6f96ac833f483",
+  "anchor_commit_current": "d9f6812a39dca6b91ebf540492a89b9aa554575a",
   "published_commit_current": "514806ffe5",
   "anchor_note": "anchor_commit_current is the freeze anchor of the current pass (pass-45). It is recorded alongside published_commit_current rather than being repointed at whatever resolves: the anchor/published distinction is the project's disclosed convention (README, and the freeze manifest's published_commit_note), and collapsing them would destroy the anchor record. The Phase-0 and Phase-12 blocks in this file are self-labelled historical and are left as minted."
 }

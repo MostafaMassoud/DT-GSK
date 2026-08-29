@@ -122,7 +122,7 @@ An optimizer receives:
 It returns an `OptimizerResult` containing the best solution, final objective,
 error, evaluation count, convergence trace, timing, and parameter metadata.
 
-All seven runnable optimizers have Python kernels: baseline `gsk`, adaptive
+All seven panel optimizers have Python kernels: baseline `gsk`, adaptive
 `agsk`, adaptive-parameters `apgsk`, memory-based local-search `atmals-gsk`,
 Fitness-Distance Balance `fdb-agsk`, the enhanced `egsk` (`optimizers/egsk.py`,
 a faithful MATLAB port whose only deviation is using

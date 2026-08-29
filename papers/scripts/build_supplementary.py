@@ -19,6 +19,7 @@ when citations inside the supplementary content change.
 from __future__ import annotations
 
 import argparse
+import os
 import shutil
 import subprocess
 import sys
@@ -36,10 +37,21 @@ def _pdflatex() -> str:
     return exe
 
 
+# Deterministic build epoch -- see build_pdf.py for why this is pinned in the
+# script rather than left to the caller's shell.
+SOURCE_DATE_EPOCH = "1783468800"
+
+
+def _build_env() -> dict:
+    """Environment with the deterministic epoch pinned."""
+    return dict(os.environ, SOURCE_DATE_EPOCH=SOURCE_DATE_EPOCH,
+                FORCE_SOURCE_DATE="1")
+
+
 def _run_pass(exe: str) -> None:
     r = subprocess.run(
         [exe, "-interaction=nonstopmode", "-halt-on-error", _TEX],
-        cwd=_PAPER, capture_output=True, text=True,
+        cwd=_PAPER, capture_output=True, text=True, env=_build_env(),
     )
     if r.returncode != 0:
         log = _PAPER / "supplementary.log"
@@ -62,7 +74,7 @@ def main() -> None:
             aux.write_text(
                 text + _BS + "bibdata{references}\n", encoding="utf-8",
             )
-        r = subprocess.run(["bibtex", "supplementary"], cwd=_PAPER,
+        r = subprocess.run(["bibtex", "supplementary"], cwd=_PAPER, env=_build_env(),
                            capture_output=True, text=True)
         bbl = _PAPER / "supplementary.bbl"
         if not bbl.exists() or "bibitem" not in bbl.read_text(encoding="utf-8"):

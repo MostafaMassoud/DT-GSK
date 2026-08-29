@@ -107,7 +107,7 @@ Task ids from the six lenses (EV-*, SM-*, MM-*, SUP-*, LSGO-*, G*) are carried t
 
 **The disagreement.** Three answers were offered: (i) evidence lens — mint `lsgo-rel-*` under `benchmarks/cec_reference_results/_cec2013lsgo/`, non-superseding, following the `_ablation` / `abl-rel-2026-07-20` precedent; (ii) main-manuscript lens — populate the primary manifest's empty `release_scope.context_suites`; (iii) governance and statistics lenses — mint a new release with `supersedes_release = rel-2026-07-20-67d9345f9`.
 
-**Verified facts.** `papers/scripts/finalize_evidence.py:1049` filters the evidence walk on `not p.name.startswith("_")`. A plain `cec2013lsgo/` directory *will* be silently absorbed into the primary manifest at the next P6 mint — which is exactly how the two unlisted `mos/` and `decc-g/` CSVs entered the tree (EV-00).
+**Verified facts.** `papers/scripts/finalize_evidence.py:1089` filters the evidence walk on `not p.name.startswith("_")`. A plain `cec2013lsgo/` directory *will* be silently absorbed into the primary manifest at the next P6 mint — which is exactly how the two unlisted `mos/` and `decc-g/` CSVs entered the tree (EV-00).
 
 **Why (ii) and (iii) lose.** (ii) is self-defeating: editing `evidence_release_manifest.json` to populate `context_suites` *is* re-minting the release whose identifier the option exists to preserve. (iii) voids the identifier printed at ten sites (`main.tex:267`, `supplementary.tex:1193/1202/1225/1829/1896`, `conclusions.tex:7`, `performance.tex:5`, plus three governance manifests) and trips `validate_provenance_claims.py`'s AUTHORITY check on every authority block.
 
@@ -327,7 +327,7 @@ Draft the migrations now, apply them at Phase 5. All four donors are in `perform
 ### Track 0H — Config lock gate
 *Lenses: EV-13, EV-15, SM-08, SUP-08*
 
-`scripts/validate_profile_lock.py` `REQUIRED_LOCKS` (:12-34) covers three smoke configs only. `configs/dtgsk_cec2013lsgo.yml` is entirely ungated — nothing prevents an edit to the linkage table, the seed, the run count or `overwrite`. Add an entry pinning `seed: 20240620`, `seed_policy: unified`, `rand_generator: threefry`, `runs: 25`, `dimensions: [905, 1000]`, `overwrite: false`, `strict_profile_dims: true` and the **full 22-key `linkage_block_size_by_dim` table**. This is the gate that must exist before the paper can call the LSGO configuration locked.
+`scripts/validate_profile_lock.py` `REQUIRED_LOCKS` (:63) covers three smoke configs only. `configs/dtgsk_cec2013lsgo.yml` is entirely ungated — nothing prevents an edit to the linkage table, the seed, the run count or `overwrite`. Add an entry pinning `seed: 20240620`, `seed_policy: unified`, `rand_generator: threefry`, `runs: 25`, `dimensions: [905, 1000]`, `overwrite: false`, `strict_profile_dims: true` and the **full 22-key `linkage_block_size_by_dim` table**. This is the gate that must exist before the paper can call the LSGO configuration locked.
 
 Note *why* no existing gate can see the change: the override travels through `DTGSKConfig` (`_dt_core.py:186`, resolved at `:2216-2219`) rather than editing `_dt_profiles.py`, so that file's SHA-256 `7baadf228d356394` (printed at `supplementary.tex:1215`) stays valid and `test_dt_gsk_byte_stable.py` still passes while the effective configuration has changed. Also confirm in prose that the commented-out `arch_max_size: 50` lever — which the config itself labels *"CHANGES RESULTS … never enable for a frozen paper cell"* — stayed commented for every promoted run.
 

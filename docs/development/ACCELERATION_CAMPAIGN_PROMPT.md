@@ -22,7 +22,8 @@
 > **CURRENT STATUS (2026-07-20) — read before acting; this campaign is not the active
 > workstream.** The project is in **final pre-submission remediation of a BUILT manuscript**,
 > not an open acceleration push. The 80-ticket remediation ledger
-> (`papers/governance/remediation_2026_07_18/ticket_status.csv`) stands at **73/80 closed**,
+> (`papers/governance/remediation_2026_07_18/ticket_status.csv`) stands at **80/80 terminal**
+> (70 `closed_verified` + 10 `superseded_with_evidence`; no ticket is open),
 > every build / cross-format-parity / provenance / citation gate green (2026-07-20). The
 > evidence base was just re-minted as `rel-2026-07-20-67d9345f9` / `abl-rel-2026-07-20`, so
 > §5's byte-reproducibility constraint is at its **most** binding now, not least. Two live
@@ -527,7 +528,7 @@ legitimate, publishable campaign. Take it and proceed rather than blocking.
 | FP-regime bit sentinel test | ✅ `tests/regression/test_fp_regime.py` — exact IEEE-754 bit pattern (struct-packed hex) | |
 | RNG / config KATs | ✅ `tests/unit/test_rng.py`, `test_dt_rng.py` (13 substreams), `test_dt_profiles.py` | Generated from the source project |
 | Replay ladder | ✅ `tests/regression/test_validation_ladder.py` — exact Python replay of runner artifacts | |
-| Thread/BLAS pinning | ✅ **only in the wrappers**: `scripts/run_campaign.py:146-153` and `papers/scripts/finalize_evidence.py:149-157` set `OMP/MKL/OPENBLAS/VECLIB/NUMEXPR/NUMBA_NUM_THREADS=1` | ⚠ see §9 T3′ |
+| Thread/BLAS pinning | ✅ **only in the wrappers**: `scripts/run_campaign.py:179-186` (`pinned_env`) and `papers/scripts/finalize_evidence.py:159-166` (`base_env`) set `OMP/MKL/OPENBLAS/VECLIB/NUMEXPR/NUMBA_NUM_THREADS=1` | ⚠ see §9 T3′ |
 | Output-safety guard | ✅ `runners/verification.py` — `ensure_output_root_allowed` **refuses to write generated output into the reference tree** | |
 
 Full suite: **~324 tests, ~3 min**, `python -m pytest` (testpaths=`tests`, pythonpath=`src`,`.`).

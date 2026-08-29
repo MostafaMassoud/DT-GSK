@@ -1,4 +1,4 @@
-"""Shared substrate for the seven external baseline optimizers.
+"""Shared substrate for the eight external baseline optimizers.
 
 Every external baseline plugs into the project's optimizer contract through this
 module. It provides, once, the three things all of them need and that the

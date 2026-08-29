@@ -32,7 +32,7 @@ runs and was used to regenerate the summaries by hand.
 | 1630 | `artifacts.append(artifact)` | only **new** runs enter `artifacts` |
 | 1678, 1756 | `write_summary_tables(dirs["summary"], optimizer, cfg.suite, artifacts)` | summary built from new runs only |
 
-`src/gsk_family/runners/output.py:146` `write_summary_tables` groups `artifacts` by
+`src/gsk_family/runners/output.py:177` `write_summary_tables` groups `artifacts` by
 `(dim, func)` and opens each `<alg>_<suite>_D<dim>.csv` with mode **`"w"`**
 (truncate) — so untouched functions are erased. The `cec2011` rollup path
 (`<alg>_cec2011.csv`) has the identical defect.

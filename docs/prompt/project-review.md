@@ -75,8 +75,9 @@ standing invariant; re-verify each item against the repo before acting):
 - Phase: the manuscript is BUILT and in FINAL PRE-SUBMISSION REMEDIATION -- a
   hardening/consistency pass over a finished project, not from-scratch
   construction. The 80-ticket remediation ledger
-  (papers/governance/remediation_2026_07_18/ticket_status.csv) stands at 73/80
-  fully closed.
+  (papers/governance/remediation_2026_07_18/ticket_status.csv) stands at 80/80
+  terminal -- 70 closed_verified plus 10 superseded_with_evidence; no ticket is
+  open.
 - Quality gates: all GREEN as of 2026-07-20 -- build hygiene, cross-format
   parity (PDF/DOCX/JSON), provenance-claims, citation-usage map, and environment
   attestation. Document-consistency exits nonzero ONLY on author-pending fields
@@ -214,10 +215,11 @@ do not invent items not present):
   scripts/build_docs_html.py into docs/html/ and uses folder-prefixed page
   names (docs/reference/seed_policy.md -> docs/html/reference_seed_policy.html).
   docs/html/ is generated; never hand-edit it.
-- scripts/ contains exactly nineteen Python files (plus a README.md) and no others:
+- scripts/ contains exactly twenty-one Python files (plus a README.md) and no others:
   run_all_cec2011.py, run_all_cec2013.py, run_all_cec2013lsgo.py,
   run_all_cec2017.py, run_all_cec2020.py, run_gsk_family.py, run_campaign.py,
-  run_ablation.py, run_overlay_ablation_51.py, build_docs_html.py,
+  run_ablation.py, run_overlay_ablation_51.py, run_revision_experiments.py,
+  run_e1_basis_contrast.py, build_docs_html.py,
   validate_profile_lock.py, parity_trace.py, wilcoxon_reference.py,
   analyze_dt_diagnostics.py, plot_convergence_from_curves.py,
   validate_egsk_vs_reference.py, promote_evidence.py, recover_apgsk_perrun.py,
@@ -485,11 +487,12 @@ choose the higher and say why.
   docs/getting-started/, docs/reference/, docs/algorithms/, docs/development/,
   docs/research/, docs/prompt/,
   docs/html/index.html, docs/html/api_index.html, docs/html/search_index.json
-- Scripts (exactly nineteen + a README.md; see the ground-truth list above):
+- Scripts (exactly twenty-one + a README.md; see the ground-truth list above):
   scripts/build_docs_html.py, scripts/validate_profile_lock.py,
   scripts/parity_trace.py, scripts/wilcoxon_reference.py,
   scripts/run_gsk_family.py, scripts/run_ablation.py, scripts/run_all_cec2017.py
-  (and the four sibling run_all_<suite>.py launchers)
+  (and the four sibling run_all_<suite>.py launchers),
+  scripts/run_revision_experiments.py, scripts/run_e1_basis_contrast.py
 - Statistics & analysis surface:
   src/gsk_family/cli/stats.py (gsk-stats), the runner --stats flag,
   src/gsk_family/analysis/ (family_report.py, result_loader.py,
@@ -623,7 +626,7 @@ Tasks:
    subpackage README.md files) against the actual files; flag drift.
 6. Classify every major area as source, tests, docs, configs, benchmark code,
    imported evidence, generated HTML, generated results, or scripts.
-7. Confirm scripts/ holds exactly the nineteen documented Python files (plus a
+7. Confirm scripts/ holds exactly the twenty-one documented Python files (plus a
    README.md) and nothing else (no phase/release tooling). Flag any unexpected
    script.
 
@@ -636,7 +639,7 @@ Acceptance criteria:
 
 - Root Markdown set is the intentional inventory (README.md, SKILL.md, runbook.md,
   the six governance docs, FINAL_RELEASE_REPORT.md, REPO_MAP.md); the six docs
-  subfolders exist; scripts/ has exactly the nineteen documented Python files (plus a
+  subfolders exist; scripts/ has exactly the twenty-one documented Python files (plus a
   README.md); docs/reference/project_structure.md matches reality (or its drift
   is filed).
 
@@ -1128,7 +1131,7 @@ Tasks:
    docs/research/, docs/prompt/, docs/html/index.html, docs/html/api_index.html,
    docs/html/search_index.json.
 2. Confirm docs cover: installation; quickstart; direct CLI; YAML configs; all
-   seven runnable optimizers; all six benchmark suites; random-number generators;
+   seven panel optimizers; all six benchmark suites; random-number generators;
    result schema; validation; reproducibility; parallel behavior; Numba behavior;
    the statistical-analysis surface (gsk-stats / --stats and
    docs/research/statistical_analysis.md, where eGSK is a runnable port whose

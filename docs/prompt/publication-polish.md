@@ -46,8 +46,9 @@
 > polishing *into*, so an executor does not re-open settled work. The manuscript is
 > **built** and in **final pre-submission remediation** (not from-scratch
 > construction): the 80-ticket remediation ledger
-> (`papers/governance/remediation_2026_07_18/ticket_status.csv`) stands at **73/80
-> closed**, and every quality gate is **green** as of 2026-07-20 (build hygiene,
+> (`papers/governance/remediation_2026_07_18/ticket_status.csv`) stands at **80/80
+> terminal** (70 `closed_verified` + 10 `superseded_with_evidence`; no ticket is
+> open), and every quality gate is **green** as of 2026-07-20 (build hygiene,
 > cross-format PDF/DOCX/JSON parity, provenance-claims, citation-usage map, and
 > environment attestation). **Do not** re-open algorithm work, re-tune, or regenerate
 > the frozen runtime table. **RT-001 is CLOSED — do not re-run it or request a re-timing:**
@@ -71,7 +72,7 @@ maintenance, and Q1 journal publication standards.
 Your objective is **not** to add features, tune algorithms, or open another development
 iteration. Your objective is to transform this repository —
 the DT-GSK repository, the Python implementation of the GSK optimizer family
-(seven runnable optimizers: `gsk`, `agsk`, `apgsk`, `fdb-agsk`, `atmals-gsk`, `egsk`,
+(seven panel optimizers: `gsk`, `agsk`, `apgsk`, `fdb-agsk`, `atmals-gsk`, `egsk`,
 and the proposed `dt-gsk`) spanning five CEC benchmark suites in code (`cec2011`,
 `cec2013`, `cec2013lsgo`, `cec2017`, `cec2020`) — three of which (`cec2011`,
 `cec2013`, `cec2017`) carry committed reference evidence under

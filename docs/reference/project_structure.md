@@ -139,6 +139,8 @@ The `analysis/` package is the post-run statistical layer behind `gsk-stats`:
 | `scripts/promote_evidence.py` | Promote an accepted staging bundle into the immutable `benchmarks/cec_reference_results/` evidence tree. |
 | `scripts/recover_apgsk_perrun.py` | One-off recovery of the lost apgsk CEC2017 D10/30/50 per-run rows into the reference tree (anomaly A2-004). |
 | `scripts/run_overlay_ablation_51.py` | Run the SGSM-overlay direct-isolation ablation at 51 runs per cell for CEC2017 (D50/D100) and CEC2013 (D50). |
+| `scripts/run_revision_experiments.py` | One-command, resumable driver for the four revision experiments E1-E4 (refinement-basis contrast, DT-GSK at the comparators' `NP = 100`, uniform-vs-tiered configuration, and parameter sensitivity); writes under `results/_revision/`. |
+| `scripts/run_e1_basis_contrast.py` | The E1 coordinate-basis arm of the refinement-basis contrast: the shipped configuration in every respect except the polish basis, paired against the frozen no-refinement and eigenframe arms. |
 | `scripts/README.md` | Notes on the scripts. |
 
 ## Documentation

@@ -562,7 +562,7 @@ and the `docs/prompt/` review prompts.
 
 Run targeted checks for narrow edits; run the full sequence for broad changes.
 
-**Tests** (the suite currently collects **324** tests across the tiers below;
+**Tests** (the suite currently collects **618** tests across the tiers below;
 re-check with `python -m pytest --collect-only -q` rather than hard-coding a
 number into new docs):
 

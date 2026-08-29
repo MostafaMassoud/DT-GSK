@@ -33,8 +33,9 @@ statistically defensible improvement within the family?
 A second, subordinate question follows from the same design: whether a run's
 own accepted moves carry recoverable coordinate-interaction structure that
 can be exploited at no extra objective evaluations, in particular at
-$D = 50$ and $D = 100$. We answer the first affirmatively and report the
-second as a controlled negative result.
+$D = 50$ and $D = 100$. We answer the first affirmatively at the dimensions
+where tiering was demonstrated, and report the second as a controlled negative
+result.
 
 GSK is a human-inspired metaheuristic whose junior and senior
 knowledge-transfer phases define the base operator family studied in
@@ -123,7 +124,9 @@ The contributions are:
   preserves the global best.
   ACE, NLPSR, BSE, the archive, and the restart modify cited
   antecedents; we did not find ARGP's acceptance-rate-gated arm-freezing
-  rule among the surveyed GSK variants. % BIND: MT-02, MT-03, MT-04, MT-06, MT-07 (honest MOD/ORI labels)
+  rule among the surveyed GSK variants. C2 is claimed for the dimensions where
+  tiering was demonstrated, $D = 10$ and $D = 50$; the $20 \leq D < 50$ tier is
+  disclosed as mis-specified (Section~\ref{sec:alg:scaffold}). % BIND: MT-02, MT-03, MT-04, MT-06, MT-07 (honest MOD/ORI labels)
 \item \textbf{C3 --- a controlled, reproducible family evaluation.} A
   13-substream, append-only, prefix-locked random-number layer makes
   runs byte-stable and keeps each subsystem's draws on a named

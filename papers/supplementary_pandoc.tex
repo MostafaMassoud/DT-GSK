@@ -1219,7 +1219,7 @@ primary-suite standing should be generalized.
 
 The conclusions summarize the limitations that bound this study; they are
 stated here in full, with the numeric evidence for each. The wording
-follows the conclusions of the submitted manuscript, so that nothing is
+follows the conclusions stated there, so that nothing is
 softened in transit.
 
 
@@ -1313,8 +1313,11 @@ demonstration that the memory was active and neutral.
 Ninth, the parameter-sensitivity evidence is exploratory and narrow.  The
 sweep of Section~@@REF!sec:supp:rev:sensitivity@@ covers seven constants at two
 levels, at $D = 30$ and $D = 100$ only, with 15 repetitions per cell against the
-frozen panel's 51, and it leaves the dimension-tier boundaries
-themselves unvaried, so their sensitivity is untested.  Neither ARGP nor the deep-stall
+frozen panel's 51.  The tier boundaries themselves are varied separately in
+Section~@@REF!sec:supp:rev:boundary@@, where the shipped middle profile is beaten
+from both neighbouring tiers at $D = 30$ and the $50 \leq D < 100$ set beats the
+shipped upper profile at $D = 100$, while the $D = 10$ and $D = 50$ boundaries are
+insensitive to the tested shifts.  Neither ARGP nor the deep-stall
 restart is isolated by the remove-one study, which excludes both by
 pre-specification (Section~S6.2).
 
@@ -1893,11 +1896,11 @@ always supplied the callback.
 
 All CEC2017, CEC2011 and CEC2013 values in the main paper and in this
 Supplementary Material derive from the promoted, read-only primary
-evidence release accompanying this article, except those of
-Section~@@REF!sec:supp:revision@@, whose compound provenance that section
-states (release
+evidence release accompanying this article (release
 rel-2026-07-20-67d9345f9, anchor commit
-67d9345f9502a9a584e645fa8948f60a61d70e29), whose manifest
+67d9345f9502a9a584e645fa8948f60a61d70e29) --- except those of
+Section~@@REF!sec:supp:revision@@, which carry the compound provenance that
+section states.  That primary release's manifest
 records a SHA-256 checksum for every one of its 3{,}403 files (per-run
 CSVs, seed schedules, per-generation checkpoint logs, summary CSVs, and
 environment/verification records for all 21 (suite, optimizer) cells);
@@ -3717,7 +3720,7 @@ deterministic, budget-exact compass endgame, not the geometry it was given.
 
 \dtgsk{} initializes $NP = 5D$ while the six comparators run their
 reference-implementation value of $100$, a five-fold difference at $D = 100$
-that the submitted manuscript disclosed but did not control.  This experiment
+that the main text discloses but the panel evidence does not control.  This experiment
 controls it: \dtgsk{} is re-run at $NP = 100$ across all four dimensions with
 $51$ repetitions, and the panel is re-ranked with the six frozen comparator
 columns reused unchanged.
@@ -3769,7 +3772,7 @@ paired difference at that dimension is nonetheless indistinguishable from zero
 \subsection{@@SECNUM!sec:supp:rev:tiering!S9.3.@@ Tiered Versus Tier-Constant Configuration}\label{sec:supp:rev:tiering}
 
 The manuscript attributes its standing to resolving configuration by dimension,
-but the submitted evidence never compared the tiered configuration against an
+but the panel evidence does not compare the tiered configuration against an
 otherwise identical one that does not vary.  This experiment supplies that
 comparison by transplant: the $D = 10$ tier's parameter dictionary, and separately
 the $D = 100$ tier's dictionary, are applied unchanged at every dimension and
@@ -3822,7 +3825,7 @@ where it was demonstrated, and it identifies the shipped $20 \le D < 50$
 configuration as inferior to the tested transplant at that dimension --- a
 configuration-level weakness, claimed neither for nor against the tiering
 principle itself.  This localizes a
-weakness the submitted manuscript already disclosed descriptively --- $D = 30$
+weakness the main text already discloses descriptively --- $D = 30$
 is \dtgsk{}'s weakest tier on both general suites --- and attributes it to that
 tier's values.  Which of the 88 differing keys carries the effect is not
 resolved by this design and is stated as open.
@@ -3835,6 +3838,7 @@ hypothesis test is performed on it, no corrected $p$-value is computed from it,
 and it is deliberately kept apart from the component-contribution material of
 Section~@@REF!sec:supp:ablation@@, whose conclusions it neither supports nor
 qualifies.  Seven constants spanning the adaptive selector, its pruning gate,
+the interaction-memory update cadence,
 the escape trigger, the population floor, and the local-search budget and elite
 count were perturbed one at a time at two levels each, at $D = 30$ and
 $D = 100$, over all 29 functions with 15 repetitions per cell: 27 cells in all,
@@ -3864,7 +3868,9 @@ differenced against the main-text rank table; W/T/L counts functions where the
 shipped configuration beats the perturbed one; Ratio is the median across
 functions of perturbed over
 shipped mean error.  Perturbed cells use 15 repetitions against the frozen
-panel's 51.  $^{\ast}$Executed levels at $D = 100$ exceed the registered
+panel's 51.  Real-valued constants are perturbed by $\pm 20\%$ and integer-valued
+constants to the nearest different integer, as registered; the table prints the
+levels actually executed.  $^{\ast}$Executed levels at $D = 100$ exceed the registered
 twenty per cent and are one-sided (registration amendment
 A1).
 
