@@ -19,7 +19,7 @@
 >
 > Four things this refresh adds, because they change what a reviewer of this repository sees:
 > (1) the repository is **PRIVATE until upload day** and must be flipped public before the
-> SuSy upload — the Data Availability Statement names its URL and tags `v2.13`/`v2.25`;
+> SuSy upload — the Data Availability Statement names its URL and tags `v2.13`/`v2.27`;
 > (2) the reviewer-facing response letter, both marked PDFs and the change register are
 > **untracked by design** (D-0049) and live in `papers/submission/` — do not expect them in
 > `git ls-files`; (3) operational identifiers (the private history bundle's location, the two
@@ -187,7 +187,7 @@ Known audit targets to confirm or close:
 Review every prompt in `docs/prompt/` — `project-review.md`,
 `documentation-deep-upgrade.md`, `documentation-review.md`,
 and this file — plus the agent contract in
-`SKILL.md`. (The `docs/prompt/` suite is now exactly these four files; the
+`SKILL.md`. (The `docs/prompt/` suite is now exactly these five files; the
 one-time DT-GSK migration/publish/doc-polish prompts were completed and
 removed.)
 
@@ -199,7 +199,7 @@ suite are done); DT-GSK shipping a **single `pub` profile** (the earlier
 and fully removed — no prompt may reference strong-candidate configs, scripts, tests,
 or docs as if they exist); the fail-closed FP-regime sentinel
 (`runners/fp_regime.py` + `docs/reference/fp_regime.md` +
-`tests/regression/test_fp_regime.py`); the current test count (~344 tests — always re-collect before citing) and gate
+`tests/regression/test_fp_regime.py`); the current test count (618 tests — always re-collect before citing) and gate
 list; and the current directory layout. Remove references
 to finished phases, removed modules, the old PCG64/base-123456 seed era, superseded
 workflows, and any removed prompt/report (there is no `EGSK_IMPLEMENTATION_PROMPT.md`
@@ -317,8 +317,8 @@ under `benchmarks/cec_reference_results/<suite>/<optimizer>/`, with
 Review the project against Q1 journal and archival expectations: reproducibility
 (unified seeds, bit-exact RNG streams, environment metadata, deterministic parallel
 execution), organization, architecture (the downward-only layering), documentation
-quality, coding standards (ruff clean, scoped mypy), maintainability, portability
-(the Python 3.10–3.13 CI matrix), scientific transparency (evidence provenance,
+quality, coding standards (ruff clean, scoped mypy clean), maintainability, portability
+(the declared Python 3.10–3.13 support range, which no CI verifies), scientific transparency (evidence provenance,
 no-fabrication rules, missing-data logs), and release readiness. Close every fixable
 weakness within the invariants; for the known accepted trade-offs (scoped mypy, the
 `slow`-marked performance tier, D≤30-only byte-identity golden cells, the silent

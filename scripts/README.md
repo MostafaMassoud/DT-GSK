@@ -24,6 +24,11 @@ builder, and a few developer utilities.
 | `plot_convergence_from_curves.py` | Render convergence-graph PNGs from already-committed median-run curve CSVs, without re-running the optimizer (for runs done without `--convergence-graphs`). Writes `curves/graphs/Figure_F<f>_D<d>.png` under each `<results>/<optimizer>/<suite>` root. |
 | `analyze_dt_diagnostics.py` | Aggregate the opt-in DT-GSK per-generation JSONL diagnostics traces (`DTTrace_*.jsonl`) into per-cell summary statistics; used with the `configs/experimental/dt_diag*.yml` campaigns. |
 | `wilcoxon_reference.py` | Suite-level Wilcoxon signed-rank test pairing the Python port's per-function summary statistic against an imported reference table; reports win/tie/loss, signed rank sums, p-value, and a verdict at the chosen alpha. |
+| `run_campaign.py` | Full-campaign driver: runs the seven-optimizer panel across a suite and dimension set, pinning thread counts as the published campaign pinned them. `run.py` does NOT pin threads, and D = 100 is thread-sensitive, so an unpinned re-run is not comparable to the archive. |
+| `run_overlay_ablation_51.py` | Re-runs the component-isolation overlay cells at 51 repetitions, for the promoted CEC2017 D50/D100 overlay in the frozen ablation release. |
+| `promote_evidence.py` | Promote a staging result tree under `results/` into an immutable, checksummed evidence release under `benchmarks/`. Releases are additive and non-superseding; this script never rewrites one. |
+| `retime_comparators.py` | Re-measure comparator wall-clock under the published thread pinning, for the runtime-overhead figures, without re-running the optimizers' scored cells. |
+| `recover_apgsk_perrun.py` | Reconstruct APGSK per-run records from archived summaries where the per-run file was not retained; used once, kept for provenance. |
 
 The `run_all_*.py` scripts are thin wrappers; prefer editing the YAML files in
 `configs/` for campaign changes. `validate_profile_lock.py` runs in the standard gate ladder;

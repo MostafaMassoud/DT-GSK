@@ -167,13 +167,13 @@ Never edit or reinterpret primary evidence merely to make it agree with the manu
 > date, so there is **zero slack**; a journal-offered extension was **DECLINED** (author,
 > 2026-08-27). Do not propose asking for one.
 >
-> **Deliverables (all committed, deterministic, byte-verified):** `papers/DT-GSK.pdf` (**47 pp**) ·
-> `papers/DT-GSK.docx` · `papers/supplementary.pdf` (**S1–S9, 80 pp**; S9.1 = basis isolation E1,
+> **Deliverables (all committed, deterministic, byte-verified):** `papers/DT-GSK.pdf` (**49 pp**) ·
+> `papers/DT-GSK.docx` · `papers/supplementary.pdf` (**S1–S9, 81 pp**; S9.1 = basis isolation E1,
 > S9.2 = matched population E2, S9.3 = tiered-vs-tier-constant E3, S9.4 = selected-constant
 > sensitivity E4, S9.5 = dimension-boundary sensitivity E5; Tables
 > **A43–A47**) · `papers/supplementary.docx` · `papers/cover_letter.pdf` · plus three **derived,
-> gitignored** resubmission artifacts with generators: the marked main (48 pp) and marked
-> supplementary (80 pp) manuscripts — **preamble changes do not render**, so the retitle is
+> gitignored** resubmission artifacts with generators: the marked main (50 pp) and marked
+> supplementary (81 pp) manuscripts — **preamble changes do not render**, so the retitle is
 > invisible there; disclosed twice in the response letter — and `DT-GSK-change-register.pdf`
 > (102 passages at v2.26, as-submitted vs as-revised, keyword-attributed to reviewer points; redesigned layout with TOC, badges and color-coded panels), rebuilt by
 > `papers/scripts/build_change_marked_pdf.py` / `build_change_register.py`.
@@ -1740,9 +1740,9 @@ EMPIRICAL_SCOPE:         FIVE suites, family-only panel (7 GSK-family algorithms
                          paired separation). Registered outcomes in SAP Addendum 1
                          Amendments 1--2; review mode is registered-vs-reported
                          (1.5.0-O).
-MANUSCRIPT_FILE_OR_TEXT: papers/DT-GSK.pdf  +  papers/DT-GSK.docx  (47 pp, round-one
+MANUSCRIPT_FILE_OR_TEXT: papers/DT-GSK.pdf  +  papers/DT-GSK.docx  (49 pp, round-one
                          revised state; the 46-pp / B1 = 41 figures were pass-27 values)
-SUPPLEMENTARY_FILE:      papers/supplementary.pdf (S1–S9, 80 pp; S7 = CEC2013LSGO,
+SUPPLEMENTARY_FILE:      papers/supplementary.pdf (S1–S9, 81 pp; S7 = CEC2013LSGO,
                          S8 = CEC2020, S9 = the five revision experiments E1–E5
                          with Tables A43–A47 (S9.5 boundary study added 2026-08-28),
                          earlier numbering untouched; portrait-only) + papers/supplementary.docx

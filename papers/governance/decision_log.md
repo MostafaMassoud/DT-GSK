@@ -116,7 +116,12 @@ Append-only; one `## D-NNNN` block per decision.
   anchor commit. Any consumer needing the literal Section 3.2 wide schema can
   derive it mechanically from these files plus the master; no information loss.
 
-## D-0005 (2026-07-10) — Post-Gate-0 master-framework change requests CR-0001, CR-0002
+## D-0005b (2026-07-10) — Post-Gate-0 master-framework change requests CR-0001, CR-0002
+
+> Id note: this decision and the traceability-schema decision above both went in
+> as D-0005 during Phase 0. It is relabelled D-0005b at pass-54 rather than
+> renumbered, because D-0006 through D-0059 are cited across the governance
+> record and the manuscript bindings.
 
 Two user requirements arrived after Gate 0 froze (Section 0.2 precedence item 1):
 (1) seven-curve family-overlay convergence panels per function (CR-0001); (2)

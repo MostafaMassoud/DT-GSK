@@ -129,6 +129,7 @@ The `analysis/` package is the post-run statistical layer behind `gsk-stats`:
 | `scripts/run_ablation.py` | DT-GSK scaffold ablation launcher (remove-one/add-one cells on `cec2017`/`cec2011`/`cec2013`); writes `configs/_ablation/<cell>.yml` and `results/_ablation/<cell>/`. |
 | `scripts/build_docs_html.py` | Generate the browsable HTML documentation package from Markdown and Python docstrings. |
 | `scripts/validate_profile_lock.py` | Profile-lock gate guarding the published parameter profiles. |
+| `papers/scripts/check_reproducibility_manifest.py` | Gates `reproducibility_manifest.json` against disk and against the freeze manifest's `files[]`, and checks its recorded anchor. Added at pass-54 after that file went stale inside its own pass three times. Run it after every rebuild. |
 | `scripts/validate_egsk_vs_reference.py` | Paired per-run validation of the Python EGSK port against the imported MATLAB reference checkpoint logs. |
 | `scripts/parity_trace.py` | Reference-parity diagnostic for tracing optimizer streams. |
 | `scripts/wilcoxon_reference.py` | Standalone Wilcoxon reference-comparison diagnostic. |
@@ -139,7 +140,7 @@ The `analysis/` package is the post-run statistical layer behind `gsk-stats`:
 | `scripts/promote_evidence.py` | Promote an accepted staging bundle into the immutable `benchmarks/cec_reference_results/` evidence tree. |
 | `scripts/recover_apgsk_perrun.py` | One-off recovery of the lost apgsk CEC2017 D10/30/50 per-run rows into the reference tree (anomaly A2-004). |
 | `scripts/run_overlay_ablation_51.py` | Run the SGSM-overlay direct-isolation ablation at 51 runs per cell for CEC2017 (D50/D100) and CEC2013 (D50). |
-| `scripts/run_revision_experiments.py` | One-command, resumable driver for the four revision experiments E1-E4 (refinement-basis contrast, DT-GSK at the comparators' `NP = 100`, uniform-vs-tiered configuration, and parameter sensitivity); writes under `results/_revision/`. |
+| `scripts/run_revision_experiments.py` | One-command, resumable driver for the five revision experiments E1-E5 (refinement-basis contrast, DT-GSK at the comparators' `NP = 100`, uniform-vs-tiered configuration, parameter sensitivity, and dimension-boundary sensitivity); writes under `results/_revision/`. |
 | `scripts/run_e1_basis_contrast.py` | The E1 coordinate-basis arm of the refinement-basis contrast: the shipped configuration in every respect except the polish basis, paired against the frozen no-refinement and eigenframe arms. |
 | `scripts/README.md` | Notes on the scripts. |
 

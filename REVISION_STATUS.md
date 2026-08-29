@@ -12,7 +12,7 @@ what is happening, what is done, and what is next.
 | **Editorial status** | **MAJOR REVISION** — 2 reviewers, received 2026-08-24 |
 | **Branch** | `main` — **published** at `02d1791`, tracking `origin/main`, and since 2026-08-28 the **only** branch: the development-history branches were bundled to the author's private history bundle outside the repository (restore-tested; location in the withheld `papers/review_2026_08_24/PRIVATE_OPS.md`) and deleted. Never fetch that bundle into a repo with a public remote. |
 | **Progress** | **COMPLETE** — all ten reviewer points answered; phases 1–7 applied; five experiments run, analysed and written up (E5 added ahead of resubmission, pass-49); the reopened-items batch (pass-50), the acceptance-readiness review (pass-51) and the seven-lens panel review of the response letter (pass-52) are all applied. |
-| **Freeze** | **pass-53 / tag v2.26** (anchor `86411e6`) · `check_manifest` 15/15 + `sources 2/2` · v2.13 … v2.26 all resolve; the DAS names v2.13/v2.26. Repo is **PRIVATE until upload day** — flip public before SuSy upload. Next free ids **CR-0034 / D-0059**. **`main` may be ahead of `origin/main`** — check `git status -sb` before relying on remote state. |
+| **Freeze** | **pass-54 / tag v2.27** (anchor `9093e99`) · `check_manifest` 15/15 + `sources 2/2` · v2.13 … v2.27 all resolve once pushed; the DAS names v2.13/v2.27. Repo is **PRIVATE until upload day** — flip public before SuSy upload. Next free ids **CR-0035 / D-0060**. **`main` may be ahead of `origin/main`** — check `git status -sb` before relying on remote state. |
 | **Revision deadline** | **2026-09-01 CONFIRMED** — also the planned resubmission date, so **zero slack**; the extension-request draft is the only margin (§5) |
 
 ---
@@ -62,8 +62,8 @@ known-answer pins reproduced, Holm family structure recorded per experiment.
 **The write-up is done too.** Supplementary Section S9 carries all five experiments as Tables
 A43--A47, the pre-committed C1/ISM/C2 manuscript edits are applied, the point-by-point response letter
 is written (and has since been through the pass-51/52 review instruments), every gate is green, and
-the current freeze is **pass-52 / v2.25** at 15/15 + sources 2/2. `origin/main` carries it; every tag
-v2.13 … v2.25 resolves (publicly again once the repo is flipped back). What is left is the author's
+the current freeze is **pass-54 / v2.27** at 15/15 + sources 2/2. `origin/main` does NOT yet carry
+it — `main` is ahead and v2.26/v2.27 are local only. What is left is the author's
 upload day — public flip, purge ticket, SuSy resubmission (§5).
 
 ## 2a. Open against the published paper
@@ -1301,12 +1301,14 @@ worktree blind spot.
 2. **SuSy portal (author only)** --- the one thing left. Re-enter the new title and the revised
    keyword list in the revision form; portal metadata does not update from the PDF. Upload the
    revised manuscript, the supplementary, the figures and LaTeX-source zips, the cover letter,
-   the response letter (`papers/submission/response_to_reviewers.pdf`, 15 pages, rendered
-   2026-08-29 from the pass-52 source), both changes-marked manuscripts and the change register
-   (`DT-GSK-change-register.pdf`, 25 pages, all 93 changed passages as-submitted vs
-   as-revised). All four sit staged in `papers/submission/`, deliberately NOT in the repository
+   the response letter (`papers/submission/response_to_reviewers.pdf`, rendered
+   2026-08-29 from the pass-54 source), both changes-marked manuscripts and the change register
+   (`DT-GSK-change-register.pdf`, every changed passage as-submitted vs
+   as-revised --- read the live page and passage counts off the register's own front page; every
+   numeric copy of them recorded elsewhere has gone stale). All four sit staged in
+   `papers/submission/`, deliberately NOT in the repository
    (pinned in `.gitignore`) and regenerable --- the letter from its Markdown source on disk, the
-   marked copies and the register from `git diff v2.13 v2.24`. Paste text and the full
+   marked copies and the register from `git diff v2.13 v2.27`. Paste text and the full
    upload table are in `papers/submission/SUBMISSION_KIT.md`.
 3. **`runners/run_experiment.py:725`** (and `:714`) --- the cosmetic `Pop=100` banner defect, in
    `_optimizer_options_line`; **not** `_optimizer_population_size` at `:345`, which only sizes the
@@ -1587,10 +1589,10 @@ warning that portal metadata does not update from the PDF. Re-enter both by hand
   CEC benchmark suites; nonparametric statistical comparison; reproducibility`
 
 **Generate both companion PDFs fresh.** The response letter's source was edited in passes 42, 43 and
-50, and the change register must come from `git diff v2.13 v2.26` — 102 passages across 7 files, not the
-54 passages the kit recorded at pass-41. Neither figure should be quoted anywhere.
+50, 53 and 54, and the change register must come from `git diff v2.13 v2.27`. Read its passage count
+off its own front page — no figure for it should be quoted anywhere, because every copy has gone stale.
 
-**After upload, no rebuilds.** `v2.25` becomes the frozen record of what was resubmitted; any later
+**After upload, no rebuilds.** `v2.27` becomes the frozen record of what was resubmitted; any later
 revision is pass-53 with a new superseding tag, never an edit to v2.25 in place (D-0045).
 
 

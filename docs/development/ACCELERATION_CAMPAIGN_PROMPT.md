@@ -531,7 +531,7 @@ legitimate, publishable campaign. Take it and proceed rather than blocking.
 | Thread/BLAS pinning | ✅ **only in the wrappers**: `scripts/run_campaign.py:179-186` (`pinned_env`) and `papers/scripts/finalize_evidence.py:159-166` (`base_env`) set `OMP/MKL/OPENBLAS/VECLIB/NUMEXPR/NUMBA_NUM_THREADS=1` | ⚠ see §9 T3′ |
 | Output-safety guard | ✅ `runners/verification.py` — `ensure_output_root_allowed` **refuses to write generated output into the reference tree** | |
 
-Full suite: **~324 tests, ~3 min**, `python -m pytest` (testpaths=`tests`, pythonpath=`src`,`.`).
+Full suite: **618 tests, ~2 min**, `python -m pytest` (testpaths=`tests`, pythonpath=`src`,`.`).
 
 ### 6.2 The gap you must close first — **six of seven algorithms have no golden trajectory**
 
@@ -668,7 +668,7 @@ Run mechanically. **Revert rule: any gate failure reverts the *item*, not the ba
 # 2. edit
 # 3. regenerate → dict-equality, no tolerance
 # 4. determinism: same seed twice ⇒ identical repr
-python -m pytest tests/unit tests/smoke tests/regression -q     # ~324 tests, ~3 min
+python -m pytest tests/unit tests/smoke tests/regression -q     # 618 tests, ~2 min
 # 5. if shared code touched (_kernels.py, benchmark_adapter/*, common/rng*) → ALSO G4
 ```
 

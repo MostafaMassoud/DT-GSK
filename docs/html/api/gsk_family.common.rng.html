@@ -226,13 +226,13 @@ path is unchanged.</p>
 <pre><code>skip_doubles(self, count: int) -&gt; None</code></pre>
 <p>Consume ``count`` uniforms previously exposed by :meth:`peek_doubles`.</p>
 </section>
-<section class="api-member" id="method-integers-104">
+<section class="api-member" id="method-integers-107">
 <div class="member-kind">method</div>
 <h2>integers</h2>
 <pre><code>integers(self, low: int, high: int | None = None, size: int | tuple[int, ...] | None = None) -&gt; np.ndarray | int</code></pre>
 <p>Draw integers using NumPy&#x27;s exclusive-high semantics.</p>
 </section>
-<section class="api-member" id="method-randi-116">
+<section class="api-member" id="method-randi-119">
 <div class="member-kind">method</div>
 <h2>randi</h2>
 <pre><code>randi(self, low: int, high: int | None = None, size: int | tuple[int, ...] | None = None) -&gt; np.ndarray | int</code></pre>
@@ -240,25 +240,25 @@ path is unchanged.</p>
 <p>``randi(imax)`` is represented by ``randi(imax)`` here and returns
 values in ``1..imax``. ``randi(low, high)`` returns ``low..high``.</p>
 </section>
-<section class="api-member" id="method-permutation-137">
+<section class="api-member" id="method-permutation-140">
 <div class="member-kind">method</div>
 <h2>permutation</h2>
 <pre><code>permutation(self, n: int) -&gt; np.ndarray</code></pre>
 <p>Return a 0-based permutation equivalent to reference source ``randperm(n)``.</p>
 </section>
-<section class="api-member" id="method-choice-144">
+<section class="api-member" id="method-choice-147">
 <div class="member-kind">method</div>
 <h2>choice</h2>
 <pre><code>choice(self, a: Any, size: int | tuple[int, ...] | None = None, replace: bool = True, p: Any = None) -&gt; Any</code></pre>
 <p>Proxy to the underlying generator&#x27;s ``choice``.</p>
 </section>
-<section class="api-member" id="method-copy-state-148">
+<section class="api-member" id="method-copy-state-151">
 <div class="member-kind">method</div>
 <h2>copy_state</h2>
 <pre><code>copy_state(self) -&gt; dict[str, Any]</code></pre>
 <p>Return a deep copy of the generator state.</p>
 </section>
-<section class="api-member" id="method-restore-state-152">
+<section class="api-member" id="method-restore-state-155">
 <div class="member-kind">method</div>
 <h2>restore_state</h2>
 <pre><code>restore_state(self, state: dict[str, Any]) -&gt; None</code></pre>
@@ -266,19 +266,19 @@ values in ``1..imax``. ``randi(low, high)`` returns ``low..high``.</p>
 </section>
 </div>
 </section>
-<section class="api-member" id="function-init-population-157">
+<section class="api-member" id="function-init-population-160">
 <div class="member-kind">function</div>
 <h2>init_population</h2>
 <pre><code>init_population(rng: RandomContext, np_size: int, dim: int, lb: Any, ub: Any) -&gt; np.ndarray</code></pre>
 <p>Draw one uniform initial population within bounds.</p>
 </section>
-<section class="api-member" id="function-create-fair-start-179">
+<section class="api-member" id="function-create-fair-start-182">
 <div class="member-kind">function</div>
 <h2>create_fair_start</h2>
 <pre><code>create_fair_start(seed: int, generator: str, np_size: int, dim: int, lb: Any, ub: Any) -&gt; FairStart</code></pre>
 <p>Create runner-supplied X0 and capture post-initialization RNG state.</p>
 </section>
-<section class="api-member" id="function-restore-after-initialization-197">
+<section class="api-member" id="function-restore-after-initialization-200">
 <div class="member-kind">function</div>
 <h2>restore_after_initialization</h2>
 <pre><code>restore_after_initialization(rng: RandomContext, state: dict[str, Any] | None) -&gt; None</code></pre>
@@ -295,9 +295,9 @@ values in ``1..imax``. ``randi(low, high)`` returns ``low..high``.</p>
 <a class="toc-level-2" href="#function-normalize-generator-name-42">normalize_generator_name</a>
 <a class="toc-level-2" href="#function-effective-python-generator-55">effective_python_generator</a>
 <a class="toc-level-2" href="#class-randomcontext-60">RandomContext</a>
-<a class="toc-level-2" href="#function-init-population-157">init_population</a>
-<a class="toc-level-2" href="#function-create-fair-start-179">create_fair_start</a>
-<a class="toc-level-2" href="#function-restore-after-initialization-197">restore_after_initialization</a>
+<a class="toc-level-2" href="#function-init-population-160">init_population</a>
+<a class="toc-level-2" href="#function-create-fair-start-182">create_fair_start</a>
+<a class="toc-level-2" href="#function-restore-after-initialization-200">restore_after_initialization</a>
 </aside>
   </div>
   <script src="../assets/search.js"></script>

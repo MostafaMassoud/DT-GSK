@@ -14,6 +14,18 @@ This directory contains YAML experiment configurations for `gsk-run`.
 | `all_cec2011.yml` | CEC2011 campaign template. |
 | `all_cec2017.yml` | CEC2017 campaign template. |
 | `agsk_cec2020.yml` | AGSK-focused CEC2020 campaign template. |
+| `family_cec2011.yml` | Seven-optimizer family panel on CEC2011. |
+| `family_cec2013.yml` | Seven-optimizer family panel on CEC2013. |
+| `family_cec2013lsgo.yml` | Seven-optimizer family panel on CEC2013LSGO (native dimensions). |
+| `family_cec2017.yml` | Seven-optimizer family panel on CEC2017, the primary suite. |
+| `family_cec2020.yml` | Seven-optimizer family panel on CEC2020. |
+| `baselines_cec2011.yml` | External SOTA baselines on CEC2011. |
+| `baselines_cec2013.yml` | External SOTA baselines on CEC2013. |
+| `baselines_cec2013lsgo.yml` | External SOTA baselines on CEC2013LSGO (SHADE-ILS, MOS, DECC-G). |
+| `baselines_cec2017.yml` | External SOTA baselines on CEC2017. |
+| `baselines_cec2020.yml` | External SOTA baselines on CEC2020. |
+| `dtgsk_cec2013lsgo.yml` | DT-GSK alone on CEC2013LSGO at native dimensions. |
+| `dtgsk_lsgo_smoke.yml` | Reduced CEC2013LSGO smoke run for the LSGO path. |
 
 ## Subfolders
 

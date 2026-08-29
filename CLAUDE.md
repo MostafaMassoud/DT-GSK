@@ -26,9 +26,10 @@ is. **The repo was set PRIVATE on 2026-08-28 (author, to finalize) and MUST be p
 the upload** — the DAS names its URL and tags, and reviewers will click. Detail:
 [REVISION_STATUS.md](REVISION_STATUS.md) §5 items 1 and 6.
 
-**Current freeze: pass-53 / `v2.26`** — minted, tagged, pushed; `v2.13` through `v2.25` all
-resolve (publicly again once the repo is flipped back), the Data Availability Statement names
-`v2.26`, and `main.tex` says so. **Pass-53 (2026-08-29, D-0058 / CR-0033) is the full
+**Current freeze: pass-54 / `v2.27`** — minted and tagged **locally; NOT pushed.** `main` is ahead of
+`origin/main` and `v2.26`/`v2.27` do not exist on the remote — verify with `git status -sb` and
+`git ls-remote --tags origin` before relying on remote state, because the Data Availability
+Statement names `v2.27` and a referee will click it. `main.tex` says so. **Pass-53 (2026-08-29, D-0058 / CR-0033) is the full
 remediation pass:** all five review instruments were retuned and re-applied, and their
 consolidated findings fixed — topmost, the Supplementary's ninth limitation still said the tier
 boundaries were “unvaried, so their sensitivity is untested” nine pages before S9.5 varies them
@@ -66,8 +67,10 @@ references the source-side sweep missed (sweep the RENDER for phrase policies, n
 and the environment attestation re-minted at 618 tests after pass-49's statistics.py change.
 Register is now 102 passages at v2.26.
 **After pass-52 (2026-08-29, ordinary commits, freeze untouched):** the roadmap's B1–B4 ops
-fixes landed (kit row-83 counts, package manifest at six releases, CFF date/abstract, clean-tree
-attestation), then the **public-release cleanup**: tracked docs no longer carry the private
+fixes landed (kit row-83 counts, package manifest at six releases, CFF date/abstract, and an
+attestation re-mint — note that `git.dirty` is **always** true there and cannot be made false:
+`make_environment_attestation.py` computes it from `git status --porcelain` while the mint's own
+junit XMLs already sit in the tree), then the **public-release cleanup**: tracked docs no longer carry the private
 bundle's path, the purge full SHAs, or reviewer-verbatim words — the operational identifiers
 live ONLY in the withheld `papers/review_2026_08_24/PRIVATE_OPS.md`; results staging was
 quarantined to `../DT-GSK_cleanup_2026-08-29/`. **The cleanup commits were left UNPUSHED by
@@ -249,12 +252,15 @@ It ends on "PUBLISH READY", which is no longer the project's state. Do not read 
 - Freeze passes and tags advance together: submitted at **pass-38 / v2.13**; the round-1 revision
   landed at **pass-41 / v2.14**, both **published**. A revision is always a new pass through change
   control, never an edit to a tagged state (D-0045).
-- **Publication is a squash.** The public history is one commit per published state, because the
-  development history cannot be published. So a commit SHA recorded by a governance record —
-  including `anchor_commit` in the freeze manifest — does **not** resolve in the public history.
-  `published_commit` sits alongside it and does. This is disclosed in `README.md`.
-- Governance ids are sequential and must be verified free at apply time — next are **CR-0025** and
-  **D-0050**.
+- **Publication WAS a squash, through 2026-08-28.** The public history is one commit per
+  published state up to that point, because the development history could not be published, so a
+  commit SHA recorded by a governance record written before then — including older
+  `anchor_commit` values — does **not** resolve. Since the private branches were bundled out and
+  `main` became the only branch, ordinary commits are published as they are: `anchor_commit`
+  now resolves (it is `v2.27^`). `published_commit` names the PREVIOUS freeze's close, so its
+  tree is deliberately not the current freeze's. Disclosed in `README.md`.
+- Governance ids are sequential and must be verified free at apply time — next are **CR-0035** and
+  **D-0060**.
 - Evidence releases are additive and non-superseding. Frozen analysis outputs are never re-minted;
   new findings get a new release id.
 - Temporary files go in the session scratchpad, **outside** the repo. Never create scratch trees,

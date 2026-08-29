@@ -19,7 +19,7 @@
 >
 > Four things this refresh adds, because they change what a reviewer of this repository sees:
 > (1) the repository is **PRIVATE until upload day** and must be flipped public before the
-> SuSy upload — the Data Availability Statement names its URL and tags `v2.13`/`v2.25`;
+> SuSy upload — the Data Availability Statement names its URL and tags `v2.13`/`v2.27`;
 > (2) the reviewer-facing response letter, both marked PDFs and the change register are
 > **untracked by design** (D-0049) and live in `papers/submission/` — do not expect them in
 > `git ls-files`; (3) operational identifiers (the private history bundle's location, the two
@@ -57,7 +57,7 @@
 > **How to use it.** Open the repository, then paste everything below the first
 > horizontal rule as the instruction prompt. Work the phases in order (Phase 0
 > first, always read-only), running the embedded commands and recording evidence.
-> **See also.** The three sibling prompts in this folder:
+> **See also.** The four sibling prompts in this folder:
 > [documentation-deep-upgrade.md](documentation-deep-upgrade.md) (deep documentation
 > depth/pedagogy pass), [documentation-review.md](documentation-review.md)
 > (documentation consistency/staleness gate in Part I, inline docstrings/comments in
@@ -177,7 +177,7 @@ do not invent items not present):
   algorithm — the proposed optimizer included — is read from the committed
   tables under benchmarks/cec_reference_results/<suite>/<optimizer>/ (flat
   layout: <opt>_<suite>_D<dim>.csv summaries, per_run.csv, curves/, gen_logs/;
-  full 7-optimizer coverage for cec2017, cec2011, and cec2013), and a locally
+  full 7-optimizer coverage for all five suites), and a locally
   reproduced run under results/_run_all/<optimizer>/<suite>/summary/ is only a
   fallback for cells the reference tree lacks. Default analysis output root is
   results/_run_all/_analysis/<suite>/ (override with --out). These LaTeX/figure
@@ -487,7 +487,7 @@ choose the higher and say why.
 - Benchmarks and evidence:
   benchmarks/cec_suite_python/ (cec2011, cec2013, cec2013lsgo, cec2017, cec2020),
   benchmarks/cec_reference_results/ (committed 7-optimizer reference evidence for
-  cec2011, cec2013, cec2017 only; cec2020 has no committed reference results),
+  all five CEC suites, each with all seven panel optimizers),
   benchmarks/README.md
 - Configurations:
   configs/smoke.yml, configs/all_optimizers_smoke.yml,

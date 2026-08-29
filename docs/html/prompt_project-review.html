@@ -181,7 +181,7 @@
 <blockquote></blockquote>
 <blockquote>Four things this refresh adds, because they change what a reviewer of this repository sees:</blockquote>
 <blockquote>(1) the repository is <strong>PRIVATE until upload day</strong> and must be flipped public before the</blockquote>
-<blockquote>SuSy upload — the Data Availability Statement names its URL and tags <code>v2.13</code>/<code>v2.25</code>;</blockquote>
+<blockquote>SuSy upload — the Data Availability Statement names its URL and tags <code>v2.13</code>/<code>v2.27</code>;</blockquote>
 <blockquote>(2) the reviewer-facing response letter, both marked PDFs and the change register are</blockquote>
 <blockquote><strong>untracked by design</strong> (D-0049) and live in <code>papers/submission/</code> — do not expect them in</blockquote>
 <blockquote><code>git ls-files</code>; (3) operational identifiers (the private history bundle&#x27;s location, the two</blockquote>
@@ -217,7 +217,7 @@
 <blockquote><strong>How to use it.</strong> Open the repository, then paste everything below the first</blockquote>
 <blockquote>horizontal rule as the instruction prompt. Work the phases in order (Phase 0</blockquote>
 <blockquote>first, always read-only), running the embedded commands and recording evidence.</blockquote>
-<blockquote><strong>See also.</strong> The three sibling prompts in this folder:</blockquote>
+<blockquote><strong>See also.</strong> The four sibling prompts in this folder:</blockquote>
 <blockquote><a href="prompt_documentation-deep-upgrade.html">documentation-deep-upgrade.md</a> (deep documentation</blockquote>
 <blockquote>depth/pedagogy pass), <a href="prompt_documentation-review.html">documentation-review.md</a></blockquote>
 <blockquote>(documentation consistency/staleness gate in Part I, inline docstrings/comments in</blockquote>
@@ -334,7 +334,7 @@ do not invent items not present):
   algorithm — the proposed optimizer included — is read from the committed
   tables under benchmarks/cec_reference_results/&lt;suite&gt;/&lt;optimizer&gt;/ (flat
   layout: &lt;opt&gt;_&lt;suite&gt;_D&lt;dim&gt;.csv summaries, per_run.csv, curves/, gen_logs/;
-  full 7-optimizer coverage for cec2017, cec2011, and cec2013), and a locally
+  full 7-optimizer coverage for all five suites), and a locally
   reproduced run under results/_run_all/&lt;optimizer&gt;/&lt;suite&gt;/summary/ is only a
   fallback for cells the reference tree lacks. Default analysis output root is
   results/_run_all/_analysis/&lt;suite&gt;/ (override with --out). These LaTeX/figure
@@ -644,7 +644,7 @@ choose the higher and say why.
 - Benchmarks and evidence:
   benchmarks/cec_suite_python/ (cec2011, cec2013, cec2013lsgo, cec2017, cec2020),
   benchmarks/cec_reference_results/ (committed 7-optimizer reference evidence for
-  cec2011, cec2013, cec2017 only; cec2020 has no committed reference results),
+  all five CEC suites, each with all seven panel optimizers),
   benchmarks/README.md
 - Configurations:
   configs/smoke.yml, configs/all_optimizers_smoke.yml,

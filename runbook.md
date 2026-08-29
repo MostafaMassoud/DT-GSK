@@ -254,13 +254,14 @@ python papers/scripts/generate_latex_tables.py
 python papers/scripts/generate_t16_bca.py
 python papers/scripts/generate_revision_exhibits.py   # S9 exhibits SA05-SA08 = Tables A43-A46
 
-# --- 7. Build the PDFs. The epoch is load-bearing: build_pdf.py sets nothing
-#     itself and passes no env to pdflatex, so without these two variables the
-#     artifacts carry the current date, are not byte-reproducible, and
-#     check_manifest will not read 15/15 ---
-$env:SOURCE_DATE_EPOCH = "1783468800"; $env:FORCE_SOURCE_DATE = "1"
+# --- 7. Build the PDFs. Since pass-54 the epoch is pinned INSIDE the builders
+#     (build_pdf.py:67, build_supplementary.py:42, build_cover_letter.py:41),
+#     so do NOT export it here. Exporting it is now the only way to create the
+#     hazard step 7b warns about, because the DOCX writer prefers an inherited
+#     SOURCE_DATE_EPOCH over its own different default ---
 python papers/scripts/build_pdf.py
 python papers/scripts/build_supplementary.py
+python papers/scripts/build_cover_letter.py   # cover_letter.pdf is files[10]
 python papers/scripts/generate_review_pack.py
 
 # --- 7b. Word twins, IN A FRESH SHELL. The DOCX epoch is a different number and
@@ -285,6 +286,10 @@ python scripts\build_docs_html.py
 # --- 8b. Manuscript gate battery (the pass-41 battery, unchanged through pass-52). Every one must exit 0;
 #     the three counted ones read 15/15, 115/115 and 761 rows / 0 FAIL ---
 python papers/scripts/check_manifest.py
+python papers/scripts/check_reproducibility_manifest.py  # ungated until pass-54;
+#     the reproducibility manifest went stale INSIDE its own pass three times,
+#     always by being refreshed before the artifacts were rebuilt. Run it AFTER
+#     every rebuild, not with the mint.
 python papers/scripts/check_frozen_analysis.py
 python papers/scripts/validate_cross_format_parity.py
 python papers/scripts/validate_document_consistency.py

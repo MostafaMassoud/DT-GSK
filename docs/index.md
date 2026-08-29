@@ -10,8 +10,8 @@ Project documentation, grouped by folder. Browse the rendered site at
 > **Project status (2026-08-29).** The manuscript was submitted to *Algorithms*
 > (MDPI) as `algorithms-4507562` from freeze pass-38 / tag v2.13, and received a
 > **MAJOR REVISION** from two reviewers. **The revision work is complete** and
-> the package awaits author resubmission; the current freeze is pass-52 / tag
-> v2.25. See **[REVISION_STATUS.md](../REVISION_STATUS.md)** for the current
+> the package awaits author resubmission.
+> See **[REVISION_STATUS.md](../REVISION_STATUS.md)** for the current
 > state, how each reviewer point was answered, and the authoritative current
 > pass and tag — this box is deliberately not the place to look them up.
 > **Evidence releases are additive and non-superseding, and there is more than

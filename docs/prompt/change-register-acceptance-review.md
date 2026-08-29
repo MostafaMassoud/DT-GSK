@@ -35,10 +35,10 @@ of reviewer confidence.
 Work from whichever of these are attached; name, at the top of your report,
 which ones you actually received:
 
-1. **The Change Register** (~92 changed passages, each shown *as submitted*
+1. **The Change Register** (read the passage count off its own front page — every number recorded elsewhere has gone stale; each passage is shown *as submitted*
    and *as revised*, tagged with the reviewer point it answers).
-2. The revised **main manuscript** (47 pp) and **supplementary material**
-   (80 pp, Sections S1–S9).
+2. The revised **main manuscript** (49 pp) and **supplementary material**
+   (81 pp, Sections S1–S9).
 3. The **marked-up** manuscript and supplement (latexdiff).
 4. The **point-by-point response** to the reviewers.
 
@@ -313,7 +313,7 @@ prominently summarized in the main text.
 
 ---
 
-# 5. CHANGE-BY-CHANGE AUDIT — ALL ~92 PASSAGES
+# 5. CHANGE-BY-CHANGE AUDIT — EVERY PASSAGE IN THE REGISTER
 
 Review **every** register entry, not a sample. For each, one verdict line:
 

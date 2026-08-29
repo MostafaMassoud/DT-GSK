@@ -180,7 +180,7 @@
 <li>Update documentation alongside the code it describes. For example, an</li>
 <p>algorithm change updates its <code>docs/algorithms/*.md</code> guide.</p>
 <li>Run the local gate before pushing — the test suite, the ruff correctness</li>
-<p>lint, and the scoped mypy type check (the same three commands CI runs):</p>
+<p>lint, and the scoped mypy type check. These three commands are the gate; the project has no hosted CI, so nothing runs them but you:</p>
 </ol>
 <pre><code class="code-block language-powershell">   python -m pytest -q
    python -m ruff check src tests scripts
@@ -201,7 +201,7 @@
   F -- no --&gt; B
   F -- yes --&gt; G[&quot;Open pull request&quot;]</pre>
 <h3 id="what-the-local-gate-enforces">What the local gate enforces</h3>
-<p><code>python -m pytest</code> is not just unit tests — it also runs three documentation gates that frequently catch contribution mistakes. Knowing them up front saves a red CI run:</p>
+<p><code>python -m pytest</code> is not just unit tests — it also runs three documentation gates that frequently catch contribution mistakes. Knowing them up front saves a failed gate run:</p>
 <ul>
 <li><strong>Docstring coverage</strong> (<code>tests/unit/test_docstrings.py</code>): every module, class,</li>
 <p>function, and method under <code>src/gsk_family</code> needs a docstring. The vendored <code>dt-gsk</code> core and the vendored analysis modules are exempt; everything else is not.</p>

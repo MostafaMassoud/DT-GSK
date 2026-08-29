@@ -166,13 +166,13 @@
 <p class="source-path">Source: <code>src/gsk_family/cli/run.py</code></p>
 <p>Run experiments from the Python GSK package.</p>
 <h2 id="members">Members</h2>
-<section class="api-member" id="function-comma-or-repeat-14">
+<section class="api-member" id="function-comma-or-repeat-15">
 <div class="member-kind">function</div>
 <h2>_comma_or_repeat</h2>
 <pre><code>_comma_or_repeat(values: list[str] | None) -&gt; list[str] | None</code></pre>
 <p>Normalize repeated or comma-separated CLI values.</p>
 </section>
-<section class="api-member" id="function-expand-positive-int-selector-24">
+<section class="api-member" id="function-expand-positive-int-selector-25">
 <div class="member-kind">function</div>
 <h2>_expand_positive_int_selector</h2>
 <pre><code>_expand_positive_int_selector(token: str, *, name: str) -&gt; list[int]</code></pre>
@@ -181,55 +181,55 @@
 (``1:30``). Ranges are intentionally simple so command-line experiments
 remain explicit and reproducible.</p>
 </section>
-<section class="api-member" id="function-positive-int-selectors-50">
+<section class="api-member" id="function-positive-int-selectors-51">
 <div class="member-kind">function</div>
 <h2>_positive_int_selectors</h2>
 <pre><code>_positive_int_selectors(values: list[str] | None, *, default: str, name: str) -&gt; list[int]</code></pre>
 <p>Normalize repeated, comma-separated, and ranged integer selectors.</p>
 </section>
-<section class="api-member" id="function-dimension-selectors-66">
+<section class="api-member" id="function-dimension-selectors-67">
 <div class="member-kind">function</div>
 <h2>_dimension_selectors</h2>
 <pre><code>_dimension_selectors(values: list[str] | None, *, default: str) -&gt; list[int] | str</code></pre>
 <p>Normalize CLI dimension selectors, including native/default/all keywords.</p>
 </section>
-<section class="api-member" id="function-cec2017-run-all-functions-82">
+<section class="api-member" id="function-cec2017-run-all-functions-83">
 <div class="member-kind">function</div>
 <h2>_cec2017_run_all_functions</h2>
 <pre><code>_cec2017_run_all_functions(suite: str, functions: list[int]) -&gt; list[int]</code></pre>
 <p>Mirror the run-all CEC2017 policy by excluding withdrawn F2 from 1:30.</p>
 </section>
-<section class="api-member" id="function-rooted-89">
+<section class="api-member" id="function-rooted-90">
 <div class="member-kind">function</div>
 <h2>_rooted</h2>
 <pre><code>_rooted(root: Path, value: str) -&gt; str</code></pre>
 <p>Resolve a config path relative to a CLI root when it is not absolute.</p>
 </section>
-<section class="api-member" id="function-apply-root-97">
+<section class="api-member" id="function-apply-root-98">
 <div class="member-kind">function</div>
 <h2>_apply_root</h2>
 <pre><code>_apply_root(config: ExperimentConfig, root: str | None) -&gt; ExperimentConfig</code></pre>
 <p>Apply a base root to all path fields in an experiment config.</p>
 </section>
-<section class="api-member" id="function-build-parser-110">
+<section class="api-member" id="function-build-parser-111">
 <div class="member-kind">function</div>
 <h2>_build_parser</h2>
 <pre><code>_build_parser() -&gt; argparse.ArgumentParser</code></pre>
 <p>Build the `gsk-run` argument parser.</p>
 </section>
-<section class="api-member" id="function-direct-config-241">
+<section class="api-member" id="function-direct-config-242">
 <div class="member-kind">function</div>
 <h2>_direct_config</h2>
 <pre><code>_direct_config(args: argparse.Namespace) -&gt; dict[str, object]</code></pre>
 <p>Create an experiment mapping from direct CLI arguments.</p>
 </section>
-<section class="api-member" id="function-dt-diagnostics-requested-328">
+<section class="api-member" id="function-dt-diagnostics-requested-329">
 <div class="member-kind">function</div>
 <h2>_dt_diagnostics_requested</h2>
 <pre><code>_dt_diagnostics_requested(args: argparse.Namespace) -&gt; bool</code></pre>
 <p>True when any DT-GSK telemetry switch was given on the command line.</p>
 </section>
-<section class="api-member" id="function-apply-dt-diagnostics-337">
+<section class="api-member" id="function-apply-dt-diagnostics-338">
 <div class="member-kind">function</div>
 <h2>_apply_dt_diagnostics</h2>
 <pre><code>_apply_dt_diagnostics(options: dict[str, object] | None, args: argparse.Namespace) -&gt; dict[str, object]</code></pre>
@@ -240,7 +240,7 @@ telemetry leaves the numerics byte-identical (the core&#x27;s
 ``generation_callback`` is observational -- it draws no RNG and evaluates
 no objective).</p>
 </section>
-<section class="api-member" id="function-main-361">
+<section class="api-member" id="function-main-362">
 <div class="member-kind">function</div>
 <h2>main</h2>
 <pre><code>main(argv: list[str] | None = None) -&gt; int</code></pre>
@@ -252,18 +252,18 @@ no objective).</p>
 <h2>On This Page</h2>
 <a class="toc-level-1" href="#gsk-family-cli-run">gsk_family.cli.run</a>
 <a class="toc-level-2" href="#members">Members</a>
-<a class="toc-level-2" href="#function-comma-or-repeat-14">_comma_or_repeat</a>
-<a class="toc-level-2" href="#function-expand-positive-int-selector-24">_expand_positive_int_selector</a>
-<a class="toc-level-2" href="#function-positive-int-selectors-50">_positive_int_selectors</a>
-<a class="toc-level-2" href="#function-dimension-selectors-66">_dimension_selectors</a>
-<a class="toc-level-2" href="#function-cec2017-run-all-functions-82">_cec2017_run_all_functions</a>
-<a class="toc-level-2" href="#function-rooted-89">_rooted</a>
-<a class="toc-level-2" href="#function-apply-root-97">_apply_root</a>
-<a class="toc-level-2" href="#function-build-parser-110">_build_parser</a>
-<a class="toc-level-2" href="#function-direct-config-241">_direct_config</a>
-<a class="toc-level-2" href="#function-dt-diagnostics-requested-328">_dt_diagnostics_requested</a>
-<a class="toc-level-2" href="#function-apply-dt-diagnostics-337">_apply_dt_diagnostics</a>
-<a class="toc-level-2" href="#function-main-361">main</a>
+<a class="toc-level-2" href="#function-comma-or-repeat-15">_comma_or_repeat</a>
+<a class="toc-level-2" href="#function-expand-positive-int-selector-25">_expand_positive_int_selector</a>
+<a class="toc-level-2" href="#function-positive-int-selectors-51">_positive_int_selectors</a>
+<a class="toc-level-2" href="#function-dimension-selectors-67">_dimension_selectors</a>
+<a class="toc-level-2" href="#function-cec2017-run-all-functions-83">_cec2017_run_all_functions</a>
+<a class="toc-level-2" href="#function-rooted-90">_rooted</a>
+<a class="toc-level-2" href="#function-apply-root-98">_apply_root</a>
+<a class="toc-level-2" href="#function-build-parser-111">_build_parser</a>
+<a class="toc-level-2" href="#function-direct-config-242">_direct_config</a>
+<a class="toc-level-2" href="#function-dt-diagnostics-requested-329">_dt_diagnostics_requested</a>
+<a class="toc-level-2" href="#function-apply-dt-diagnostics-338">_apply_dt_diagnostics</a>
+<a class="toc-level-2" href="#function-main-362">main</a>
 </aside>
   </div>
   <script src="../assets/search.js"></script>

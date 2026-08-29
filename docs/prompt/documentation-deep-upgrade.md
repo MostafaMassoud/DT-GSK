@@ -19,7 +19,7 @@
 >
 > Four things this refresh adds, because they change what a reviewer of this repository sees:
 > (1) the repository is **PRIVATE until upload day** and must be flipped public before the
-> SuSy upload — the Data Availability Statement names its URL and tags `v2.13`/`v2.25`;
+> SuSy upload — the Data Availability Statement names its URL and tags `v2.13`/`v2.27`;
 > (2) the reviewer-facing response letter, both marked PDFs and the change register are
 > **untracked by design** (D-0049) and live in `papers/submission/` — do not expect them in
 > `git ls-files`; (3) operational identifiers (the private history bundle's location, the two
@@ -351,7 +351,8 @@ docs/
                     validation_report, numerical_examples, statistical_analysis,
                     egsk_validation_appendix
   prompt/           documentation-deep-upgrade (this file), project-review,
-                    documentation-review, publication-polish (four prompts total)
+                    documentation-review, publication-polish,
+                    change-register-acceptance-review (five prompts total)
   html/             generated — never hand-edit
 ```
 

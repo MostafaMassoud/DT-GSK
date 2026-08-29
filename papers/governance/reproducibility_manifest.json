@@ -2,8 +2,8 @@
   "schema": "PAPER_BUILD_PROMPT.md Section 3.1 (environment, seeds, hashes, commands, outputs) with Section 2.12 manifest fields",
   "created_phase": "Phase 0",
   "created_date": "2026-07-10",
-  "project_root": "<repository root>",
-  "project_root_note": "The literal filesystem path of the checkout these Phase-0 commands ran in was redacted for public release: it named a private monorepo layout and this manifest is tracked. Nothing in this file depends on the literal path - every command is run from the repository root.",
+  "project_root": "D:/AI/PhD-Projects/00-GSK-Family/02-GSK_Family_Python_v1.1",
+  "project_root_note": "This and the cwd fields below record where the Phase-0 commands ACTUALLY ran, in 2026-07, in the monorepo checkout that predates this standalone repository. They are left verbatim on purpose: this is a historical execution record, and rewriting the paths would make it a reconstruction rather than a record. They expose a folder layout on the author's own machine and nothing else - no credential, no third-party material, no personal data - and nothing in this file or any gate depends on the literal path; every command is run from the repository root. Do not redact one occurrence and leave the rest: a partially redacted record is worse than either a complete one or a complete redaction.",
   "git_root": "D:/AI/PhD-Projects",
   "anchor_commit": "0d2bed9907faae38134c3e2969d250b1680a7305",
   "branch": "main",
@@ -499,28 +499,28 @@
     "revision": "rev-rel-2026-08-26-dd42d37eb  (round-one revision experiments E1-E4; additive, non-superseding)"
   },
   "superseded_anchor": "0d2bed9907faae38134c3e2969d250b1680a7305",
-  "updated_utc": "2026-08-29T08:20:00Z",
-  "update_note": "Re-verified at pass-54 (2026-08-29): every shipped digest and byte count was recomputed from disk and cross-checked against the freeze manifest's files[], which is the gated record. The pass-53 refresh had itself gone stale within the same pass - it ran at the apply commit and the two main-manuscript artifacts were rebuilt afterwards, so DT-GSK.pdf and DT-GSK.docx recorded superseded values. NO GATE READS THIS FILE, which is why both that lapse and the pass-45-to-pass-53 one were silent: whenever it is touched, recompute sha256 AND bytes from disk and diff them against the freeze manifest before committing.",
+  "updated_utc": "2026-08-29T09:55:00Z",
+  "update_note": "Re-verified at pass-54 (2026-08-29) AFTER every rebuild, which is the ordering that matters: this file went stale inside its own pass three times (pass-41 to pass-45, then pass-53, then pass-54's own first refresh), every time because it was updated at the apply commit and the artifacts were rebuilt afterwards. It is now gated by papers/scripts/check_reproducibility_manifest.py, which compares every digest and byte count against disk AND against the freeze manifest's files[], and checks anchor_commit_current. Run that gate after every rebuild, alongside check_manifest.py.",
   "shipped_artifacts": {
     "papers/DT-GSK.pdf": {
-      "sha256": "5d97083a8f8c88b8b58c9b6f0e99a5450ba7160395f9971487bb3195ef91dc72",
-      "bytes": 827801
+      "sha256": "35bafc2c657a2f8e46a702b23d016a27222d258203ebc16be7214dceef7ab273",
+      "bytes": 829894
     },
     "papers/DT-GSK.docx": {
-      "sha256": "b9a04055d1cc0068bfe4deadc0066280ad167be5a9880544382925cff553ee9e",
-      "bytes": 1021918
+      "sha256": "39676553662824466f6a29ef8209757f46fde8320b0c7b21e7e6592089959ecd",
+      "bytes": 1022241
     },
     "papers/supplementary.pdf": {
-      "sha256": "7ae1cd266d782ec16657011036606e9497ad09111881cc5cb7854e0857988d05",
-      "bytes": 1759320
+      "sha256": "01020403521f8c6ddf05869b477a24057c9e0785f7fce1ae99b0377bdf6f92c3",
+      "bytes": 1762344
     },
     "papers/supplementary.docx": {
-      "sha256": "d319a6ebf54c9143697e2dacd11fd9c281d4dda4becd36709c063885dff54650",
-      "bytes": 9626843
+      "sha256": "4c5e8635f99ec8574d5fd98b04b0fceb44de2edbe38fbc4f29a35a74e404e286",
+      "bytes": 9627509
     },
     "papers/cover_letter.pdf": {
-      "sha256": "2fcbd32c39b89761a2beaf386a9d3763951796cee08a5b0e01058bf12c6704e4",
-      "bytes": 122333
+      "sha256": "3dcf4407ef666429c405feda640c60799cca95888e33db8e431e71bb3c06745e",
+      "bytes": 122611
     }
   },
   "determinism_record": {
@@ -532,7 +532,7 @@
     "docx_source_date_epoch": 1783641600,
     "revision_release_correction": "Before first publication the revision release's provenance path fields were rewritten from absolute to repository-relative across 61 files, matching every earlier release; its manifest was re-minted and the correction recorded in the manifest's own correction field (D-0049)."
   },
-  "anchor_commit_current": "d9c1a88e3ad646a039d334e12a2f2f6b550e26ed",
+  "anchor_commit_current": "9093e99c806b5331c47aa40edc4b0d74a9256946",
   "published_commit_current": "709d6ff3a0ddca2184745fc18951ecf4179ba63d",
-  "anchor_note": "anchor_commit_current is the freeze anchor of the current pass (pass-53). It is recorded alongside published_commit_current rather than being repointed at whatever resolves: the anchor/published distinction is the project's disclosed convention (README, and the freeze manifest's published_commit_note), and collapsing them would destroy the anchor record. The Phase-0 and Phase-12 blocks in this file are self-labelled historical and are left as minted."
+  "anchor_note": "anchor_commit_current is the freeze anchor of the current pass (pass-54). It is recorded alongside published_commit_current rather than being repointed at whatever resolves: the anchor/published distinction is the project's disclosed convention (README, and the freeze manifest's published_commit_note), and collapsing them would destroy the anchor record. The Phase-0 and Phase-12 blocks in this file are self-labelled historical and are left as minted."
 }

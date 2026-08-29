@@ -50,7 +50,7 @@ Gaining-Sharing Knowledge Optimization), which resolves control by dimension
 rather than at a single operating point and supplies its refinement basis from
 an exploratory interaction-structure memory (ISM) learned from accepted moves.
 
-Implemented optimizer IDs (seven runnable algorithms):
+GSK-family optimizer IDs (the seven-method statistical panel; the runner also accepts eight external SOTA baselines --- run `gsk-list` for the full set):
 
 | Optimizer ID | Short description |
 |---|---|
@@ -800,11 +800,14 @@ development history could not be published -- some of its commit messages
 characterise a reviewer who declined to sign, and some intermediate trees carry
 material the published tree withholds -- so it was squashed into one commit
 before publication (D-0049). Commit SHAs recorded by governance records written
-during that work, including the `anchor_commit` in
-`papers/governance/main_manuscript_freeze_manifest.json`, name commits in that
-discarded line and do not resolve here either. The same manifest records a
-`published_commit` alongside, which does resolve and carries a byte-identical
-tree.
+during that work name commits in that discarded line and do not resolve here
+either. That applied to the freeze manifest's `anchor_commit` through
+2026-08-28; since the private branches were moved out and `main` became the
+only branch, ordinary commits are published as they are, so the current
+`anchor_commit` does resolve. The same manifest records a `published_commit`
+alongside, which names the commit that carried the PREVIOUS freeze's mint onto
+the published branch -- so it resolves, but its tree is deliberately not this
+freeze's.
 
 For the same reason, internal working records written before the move may
 reference monorepo paths, sibling project names, or the old repository URL.
