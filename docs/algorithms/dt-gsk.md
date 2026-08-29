@@ -460,7 +460,7 @@ applied, so the migrated optimizer produces the source's per-dimension
 `_dt_subsystems/` core and subsystems are vendored byte-for-byte.
 
 Parity was validated on the sphere function and CEC2017 across `D=10/30/50/100`
-(all exact). Byte-stability is locked in CI by
+(all exact). Byte-stability is locked by
 `tests/regression/test_dt_gsk_byte_stable.py`, and the profile builder is locked
 against an oracle generated from the source by `tests/unit/test_dt_profiles.py`.
 

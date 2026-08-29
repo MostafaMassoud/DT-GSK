@@ -1388,15 +1388,22 @@ Seventh, the comparison is entirely within the GSK family. As
 disclosed in the Conflicts of Interest, five of its six comparators were
 authored or co-authored by two of the present authors. No external, non-GSK
 baseline --- an L-SHADE-class or CMA-ES method, or a structure-learning
-method such as differential grouping --- is evaluated to calibrate the
-family against the broader state of the art, so the standings are
+method such as differential grouping --- enters any panel, table, figure or
+claim here to calibrate the family against the broader state of the art; the
+repository does contain runnable non-GSK implementations and, for three
+large-scale specialists, CEC2013LSGO result banks produced under this paper's
+protocol, none of them analysed here (Section~S7.1).  The standings are
 interpretable only within this panel and not as a placement in the
 wider field. Relatedly, \dtgsk{}'s self-initialization (the documented
 shared-$X_{0}$ exception) means that no \dtgsk{} cell begins from the
 shared initial population --- the self-init applies at every dimension
---- a disclosed fairness asymmetry that is not separately bounded and is
-most consequential at low dimension, where \dtgsk{} runs essentially the
-scaffold.
+--- a disclosed fairness asymmetry.  It is bounded by the
+matched-initial-population control of Section~S9.2: held to the comparators'
+initial $NP = 100$, \dtgsk{} stays within the panel's top two at every
+CEC2017 dimension, but its first places at $D = 50$ and $D = 100$ do not
+survive, so those two rank claims rest in part on the population rule.  The
+asymmetry is most consequential at low dimension, where \dtgsk{} runs
+essentially the scaffold.
 % BIND: LM-03 (within-family panel scope); comparability_audit.md; main.tex conflictsofinterest; PR-06 (self-init exception)
 Eighth, three attribution gaps bound what the component evidence can say.
 The corroborative weight rests on the two suites held out from
@@ -1720,7 +1727,7 @@ trading precision for earlier structural commitment in the larger upper-tier
 populations.
 % BIND: ig_extract_blocks interaction_graph.py:552-674; ig_ready :678-694; ig_adaptive_threshold :697-790; edge_floor / block sizes _dt_profiles.py:125-127
 
-\paragraph{Eigenframe polish (main-text Equation~(12)) and residual constants.}
+\paragraph{Deterministic final polish (main-text Equation~(12)) and residual constants.}
 The one-shot final polish (active at $D\ge 50$, armed at budget fraction $0.96$
 under a budget cap of $0.02\,\mathrm{MaxFES}$; the base-configuration defaults
 are $0.985$, full budget and disabled) builds its basis $V$ from the
@@ -2922,8 +2929,10 @@ respectively.  Statistics are errors against the known optimum, floored to
 zero below $10^{-8}$, on the same seven-algorithm family panel and the same
 unified seed schedule (base seed 20240620) used throughout this paper, so
 runs are paired across algorithms within each (dimension, function, run).
-The registration is commit-level and auditable in the repository: the
-addendum's signing commit precedes every CEC2020 datum, and its two dated,
+The registration is content-bound and auditable: the addendum's SHA-256 is
+recorded in the evidence release manifest that carries every CEC2020 datum,
+so the registered text cannot have been revised after those results existed,
+and its two dated,
 append-only amendments record the first computation of every registered
 family together with the outcome wording selected below.  Every number in
 this section derives from the separate, non-superseding evidence release
@@ -2935,7 +2944,7 @@ suite.
 % evidence_release_manifest_cec2020.json (release_id)
 
 \paragraph{Declared adjacency.}
-AGSK was the runner-up of the CEC2020 competition~\cite{apgsk2021}, and
+AGSK was the runner-up of the CEC2020 competition~\cite{mohamed2020agsk}, and
 the CEC2020 AGSK paper is a co-author's work.  This suite is therefore a comparator's home regime, and
 is reported as such.  Every dimension-gated \dtgsk{} subsystem is inactive
 at $D \le 20$, so \dtgsk{} runs its adaptive scaffold tier only on this
@@ -2963,7 +2972,7 @@ produced.
 \subsection{Descriptive Standing}\label{sec:supp:cec2020:standing}
 
 On AGSK's strongest suite --- the CEC2020 competition in which it was
-the runner-up~\cite{apgsk2021} --- \dtgsk{} places fourth; the family
+the runner-up~\cite{mohamed2020agsk} --- \dtgsk{} places fourth; the family
 panel corroborates AGSK's published strength in this regime.  That suite
 evaluates the low-dimensional boundary condition of the tiered design ---
 every dimension-gated \dtgsk{} subsystem is inactive at $D \le 20$ ---
@@ -3680,9 +3689,12 @@ before any of them produced a result; the deviations discovered during
 post-hoc verification are recorded there as dated amendments and are
 disclosed at the point of use below.  That addendum is published with the code
 and data, as revision\_experiments\_preregistration.md in the repository
-named in the Data Availability Statement, so a reader can
-check that the unfavourable-outcome wording predates the outcomes rather than
-take it on trust.
+named in the Data Availability Statement, so the registered adverse wording
+can be read directly against what is reported here.  The later amendments
+carry commit-level dates in that repository; the earlier registrations are
+bound instead by the checksums recorded in the evidence release manifests,
+because the published history is a squashed import and does not preserve the
+original commit dates.
 % BIND: pre-registration made checkable (D-0049; published 2026-08-27)
 The evidence for this section is compound, and is named here because no
 single release carries it: the arms of the first four experiments come from
@@ -3696,7 +3708,13 @@ Across-function Wilcoxon tests in this section apply the manuscript's stated
 $10^{-8}$ tie rule before ranking; the first analysis release of E1-E3 used
 the exact-zero convention instead, and that deviation, its correction, and its
 one decision-level consequence are recorded as pre-registration Amendments
-A5-A6 and restated at the point of use below.
+A5-A6 and restated at the point of use below.  A second, earlier departure
+is recorded as Amendment~A3: for Experiments E2 and E3 the executed Holm
+families correct across dimensions where the registered plan specified
+within dimension.  The amendment records the departure, its direction, and
+the verification that every decision reported here is unchanged under the
+registered family; for E2 the registered family would have had one member,
+so the executed correction is the more conservative of the two.
 The experiments ran under the same
 unified Threefry seed schedule, base seed and protocol budget as the primary
 panel, so every new cell pairs with the frozen evidence at matched
@@ -3715,6 +3733,7 @@ Three arms differ in the direction set alone --- no refinement, the coordinate
 axes, and the learned eigenframe --- at the shipped configuration in every
 other respect, with the interaction-structure memory and the linkage channel
 live, at $D \in \{50, 100\}$ with $51$ paired repetitions.
+Table~\ref{tab:rev-e1} reports the contrast.
 
 The coordinate arm is produced by supplying the identity matrix through a
 keyword-only research parameter of the optimizer core.  That parameter is
@@ -3769,7 +3788,8 @@ deterministic, budget-exact compass endgame, not the geometry it was given.
 
 \dtgsk{} initializes $NP = 5D$ while the six comparators run their
 reference-implementation value of $100$, a five-fold difference at $D = 100$
-that the main text discloses but the panel evidence does not control.  This experiment
+that the main text discloses but the panel evidence does not control.
+Table~\ref{tab:rev-e2} reports the outcome.  This experiment
 controls it: \dtgsk{} is re-run at $NP = 100$ across all four dimensions with
 $51$ repetitions, and the panel is re-ranked with the six frozen comparator
 columns reused unchanged.
@@ -3887,7 +3907,7 @@ count were perturbed one at a time at two levels each, at $D = 30$ and
 $D = 100$, over all 29 functions with 15 repetitions per cell: 27 cells in all,
 one of the 28 combinations being unreachable because its perturbation coincides
 with the shipped value.  Runs were reduced rather than functions, so every cell
-spans the full scored set.
+spans the full scored set.  Table~\ref{tab:rev-e4} reports every executed cell.
 % BIND: E4 design (rev-rel-2026-08-26-dd42d37eb; e4_sensitivity.csv 27 cells, 15 runs); prereg section 3.4
 
 One deviation from the registered design was found after execution and is
@@ -3949,7 +3969,8 @@ construction with the U-low transplant at $D = 30$ and reuses those 51 runs
 rather than re-executing them.  The T2/T3 boundary admits only the upper-side
 shift: no official dimension lies between 50 and 100.  The new arms are
 carried by the separate additive release rev2-rel-2026-08-28-203c78744;
-nothing earlier is re-minted.
+nothing earlier is re-minted.  Table~\ref{tab:rev-e5} reports the five
+registered contrasts.
 % BIND: E5 (rev2-rel-2026-08-28-203c78744; e5_threshold_sensitivity.json); A4 registered before execution
 
 \begin{table}[H]

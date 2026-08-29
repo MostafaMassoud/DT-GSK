@@ -60,7 +60,7 @@ aggregate is again the panel's best (2.80), with a per-dimension
 profile of first/third/first --- third at $D = 30$ behind \egsk{} and
 \atmals{}. % BIND: AN-RANKAGG-2013-OVERALL; AN-OMNI-2013-D30 (negative_findings.md item 10)
 On AGSK's strongest suite --- the CEC2020 competition in which it was
-the runner-up~\cite{apgsk2021} --- \dtgsk{} places fourth; the family
+the runner-up~\cite{mohamed2020agsk} --- \dtgsk{} places fourth; the family
 panel corroborates AGSK's published strength in this regime.  That suite
 evaluates the low-dimensional boundary condition of the tiered design ---
 every dimension-gated \dtgsk{} subsystem is inactive at $D \leq 20$ ---
@@ -115,13 +115,19 @@ Section~S9.3), so the shipped $20 \leq D < 50$ configuration is inferior to
 the tested low-tier transplant at that dimension. This localizes a
 configuration-level weakness; it does not identify the responsible key, and
 the same experiment demonstrates tiering against a high-dimension transplant
-at $D = 10$ and $D = 50$. Which of the differing configuration keys carries
+at $D = 10$ and $D = 50$, which is why contribution~C2 is claimed for those
+two dimensions only. Which of the differing configuration keys carries
 the effect is not resolved here and is left open.
 % BIND: E3 (rev-rel-2026-08-26-dd42d37eb); C2 narrowed; D30 tier
 Pairing is by common seed, problem and run rather than by an identical
 starting population: \dtgsk{} self-initializes its own $5D$ population from
 the same seed-paired stream, the one documented departure from the shared
-$X_{0}$ used by the six comparators.
+$X_{0}$ used by the six comparators. That departure is bounded rather than
+merely disclosed: held to the comparators' initial $NP = 100$, \dtgsk{}
+stays within the panel's top two at every CEC2017 dimension, but its first
+places at $D = 50$ and $D = 100$ do not survive, so those two rank claims
+rest in part on the population rule (Supplementary Materials,
+Section~S9.2).
 Every comparative finding is panel-relative by design, with no claim against
 other metaheuristic families, and the \egsk{} cells derive from a port whose
 SLSQP polish substitutes the reference implementation's fmincon solver, so no
@@ -181,9 +187,11 @@ design could have missed.
 A direct basis isolation sharpens this. In the
 memory's terminal exploitation channel --- the basis the final polish searches
 along --- the learned eigenframe is outperformed by the plain coordinate axes at
-$D = 50$ ($p_{\mathrm{Holm}} = 1.4\times10^{-4}$, 25 of 29 functions), while the
+$D = 50$ ($p_{\mathrm{Holm}} = 1.4\times10^{-4}$, 25 of 29 functions) and, under
+the manuscript's stated tie rule, at $D = 100$ as well
+($p_{\mathrm{Holm}} = 0.0489$), while the
 polish itself beats no refinement at both active dimensions (Supplementary
-Materials, Section~S9.1). At that dimension, therefore,
+Materials, Section~S9.1). At both active dimensions, therefore,
 exploiting the learned structure did not merely fail to help: it subtracted from
 a refinement that works without it. Contribution~C1 is stated basis-neutrally
 for this reason.

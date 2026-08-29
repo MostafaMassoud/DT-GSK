@@ -147,7 +147,7 @@ Inherited GSK core (Eqs.~(\ref{eq:junior-idx})--(\ref{eq:gsk-update}), (\ref{eq:
 5. Local search (coordinate) & scaffold & all & charged axis-aligned coordinate search; an ISM-block \emph{subspace} variant is implemented but not enabled in the frozen configuration \\
 6. BSE budget-safe escape (Eq.~(\ref{eq:bse-cauchy})) + diversity archive & scaffold & all & hard-capped stagnation escape; reseeds from the archive \\
 7. Upper-tier controllers (basin memory, subspace-sampling floor, late-accept clip, frozen-broaden, linkage random-mix) & gated & $D{\ge}100$ & method-level protections at upper tier \\
-8. Eigenframe final polish (Eq.~(\ref{eq:eigen-polish})) & gated & $D{\ge}50$ & one-shot, RNG-free compass search on the ISM eigenbasis, in the final budget slice \\
+8. Deterministic final polish (Eq.~(\ref{eq:eigen-polish})) & gated & $D{\ge}50$ & one-shot, RNG-free compass search on the ISM eigenbasis, in the final budget slice \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -277,7 +277,7 @@ ISM memory (Eq.~(\ref{eq:sgsm-graph})) & off & off & on & on & $\lambda{=}0.95$,
 Local search (coordinate) & on & on & on & on & axis-aligned; charged; ISM-subspace variant off \\
 BSE escape (Eq.~(\ref{eq:bse-cauchy})) + archive & on & on & on & on & $r_{c}$ $0.10$; $r_{\mathrm{rst}}$ $0.30$ then $0.10$; $R_{\max}$ $4/2/4/2$ by tier \\
 Upper-tier controllers & off & off & off & on & basin memory, subspace floor, late-accept clip, frozen-broaden, linkage random-mix \\
-Eigenframe polish (Eq.~(\ref{eq:eigen-polish})) & off & off & on & on & one-shot, start $0.96$ \\
+Deterministic final polish (Eq.~(\ref{eq:eigen-polish})) & off & off & on & on & one-shot, start $0.96$ \\
 Deep-stall restart & on & on & on & on & fraction $0.25$; global best preserved \\
 \bottomrule
 \end{tabular}

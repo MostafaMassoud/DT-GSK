@@ -115,7 +115,7 @@ parallel by default; you never need to pass `--parallel` or `--workers` for a
 normal run. (The bundled smoke and validation configs are the exception —
 `configs/smoke.yml` turns parallelism off entirely, and the other demonstration
 configs pin the lightweight `thread` backend with two workers for small,
-deterministic CI runs.)
+deterministic gate runs.)
 
 ### The quickest smoke run (YAML)
 

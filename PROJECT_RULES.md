@@ -328,7 +328,7 @@ checks for narrow edits; run the full sequence for broad changes. If a gate is
 too expensive to run, state exactly which command was deferred and why — never
 imply a deferred gate passed.
 
-### 8.1 Lint — Ruff (matches CI; scoped to source/tests/scripts)
+### 8.1 Lint — Ruff (the project's lint gate; scoped to source/tests/scripts)
 
 ```powershell
 python -m ruff check src tests scripts

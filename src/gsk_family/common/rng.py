@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Any
+from typing import Any, cast
 
 import numpy as np
 
@@ -99,7 +99,10 @@ class RandomContext:
 
     def skip_doubles(self, count: int) -> None:
         """Consume ``count`` uniforms previously exposed by :meth:`peek_doubles`."""
-        self._rng.skip_doubles(count)
+        # Only ThreefryGenerator exposes the reservoir, and peek_doubles returns
+        # None for the other two backends, so a caller can only reach here on
+        # Threefry. The cast is a runtime no-op: misuse still raises AttributeError.
+        cast(ThreefryGenerator, self._rng).skip_doubles(count)
 
     def integers(
         self,

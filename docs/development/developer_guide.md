@@ -31,7 +31,11 @@ changes.
 ### Prerequisites and runtime stack
 
 - **CPython 3.10–3.13.** `pyproject.toml` declares `requires-python =
-  ">=3.10,<3.14"`, and CI exercises the full `3.10 / 3.11 / 3.12 / 3.13` matrix.
+  ">=3.10,<3.14"`. That is a declared support range, not a tested one: the
+  project has **no hosted CI** and no version matrix, so every gate result
+  recorded anywhere in this repository comes from a single local interpreter
+  (3.10.11 for the published artifacts). Treat 3.11–3.13 as expected-to-work
+  rather than verified.
   `[tool.ruff]` pins `target-version = "py310"` as the language floor, so the
   optimizers use only 3.10-compatible syntax (`X | Y` unions,
   `from __future__ import annotations`).
@@ -229,12 +233,12 @@ python -m ruff check src tests scripts
 
 Ruff is intentionally scoped to correctness-class rules so it never reformats or
 fights the reference-faithful numeric code; style is enforced by review, not by
-an autoformatter. (CI runs the equivalent whole-tree form
-`python -m ruff check . --select F,E9`.)
+an autoformatter. (The equivalent whole-tree form
+`python -m ruff check . --select F,E9` is also green.)
 
 A **scoped mypy gate** — configured in `[tool.mypy]` (`python_version = "3.10"`,
 `ignore_missing_imports = true`, `follow_imports = "skip"`) — type-checks the
-three actively-typed packages. Run the same command CI runs:
+three actively-typed packages. Run it as:
 
 ```powershell
 python -m mypy src/gsk_family/cli src/gsk_family/runners src/gsk_family/common `

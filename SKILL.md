@@ -587,7 +587,7 @@ python -m pytest tests\smoke\test_documentation_commands.py -q
 > If a doc is added or moved, that list (and the matching `docs/html/` twins)
 > must stay in sync or this gate fails.
 
-**Lint** (Ruff, scoped to source/tests/scripts — matches CI; rules `E9`,`F`,
+**Lint** (Ruff, scoped to source/tests/scripts — the project's lint gate; rules `E9`,`F`,
 line length 120):
 
 ```powershell

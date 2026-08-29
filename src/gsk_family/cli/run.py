@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 from dataclasses import replace
 from pathlib import Path
+from typing import cast
 
 from gsk_family.benchmark_adapter.protocol import normalize_suite
 from gsk_family.runners.config import ExperimentConfig, load_config
@@ -310,7 +311,7 @@ def _direct_config(args: argparse.Namespace) -> dict[str, object]:
         mapping["generation_logs"] = False
     if _dt_diagnostics_requested(args):
         mapping["optimizer_options"] = _apply_dt_diagnostics(
-            mapping.get("optimizer_options"), args
+            cast("dict[str, object] | None", mapping.get("optimizer_options")), args
         )
     if args.convergence_graphs:
         mapping["convergence_graphs"] = True

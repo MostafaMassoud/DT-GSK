@@ -117,7 +117,7 @@ copy-paste commands live in [runbook.md](runbook.md).
 ## 4. Docstrings — the Gate
 
 The docstring gate is **non-negotiable** and the single most common reason a new
-function fails CI. It lives in `tests/unit/test_docstrings.py`
+function fails the suite. It lives in `tests/unit/test_docstrings.py`
 (`test_all_source_modules_classes_functions_and_methods_have_docstrings`).
 
 ### 4.1 What is required

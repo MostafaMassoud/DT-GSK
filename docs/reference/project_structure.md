@@ -128,7 +128,7 @@ The `analysis/` package is the post-run statistical layer behind `gsk-stats`:
 | `scripts/run_gsk_family.py` | Source-checkout run wrapper for direct campaign execution. |
 | `scripts/run_ablation.py` | DT-GSK scaffold ablation launcher (remove-one/add-one cells on `cec2017`/`cec2011`/`cec2013`); writes `configs/_ablation/<cell>.yml` and `results/_ablation/<cell>/`. |
 | `scripts/build_docs_html.py` | Generate the browsable HTML documentation package from Markdown and Python docstrings. |
-| `scripts/validate_profile_lock.py` | CI profile-lock check guarding the published parameter profiles. |
+| `scripts/validate_profile_lock.py` | Profile-lock gate guarding the published parameter profiles. |
 | `scripts/validate_egsk_vs_reference.py` | Paired per-run validation of the Python EGSK port against the imported MATLAB reference checkpoint logs. |
 | `scripts/parity_trace.py` | Reference-parity diagnostic for tracing optimizer streams. |
 | `scripts/wilcoxon_reference.py` | Standalone Wilcoxon reference-comparison diagnostic. |

@@ -24,7 +24,8 @@ before the local gate (step 3) is green.
 2. Update documentation alongside the code it describes. For example, an
    algorithm change updates its `docs/algorithms/*.md` guide.
 3. Run the local gate before pushing — the test suite, the ruff correctness
-   lint, and the scoped mypy type check (the same three commands CI runs):
+   lint, and the scoped mypy type check. These three commands are the gate;
+   the project has no hosted CI, so nothing runs them but you:
 
    ```powershell
    python -m pytest -q
@@ -59,7 +60,7 @@ flowchart LR
 
 `python -m pytest` is not just unit tests — it also runs three documentation
 gates that frequently catch contribution mistakes. Knowing them up front saves a
-red CI run:
+failed gate run:
 
 - **Docstring coverage** (`tests/unit/test_docstrings.py`): every module, class,
   function, and method under `src/gsk_family` needs a docstring. The vendored

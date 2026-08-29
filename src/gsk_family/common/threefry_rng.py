@@ -306,7 +306,7 @@ if _HAVE_NUMBA:
     _fill_doubles_kernel = njit(cache=True, fastmath=False)(_fill_doubles_kernel)
 
 
-_EMPTY_F64 = np.empty(0, dtype=np.float64)  # shared immutable-by-convention empty reservoir
+_EMPTY_F64: np.ndarray = np.empty(0, dtype=np.float64)  # shared immutable-by-convention empty reservoir
 
 class ThreefryGenerator(DoublesStreamGenerator):
     """Deterministic Threefry-4x64-20 stream reproducing the reference RNG.
@@ -423,7 +423,7 @@ class ThreefryGenerator(DoublesStreamGenerator):
             out = self._buf[self._pos:self._pos + count].copy()
             self._pos += count
             return out
-        out: np.ndarray = np.empty(count, dtype=np.float64)
+        out = np.empty(count, dtype=np.float64)
         filled = 0
         if avail:
             out[:avail] = self._buf[self._pos:]

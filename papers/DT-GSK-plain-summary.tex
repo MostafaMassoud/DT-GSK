@@ -159,7 +159,7 @@ Linkage block crossover$^{\dagger}$ & on & on & on & on \\
 Coordinate local search & on & on & on & on \\
 BSE escape + archive, deep-stall restart & on & on & on & on \\
 \textbf{ISM interaction memory} & off & off & \textbf{on} & \textbf{on} \\
-\textbf{Eigenframe final polish} & off & off & \textbf{on} & \textbf{on} \\
+\textbf{Deterministic final polish} & off & off & \textbf{on} & \textbf{on} \\
 \textbf{Upper-tier controllers} & off & off & off & \textbf{on} \\
 \bottomrule
 \end{tabular}
@@ -194,7 +194,7 @@ dimension, not three.
 \node[dtbox, below=of map] (shrink) {\textbf{5.} ACE credit update; ARGP prunes weak arms;\\[1pt]
   BSE escape / deep-stall restart\\[1pt]
   \scriptsize (the global best is always preserved)};
-\node[dtgate, below=of shrink] (polish) {\textbf{6.} \emph{$D{\geq}50$, once, at $s_{\mathrm{fp}}{=}0.96$:} eigenframe polish\\[1pt]
+\node[dtgate, below=of shrink] (polish) {\textbf{6.} \emph{$D{\geq}50$, once, at $s_{\mathrm{fp}}{=}0.96$:} deterministic final polish\\[1pt]
   \scriptsize one-shot RNG-free compass search; the loop then continues};
 
 \node[dtbox, below=3mm of polish] (budget) {Budget remaining? \ \scriptsize\textbf{yes} $\rightarrow$ step 1};
@@ -224,7 +224,7 @@ dimension, not three.
 
 {\footnotesize\textbf{Figure 1.} DT-GSK's execution order. Gold marks the
 dimension-gated stages; the tier itself is fixed before the loop begins. The
-eigenframe polish is a one-shot stage \emph{inside} the loop, not a closing
+deterministic final polish is a one-shot stage \emph{inside} the loop, not a closing
 step: it arms in the first generation that reaches $s_{\mathrm{fp}}{=}0.96$ of
 the budget, is capped at $0.02\,$MaxFES, and ordinary generations resume on the
 remainder.}
@@ -375,7 +375,7 @@ CEC2011 problems of dimension 1, 6 and 7.
       the random partition otherwise, so roughly half the block rows stay
       random even where the memory is active --- and all of them do until the
       graph passes its readiness test. Nor is the crossover the memory's only
-      route into the search: the eigenframe polish reads the signed graph
+      route into the search: the deterministic final polish reads the signed graph
       directly for its basis (component 9), and at $D\geq100$ the count of
       generations that commit to learned blocks releases the sample-protected
       population floor.
@@ -490,7 +490,7 @@ that was tested, it subtracted from something that works
 without it, and the paper now reports it as a specified negative result rather
 than as a component of the contribution.
 
-\subsection{9. The eigenframe final polish (\emph{$D\geq50$ only})}
+\subsection{9. The deterministic final polish (\emph{$D\geq50$ only})}
 
 One-shot, RNG-free compass search, armed at budget fraction $0.96$ under a cap
 of $0.02\,\mathrm{MaxFES}$. Its basis $V$ is the eigenvectors of the
@@ -652,7 +652,7 @@ block size range & $b_{\min} = 2$ to $b_{\max} = 10$ & larger split greedily\\
 readiness & $\geq 10$ updates, 2 refreshes, 4 non-trivial dims & \\
 escape response & graph $\times\,0.50$, 5-gen cooldown & BSE events only\\
 \midrule
-\multicolumn{3}{@{}l}{\emph{Eigenframe polish --- $D{\geq}50$ only}}\\
+\multicolumn{3}{@{}l}{\emph{Deterministic final polish --- $D{\geq}50$ only}}\\
 \midrule
 arming fraction $s_{\mathrm{fp}}$ & 0.96 & budget cap $0.02\,$MaxFES\\
 basis & eigenvectors of symmetrized $G_{\mathrm{signed}}$ & axes if no signal\\
@@ -681,7 +681,7 @@ budget/ROI gate & admits local search from budget fraction 0.70 & duplicates thi
 \textbf{1. Resolve the tier from $D$} --- once, before the run:\\
 \hspace*{4mm}$D<20$ \ \ \ \ \ \ $\rightarrow$ scaffold only (ACE+ARGP, NLPSR, blocks, LS, BSE, restart)\\
 \hspace*{4mm}$20\!-\!49$ \ \ \ \ $\rightarrow$ + differential-evolution arm in the ACE pool\\
-\hspace*{4mm}$50\!-\!99$ \ \ \ \ $\rightarrow$ + ISM graph, ISM-fed linkage blocks, eigenframe polish\\
+\hspace*{4mm}$50\!-\!99$ \ \ \ \ $\rightarrow$ + ISM graph, ISM-fed linkage blocks, deterministic final polish\\
 \hspace*{4mm}$D\geq100$ \ \ \ $\rightarrow$ + upper-tier controllers (basin memory, subspace floor, \ldots);\\
 \hspace*{13mm}\emph{and the DE arm switches off again}\\[3pt]
 
@@ -709,7 +709,7 @@ graph is\\
 \hspace*{9mm}fails, archive-seeded partial restart. On a deep stall, full\\
 \hspace*{9mm}re-initialization --- the global best is never discarded.\\
 \hspace*{4mm}\textbf{h.} \emph{If $D\geq50$, once, on the first generation that reaches}\\
-\hspace*{9mm}$s_{\mathrm{fp}}=0.96$ \emph{of the budget:} eigenframe polish --- compass
+\hspace*{9mm}$s_{\mathrm{fp}}=0.96$ \emph{of the budget:} deterministic final polish --- compass
 search\\
 \hspace*{9mm}along the signed-graph eigenbasis (step, evaluate, contract), no RNG\\
 \hspace*{9mm}draws, capped at $0.02\,$MaxFES. The loop then continues on the\\
@@ -721,7 +721,7 @@ search\\
 \end{tcolorbox}
 
 Step 1 and steps 3f/3h are where the novelty sits: the tier resolution is the
-organizing contribution, and the interaction memory and the eigenframe polish
+organizing contribution, and the interaction memory and the deterministic final polish
 are subsystems written for DT-GSK rather than inherited. The base
 junior/senior operator is unchanged --- the contribution is \emph{where} each
 mechanism is allowed to act, not a new base operator.

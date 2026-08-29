@@ -36,7 +36,7 @@ but are **not** part of that panel. Under `benchmarks:` it lists the five CEC
 suites (`cec2011`, `cec2013`, `cec2013lsgo`, `cec2017`, `cec2020`), with
 `sphere` reported separately under `smoke problems:`.
 Add the ruff correctness lint and the scoped mypy gate to
-the recurring pass as well (the same two commands CI runs):
+the recurring pass as well (nothing else runs them — there is no hosted CI):
 
 ```powershell
 python -m ruff check src tests scripts
