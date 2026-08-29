@@ -7,7 +7,7 @@ message: >-
   please also cite their original sources, listed under references.
 type: software
 version: "2.25"
-date-released: 2026-08-27
+date-released: 2026-08-29
 license: MIT
 repository-code: "https://github.com/MostafaMassoud/DT-GSK"
 # No DOI field. Author decision 2026-08-01 (D-0037): no Zenodo deposit and no
@@ -22,7 +22,7 @@ abstract: >-
   five CEC benchmark suites (CEC2011, CEC2013, CEC2013LSGO, CEC2017, CEC2020).
   DT-GSK resolves control by dimension rather than at a single operating
   point: an adaptive scaffold serves every tier, a deterministic budget-exact
-  eigenframe refinement runs from D = 50 upward, and the GSK vector-update
+  final refinement, searching the shipped eigenframe basis, runs from D = 50 upward, and the GSK vector-update
   equations are retained, with an exploratory interaction-structure memory
   learned from accepted moves at no extra evaluations supplying the refinement
   basis. The repository ships the full reproducibility chain used in the

@@ -2,13 +2,15 @@
   "schema": "submission_package_manifest/v1",
   "generated_utc": "2026-08-29T09:45:00Z",
   "manuscript_version_id": "v2.25",
-  "manuscript_version_note": "Freeze pass-52, tag v2.25. The round-one major-revision response to algorithms-4507562, extended ahead of resubmission with the E5 dimension-boundary study (S9.5/Table A47) and the canonical near-zero statistical rule (pre-registration Amendments A4-A6), then closed by the acceptance-readiness review fixes of pass-51 and the seven-lens panel-review fixes of pass-52 (cover-letter register count made count-free; response-letter quote and E1 values corrected). Supersedes v2.13 as the submission basis; v2.13 remains the frozen record of what was originally submitted and is never edited in place. The repository is public and cited in the Data Availability Statement (https://github.com/MostafaMassoud/DT-GSK), which names v2.13 for the submitted version and v2.25 for this revised one. No Zenodo deposit and no repository DOI; the article DOI is assigned by the journal after acceptance.",
+  "manuscript_version_note": "Freeze pass-52, tag v2.25. The round-one major-revision response to algorithms-4507562, extended ahead of resubmission with the E5 dimension-boundary study (S9.5/Table A47) and the canonical near-zero statistical rule (pre-registration Amendments A4-A6), then closed by the acceptance-readiness review fixes of pass-51 and the seven-lens panel-review fixes of pass-52 (cover-letter register count made count-free; response-letter quote and E1 values corrected). Supersedes v2.13 as the submission basis; v2.13 remains the frozen record of what was originally submitted and is never edited in place. The repository is public (temporarily private while the resubmission is finalized; it must be public again before upload) and cited in the Data Availability Statement (https://github.com/MostafaMassoud/DT-GSK), which names v2.13 for the submitted version and v2.25 for this revised one. No Zenodo deposit and no repository DOI; the article DOI is assigned by the journal after acceptance.",
   "target_journal": "Algorithms (MDPI)",
   "evidence_release": [
     "rel-2026-07-20-67d9345f9 (CEC2017, CEC2011, CEC2013 - primary)",
     "lsgo-rel-2026-07-28-ff1a046ef (CEC2013LSGO)",
     "cec2020-rel-2026-07-29-5867abe1e (CEC2020)",
-    "rev-rel-2026-08-26-dd42d37eb (round-one revision experiments E1-E4; additive and non-superseding - the primary release is byte-identical)"
+    "rev-rel-2026-08-26-dd42d37eb (round-one revision experiments E1-E4; additive and non-superseding - the primary release is byte-identical)",
+    "rev2-rel-2026-08-28-203c78744 (round-two revision experiments: E5 dimension-boundary study and the canonical near-zero re-analysis of E1-E5; additive)",
+    "g1-rel-2026-08-28-65b3d39e6 (D-0051 identity re-execution; demonstrates the Table A45 residual as a build difference; additive)"
   ],
   "authoritative_commit": "b6a18d176447d8c735cb8678c535db2cc5f922e3",
   "pre_freeze_base_commit": "b9846e47024e48a0f8ce3e4f22bffbd794b2a355",
