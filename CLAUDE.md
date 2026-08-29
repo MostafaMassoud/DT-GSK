@@ -26,19 +26,38 @@ is. **The repo was set PRIVATE on 2026-08-28 (author, to finalize) and MUST be p
 the upload** — the DAS names its URL and tags, and reviewers will click. Detail:
 [REVISION_STATUS.md](REVISION_STATUS.md) §5 items 1 and 6.
 
-**Current freeze: pass-54 / `v2.27`** — minted and tagged **locally; NOT pushed.** `main` is ahead of
-`origin/main` and `v2.26`/`v2.27` do not exist on the remote — verify with `git status -sb` and
-`git ls-remote --tags origin` before relying on remote state, because the Data Availability
-Statement names `v2.27` and a referee will click it. `main.tex` says so. **Pass-53 (2026-08-29, D-0058 / CR-0033) is the full
-remediation pass:** all five review instruments were retuned and re-applied, and their
-consolidated findings fixed — topmost, the Supplementary's ninth limitation still said the tier
-boundaries were “unvaried, so their sensitivity is untested” nine pages before S9.5 varies them
-and finds against the shipped profile twice; the Conclusions now state why ISM and its
-eigenbasis are retained (the configuration was checksum-locked before the isolations ran, so the
-isolations correct the claims, not the method); C2's narrowing reached the Introduction. **The
-deterministic PDF epoch had been absent from `build_pdf.py`/`build_supplementary.py` since
-pass-51** — shipped PDFs carried wall-clock stamps under a manifest claiming double-build
-identity; the epoch is now pinned inside both builders. Next free: CR-0034 / D-0059. The chronicle since the round-two audit, newest last:
+**Current freeze: pass-54 / `v2.27`** — minted, tagged and **PUSHED** (2026-08-29). All 27 tags
+are on `origin`; `v2.13` and `v2.27`, the two the Data Availability Statement names, resolve
+there at the same commits as local. `main` is in sync. The repo is still **PRIVATE** — flipping
+it public is the remaining step before a referee can follow the DAS.
+**Pass-54 (2026-08-29, D-0059 / CR-0034) is the current pass:** five review instruments were
+retuned and re-applied from scratch and three cross-audits run beside them; 67 findings, all
+verified against bytes or the render before being acted on. Topmost, **both architecture tables
+(Table 4 row 8, Table 5 row 9) still carried the retired C1 name** on pages whose own prose said
+“deterministic final polish”, while the response letter promises the editor exactly that rename —
+pass-53 had renamed six prose sites and recorded it done, and a source-side grep missed the table
+cells because they use the same words in a different grammatical role. **Only the render catches
+this class.** Second, the Supplementary invited a **commit-level pre-registration audit the public
+repository fails** (the CEC2020 signing commit does not resolve; the squashed root postdates the
+release it registers) — the claim now rests on the checksum binding, which holds, and the squash
+is disclosed. Also: the abstract's “on that suite” followed two named suites and made a rank claim
+false; the CEC2020 runner-up fact cited the APGSK paper at five sites; the tie-band and
+single-unfavourable-cell claims were contradicted by the paper itself; C2's narrowing and E2's
+adverse result reached the Conclusions; Amendment A3 is disclosed. `build_cover_letter.py` was
+added (files[10] had no epoch-pinned builder), five mypy errors under five “clean” assertions were
+fixed, and a hosted CI asserted by fourteen documents was retracted — it has never existed in any
+commit. **New gate: `check_reproducibility_manifest.py`** — that manifest had gone stale INSIDE
+its own pass three times, always refreshed before the artifacts were rebuilt, and nothing read it.
+Next free: CR-0035 / D-0060.
+**Pass-53** was the previous remediation pass (D-0058 / CR-0033): the Supplementary's ninth
+limitation still said the tier boundaries were “unvaried, so their sensitivity is untested” nine
+pages before S9.5 varies them and finds against the shipped profile twice; the Conclusions now
+state why ISM and its eigenbasis are retained (the configuration was checksum-locked before the
+isolations ran, so the isolations correct the claims, not the method); C2's narrowing reached the
+Introduction. **The deterministic PDF epoch had been absent from
+`build_pdf.py`/`build_supplementary.py` since pass-51** — shipped PDFs carried wall-clock stamps
+under a manifest claiming double-build identity; the epoch is now pinned inside both builders.
+The chronicle since the round-two audit, newest last:
 **pass-49** answered the external second-round audit: **E5
 dimension-boundary sensitivity** ran (registered as Amendment A4 BEFORE execution; release
 `rev2-rel-2026-08-28-203c78744`; S9.5 / Table A47 — D30's middle profile beaten from BOTH
@@ -46,8 +65,14 @@ neighbouring tiers, D100's upper profile beaten by the T2 set with the family or
 D10/D50 insensitive; **C2 as narrowed is untouched**), the **canonical 1e-8 tie rule** the paper
 stated but the revision analyzer skipped is implemented and regenerated (Amendments A5–A6; one
 decision flip: E1 D100 eigenframe-vs-coordinate now SEPARATED, Holm 0.0489), the C1 heading is
-basis-neutral, the tiering-thesis and causal-mis-specification prose is bounded, the abstract is
-195 texcount words, and the submission package manifest matches the actual bytes.
+basis-neutral, the tiering-thesis and causal-mis-specification prose is bounded, and the
+submission package manifest matches the actual bytes. (**The “195 words” recorded here at the
+time was wrong** — pass-54 measured the shipped abstract at 205 rendered words, already 204 at
+v2.26, against a 200-word guideline. It is deliberately NOT trimmed: the sentences carrying the
+CEC2020 and CEC2013LSGO outcomes are bound to registered wording banks RS-12/RS-13, and
+re-drafting registered outcome wording to meet a soft cap would cost more than five words are
+worth. The false count was removed from the response letter. Open author decision — trim the two
+unregistered opening sentences if the editor objects.)
 **Pass-50 / v2.23 followed the same evening (author instruction: implement every reopened
 item):** the D-0051 re-execution is PROMOTED and cited (`g1-rel-2026-08-28-65b3d39e6`; Table A45
 now reports the residual as a demonstrated build difference), Figure 4 shades the within-one-CD
