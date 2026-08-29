@@ -77,7 +77,12 @@ Every standing below is **family-internal**: it compares the seven GSK-family
 members implemented here and claims nothing against specialist optimizers
 outside that panel. Figures are descriptive Friedman mean ranks over the seven
 members; the manuscript attaches the statistical tests and states their scope.
-They also rest in part on DT-GSK's `NP = 5D` rule. A matched-population
+They also rest in part on DT-GSK's `NP = 5D` rule. A larger initial
+population is not a larger budget -- every panel member receives the
+identical `MaxFES`, with initialization and every candidate evaluation
+counted against it -- so `NP` decides how a fixed budget is split between
+population breadth and number of generations. What that design choice is
+worth is measured directly: a matched-population
 control added in revision re-runs DT-GSK at `NP = 100`, the comparators'
 setting, on CEC2017 only: it stays top-two at every dimension -- first at
 `D = 10`, second at `D = 30`, `D = 50` and `D = 100` -- so the `D = 50` and

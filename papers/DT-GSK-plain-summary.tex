@@ -263,8 +263,11 @@ form is the one shipped.
 
 The $5D$ start is a documented fair-start exception: the six comparators run
 $NP = 100$ at every dimension, so at $D = 100$ DT-GSK begins with a five-fold
-larger population. \hl{That asymmetry is now controlled, not merely
-disclosed.} Re-running DT-GSK at the comparators' $NP = 100$ leaves it first at
+larger population. The budget is not asymmetric: every algorithm receives the
+identical evaluation allowance, with initialization and every later candidate
+counted against it, so the larger start buys breadth at the price of
+generations rather than extra evaluations. \hl{That asymmetry is now
+controlled, not merely disclosed.} Re-running DT-GSK at the comparators' $NP = 100$ leaves it first at
 10 unknowns and second at 30, 50 and 100 --- inside the top two everywhere --- so
 the population rule is not what produces the standing. It is not innocent
 either: the difference is indistinguishable from zero at 10 and 30 and

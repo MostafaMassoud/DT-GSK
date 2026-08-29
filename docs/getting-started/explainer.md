@@ -63,7 +63,10 @@ population when the search freezes while keeping the best-so-far. On CEC2017
 the GSK family** — #1 at D10, D50, and D100, and #1 overall by **both mean and
 median** Friedman rank; at D30 it is led only by the strong `egsk` baseline,
 the runner-up overall. Two controls added in the round-one revision qualify
-that standing. Those ranks rest in part on DT-GSK's `NP = 5D` population rule:
+that standing. Those ranks rest in part on DT-GSK's `NP = 5D` population rule
+— an allocation choice under the shared evaluation budget (breadth early,
+fewer generations), not extra budget, since initialization and every candidate
+evaluation count against the same `MaxFES`. Its worth is measured directly:
 re-run at the comparators' `NP = 100` it stays top-two at every dimension but
 first only at D10 — the `NP = 5D` leg wins the paired comparison at D50
 (Holm 0.0064) and D100 (Holm 0.0051), and neither leg separates at D10 or D30.

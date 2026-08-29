@@ -509,7 +509,8 @@ descriptive family-rank aggregate** — first mean rank at D10/D50/D100 and seco
 at D30 behind the strong eGSK baseline — but Holm-corrected pairwise tests
 separate it from eGSK **only at D10**, and the paper's matched-population
 control shows the D50/D100 first places rest in part on the NP = 5D population
-rule. On the real-world CEC2011 suite it places second in the family, with a
+rule (an allocation choice under the shared `MaxFES` — initialization and
+every candidate evaluation count against the same cap — not extra budget). On the real-world CEC2011 suite it places second in the family, with a
 Holm-significant loss to eGSK. It is designed
 to scale across dimensions — the eigenframe polish and `D>=100` controllers target
 the upper dimension tiers — while its aggressive escape, dense linkage mixing, and
