@@ -4,7 +4,7 @@
 >
 > | File | Status | Authoritative replacement |
 > |---|---|---|
-> | `table_figure_source_map.csv` (46 rows) | **RETIRED.** A Phase-2 exhibit plan whose `manuscript_location` and `exists` columns were never re-derived after the Phase-8 rewire, the figure→table conversions, or the convergence-grid panel split. | `artifact_binding.csv` — 59 rows, one per shipped exhibit, with `manuscript_label` and `latex_location` repaired against the sources on 2026-07-22 and now gated by `papers/scripts/validate_artifact_labels.py`. |
+> | `table_figure_source_map.csv` (46 rows) | **RETIRED.** A Phase-2 exhibit plan whose `manuscript_location` and `exists` columns were never re-derived after the Phase-8 rewire, the figure→table conversions, or the convergence-grid panel split. | `artifact_binding.csv` — one row per shipped exhibit (read the count off the file), with `manuscript_label` and `latex_location` repaired against the sources on 2026-07-22 and gated by `papers/scripts/validate_artifact_labels.py`. **The gate validates LABELS, not checksums: the `output_checksum` column records the hash at the time each row was minted, and rows minted before a figure was regenerated (e.g. Figure 4's pass-50 shading and pass-54 label fixes) keep their mint-time value — label bindings are the maintained content.** |
 > | `requirements_traceability_matrix.csv` (2,153 rows) | **HISTORICAL.** Its `line_no` column anchors into `PAPER_BUILD_PROMPT.md` at the 2026-07-14 revision; those line numbers no longer resolve. | `phase_gate_register.csv` (phase state) and `review_2026_07_22/requirements_compliance_matrix.csv` (current compliance). |
 >
 > Neither file is read by any script — both are documentation registers, retained
