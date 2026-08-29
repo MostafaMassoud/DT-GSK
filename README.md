@@ -231,12 +231,12 @@ Important root files:
 
 ## Authors and Algorithm References
 
-The software was written by **Mostafa Elsayed Masoud**
+The software was written by **Mostafa Elsayed Ahmed Masoud**
 (`moustafa.masoud@gmail.com`, ORCID
 [0009-0003-8415-2158](https://orcid.org/0009-0003-8415-2158)), who holds the
 CRediT *software* role on the accompanying paper.
 
-That paper is authored by **Mostafa Elsayed Masoud**, **Heba Sayed Mohamed
+That paper is authored by **Mostafa Elsayed Ahmed Masoud**, **Heba Sayed Mohamed
 Roshdy**, and **Ali Wagdy Mohamed**, all of the Operations Research Department,
 Faculty of Graduate Studies for Statistical Research, Cairo University, Giza
 12613, Egypt. The full CRediT role breakdown is recorded in the manuscript.
