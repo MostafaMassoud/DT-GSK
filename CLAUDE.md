@@ -26,10 +26,15 @@ is. **The repo was set PRIVATE on 2026-08-28 (author, to finalize) and MUST be p
 the upload** — the DAS names its URL and tags, and reviewers will click. Detail:
 [REVISION_STATUS.md](REVISION_STATUS.md) Section 5 items 1 and 6.
 
-**Current freeze: pass-60 / `v2.33`** — minted, tagged and **PUSHED** (2026-08-29); all 33
-tags are on `origin`, and `v2.13`/`v2.33` — the two the DAS names — resolve there. The repo is still **PRIVATE** —
+**Current freeze: pass-61 / `v2.34`** — minted and tagged (2026-08-29); push, then verify with
+`git ls-remote --tags origin` — the DAS names `v2.13` and `v2.34`. The repo is still **PRIVATE** —
 flipping it public is the remaining step before a referee can follow the DAS. Next free ids:
-**CR-0041 / D-0066** — verify free at apply time.
+**CR-0042 / D-0067** — verify free at apply time.
+**Pass-61 (2026-08-29, D-0066 / CR-0041) is presentation part two:** the four mdpi.cls back-matter
+statements re-declared at 9/11.5 (the class sets 9/9 — zero leading, visibly crushed), and the
+Section 3 execution-order list gains item separation plus a keep-together guard (one block on
+page 15). One page shift (Section 3.3 statement 16→15) — the letter's single reference updated
+and rebuilt; all other anchors verified. Pages 49/83, ladder green.
 **Pass-60 (2026-08-29, D-0065 / CR-0040) is an author-directed presentation pass:** the DAS keeps
 the primary release inline and defers the five auxiliary release identifiers to the supplement
 and the repository manifests (the inline hash-ID enumeration read as machine output), and

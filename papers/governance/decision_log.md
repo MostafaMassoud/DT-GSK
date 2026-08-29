@@ -3128,3 +3128,33 @@ applying all surfaced fixes.
   pass-59-era package-contents gate.
 - **Anchor.** Apply commit 82e3839 (DAS + pseudocode + rebuilt renders).
   NEXT free ids: CR-0041 and D-0066.
+
+## D-0066 (2026-08-29) - Pass-61: back-matter leading and execution-order list readability
+
+- **Decision.** The author flagged (2026-08-29) that the Acknowledgments
+  block renders with crushed line spacing and that the twelve-step
+  execution-order list is not eye-friendly. Mint **pass-61**, tag
+  **v2.34**. Registered as **CR-0041**.
+- **Back matter.** Root cause is the class, not the content: mdpi.cls
+  typesets \\acknowledgments, \\authorcontributions, \\funding and
+  \\conflictsofinterest at \\fontsize{9}{9} - 9pt text on 9pt leading,
+  zero interline space. The manuscript preamble now re-declares all four
+  at 9/11.5, keeping the journal's smaller statement size with normal
+  leading. The class file itself is untouched.
+- **Execution-order list.** The Section 3 list (papers/sections/
+  proposed_algorithm.tex) drops noitemsep for itemsep=2pt/topsep=4pt and
+  gains a needspace{18} guard, so it renders as one uninterrupted
+  twelve-item block (now page 15) instead of leaving items (1)-(2)
+  orphaned at a page bottom with the rest across the full-page algorithm
+  float.
+- **Pagination.** One shift: Section 3.3's C2-narrowing statement moved
+  from page 16 to page 15. The response letter's single reference to it
+  is updated and the letter rebuilt (9 pp); every other letter page
+  anchor (1, 11, 21, 24, 26, 32, 39, 42, 43, 46) verified unchanged.
+- **No result changes.** No number, rank, p-value, decision or claim
+  changes; page counts unchanged (49/83); main PDF double-built
+  byte-identical; DOCX validated; register 138 passages / 34 pages.
+- **Validation.** check_manifest 15/15 + sources 2/2; reproducibility and
+  package manifests re-minted and verified post-write; full ladder green
+  including parity, evidence bindings, provenance and package contents.
+- **Anchor.** Apply commit cf332f1. NEXT free ids: CR-0042 and D-0067.
