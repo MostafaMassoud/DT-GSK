@@ -12,7 +12,7 @@ what is happening, what is done, and what is next.
 | **Editorial status** | **MAJOR REVISION** — 2 reviewers, received 2026-08-24 |
 | **Branch** | `main` — **published** at `02d1791`, tracking `origin/main`, and since 2026-08-28 the **only** branch: the development-history branches were bundled to the author's private history bundle outside the repository (restore-tested; location in the withheld `papers/review_2026_08_24/PRIVATE_OPS.md`) and deleted. Never fetch that bundle into a repo with a public remote. |
 | **Progress** | **COMPLETE** — all ten reviewer points answered; phases 1–7 applied; five experiments run, analysed and written up (E5 added ahead of resubmission, pass-49); the reopened-items batch (pass-50), the acceptance-readiness review (pass-51) and the seven-lens panel review of the response letter (pass-52) are all applied. |
-| **Freeze** | **pass-60 / tag v2.33** (anchor `82e3839`) · `check_manifest` 15/15 + `sources 2/2` (gating commit-field resolvability) · minted and tagged 2026-08-29; push, then verify all 33 tags on `origin` (the DAS names v2.13 and v2.33). Repo is **PRIVATE until upload day** — flip public before SuSy upload. Next free ids **CR-0041 / D-0066**. |
+| **Freeze** | **pass-60 / tag v2.33** (anchor `82e3839`) · `check_manifest` 15/15 + `sources 2/2` (gating commit-field resolvability) · **PUSHED 2026-08-29** — all 33 tags on `origin`; v2.13 and v2.33, the two the DAS names, verified resolving there. Repo is **PRIVATE until upload day** — flip public before SuSy upload. Next free ids **CR-0041 / D-0066**. |
 | **Revision deadline** | **2026-09-01 CONFIRMED** — also the planned resubmission date, so **zero slack**; the extension-request draft is the only margin (§5) |
 
 ---
