@@ -26,10 +26,16 @@ is. **The repo was set PRIVATE on 2026-08-28 (author, to finalize) and MUST be p
 the upload** — the DAS names its URL and tags, and reviewers will click. Detail:
 [REVISION_STATUS.md](REVISION_STATUS.md) Section 5 items 1 and 6.
 
-**Current freeze: pass-58 / `v2.31`** — minted, tagged and **PUSHED** (2026-08-29); all 31
-tags are on `origin`, and `v2.13`/`v2.31` — the two the DAS names — resolve there. The repo
-is still **PRIVATE** — flipping it public is the remaining step before a referee can follow the
-DAS. Next free ids: **CR-0039 / D-0064** — verify free at apply time.
+**Current freeze: pass-59 / `v2.32`** — minted and tagged (2026-08-29); push, then verify with
+`git ls-remote --tags origin` — the DAS names `v2.13` and `v2.32`. The repo is still **PRIVATE** —
+flipping it public is the remaining step before a referee can follow the DAS. Next free ids:
+**CR-0040 / D-0065** — verify free at apply time.
+**Pass-59 (2026-08-29, D-0064 / CR-0039):** the corresponding author's byline is the full name
+**Mostafa Elsayed Ahmed Masoud**, initials **M.E.A.M.** in the address block, CRediT statement and
+Conflicts of Interest, across twelve live documents (manuscript, supplement, cover letter,
+plain-language summary, CITATION.cff, README, kit, letter and companions); historical records
+untouched; every render rebuilt at its pinned epoch and double-built byte-identical, pages
+unchanged 49/83, letter anchors re-verified; the DAS was bumped BEFORE the builds this time.
 **Pass-58 (2026-08-29, D-0063 / CR-0038) is an author-directed author-metadata pass:** Ali Wagdy
 Mohamed gains affiliation 2 (University of Science and Technology, Zewail City of Science and
 Technology, 6th of October City, Giza 12588, Egypt) in the manuscript, the DOCX shim, the

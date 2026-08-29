@@ -1,8 +1,8 @@
 {
   "schema": "main_manuscript_freeze_manifest/v1",
-  "phase": "PASS-58: author-directed author-metadata update. Ali Wagdy Mohamed gains a second affiliation - University of Science and Technology, Zewail City of Science and Technology, 6th of October City, Giza 12588, Egypt - in the manuscript, the DOCX shim, the Supplementary Materials, CITATION.cff and the submission kit's portal author table (CR-0038 / D-0063). No number, rank, p-value, decision or claim changes; the four gated renders are rebuilt at their pinned epochs with page counts unchanged (49/83) and the main PDF double-built byte-identical. The change register (v2.13..HEAD) records the affiliation passages in both documents. The same close folds in the four-lens open-issues sweep's documentation fixes: the severed public-flip sentence in REVISION_STATUS repaired, the What-remains items 3-5 marked done, CLAUDE.md's stale next-free ids and superseded unpushed-state warning corrected, the package manifest's stale v2.28 DAS note and hand-typed generated_utc replaced with computed values, and the acceptance-readiness P3 purge-ticket pointer re-aimed at the withheld PRIVATE_OPS.md. DAS names tag v2.31.",
-  "generated_utc": "2026-08-29T16:19:11+00:00",
-  "anchor_commit": "8b83a39b4dfc68f098d5e43ef3c99bf7c92be7d3",
+  "phase": "PASS-59: author-directed author-metadata update. The corresponding author's byline is the full name Mostafa Elsayed Ahmed Masoud, with the matching initials M.E.A.M. in the address block, the CRediT author-contributions statement and the Conflicts of Interest statement, across the manuscript, the Supplementary Materials, the cover letter, the plain-language summary, CITATION.cff, README, the submission kit and the response letter (CR-0039 / D-0064). No number, rank, p-value, decision or claim changes; every render rebuilt at its pinned epoch and double-built byte-identical; page counts unchanged (49/83); the change register (v2.13..HEAD) records the name passages. DAS names tag v2.32.",
+  "generated_utc": "2026-08-29T18:10:28+00:00",
+  "anchor_commit": "ed713a7d9b784844c2fd474e7a8805a8b021266d",
   "pre_freeze_base_commit": "b9846e4 (abbreviated deliberately; the full SHA is held in the withheld papers/review_2026_08_24/PRIVATE_OPS.md because this commit is one of two unreachable objects pending a provider-side purge)",
   "evidence_release": {
     "primary": "rel-2026-07-20-67d9345f9",
@@ -30,8 +30,8 @@
   "files": [
     {
       "path": "papers/main.tex",
-      "sha256": "eb61902e4c0b57b5a025fca2a23b9a5b3156fdfaba4e3423a020f2bbe97bc207",
-      "bytes": 26608
+      "sha256": "8c9cff17546ed0464901b33e60bfd8ebac74d856e846508942bc889e1e6dd029",
+      "bytes": 26644
     },
     {
       "path": "papers/sections/introduction.tex",
@@ -60,28 +60,28 @@
     },
     {
       "path": "papers/DT-GSK.pdf",
-      "sha256": "9f75c1174608e836acfc16bd7de24188b3b845bcd697163cb04ecb3ec179253a",
-      "bytes": 830731
+      "sha256": "bb03b92cb05b0d648fe71034eb1bfcbe64b20d37eff1696abf1aec7b23234ff7",
+      "bytes": 830816
     },
     {
       "path": "papers/DT-GSK.docx",
-      "sha256": "c890e6e090431c46164d0b00f998d37af7182c62f41c94e1c86422714b7dad87",
-      "bytes": 1022744
+      "sha256": "280dbd283d6edc0470ec38e760945daa6241c0f181e700a56155a083e8bd4559",
+      "bytes": 1022753
     },
     {
       "path": "papers/supplementary.pdf",
-      "sha256": "c5af13761f3eafa3a5ec7f5fb752d4a64cf1228cf2939f1ac043d0d46a2af82f",
-      "bytes": 1765551
+      "sha256": "dd1b49066f94c17b954c5f956c9f208bd02c7bd70c519e903296bc9239341c11",
+      "bytes": 1765772
     },
     {
       "path": "papers/supplementary.docx",
-      "sha256": "c68889f52cb01535f70c3fa77b3ffe85d78275b3d40d4aa6ee03ff78eb10619f",
-      "bytes": 9628003
+      "sha256": "947a6d325fe235a6092675e9b192baad18270c37730eb5b2e8f5b86a522838b7",
+      "bytes": 9628010
     },
     {
       "path": "papers/cover_letter.pdf",
-      "sha256": "02c048a24293999e018bc04af60ce7f11bc1a74b5f1276b1435c2f6748538ce1",
-      "bytes": 123830
+      "sha256": "984726e10b8080bc01def24321f496350e0006ea3bb9dc3ea9338f8d8044e1a3",
+      "bytes": 125501
     },
     {
       "path": "papers/governance/claims_evidence_matrix.csv",
@@ -124,19 +124,19 @@
     "revision_analysis_pins": "NOT RE-RUN at pass-43, and not required: no analysis artifact was touched, which check_frozen_analysis confirms at 115/115."
   },
   "remint_note": "pass-48 MINTED 2026-08-27. The lesson is procedural: pass-47's applier printed a success message it never verified, so a replacement that silently failed to match shipped a false symbol. Assert the END STATE after a batch, never per-edit success - the same rule D-0039 recorded and this pass re-learned.",
-  "published_commit": "b3cb438dfb8a96eb51241bc2eadb50fcb9295c57",
+  "published_commit": "7290d472f6c4b96c38735d1f73bb3349d0a465af",
   "immutable_history_note": "Two recorded blemishes live in immutable, already-pushed history and are disclosed here rather than rewritten (rewriting would move published tags, break the Data Availability Statement, and violate D-0045): (1) the pass-54 commit c0028c1's MESSAGE cites anchor 4d6bd1b, which resolves to nothing - the manifest committed IN that commit records the correct anchor b7abf61da; commit messages cannot be corrected without rewriting pushed history. (2) The copies of THIS manifest frozen inside tags v2.26 through v2.28 carry their as-minted values, including v2.28's published_commit whose tail was invented while expanding a 9-hex abbreviation; the value was corrected on main at pass-56 and check_manifest has gated commit-field resolvability since. Tagged states are never edited in place (D-0045), so the in-tag copies stand as minted. Recorded at pass-57 (D-0062).",
-  "published_commit_note": "published_commit is the commit that carried the previous freeze's mint onto the published branch (for pass-58, the v2.30 close). It is NOT the same object as anchor_commit, which names this pass's apply commit; both resolve on the public branch. This field went four passes stale before pass-53 because nothing gates it - recompute it at every mint, and never assume anchor and published are the same commit.",
+  "published_commit_note": "published_commit is the commit that carried the previous freeze's mint onto the published branch (for pass-59, the v2.31 close). It is NOT the same object as anchor_commit, which names this pass's apply commit; both resolve on the public branch. This field went four passes stale before pass-53 because nothing gates it - recompute it at every mint, and never assume anchor and published are the same commit.",
   "source_files": [
     {
       "path": "papers/supplementary.tex",
-      "sha256": "3a84c9c8b17b8b4421e881a8cb889d12879f6abc75190d599441838d89cdc897",
-      "bytes": 246757
+      "sha256": "a56f41664b84ef76684289576c5afdc8f73733269714fff51234253cfa86d0d8",
+      "bytes": 246771
     },
     {
       "path": "papers/cover_letter.tex",
-      "sha256": "9a51aebc0cfae50eee8f9cc263bccd279b1822cec87e196a6cc2b3140be3dcd4",
-      "bytes": 6947
+      "sha256": "22ee594ca9709860024caddda0900bdce6f1952491c181a143b099a5b18c2bd3",
+      "bytes": 6977
     }
   ],
   "source_files_note": "Canonical LaTeX sources whose RENDERS are tracked in files[] but which were not themselves hashed. The asymmetry has a failure mode and it fired in pass-42: cover_letter.tex was edited and the render was not rebuilt, so cover_letter.pdf still matched its recorded digest and the gate stayed green while the letter that ships to the editor still carried a retracted phrasing. Hashing the sources here makes that visible without changing files[], so the tracked-file count is unchanged and every recorded 15/15 remains true. main.tex is absent because it is already tracked in files[]."

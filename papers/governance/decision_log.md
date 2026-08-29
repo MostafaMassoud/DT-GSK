@@ -3057,3 +3057,35 @@ applying all surfaced fixes.
 - **Anchor.** Apply commit 8b83a39 (affiliation + rebuilt renders); the
   close commit carries the manifests, governance pair and doc sync. NEXT
   free ids: CR-0039 and D-0064.
+
+## D-0064 (2026-08-29) - Pass-59: corresponding author's full name (author metadata)
+
+- **Decision.** The author directed (2026-08-29) that the corresponding
+  author's byline carry the full name **Mostafa Elsayed Ahmed Masoud**.
+  Mint **pass-59**, tag **v2.32**. Registered as **CR-0039**.
+- **Scope.** Author metadata only: the byline, PDF metadata, address block,
+  CRediT author-contributions statement and Conflicts of Interest statement
+  now use the full name and the matching initials **M.E.A.M.** (twelve
+  documents: main.tex, supplementary.tex, cover_letter.tex/.md, the
+  plain-language summary, CITATION.cff (both author lists), README, the
+  submission kit's portal table, the response letter and its technical
+  companion, the author-data handoff, and the withheld extension-request
+  draft; 54 text edits in all). Historical records - the administrative-gap
+  register's dated rows, the journal decision email, the paper-revisions
+  snapshot and the append-only trees - are deliberately unchanged.
+- **No result changes.** No number, rank, p-value, decision or claim
+  changes. Every render rebuilt at its pinned epoch and double-built
+  byte-identical (main PDF, supplement, both DOCX, cover letter,
+  plain-language summary); page counts unchanged (49/83); the response
+  letter's manuscript page anchors re-verified against the new render; the
+  change register (v2.13..HEAD, now 138 passages / 33 pages) records the
+  name passages in both documents.
+- **Order lesson applied.** The DAS was bumped to v2.32 BEFORE the builds,
+  so no post-mint main.tex drift occurred (the pass-58 ordering slip that
+  check_manifest caught did not recur).
+- **Validation.** check_manifest 15/15 + sources 2/2; reproducibility and
+  package manifests re-minted with computed commit fields and verified
+  against disk post-write; full gate battery at the close.
+- **Anchor.** Apply commit ed713a7 (name + rebuilt renders); the close
+  commit carries the manifests, governance pair and status sync. NEXT free
+  ids: CR-0040 and D-0065.
