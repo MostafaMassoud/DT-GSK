@@ -163,6 +163,22 @@
     <main class="content">
       <article class="doc-card">
         <h1 id="statistical-analysis-gsk-family-comparison">Statistical Analysis (GSK-family comparison)</h1>
+<blockquote><strong>What this page is.</strong> The statistical-comparison suite that ranks the</blockquote>
+<blockquote>proposed optimizer against the GSK-family panel — Friedman ranks, Nemenyi</blockquote>
+<blockquote>critical difference, pairwise Wilcoxon, Holm correction, and effect sizes —</blockquote>
+<blockquote>and how to run it and read its output.</blockquote>
+<blockquote></blockquote>
+<blockquote><strong>Who it is for.</strong> Anyone producing or interpreting the family-comparison</blockquote>
+<blockquote>statistics, from a quick <code>gsk-stats</code> run to the paper&#x27;s published panels.</blockquote>
+<blockquote></blockquote>
+<blockquote><strong>What you will get.</strong> What each test computes and why, where the input data</blockquote>
+<blockquote>comes from, <code>gsk-stats</code> usage and options, the output files, the paper</blockquote>
+<blockquote>review pack, and a map of the analysis modules.</blockquote>
+<blockquote></blockquote>
+<blockquote><strong>Prerequisites.</strong> The run workflow is in the</blockquote>
+<blockquote><a href="research_researcher_handbook.html">Researcher Handbook</a>; hand-checkable arithmetic for</blockquote>
+<blockquote>the tests is in <a href="research_numerical_examples.html">Numerical Examples</a>. Terms are</blockquote>
+<blockquote>defined in <a href="reference_glossary.html">the glossary</a>.</blockquote>
 <p>This project ships a paper-grade statistical-comparison suite for the proposed optimizer (<code>dt-gsk</code> by default) against the GSK-family comparators. It was migrated from the source DT-GSK project and retargeted to this repository&#x27;s committed reference tables (<code>benchmarks/cec_reference_results/</code>) with the <code>results/_run_all/&lt;optimizer&gt;/&lt;suite&gt;/summary/</code> layout as a fallback. The suite lives in <code>src/gsk_family/analysis/</code> and is driven by the <code>gsk-stats</code> console script.</p>
 <h2 id="what-it-computes">What it computes</h2>
 <p>For each requested dimension the suite builds the <strong>7-algorithm GSK-family panel</strong> — the proposed algorithm plus the six committed reference comparators (<code>gsk</code>, <code>agsk</code>, <code>apgsk</code>, <code>fdb-agsk</code>, <code>egsk</code>, <code>atmals-gsk</code>) — over the common benchmark functions, and reports the statistics below. The committed reference tree carries the full 7-optimizer panel for three suites: <strong>CEC2017</strong> (F1, F3–F30 — the withdrawn F2 is excluded — at D = 10/30/50/100, 51 runs), <strong>CEC2011</strong> (22 real-world problems at their native per-function dimensions, 25 runs), and <strong>CEC2013</strong> (the second comparison suite: 28 functions at D = 10/30/50, 51 runs, no exclusions).</p>

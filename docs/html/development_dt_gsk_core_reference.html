@@ -205,7 +205,7 @@
 <p><strong>Seeding is unified and non-negotiable.</strong> <code>dt-gsk</code> is the sole member of <code>UNIFIED_ONLY_OPTIMIZERS</code>: it is forced onto <code>threefry</code> + <code>get_cec_seed</code> under *every* seed policy. The 13 substreams (<code>init, core, ace, kexp, div, bse, arch, link, de, control, flow, basin, trust</code>) are <strong>append-only</strong> and the first nine are prefix-locked.</p>
 <p><strong>Supplying a callback does not change results.</strong> The FC4 lift-EMA is the only fitness-affecting quantity in the per-generation telemetry block, and it is updated *above* the callback guard on purpose. A run with no callback, a curve callback, or a full generation callback produces bit-identical results — verified at D=100, where FC4 is actually live (it is disabled at D=50). If you relocate that update, you break this property.</p>
 <p><strong>The local search that runs is coordinate descent, not the ISM subspace search.</strong> <code>local_search_method</code> defaults to <code>&quot;coordinate&quot;</code>, and the <code>pub</code> profile keeps it there at every tier — defaulted at <code>50 &lt;= D &lt; 100</code>, and set *explicitly* to <code>&quot;coordinate&quot;</code> at <code>D &gt;= 100</code>. The ISM top-k <strong>subspace</strong> local search (<code>subspace_nm</code>, which would restrict the polish to the interaction graph&#x27;s strongest blocks) is <strong>implemented but not enabled</strong> in the frozen configuration — the core states this at its own definition site. The interaction graph still *informs* linkage and block selection at <code>D &gt;= 50</code> (<code>interaction_use_for_local_search=True</code>), but the search that executes is coordinate-wise. Do not claim DT-GSK runs a graph-guided subspace polish; it does not.</p>
-<h2 id="determinism-at-d-50">Determinism at D &gt;= 50</h2>
+<h2 id="determinism-at-d-50-and-above">Determinism at D 50 and above</h2>
 <p>SGSM uses <code>prange</code>, so thread count changes floating-point reduction order. For any byte-identity work, export all six variables <strong>before Python imports numpy/numba</strong> — setting them inside Python has no effect — and run <code>--serial</code> or <code>--workers 1</code>:</p>
 <pre><code class="code-block language-powershell">$env:OMP_NUM_THREADS=1; $env:MKL_NUM_THREADS=1; $env:OPENBLAS_NUM_THREADS=1
 $env:VECLIB_MAXIMUM_THREADS=1; $env:NUMEXPR_NUM_THREADS=1; $env:NUMBA_NUM_THREADS=1</code></pre>
@@ -222,7 +222,7 @@ $env:VECLIB_MAXIMUM_THREADS=1; $env:NUMEXPR_NUM_THREADS=1; $env:NUMBA_NUM_THREAD
 <a class="toc-level-2" href="#what-holds-the-line">What holds the line</a>
 <a class="toc-level-2" href="#dimension-tiers">Dimension tiers</a>
 <a class="toc-level-2" href="#facts-that-are-routinely-got-wrong">Facts that are routinely got wrong</a>
-<a class="toc-level-2" href="#determinism-at-d-50">Determinism at D &gt;= 50</a>
+<a class="toc-level-2" href="#determinism-at-d-50-and-above">Determinism at D 50 and above</a>
 <a class="toc-level-2" href="#if-you-must-change-core-behavior">If you must change core behavior</a>
 </aside>
   </div>

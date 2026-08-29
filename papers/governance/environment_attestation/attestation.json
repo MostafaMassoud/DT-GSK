@@ -1,7 +1,7 @@
 {
   "schema": "dtgsk-environment-attestation/1",
   "ticket": "M-030 (EXP-004)",
-  "generated_utc": "2026-08-29T08:39:18+00:00",
+  "generated_utc": "2026-08-29T11:40:51+00:00",
   "green": true,
   "green_requires": "installed stack inside the declared envelope; two identical all-green suite runs; every release gate exit 0",
   "envelope_check": {
@@ -43,7 +43,7 @@
     "node": "HUAWEI-MMASOUD"
   },
   "git": {
-    "head": "ef3892843e681bae413a4b1a2b0c8a170ed7b87b",
+    "head": "91a366ffd501511d0f1425818e1604e5337ec729",
     "branch": "main",
     "dirty": true
   },
@@ -51,22 +51,22 @@
     {
       "exit_code": 0,
       "xml": "junit-run1.xml",
-      "summary": "616 passed, 2 skipped, 3 warnings in 86.36s (0:01:26)",
+      "summary": "616 passed, 2 skipped, 3 warnings in 96.76s (0:01:36)",
       "tests": 618,
       "failures": 0,
       "errors": 0,
       "skipped": 2,
-      "seconds": 86.35
+      "seconds": 96.74
     },
     {
       "exit_code": 0,
       "xml": "junit-run2.xml",
-      "summary": "616 passed, 2 skipped, 3 warnings in 86.00s (0:01:25)",
+      "summary": "616 passed, 2 skipped, 3 warnings in 124.73s (0:02:04)",
       "tests": 618,
       "failures": 0,
       "errors": 0,
       "skipped": 2,
-      "seconds": 85.99
+      "seconds": 124.72
     }
   ],
   "runs_agree_on_test_count": true,

@@ -188,19 +188,19 @@ otherwise:  g_s = x_i + kf * ( x_r1 - x_r2 + x_i - x_r3 )</code></pre>
 <p><strong>Midpoint bound repair</strong> (inline in the trial kernel, <code>_kernels.py:132-135,140-143</code>). Per coordinate <code>j</code>, using the *parent* value <code>x_i,j</code>:</p>
 <pre><code class="code-block language-text">g &lt; lb_j:  g = (x_i,j + lb_j) / 2
 g &gt; ub_j:  g = (x_i,j + ub_j) / 2</code></pre>
-<p><strong>Junior dimension schedule</strong> (<code>gsk.py:147-148</code>). At generation <code>g</code> of <code>G_max</code>:</p>
+<p><strong>Junior dimension schedule</strong> (<code>gsk.py:149-150</code>). At generation <code>g</code> of <code>G_max</code>:</p>
 <pre><code class="code-block language-text">D_junior = ceil( D * (1 - g / G_max) ^ k )
 junior_prob = D_junior / D</code></pre>
 <p><code>(1 - g/G_max)</code> shrinks from 1 to 0, and the exponent <code>k = 10</code> makes the junior→senior handover sharp: early generations are almost all junior, late generations almost all senior.</p>
 <p><strong>Per-dimension mask</strong> (<code>_kernels.py:144-149</code>). Two independent random draws per coordinate decide what reaches the trial vector; otherwise the parent value is kept:</p>
 <pre><code class="code-block language-text">rand_split &lt;= junior_prob  -&gt; junior dim: take g_j only if rand_kr_junior &lt;= kr
 otherwise                  -&gt; senior dim: take g_s only if rand_kr_senior &lt;= kr</code></pre>
-<p><strong>Selection</strong> is strictly greedy (<code>gsk.py:201-204</code>): the child replaces the parent only if <code>f(child) &lt; f(parent)</code>.</p>
+<p><strong>Selection</strong> is strictly greedy (<code>gsk.py:217-219</code>): the child replaces the parent only if <code>f(child) &lt; f(parent)</code>.</p>
 <h2 id="pseudocode">Pseudocode</h2>
 <pre><code class="code-block language-text">G_max = fix(max_nfes / NP)                      # gsk.py:110
 initialize / accept fair-start population, evaluate, record best
-for g = 1, 2, ... until nfes &gt;= max_nfes:       # gsk.py:145
-    D_junior   = ceil(D * (1 - g/G_max)^k)      # gsk.py:148
+for g = 1, 2, ... until nfes &gt;= max_nfes:       # gsk.py:147
+    D_junior   = ceil(D * (1 - g/G_max)^k)      # gsk.py:149-150
     order      = argsort(fitness)               # best -&gt; worst
     rg1,rg2,rg3 = junior_donors(order)          # rank neighbours + random
     r1,r2,r3    = senior_donors(order, p)        # best / middle / worst blocks
@@ -258,9 +258,9 @@ trial = [4.0, -1.0]</code></pre>
 <li><strong>Bound repair</strong> never reflects past the parent; it pulls a violating</li>
 <p>coordinate to the midpoint between the parent and the breached bound, so trials stay inside <code>[lb, ub]</code> and near their parent.</p>
 <li><strong>Budget.</strong> <code>G_max = fix(max_nfes / NP)</code> and the loop runs whole generations,</li>
-<p>so the final generation may be partially counted (<code>n_count = min(NP, max_nfes - nfes)</code>, <code>gsk.py:191</code>). The best-so-far is monotone non-increasing.</p>
+<p>so the final generation may be partially counted (<code>n_count = min(NP, max_nfes - nfes)</code>, <code>gsk.py:207</code>). The best-so-far is monotone non-increasing.</p>
 <li><strong>Determinism.</strong> The trial kernel is pure arithmetic; all randomness comes</li>
-<p>from the caller&#x27;s RNG in a fixed draw order (<code>gsk.py:159</code> draws one <code>(3, NP, D)</code> block), so serial and parallel runs produce identical results. See <a href="reference_seed_policy.html">Seed Policy</a>.</p>
+<p>from the caller&#x27;s RNG in a fixed draw order (<code>gsk.py:165</code> draws one <code>(3, NP, D)</code> block), so serial and parallel runs produce identical results. See <a href="reference_seed_policy.html">Seed Policy</a>.</p>
 </ul>
 <h2 id="complexity">Complexity</h2>
 <p>Per generation: <code>O(NP log NP)</code> to sort, <code>O(NP·D)</code> to build and repair trials, <code>O(NP)</code> evaluations. Over a run of <code>G_max ≈ max_nfes/NP</code> generations the total is <code>O(max_nfes · D)</code> time and <code>O(NP·D)</code> memory.</p>
