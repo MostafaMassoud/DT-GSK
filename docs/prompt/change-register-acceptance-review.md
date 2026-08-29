@@ -38,7 +38,7 @@ which ones you actually received:
 1. **The Change Register** (read the passage count off its own front page — every number recorded elsewhere has gone stale; each passage is shown *as submitted*
    and *as revised*, tagged with the reviewer point it answers).
 2. The revised **main manuscript** (49 pp) and **supplementary material**
-   (81 pp, Sections S1–S9).
+   (83 pp, Sections S1–S9).
 3. The **marked-up** manuscript and supplement (latexdiff).
 4. The **point-by-point response** to the reviewers.
 

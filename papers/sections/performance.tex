@@ -808,6 +808,15 @@ evaluates the low-dimensional boundary condition of the tiered design ---
 every dimension-gated \dtgsk{} subsystem is inactive at $D \leq 20$ ---
 and is not affirmative evidence for the tiering choice itself.
 % BIND: RS-12 (SAP addendum Sec. 9 [AGSK first] variant verbatim, slot = fourth per Amendment 2 A2.3, factual clause corrected per Amendment 3 A3.2); friedman_ranks_cec2020_overall.csv (dt-gsk ordinal 4)
+``Inactive'' here follows the gating taxonomy of
+Table~\ref{tab:dim-gating}: at the $D = 20$ cells the always-on scaffold
+does cross into its $20$--$49$ tier --- the optional
+differential-evolution arm joins the ACE pool, the credit assignment
+splits into a top/bottom improvement memory, and several tier constants
+change --- while the gated subsystems themselves (the
+interaction-structure memory, the deterministic final polish, and the
+upper-tier controllers) remain off.
+% BIND: ART-PARAMS (_dt_profiles.py tier dicts, hash-frozen); tab:architecture categories; tab:dim-gating activation rows; additive taxonomy clarification --- registered RS-12 wording untouched
 The descriptive across-dimension aggregate (the unweighted mean of the
 four per-dimension Friedman mean ranks; no test is attached, the $D = 5$
 task set is reduced to 8 functions, and MaxFES changes by dimension, so

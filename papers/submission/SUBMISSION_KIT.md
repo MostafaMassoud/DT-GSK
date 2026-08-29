@@ -1,6 +1,6 @@
 # SuSy submission kit — everything pasteable, in portal order
 
-Regenerated 2026-08-29 from the pass-54 / v2.27 REVISION-1 sources (the
+Regenerated 2026-08-29 from the pass-55 / v2.28 REVISION-1 sources (the
 round-one response to algorithms-4507562). Every value below is copied from
 the shipped manuscript; do not retype from memory — copy from here so the
 form matches the paper exactly (D16.5).
@@ -27,24 +27,24 @@ once at D >= 50, with the GSK vector-update equations retained; an
 exploratory interaction-structure memory supplies the refinement's basis.
 Against six GSK-family baselines re-executed on five CEC suites under one
 budget-fair paired protocol, DT-GSK attains the best descriptive
-family-rank aggregate on CEC2017 (2.48) and CEC2013 (2.80), though the
+family-rank aggregate on CEC2017 (2.48) and CEC2013 (2.80), though
 Holm-corrected tests separate it from eGSK on either suite only at D = 10;
-it is second behind eGSK at CEC2017 D = 30 and on CEC2011 (a
-Holm-significant loss). On AGSK's strongest suite—the CEC2020 competition
+it is second behind eGSK at CEC2017 D = 30 and on CEC2011
+(Holm-significant loss). On AGSK's strongest suite—the CEC2020 competition
 in which it was the runner-up—DT-GSK places fourth; the family panel
 corroborates AGSK's published strength in this low-dimensional boundary
 regime, where every dimension-gated DT-GSK subsystem is inactive (D <=
 20). On CEC2013LSGO the comparison is family-internal: tied-first
 descriptive rank; paired tests do not separate DT-GSK from AGSK. Suite
-roles: CEC2017 selection-exposed; CEC2011 and CEC2013 corroborative;
-CEC2020 pre-registered confirmatory; CEC2013LSGO post-hoc. Direct
-isolations find no standalone benefit from that memory; its basis is
-outperformed by coordinate axes—controlled negative results. All findings
-are scoped to the GSK-family panel.
+roles: CEC2017 selection-exposed; CEC2011/CEC2013 corroborative; CEC2020
+pre-registered confirmatory; CEC2013LSGO post-hoc. Direct isolations find
+no standalone benefit from that memory; coordinate axes outperform its
+basis—controlled negative results. All findings are scoped to the
+GSK-family panel.
 
-(REGENERATED from papers/DT-GSK.pdf at pass-54, not hand-edited: this block
+(REGENERATED from papers/DT-GSK.pdf at pass-55, not hand-edited: this block
 went stale three times — it sat at the v2.21 wording for four passes, and then
-again at pass-53 and pass-54 the moment main.tex was touched. Regenerate it
+again at pass-53 and pass-55 the moment main.tex was touched. Regenerate it
 with papers/scripts/ or by extracting page 1 of the PDF; never retype it. The
 PDF always wins. Note that the abstract runs slightly over the journal's
 200-word guideline: the sentences carrying the CEC2020 and CEC2013LSGO
@@ -85,8 +85,8 @@ in production, `papers/DT-GSK.docx` exists and validates.
 | Figures | `papers/submission/DT-GSK-figures-600dpi.zip` |
 | Supplementary Materials | `papers/supplementary.pdf` |
 | Cover letter | paste text from `papers/cover_letter.md`, or upload `papers/cover_letter.pdf` |
-| **Response to reviewers** | `papers/submission/response_to_reviewers.pdf` — staged beside the other upload artifacts, pinned untracked like them because it quotes both reports (D-0049) — rendered from `papers/review_2026_08_24/response_to_reviewers.md`, which is on disk but withheld from the repository because it quotes both reports (D-0049). Upload the PDF, or paste the Markdown point-by-point into the form. **A current render exists, rebuilt 2026-08-29 from the pass-54 / v2.27 source** (read its live page count off the PDF; every number recorded here has gone stale at least once) (per-point template with Status outcomes, calmer wording per the external letter review, closure table with Status column, E4/E5 summary table, A12 and W/T/L defined, dagger contrasts unadjusted, reproducibility section compressed to DAS-anchored form with no internal release identifiers or repository filenames (companion-PDF names and latexdiff kept deliberately), and no passage count quoted — the register's own front page carries it), via `SOURCE_DATE_EPOCH=1788220800 pandoc papers/review_2026_08_24/response_to_reviewers.md -o papers/submission/response_to_reviewers.pdf --pdf-engine=xelatex --include-in-header=papers/review_2026_08_24/response_letter_style.tex -V mainfont=Cambria -V "mainfontoptions=Ligatures=NoCommon" -V monofont=Consolas -V "monofontoptions=HyphenChar=None" -V fontsize=11pt -V geometry:margin=2.4cm -V colorlinks=true` (`HyphenChar=None` keeps hyphens out of code identifiers) (the style header, beside the source and likewise withheld, uses tcolorbox for the reviewer-quote boxes; mdframed is NOT installed here). `Ligatures=NoCommon` is load-bearing: with Cambria ligatures on, xelatex emits a ToUnicode map that copy-pastes every fi/fl word as broken text ("signi icant"). If any later pass edits the source, re-render with the same command. |
-| **Revised manuscript, changes marked** | `DT-GSK-changes-marked.pdf` — a **latexdiff marked-up manuscript**: additions underlined, deletions struck through, in place, which is literally what item (II) asks for. Build it at resubmission with `python papers/scripts/build_change_marked_pdf.py` (diffs `v2.13` against the tag being submitted; derived, gitignored, do not commit). **The note previously here — that `latexdiff` is unusable because MiKTeX ships only a Perl shim — was half right and is superseded.** Plain `latexdiff` does fail, on a missing `Algorithm::Diff`; the standalone variant **`latexdiff-so` bundles it and works**. `ulem` is also required. Two caveats to state, not to hide: **preamble changes do not render** — the retitle is emitted as a `%DIF` comment, so the title change is invisible in the PDF and must be pointed out in the cover letter — and the main diff covers `main.tex` and its sections — a marked-up Supplementary (`DT-GSK-supplementary-changes-marked.pdf`, 80 pp) is available from the same script with `--doc supplementary` if the editors want the S-changes in place too. `DT-GSK-change-register.pdf`, the tabulated passage-by-passage register, is the companion: build it with `python papers/scripts/build_change_register.py` (93 passages over the same 7 files at v2.25 — but read the live count off the register's own front page; each given as submitted and as revised, with the reviewer point it answers). Its attribution column is keyword-derived and says so on its own front page; a passage answering two points is listed under both, so the column sums to more than the passage count. Do not quote a fixed passage or page count for it — the count has grown at every pass (54 at pass-41, 75 at v2.21, 93 at v2.25); read it off the register's front page at build time. |
+| **Response to reviewers** | `papers/submission/response_to_reviewers.pdf` — staged beside the other upload artifacts, pinned untracked like them because it quotes both reports (D-0049) — rendered from `papers/review_2026_08_24/response_to_reviewers.md`, which is on disk but withheld from the repository because it quotes both reports (D-0049). Upload the PDF, or paste the Markdown point-by-point into the form. **A current render exists, rebuilt 2026-08-29 from the pass-55 / v2.28 source** (read its live page count off the PDF; every number recorded here has gone stale at least once) (per-point template with Status outcomes, calmer wording per the external letter review, closure table with Status column, E4/E5 summary table, A12 and W/T/L defined, dagger contrasts unadjusted, reproducibility section compressed to DAS-anchored form with no internal release identifiers or repository filenames (companion-PDF names and latexdiff kept deliberately), and no passage count quoted — the register's own front page carries it), via `SOURCE_DATE_EPOCH=1788220800 pandoc papers/review_2026_08_24/response_to_reviewers.md -o papers/submission/response_to_reviewers.pdf --pdf-engine=xelatex --include-in-header=papers/review_2026_08_24/response_letter_style.tex -V mainfont=Cambria -V "mainfontoptions=Ligatures=NoCommon" -V monofont=Consolas -V "monofontoptions=HyphenChar=None" -V fontsize=11pt -V geometry:margin=2.4cm -V colorlinks=true` (`HyphenChar=None` keeps hyphens out of code identifiers) (the style header, beside the source and likewise withheld, uses tcolorbox for the reviewer-quote boxes; mdframed is NOT installed here). `Ligatures=NoCommon` is load-bearing: with Cambria ligatures on, xelatex emits a ToUnicode map that copy-pastes every fi/fl word as broken text ("signi icant"). If any later pass edits the source, re-render with the same command. |
+| **Revised manuscript, changes marked** | `DT-GSK-changes-marked.pdf` — a **latexdiff marked-up manuscript**: additions underlined, deletions struck through, in place, which is literally what item (II) asks for. Build it at resubmission with `python papers/scripts/build_change_marked_pdf.py` (diffs `v2.13` against the tag being submitted; derived, gitignored, do not commit). **The note previously here — that `latexdiff` is unusable because MiKTeX ships only a Perl shim — was half right and is superseded.** Plain `latexdiff` does fail, on a missing `Algorithm::Diff`; the standalone variant **`latexdiff-so` bundles it and works**. `ulem` is also required. Two caveats to state, not to hide: **preamble changes do not render** — the retitle is emitted as a `%DIF` comment, so the title change is invisible in the PDF and must be pointed out in the cover letter — and the main diff covers `main.tex` and its sections — a marked-up Supplementary (`DT-GSK-supplementary-changes-marked.pdf`; read its page count off the PDF — it has shifted at three consecutive passes) is available from the same script with `--doc supplementary` if the editors want the S-changes in place too. `DT-GSK-change-register.pdf`, the tabulated passage-by-passage register, is the companion: build it with `python papers/scripts/build_change_register.py` (every changed passage over the same 7 files, each given as submitted and as revised, with the reviewer point it answers — read the live count off the register's own front page; every numeric copy of it has gone stale). Its attribution column is keyword-derived and says so on its own front page; a passage answering two points is listed under both, so the column sums to more than the passage count. Do not quote a fixed passage or page count for it — the count has grown at every pass (54 at pass-41, 75 at v2.21, 93 at v2.25); read it off the register's front page at build time. |
 | ~~Word files~~ | skip — LaTeX submission |
 
 ## 7. Cover letter (textbox)
@@ -117,7 +117,7 @@ version (D-0036), and the form must match the manuscript.
 
 Paste: https://github.com/MostafaMassoud/DT-GSK
 The originally submitted version corresponds to repository tag v2.13 and
-this revised version to tag v2.27 — matching the manuscript's own Data
+this revised version to tag v2.28 — matching the manuscript's own Data
 Availability Statement exactly. No Zenodo/DOI for the repository; the
 article DOI is assigned by the journal (D-0044).
 
@@ -163,16 +163,16 @@ nonparametric comparison of metaheuristics, or adjacent DE/PSO families.
    it; there is no new ID to record.
 2. Do NOT rebuild anything in the repo afterwards. The five shipped artifacts
    (both PDFs, both DOCX and the cover letter) are hash-recorded in
-   `submission_package_manifest.json` at **v2.27** — that record is what makes
+   `submission_package_manifest.json` at **v2.28** — that record is what makes
    the submitted bytes checkable. It is not the same list as the upload table
    in section 6: the DOCX are hash-recorded but not uploaded, and the two ZIPs
-   are uploaded but hash-recorded nowhere. Freeze pass-54 and tag
-   v2.27 are the frozen state of this resubmission, exactly as pass-38 / v2.13
+   are uploaded but hash-recorded nowhere. Freeze pass-55 and tag
+   v2.28 are the frozen state of this resubmission, exactly as pass-38 / v2.13
    is the frozen state of the original.
-3. If a SECOND revision is requested, it becomes pass-54 through change
+3. If a SECOND revision is requested, it becomes pass-55 through change
    control: a new freeze pass and a new superseding tag, never an edit to
-   v2.27 in place (D-0045).
+   v2.28 in place (D-0045).
 4. Two of the uploaded artifacts — the response letter and the change register —
    are deliberately not in the repository (D-0049). They are regenerable: the
    response letter from its Markdown source on disk, the register from
-   `git diff v2.13 v2.27` over the manuscript sources.
+   `git diff v2.13 v2.28` over the manuscript sources.

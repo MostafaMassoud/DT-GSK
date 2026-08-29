@@ -297,6 +297,10 @@ behind the family-panel exhibits --- no panel-wide claim.
 
 
 
+
+
+
+\clearpage
 \subsection{@@SECNUM!sec:supp:cec2011!S2.2.@@ CEC2011 Detail}\label{sec:supp:cec2011}
 
 Table~@@REF!tab:cec2011-stats@@ summarizes the across-problem Wilcoxon
@@ -356,7 +360,9 @@ Tables~@@REF!tab:cec2013-d10@@--@@REF!tab:cec2013-d50@@ report the
 five-statistic head-to-head detail between \dtgsk{} and GSK on the
 CEC2013 second comparison suite (28 functions, 51 runs) at $D = 10$,
 $30$, and $50$; Table~@@REF!tab:cec2013\_wilcoxon@@ gives the
-across-function Wilcoxon signed-rank summary per dimension.
+across-function Wilcoxon signed-rank summary per dimension, and
+Table~@@REF!tab:cec2013-pairwise@@ the complete Wilcoxon--Holm matrix
+against all six comparators.
 
 CEC2013 is a second comparison suite reported for breadth within the
 same frozen protocol; it is not an independence argument of any kind.
@@ -400,6 +406,10 @@ vs.\ \dtgsk{}; best mean per function in bold.
 
 
 
+
+
+
+\clearpage
 
 
 @@TABLECAP!tab:cec2013\_wilcoxon!T14@@ Across-function Wilcoxon signed-rank summary, \dtgsk{} vs.\ GSK
@@ -1397,9 +1407,10 @@ algorithm freeze manifest\\
 
 \subsection{@@SECNUM!sec:repro:acronyms!S5.7.@@ Acronyms}\label{sec:repro:acronyms}
 
-The main-text notation table defines every mathematical symbol. This list covers
-the acronyms that appear in prose but carry no symbol, so a reader meeting one
-out of order does not have to search for its first use.
+The main-text notation table defines every mathematical symbol.
+Table~@@REF!tab:acronyms@@ covers the acronyms that appear in prose but carry no
+symbol, so a reader meeting one out of order does not have to search for its
+first use.
 
 
 \begin{table}[H]
@@ -2346,7 +2357,8 @@ All 29 (aggregate)           & 29 & 15/0/14 (0.52) & 14/0/15 (0.48)\\
 \end{tabular}
 \end{table}
 
-No class shows a benefit that survives even a nominal sign test (all subset
+No class shows a benefit that survives even a nominal sign test
+(Table~@@REF!tab:ism-subset@@; all subset
 $p > 0.3$; the interacting-vs-non-interacting contrast is $0.50$ vs $0.56$ at $D=50$
 and $0.45$ vs $0.56$ at $D=100$ --- the interacting classes never lead).  The only
 favorable lean is on the
@@ -2471,8 +2483,10 @@ GSK-family member, and no competitiveness with such specialists is claimed
 here; cross-paradigm comparison is outside this paper's scope.
 
 For completeness: the public repository cited in the Data Availability
-Statement additionally holds exploratory first-party ports of SHADE-ILS, MOS
-and DECC-G, executed on this suite under the same harness and seed schedule.
+Statement additionally holds exploratory ports of SHADE-ILS, MOS
+and DECC-G --- the first two vendored byte-faithful copies, DECC-G first-party
+code written from its source paper, as that statement records --- executed on
+this suite under the same harness and seed schedule.
 They are retained there as exploratory material outside the registered
 panel; they are not analysed in this paper, they enter no ranking or test
 reported here, and no claim in this paper rests on them.
@@ -3255,6 +3269,10 @@ registered disclosure string verbatim: no CI (degenerate cell).
 \end{tabular}
 \end{table}
 
+
+
+
+\clearpage
 \subsection{@@SECNUM!sec:supp:cec2020:robustness!S8.5.@@ Robustness}\label{sec:supp:cec2020:robustness}
 
 All three registered robustness variants were computed.  The binding
@@ -3699,8 +3717,11 @@ polish is active.  Paired Wilcoxon signed-rank across the 29 scored functions on
 per-function mean error, Holm-corrected within dimension over the registered
 two-contrast family; $A_{12}$ over the paired runs of all scored functions
 pooled --- not the per-function-averaged $A_{12}$ of Section~S6.5 --- computed with the first-named
-arm as reference, so $A_{12} < 0.5$ favours the second.  W/T/L counts functions,
-ties at a tolerance of $10^{-8}$; the same band is applied before ranking, and
+arm as reference, so $A_{12} < 0.5$ favours the second; between-function scale
+dominates the pooled pairs and compresses the statistic toward $0.5$, so a
+value near $0.5$ here does not indicate a null contrast.  W/T/L counts functions with wins
+credited to the first-named arm, ties at a tolerance of $10^{-8}$; the same
+band is applied before ranking, and
 $n_{\mathrm{eff}}$ reports the functions remaining in each ranking
 (Amendments A5-A6).  $^{\dagger}$The coordinate-versus-none row is a
 supplementary single-test contrast added after verification, outside the registered
@@ -3837,8 +3858,9 @@ with zero seed mismatches).
 The result is mixed and is reported as such.  Tiering is demonstrated against
 the high-dimension transplant at $D = 10$ and at $D = 50$, where the tiered
 configuration wins on 22 and 19 of 29 functions respectively.  Against the
-low-dimension transplant it is not separated at three of four dimensions, and at
-$D = 30$ it is beaten: the parameter set that \dtgsk{} resolves at $D = 10$
+low-dimension transplant it is not separated at $D = 50$ or $D = 100$ --- at
+$D = 10$ it carries the tiered configuration by construction, so that tie is
+the design's internal control, not evidence --- and at $D = 30$ it is beaten: the parameter set that \dtgsk{} resolves at $D = 10$
 outperforms the set it actually ships at $D = 30$, on 20 of 29 functions at
 $p_{\mathrm{Holm}} = 5.5\times10^{-3}$.  Contribution~C2 is narrowed to match:
 the evidence supports resolving configuration by dimension at the dimensions
@@ -3875,9 +3897,10 @@ both dimensions.  For three constants whose shipped value differs at $D = 100$,
 the executed levels are consequently larger than the registered twenty per cent
 and lie on one side of the shipped value only.  Those rows are marked in the
 table, which prints the levels actually executed rather than the registered
-formula.  Stability under a larger perturbation implies stability under a
-smaller one, so the robustness reading holds for those cells in magnitude; what
-is absent is coverage on the untested side, and no claim is made there.
+formula.  The executed levels bound what was tested: the robustness reading for those
+cells attaches to the larger perturbations actually run --- no monotonicity in
+perturbation size is assumed --- so the registered magnitude on the tested
+side, like the whole of the untested side, carries no claim.
 
 
 
@@ -3959,7 +3982,8 @@ Section~@@REF!sec:supp:rev:tiering@@ finding restated in boundary terms) and by
 the structure-tier set ($p_{\mathrm{Holm}} = 2.2\times10^{-3}$, 22 of 29
 functions), each lifting the descriptive ordinal from second to first.  At
 $D = 100$ the $50 \leq D < 100$ set beats the shipped upper profile on paired
-means ($p_{\mathrm{Holm}} = 1.5\times10^{-2}$, 22 of 29) while the family
+means ($p_{\mathrm{Holm}} = 1.5\times10^{-2}$, 22 of 29) and moves the
+descriptive mean rank from $2.34$ to $1.97$, while the family
 ordinal is unchanged at first.  The boundaries are insensitive where the
 narrowed contribution claims them: at $D = 10$ the shift is not separated
 ($p_{\mathrm{Holm}} = 0.11$, the tiered arm ahead on 20 of 29 and the
