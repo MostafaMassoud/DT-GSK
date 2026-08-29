@@ -17,10 +17,11 @@ are frozen or hash-bound. Assume nothing is casually editable.
 
 ## Right now (2026-08-30)
 
-**⏳ RESUBMISSION: the author submits TODAY, 2026-08-30 — two days ahead of the confirmed
-2026-09-01 deadline** (the earlier zero-slack framing is obsolete: submitting early restores the
-margin the deadline confirmation had removed). Both letters and the CFF are re-dated 2026-08-30.
-Nothing in the repository blocks it — everything agent-side is complete. **The repo was set PRIVATE on 2026-08-28 (author, to finalize) and MUST be public again before
+**✅ RESUBMITTED 2026-08-30 — two days ahead of the confirmed 2026-09-01 deadline.** The round-1
+revision was uploaded from pass-63 / v2.36 (source zip, PDF, supplement, figures zip, marked
+copies + change register bundle, cover letter), with replies filed to the editor and both
+reviewers. **The submitted state is tag v2.36: never rebuild or retag it** — any future change
+is a new pass. The manuscript now awaits round 2. **The repo was set PRIVATE on 2026-08-28 (author, to finalize) and MUST be public again before
 the upload** — the DAS names its URL and tags, and reviewers will click. Detail:
 [REVISION_STATUS.md](REVISION_STATUS.md) Section 5 items 1 and 6.
 
