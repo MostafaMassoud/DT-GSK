@@ -3158,3 +3158,24 @@ applying all surfaced fixes.
   package manifests re-minted and verified post-write; full ladder green
   including parity, evidence bindings, provenance and package contents.
 - **Anchor.** Apply commit cf332f1. NEXT free ids: CR-0042 and D-0067.
+
+## D-0067 (2026-08-29) - Pass-62: Supplementary Materials and Abbreviations leading
+
+- **Decision.** The author flagged (2026-08-29) that the Supplementary
+  Materials statement renders with the same crushed line spacing pass-61
+  cured elsewhere. Mint **pass-62**, tag **v2.35**. Registered as
+  **CR-0042**.
+- **Scope.** The Supplementary Materials and Abbreviations statements were
+  the last two users of mdpi.cls's fontsize 9/9 zero-leading back-matter
+  style; both are re-declared at 9/11.5 in the manuscript preamble beside
+  the four statements fixed at pass-61. The class's remaining 9/9 sites
+  (the affiliation block and the references list) were checked and receive
+  real leading from their own spacing{1.35}/linespread{1.44} wrappers, so
+  this closes the family. The class file itself remains untouched.
+- **No result changes.** No number, rank, p-value, decision or claim
+  changes; no pagination shift (49/83 pages; all eleven response-letter
+  page anchors verified in place, no letter rebuild needed); main PDF
+  double-built byte-identical; DOCX validated.
+- **Validation.** check_manifest 15/15 + sources 2/2; reproducibility and
+  package manifests re-minted and verified post-write; full ladder green.
+- **Anchor.** Apply commit 934192a. NEXT free ids: CR-0043 and D-0068.

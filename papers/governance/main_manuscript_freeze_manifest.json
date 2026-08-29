@@ -1,8 +1,8 @@
 {
   "schema": "main_manuscript_freeze_manifest/v1",
-  "phase": "PASS-61: author-directed presentation pass, part two. mdpi.cls sets the Acknowledgments, Author Contributions, Funding and Conflicts of Interest statements at fontsize 9/9 - zero interline space, rendering as crushed lines (author observation, 2026-08-29); the preamble now re-declares all four at 9/11.5, keeping the journal's smaller statement size with normal leading. The twelve-step execution-order list in Section 3 drops noitemsep for itemsep=2pt/topsep=4pt and gains a needspace guard, rendering as one uninterrupted block on page 15 instead of splitting two orphaned items around the full-page algorithm float. One pagination shift: Section 3.3's C2-narrowing statement moved from page 16 to page 15; the response letter's single reference is updated and the letter rebuilt, and every other letter page anchor is verified unchanged. No number, rank, p-value, decision or claim changes; page counts unchanged (49/83); the main PDF double-built byte-identical. DAS names tag v2.34.",
-  "generated_utc": "2026-08-29T20:24:13+00:00",
-  "anchor_commit": "cf332f1c339826322016d3fe7fbe329cc963c49c",
+  "phase": "PASS-62: author-directed presentation pass, part three. The Supplementary Materials and Abbreviations statements were the last two users of mdpi.cls's fontsize 9/9 zero-leading back-matter style; both are re-declared at 9/11.5 in the manuscript preamble alongside the four statements fixed at pass-61, and the class's remaining 9/9 sites (affiliation block, references list) were verified to receive real leading from their own spacing/linespread wrappers. No pagination shift: 49/83 pages, all eleven response-letter page anchors verified in place, no letter rebuild needed. No number, rank, p-value, decision or claim changes; the main PDF double-built byte-identical. DAS names tag v2.35.",
+  "generated_utc": "2026-08-29T20:36:09+00:00",
+  "anchor_commit": "934192aca085f3b0250b9e785875ed75733cb01e",
   "pre_freeze_base_commit": "b9846e4 (abbreviated deliberately; the full SHA is held in the withheld papers/review_2026_08_24/PRIVATE_OPS.md because this commit is one of two unreachable objects pending a provider-side purge)",
   "evidence_release": {
     "primary": "rel-2026-07-20-67d9345f9",
@@ -30,8 +30,8 @@
   "files": [
     {
       "path": "papers/main.tex",
-      "sha256": "1d924cc48fcdf6da461c17b016774ac98600617d5b925f9cd39de6af91d1ffd1",
-      "bytes": 27270
+      "sha256": "4e970ba3ba0bacc1346493c7dcde4cedc67ed872a0dc69ac56f81ad9d50e65ff",
+      "bytes": 27567
     },
     {
       "path": "papers/sections/introduction.tex",
@@ -60,12 +60,12 @@
     },
     {
       "path": "papers/DT-GSK.pdf",
-      "sha256": "775463c3a03393c36433a3ff1ebef2a05c0b191cacb6542c323036ccde54da6b",
-      "bytes": 830459
+      "sha256": "dcba5b8bf9e6b6e8858b72538c073259d3b93af6d3e5fdfdf898886e95aea1fe",
+      "bytes": 830461
     },
     {
       "path": "papers/DT-GSK.docx",
-      "sha256": "f9031246aefb2b8ea99a0cd56031466a33c5784cf74008c6813ccd978b15bef6",
+      "sha256": "69edfd662aa48cd212e437f0a4cdc642fb99e3380ec185a46abe6296c8391edd",
       "bytes": 1022629
     },
     {
@@ -124,9 +124,9 @@
     "revision_analysis_pins": "NOT RE-RUN at pass-43, and not required: no analysis artifact was touched, which check_frozen_analysis confirms at 115/115."
   },
   "remint_note": "pass-48 MINTED 2026-08-27. The lesson is procedural: pass-47's applier printed a success message it never verified, so a replacement that silently failed to match shipped a false symbol. Assert the END STATE after a batch, never per-edit success - the same rule D-0039 recorded and this pass re-learned.",
-  "published_commit": "6af6148761dd2500d6d89623327c5ae30da37e55",
+  "published_commit": "c2c27bc7e7faa5eea45b36d92df1e8f33d41cf81",
   "immutable_history_note": "Two recorded blemishes live in immutable, already-pushed history and are disclosed here rather than rewritten (rewriting would move published tags, break the Data Availability Statement, and violate D-0045): (1) the pass-54 commit c0028c1's MESSAGE cites anchor 4d6bd1b, which resolves to nothing - the manifest committed IN that commit records the correct anchor b7abf61da; commit messages cannot be corrected without rewriting pushed history. (2) The copies of THIS manifest frozen inside tags v2.26 through v2.28 carry their as-minted values, including v2.28's published_commit whose tail was invented while expanding a 9-hex abbreviation; the value was corrected on main at pass-56 and check_manifest has gated commit-field resolvability since. Tagged states are never edited in place (D-0045), so the in-tag copies stand as minted. Recorded at pass-57 (D-0062).",
-  "published_commit_note": "published_commit is the commit that carried the previous freeze's mint onto the published branch (for pass-61, the v2.33 close). It is NOT the same object as anchor_commit, which names this pass's apply commit; both resolve on the public branch. This field went four passes stale before pass-53 because nothing gates it - recompute it at every mint, and never assume anchor and published are the same commit.",
+  "published_commit_note": "published_commit is the commit that carried the previous freeze's mint onto the published branch (for pass-62, the v2.34 close). It is NOT the same object as anchor_commit, which names this pass's apply commit; both resolve on the public branch. This field went four passes stale before pass-53 because nothing gates it - recompute it at every mint, and never assume anchor and published are the same commit.",
   "source_files": [
     {
       "path": "papers/supplementary.tex",

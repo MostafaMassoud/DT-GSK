@@ -26,10 +26,15 @@ is. **The repo was set PRIVATE on 2026-08-28 (author, to finalize) and MUST be p
 the upload** — the DAS names its URL and tags, and reviewers will click. Detail:
 [REVISION_STATUS.md](REVISION_STATUS.md) Section 5 items 1 and 6.
 
-**Current freeze: pass-61 / `v2.34`** — minted, tagged and **PUSHED** (2026-08-29); all 34
-tags are on `origin`, and `v2.13`/`v2.34` — the two the DAS names — resolve there. The repo is still **PRIVATE** —
+**Current freeze: pass-62 / `v2.35`** — minted and tagged (2026-08-29); push, then verify with
+`git ls-remote --tags origin` — the DAS names `v2.13` and `v2.35`. The repo is still **PRIVATE** —
 flipping it public is the remaining step before a referee can follow the DAS. Next free ids:
-**CR-0042 / D-0067** — verify free at apply time.
+**CR-0043 / D-0068** — verify free at apply time.
+**Pass-62 (2026-08-29, D-0067 / CR-0042) closes the crushed-back-matter family:** the Supplementary
+Materials and Abbreviations statements — the last two users of mdpi.cls's 9/9 zero-leading
+style — re-declared at 9/11.5 beside the four fixed at pass-61; the class's other 9/9 sites
+verified to carry real leading via their own spacing/linespread wrappers. No pagination shift,
+anchors verified, ladder green.
 **Pass-61 (2026-08-29, D-0066 / CR-0041) is presentation part two:** the four mdpi.cls back-matter
 statements re-declared at 9/11.5 (the class sets 9/9 — zero leading, visibly crushed), and the
 Section 3 execution-order list gains item separation plus a keep-together guard (one block on
