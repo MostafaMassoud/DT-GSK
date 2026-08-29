@@ -245,6 +245,14 @@ When using this project in reports, papers, theses, or benchmark comparisons,
 cite the software metadata in [CITATION.cff](CITATION.cff) and cite the
 original paper for each optimizer that appears in the experiment.
 
+The Python package version (`pyproject.toml`, `0.1.0`) is deliberately
+independent of the research-release versioning: the `CITATION.cff` version
+always equals the git tag it ships inside (gated by
+`papers/scripts/validate_citation_cff.py`), and paper reproduction must use
+the tagged repository release named in the manuscript's Data Availability
+Statement. The package version has never been bumped and awaits a
+post-acceptance publication decision.
+
 | Optimizer ID | Algorithm reference |
 |---|---|
 | `gsk` | Mohamed, A. W.; Hadi, A. A.; Mohamed, A. K. "Gaining-sharing knowledge based algorithm for solving optimization problems: a novel nature-inspired algorithm." International Journal of Machine Learning and Cybernetics, 11, 1501-1529, 2020. DOI: [10.1007/s13042-019-01053-x](https://doi.org/10.1007/s13042-019-01053-x). |

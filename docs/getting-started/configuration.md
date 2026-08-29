@@ -222,11 +222,13 @@ so non-stalling runs are byte-identical to a run without it.
 | `deep_stall_stop_frac` | `0.9` | Budget fraction past which restarts are suppressed (endgame protection). |
 | `deep_stall_min_budget` | `20000` | Restarts are inert below this NFE budget, so tiny smoke/byte-stability runs stay unaffected. All real CEC budgets (10000·D for CEC2013/CEC2017, a fixed 150,000 for CEC2011, 3,000,000 for CEC2013-LSGO, and 50,000–10,000,000 per dimension for CEC2020) are far above it. |
 
-This is why DT-GSK is robust to catastrophic basin traps (for example CEC2017
-F30 at D10) while staying #1 in the GSK family overall. Applying the restart
+This is why DT-GSK escapes the one catastrophic basin trap observed in the
+study (CEC2017 F30 at D10) while holding the family's best descriptive mean
+rank on the primary CEC2017 suite. Applying the restart
 uniformly carries a disclosed D30 trade-off — it prematurely restarts a handful
 of slow-converging multimodal functions — but DT-GSK at D30
-is led only by the strong `egsk` baseline (the runner-up overall).
+is led only by the strong `egsk` baseline (the runner-up on that suite's
+descriptive aggregate).
 
 ## Direct CLI equivalent
 

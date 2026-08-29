@@ -308,8 +308,9 @@ comparison (with GSK, AGSK, APGSK, FDB-AGSK, and eGSK), against which the propos
 built per dimension by `gsk-stats`, ATMALS-GSK is the most heavily self-tuning of
 the *reference* comparators — five memory-roulette pools plus an adaptive local
 search — so it is typically among the tougher baselines for the proposed method
-to beat (the strongest *comparator* is [EGSK](egsk.md); DT-GSK leads the family
-overall) and a useful upper reference
+to beat (the strongest *comparator* is [EGSK](egsk.md); the proposed DT-GSK
+holds the family's best descriptive mean rank on the primary CEC2017 suite) and
+a useful upper reference
 for "how far does self-tuning alone get you without interaction-structure
 memory?". Unlike the AGSK family, ATMALS-GSK keeps `NP`
 fixed (no LPSR), which can matter on budgets where population reduction helps. The
