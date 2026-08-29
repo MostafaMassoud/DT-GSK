@@ -1105,19 +1105,25 @@ Section~S7).
 
 
 
+
+
+
+
+
+
 @@ALGCAP!alg:dt-gsk@@ \textbf{Pseudo-code of the DT-GSK algorithm.} The junior and senior
 gaining-sharing \emph{vector-update equations} are retained unchanged; the
 generation around them is not---crossover masking, tie handling, the population
 size, and the senior partition are all modified. The added subsystems and their
 fixed execution order are listed in Section~@@REF!sec:algorithm@@.
 
-@@ALGLINE!-!0@@ \textbf{Require:}  objective $f$, dimension $D$, bounds $[\ell,u]$, budget $\mathrm{MaxFES}$ (suite-dependent; Section~@@REF!sec:alg:complexity@@), seed
+@@ALGLINE!-!0@@ \textbf{Require:}  objective $f$, dimension $D$, bounds $[\ell,u]$, budget $\mathrm{MaxFES}$, seed \ \ $\triangleright$~budgets: Section~@@REF!sec:alg:complexity@@
 
 @@ALGLINE!-!0@@ \textbf{Ensure:}  global best solution $x^{gb}$
 
 @@ALGLINE!-!1@@ \emph{Initialization}
 
-@@ALGLINE!1!0@@ Initialize the interaction graphs $G_{\mathrm{abs}}, G_{\mathrm{signed}} \gets 0$ (allocated only at $D\ge50$)
+@@ALGLINE!1!0@@ Initialize the interaction graphs $G_{\mathrm{abs}}, G_{\mathrm{signed}} \gets 0$ \ \ $\triangleright$~allocated only at $D\ge50$
 
 @@ALGLINE!2!0@@ Set $NP{=}5D$ and the GSK parameters $KF,\ KR,\ K_{\exp},\ p$
 
@@ -1141,13 +1147,13 @@ fixed execution order are listed in Section~@@REF!sec:algorithm@@.
 
 @@ALGLINE!11!1@@ Apply the senior gaining-sharing phase
 
-@@ALGLINE!12!1@@ Form the crossover mask: a tier-dependent fraction of rows take a linkage block (learned at $D{\ge}50$, random otherwise, and only when the confidence gate passes); the remaining rows take the $KR$ mask \ \ $\triangleright$~Eq.~(@@REF!eq:kr-mask@@)
+@@ALGLINE!12!1@@ Form the crossover mask: linkage block on some rows, $KR$ mask on the rest \ \ $\triangleright$~Eq.~(@@REF!eq:kr-mask@@)
 
-@@ALGLINE!13!1@@ \textbf{if} DE arm: overwrite the trial's binomially masked coordinates with a DE/rand/1 mutant \ \ $\triangleright$~$F{=}0.5$, $CR{=}0.9$
+@@ALGLINE!13!1@@ \textbf{if} DE arm: overwrite the masked coordinates with a DE/rand/1 mutant \ \ $\triangleright$~$F{=}0.5$, $CR{=}0.9$
 
 @@ALGLINE!14!1@@ Repair the out-of-bound coordinates
 
-@@ALGLINE!15!1@@ Evaluate the maximal prefix of $\{v_i\}$ that fits the remaining budget \ \ $\triangleright$~unevaluated rows are non-selectable
+@@ALGLINE!15!1@@ Evaluate the maximal prefix of $\{v_i\}$ that fits the budget \ \ $\triangleright$~the rest are non-selectable
 
 @@ALGLINE!16!1@@ Greedily keep each no-worse trial and update the diversity archive \ \ $\triangleright$~Eq.~(@@REF!eq:greedy-accept@@)
 
@@ -1159,11 +1165,9 @@ fixed execution order are listed in Section~@@REF!sec:algorithm@@.
 
 @@ALGLINE!19!1@@ \textbf{if} stagnating: apply the budget-safe escape \ \ $\triangleright$~Eq.~(@@REF!eq:bse-cauchy@@)
 
-@@ALGLINE!20!1@@ \textbf{if} in the endgame slice, under the evaluation cap and past cooldown: charged coordinate local search on the elite rows \ \ $\triangleright$~$\ge0.80$ below $D{=}50$; $\ge0.70$ above
+@@ALGLINE!20!1@@ \textbf{if} in the endgame slice: charged coordinate local search on the elites
 
-@@ALGLINE!-!2@@ \quad\emph{Note.}~\textnormal{The $D{\ge}100$ upper-tier controllers are cross-cutting, not a stage after the local search: they act at population reduction (subspace-sampling floor), trial construction (frozen-streak broaden and late linkage random-mix), acceptance (late-acceptance clip and basin-memory update), and escape (basin-novelty reseed); a budget/ROI gate additionally gates the local search (a matching hook exists on the escape but never blocks it in the frozen configuration).}
-
-@@ALGLINE!21!1@@ \textbf{if} $D{\ge}50$: polish the working incumbent $x^{*}$ once, in the final budget slice \ \ $\triangleright$~Eq.~(@@REF!eq:eigen-polish@@)
+@@ALGLINE!21!1@@ \textbf{if} $D{\ge}50$: polish the working incumbent $x^{*}$ once, in the final slice \ \ $\triangleright$~Eq.~(@@REF!eq:eigen-polish@@)
 
 @@ALGLINE!-!2@@ \quad\emph{Update and restart}
 
@@ -1174,6 +1178,8 @@ fixed execution order are listed in Section~@@REF!sec:algorithm@@.
 @@ALGLINE!24!0@@ \textbf{end while}
 
 @@ALGLINE!25!0@@ \textbf{return} $x^{gb}$
+
+@@ALGLINE!-!1@@ \emph{Note.}~\textnormal{The linkage block is learned at $D{\ge}50$ (random otherwise) and confidence-gated; the local search enters at $0.80$ of the budget below $D{=}50$ and at $0.70$ above, under its evaluation cap and cooldown; and the $D{\ge}100$ upper-tier controllers are cross-cutting---they act inside the reduction, trial-construction, acceptance and escape steps above and gate the local search---as detailed in Section~@@REF!sec:algorithm@@.}
 
 
 
@@ -3630,28 +3636,22 @@ configuration files, and experimental result data supporting the findings of
 this study are openly available in the public \dtgsk{} repository at
 \url{https://github.com/MostafaMassoud/DT-GSK}; the originally submitted
 version corresponds to the repository tag v2.13 and this revised version to
-tag v2.32, and any further materials are
+tag v2.33, and any further materials are
 available from the corresponding author upon reasonable request. The
 supplementary materials accompanying the manuscript provide the additional
 methodological and experimental details needed to evaluate the reported
 results.
 All CEC2017, CEC2011 and CEC2013 values derive from a single primary
 evidence release, rel-2026-07-20-67d9345f9, whose manifest records a
-SHA-256 checksum for every released file; the two suites added after
-that release was minted are carried by their own separate,
-non-superseding releases, lsgo-rel-2026-07-28-ff1a046ef (CEC2013LSGO)
-and cec2020-rel-2026-07-29-5867abe1e (CEC2020), each with its own
-checksummed manifest; four of the mechanism-isolation experiments (E1--E4)
-are carried by a fourth additive, non-superseding release,
-rev-rel-2026-08-26-dd42d37eb, which
-leaves every primary value unchanged; the dimension-boundary experiment (E5)
-is carried by a fifth additive release,
-rev2-rel-2026-08-28-203c78744, on the same terms; the identity re-execution
-behind the Supplementary Materials Table~A45 residual is carried by a further
-additive release,
-g1-rel-2026-08-28-65b3d39e6; and the derived statistical artifacts
-behind every table and figure are versioned as checksummed analysis
-bundles alongside them. The supplementary component-isolation study
+SHA-256 checksum for every released file. The CEC2013LSGO and CEC2020
+suites, the five revision experiments (E1--E5), and the identity
+re-execution behind the Supplementary Materials Table~A45 residual are
+carried by five further additive, non-superseding releases on the same
+terms, each with its own checksummed manifest and none changing any
+primary value; their identifiers are recorded in the Supplementary
+Materials and in the repository's release manifests. The derived
+statistical artifacts behind every table and figure are versioned as
+checksummed analysis bundles alongside them. The supplementary component-isolation study
 (Section~S6) draws on a separate immutable component-isolation release,
 identified and checksummed in the Supplementary Materials. 
 Beyond the analyzed suites, the implementation also includes runnable

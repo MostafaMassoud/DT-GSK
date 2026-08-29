@@ -1,0 +1,74 @@
+% ============================================================================
+% DT-GSK pseudocode -- manuscript rendering (presentation revision 2026-08-29,
+% pass-60). Supersedes the phase_03 LaTeX rendering IN THE MANUSCRIPT ONLY:
+% papers/build_prompt_phases/phase_03/algorithm_pseudocode.tex remains frozen
+% in its append-only tree, and the canonical algorithm order is still
+% papers/build_prompt_phases/phase_03/algorithm_pseudocode.md (frozen).
+% RENDERING ONLY -- semantics, step set and the frozen loop order are
+% unchanged (accept -> memory update -> credit/ARGP -> escape -> local search
+% -> polish -> global-best -> restart; the D>=100 controllers are
+% cross-cutting, not a post-LS stage). What changed vs the phase_03 rendering:
+% every step now fits on ONE physical line (the old long steps wrapped across
+% two or three lines, orphaning their right-aligned equation anchors), the
+% six-line cross-cutting-controllers note is compressed to a one-line pointer
+% to the Section 3 execution-order paragraph that carries the same content
+% verbatim, and detail that the prose already states (linkage-source rule,
+% endgame entry conditions) moved from step text into short side comments.
+% GSK notation (NP, KF, KR, K_exp, x_i, x^gb, G; t = evaluations used,
+% MaxFES budget). Label: alg:dt-gsk (exhibit A1). Equation anchors:
+% equations.tex. MDPI-compatible: algorithm + algpseudocode, boxed float.
+% ============================================================================
+\begin{algorithm}[p]
+\caption{\textbf{Pseudo-code of the DT-GSK algorithm.} The junior and senior
+gaining-sharing \emph{vector-update equations} are retained unchanged; the
+generation around them is not---crossover masking, tie handling, the population
+size, and the senior partition are all modified. The added subsystems and their
+fixed execution order are listed in Section~\ref{sec:algorithm}.}
+\label{alg:dt-gsk}
+\setstretch{1.45}
+\begin{algorithmic}[1]
+\Require objective $f$, dimension $D$, bounds $[\ell,u]$, budget $\mathrm{MaxFES}$, seed \Comment{budgets: Section~\ref{sec:alg:complexity}}
+\Ensure global best solution $x^{gb}$
+\Statex
+\Statex \emph{Initialization}
+\State Initialize the interaction graphs $G_{\mathrm{abs}}, G_{\mathrm{signed}} \gets 0$ \Comment{allocated only at $D\ge50$}
+\State Set $NP{=}5D$ and the GSK parameters $KF,\ KR,\ K_{\exp},\ p$
+\State Open the 13 RNG substreams for dimension $D$
+\State Create a random population $\{x_i\}_{i=1}^{NP}$ in $[\ell,u]$
+\State Evaluate $f(x_i)$ for all $i$ and set the global best $x^{gb}$
+\Statex
+\While{$t < \mathrm{MaxFES}$}
+  \Statex
+  \Statex \quad\emph{Adapt and build trials}
+  \State Reduce $NP$ by the NLPSR schedule \Comment{Eq.~(\ref{eq:nlpsr})}
+  \State Assign each individual an ACE arm \Comment{$(KF, KR, K_{\exp})$; a sixth DE arm at $20{\le}D{<}100$}
+  \State Count the gained and shared dimensions \Comment{Eq.~(\ref{eq:kexp-schedule})}
+  \State Apply the junior gaining-sharing phase
+  \State Apply the senior gaining-sharing phase
+  \State Form the crossover mask: linkage block on some rows, $KR$ mask on the rest \Comment{Eq.~(\ref{eq:kr-mask})}
+  \State \textbf{if} DE arm: overwrite the masked coordinates with a DE/rand/1 mutant \Comment{$F{=}0.5$, $CR{=}0.9$}
+  \State Repair the out-of-bound coordinates
+  \State Evaluate the maximal prefix of $\{v_i\}$ that fits the budget \Comment{the rest are non-selectable}
+  \State Greedily keep each no-worse trial and update the diversity archive \Comment{Eq.~(\ref{eq:greedy-accept})}
+  \Statex
+  \Statex \quad\emph{Learn, escape, and refine \textnormal{(dimension-gated)}}
+  \State \textbf{if} $D{\ge}50$: update the interaction-structure memory \Comment{Eq.~(\ref{eq:sgsm-graph})}
+  \State Update the ACE credit and prune stalled arms (ARGP)
+  \State \textbf{if} stagnating: apply the budget-safe escape \Comment{Eq.~(\ref{eq:bse-cauchy})}
+  \State \textbf{if} in the endgame slice: charged coordinate local search on the elites
+  \State \textbf{if} $D{\ge}50$: polish the working incumbent $x^{*}$ once, in the final slice \Comment{Eq.~(\ref{eq:eigen-polish})}
+  \Statex
+  \Statex \quad\emph{Update and restart}
+  \State Update the global best $x^{gb}$
+  \State \textbf{if} deep-stalled: restart the population, keeping $x^{gb}$
+\EndWhile
+\Statex
+\State \Return $x^{gb}$
+\Statex
+\Statex \emph{Note.}~\textnormal{The linkage block is learned at $D{\ge}50$ (random otherwise) and confidence-gated; the
+local search enters at $0.80$ of the budget below $D{=}50$ and at $0.70$ above, under its evaluation
+cap and cooldown; and the $D{\ge}100$ upper-tier controllers are cross-cutting---they act inside the
+reduction, trial-construction, acceptance and escape steps above and gate the local search---as
+detailed in Section~\ref{sec:algorithm}.}
+\end{algorithmic}
+\end{algorithm}

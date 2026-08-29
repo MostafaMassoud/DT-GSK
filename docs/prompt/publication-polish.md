@@ -13,15 +13,15 @@
 > **State snapshot refreshed 2026-08-29.** Any dated status, tag, pass number, or open-item
 > list below this line is a point-in-time anchor from an earlier phase and is NOT current
 > state. The live state is [`REVISION_STATUS.md`](../../REVISION_STATUS.md) (start there) and
-> the `CLAUDE.md` "Right now" block. As of this refresh: **pass-59 / tag v2.32**
-> (decision log through **D-0064**, register through **CR-0039**,
-> next free **CR-0040 / D-0065** — verify free at apply time); the round-one revision at *Algorithms* (MDPI) is
+> the `CLAUDE.md` "Right now" block. As of this refresh: **pass-60 / tag v2.33**
+> (decision log through **D-0065**, register through **CR-0040**,
+> next free **CR-0041 / D-0066** — verify free at apply time); the round-one revision at *Algorithms* (MDPI) is
 > complete and agent-side work is finished; resubmission is due **2026-09-01**
 > (deadline = planned date, zero slack).
 >
 > Four things this refresh adds, because they change what a reviewer of this repository sees:
 > (1) the repository is **PRIVATE until upload day** and must be flipped public before the
-> SuSy upload — the Data Availability Statement names its URL and tags `v2.13`/`v2.32`;
+> SuSy upload — the Data Availability Statement names its URL and tags `v2.13`/`v2.33`;
 > (2) the reviewer-facing response letter, both marked PDFs and the change register are
 > **untracked by design** (D-0049) and live in `papers/submission/` — do not expect them in
 > `git ls-files`; (3) operational identifiers (the private history bundle's location, the two
