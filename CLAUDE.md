@@ -15,14 +15,12 @@ Python package: `gsk_family` (under `src/`). Console entry points are `gsk-*`.
 The repository exists to support a **published claim**, not to be a general framework. Most files
 are frozen or hash-bound. Assume nothing is casually editable.
 
-## Right now (2026-08-29)
+## Right now (2026-08-30)
 
-**⏳ RESUBMISSION DEADLINE: 2026-09-01 — CONFIRMED by the author on 2026-08-27, and it is also the
-planned resubmission date, so there is ZERO slack.** An earlier **2026-09-03** was an *inference*
-from the decision letter's ten-day window; the real date is two days tighter, so the margin these
-documents assumed does not exist. Nothing in the repository blocks it — everything agent-side is
-complete. The letter invites a request for more time, which is now the only source of margin there
-is. **The repo was set PRIVATE on 2026-08-28 (author, to finalize) and MUST be public again before
+**⏳ RESUBMISSION: the author submits TODAY, 2026-08-30 — two days ahead of the confirmed
+2026-09-01 deadline** (the earlier zero-slack framing is obsolete: submitting early restores the
+margin the deadline confirmation had removed). Both letters and the CFF are re-dated 2026-08-30.
+Nothing in the repository blocks it — everything agent-side is complete. **The repo was set PRIVATE on 2026-08-28 (author, to finalize) and MUST be public again before
 the upload** — the DAS names its URL and tags, and reviewers will click. Detail:
 [REVISION_STATUS.md](REVISION_STATUS.md) Section 5 items 1 and 6.
 
@@ -136,7 +134,7 @@ item):** the D-0051 re-execution is PROMOTED and cited (`g1-rel-2026-08-28-65b3d
 now reports the residual as a demonstrated build difference), Figure 4 shades the within-one-CD
 cohort instead of the detached ruler, the convergence captions state their shared protocol once
 in the body, the cover letter leads with closure and reports the three adverse findings plainly
-(dated 1 September 2026), references.bib is pruned to its 44 cited entries alongside the three
+(re-dated 30 August 2026 at pass-63), references.bib is pruned to its 44 cited entries alongside the three
 citation-control files, the change register is redesigned (TOC, badges, color-coded panels; 92
 passages), and **every reviewer/revision-process reference is removed from the published
 artifacts** — S9 is now “Mechanism-Isolation and Sensitivity Experiments”; pre-registration

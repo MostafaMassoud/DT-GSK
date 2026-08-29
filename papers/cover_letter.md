@@ -4,7 +4,7 @@
 **Manuscript:** *DT-GSK: Dimension-Tiered Adaptive Configuration Selection and Deterministic Refinement for Gaining-Sharing Knowledge Optimization* — algorithms-4507562, revision 1
 **Authors:** Mostafa Elsayed Ahmed Masoud (corresponding author), Heba Sayed Mohamed Roshdy, Ali Wagdy Mohamed
 **Corresponding author:** moustafa.masoud@gmail.com
-**Date:** 1 September 2026
+**Date:** 30 August 2026
 
 <!-- R-0004 clearance (2026-07-11): rewritten for the frozen target journal
      (MDPI Algorithms, decision D-0010). Scientific core is bound to the

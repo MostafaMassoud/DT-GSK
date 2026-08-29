@@ -13,7 +13,7 @@ what is happening, what is done, and what is next.
 | **Branch** | `main` — **published** at `02d1791`, tracking `origin/main`, and since 2026-08-28 the **only** branch: the development-history branches were bundled to the author's private history bundle outside the repository (restore-tested; location in the withheld `papers/review_2026_08_24/PRIVATE_OPS.md`) and deleted. Never fetch that bundle into a repo with a public remote. |
 | **Progress** | **COMPLETE** — all ten reviewer points answered; phases 1–7 applied; five experiments run, analysed and written up (E5 added ahead of resubmission, pass-49); the reopened-items batch (pass-50), the acceptance-readiness review (pass-51) and the seven-lens panel review of the response letter (pass-52) are all applied. |
 | **Freeze** | **pass-62 / tag v2.35** (anchor `934192a`) · `check_manifest` 15/15 + `sources 2/2` (gating commit-field resolvability) · **PUSHED 2026-08-29** — all 35 tags on `origin`; v2.13 and v2.35, the two the DAS names, verified resolving there. Repo is **PRIVATE until upload day** — flip public before SuSy upload. Next free ids **CR-0043 / D-0068**. |
-| **Revision deadline** | **2026-09-01 CONFIRMED** — also the planned resubmission date, so **zero slack**; the extension-request draft is the only margin (§5) |
+| **Revision deadline** | **2026-09-01 CONFIRMED** — the author resubmits **2026-08-30**, two days ahead (Section 5) |
 
 ---
 
@@ -1345,8 +1345,8 @@ worktree blind spot.
    ~~**Request more time.**~~ — **CLOSED 2026-08-28: will not be requested.** The e-mail invites
    one, and with plan and deadline on the same day it was the only available source of margin.
    The author declined on 2026-08-27 and closed it on 2026-08-28. **Not a to-do; do not re-raise
-   it.** The consequence is accepted knowingly: resubmission is on 2026-09-01 and a one-day slip
-   is a missed deadline. The invitation remains in the letter should the author ever choose to
+   it.** The consequence was accepted knowingly while plan and deadline coincided; on 2026-08-30
+   the author moved the resubmission up two days, restoring the margin. The invitation remains in the letter should the author ever choose to
    use it, but no agent should propose it again.
    ✅ **Check-list item (II) is DISCHARGED (2026-08-27).** The letter asks that revisions be
    *highlighted in the manuscript*, and the project now produces exactly that:
@@ -1382,7 +1382,7 @@ worktree blind spot.
    none survives.
 5. **SuSy portal (author-only)** — the new title and the revised keyword list must be re-entered in the
    revision form. Portal metadata does not update from the PDF.
-6. **Make the repository PUBLIC again before uploading (author-only, 2026-09-01).** The author set it
+6. **Make the repository PUBLIC again before uploading (author-only, upload day 2026-08-30).** The author set it
    private on 2026-08-28 to finalize; verified private (API 404). The Data Availability Statement in
    the revised manuscript names the repo URL and tags v2.13/v2.35, and the Supplementary's
    pre-registration claim depends on public checkability — a reviewer clicking during round 2 must
@@ -1575,7 +1575,7 @@ are given here.
 
 ### Phase 7 — resubmit (author-only; the point of no return)
 
-**Deadline CONFIRMED 2026-09-01, and the planned resubmission date is the same day.** Everything
+**Deadline CONFIRMED 2026-09-01; the author resubmits on 2026-08-30, two days ahead.** Everything
 agent-side is complete at pass-62 / `v2.35` (pass-51's acceptance-readiness fixes plus the
 seven-lens panel review: the response letter's stale abstract quote and two superseded E1
 p-values corrected, SA01/SA02 renamed to the typeset Tables A23–A24, and the cover letter's
