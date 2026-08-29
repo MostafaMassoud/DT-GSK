@@ -13,7 +13,7 @@
 > **State snapshot refreshed 2026-08-29.** Any dated status, tag, pass number, or open-item
 > list below this line is a point-in-time anchor from an earlier phase and is NOT current
 > state. The live state is [`REVISION_STATUS.md`](../../REVISION_STATUS.md) (start there) and
-> the `CLAUDE.md` "Right now" block. As of this refresh: **pass-52 / tag v2.25**, the
+> the `CLAUDE.md` "Right now" block. As of this refresh: **pass-53 / tag v2.26**, the
 > round-one revision at *Algorithms* (MDPI) is complete and agent-side work is finished;
 > resubmission is due **2026-09-01** (deadline = planned date, zero slack).
 >
@@ -28,6 +28,19 @@
 > tracked documents deliberately no longer print them; (4) `results/_revision/` staging was
 > quarantined outside the repository — the promoted releases under
 > `benchmarks/cec_reference_results/` are the canonical evidence.
+>
+> **Pass-53 (2026-08-29) closed the full remediation register**, so findings from
+> earlier applications of this instrument are largely discharged: the Supplementary's
+> boundary-sensitivity limitation now agrees with Section S9.5; the Conclusions state
+> why the interaction-structure memory and its eigenbasis are retained; C2's narrowing
+> reached the Introduction; the deterministic PDF epoch is pinned inside the builders
+> (it had been absent since pass-51, so shipped PDFs carried wall-clock stamps); the
+> governance manifests, the change-request register and the submission kit's
+> paste-ready abstract are all resynced. Re-derive findings from the artifacts rather
+> than assuming any earlier list still holds. Two things are known-and-accepted, not
+> defects: `benchmarks/cec_reference_results/README.md` carries stale release ids but
+> is hash-bound in an immutable release, and the submission-day operations (public
+> flip, purge ticket, SuSy fields) are deliberately outstanding.
 >
 > **Check `git status -sb` before trusting remote state:** the cleanup commits were made
 > locally and deliberately not pushed, so `main` may be ahead of `origin/main`.
