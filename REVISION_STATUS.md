@@ -1381,7 +1381,7 @@ worktree blind spot.
    revision form. Portal metadata does not update from the PDF.
 6. **Make the repository PUBLIC again before uploading (author-only, 2026-09-01).** The author set it
    private on 2026-08-28 to finalize; verified private (API 404). The Data Availability Statement in
-   the revised manuscript names the repo URL and tags v2.13/v2.30, and the Supplementary's
+   the revised manuscript names the repo URL and tags v2.13/v2.30, and the Supplementary's After the flip, verify from a LOGGED-OUT/private browser window that the repository, both DAS-named tags and the pre-registration file are anonymously accessible — the letter's present-tense availability claims are checked by exactly that test.
    pre-registration claim depends on public checkability — a reviewer clicking during round 2 must
    not hit a 404. Flip visibility BEFORE the SuSy upload. Side effect while private: the two
    GitHub-exposed commits are not publicly served; public serving resumes with visibility.
