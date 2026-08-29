@@ -3179,3 +3179,24 @@ applying all surfaced fixes.
 - **Validation.** check_manifest 15/15 + sources 2/2; reproducibility and
   package manifests re-minted and verified post-write; full ladder green.
 - **Anchor.** Apply commit 934192a. NEXT free ids: CR-0043 and D-0068.
+
+## D-0068 (2026-08-30) - Pass-63: resubmission re-dated to 2026-08-30
+
+- **Decision.** The author submits TODAY, 2026-08-30 - two days ahead of
+  the confirmed 2026-09-01 deadline. Mint **pass-63**, tag **v2.36**.
+  Registered as **CR-0043**.
+- **Scope.** The cover letter (both twins) and the response letter (and its
+  technical companion) are re-dated 30 August 2026 and rebuilt;
+  CITATION.cff carries date-released 2026-08-30 and the new planned date
+  with the unchanged deadline noted; CLAUDE.md and REVISION_STATUS drop the
+  zero-slack framing - submitting early restores the margin the deadline
+  confirmation had removed - and the public-flip item moves to upload day
+  2026-08-30. The deadline itself (2026-09-01) is unchanged everywhere it
+  is cited as a deadline.
+- **No result changes.** No number, rank, p-value, decision or claim
+  changes; page counts unchanged (49/83, letter 9 pp); the main PDF and
+  the cover letter each double-built byte-identical; all letter page
+  anchors verified.
+- **Validation.** check_manifest 15/15 + sources 2/2; reproducibility and
+  package manifests re-minted and verified post-write; full ladder green.
+- **Anchor.** Apply commit fcb17f2. NEXT free ids: CR-0044 and D-0069.

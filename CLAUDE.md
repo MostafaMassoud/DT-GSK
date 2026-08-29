@@ -24,10 +24,13 @@ Nothing in the repository blocks it — everything agent-side is complete. **The
 the upload** — the DAS names its URL and tags, and reviewers will click. Detail:
 [REVISION_STATUS.md](REVISION_STATUS.md) Section 5 items 1 and 6.
 
-**Current freeze: pass-62 / `v2.35`** — minted, tagged and **PUSHED** (2026-08-29); all 35
-tags are on `origin`, and `v2.13`/`v2.35` — the two the DAS names — resolve there. The repo is still **PRIVATE** —
+**Current freeze: pass-63 / `v2.36`** — minted and tagged (2026-08-30); push, then verify with
+`git ls-remote --tags origin` — the DAS names `v2.13` and `v2.36`. The repo is still **PRIVATE** —
 flipping it public is the remaining step before a referee can follow the DAS. Next free ids:
-**CR-0043 / D-0068** — verify free at apply time.
+**CR-0044 / D-0069** — verify free at apply time.
+**Pass-63 (2026-08-30, D-0068 / CR-0043) re-dates the resubmission to 2026-08-30:** both letters
+re-dated 30 August 2026 and rebuilt, CFF date-released and planned-date updated (deadline
+2026-09-01 unchanged), zero-slack framing dropped — submitting two days early restores the margin.
 **Pass-62 (2026-08-29, D-0067 / CR-0042) closes the crushed-back-matter family:** the Supplementary
 Materials and Abbreviations statements — the last two users of mdpi.cls's 9/9 zero-leading
 style — re-declared at 9/11.5 beside the four fixed at pass-61; the class's other 9/9 sites
