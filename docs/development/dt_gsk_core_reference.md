@@ -135,7 +135,7 @@ graph still *informs* linkage and block selection at `D >= 50`
 (`interaction_use_for_local_search=True`), but the search that executes is coordinate-wise.
 Do not claim DT-GSK runs a graph-guided subspace polish; it does not.
 
-## Determinism at D >= 50
+## Determinism at D 50 and above
 
 SGSM uses `prange`, so thread count changes floating-point reduction order. For any
 byte-identity work, export all six variables **before Python imports numpy/numba** —

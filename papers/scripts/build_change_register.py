@@ -180,8 +180,11 @@ def listing(lines, empty_note, kind):
 
 
 def clean_context(context: str) -> str:
-    """Diff hunk context is raw TeX mid-line: strip markup debris and show it
-    only when enough legible text survives to orient the reader."""
+    """Diff hunk context is raw TeX mid-line: keep it verbatim (the caller
+    escapes it for typesetting) and show it only when enough legible text is
+    present to orient the reader. The legibility gate is still computed on a
+    markup-stripped copy, so exactly the same lines show as before; only the
+    rendering changed from stripped to verbatim."""
     if not context:
         return ""
     t = context
@@ -191,7 +194,7 @@ def clean_context(context: str) -> str:
     alnum = sum(ch.isalnum() for ch in t)
     if alnum < 18 or alnum < 0.55 * max(len(t), 1):
         return ""
-    return t
+    return " ".join(context.split())[:110]
 
 
 def build_tex(base, new, per_file, counts, total):
@@ -314,12 +317,18 @@ def build_tex(base, new, per_file, counts, total):
 
 
 def tex_escape(s: str) -> str:
-    for a, b in (("\\", r"\textbackslash{}"), ("&", r"\&"), ("%", r"\%"),
+    # Backslash goes through a placeholder: substituting \textbackslash{}
+    # directly would let the later brace passes corrupt the braces it
+    # introduces (\ -> \textbackslash\{\}), and escaping braces first would
+    # corrupt the backslashes those escapes introduce. NUL cannot occur in
+    # the inputs (git treats NUL-bearing files as binary and emits no hunks).
+    s = s.replace("\\", "\x00")
+    for a, b in (("&", r"\&"), ("%", r"\%"),
                  ("$", r"\$"), ("#", r"\#"), ("_", r"\_"), ("{", r"\{"),
                  ("}", r"\}"), ("~", r"\textasciitilde{}"),
                  ("^", r"\textasciicircum{}")):
         s = s.replace(a, b)
-    return s
+    return s.replace("\x00", r"\textbackslash{}")
 
 
 def main() -> int:

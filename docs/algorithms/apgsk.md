@@ -32,7 +32,7 @@ Both knobs share the rest of the AGSK machinery unchanged: the same four-slot
 `KF_POOL`/`KR_POOL`, the same `INITIAL_KW` weights updated from improvement
 credit, the same Linear Population Size Reduction (LPSR), and the same junior /
 senior gained-sharing kernel with midpoint repair — the shared `gsk_build_trial`
-(`_kernels.py`), invoked at `apgsk.py:173`.
+(`_kernels.py`), invoked at `apgsk.py:184`.
 
 ## Mathematical formulation
 
@@ -53,11 +53,11 @@ KF_POOL_NEGATIVE = [-0.15, -0.05, -0.05, -0.15 ]   # negative (APGSK only)
 **Positive-vs-negative gate** (`_apgsk_kf_values`, `apgsk.py:42-58`). The pool is
 chosen *once per generation* for the whole population. Outside the adaptive phase
 the positive pool is always used; inside it a single uniform draw
-`u = adaptive_pool_draw ∈ [0,1)` (`apgsk.py:146`) and the budget ratio decide
+`u = adaptive_pool_draw ∈ [0,1)` (`apgsk.py:148`) and the budget ratio decide
 (`apgsk.py:53-57`):
 
 ```text
-adaptive_phase is true  iff  nfes >= 0.1 * max_nfes        # apgsk.py:136
+adaptive_phase is true  iff  nfes >= 0.1 * max_nfes        # apgsk.py:138
 
 if not adaptive_phase:
     use_negative = false                                   # always positive
@@ -99,14 +99,14 @@ The senior update behaves the same way; midpoint repair (`_kernels.py:132-135,
 midpoint, so a negative step can never leave `[lb, ub]`.
 
 **Stochastic junior-dimension schedule** (`_stochastic_junior_dimension`,
-`apgsk.py:61-66`). One uniform draw `d = rng.random() ∈ [0,1)` (`apgsk.py:163`)
+`apgsk.py:61-66`). One uniform draw `d = rng.random() ∈ [0,1)` (`apgsk.py:165`)
 per generation randomizes the exponent; `ratio = nfes / max_nfes`:
 
 ```text
 ratio    = nfes / max_nfes
 exponent = 0.5  if d > ratio   else  2.0                       # apgsk.py:64
 D_junior = ceil( round_half_away( D * (1 - ratio)^exponent ) ) # apgsk.py:65-66
-junior_prob = D_junior / D                                     # apgsk.py:171
+junior_prob = D_junior / D                                     # apgsk.py:174
 ```
 
 `round_half_away` is `compat_round_int` (`numeric_compat.py:31-36`,
@@ -115,8 +115,8 @@ unchanged but matches the reference expression. Contrast with the **deterministi
 schedules:
 
 ```text
-GSK   (gsk.py:147-148):  D_junior = ceil( D * (1 - g/G_max)^k ),   k = 10  (fixed)
-AGSK  (agsk.py:278-280): D_junior = ceil( D * (1 - nfes/max_nfes)^k_i )    (per-row k_i, fixed for the run)
+GSK   (gsk.py:149-150):  D_junior = ceil( D * (1 - g/G_max)^k ),   k = 10  (fixed)
+AGSK  (agsk.py:288-290): D_junior = ceil( D * (1 - nfes/max_nfes)^k_i )    (per-row k_i, fixed for the run)
 APGSK (apgsk.py:61-66):  exponent flips between 0.5 and 2.0 each generation by a coin vs. ratio
 ```
 
@@ -129,11 +129,11 @@ more likely **late** (large `ratio`) — a soft bias toward exploration early an
 exploitation late, layered on top of the `(1 - ratio)` decay.
 
 > **RNG note.** APGSK still draws AGSK's initial per-individual `k` vector
-> (`apgsk.py:120`, `_draw_initial_k`) purely to keep the random stream
+> (`apgsk.py:121`, `_draw_initial_k`) purely to keep the random stream
 > bit-identical to AGSK, but the stochastic schedule above **never uses it**
-> (`apgsk.py:118-119`). The draw order per generation is: slots →
+> (`apgsk.py:119-120`). The draw order per generation is: slots →
 > `adaptive_pool_draw` (adaptive phase only) → junior-schedule `d` → the junior
-> `rg3` draw and the three senior block draws (`apgsk.py:168-169`) → the
+> `rg3` draw and the three senior block draws (`apgsk.py:171-172`) → the
 > `(3, NP, D)` mask block.
 
 ## Pseudocode
@@ -142,29 +142,29 @@ exploitation late, layered on top of the `(1 - ratio)` decay.
 np_init, min_pop_size = options                                  # apgsk.py:74-75
 max_pop_size = np_init
 initialize / accept fair-start population, evaluate, record best
-k_vec = draw_initial_k(NP)        # RNG-fidelity only, unused      # apgsk.py:120
+k_vec = draw_initial_k(NP)        # RNG-fidelity only, unused      # apgsk.py:121
 kw_ind = None;  all_imp = zeros(4)
-for generation = 1, 2, ... until nfes >= max_nfes:               # apgsk.py:133
-    if kw_ind is None or nfes < 0.1*max_nfes:                    # apgsk.py:136
+for generation = 1, 2, ... until nfes >= max_nfes:               # apgsk.py:135
+    if kw_ind is None or nfes < 0.1*max_nfes:                    # apgsk.py:138
         kw_ind = INITIAL_KW;            adaptive_phase = False
     else:
         kw_ind = normalize(0.95*kw_ind + 0.05*all_imp); adaptive_phase = True
-    slots = select_parameter_slots(kw_ind)                       # apgsk.py:144 (AGSK)
+    slots = select_parameter_slots(kw_ind)                       # apgsk.py:146 (AGSK)
     kr    = KR_POOL[slots]
-    u     = rng.random()  if adaptive_phase else None            # apgsk.py:146
+    u     = rng.random()  if adaptive_phase else None            # apgsk.py:148
     kf, used_negative = apgsk_kf_values(slots, adaptive_phase, u, nfes, max_nfes)  # gate
-    D_junior = stochastic_junior_dimension(D, nfes, max_nfes, rng.random())        # apgsk.py:159
+    D_junior = stochastic_junior_dimension(D, nfes, max_nfes, rng.random())        # apgsk.py:161
     order   = argsort(fitness)                                    # best -> worst
-    rg1,rg2,rg3 = junior_donors(order)                           # apgsk.py:168
-    r1,r2,r3    = senior_donors(order, SENIOR_P=0.05)            # apgsk.py:169
+    rg1,rg2,rg3 = junior_donors(order)                           # apgsk.py:171
+    r1,r2,r3    = senior_donors(order, SENIOR_P=0.05)            # apgsk.py:172
     junior_prob = D_junior / D
-    trial = gsk_build_trial(..., kf_junior=kf, kf_senior=kf, kr=kr, junior_prob=...)  # apgsk.py:173
+    trial = gsk_build_trial(..., kf_junior=kf, kf_senior=kf, kr=kr, junior_prob=...)  # apgsk.py:184
     evaluate trial; nfes += n_count
     all_imp = improvement_credit(fitness, children_fitness, slots)   # AGSK
-    greedy replace: parent <- child where f(child) < f(parent)   # apgsk.py:213-216
-    LPSR: reduce population toward target size                    # apgsk.py:218 (AGSK)
+    greedy replace: parent <- child where f(child) < f(parent)   # apgsk.py:224-226
+    LPSR: reduce population toward target size                    # apgsk.py:228 (AGSK)
     append (nfes, best_so_far) to the convergence trace
-    if best - optimum < target_error: stop                       # apgsk.py:232-235
+    if best - optimum < target_error: stop                       # apgsk.py:241-244
 ```
 
 ## Parameters
@@ -176,7 +176,7 @@ fixed in code (not user options) and listed below the table.
 |---|---|---|---|---|---|
 | `np` | NP | `100` | integer ≥ `min_pop_size` (≥ 11 with defaults) | Fallback initial population size when `np_init` is absent. | `apgsk.py:73` |
 | `np_init` | NP_init | `np` (`100`) | integer ≥ `min_pop_size` | Initial population size before LPSR. | `apgsk.py:74` |
-| `min_pop_size` | NP_min | `12` | integer ≥ 11 | Floor for LPSR (validated `≥ 11`, `agsk.py:199-200`). | `apgsk.py:75` |
+| `min_pop_size` | NP_min | `12` | integer ≥ 11 | Floor for LPSR (validated `≥ 11`, `agsk.py:207-208`). | `apgsk.py:75` |
 | `seed` | — | required | integer | RNG seed (passed to `RandomContext`). | `apgsk.py:71` |
 | `rand_generator` | — | `"twister"` | RNG name | Backend for `RandomContext`. | `apgsk.py:72` |
 
@@ -189,7 +189,7 @@ Fixed constants (not options):
 | `KR_POOL` | `[0.2, 0.1, 0.9, 0.9]` | each in [0,1] | Knowledge-ratio pool (imported from AGSK). | `apgsk.py:22-34`, `agsk.py:27` |
 | `INITIAL_KW` | `[0.85, 0.05, 0.05, 0.05]` | sums to 1 | Initial slot-selection weights (imported from AGSK). | `agsk.py:28` |
 | `SENIOR_P` | `0.05` | (0, 0.5) | Senior best/worst block fraction (imported from AGSK). | `agsk.py:29` |
-| adaptive-phase threshold | `0.1 * max_nfes` | — | `nfes` at which weights start adapting and the gate turns on. | `apgsk.py:136` |
+| adaptive-phase threshold | `0.1 * max_nfes` | — | `nfes` at which weights start adapting and the gate turns on. | `apgsk.py:138` |
 | negative-gate draw cutoff | `0.3` | (0,1) | `u < 0.3` keeps the negative pool in the second half. | `apgsk.py:56` |
 | negative-gate stage cutoff | `0.5 * max_nfes` | — | Boundary between the always-negative and probabilistic halves. | `apgsk.py:56` |
 | junior-schedule exponents | `0.5` / `2.0` | — | Slow vs. fast junior-decay exponents chosen by `d > ratio`. | `apgsk.py:64` |
@@ -287,19 +287,19 @@ flowchart TD
   never leave `[lb, ub]`.
 - **Budget.** The loop runs whole generations until `nfes >= max_nfes`; the final
   generation is partially counted via `n_count = min(pop_size, max_nfes - nfes)`
-  (`apgsk.py:201`). With LPSR active the population shrinks toward `min_pop_size`,
+  (`apgsk.py:212`). With LPSR active the population shrinks toward `min_pop_size`,
   so later generations spend fewer evaluations each. Best-so-far is monotone
   non-increasing.
 - **Determinism.** The trial kernel is pure arithmetic; all randomness is drawn by
   the caller in a fixed order — slots, then the adaptive-pool draw `u` (only in
   the adaptive phase), then the junior-schedule draw `d`, then the junior `rg3`
-  draw and the three senior block draws (`apgsk.py:168-169`), then one `(3, NP, D)`
-  mask block (`apgsk.py:144-172`). The unused `k_vec` draw (`apgsk.py:120`) is
+  draw and the three senior block draws (`apgsk.py:171-172`), then one `(3, NP, D)`
+  mask block (`apgsk.py:146-175`). The unused `k_vec` draw (`apgsk.py:120`) is
   kept to preserve byte-for-byte stream parity with AGSK. Serial and parallel runs
   produce identical results. See [Seed Policy](../reference/seed_policy.md).
 - **Diagnostics.** `params` records `kf_pool`, `kf_pool_negative`, and the per-run
-  counts `negative_kf_generations` / `positive_kf_generations` (`apgsk.py:154-157,
-  271-272`) so you can audit how often the negative pulse fired.
+  counts `negative_kf_generations` / `positive_kf_generations` (`apgsk.py:156-159,
+  280-281`) so you can audit how often the negative pulse fired.
 
 ## Complexity
 

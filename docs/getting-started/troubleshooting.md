@@ -128,7 +128,7 @@ Numba thread count, and parallel runs auto-cap Numba threads while serial runs
 keep the default. Pass `--numba-threads 1` to both runs to remove this
 divergence source; for strict byte-identity, export the six thread-pinning
 environment variables before Python starts and use `--serial` — see
-[Determinism at D >= 50](../development/dt_gsk_core_reference.md#determinism-at-d-50).
+[Determinism at D 50 and above](../development/dt_gsk_core_reference.md#determinism-at-d-50-and-above).
 
 ## A Worker Process Dies Or The Pool Breaks Mid-Run
 

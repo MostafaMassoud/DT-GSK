@@ -54,7 +54,7 @@ g < lb_j:  g = (x_i,j + lb_j) / 2
 g > ub_j:  g = (x_i,j + ub_j) / 2
 ```
 
-**Junior dimension schedule** (`gsk.py:147-148`). At generation `g` of `G_max`:
+**Junior dimension schedule** (`gsk.py:149-150`). At generation `g` of `G_max`:
 
 ```text
 D_junior = ceil( D * (1 - g / G_max) ^ k )
@@ -74,7 +74,7 @@ rand_split <= junior_prob  -> junior dim: take g_j only if rand_kr_junior <= kr
 otherwise                  -> senior dim: take g_s only if rand_kr_senior <= kr
 ```
 
-**Selection** is strictly greedy (`gsk.py:201-204`): the child replaces the
+**Selection** is strictly greedy (`gsk.py:217-219`): the child replaces the
 parent only if `f(child) < f(parent)`.
 
 ## Pseudocode
@@ -82,8 +82,8 @@ parent only if `f(child) < f(parent)`.
 ```text
 G_max = fix(max_nfes / NP)                      # gsk.py:110
 initialize / accept fair-start population, evaluate, record best
-for g = 1, 2, ... until nfes >= max_nfes:       # gsk.py:145
-    D_junior   = ceil(D * (1 - g/G_max)^k)      # gsk.py:148
+for g = 1, 2, ... until nfes >= max_nfes:       # gsk.py:147
+    D_junior   = ceil(D * (1 - g/G_max)^k)      # gsk.py:149-150
     order      = argsort(fitness)               # best -> worst
     rg1,rg2,rg3 = junior_donors(order)          # rank neighbours + random
     r1,r2,r3    = senior_donors(order, p)        # best / middle / worst blocks
@@ -181,9 +181,9 @@ flowchart TD
   trials stay inside `[lb, ub]` and near their parent.
 - **Budget.** `G_max = fix(max_nfes / NP)` and the loop runs whole generations,
   so the final generation may be partially counted (`n_count = min(NP,
-  max_nfes - nfes)`, `gsk.py:191`). The best-so-far is monotone non-increasing.
+  max_nfes - nfes)`, `gsk.py:207`). The best-so-far is monotone non-increasing.
 - **Determinism.** The trial kernel is pure arithmetic; all randomness comes
-  from the caller's RNG in a fixed draw order (`gsk.py:159` draws one
+  from the caller's RNG in a fixed draw order (`gsk.py:165` draws one
   `(3, NP, D)` block), so serial and parallel runs produce identical results.
   See [Seed Policy](../reference/seed_policy.md).
 

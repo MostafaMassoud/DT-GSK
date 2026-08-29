@@ -90,13 +90,13 @@ Senior donors `(r1, r2, r3)`: `r1` from the **best** block, `r2` from the
 **middle** block (and also the worse/other pivot, `_kernels.py:64`), `r3` from
 the **worst** block. The senior partition uses `SENIOR_P = 0.05`
 (`agsk.py:29`; **note** this is half of GSK's `p = 0.1`), with block boundaries
-`top_end = round(NP·0.05)`, `mid_end = round(NP·0.95)` (`fdb_agsk.py:149-150`).
+`top_end = round(NP·0.05)`, `mid_end = round(NP·0.95)` (`fdb_agsk.py:157-158`).
 
 Each `fdb_case` replaces a different subset of those six indices. The payloads
-come from `_fdb_indices` (`fdb_agsk.py:186-197`): `B = fdb_score_best`,
+come from `_fdb_indices` (`fdb_agsk.py:194-205`): `B = fdb_score_best`,
 `K = fdb_score_ranking`, `U = fdb_score_roulette`. The junior overrides live in
-`_fdb_junior_r1r2r3` (`fdb_agsk.py:95-112`), the senior overrides in
-`_fdb_senior_r1r2r3` (`fdb_agsk.py:159-170`):
+`_fdb_junior_r1r2r3` (`fdb_agsk.py:103-120`), the senior overrides in
+`_fdb_senior_r1r2r3` (`fdb_agsk.py:167-178`):
 
 ```text
 case  payload(s)              junior donors                         senior donors
@@ -110,41 +110,41 @@ case  payload(s)              junior donors                         senior donor
 ```
 
 Reading the table case by case (each "RANDOM" is the usual collision-free uniform
-junior `rg3` draw, `fdb_agsk.py:96`):
+junior `rg3` draw, `fdb_agsk.py:104`):
 
-- **Case 1** (`fdb_agsk.py:159-163`). Junior is untouched (standard random
+- **Case 1** (`fdb_agsk.py:167-171`). Junior is untouched (standard random
   `rg3`). **Senior `r2` is forced to the FDB-best index `B`.** Because `r2` is
   also the senior worse/other pivot (`_kernels.py:64`), case 1 changes both the
   donor *and* the branch comparison `f_i > f_B`.
-- **Case 2** (`fdb_agsk.py:164-167`). Junior untouched. Senior `r1`/`r2` are
+- **Case 2** (`fdb_agsk.py:172-175`). Junior untouched. Senior `r1`/`r2` are
   normal best/middle picks, but **`r3` is sampled from the FDB ranking's tail
   `K[mid_end:]`** — i.e. the worst block is re-defined by FDB score instead of by
   raw fitness.
-- **Case 3** (`fdb_agsk.py:97-101`). **Junior `rg2 = U` (roulette FDB) and
+- **Case 3** (`fdb_agsk.py:105-109`). **Junior `rg2 = U` (roulette FDB) and
   `rg3 = B` (best FDB)**; senior is fully standard. Two of the three junior
   donors become FDB picks.
-- **Case 4** (`fdb_agsk.py:102-106`). **Junior `rg1 = U` (roulette FDB) and
+- **Case 4** (`fdb_agsk.py:110-114`). **Junior `rg1 = U` (roulette FDB) and
   `rg3 = B` (best FDB)**; senior standard. Like case 3 but the roulette pick
   replaces the *better* neighbour `rg1` instead of the worse neighbour `rg2`.
-- **Case 5** (`fdb_agsk.py:107-110`). **Junior `rg3 = B` (best FDB)** only;
+- **Case 5** (`fdb_agsk.py:115-118`). **Junior `rg3 = B` (best FDB)** only;
   senior standard. The lightest touch — a single FDB injection into the junior
   third term.
 
 After any junior override, `rg3` (and in cases 3/4 the forced indices) still pass
 through the same collision-free repair loop that rejects `rg3 ∈ {rg1, rg2, i}`
-(`fdb_agsk.py:114-121`).
+(`fdb_agsk.py:122-129`).
 
 ## Pseudocode
 
 ```text
-pop_size = np_init;  max_pop = np_init                       # fdb_agsk.py:220-221
+pop_size = np_init;  max_pop = np_init                       # fdb_agsk.py:228-229
 initialize / accept fair-start population, evaluate, record best
 k_vec = draw_initial_k(pop_size)                             # AGSK schedule (agsk.py:87)
-while nfes < max_nfes:                                       # fdb_agsk.py:259
+while nfes < max_nfes:                                       # fdb_agsk.py:269
     kw_ind = INITIAL_KW  (first 10% of budget)  else  0.95*kw_ind + 0.05*all_imp, renormalize
     slots  = select_parameter_slots(kw_ind);  kf,kr = KF_POOL[slots], KR_POOL[slots]
     junior_dims = ceil(D * (1 - nfes/max_nfes)^k_vec)        # per-individual schedule
-    fdb_index, rfdb_index = fdb_indices(fdb_case, pop, fitness)   # B / K / U  (fdb_agsk.py:277)
+    fdb_index, rfdb_index = fdb_indices(fdb_case, pop, fitness)   # B / K / U  (fdb_agsk.py:288)
     order = argsort(fitness)                                 # best -> worst
     rg1,rg2,rg3 = fdb_junior_r1r2r3(order, fdb_case, fdb_index, rfdb_index)   # case overrides
     r1,r2,r3    = fdb_senior_r1r2r3(order, fdb_case, fdb_index)               # case overrides
@@ -160,16 +160,16 @@ The only lines that differ from [AGSK](agsk.md) are the `_fdb_indices` call and
 the two `_fdb_*_r1r2r3` donor builders. Everything else — the shared
 `gsk_build_trial` kernel, the improvement-credit update, the greedy selection, and
 the LPSR reduction — is identical to AGSK; the AGSK helpers and the kernel are
-imported directly (`fdb_agsk.py:17-31`).
+imported directly (`fdb_agsk.py:25-39`).
 
 ## Parameters
 
 | Option | Symbol | Default | Valid range | Meaning | Code |
 |---|---|---|---|---|---|
-| `np` | NP | `100` | integer ≥ `min_pop_size` | Fallback initial population size when `np_init` is absent. | `fdb_agsk.py:204` |
-| `np_init` | NP₀ | `np` | integer ≥ `min_pop_size` | Initial population size before LPSR reduction. | `fdb_agsk.py:205` |
-| `min_pop_size` | NP_min | `12` | integer ≥ 11 | Floor the population reduces to (must be ≥ 11 so the senior blocks stay non-empty). | `fdb_agsk.py:206` |
-| `fdb_case` | — | `1` | integer in `{1,2,3,4,5}` | Donor-injection case (see table below). | `fdb_agsk.py:207`, validated `fdb_agsk.py:41-46` |
+| `np` | NP | `100` | integer ≥ `min_pop_size` | Fallback initial population size when `np_init` is absent. | `fdb_agsk.py:212` |
+| `np_init` | NP₀ | `np` | integer ≥ `min_pop_size` | Initial population size before LPSR reduction. | `fdb_agsk.py:213` |
+| `min_pop_size` | NP_min | `12` | integer ≥ 11 | Floor the population reduces to (must be ≥ 11 so the senior blocks stay non-empty). | `fdb_agsk.py:214` |
+| `fdb_case` | — | `1` | integer in `{1,2,3,4,5}` | Donor-injection case (see table below). | `fdb_agsk.py:215`, validated `fdb_agsk.py:49-54` |
 
 `fdb_case` value meanings (overrides applied each generation):
 
@@ -272,14 +272,14 @@ flowchart TD
   that violates a bound is pulled to the midpoint between the *parent* value and
   the breached bound (`_kernels.py:132-135, 140-143`).
 - **Budget.** `nfes` advances by `n_count = min(pop_size, max_nfes − nfes)` per
-  generation (`fdb_agsk.py:319`); the population shrinks under LPSR toward a
+  generation (`fdb_agsk.py:338`); the population shrinks under LPSR toward a
   target size each generation (`agsk.py:148-157`). Unlike [AGSK](agsk.md),
   FDB-AGSK has **no target-error early stop** — the loop always runs to
-  `max_nfes` and reports `termination="max_evaluations"` (`fdb_agsk.py:362`).
+  `max_nfes` and reports `termination="max_evaluations"` (`fdb_agsk.py:379`).
 - **Determinism.** All randomness flows from the caller's `RandomContext` in a
   fixed order: the FDB selectors draw first (only on their fallback paths, or for
   roulette), then junior `rg3`, then the senior block samples, then one
-  `(3, NP, D)` mask block (`fdb_agsk.py:277-290`). Serial and parallel runs match
+  `(3, NP, D)` mask block (`fdb_agsk.py:288-301`). Serial and parallel runs match
   bit-for-bit. See [Seed Policy](../reference/seed_policy.md).
 
 ## Complexity
@@ -330,7 +330,7 @@ Nemenyi critical-difference diagrams, Holm-corrected Wilcoxon, A12 / Cliff's del
 effect sizes, win/tie/loss, and 7-curve convergence grids under
 `results/_run_all/_analysis/<suite>/`; FDB-AGSK is included in the runner's live
 `--stats` stream. Because FDB-AGSK has **no target-error early stop** (it always
-runs to `max_nfes`, `fdb_agsk.py:362`), every run contributes a full-budget
+runs to `max_nfes`, `fdb_agsk.py:379`), every run contributes a full-budget
 convergence curve to the grids. See
 [Statistical Analysis](../research/statistical_analysis.md).
 

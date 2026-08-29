@@ -29,7 +29,7 @@ the order they build on one another:
 
 - **Just run it.** [Tutorial](getting-started/tutorial.md) -> [User Guide](getting-started/user_guide.md) -> [Runbook](getting-started/runbook.md).
 - **Understand the algorithms.** [Explainer](getting-started/explainer.md) -> [GSK](algorithms/gsk.md) -> the variant guides ([AGSK](algorithms/agsk.md), [APGSK](algorithms/apgsk.md), [FDB-AGSK](algorithms/fdb-agsk.md), [ATMALS-GSK](algorithms/atmals-gsk.md), [EGSK](algorithms/egsk.md)) -> [DT-GSK](algorithms/dt-gsk.md) (the proposed method) -> [Numerical Examples](research/numerical_examples.md).
-- **Reproduce or validate results.** [Researcher Handbook](research/researcher_handbook.md) -> [Reproducibility](research/reproducibility.md) -> [Validation Report](research/validation_report.md) -> the CEC C++/Python equivalence reviews under [Reference](#reference---reference).
+- **Reproduce or validate results.** [Researcher Handbook](research/researcher_handbook.md) -> [Reproducibility](research/reproducibility.md) -> [Validation Report](research/validation_report.md) -> the CEC C++/Python equivalence reviews under [Reference](#reference-reference).
 - **Compare algorithms statistically.** [Statistical Analysis](research/statistical_analysis.md) -> [Benchmark Protocol](reference/benchmark_protocol.md) -> [Result Schema](reference/result_schema.md).
 - **Contribute code.** [Code Reading Guide](development/code_reading_guide.md) -> [Developer Guide](development/developer_guide.md) -> [Extension Guide](development/extension_guide.md) -> [Contributor Guide](development/contributor_guide.md).
 - **Look something up.** [Configuration](getting-started/configuration.md), [API Reference](reference/api.md), [Result Schema](reference/result_schema.md), [Glossary](reference/glossary.md), [Diagrams](reference/diagrams.md).
@@ -47,7 +47,7 @@ the order they build on one another:
 > reference comparator, and the statistical panel reports its cells from that
 > reference data.
 
-## Getting Started - `getting-started/`
+## Getting Started: `getting-started/`
 
 - [User Guide](getting-started/user_guide.md): install, list capabilities, run experiments, validate output, inspect results.
 - [Tutorial](getting-started/tutorial.md): step-by-step first run, reduced CEC run, and result comparison.
@@ -56,7 +56,7 @@ the order they build on one another:
 - [Troubleshooting](getting-started/troubleshooting.md): common install, benchmark, and result issues.
 - [Explainer](getting-started/explainer.md): conceptual overview for newcomers.
 
-## Reference - `reference/`
+## Reference: `reference/`
 
 - [Architecture](reference/architecture.md): runtime layout and ownership boundaries.
 - [API Reference](reference/api.md): public modules, classes, functions, and CLI entry points.
@@ -83,7 +83,7 @@ references):
 - [CEC2017 Equivalence Review](reference/cec2017_cpp_python_equivalence_review.md)
 - [CEC2020 Equivalence Review](reference/cec2020_cpp_python_equivalence_review.md)
 
-## Algorithm Guides - `algorithms/`
+## Algorithm Guides: `algorithms/`
 
 One guide per runnable optimizer, in increasing order of elaboration over the
 base gaining-sharing-knowledge scaffold:
@@ -117,7 +117,7 @@ update, so it is impractical at `D = 1000` and should not be launched on
 CEC2013LSGO without a cost check first. `decc-g` is first-party code with no
 author-code oracle -- see [DECC-G Port Record](development/DECC_G_port_record.md).
 
-## Development - `development/`
+## Development: `development/`
 
 Living guides (see the [folder index](development/README.md)):
 
@@ -141,7 +141,7 @@ and review records. They are indexed, with a status line each, under
 **[Historical records and executed campaign plans](development/README.md#historical-records-and-executed-campaign-plans-retained-as-dated-evidence-not-current-guidance)**.
 
 
-## Research - `research/`
+## Research: `research/`
 
 - [Researcher Handbook](research/researcher_handbook.md): reproducible experiment procedure and interpretation.
 - [Reproducibility](research/reproducibility.md): environment, seeds, deterministic settings, and evidence policy.
@@ -151,7 +151,7 @@ and review records. They are indexed, with a status line each, under
 - [Numerical Examples](research/numerical_examples.md): small worked examples of init, seeds, bounds, fitness, statistics, and scheduling.
 - [Statistical Analysis](research/statistical_analysis.md): the `gsk-stats` GSK-family comparison suite (Friedman ranks, Nemenyi CD, Wilcoxon/Holm, effect sizes, tables, and figures) plus the runner `--stats` live-report flag and the `papers/` review-pack workflow.
 
-## Prompts - `prompt/`
+## Prompts: `prompt/`
 
 Five review instruments; each is an internal quality-assurance checklist the
 authors apply to their own work, not the journal's peer review:

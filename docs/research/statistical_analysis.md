@@ -1,5 +1,22 @@
 # Statistical Analysis (GSK-family comparison)
 
+> **What this page is.** The statistical-comparison suite that ranks the
+> proposed optimizer against the GSK-family panel — Friedman ranks, Nemenyi
+> critical difference, pairwise Wilcoxon, Holm correction, and effect sizes —
+> and how to run it and read its output.
+>
+> **Who it is for.** Anyone producing or interpreting the family-comparison
+> statistics, from a quick `gsk-stats` run to the paper's published panels.
+>
+> **What you will get.** What each test computes and why, where the input data
+> comes from, `gsk-stats` usage and options, the output files, the paper
+> review pack, and a map of the analysis modules.
+>
+> **Prerequisites.** The run workflow is in the
+> [Researcher Handbook](researcher_handbook.md); hand-checkable arithmetic for
+> the tests is in [Numerical Examples](numerical_examples.md). Terms are
+> defined in [the glossary](../reference/glossary.md).
+
 This project ships a paper-grade statistical-comparison suite for the proposed
 optimizer (`dt-gsk` by default) against the GSK-family comparators. It was
 migrated from the source DT-GSK project and retargeted to this repository's

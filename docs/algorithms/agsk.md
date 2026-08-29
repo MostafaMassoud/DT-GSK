@@ -15,7 +15,7 @@ AGSK reuses GSK's two-phase trial construction unchanged — the same junior and
 senior gained vectors, the same midpoint bound repair, and the same
 split-then-KR per-dimension mask. See [GSK](gsk.md) for that shared core. The
 trial builder is literally the same function (`gsk_build_trial`, called at
-`agsk.py:289`).
+`agsk.py:308`).
 
 What AGSK changes is *how the knobs are set and how big the population is*:
 
@@ -59,7 +59,7 @@ c = cumsum(kw)                       # length-4 cumulative weights, c[3] = 1
 slot_i = min( searchsorted(c, u_i, side="left"), 3 ),   u_i ~ U[0,1)
 ```
 
-**Selection-probability vector `kw`** (`agsk.py:268-272`). For the warm-up
+**Selection-probability vector `kw`** (`agsk.py:278-282`). For the warm-up
 period — the first generation and while `nfes < 0.1 * max_nfes` — `kw` is reset
 to the prior `INITIAL_KW = [0.85, 0.05, 0.05, 0.05]` (`agsk.py:28`). After
 warm-up it is an exponential moving average toward the latest improvement
@@ -90,7 +90,7 @@ The floor-the-losers / cap-the-winner step (`agsk.py:141-144`) guarantees every
 slot keeps at least `0.05` weight (so no setting is permanently starved) while
 the sum stays exactly `1`.
 
-**Per-individual junior schedule** (`agsk.py:278-280`, `287`). Each individual
+**Per-individual junior schedule** (`agsk.py:288-290`, `298`). Each individual
 `i` has its own exponent `K_i`. With budget ratio `t = nfes / max_nfes`:
 
 ```text
@@ -115,7 +115,7 @@ where `round` is half-away-from-zero (`compat_round_int`,
 `numeric_compat.py:31-36`). Note the exponent is `1 - t` (not `1`), so the curve
 is not strictly linear in `t`; it is steepest near the middle of the run. The
 reduction is applied after selection (`_reduce_population_after_generation`,
-`agsk.py:160-192`):
+`agsk.py:160-200`):
 
 ```text
 if pop_size <= NP_target:          do nothing
@@ -131,30 +131,30 @@ stable-argsort by fitness, take the best `pop_size - reduction` indices, then
 relative order (the K vector and populations stay row-aligned).
 
 **Selection** is the same strict-greedy replacement as GSK
-(`agsk.py:329-332`): `fitness = min(parent, child)` element-wise, and rows where
+(`agsk.py:348-350`): `fitness = min(parent, child)` element-wise, and rows where
 the child won copy the child into `popold`.
 
 ## Pseudocode
 
 ```text
-NP = np_init;  max_pop = np_init                          # agsk.py:224-225
+NP = np_init;  max_pop = np_init                          # agsk.py:232-233
 initialize / accept fair-start population, evaluate, scan best
-K = draw_initial_K(NP)                                    # agsk.py:254 (mixed unif / 1..20 int)
+K = draw_initial_K(NP)                                    # agsk.py:263 (mixed unif / 1..20 int)
 kw = None;  all_imp = [0,0,0,0]
-for generation = 1, 2, ... until nfes >= max_nfes:        # agsk.py:265
+for generation = 1, 2, ... until nfes >= max_nfes:        # agsk.py:275
     if kw is None or nfes < 0.1*max_nfes:  kw = INITIAL_KW     # warm-up reset
     else:                                  kw = norm(0.95*kw + 0.05*all_imp)
-    slots = select_slots(kw)              # one rand(NP); agsk.py:274
+    slots = select_slots(kw)              # one rand(NP); agsk.py:284
     kf = KF_POOL[slots];  kr = KR_POOL[slots]             # per-individual
-    D_junior   = ceil(D * (1 - nfes/max_nfes)^K)          # per-individual; agsk.py:278
+    D_junior   = ceil(D * (1 - nfes/max_nfes)^K)          # per-individual; agsk.py:288
     order      = argsort(fitness)                         # best -> worst
     rg1,rg2,rg3 = junior_donors(order)                    # shared with GSK
-    r1,r2,r3    = senior_donors(order, p=0.05)            # SENIOR_P; agsk.py:285
-    trial = gsk_build_trial(... kf, kr, junior_prob ...)  # SHARED kernel; agsk.py:289
+    r1,r2,r3    = senior_donors(order, p=0.05)            # SENIOR_P; agsk.py:296
+    trial = gsk_build_trial(... kf, kr, junior_prob ...)  # SHARED kernel; agsk.py:308
     evaluate trial; nfes += min(NP, max_nfes - nfes); scan best
-    all_imp = improvement_credit(fitness, child_fitness, slots)   # agsk.py:327
-    greedy replace: parent <- child where f(child) < f(parent)    # agsk.py:329-332
-    (popold, pop, fitness, K, NP) = reduce_population(...)         # LPSR; agsk.py:334
+    all_imp = improvement_credit(fitness, child_fitness, slots)   # agsk.py:346
+    greedy replace: parent <- child where f(child) < f(parent)    # agsk.py:348-350
+    (popold, pop, fitness, K, NP) = reduce_population(...)         # LPSR; agsk.py:352
     append (nfes, best_so_far) to the convergence trace
     if target_error reached: stop
 ```
@@ -163,11 +163,11 @@ for generation = 1, 2, ... until nfes >= max_nfes:        # agsk.py:265
 
 | Option | Symbol | Default | Valid range | Meaning | Code |
 |---|---|---|---|---|---|
-| `np` | NP₀ | `100` | integer ≥ `min_pop_size` (≥ 11 with defaults) | Fallback initial population if `np_init` is unset. | `agsk.py:209` |
-| `np_init` | NP_init | `np` (`100`) | integer ≥ `min_pop_size` | Initial population size; also `max_pop_size` for LPSR. | `agsk.py:210` |
-| `min_pop_size` | NP_min | `12` | integer ≥ 11 | LPSR floor — the smallest the population may shrink to. | `agsk.py:211` |
-| `seed` | — | required | integer | RNG seed for the run. | `agsk.py:207` |
-| `rand_generator` | — | `"twister"` | RNG name | Backend for the RNG context. | `agsk.py:208` |
+| `np` | NP₀ | `100` | integer ≥ `min_pop_size` (≥ 11 with defaults) | Fallback initial population if `np_init` is unset. | `agsk.py:217` |
+| `np_init` | NP_init | `np` (`100`) | integer ≥ `min_pop_size` | Initial population size; also `max_pop_size` for LPSR. | `agsk.py:218` |
+| `min_pop_size` | NP_min | `12` | integer ≥ 11 | LPSR floor — the smallest the population may shrink to. | `agsk.py:219` |
+| `seed` | — | required | integer | RNG seed for the run. | `agsk.py:215` |
+| `rand_generator` | — | `"twister"` | RNG name | Backend for the RNG context. | `agsk.py:216` |
 | `KF_POOL` | kf-pool | `[0.1, 1.0, 0.5, 1.0]` | fixed constant | Per-slot knowledge factors (step scale). | `agsk.py:26` |
 | `KR_POOL` | kr-pool | `[0.2, 0.1, 0.9, 0.9]` | fixed constant | Per-slot knowledge ratios (per-dim update prob.). | `agsk.py:27` |
 | `INITIAL_KW` | kw₀ | `[0.85, 0.05, 0.05, 0.05]` | fixed constant | Warm-up / reset prior over the four slots. | `agsk.py:28` |
@@ -175,11 +175,11 @@ for generation = 1, 2, ... until nfes >= max_nfes:        # agsk.py:265
 
 The pools, the warm-up prior, and `p` are module-level constants, not
 runner-exposed options. `np_init`, `min_pop_size`, and `np` are read from the
-options near the top of `optimize` (`agsk.py:209-211`) and validated by
-`_validate_population_options` (`agsk.py:195-202`): `min_pop_size ≥ 11`, and
+options near the top of `optimize` (`agsk.py:217-219`) and validated by
+`_validate_population_options` (`agsk.py:203-210`): `min_pop_size ≥ 11`, and
 `np_init ≥ min_pop_size`. The EMA constants `0.95 / 0.05`, the warm-up cutoff
 `0.1 * max_nfes`, and the `0.05` slot floor are hard-coded
-(`agsk.py:268-272`, `agsk.py:143`).
+(`agsk.py:278-282`, `agsk.py:143`).
 
 ## Worked example
 
@@ -218,7 +218,7 @@ all_imp = [0.65, 0.25, 0.05, 0.05]                # sum = 1.00
 ```
 
 Now assume warm-up is over and the current `kw = [0.85, 0.05, 0.05, 0.05]`. The
-EMA step (`agsk.py:271-272`):
+EMA step (`agsk.py:281-282`):
 
 ```text
 kw = 0.95*[0.85, 0.05, 0.05, 0.05] + 0.05*[0.65, 0.25, 0.05, 0.05]
@@ -273,17 +273,17 @@ flowchart TD
   *parent* and the breached bound, never reflected past the parent. See
   [GSK](gsk.md#bounds-budget-and-determinism).
 - **Budget.** The loop runs whole generations; the last one is partially counted
-  via `n_count = min(NP, max_nfes - nfes)` (`agsk.py:317`), and `nfes` advances
+  via `n_count = min(NP, max_nfes - nfes)` (`agsk.py:336`), and `nfes` advances
   by `n_count`. As the population shrinks, later generations cost fewer
   evaluations, so AGSK fits more generations into the same budget than fixed-NP
   GSK. The best-so-far is monotone non-increasing.
 - **Warm-up window.** While `nfes < 0.1 * max_nfes` the pool is held at
-  `INITIAL_KW` every generation (`agsk.py:268-269`); adaptation only begins once
+  `INITIAL_KW` every generation (`agsk.py:278-279`); adaptation only begins once
   10% of the budget is spent, so early noise does not move `kw`.
 - **Determinism.** All randomness comes from the caller's RNG in a fixed draw
   order per generation: the slot draw `rand(NP)` (`agsk.py:108`), the donor
-  draws, then one `(3, NP, D)` block for the mask (`agsk.py:288`). `K` is drawn
-  once before the loop (`agsk.py:254`). Reductions are deterministic
+  draws, then one `(3, NP, D)` block for the mask (`agsk.py:299`). `K` is drawn
+  once before the loop (`agsk.py:263`). Reductions are deterministic
   (stable-argsort survivors). See [Seed Policy](../reference/seed_policy.md).
 
 ## Complexity
