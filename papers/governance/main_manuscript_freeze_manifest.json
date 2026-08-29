@@ -1,8 +1,8 @@
 {
   "schema": "main_manuscript_freeze_manifest/v1",
-  "phase": "PASS-59: author-directed author-metadata update. The corresponding author's byline is the full name Mostafa Elsayed Ahmed Masoud, with the matching initials M.E.A.M. in the address block, the CRediT author-contributions statement and the Conflicts of Interest statement, across the manuscript, the Supplementary Materials, the cover letter, the plain-language summary, CITATION.cff, README, the submission kit and the response letter (CR-0039 / D-0064). No number, rank, p-value, decision or claim changes; every render rebuilt at its pinned epoch and double-built byte-identical; page counts unchanged (49/83); the change register (v2.13..HEAD) records the name passages. DAS names tag v2.32.",
-  "generated_utc": "2026-08-29T18:10:28+00:00",
-  "anchor_commit": "ed713a7d9b784844c2fd474e7a8805a8b021266d",
+  "phase": "PASS-60: author-directed presentation pass. The Data Availability Statement keeps the primary evidence release rel-2026-07-20-67d9345f9 and compresses the five auxiliary additive releases into one sentence deferring their identifiers to the Supplementary Materials and the repository's release manifests, where they were already recorded - the inline enumeration of five hash-suffixed identifiers read as machine output (author observation, 2026-08-29). The pseudocode is re-rendered (sections/algorithm_pseudocode_render.tex): one physical line per numbered step, no orphaned equation anchors, the six-line cross-cutting-controllers note compressed to a closing pointer at the Section 3 execution-order paragraph that carries the same content. Semantics, the step set and the frozen loop order are unchanged; the phase_03 canonical sources stay untouched in their append-only tree. No number, rank, p-value, decision or claim changes; page counts unchanged (49/83); the main PDF double-built byte-identical and all eleven response-letter page anchors re-verified. DAS names tag v2.33.",
+  "generated_utc": "2026-08-29T20:05:26+00:00",
+  "anchor_commit": "82e3839abf4abeb9f46df085de83988a32028516",
   "pre_freeze_base_commit": "b9846e4 (abbreviated deliberately; the full SHA is held in the withheld papers/review_2026_08_24/PRIVATE_OPS.md because this commit is one of two unreachable objects pending a provider-side purge)",
   "evidence_release": {
     "primary": "rel-2026-07-20-67d9345f9",
@@ -30,8 +30,8 @@
   "files": [
     {
       "path": "papers/main.tex",
-      "sha256": "8c9cff17546ed0464901b33e60bfd8ebac74d856e846508942bc889e1e6dd029",
-      "bytes": 26644
+      "sha256": "fb26e92b5aa57e1893fc310be885ce7c2ae4dea3196e44ebffeee5256dc8e723",
+      "bytes": 26347
     },
     {
       "path": "papers/sections/introduction.tex",
@@ -45,8 +45,8 @@
     },
     {
       "path": "papers/sections/proposed_algorithm.tex",
-      "sha256": "80fb965e22531d0d7d1b5688d6ba4fa72d9efe4ebed8913f2667ab09fd9fba2d",
-      "bytes": 58658
+      "sha256": "d42493fde8813df5683703e6fc616adf0a96825b8a0ddc944c3a9d9a6d09d28f",
+      "bytes": 58957
     },
     {
       "path": "papers/sections/performance.tex",
@@ -60,13 +60,13 @@
     },
     {
       "path": "papers/DT-GSK.pdf",
-      "sha256": "bb03b92cb05b0d648fe71034eb1bfcbe64b20d37eff1696abf1aec7b23234ff7",
-      "bytes": 830816
+      "sha256": "bebd11d3216f6b2953dffef2a921f6a2ab08c465069ae88fbdf75b09d1f0aff7",
+      "bytes": 830286
     },
     {
       "path": "papers/DT-GSK.docx",
-      "sha256": "280dbd283d6edc0470ec38e760945daa6241c0f181e700a56155a083e8bd4559",
-      "bytes": 1022753
+      "sha256": "c9750c4bf83a877350ab32c39239512b8b80e4462d78d0bf18c9919646116310",
+      "bytes": 1022629
     },
     {
       "path": "papers/supplementary.pdf",
@@ -124,9 +124,9 @@
     "revision_analysis_pins": "NOT RE-RUN at pass-43, and not required: no analysis artifact was touched, which check_frozen_analysis confirms at 115/115."
   },
   "remint_note": "pass-48 MINTED 2026-08-27. The lesson is procedural: pass-47's applier printed a success message it never verified, so a replacement that silently failed to match shipped a false symbol. Assert the END STATE after a batch, never per-edit success - the same rule D-0039 recorded and this pass re-learned.",
-  "published_commit": "7290d472f6c4b96c38735d1f73bb3349d0a465af",
+  "published_commit": "7a144c8f9b17e4eecbf7bb857a53bcb98827cd2f",
   "immutable_history_note": "Two recorded blemishes live in immutable, already-pushed history and are disclosed here rather than rewritten (rewriting would move published tags, break the Data Availability Statement, and violate D-0045): (1) the pass-54 commit c0028c1's MESSAGE cites anchor 4d6bd1b, which resolves to nothing - the manifest committed IN that commit records the correct anchor b7abf61da; commit messages cannot be corrected without rewriting pushed history. (2) The copies of THIS manifest frozen inside tags v2.26 through v2.28 carry their as-minted values, including v2.28's published_commit whose tail was invented while expanding a 9-hex abbreviation; the value was corrected on main at pass-56 and check_manifest has gated commit-field resolvability since. Tagged states are never edited in place (D-0045), so the in-tag copies stand as minted. Recorded at pass-57 (D-0062).",
-  "published_commit_note": "published_commit is the commit that carried the previous freeze's mint onto the published branch (for pass-59, the v2.31 close). It is NOT the same object as anchor_commit, which names this pass's apply commit; both resolve on the public branch. This field went four passes stale before pass-53 because nothing gates it - recompute it at every mint, and never assume anchor and published are the same commit.",
+  "published_commit_note": "published_commit is the commit that carried the previous freeze's mint onto the published branch (for pass-60, the v2.32 close). It is NOT the same object as anchor_commit, which names this pass's apply commit; both resolve on the public branch. This field went four passes stale before pass-53 because nothing gates it - recompute it at every mint, and never assume anchor and published are the same commit.",
   "source_files": [
     {
       "path": "papers/supplementary.tex",

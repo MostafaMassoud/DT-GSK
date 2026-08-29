@@ -3089,3 +3089,42 @@ applying all surfaced fixes.
 - **Anchor.** Apply commit ed713a7 (name + rebuilt renders); the close
   commit carries the manifests, governance pair and status sync. NEXT free
   ids: CR-0040 and D-0065.
+
+## D-0065 (2026-08-29) - Pass-60: DAS release-ID compression and pseudocode re-rendering
+
+- **Decision.** The author flagged two presentation defects (2026-08-29):
+  the Data Availability Statement's inline enumeration of five hash-suffixed
+  auxiliary release identifiers reads as machine output, and the Algorithm 1
+  rendering was hard to read (long steps wrapping across lines, orphaned
+  equation anchors, a six-line prose note inside the float). Mint
+  **pass-60**, tag **v2.33**. Registered as **CR-0040**.
+- **DAS.** The primary release rel-2026-07-20-67d9345f9 stays named inline
+  (provenance-gated); the five auxiliary additive releases (CEC2013LSGO,
+  CEC2020, E1-E4, E5, and the Table A45 identity re-execution) are
+  summarized in one sentence deferring their identifiers to the
+  Supplementary Materials and the repository's release manifests, where all
+  five were already recorded; the no-primary-value-changes and
+  own-checksummed-manifest claims are retained verbatim in the compressed
+  sentence. The CN-02 evidence binding is unchanged and green.
+- **Pseudocode.** New manuscript-owned rendering
+  papers/sections/algorithm_pseudocode_render.tex replaces the phase_03
+  LaTeX rendering IN THE MANUSCRIPT ONLY: one physical line per numbered
+  step, no orphaned right-aligned anchors, the cross-cutting-controllers
+  note compressed to a closing pointer at the Section 3 execution-order
+  paragraph that carries the same content. Semantics, the step set and the
+  frozen loop order (accept -> memory update -> credit/ARGP -> escape ->
+  local search -> polish -> global-best -> restart) are unchanged; the
+  phase_03 canonical .md and .tex stay untouched in their append-only tree
+  (rule 6 respected: superseded in use, never edited).
+- **No result changes.** No number, rank, p-value, decision or claim
+  changes; page counts unchanged (49/83; the algorithm float keeps page 12
+  to itself); the main PDF double-built byte-identical; all eleven
+  response-letter page anchors re-verified against the new render; the
+  change register (v2.13..HEAD, 138 passages / 33 pages) records both
+  presentation changes.
+- **Validation.** check_manifest 15/15 + sources 2/2; reproducibility and
+  package manifests re-minted and verified post-write; full ladder green
+  including cross-format parity, evidence bindings, provenance, and the
+  pass-59-era package-contents gate.
+- **Anchor.** Apply commit 82e3839 (DAS + pseudocode + rebuilt renders).
+  NEXT free ids: CR-0041 and D-0066.

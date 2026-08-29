@@ -26,10 +26,16 @@ is. **The repo was set PRIVATE on 2026-08-28 (author, to finalize) and MUST be p
 the upload** — the DAS names its URL and tags, and reviewers will click. Detail:
 [REVISION_STATUS.md](REVISION_STATUS.md) Section 5 items 1 and 6.
 
-**Current freeze: pass-59 / `v2.32`** — minted, tagged and **PUSHED** (2026-08-29); all 32
-tags are on `origin`, and `v2.13`/`v2.32` — the two the DAS names — resolve there. The repo is still **PRIVATE** —
+**Current freeze: pass-60 / `v2.33`** — minted and tagged (2026-08-29); push, then verify with
+`git ls-remote --tags origin` — the DAS names `v2.13` and `v2.33`. The repo is still **PRIVATE** —
 flipping it public is the remaining step before a referee can follow the DAS. Next free ids:
-**CR-0040 / D-0065** — verify free at apply time.
+**CR-0041 / D-0066** — verify free at apply time.
+**Pass-60 (2026-08-29, D-0065 / CR-0040) is an author-directed presentation pass:** the DAS keeps
+the primary release inline and defers the five auxiliary release identifiers to the supplement
+and the repository manifests (the inline hash-ID enumeration read as machine output), and
+Algorithm 1 is re-rendered (sections/algorithm_pseudocode_render.tex — one line per step, no
+orphaned anchors, compact closing note) with semantics and the frozen loop order unchanged and
+the phase_03 canonical sources untouched. Pages 49/83, anchors re-verified, full ladder green.
 **Pass-59 (2026-08-29, D-0064 / CR-0039):** the corresponding author's byline is the full name
 **Mostafa Elsayed Ahmed Masoud**, initials **M.E.A.M.** in the address block, CRediT statement and
 Conflicts of Interest, across twelve live documents (manuscript, supplement, cover letter,
