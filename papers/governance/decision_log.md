@@ -2889,3 +2889,71 @@ applying all surfaced fixes.
   cross-artifact audit re-run at the close.
 - **Anchor.** 1586242 (apply); mint, close and tag v2.28 follow. NEXT free
   ids: CR-0036 and D-0061.
+
+## D-0061 (2026-08-29) - Pass-56: closure of the from-scratch five-instrument re-review
+
+- **Decision.** All five review instruments were re-applied from scratch at
+  pass-55/v2.28 by a five-agent panel (one per instrument); 31 findings
+  survived the agents' own ~50% refutation calibration (45 candidates were
+  agent-refuted). Every fix was verified against bytes before application.
+  Ordinary-commit fixes landed first; the four frozen-byte fixes mint
+  **pass-56**, tag **v2.29**. Registered as **CR-0036**.
+- **The finding that mattered most (cover letter).** The letter's blanket
+  claim that all five pre-registered experiments had 'design, statistical
+  conventions and adverse-outcome wording committed to the public repository
+  before any result existed' is FALSE for E5 on its natural reading:
+  Amendment A4 was registered after the E1-E4 results existed, and E5's
+  fifth cell reuses executed E3 runs whose adverse D = 30 outcome was known
+  at registration. The response letter states the chronology precisely; an
+  editor cross-reading the two letters could catch the discrepancy on the
+  revision's central integrity claim. The cover letter (both twins) now
+  matches: 'four experiments before any result existed, and the fifth
+  registered by amendment before any of its new runs executed.'
+- **The governance bug this round exposed (and the gate it bought).** The
+  pass-55 mint recorded a published_commit whose tail was INVENTED while
+  expanding a 9-hex abbreviation - the SHA resolved to nothing, and no gate
+  read the field. check_manifest.py now gates the resolvability of
+  anchor_commit and published_commit with git cat-file; it caught the
+  corrupt value live on its first run and is negative-tested. This mint
+  computes the field with git rev-parse; hand-typed SHAs are banned from
+  mint scripts.
+- **The stale-claim family's FIFTH recurrence (fixed in batch A).** Seven
+  documents - README, the plain-language summary, the DT-GSK guide, the
+  core reference, the explainer, two glossary rows, the round-one review
+  record - still said the E1 eigenframe contrast is 'not separated at
+  D = 100', against the manuscript's canonical Amendments-A5/A6 result
+  (separated, Holm 0.0489). README and the plain summary are the first two
+  documents a referee clicking the DAS reads. All seven now state the
+  canonical result; the supplement's E3 sentence ('not separated at D = 50
+  or D = 100') is a DIFFERENT contrast and was correctly left alone.
+- **Other frozen-byte fixes.** cover_letter.pdf gains the PDF metadata every
+  other shipped artifact carries; claims_evidence_matrix RS-12's quoted
+  verbatim now matches the abstract locus exactly (it matched no shipped
+  locus); artifact_binding gains rows for the three shipped figures that had
+  none (the Figure 4 four-panel grid - the bound FIG-CD-D* rows are the
+  superseded single panels - and both concept flowcharts), and asset_map
+  dates the output_checksum column: labels, not checksums, are the gated
+  content.
+- **Batch-A highlights (ordinary commits, this round).** The LIVE upload-day
+  instructions in REVISION_STATUS still ordered the register from
+  git diff v2.13 v2.27 and called v2.27 the frozen record - an author
+  following them on 2026-09-01 would have uploaded a register missing every
+  pass-55 change; the frozen-record and next-free-id sentences are now
+  tag-agnostic/pointer-based. CITATION.cff promised the source of every
+  re-implemented baseline and listed five of six - the eGSK article is
+  added. The response letter's R2.5 row still described the abstract in its
+  pass-53 form ('only at CEC2017 D = 10', false as a data claim - CEC2013
+  D = 10 also separates); its markup note now discloses that the abstract
+  and keywords, like the title, are preamble-set and appear unmarked.
+- **Half-updated freshness blocks are the round's defect class.** Token
+  sweeps updated 'pass-55 / v2.28' where those exact strings appeared and
+  missed same-sentence companions in another lexical form. Retunes must
+  sweep ALL prior-tag tokens and classify each hit, not search-replace the
+  current pair; several recurring sentences were made pass-agnostic so they
+  cannot go stale the same way again.
+- **Validation.** check_manifest 15/15 + sources 2/2 (now including commit
+  resolvability); package and reproducibility manifests verified post-write;
+  cover letter double-builds byte-identical with full metadata; ladder and
+  cross-artifact audit re-run at the close.
+- **Anchor.** 33ee170 (apply); mint, close and tag v2.29 follow. NEXT free
+  ids: CR-0037 and D-0062.

@@ -499,15 +499,15 @@
     "revision": "rev-rel-2026-08-26-dd42d37eb  (round-one revision experiments E1-E4; additive, non-superseding)"
   },
   "superseded_anchor": "0d2bed9907faae38134c3e2969d250b1680a7305",
-  "updated_utc": "2026-08-29T12:42:00Z",
+  "updated_utc": "2026-08-29T09:55:00Z",
   "update_note": "Re-verified at pass-54 (2026-08-29) AFTER every rebuild, which is the ordering that matters: this file went stale inside its own pass three times (pass-41 to pass-45, then pass-53, then pass-54's own first refresh), every time because it was updated at the apply commit and the artifacts were rebuilt afterwards. It is now gated by papers/scripts/check_reproducibility_manifest.py, which compares every digest and byte count against disk AND against the freeze manifest's files[], and checks anchor_commit_current. Run that gate after every rebuild, alongside check_manifest.py.",
   "shipped_artifacts": {
     "papers/DT-GSK.pdf": {
-      "sha256": "9822eb8694cf472cfb043b9e927485dca31b1b5a4361d6d1a10b8c802b7d3393",
+      "sha256": "2320e74a2554f49df96475fc4fcc5f353ccf5889b15f8f64b5aba18229685621",
       "bytes": 830424
     },
     "papers/DT-GSK.docx": {
-      "sha256": "c2c812a92c8b88e986c383c319ff9b02a3840aedd6e42743bb10d20cf214f05e",
+      "sha256": "08530f0bec58eca9d2043c9466edfa3bbcde3c56f08fa63259275dc92f25e3b6",
       "bytes": 1022587
     },
     "papers/supplementary.pdf": {
@@ -519,8 +519,8 @@
       "bytes": 9627942
     },
     "papers/cover_letter.pdf": {
-      "sha256": "3dcf4407ef666429c405feda640c60799cca95888e33db8e431e71bb3c06745e",
-      "bytes": 122611
+      "sha256": "02c048a24293999e018bc04af60ce7f11bc1a74b5f1276b1435c2f6748538ce1",
+      "bytes": 123830
     }
   },
   "determinism_record": {
@@ -532,7 +532,7 @@
     "docx_source_date_epoch": 1783641600,
     "revision_release_correction": "Before first publication the revision release's provenance path fields were rewritten from absolute to repository-relative across 61 files, matching every earlier release; its manifest was re-minted and the correction recorded in the manifest's own correction field (D-0049)."
   },
-  "anchor_commit_current": "15862429596809a3ccdd7b4fbebc03679c72fbbe",
+  "anchor_commit_current": "33ee170756031ff12e7b4b4a62e0187daef3f807",
   "published_commit_current": "709d6ff3a0ddca2184745fc18951ecf4179ba63d",
-  "anchor_note": "anchor_commit_current is the freeze anchor of the current pass (pass-55). It is recorded alongside published_commit_current rather than being repointed at whatever resolves: the anchor/published distinction is the project's disclosed convention (README, and the freeze manifest's published_commit_note), and collapsing them would destroy the anchor record. The Phase-0 and Phase-12 blocks in this file are self-labelled historical and are left as minted."
+  "anchor_note": "anchor_commit_current is the freeze anchor of the current pass (pass-56). It is recorded alongside published_commit_current rather than being repointed at whatever resolves: the anchor/published distinction is the project's disclosed convention (README, and the freeze manifest's published_commit_note), and collapsing them would destroy the anchor record. The Phase-0 and Phase-12 blocks in this file are self-labelled historical and are left as minted."
 }

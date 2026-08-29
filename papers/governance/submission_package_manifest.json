@@ -1,8 +1,8 @@
 {
   "schema": "submission_package_manifest/v1",
-  "generated_utc": "2026-08-29T12:40:00Z",
-  "manuscript_version_id": "v2.28",
-  "manuscript_version_note": "Freeze pass-55, tag v2.28. The round-one major-revision response to algorithms-4507562, extended ahead of resubmission with the E5 dimension-boundary study (S9.5/Table A47) and the canonical near-zero statistical rule (pre-registration Amendments A4-A6), then closed by the acceptance-readiness fixes of pass-51, the seven-lens panel-review fixes of pass-52, the full remediation of pass-53, and pass-54, which renamed the C1 stage in both architecture tables, moved the pre-registration claim onto the checksum binding that the squashed public history preserves, corrected the abstract's suite anaphor, carried C2's narrowing and E2's adverse result into the Conclusions, and repointed the CEC2020 runner-up citation; pass-55 trimmed the abstract to 199 rendered words in unregistered material only, scoped the inactive-at-D<=20 claim to the gating taxonomy, and applied the verified supplement caption and cross-reference refinements; pass-53 reconciled the Supplementary's boundary-sensitivity limitation with Section S9.5, stated the retention rationale for the interaction-structure memory, carried C2's narrowing to the Introduction, and restored deterministic PDF builds by pinning the epoch inside the builders. Supersedes v2.13 as the submission basis; v2.13 remains the frozen record of what was originally submitted and is never edited in place. The repository is public (temporarily private while the resubmission is finalized; it must be public again before upload) and cited in the Data Availability Statement (https://github.com/MostafaMassoud/DT-GSK), which names v2.13 for the submitted version and v2.28 for this revised one. No Zenodo deposit and no repository DOI; the article DOI is assigned by the journal after acceptance.",
+  "generated_utc": "2026-08-29T15:10:00Z",
+  "manuscript_version_id": "v2.29",
+  "manuscript_version_note": "Freeze pass-56, tag v2.29. The round-one major-revision response to algorithms-4507562, extended ahead of resubmission with the E5 dimension-boundary study (S9.5/Table A47) and the canonical near-zero statistical rule (pre-registration Amendments A4-A6), then closed by the acceptance-readiness fixes of pass-51, the seven-lens panel-review fixes of pass-52, the full remediation of pass-53, and pass-54, which renamed the C1 stage in both architecture tables, moved the pre-registration claim onto the checksum binding that the squashed public history preserves, corrected the abstract's suite anaphor, carried C2's narrowing and E2's adverse result into the Conclusions, and repointed the CEC2020 runner-up citation; pass-55 trimmed the abstract to 199 rendered words in unregistered material only, scoped the inactive-at-D<=20 claim to the gating taxonomy, and applied the verified supplement caption and cross-reference refinements; pass-56 aligned the cover letter's pre-registration chronology with the response letter's precise form, added the cover letter's PDF metadata, aligned RS-12's quoted verbatim to the abstract locus, and bound the three previously unbound shipped figures; pass-53 reconciled the Supplementary's boundary-sensitivity limitation with Section S9.5, stated the retention rationale for the interaction-structure memory, carried C2's narrowing to the Introduction, and restored deterministic PDF builds by pinning the epoch inside the builders. Supersedes v2.13 as the submission basis; v2.13 remains the frozen record of what was originally submitted and is never edited in place. The repository is public (temporarily private while the resubmission is finalized; it must be public again before upload) and cited in the Data Availability Statement (https://github.com/MostafaMassoud/DT-GSK), which names v2.13 for the submitted version and v2.28 for this revised one. No Zenodo deposit and no repository DOI; the article DOI is assigned by the journal after acceptance.",
   "target_journal": "Algorithms (MDPI)",
   "evidence_release": [
     "rel-2026-07-20-67d9345f9 (CEC2017, CEC2011, CEC2013 - primary)",
@@ -13,7 +13,7 @@
     "abl-rel-2026-07-20 (component isolation, incl. the promoted CEC2017 D50/D100 overlay; supplement-only, non-superseding)",
     "g1-rel-2026-08-28-65b3d39e6 (D-0051 identity re-execution; demonstrates the Table A45 residual as a build difference; additive)"
   ],
-  "authoritative_commit": "15862429596809a3ccdd7b4fbebc03679c72fbbe",
+  "authoritative_commit": "33ee170756031ff12e7b4b4a62e0187daef3f807",
   "pre_freeze_base_commit": "b9846e4 (abbreviated deliberately; the full SHA is held in the withheld papers/review_2026_08_24/PRIVATE_OPS.md because this commit is one of two unreachable objects pending a provider-side purge)",
   "hash_algorithm": "SHA-256",
   "submission_files": [
@@ -22,14 +22,14 @@
       "path": "papers/DT-GSK.pdf",
       "pages": 49,
       "build_epoch": 1783468800,
-      "sha256": "9822eb8694cf472cfb043b9e927485dca31b1b5a4361d6d1a10b8c802b7d3393",
+      "sha256": "2320e74a2554f49df96475fc4fcc5f353ccf5889b15f8f64b5aba18229685621",
       "bytes": 830424
     },
     {
       "role": "main-manuscript-docx",
       "path": "papers/DT-GSK.docx",
       "build": "deterministic docx render",
-      "sha256": "c2c812a92c8b88e986c383c319ff9b02a3840aedd6e42743bb10d20cf214f05e",
+      "sha256": "08530f0bec58eca9d2043c9466edfa3bbcde3c56f08fa63259275dc92f25e3b6",
       "bytes": 1022587
     },
     {
@@ -52,8 +52,8 @@
       "path": "papers/cover_letter.pdf",
       "pages": 2,
       "build_epoch": 1783468800,
-      "sha256": "3dcf4407ef666429c405feda640c60799cca95888e33db8e431e71bb3c06745e",
-      "bytes": 122611
+      "sha256": "02c048a24293999e018bc04af60ce7f11bc1a74b5f1276b1435c2f6748538ce1",
+      "bytes": 123830
     }
   ],
   "excluded_from_package": [

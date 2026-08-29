@@ -1,8 +1,8 @@
 {
   "schema": "main_manuscript_freeze_manifest/v1",
-  "phase": "PASS-55: author-directed closure of the pass-54 register's deferred and optional items (issues 4 through 10), each verified by a six-agent read-only panel before application. Manuscript: the abstract is trimmed to 199 rendered words against the journal's 200-word guideline, touching ONLY unregistered material - two article deletions, one slash-compound, and the basis negative flipped to the active voice the project already uses elsewhere - while the RS-12 CEC2020 sentence, the RS-13 CEC2013LSGO sentence, the reviewer-adopted opening and the closing scope sentence are byte-identical before and after; two further candidate trims were refuted in verification as unsafe (one would mis-attribute equation retention to the final refinement, one would break the response letter's verbatim self-quote of the reviewer-rewritten opening). One additive sentence in the CEC2020 subsection scopes the inactive-at-D<=20 claim to Table 4's gating taxonomy, naming what the 20-49 tier does activate, every clause verified against the hash-gated _dt_profiles.py; the registered wording bank is untouched. Supplement: Table A43's caption states the W/T/L direction and why the pooled A12 statistic compresses toward 0.5; the E3 prose no longer counts the D = 10 tie-by-construction among insensitivity outcomes; the E5 D = 100 discussion reports the adverse 2.34 to 1.97 descriptive mean-rank movement beside the unchanged ordinal; Section S7.1 matches the Data Availability Statement on which LSGO ports are vendored byte-faithful copies; the false stability-monotonicity sentence in S9.4 is replaced by exactly the claim Amendment A1 licenses; the acronym table, the CEC2013 Wilcoxon-Holm matrix and the ISM conditional-benefit table gain the cross-references they lacked (seven other allegedly-uncited tables were refuted - they are covered by rendered en-dash range references); three table page-order inversions are cured by commented clearpage flushes that leave caption order, and therefore every table number, untouched, growing the supplement from 81 to 83 pages. Companions: the change register's hunk-context lines now render LaTeX verbatim (a latent tex_escape ordering bug this activated was fixed in the same commit), and 87 stale path:line citations in the four baseline algorithm guides were re-based by content verification at both endpoints. DAS names tag v2.28.",
-  "generated_utc": "2026-08-29T12:35:00+00:00",
-  "anchor_commit": "15862429596809a3ccdd7b4fbebc03679c72fbbe",
+  "phase": "PASS-56: closure of the five-instrument re-review applied from scratch at pass-55/v2.28 (31 findings, 45 agent-refuted candidates). Frozen-byte fixes: the cover letter's blanket claim that every pre-registered experiment's wording was committed 'before any result existed' - false for E5 on its natural reading, since Amendment A4 was registered after the E1-E4 results existed and E5's fifth cell reuses executed E3 runs - now matches the response letter's precise chronology (four before any result existed; the fifth registered by amendment before its new runs executed); cover_letter.pdf gains the PDF metadata every other shipped artifact carries; claims_evidence_matrix RS-12's quoted verbatim is aligned to the abstract locus exactly; artifact_binding gains rows for the three shipped figures that had none (the Figure 4 grid and both flowcharts) and asset_map dates the checksum column. Ordinary-commit batch (already landed): the stale-claim family's fifth recurrence - seven documents said the E1 eigenframe contrast is 'not separated at D = 100' against the canonical Amendments-A5/A6 result (separated, Holm 0.0489) - corrected in README, the plain summary, and five docs pages; the LIVE upload-day instructions ordered the register from the superseded v2.27 diff; CITATION.cff gains the missing sixth baseline source (eGSK); the response letter's R2.5 abstract row and markup note corrected; check_manifest.py now gates the resolvability of anchor_commit and published_commit after pass-55's mint recorded a published_commit with an invented tail (caught live by the new gate, repaired, negative-tested; this mint computes the field with git rev-parse). DAS names tag v2.29.",
+  "generated_utc": "2026-08-29T15:05:00+00:00",
+  "anchor_commit": "33ee170756031ff12e7b4b4a62e0187daef3f807",
   "pre_freeze_base_commit": "b9846e4 (abbreviated deliberately; the full SHA is held in the withheld papers/review_2026_08_24/PRIVATE_OPS.md because this commit is one of two unreachable objects pending a provider-side purge)",
   "evidence_release": {
     "primary": "rel-2026-07-20-67d9345f9",
@@ -30,7 +30,7 @@
   "files": [
     {
       "path": "papers/main.tex",
-      "sha256": "6c6ba1dc3455f6eca373b0547de94208f72aa6f81f20d96c3c612d4b2411cb73",
+      "sha256": "46a6d00e0663320ed279eb27fa077ba74b868ad3bd7f634689d6cd102842cf7c",
       "bytes": 26420
     },
     {
@@ -60,12 +60,12 @@
     },
     {
       "path": "papers/DT-GSK.pdf",
-      "sha256": "9822eb8694cf472cfb043b9e927485dca31b1b5a4361d6d1a10b8c802b7d3393",
+      "sha256": "2320e74a2554f49df96475fc4fcc5f353ccf5889b15f8f64b5aba18229685621",
       "bytes": 830424
     },
     {
       "path": "papers/DT-GSK.docx",
-      "sha256": "c2c812a92c8b88e986c383c319ff9b02a3840aedd6e42743bb10d20cf214f05e",
+      "sha256": "08530f0bec58eca9d2043c9466edfa3bbcde3c56f08fa63259275dc92f25e3b6",
       "bytes": 1022587
     },
     {
@@ -80,13 +80,13 @@
     },
     {
       "path": "papers/cover_letter.pdf",
-      "sha256": "3dcf4407ef666429c405feda640c60799cca95888e33db8e431e71bb3c06745e",
-      "bytes": 122611
+      "sha256": "02c048a24293999e018bc04af60ce7f11bc1a74b5f1276b1435c2f6748538ce1",
+      "bytes": 123830
     },
     {
       "path": "papers/governance/claims_evidence_matrix.csv",
-      "sha256": "ad78d0e38144122025aae999b74cba96fbde12e4f3a9bce4513222efc0920141",
-      "bytes": 40587
+      "sha256": "f99694551b2d04a958978b4823d796ad5b2957303cad5731a4db8472b0cc0af8",
+      "bytes": 40742
     },
     {
       "path": "papers/governance/citation_usage_map.csv",
@@ -95,8 +95,8 @@
     },
     {
       "path": "papers/governance/artifact_binding.csv",
-      "sha256": "ac79cf9c6e07bba99561ac65ef108417f0455fe62cfffc2a243297513e005dff",
-      "bytes": 86591
+      "sha256": "84f97f5d156e680ae1c4f1547192092fa6b713e9bd347492076d8b847afe296b",
+      "bytes": 89012
     },
     {
       "path": "papers/references.bib",
@@ -124,8 +124,8 @@
     "revision_analysis_pins": "NOT RE-RUN at pass-43, and not required: no analysis artifact was touched, which check_frozen_analysis confirms at 115/115."
   },
   "remint_note": "pass-48 MINTED 2026-08-27. The lesson is procedural: pass-47's applier printed a success message it never verified, so a replacement that silently failed to match shipped a false symbol. Assert the END STATE after a batch, never per-edit success - the same rule D-0039 recorded and this pass re-learned.",
-  "published_commit": "2ff36b7cf40a682a7196d3fcfdc0cedda43d7d00",
-  "published_commit_note": "published_commit is the commit that carried the previous freeze's mint onto the published branch (for pass-55, the v2.27 close). It is NOT the same object as anchor_commit, which names this pass's apply commit; both resolve on the public branch. This field went four passes stale before pass-53 because nothing gates it - recompute it at every mint, and never assume anchor and published are the same commit.",
+  "published_commit": "43d2461c69ed7024ca3402f9fe0579c6a7fb7b0a",
+  "published_commit_note": "published_commit is the commit that carried the previous freeze's mint onto the published branch (for pass-56, the v2.28 close). It is NOT the same object as anchor_commit, which names this pass's apply commit; both resolve on the public branch. This field went four passes stale before pass-53 because nothing gates it - recompute it at every mint, and never assume anchor and published are the same commit.",
   "source_files": [
     {
       "path": "papers/supplementary.tex",
@@ -134,8 +134,8 @@
     },
     {
       "path": "papers/cover_letter.tex",
-      "sha256": "8d753451387147e754c5ca416abe059ca3c4af3896dea6cf2260f603597ca1ef",
-      "bytes": 6568
+      "sha256": "9a51aebc0cfae50eee8f9cc263bccd279b1822cec87e196a6cc2b3140be3dcd4",
+      "bytes": 6947
     }
   ],
   "source_files_note": "Canonical LaTeX sources whose RENDERS are tracked in files[] but which were not themselves hashed. The asymmetry has a failure mode and it fired in pass-42: cover_letter.tex was edited and the render was not rebuilt, so cover_letter.pdf still matched its recorded digest and the gate stayed green while the letter that ships to the editor still carried a retracted phrasing. Hashing the sources here makes that visible without changing files[], so the tracked-file count is unchanged and every recorded 15/15 remains true. main.tex is absent because it is already tracked in files[]."

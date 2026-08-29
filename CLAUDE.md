@@ -26,12 +26,21 @@ is. **The repo was set PRIVATE on 2026-08-28 (author, to finalize) and MUST be p
 the upload** — the DAS names its URL and tags, and reviewers will click. Detail:
 [REVISION_STATUS.md](REVISION_STATUS.md) §5 items 1 and 6.
 
-**Current freeze: pass-55 / `v2.28`** — minted, tagged and **PUSHED** (2026-08-29). All 28 tags
-are on `origin`; `v2.13` and `v2.28`, the two the Data Availability Statement names, resolve
-there at the same commits as local. `main` is in sync. The repo is still **PRIVATE** — flipping
-it public is the remaining step before a referee can follow the DAS.
-**Pass-55 (2026-08-29, D-0060 / CR-0035) closed the deferred register items 4-10 by author
-direction:** the abstract is 199 rendered words with the registered sentences byte-identical (two
+**Current freeze: pass-56 / `v2.29`** — minted and tagged **locally; NOT pushed** — verify
+`git status -sb` and `git ls-remote --tags origin` before relying on remote state, because the
+Data Availability Statement names `v2.29`. The repo is still **PRIVATE** — flipping it public is
+the remaining step before a referee can follow the DAS.
+**Pass-56 (2026-08-29, D-0061 / CR-0036) closed the from-scratch five-instrument re-review:**
+the cover letter's blanket 'before any result existed' pre-registration claim was false for E5
+on its natural reading and now matches the response letter's precise chronology; the stale-claim
+family's FIFTH recurrence (seven documents still called the E1 D = 100 contrast 'not separated'
+against the canonical Holm 0.0489) is corrected; CITATION.cff gains the missing eGSK source;
+`check_manifest.py` now gates commit-field RESOLVABILITY after the pass-55 mint recorded a
+published_commit with an invented tail (caught live by the new gate); RS-12's quoted verbatim
+matches the abstract locus; the three unbound shipped figures are bound. Mint scripts must
+compute SHAs with `git rev-parse`, never type them.
+**Pass-55 (2026-08-29, D-0060 / CR-0035) preceded it, closing the deferred register items 4-10
+by author direction:** the abstract is 199 rendered words with the registered sentences byte-identical (two
 candidate trims REFUTED in verification); one additive sentence scopes the inactive-at-D<=20
 claim to the gating taxonomy; six verified supplement refinements landed (pooled-A12 compression,
 the E3 constructed tie, the E5 2.34->1.97 movement, S7.1 port provenance, the S9.4 monotonicity
