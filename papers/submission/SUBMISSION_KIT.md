@@ -1,6 +1,6 @@
 # SuSy submission kit — everything pasteable, in portal order
 
-Regenerated 2026-08-29 from the pass-61 / v2.34 REVISION-1 sources (the
+Regenerated 2026-08-29 from the pass-62 / v2.35 REVISION-1 sources (the
 round-one response to algorithms-4507562). Every value below is copied from
 the shipped manuscript; do not retype from memory — copy from here so the
 form matches the paper exactly (D16.5).
@@ -119,7 +119,7 @@ version (D-0036), and the form must match the manuscript.
 
 Paste: https://github.com/MostafaMassoud/DT-GSK
 The originally submitted version corresponds to repository tag v2.13 and
-this revised version to tag v2.34 — matching the manuscript's own Data
+this revised version to tag v2.35 — matching the manuscript's own Data
 Availability Statement exactly. No Zenodo/DOI for the repository; the
 article DOI is assigned by the journal (D-0044).
 
@@ -165,11 +165,11 @@ nonparametric comparison of metaheuristics, or adjacent DE/PSO families.
    it; there is no new ID to record.
 2. Do NOT rebuild anything in the repo afterwards. The five shipped artifacts
    (both PDFs, both DOCX and the cover letter) are hash-recorded in
-   `submission_package_manifest.json` at **v2.34** — that record is what makes
+   `submission_package_manifest.json` at **v2.35** — that record is what makes
    the submitted bytes checkable. It is not the same list as the upload table
    in section 6: the DOCX are hash-recorded but not uploaded, and the two ZIPs
-   are uploaded but hash-recorded nowhere. Freeze pass-61 and tag
-   v2.34 are the frozen state of this resubmission, exactly as pass-38 / v2.13
+   are uploaded but hash-recorded nowhere. Freeze pass-62 and tag
+   v2.35 are the frozen state of this resubmission, exactly as pass-38 / v2.13
    is the frozen state of the original.
 3. If a SECOND revision is requested, it becomes a NEW freeze pass through
    change control with a new superseding tag, never an edit to the submitted
@@ -177,4 +177,4 @@ nonparametric comparison of metaheuristics, or adjacent DE/PSO families.
 4. Two of the uploaded artifacts — the response letter and the change register —
    are deliberately not in the repository (D-0049). They are regenerable: the
    response letter from its Markdown source on disk, the register from
-   `git diff v2.13 v2.34` over the manuscript sources.
+   `git diff v2.13 v2.35` over the manuscript sources.
