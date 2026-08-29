@@ -160,7 +160,10 @@ comparators differs from the dimension-scaled populations of their source
 papers --- whereas \dtgsk{} initializes $NP=5D$ (Table~\ref{tab:parameters})
 before the NLPSR reduction; at $D=100$ that is $500$ against $100$. All seven
 receive the identical evaluation budget, so the difference lies in how each
-algorithm spends that budget rather than in how much it is given. We state it
+algorithm spends that budget rather than in how much it is given. Both
+settings are protocol-conformant: each suite's protocol fixes its evaluation
+budget and run count (Table~\ref{tab:protocol}) and prescribes no population
+size. We state it
 explicitly because population size is a design choice that can materially
 affect upper-tier behavior, and a reader comparing at $D=100$ should
 know the initial populations differ by a factor of five. A common-initial-$NP$
