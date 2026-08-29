@@ -2711,3 +2711,99 @@ applying all surfaced fixes.
   is now structurally impossible in that updater).
 - **Anchor.** 86411e6 (apply); mint, close and tag v2.26 follow. NEXT free
   ids: CR-0034 and D-0059.
+
+## D-0059 (2026-08-29) - Pass-54: remediation of the merged five-instrument re-review
+
+- **Decision.** Every review instrument was re-applied from scratch after
+  pass-53, and three targeted cross-audits were run alongside them. Their
+  merged findings were verified against bytes or against the render, then
+  fixed in one pass. Mint **pass-54**, tag **v2.27**. Registered as
+  **CR-0034**. Only genuine submission-day operations were deferred: the
+  public flip, the GitHub purge ticket, and the SuSy portal fields.
+- **The finding that justified the pass.** BOTH architecture tables - Table 4
+  row 8 and Table 5 row 9 - still read 'Eigenframe final polish' and
+  'Eigenframe polish', on pages whose own prose already says 'the one-shot
+  deterministic final polish'. Pass-53 renamed the stage at six prose sites
+  and recorded it as done; the two table cells were missed, and they are the
+  first place an editor checking R2.3 looks, because the response letter tells
+  the editor in as many words that C1 was renamed. In the marked-up copy the
+  row carries NO diff markup while the adjacent list entry on the same page
+  shows the rename applied. Source-side greps had been run against the prose;
+  the table cells use the same words in a different grammatical role. **The
+  render is what catches this class, and only the render.**
+- **The most serious scientific finding.** The Supplementary invited a
+  commit-level pre-registration audit that the PUBLIC repository fails. The
+  CEC2020 addendum's recorded signing commit 5c9bfae82 does not resolve
+  ('Not a valid object name'), and the squashed public history's root commit
+  is dated 2026-07-31 - two days AFTER the release cec2020-rel-2026-07-29 it
+  registers. A reader accepting the invitation gets the opposite of the claim.
+  The content binding is intact: the addendum's SHA-256 recorded in the
+  CEC2020 and CEC2013LSGO release manifests matches the file on disk. The
+  claim is therefore moved onto that binding, and the squash - which appeared
+  nowhere in either PDF - is disclosed as the reason commit dates are
+  unavailable. Nothing is softened: the registration still predates the
+  outcomes, and for E5 the commit-level check still works (Amendment A4,
+  commit 10ef466, 18:42:49, against the first E5 run at 18:43:55).
+- **Also fixed in the manuscript.** The abstract's 'on that suite' followed
+  TWO named suites, and under the nearest antecedent the next clause was false
+  - at CEC2013 D = 30 DT-GSK is third (3.38, behind eGSK 3.07 and ATMALS-GSK
+  3.34), not second; scoped to CEC2017 and widened to 'either suite', which is
+  verified on both. 'The tie band itself affects no significance decision' is
+  removed, contradicted by its own paragraph (ties are discarded before
+  ranking, so the band sets n_eff) and by Section S9.1, where the canonical
+  rule moves D = 100 from 0.054 to 0.0489, across alpha. 'The single
+  Holm-significant unfavorable headline cell in this study' is corrected: the
+  pre-registered CEC2020 leg adds two at D = 20. The Conclusions now carry the
+  basis negative at BOTH active dimensions, C2's narrowing, and E2's adverse
+  result - which had reached neither limitation ledger, though it answers the
+  point both reviewers raised. The supplement's seventh limitation joins the
+  stale-claim family and is corrected to the main text's approved form.
+  Amendment A3 is disclosed as the Section S9 preamble promises. The CEC2020
+  runner-up fact cited the APGSK paper at five sites (the supplement's version
+  named both papers in one sentence) and now cites the CEC2020 AGSK paper;
+  the six APGSK-mechanism citations are correct and untouched.
+- **The letters.** cover_letter.md carried two paragraphs that pass-50 deleted
+  from cover_letter.tex, and SUBMISSION_KIT tells the author to paste the
+  Markdown as 'the plain-text twin of the PDF'. It was not the twin, and one
+  orphan said 'four pre-registered experiments ... two of them returned
+  results against our submitted claims' where the same file says five and
+  three - understating the adverse-finding count on the page carrying the
+  letter's credibility argument. The stale closing is deleted; the scope
+  paragraph is RESTORED to the .tex instead, because the response letter's
+  R2.6 already cites the cover letter as carrying it.
+- **The abstract is over the journal's guideline and was NOT trimmed.** It
+  renders at 205 words against a 200-word guideline, and was already 204 at
+  v2.26 - so the response letter's '195 words by texcount, under the journal's
+  200-word limit' was wrong before this pass touched it. The false count is
+  removed rather than corrected, and the abstract is left alone: the sentences
+  carrying the CEC2020 and CEC2013LSGO outcomes are bound to registered
+  wording banks (RS-12, RS-13), and re-drafting registered outcome wording to
+  meet a soft cap would damage exactly the pre-registration integrity the
+  Section S8/S9 defence rests on. **This is an open author decision:** trim
+  the two unregistered opening sentences if the editor objects.
+- **Build.** papers/scripts/build_cover_letter.py is added. cover_letter.pdf
+  is files[10] and cover_letter.tex one of the two hashed source_files, yet no
+  builder existed - a hand-run pdflatex stamps a wall-clock /CreationDate, and
+  the natural response to the resulting digest mismatch is to re-mint, which
+  silently records a non-reproducible PDF under a manifest asserting
+  double-build identity. All three PDFs now double-build byte-identical.
+- **Code and documentation.** The five scoped-mypy errors that five documents
+  called 'clean' are fixed with provable runtime no-ops (typing.cast and
+  annotations); the gate exits 0. Fourteen documents asserted a hosted CI that
+  has NEVER existed in any commit - `git log --all -- .github` is empty and
+  the path is not ignored - including an unverified 3.10-3.13 matrix claim
+  against a single local 3.10.11 interpreter; all now describe the local gate.
+- **Governance.** reproducibility_manifest's pass-53 refresh had itself gone
+  stale WITHIN pass-53 (it ran at the apply commit; the two main-manuscript
+  artifacts were rebuilt afterwards), and its note asserted the very check it
+  had failed. Digests, anchors, updated_utc and the evidence_release block
+  (four releases and a superseded ablation id, against the seven the DAS
+  names) are corrected, and a private monorepo absolute path is redacted from
+  this tracked, about-to-be-public file. The package manifest's
+  authoritative_commit and release list are resynced and its register note
+  made count-free, every earlier numeric copy having gone stale.
+- **Validation.** check_manifest 15/15 + sources 2/2 after mint; the ladder
+  green; ruff and the scoped mypy clean; package manifest verified sha AND
+  bytes post-write for all five entries.
+- **Anchor.** 9093e99 (apply); mint, close and tag v2.27 follow. NEXT free
+  ids: CR-0035 and D-0060.

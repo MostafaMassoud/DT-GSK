@@ -1,8 +1,8 @@
 {
   "schema": "main_manuscript_freeze_manifest/v1",
-  "phase": "PASS-53: full remediation of the consolidated findings of five re-applied review instruments (project, documentation x2, publication-polish, manuscript, acceptance). Manuscript: the Supplementary's ninth limitation asserted the dimension-tier boundaries were unvaried and their sensitivity untested, nine pages before Section S9.5, which varies them and finds against the shipped profile in two of five cells - reconciled; the Conclusions now state why the interaction-structure memory and its eigenbasis are retained despite measured cost and null benefit (the evaluated configuration was fixed and checksum-locked before the isolations ran, so the isolations correct the claims rather than the method); C2's narrowing is carried to the Introduction where C2 is claimed; the abstract's separation quantifier is scoped to CEC2017, being false for CEC2013 D = 10; Section 4.9's first alternative explanation points at Section S9.1; the CEC2013LSGO fifty-fold initial-population ratio is disclosed in the main text and the replication scoped as common-initial-NP; Table A46's caption states the registered integer convention; the C1 stage is named consistently; four references to the submitted manuscript are reworded; the Section S5.10 appositive no longer mis-attributes the primary release id to Section S9. Build: the deterministic epoch, absent from build_pdf.py and build_supplementary.py since pass-51 and therefore lost to the shell, is pinned inside both builders - a double build now verifies byte-identical and the shipped PDFs carry the epoch rather than wall-clock stamps. Figure 4's value labels no longer sit under the critical-difference rule. Governance: reproducibility_manifest refreshed (stale for all five artifacts since pass-45), published_commit and its self-contradicting note corrected, evidence_release raised from five to the seven the Data Availability Statement names, the recorded pytest count corrected, and CR-0029 through CR-0033 added to the change-request register, where they had existed only in prose. DAS names tag v2.26.",
-  "generated_utc": "2026-08-29T03:20:00+00:00",
-  "anchor_commit": "d9c1a88e3ad646a039d334e12a2f2f6b550e26ed",
+  "phase": "PASS-54: remediation of the merged findings of five re-applied review instruments (project, documentation, publication-polish, manuscript, change-register acceptance) plus three targeted cross-audits. Manuscript: both architecture tables still carried the retired C1 stage name 'Eigenframe (final) polish' on pages whose own prose reads 'deterministic final polish', and the response letter promises the editor exactly that rename - renamed in Table 4, Table 5, the DOCX shim, the Section S9.4 parameter paragraph and the plain-language summary, while the E1 subsection title and arm names keep 'eigenframe' because there it names a contrasted arm. The supplement invited a commit-level pre-registration audit that the public repository fails (the CEC2020 addendum's signing commit does not resolve; the squashed public root postdates the release it registers): the claim now rests on the checksum binding, which holds, and the squash is disclosed as the reason commit dates are unavailable. The abstract's 'on that suite' followed two named suites and made the next clause false under the nearest antecedent (at CEC2013 D = 30 DT-GSK is third, not second) - scoped to CEC2017 and widened to 'either suite', verified on both. 'The tie band itself affects no significance decision' is removed, being contradicted by its own paragraph and by Section S9.1, where the canonical tie rule moves D = 100 across alpha. 'The single Holm-significant unfavorable headline cell in this study' is corrected: the pre-registered CEC2020 leg adds two at D = 20. The Conclusions now carry the basis negative at both active dimensions, C2's narrowing, and E2's adverse result, which had reached neither limitation ledger. The CEC2020 runner-up fact cited the APGSK paper at five sites and now cites the CEC2020 AGSK paper. Amendment A3 is disclosed as the Section S9 preamble promises; four reviewer-facing S9 tables gain cross-references; the Data Availability Statement's bare 'Table A45' is marked as supplementary. Letters: the cover letter's Markdown twin carried two paragraphs deleted from its LaTeX at pass-50, one contradicting the letter's own adverse-finding count, and the kit directs the author to paste that Markdown - the stale closing is dropped and the scope paragraph restored to the LaTeX, where the response letter already claims it stands. The response letter's abstract word count is removed rather than corrected: the abstract renders over the journal's guideline and was already over at v2.26, and the sentences carrying the CEC2020 and CEC2013LSGO outcomes are bound to registered wording banks that may not be re-drafted to shorten it. Build: build_cover_letter.py added, closing the last unpinned-epoch builder for a manifest-hashed artifact; all three PDFs double-build byte-identical. DAS names tag v2.27.",
+  "generated_utc": "2026-08-29T09:05:00+00:00",
+  "anchor_commit": "9093e99c806b5331c47aa40edc4b0d74a9256946",
   "pre_freeze_base_commit": "b9846e4 (abbreviated deliberately; the full SHA is held in the withheld papers/review_2026_08_24/PRIVATE_OPS.md because this commit is one of two unreachable objects pending a provider-side purge)",
   "evidence_release": {
     "primary": "rel-2026-07-20-67d9345f9",
@@ -30,8 +30,8 @@
   "files": [
     {
       "path": "papers/main.tex",
-      "sha256": "d32d88b58b6f44cbcfd173d4add195f7a6d0e9d8149a444d264d51a6836097a5",
-      "bytes": 26403
+      "sha256": "a128b00c454bbf575cfdfb8b15462b5715e8ff8ad882cc6f795959efcc850f5e",
+      "bytes": 26438
     },
     {
       "path": "papers/sections/introduction.tex",
@@ -45,43 +45,43 @@
     },
     {
       "path": "papers/sections/proposed_algorithm.tex",
-      "sha256": "2c5786266bf1487fa589c0bcf62a3c0302fb9e5372a77405f99edba825a48f0b",
-      "bytes": 58478
+      "sha256": "fbca5772d9ca5d2c1f7b1541b66cead88584c40e460478b27fa74ab51ee5f3f0",
+      "bytes": 58490
     },
     {
       "path": "papers/sections/performance.tex",
-      "sha256": "fdd3a6817a75fe8a5f606200b9978c61c1cb5f8314335375990da28329c33ba0",
-      "bytes": 77905
+      "sha256": "996c6316071eefbf615b9fbe2f5dbf2d19f4b6d6de263b218aaebbf43da34b39",
+      "bytes": 78018
     },
     {
       "path": "papers/sections/conclusions.tex",
-      "sha256": "2ed5a2129aa540ef2bee8f851f21d6425e27a1e020a978eda59d2cccb7cca429",
-      "bytes": 15170
+      "sha256": "3809aa479d683516f3b913479740ad4a98cfcb82ee059ee3b0698780d6a18737",
+      "bytes": 15688
     },
     {
       "path": "papers/DT-GSK.pdf",
-      "sha256": "5d97083a8f8c88b8b58c9b6f0e99a5450ba7160395f9971487bb3195ef91dc72",
-      "bytes": 827801
+      "sha256": "35bafc2c657a2f8e46a702b23d016a27222d258203ebc16be7214dceef7ab273",
+      "bytes": 829894
     },
     {
       "path": "papers/DT-GSK.docx",
-      "sha256": "b9a04055d1cc0068bfe4deadc0066280ad167be5a9880544382925cff553ee9e",
-      "bytes": 1021918
+      "sha256": "39676553662824466f6a29ef8209757f46fde8320b0c7b21e7e6592089959ecd",
+      "bytes": 1022241
     },
     {
       "path": "papers/supplementary.pdf",
-      "sha256": "7ae1cd266d782ec16657011036606e9497ad09111881cc5cb7854e0857988d05",
-      "bytes": 1759320
+      "sha256": "01020403521f8c6ddf05869b477a24057c9e0785f7fce1ae99b0377bdf6f92c3",
+      "bytes": 1762344
     },
     {
       "path": "papers/supplementary.docx",
-      "sha256": "d319a6ebf54c9143697e2dacd11fd9c281d4dda4becd36709c063885dff54650",
-      "bytes": 9626843
+      "sha256": "4c5e8635f99ec8574d5fd98b04b0fceb44de2edbe38fbc4f29a35a74e404e286",
+      "bytes": 9627509
     },
     {
       "path": "papers/cover_letter.pdf",
-      "sha256": "2fcbd32c39b89761a2beaf386a9d3763951796cee08a5b0e01058bf12c6704e4",
-      "bytes": 122333
+      "sha256": "3dcf4407ef666429c405feda640c60799cca95888e33db8e431e71bb3c06745e",
+      "bytes": 122611
     },
     {
       "path": "papers/governance/claims_evidence_matrix.csv",
@@ -124,18 +124,18 @@
     "revision_analysis_pins": "NOT RE-RUN at pass-43, and not required: no analysis artifact was touched, which check_frozen_analysis confirms at 115/115."
   },
   "remint_note": "pass-48 MINTED 2026-08-27. The lesson is procedural: pass-47's applier printed a success message it never verified, so a replacement that silently failed to match shipped a false symbol. Assert the END STATE after a batch, never per-edit success - the same rule D-0039 recorded and this pass re-learned.",
-  "published_commit": "709d6ff3a0ddca2184745fc18951ecf4179ba63d",
+  "published_commit": "3e28bf80b31ff247cd757cb1701497432ff0dff2",
   "published_commit_note": "published_commit is the commit that carried the previous freeze's mint onto the published branch (the v2.25 close). It is NOT the same object as anchor_commit, which names this pass's apply commit; both resolve on the public branch. This field went four passes stale before pass-53 because nothing gates it - recompute it at every mint, and never assume anchor and published are the same commit.",
   "source_files": [
     {
       "path": "papers/supplementary.tex",
-      "sha256": "496cfdfe1f21c16f574e7cdc7f5e4dcd1fc3cd1180f3ca71c7538d8d433cb3d6",
-      "bytes": 243304
+      "sha256": "30598a50eb9231e0eb7feb2adb7c8ce16679d6016e8e20b278437d447c2c113a",
+      "bytes": 244893
     },
     {
       "path": "papers/cover_letter.tex",
-      "sha256": "2230a46d2a18094db5dfa7eee9c4905da53ba896bd46846c30e4f48833ffa532",
-      "bytes": 6267
+      "sha256": "8d753451387147e754c5ca416abe059ca3c4af3896dea6cf2260f603597ca1ef",
+      "bytes": 6568
     }
   ],
   "source_files_note": "Canonical LaTeX sources whose RENDERS are tracked in files[] but which were not themselves hashed. The asymmetry has a failure mode and it fired in pass-42: cover_letter.tex was edited and the render was not rebuilt, so cover_letter.pdf still matched its recorded digest and the gate stayed green while the letter that ships to the editor still carried a retracted phrasing. Hashing the sources here makes that visible without changing files[], so the tracked-file count is unchanged and every recorded 15/15 remains true. main.tex is absent because it is already tracked in files[]."
