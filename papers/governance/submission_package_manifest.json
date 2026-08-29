@@ -72,6 +72,18 @@
       "note": "Point-by-point response. Withheld from the repository under D-0049 because it reproduces both reviewers' reports verbatim and both reviewers declined to sign. Rendered to PDF for upload; regenerable from the Markdown source on disk."
     },
     {
+      "role": "changes-marked-main",
+      "path": "papers/submission/DT-GSK-changes-marked.pdf",
+      "tracked": false,
+      "note": "latexdiff marked-up main manuscript, v2.13 against the submitted tag: additions underlined and deletions struck through in place, which is what the decision letter item (II) asks for. Derived and gitignored; rebuild with papers/scripts/build_change_marked_pdf.py --doc main. Preamble changes do not render, so the retitle is flagged in the cover letter instead."
+    },
+    {
+      "role": "changes-marked-supplementary",
+      "path": "papers/submission/DT-GSK-supplementary-changes-marked.pdf",
+      "tracked": false,
+      "note": "latexdiff marked-up Supplementary Materials on the same terms. Rebuild with papers/scripts/build_change_marked_pdf.py --doc supplementary."
+    },
+    {
       "role": "changes-marked-register",
       "path": "papers/submission/DT-GSK-change-register.pdf",
       "tracked": false,

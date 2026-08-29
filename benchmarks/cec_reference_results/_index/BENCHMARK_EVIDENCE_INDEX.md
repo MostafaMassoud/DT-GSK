@@ -29,6 +29,9 @@ finalization chain: `scripts/run_campaign.py` → `papers/scripts/finalize_evide
 | CEC2020 family panel | `cec2020/` | `cec2020-rel-2026-07-29-5867abe1e` | `papers/governance/evidence_release_manifest_cec2020.json` (336 files) | `suite_evidence_manifest/v1` | mint-time bytes; separate, non-superseding (curves + session logs excluded in-manifest; verification verdicts NOT_VERIFIED/NO_REFERENCE by design) |
 | CEC2013LSGO family panel | `cec2013lsgo/` | `lsgo-rel-2026-07-28-ff1a046ef` | `papers/governance/evidence_release_manifest_cec2013lsgo.json` (173 files) | `suite_evidence_manifest/v1` | mint-time bytes; separate, non-superseding (curves + session logs excluded in-manifest; verification verdicts NOT_VERIFIED/NO_REFERENCE by design -- no external ground truth exists) |
 | Paper-table export (T1–T16) | `_paper_tables/` | `rel-2026-07-20-67d9345f9` | `_paper_tables/manifest.json` (17 files) | `paper_tables_promotion_manifest/v2-flat` | mint-time bytes |
+| Revision experiments E1–E4 | `_revision/` | `rev-rel-2026-08-26-dd42d37eb` | `papers/governance/evidence_release_manifest_revision.json` | `suite_evidence_manifest/v1` | mint-time bytes; additive, non-superseding |
+| Revision round two (E5 + canonical re-analysis) | `_revision2/` | `rev2-rel-2026-08-28-203c78744` | `papers/governance/evidence_release_manifest_revision2.json` | `suite_evidence_manifest/v1` | mint-time bytes; additive, non-superseding (registered as pre-registration Amendment A4 before execution) |
+| Identity re-execution (D-0051) | `_g1_recheck/` | `g1-rel-2026-08-28-65b3d39e6` | `papers/governance/evidence_release_manifest_g1.json` | `suite_evidence_manifest/v1` | mint-time bytes; additive, non-superseding; demonstrates the Table A45 residual as a build difference |
 
 **Resolve release ids programmatically** (each manifest's `release_id` field);
 never hardcode them in tools — every pipeline script takes `GSK_REL_ID` /
