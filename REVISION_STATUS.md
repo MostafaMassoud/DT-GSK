@@ -1352,7 +1352,9 @@ worktree blind spot.
    added and 40 deleted blocks). Beside it `DT-GSK-change-register.pdf`, from
    `build_change_register.py`, lists all 102 changed passages as-submitted against as-revised with
    the reviewer point each answers (21 pp). Both are derived and gitignored; both rebuild from the
-   tags, at 102 passages over the same 7 files at v2.26 (93 at v2.25, 93 at v2.24).
+   tags, over the same 7 files — read the passage count off the register's own
+   front page; the clause has carried five different numbers (54, 75, 93, 102,
+   115) and every copy of it has gone stale in turn.
    **Two claims this entry previously made were false and are withdrawn.** It said the manuscript
    already uses `\hl`, so a blanket pass would collide with existing markup: it carries **no
    highlighting at all** — no `\hl`, no `soul`, no `colorbox`, nowhere in `main.tex`,
@@ -1568,7 +1570,7 @@ are given here.
 ### Phase 7 — resubmit (author-only; the point of no return)
 
 **Deadline CONFIRMED 2026-09-01, and the planned resubmission date is the same day.** Everything
-agent-side is complete at pass-52 / `v2.25` (pass-51's acceptance-readiness fixes plus the
+agent-side is complete at pass-54 / `v2.27` (pass-51's acceptance-readiness fixes plus the
 seven-lens panel review: the response letter's stale abstract quote and two superseded E1
 p-values corrected, SA01/SA02 renamed to the typeset Tables A23–A24, and the cover letter's
 stale 84-passage count made count-free — D-0057 / CR-0032); nothing in the repository blocks that date. The
@@ -1593,7 +1595,7 @@ warning that portal metadata does not update from the PDF. Re-enter both by hand
 off its own front page — no figure for it should be quoted anywhere, because every copy has gone stale.
 
 **After upload, no rebuilds.** `v2.27` becomes the frozen record of what was resubmitted; any later
-revision is pass-53 with a new superseding tag, never an edit to v2.25 in place (D-0045).
+revision is a new pass with a new superseding tag, never an edit to v2.27 in place (D-0045).
 
 
 SuSy upload; **re-enter the new title and revised keywords by hand** — portal metadata does not

@@ -65,7 +65,7 @@ rendered-text sweeps; five verified findings fixed — the S6.5 stale-open basis
 S9.1's answer (fourth member of the stale-claim family), three LINE-WRAPPED revision-process
 references the source-side sweep missed (sweep the RENDER for phrase policies, not the source),
 and the environment attestation re-minted at 618 tests after pass-49's statistics.py change.
-Register is now 102 passages at v2.26.
+Register is rebuilt at each pass; read its passage count off its own front page.
 **After pass-52 (2026-08-29, ordinary commits, freeze untouched):** the roadmap's B1–B4 ops
 fixes landed (kit row-83 counts, package manifest at six releases, CFF date/abstract, and an
 attestation re-mint — note that `git.dirty` is **always** true there and cannot be made false:
