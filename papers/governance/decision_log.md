@@ -2812,3 +2812,80 @@ applying all surfaced fixes.
   bytes post-write for all five entries.
 - **Anchor.** 9093e99 (apply); mint, close and tag v2.27 follow. NEXT free
   ids: CR-0035 and D-0060.
+
+## D-0060 (2026-08-29) - Pass-55: author-directed closure of the deferred register items
+
+- **Decision.** The author directed that open issues 4 through 10 of the
+  pass-54 register be fixed. A six-agent read-only verification panel ran
+  first; every proposed edit was applied only with a byte-verified needle,
+  and seven candidate fixes were REFUTED by that panel and not applied.
+  Mint **pass-55**, tag **v2.28**. Registered as **CR-0035**.
+- **The abstract (issue 4).** Trimmed 205 -> 199 rendered words against the
+  journal's 200-word guideline, in UNREGISTERED material only: two article
+  deletions, one slash-compound (style already present in sentence one), and
+  the basis negative flipped to the active voice the decision log and the
+  response letter already use. The RS-12 CEC2020 sentence, the RS-13
+  CEC2013LSGO sentence, the reviewer-adopted opening and the closing scope
+  sentence are byte-identical before and after, verified against HEAD.
+  Two candidate trims were refuted: 'keeping the GSK vector-update equations'
+  would attach retention to the final refinement, which does not use those
+  equations, and any edit to the opening would break the response letter's
+  verbatim self-quote of the one sentence Reviewer 1 personally rewrote.
+- **The tier-scope sentence (issue 10).** One ADDITIVE sentence in the
+  CEC2020 subsection anchors 'every dimension-gated subsystem is inactive
+  (D <= 20)' to Table 4's gating taxonomy and names what the 20-49 tier does
+  activate - the optional DE arm joining the ACE pool at 20 <= D < 100, the
+  top/bottom credit-memory split, changed tier constants - while the three
+  gated subsystems stay off. Every clause was verified against the
+  hash-gated _dt_profiles.py; the SAP addendum Section 9 bank pre-writes
+  only the outcome sentences, and none was touched. The panel rejected
+  adding the sentence at the S8, conclusions or abstract sites: those
+  placements are the registered bank's.
+- **Supplement refinements (issues 6, 7, 9c).** Six caption/prose fixes,
+  each verified against the release bundles: A43's caption states the W/T/L
+  direction (matching A45/A47) and why the POOLED A12 statistic compresses
+  toward 0.5 (the cross-product is dominated by between-function scale, so
+  near-0.5 values do not mean a null contrast); the E3 prose no longer
+  counts the D = 10 tie-by-construction among insensitivity outcomes; the
+  E5 D = 100 discussion now reports the adverse 2.34 -> 1.97 descriptive
+  mean-rank movement beside the unchanged ordinal; S7.1 matches the DAS on
+  which LSGO ports are vendored byte-faithful copies; and the false
+  'stability under a larger perturbation implies stability under a smaller
+  one' is replaced by exactly what Amendment A1 licenses. Of the ten
+  allegedly-uncited tables, SEVEN were refuted - they are covered by
+  rendered en-dash range references ('Tables A2-A5' covers A3 and A4) and
+  the label-level zero-ref count was the artifact; the three genuine
+  orphans (acronyms, the CEC2013 Wilcoxon-Holm matrix, the ISM
+  conditional-benefit table) gained references in their series' style. The
+  three page-order inversions (inline [H] boxes running ahead of deferred
+  [p] floats) are cured by three commented clearpage flushes; caption order
+  is untouched, so no table renumbers; placement-specifier alternatives
+  were examined and declined as non-deterministic without a test build.
+  The supplement grew 81 -> 83 pages; dependent page counts were synced and
+  the kit's marked-supplement count made count-free after going stale at
+  three consecutive passes.
+- **Companions and documentation (issues 5, 8, 9a, 9b).** 87 stale
+  path:line citations in the four baseline algorithm guides were re-based
+  by content verification at BOTH endpoints - an independent recount found
+  87, not the prior audit's 46; the deliberate comment-line citation at
+  apgsk.md:297 was preserved. build_change_register.py now renders hunk
+  context VERBATIM; this activated a latent tex_escape ordering bug (the
+  backslash pass ran first and the brace passes corrupted its own
+  \textbackslash), fixed via placeholder routing in the same commit -
+  output byte-identical for backslash-free input. statistical_analysis.md
+  gained its siblings' orientation blockquote. Two anchor-slug divergences
+  between the project slugger and GitHub's were cured (the determinism
+  heading renamed operator-free; a docs/index link that was dead in the
+  BUILT site today fixed); a 99-link sweep found no other linked pair.
+- **Refuted and left alone.** Seven table refs (range-covered), two abstract
+  trims (above), detokenize routing for the register context (percent signs
+  comment out the line), dropping the register's legibility gate, a
+  'D 50+' heading variant (operator-class trailing character), and the
+  apgsk.md:297 comment-line citation. Recorded so they are not rediscovered.
+- **Validation.** check_manifest 15/15 + sources 2/2; both PDFs double-build
+  byte-identical at the pinned epoch; the abstract's rendered count verified
+  at 199; registered sentences verified byte-identical; float order verified
+  in the render (A2 p4 <= A10 p8; A14 <= A15; A37 <= A38). Ladder and
+  cross-artifact audit re-run at the close.
+- **Anchor.** 1586242 (apply); mint, close and tag v2.28 follow. NEXT free
+  ids: CR-0036 and D-0061.

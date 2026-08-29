@@ -1,8 +1,8 @@
 {
   "schema": "main_manuscript_freeze_manifest/v1",
-  "phase": "PASS-54: remediation of the merged findings of five re-applied review instruments (project, documentation, publication-polish, manuscript, change-register acceptance) plus three targeted cross-audits. Manuscript: both architecture tables still carried the retired C1 stage name 'Eigenframe (final) polish' on pages whose own prose reads 'deterministic final polish', and the response letter promises the editor exactly that rename - renamed in Table 4, Table 5, the DOCX shim, the Section S9.4 parameter paragraph and the plain-language summary, while the E1 subsection title and arm names keep 'eigenframe' because there it names a contrasted arm. The supplement invited a commit-level pre-registration audit that the public repository fails (the CEC2020 addendum's signing commit does not resolve; the squashed public root postdates the release it registers): the claim now rests on the checksum binding, which holds, and the squash is disclosed as the reason commit dates are unavailable. The abstract's 'on that suite' followed two named suites and made the next clause false under the nearest antecedent (at CEC2013 D = 30 DT-GSK is third, not second) - scoped to CEC2017 and widened to 'either suite', verified on both. 'The tie band itself affects no significance decision' is removed, being contradicted by its own paragraph and by Section S9.1, where the canonical tie rule moves D = 100 across alpha. 'The single Holm-significant unfavorable headline cell in this study' is corrected: the pre-registered CEC2020 leg adds two at D = 20. The Conclusions now carry the basis negative at both active dimensions, C2's narrowing, and E2's adverse result, which had reached neither limitation ledger. The CEC2020 runner-up fact cited the APGSK paper at five sites and now cites the CEC2020 AGSK paper. Amendment A3 is disclosed as the Section S9 preamble promises; four reviewer-facing S9 tables gain cross-references; the Data Availability Statement's bare 'Table A45' is marked as supplementary. Letters: the cover letter's Markdown twin carried two paragraphs deleted from its LaTeX at pass-50, one contradicting the letter's own adverse-finding count, and the kit directs the author to paste that Markdown - the stale closing is dropped and the scope paragraph restored to the LaTeX, where the response letter already claims it stands. The response letter's abstract word count is removed rather than corrected: the abstract renders over the journal's guideline and was already over at v2.26, and the sentences carrying the CEC2020 and CEC2013LSGO outcomes are bound to registered wording banks that may not be re-drafted to shorten it. Build: build_cover_letter.py added, closing the last unpinned-epoch builder for a manifest-hashed artifact; all three PDFs double-build byte-identical. DAS names tag v2.27.",
-  "generated_utc": "2026-08-29T09:05:00+00:00",
-  "anchor_commit": "b7abf61da23db6f9792fc2d47ed7851313804e11",
+  "phase": "PASS-55: author-directed closure of the pass-54 register's deferred and optional items (issues 4 through 10), each verified by a six-agent read-only panel before application. Manuscript: the abstract is trimmed to 199 rendered words against the journal's 200-word guideline, touching ONLY unregistered material - two article deletions, one slash-compound, and the basis negative flipped to the active voice the project already uses elsewhere - while the RS-12 CEC2020 sentence, the RS-13 CEC2013LSGO sentence, the reviewer-adopted opening and the closing scope sentence are byte-identical before and after; two further candidate trims were refuted in verification as unsafe (one would mis-attribute equation retention to the final refinement, one would break the response letter's verbatim self-quote of the reviewer-rewritten opening). One additive sentence in the CEC2020 subsection scopes the inactive-at-D<=20 claim to Table 4's gating taxonomy, naming what the 20-49 tier does activate, every clause verified against the hash-gated _dt_profiles.py; the registered wording bank is untouched. Supplement: Table A43's caption states the W/T/L direction and why the pooled A12 statistic compresses toward 0.5; the E3 prose no longer counts the D = 10 tie-by-construction among insensitivity outcomes; the E5 D = 100 discussion reports the adverse 2.34 to 1.97 descriptive mean-rank movement beside the unchanged ordinal; Section S7.1 matches the Data Availability Statement on which LSGO ports are vendored byte-faithful copies; the false stability-monotonicity sentence in S9.4 is replaced by exactly the claim Amendment A1 licenses; the acronym table, the CEC2013 Wilcoxon-Holm matrix and the ISM conditional-benefit table gain the cross-references they lacked (seven other allegedly-uncited tables were refuted - they are covered by rendered en-dash range references); three table page-order inversions are cured by commented clearpage flushes that leave caption order, and therefore every table number, untouched, growing the supplement from 81 to 83 pages. Companions: the change register's hunk-context lines now render LaTeX verbatim (a latent tex_escape ordering bug this activated was fixed in the same commit), and 87 stale path:line citations in the four baseline algorithm guides were re-based by content verification at both endpoints. DAS names tag v2.28.",
+  "generated_utc": "2026-08-29T12:35:00+00:00",
+  "anchor_commit": "15862429596809a3ccdd7b4fbebc03679c72fbbe",
   "pre_freeze_base_commit": "b9846e4 (abbreviated deliberately; the full SHA is held in the withheld papers/review_2026_08_24/PRIVATE_OPS.md because this commit is one of two unreachable objects pending a provider-side purge)",
   "evidence_release": {
     "primary": "rel-2026-07-20-67d9345f9",
@@ -30,8 +30,8 @@
   "files": [
     {
       "path": "papers/main.tex",
-      "sha256": "a128b00c454bbf575cfdfb8b15462b5715e8ff8ad882cc6f795959efcc850f5e",
-      "bytes": 26438
+      "sha256": "6c6ba1dc3455f6eca373b0547de94208f72aa6f81f20d96c3c612d4b2411cb73",
+      "bytes": 26420
     },
     {
       "path": "papers/sections/introduction.tex",
@@ -50,8 +50,8 @@
     },
     {
       "path": "papers/sections/performance.tex",
-      "sha256": "8e30a5a111ae4d0b94cd4bc20182707e64da3f5bc61460008c9ef0a2d6987119",
-      "bytes": 78018
+      "sha256": "4021bb47be9cddce9741b96503ff49f1fd4774999b937607b402d4768c998a99",
+      "bytes": 78697
     },
     {
       "path": "papers/sections/conclusions.tex",
@@ -60,23 +60,23 @@
     },
     {
       "path": "papers/DT-GSK.pdf",
-      "sha256": "4ab96210499b80bcd2dc27fc1bcccaa0b7b21c860f1748e3e964414c659fef94",
-      "bytes": 829894
+      "sha256": "9822eb8694cf472cfb043b9e927485dca31b1b5a4361d6d1a10b8c802b7d3393",
+      "bytes": 830424
     },
     {
       "path": "papers/DT-GSK.docx",
-      "sha256": "d87574109597874c18a9569737de3e4e4ed276f56ec787b49ba20a39a6d1aac6",
-      "bytes": 1022246
+      "sha256": "c2c812a92c8b88e986c383c319ff9b02a3840aedd6e42743bb10d20cf214f05e",
+      "bytes": 1022587
     },
     {
       "path": "papers/supplementary.pdf",
-      "sha256": "505fbd262a2e7286e89a6dbc964ce5a840ad6e89a13aa5209707ad044b5aecc7",
-      "bytes": 1762597
+      "sha256": "9b00a63146079b1116357ee757adf2f652cfde875400f44d0c2e56f3e9b7ad35",
+      "bytes": 1765448
     },
     {
       "path": "papers/supplementary.docx",
-      "sha256": "412a9c138036fecfff8ead5a8c1c65ffd058eea13034798c1ad9f89e1ae04fc7",
-      "bytes": 9627566
+      "sha256": "fd5626e5989cc127976e36f888f05ee07c09a059cc925006f4d8401d1c9d5acb",
+      "bytes": 9627942
     },
     {
       "path": "papers/cover_letter.pdf",
@@ -124,13 +124,13 @@
     "revision_analysis_pins": "NOT RE-RUN at pass-43, and not required: no analysis artifact was touched, which check_frozen_analysis confirms at 115/115."
   },
   "remint_note": "pass-48 MINTED 2026-08-27. The lesson is procedural: pass-47's applier printed a success message it never verified, so a replacement that silently failed to match shipped a false symbol. Assert the END STATE after a batch, never per-edit success - the same rule D-0039 recorded and this pass re-learned.",
-  "published_commit": "3e28bf80b31ff247cd757cb1701497432ff0dff2",
+  "published_commit": "2ff36b7cf5be8258ef6c25da1c866c94ed2b232a",
   "published_commit_note": "published_commit is the commit that carried the previous freeze's mint onto the published branch (the v2.25 close). It is NOT the same object as anchor_commit, which names this pass's apply commit; both resolve on the public branch. This field went four passes stale before pass-53 because nothing gates it - recompute it at every mint, and never assume anchor and published are the same commit.",
   "source_files": [
     {
       "path": "papers/supplementary.tex",
-      "sha256": "6568fc0d7cb2bb544bd6d963f25e3e52d09a7ddc4e07bb7893f4e1e1ce3c63a9",
-      "bytes": 245193
+      "sha256": "017ba7ace31790ad2cae85b0fa0d05d0f8de77be394184aa11d99ad9d3e7a819",
+      "bytes": 246542
     },
     {
       "path": "papers/cover_letter.tex",

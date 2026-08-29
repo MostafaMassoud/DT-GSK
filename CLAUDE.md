@@ -26,10 +26,19 @@ is. **The repo was set PRIVATE on 2026-08-28 (author, to finalize) and MUST be p
 the upload** — the DAS names its URL and tags, and reviewers will click. Detail:
 [REVISION_STATUS.md](REVISION_STATUS.md) §5 items 1 and 6.
 
-**Current freeze: pass-54 / `v2.27`** — minted, tagged and **PUSHED** (2026-08-29). All 27 tags
-are on `origin`; `v2.13` and `v2.27`, the two the Data Availability Statement names, resolve
-there at the same commits as local. `main` is in sync. The repo is still **PRIVATE** — flipping
-it public is the remaining step before a referee can follow the DAS.
+**Current freeze: pass-55 / `v2.28`** — minted and tagged **locally; NOT pushed.** `main` is ahead of
+`origin/main` and `v2.28` does not exist on the remote — verify with `git status -sb` and
+`git ls-remote --tags origin`, because the Data Availability Statement names `v2.28`. The repo is
+still **PRIVATE** — flipping it public is the remaining step before a referee can follow the DAS.
+**Pass-55 (2026-08-29, D-0060 / CR-0035) closed the deferred register items 4-10 by author
+direction:** the abstract is 199 rendered words with the registered sentences byte-identical (two
+candidate trims REFUTED in verification); one additive sentence scopes the inactive-at-D<=20
+claim to the gating taxonomy; six verified supplement refinements landed (pooled-A12 compression,
+the E3 constructed tie, the E5 2.34->1.97 movement, S7.1 port provenance, the S9.4 monotonicity
+claim, W/T/L direction); three orphan tables gained refs while SEVEN alleged orphans were refuted
+as range-covered; three clearpage flushes cured the float inversions (supplement now 83 pp);
+87 algorithm-guide citations re-based; the register renders hunk context verbatim (a latent
+tex_escape ordering bug fixed with it).
 **Pass-54 (2026-08-29, D-0059 / CR-0034) is the current pass:** five review instruments were
 retuned and re-applied from scratch and three cross-audits run beside them; 67 findings, all
 verified against bytes or the render before being acted on. Topmost, **both architecture tables
@@ -48,7 +57,7 @@ added (files[10] had no epoch-pinned builder), five mypy errors under five “cl
 fixed, and a hosted CI asserted by fourteen documents was retracted — it has never existed in any
 commit. **New gate: `check_reproducibility_manifest.py`** — that manifest had gone stale INSIDE
 its own pass three times, always refreshed before the artifacts were rebuilt, and nothing read it.
-Next free: CR-0035 / D-0060.
+Next free: CR-0036 / D-0061.
 **Pass-53** was the previous remediation pass (D-0058 / CR-0033): the Supplementary's ninth
 limitation still said the tier boundaries were “unvaried, so their sensitivity is untested” nine
 pages before S9.5 varies them and finds against the shipped profile twice; the Conclusions now

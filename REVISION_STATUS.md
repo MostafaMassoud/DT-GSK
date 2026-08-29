@@ -12,7 +12,7 @@ what is happening, what is done, and what is next.
 | **Editorial status** | **MAJOR REVISION** — 2 reviewers, received 2026-08-24 |
 | **Branch** | `main` — **published** at `02d1791`, tracking `origin/main`, and since 2026-08-28 the **only** branch: the development-history branches were bundled to the author's private history bundle outside the repository (restore-tested; location in the withheld `papers/review_2026_08_24/PRIVATE_OPS.md`) and deleted. Never fetch that bundle into a repo with a public remote. |
 | **Progress** | **COMPLETE** — all ten reviewer points answered; phases 1–7 applied; five experiments run, analysed and written up (E5 added ahead of resubmission, pass-49); the reopened-items batch (pass-50), the acceptance-readiness review (pass-51) and the seven-lens panel review of the response letter (pass-52) are all applied. |
-| **Freeze** | **pass-54 / tag v2.27** (anchor `b7abf61`) · `check_manifest` 15/15 + `sources 2/2` · **PUSHED 2026-08-29** — all 27 tags on `origin`, v2.13 and v2.27 verified resolving there at the same commits as local. Repo is **PRIVATE until upload day** — flip public before SuSy upload. Next free ids **CR-0035 / D-0060**. |
+| **Freeze** | **pass-55 / tag v2.28** (anchor `1586242`) · `check_manifest` 15/15 + `sources 2/2` · minted and tagged locally; **push pending** — verify `git ls-remote --tags origin` before relying on remote state, because the DAS names v2.28. Repo is **PRIVATE until upload day** — flip public before SuSy upload. Next free ids **CR-0036 / D-0061**. |
 | **Revision deadline** | **2026-09-01 CONFIRMED** — also the planned resubmission date, so **zero slack**; the extension-request draft is the only margin (§5) |
 
 ---
@@ -62,8 +62,8 @@ known-answer pins reproduced, Holm family structure recorded per experiment.
 **The write-up is done too.** Supplementary Section S9 carries all five experiments as Tables
 A43--A47, the pre-committed C1/ISM/C2 manuscript edits are applied, the point-by-point response letter
 is written (and has since been through the pass-51/52 review instruments), every gate is green, and
-the current freeze is **pass-54 / v2.27** at 15/15 + sources 2/2, and `origin/main` carries it —
-pushed 2026-08-29, with both DAS-named tags verified resolving on the remote. What is left is the
+the current freeze is **pass-55 / v2.28** at 15/15 + sources 2/2 —
+push it and verify both DAS-named tags resolve on the remote. What is left is the
 author's upload day — public flip, purge ticket, SuSy resubmission (Section 5).
 
 ## 2a. Open against the published paper
