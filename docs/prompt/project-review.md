@@ -10,11 +10,28 @@
 > the README section "Internal Quality-Assurance Instruments" for the full
 > framing.
 
-> **State snapshot refreshed 2026-08-28.** Any dated status, tag, pass number, or open-item
+> **State snapshot refreshed 2026-08-29.** Any dated status, tag, pass number, or open-item
 > list below this line is a point-in-time anchor from an earlier phase and is NOT current
 > state. The live state is [`REVISION_STATUS.md`](../../REVISION_STATUS.md) (start there) and
-> the `CLAUDE.md` "Right now" block. As of this refresh: **pass-48 / tag v2.21**, the
-> round-one revision at *Algorithms* (MDPI) is complete, and resubmission is due **2026-09-01**.
+> the `CLAUDE.md` "Right now" block. As of this refresh: **pass-52 / tag v2.25**, the
+> round-one revision at *Algorithms* (MDPI) is complete and agent-side work is finished;
+> resubmission is due **2026-09-01** (deadline = planned date, zero slack).
+>
+> Four things this refresh adds, because they change what a reviewer of this repository sees:
+> (1) the repository is **PRIVATE until upload day** and must be flipped public before the
+> SuSy upload — the Data Availability Statement names its URL and tags `v2.13`/`v2.25`;
+> (2) the reviewer-facing response letter, both marked PDFs and the change register are
+> **untracked by design** (D-0049) and live in `papers/submission/` — do not expect them in
+> `git ls-files`; (3) operational identifiers (the private history bundle's location, the two
+> dangling-commit SHAs and their purge-ticket text) were moved by the 2026-08-29
+> public-release cleanup into the withheld `papers/review_2026_08_24/PRIVATE_OPS.md`, so
+> tracked documents deliberately no longer print them; (4) `results/_revision/` staging was
+> quarantined outside the repository — the promoted releases under
+> `benchmarks/cec_reference_results/` are the canonical evidence.
+>
+> **Check `git status -sb` before trusting remote state:** the cleanup commits were made
+> locally and deliberately not pushed, so `main` may be ahead of `origin/main`.
+>
 > Where this file's instructions conflict with current governance (freeze passes, hash-gated
 > files, never-edit trees, material withheld under D-0049), **governance wins**.
 

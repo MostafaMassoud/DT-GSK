@@ -172,11 +172,28 @@
 <blockquote>Artificial Intelligence* statement, which is the authoritative account. See</blockquote>
 <blockquote>the README section &quot;Internal Quality-Assurance Instruments&quot; for the full</blockquote>
 <blockquote>framing.</blockquote>
-<blockquote><strong>State snapshot refreshed 2026-08-28.</strong> Any dated status, tag, pass number, or open-item</blockquote>
+<blockquote><strong>State snapshot refreshed 2026-08-29.</strong> Any dated status, tag, pass number, or open-item</blockquote>
 <blockquote>list below this line is a point-in-time anchor from an earlier phase and is NOT current</blockquote>
 <blockquote>state. The live state is <a href="../../REVISION_STATUS.md"><code>REVISION_STATUS.md</code></a> (start there) and</blockquote>
-<blockquote>the <code>CLAUDE.md</code> &quot;Right now&quot; block. As of this refresh: <strong>pass-48 / tag v2.21</strong>, the</blockquote>
-<blockquote>round-one revision at *Algorithms* (MDPI) is complete, and resubmission is due <strong>2026-09-01</strong>.</blockquote>
+<blockquote>the <code>CLAUDE.md</code> &quot;Right now&quot; block. As of this refresh: <strong>pass-52 / tag v2.25</strong>, the</blockquote>
+<blockquote>round-one revision at *Algorithms* (MDPI) is complete and agent-side work is finished;</blockquote>
+<blockquote>resubmission is due <strong>2026-09-01</strong> (deadline = planned date, zero slack).</blockquote>
+<blockquote></blockquote>
+<blockquote>Four things this refresh adds, because they change what a reviewer of this repository sees:</blockquote>
+<blockquote>(1) the repository is <strong>PRIVATE until upload day</strong> and must be flipped public before the</blockquote>
+<blockquote>SuSy upload — the Data Availability Statement names its URL and tags <code>v2.13</code>/<code>v2.25</code>;</blockquote>
+<blockquote>(2) the reviewer-facing response letter, both marked PDFs and the change register are</blockquote>
+<blockquote><strong>untracked by design</strong> (D-0049) and live in <code>papers/submission/</code> — do not expect them in</blockquote>
+<blockquote><code>git ls-files</code>; (3) operational identifiers (the private history bundle&#x27;s location, the two</blockquote>
+<blockquote>dangling-commit SHAs and their purge-ticket text) were moved by the 2026-08-29</blockquote>
+<blockquote>public-release cleanup into the withheld <code>papers/review_2026_08_24/PRIVATE_OPS.md</code>, so</blockquote>
+<blockquote>tracked documents deliberately no longer print them; (4) <code>results/_revision/</code> staging was</blockquote>
+<blockquote>quarantined outside the repository — the promoted releases under</blockquote>
+<blockquote><code>benchmarks/cec_reference_results/</code> are the canonical evidence.</blockquote>
+<blockquote></blockquote>
+<blockquote><strong>Check <code>git status -sb</code> before trusting remote state:</strong> the cleanup commits were made</blockquote>
+<blockquote>locally and deliberately not pushed, so <code>main</code> may be ahead of <code>origin/main</code>.</blockquote>
+<blockquote></blockquote>
 <blockquote>Where this file&#x27;s instructions conflict with current governance (freeze passes, hash-gated</blockquote>
 <blockquote>files, never-edit trees, material withheld under D-0049), <strong>governance wins</strong>.</blockquote>
 <blockquote><strong>Purpose.</strong> Drive a capable LLM (or expert human team) to transform <code>docs/</code></blockquote>
@@ -208,13 +225,14 @@
 <blockquote>diagrams, and per-optimizer deep dives exist. Use this prompt now as the</blockquote>
 <blockquote><strong>authoring spec</strong> when a NEW page (optimizer, suite, or guide) is added,</blockquote>
 <blockquote>not as a pending whole-repo task.</blockquote>
-<blockquote><strong>Current project status (2026-08-26)</strong> *(project-phase pointer — the</blockquote>
+<blockquote><strong>Current project status (refreshed 2026-08-29)</strong> *(project-phase pointer — the</blockquote>
 <blockquote>doc-coverage note above is about this prompt&#x27;s own coverage; this is about the</blockquote>
 <blockquote>project the docs describe).* The manuscript is <strong>submitted and revised</strong>, not</blockquote>
 <blockquote>from-scratch construction: it went to *Algorithms* (MDPI) as</blockquote>
 <blockquote><code>algorithms-4507562</code> on 2026-08-01, came back <strong>major revision</strong>, and the</blockquote>
-<blockquote>revision is complete — all ten reviewer points answered, four new experiments</blockquote>
-<blockquote>run, analysed and written up as Supplementary Section S9 (Tables A43-A46). The</blockquote>
+<blockquote>revision is complete — all ten reviewer points answered, <strong>five</strong> new experiments</blockquote>
+<blockquote>run, analysed and written up as Supplementary Section S9 (Tables A43-A47; E5, the</blockquote>
+<blockquote>dimension-boundary study, was added ahead of resubmission). The</blockquote>
 <blockquote>pre-submission 80-ticket remediation ledger</blockquote>
 <blockquote>(<code>papers/governance/remediation_2026_07_18/ticket_status.csv</code>) closed at</blockquote>
 <blockquote><strong>80/80 terminal</strong>. Read <code>REVISION_STATUS.md</code> at the repository root before</blockquote>

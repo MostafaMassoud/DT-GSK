@@ -186,6 +186,14 @@ Never edit or reinterpret primary evidence merely to make it agree with the manu
 > (every bump drags `CITATION.cff` — no leading `v` — `SUBMISSION_KIT.md`,
 > `submission_package_manifest.json`, and the DAS tag in `main.tex`).
 >
+> **Post-cleanup state (2026-08-29, ordinary commits — freeze untouched):** the repository is
+> **PRIVATE until upload day**; the response letter, both marked PDFs and the change register are
+> untracked by design (D-0049) in `papers/submission/`; the private bundle's location, the two
+> dangling-commit SHAs and their purge text now live only in the withheld
+> `papers/review_2026_08_24/PRIVATE_OPS.md`; `results/_revision/` staging was quarantined outside
+> the repository (promoted releases under `benchmarks/` are canonical). The cleanup commits were
+> **left unpushed** — check `git status -sb` before trusting remote state.
+>
 > **Publication topology (SQUASH):** the public history is one commit per published state, so an
 > `anchor_commit` in a governance record does **not** resolve on origin — `published_commit` does
 > (disclosed in README). The never-push development-history branches were **bundled to
