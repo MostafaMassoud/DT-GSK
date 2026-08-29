@@ -50,6 +50,7 @@
 \restylefloat{algorithm}
 \usepackage{bm}
 \usepackage{longtable}
+\usepackage{needspace}
 \usepackage{siunitx}
 \usepackage{subcaption}
 \usepackage{pgfplots}
@@ -87,6 +88,20 @@
 % for dense data tables. \zebra is opt-in per table (before \begin{tabular});
 % booktabs rules stay on top. arraystretch is global and safe for all tables.
 \renewcommand{\arraystretch}{1.18}
+
+% Readable leading for the class's back-matter statements. mdpi.cls sets
+% \acknowledgments, \authorcontributions, \funding and \conflictsofinterest at
+% \fontsize{9}{9} -- 9pt text on 9pt leading, i.e. zero interline space, which
+% renders as visibly crushed lines (author observation, 2026-08-29). Keep the
+% journal's smaller statement size but give it normal leading (9/11.5).
+\renewcommand{\acknowledgments}[1]{%
+\vspace{6pt}\noindent{\fontsize{9}{11.5}\selectfont\textbf{Acknowledgments:} {#1}\par}}
+\renewcommand{\authorcontributions}[1]{%
+\vspace{6pt}\noindent{\fontsize{9}{11.5}\selectfont\textbf{Author Contributions:} {#1}\par}}
+\renewcommand{\funding}[1]{%
+\vspace{6pt}\noindent{\fontsize{9}{11.5}\selectfont\textbf{Funding:} {#1}\par}}
+\renewcommand{\conflictsofinterest}[1]{%
+\vspace{6pt}\noindent{\fontsize{9}{11.5}\selectfont\textbf{Conflicts of Interest:} {#1}\par}}
 \definecolor{zebragray}{gray}{0.94}
 \newcommand{\zebra}{\rowcolors{2}{zebragray}{white}}
 
@@ -277,7 +292,7 @@ configuration files, and experimental result data supporting the findings of
 this study are openly available in the public \dtgsk{} repository at
 \url{https://github.com/MostafaMassoud/DT-GSK}; the originally submitted
 version corresponds to the repository tag v2.13 and this revised version to
-tag v2.33, and any further materials are
+tag v2.34, and any further materials are
 available from the corresponding author upon reasonable request. The
 supplementary materials accompanying the manuscript provide the additional
 methodological and experimental details needed to evaluate the reported
