@@ -157,7 +157,10 @@ annotated tag **`dtgsk-submission-v2.0-<date>`** (v1.0 retained, never moved).
 
 ## Phase W8 — Author-side post-tag checklist (owner: YOU)
 
-1. `git push origin main --tags`.
+1. `git push origin main` and then each release tag BY NAME, e.g.
+   `git push origin v2.26`. Never `--tags`: it publishes every local tag, and a
+   local archive tag once held the withheld reviewer reports and the copyrighted
+   reference PDFs (bundled out of the repository and deleted at pass-53, D-0058).
 2. COMP-001b resumes: dedicated public repo (snapshot of 02-GSK_Family only —
    never the monorepo), GitHub Release from the v2.0 tag, Zenodo toggle ON
    BEFORE the release, DOI recorded; SuSy submission with committed artifacts
