@@ -89,8 +89,11 @@ word/                      Word-build assets (reference.docx, field_registry.csv
 reference_papers/          Bibliography bundle (references.bib + index). Most PDFs are
                            gitignored; Academic_Research_Guidelines/ IS tracked.
 results/                   The only runner write target — _run_all/ (reproduced
-                           results) and _revision/ (round-1 revision campaign
-                           staging, git-tracked); analysis reads the reference
+                           results, tracked) and _revision/ (revision-campaign
+                           staging — untracked; the accumulated staging was
+                           quarantined outside the repo 2026-08-29, the promoted
+                           release under benchmarks/ is canonical); analysis
+                           reads the reference
                            panel first
 docs/                      Themed Markdown (getting-started/reference/algorithms/
                            development/research/prompt) + generated html/

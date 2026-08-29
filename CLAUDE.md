@@ -56,6 +56,13 @@ S9.1's answer (fourth member of the stale-claim family), three LINE-WRAPPED revi
 references the source-side sweep missed (sweep the RENDER for phrase policies, not the source),
 and the environment attestation re-minted at 618 tests after pass-49's statistics.py change.
 Register is now 93 passages.
+**After pass-52 (2026-08-29, ordinary commits, freeze untouched):** the roadmap's B1–B4 ops
+fixes landed (kit row-83 counts, package manifest at six releases, CFF date/abstract, clean-tree
+attestation), then the **public-release cleanup**: tracked docs no longer carry the private
+bundle's path, the purge full SHAs, or reviewer-verbatim words — the operational identifiers
+live ONLY in the withheld `papers/review_2026_08_24/PRIVATE_OPS.md`; results staging was
+quarantined to `../DT-GSK_cleanup_2026-08-29/`. **The cleanup commits were left UNPUSHED by
+contract — verify `git status -sb` against origin before relying on remote state.**
 **Pass-52 / v2.25 (2026-08-29, D-0057 / CR-0032) applied a fourteen-agent seven-lens panel review
 of the response letter:** 28 confirmed findings fixed — topmost, the letter's quote of the revised
 abstract said 'scalar control' where the shipped abstract says 'scalar parameters', and two E1
@@ -179,7 +186,8 @@ Everything else in this file is a pointer.
    Runners write under `results/` and nowhere else — `_run_all/` for the campaign, `_revision/` for
    the revision driver (`scripts/run_revision_experiments.py`), `_ablation*/` for ablations.
    `results/_revision/` is **untracked** (D-0049): it duplicates the promoted release, which is the
-   citable evidence.
+   citable evidence. (The accumulated staging was quarantined outside the repo by the 2026-08-29
+   cleanup; future runs recreate the directory.)
 3. **`papers/` is a frozen manuscript under change control.** Any edit voids the freeze manifest and
    belongs to a new freeze pass (see D-0045). Never edit the submitted state in place.
 4. **Never author LaTeX or regex through a bash heredoc** — backslash collapse has already shipped
