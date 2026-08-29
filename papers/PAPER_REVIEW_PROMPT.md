@@ -150,7 +150,7 @@ Never edit or reinterpret primary evidence merely to make it agree with the manu
 
 > **HISTORICAL BANNER (superseded).** The 2026-07-25 CEC2013LSGO scope change this banner once announced was EXECUTED in full (five-suite manuscript, sections S7/S8, two additional evidence releases) and the freeze has since advanced to pass-27. Read the DEFINITIVE CURRENT STATE block below, then the newest layer (currently **section 1.5.0-Q**); sections 1.5.0-M/N/O record how the scope change was executed and are historical.
 
-> ## DEFINITIVE CURRENT STATE — 2026-08-29 (pass-53 / v2.26; round-two, reopened-items, acceptance-readiness, panel-review and full-remediation batches APPLIED; resubmission due 2026-09-01) — read this first; it supersedes every layer below on any conflict
+> ## DEFINITIVE CURRENT STATE — 2026-08-29 (pass-55 / v2.28 PUSHED; round-two, reopened-items, acceptance-readiness, panel-review, full-remediation and deferred-items-closure batches APPLIED; resubmission due 2026-09-01) — read this first; it supersedes every layer below on any conflict
 >
 > This snapshot is maintained as dated provenance layers (§1.5.0 through §1.5.0-R). The single
 > authoritative current state is stated here; the layers below are the dated record of how it was
@@ -160,7 +160,7 @@ Never edit or reinterpret primary evidence merely to make it agree with the manu
 > **Lifecycle:** submitted to *Algorithms* (MDPI) 2026-08-01 as pass-38 / tag **v2.13**, manuscript
 > ID **algorithms-4507562** · decision **MAJOR REVISION** (two unsigned reviewers, ten points —
 > dispositions and per-point verification duties in **§1.5.3-J**) · the revision is **COMPLETE and
-> published to the public repository** (v2.14 → v2.26, including the round-two
+> published to the public repository** (v2.14 → v2.28, including the round-two
 > pass-49/50 batches: E5 boundary sensitivity, the canonical tie rule, the audit's P0/P1/P2
 > corrections) but has **NOT yet been resubmitted through
 > SuSy**. **The resubmission deadline is CONFIRMED as 2026-09-01** — also the author's planned
@@ -175,14 +175,14 @@ Never edit or reinterpret primary evidence merely to make it agree with the manu
 > gitignored** resubmission artifacts with generators: the marked main (50 pp) and marked
 > supplementary manuscripts (read their page counts off the PDFs — they shift at every pass) — **preamble changes do not render**, so the retitle is
 > invisible there; disclosed twice in the response letter — and `DT-GSK-change-register.pdf`
-> (102 passages at v2.26, as-submitted vs as-revised, keyword-attributed to reviewer points; redesigned layout with TOC, badges and color-coded panels), rebuilt by
+> (as-submitted vs as-revised, keyword-attributed to reviewer points — read the passage count off the register's own front page; redesigned layout with TOC, badges and color-coded panels), rebuilt by
 > `papers/scripts/build_change_marked_pdf.py` / `build_change_register.py`.
 >
-> **Freeze:** pass-53, tag **v2.26** (v2.13 … v2.26 all resolve), decision log through **D-0058**,
+> **Freeze:** pass-55, tag **v2.28** (v2.13 … v2.28 all resolve, all pushed), decision log through **D-0060**,
 > change requests through **CR-0033**; next free ids **CR-0034 / D-0059** (verify free at apply
 > time). `check_manifest` = **15/15 files + sources 2/2** — the `source_files` gate (pass-43)
 > hashes `supplementary.tex` and `cover_letter.tex`, so an unbuilt source edit now fails the gate
-> that pass-42 slipped through. Any manuscript edit voids pass-53 → pass-54 re-mint + tag v2.27
+> that pass-42 slipped through. Any manuscript edit voids pass-55 → pass-56 re-mint + tag v2.29
 > (every bump drags `CITATION.cff` — no leading `v` — `SUBMISSION_KIT.md`,
 > `submission_package_manifest.json`, and the DAS tag in `main.tex`).
 >

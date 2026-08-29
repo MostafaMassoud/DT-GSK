@@ -13,9 +13,11 @@
 > **State snapshot refreshed 2026-08-29.** Any dated status, tag, pass number, or open-item
 > list below this line is a point-in-time anchor from an earlier phase and is NOT current
 > state. The live state is [`REVISION_STATUS.md`](../../REVISION_STATUS.md) (start there) and
-> the `CLAUDE.md` "Right now" block. As of this refresh: **pass-53 / tag v2.26**, the
-> round-one revision at *Algorithms* (MDPI) is complete and agent-side work is finished;
-> resubmission is due **2026-09-01** (deadline = planned date, zero slack).
+> the `CLAUDE.md` "Right now" block. As of this refresh: **pass-55 / tag v2.28, PUSHED**
+> (all 28 tags on `origin`; decision log through **D-0060**, register through **CR-0035**,
+> next free **CR-0036 / D-0061**); the round-one revision at *Algorithms* (MDPI) is
+> complete and agent-side work is finished; resubmission is due **2026-09-01**
+> (deadline = planned date, zero slack).
 >
 > Four things this refresh adds, because they change what a reviewer of this repository sees:
 > (1) the repository is **PRIVATE until upload day** and must be flipped public before the
@@ -29,18 +31,27 @@
 > quarantined outside the repository — the promoted releases under
 > `benchmarks/cec_reference_results/` are the canonical evidence.
 >
-> **Pass-53 (2026-08-29) closed the full remediation register**, so findings from
-> earlier applications of this instrument are largely discharged: the Supplementary's
-> boundary-sensitivity limitation now agrees with Section S9.5; the Conclusions state
-> why the interaction-structure memory and its eigenbasis are retained; C2's narrowing
-> reached the Introduction; the deterministic PDF epoch is pinned inside the builders
-> (it had been absent since pass-51, so shipped PDFs carried wall-clock stamps); the
-> governance manifests, the change-request register and the submission kit's
-> paste-ready abstract are all resynced. Re-derive findings from the artifacts rather
-> than assuming any earlier list still holds. Two things are known-and-accepted, not
-> defects: `benchmarks/cec_reference_results/README.md` carries stale release ids but
-> is hash-bound in an immutable release, and the submission-day operations (public
-> flip, purge ticket, SuSy fields) are deliberately outstanding.
+> **Passes 53-55 (2026-08-29) closed the full remediation register**, so findings from
+> earlier applications of this instrument are largely discharged. Pass-53: the
+> Supplementary's boundary-sensitivity limitation agrees with Section S9.5, the
+> Conclusions state why the interaction-structure memory is retained, the
+> deterministic PDF epoch is pinned inside the builders. Pass-54: the C1 stage rename
+> reached both architecture tables, the pre-registration claim moved onto the checksum
+> binding the squashed public history preserves, the abstract's suite anaphor was
+> fixed, a cover-letter builder and the reproducibility-manifest gate were added.
+> Pass-55: the abstract is 199 rendered words with the registered sentences
+> byte-identical, an additive sentence scopes the inactive-at-D<=20 claim to the
+> gating taxonomy, six verified supplement caption refinements landed, three orphan
+> tables gained refs (seven alleged orphans REFUTED - covered by rendered en-dash
+> range references), three clearpage flushes cured the float inversions (supplement
+> now 83 pp), 87 algorithm-guide citations were re-based, and the change register
+> renders hunk context verbatim. Re-derive findings from the artifacts rather
+> than assuming any earlier list still holds. Known-and-accepted, not defects:
+> `benchmarks/cec_reference_results/README.md` carries stale release ids but is
+> hash-bound in an immutable release; the monorepo path survives only in hash-bound,
+> append-only or dated-historical files; `git.dirty` is always true in the environment
+> attestation (the mint's own outputs sit in the tree); and the submission-day
+> operations (public flip, purge ticket, SuSy fields) are deliberately outstanding.
 >
 > **Check `git status -sb` before trusting remote state:** the cleanup commits were made
 > locally and deliberately not pushed, so `main` may be ahead of `origin/main`.

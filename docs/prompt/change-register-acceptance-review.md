@@ -387,7 +387,7 @@ VERIFICATION(where).
 6. Contribution matrix C1–C3 (§3)
 7. Cross-cutting audits (§4, only sections with surviving findings in
    full; others as "no surviving findings")
-8. Change-by-change verdict list, all ~92 (§5) + new-problems section
+8. Change-by-change verdict list, every register passage (§5) + new-problems section
 9. Acceptance-risk register (§6.1)
 10. Experiment decision matrix (§6.2)
 11. Simulated reviewers A–D + overlap synthesis (§6.3)
