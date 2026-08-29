@@ -57,16 +57,19 @@ adaptive configuration selection; deterministic final refinement; adaptive
 operator selection; population-size reduction; CEC benchmark suites;
 nonparametric statistical comparison; reproducibility
 
-## 5. Authors (enter in this order; affiliation identical for all three)
+## 5. Authors (enter in this order)
 
-Affiliation (all): Operations Research Department, Faculty of Graduate Studies
-for Statistical Research, Cairo University, Giza 12613, Egypt
+Affiliation 1 (all three): Operations Research Department, Faculty of Graduate
+Studies for Statistical Research, Cairo University, Giza 12613, Egypt
+Affiliation 2 (A.W.M. only, added 2026-08-29): University of Science and
+Technology, Zewail City of Science and Technology, 6th of October City,
+Giza 12588, Egypt
 
-| # | Name | Email | ORCID | Role |
-|---|---|---|---|---|
-| 1 | Mostafa Elsayed Masoud | moustafa.masoud@gmail.com | 0009-0003-8415-2158 | **Corresponding** |
-| 2 | Heba Sayed Mohamed Roshdy | hmhmdss@yahoo.com | 0000-0003-0387-5876 | Co-author |
-| 3 | Ali Wagdy Mohamed | aliwagdy@gmail.com | 0000-0002-5895-2632 | Co-author |
+| # | Name | Email | ORCID | Affiliations | Role |
+|---|---|---|---|---|---|
+| 1 | Mostafa Elsayed Masoud | moustafa.masoud@gmail.com | 0009-0003-8415-2158 | 1 | **Corresponding** |
+| 2 | Heba Sayed Mohamed Roshdy | hmhmdss@yahoo.com | 0000-0003-0387-5876 | 1 | Co-author |
+| 3 | Ali Wagdy Mohamed | aliwagdy@gmail.com | 0000-0002-5895-2632 | 1, 2 | Co-author |
 
 ## 6. Files to upload (this order)
 
