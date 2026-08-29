@@ -284,7 +284,7 @@ python -m ruff check .
 python scripts\validate_profile_lock.py --root .
 python scripts\build_docs_html.py
 
-# --- 8b. Manuscript gate battery (the pass-41 battery, unchanged through pass-52). Every one must exit 0;
+# --- 8b. Manuscript gate battery (the pass-41 battery; commit-field resolvability gated since pass-56). Every one must exit 0;
 #     the three counted ones read 15/15, 115/115 and 761 rows / 0 FAIL ---
 python papers/scripts/check_manifest.py
 python papers/scripts/check_reproducibility_manifest.py  # ungated until pass-54;

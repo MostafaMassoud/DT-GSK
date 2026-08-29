@@ -12,7 +12,7 @@ what is happening, what is done, and what is next.
 | **Editorial status** | **MAJOR REVISION** — 2 reviewers, received 2026-08-24 |
 | **Branch** | `main` — **published** at `02d1791`, tracking `origin/main`, and since 2026-08-28 the **only** branch: the development-history branches were bundled to the author's private history bundle outside the repository (restore-tested; location in the withheld `papers/review_2026_08_24/PRIVATE_OPS.md`) and deleted. Never fetch that bundle into a repo with a public remote. |
 | **Progress** | **COMPLETE** — all ten reviewer points answered; phases 1–7 applied; five experiments run, analysed and written up (E5 added ahead of resubmission, pass-49); the reopened-items batch (pass-50), the acceptance-readiness review (pass-51) and the seven-lens panel review of the response letter (pass-52) are all applied. |
-| **Freeze** | **pass-57 / tag v2.30** (anchor `87af854`) · `check_manifest` 15/15 + `sources 2/2` (gating commit-field resolvability) · **PUSHED 2026-08-29** — all 30 tags on `origin`, v2.13 and v2.30 verified resolving at the same commits as local. Repo is **PRIVATE until upload day** — flip public before SuSy upload. Next free ids **CR-0038 / D-0063**. |
+| **Freeze** | **pass-58 / tag v2.31** (anchor `8b83a39`) · `check_manifest` 15/15 + `sources 2/2` (gating commit-field resolvability) · minted and tagged 2026-08-29; push, then verify all 31 tags on `origin` (the DAS names v2.13 and v2.31). Repo is **PRIVATE until upload day** — flip public before SuSy upload. Next free ids **CR-0039 / D-0064**. |
 | **Revision deadline** | **2026-09-01 CONFIRMED** — also the planned resubmission date, so **zero slack**; the extension-request draft is the only margin (§5) |
 
 ---
@@ -62,8 +62,8 @@ known-answer pins reproduced, Holm family structure recorded per experiment.
 **The write-up is done too.** Supplementary Section S9 carries all five experiments as Tables
 A43--A47, the pre-committed C1/ISM/C2 manuscript edits are applied, the point-by-point response letter
 is written (and has since been through the pass-51/52 review instruments), every gate is green, and
-the current freeze is **pass-57 / v2.30** at 15/15 + sources 2/2, and `origin/main` carries it —
-pushed 2026-08-29 with both DAS-named tags verified resolving on the remote. What is left is the
+the current freeze is **pass-58 / v2.31** at 15/15 + sources 2/2 — push, then verify both
+DAS-named tags resolve on the remote. What is left is the
 author's upload day — public flip, purge ticket, SuSy resubmission (Section 5).
 
 ## 2a. Open against the published paper
@@ -1247,6 +1247,9 @@ D = 50 / D = 100 rank claims qualified as resting in part on the NP = 5D rule.
 
 **Response letter:** `papers/review_2026_08_24/response_to_reviewers.md`. Every reviewer sentence is
 quoted from the verbatim record; every number is printed in the same notation its exhibit uses.
+(Restyled 2026-08-29 to the professor-supplied short-answer format — several comments now appear
+as labeled excerpts, and the fully-detailed version this paragraph describes is preserved beside
+it as `response_to_reviewers_full_technical.md`.)
 
 **Two things this phase found by reading the built PDF rather than the sources:**
 
@@ -1308,16 +1311,16 @@ worktree blind spot.
    numeric copy of them recorded elsewhere has gone stale). All four sit staged in
    `papers/submission/`, deliberately NOT in the repository
    (pinned in `.gitignore`) and regenerable --- the letter from its Markdown source on disk, the
-   marked copies and the register from `git diff v2.13 v2.30`. Paste text and the full
+   marked copies and the register from `git diff v2.13 v2.31`. Paste text and the full
    upload table are in `papers/submission/SUBMISSION_KIT.md`.
-3. **`runners/run_experiment.py:725`** (and `:714`) --- the cosmetic `Pop=100` banner defect, in
-   `_optimizer_options_line`; **not** `_optimizer_population_size` at `:345`, which only sizes the
-   shared fair-start payload DT-GSK never consumes. Safe to fix now that the campaign has landed,
-   and still undisclosed in the response letter; see the hazard note above.
-4. **`papers/PAPER_REVIEW_PROMPT.md:1774`** --- still names the OLD title as "CURRENT". Low priority.
-5. **Freeze inventory** --- `papers/supplementary.tex` is *not* among the fifteen tracked files even
-   though `main.tex` is. Its rendered PDF and DOCX are tracked, so the content is hashed, but the
-   asymmetry is worth a decision at the next pass rather than a silent change now.
+3. **`runners/run_experiment.py` `Pop=100` banner** --- **DONE** (verified 2026-08-29): the
+   `_optimizer_options_line` dt-gsk branch now prints the `NP_init=5D` rule with an explanatory
+   comment; nothing remains here.
+4. **`papers/PAPER_REVIEW_PROMPT.md` old-title mention** --- **DONE**: the only remaining "Adaptive
+   Control" occurrence is the deliberate confirm-none-survives verification instruction.
+5. **Freeze inventory** --- **DONE** (pass-43): the manifest's `source_files` records `supplementary.tex`
+   and `cover_letter.tex`, and `check_manifest` reports `sources 2/2` on its own line, closing the
+   asymmetry this item described.
 
 ## 4. Decisions already made (do not relitigate)
 
@@ -1375,15 +1378,18 @@ worktree blind spot.
    `main.tex` or any section. C1 is basis-neutral throughout.
 4. ~~`PAPER_REVIEW_PROMPT.md` names the OLD title as "CURRENT"~~ — **DONE 2026-08-27.** All four
    stale occurrences retired, including the two inside the residual-gap audit step. The one
-   surviving mention of the old fragment is deliberate: §1.5.3-J instructs a reviewer to confirm
+   surviving mention of the old fragment is deliberate: Section 1.5.3-J instructs a reviewer to confirm
    none survives.
 5. **SuSy portal (author-only)** — the new title and the revised keyword list must be re-entered in the
    revision form. Portal metadata does not update from the PDF.
 6. **Make the repository PUBLIC again before uploading (author-only, 2026-09-01).** The author set it
    private on 2026-08-28 to finalize; verified private (API 404). The Data Availability Statement in
-   the revised manuscript names the repo URL and tags v2.13/v2.30, and the Supplementary's After the flip, verify from a LOGGED-OUT/private browser window that the repository, both DAS-named tags and the pre-registration file are anonymously accessible — the letter's present-tense availability claims are checked by exactly that test.
+   the revised manuscript names the repo URL and tags v2.13/v2.31, and the Supplementary's
    pre-registration claim depends on public checkability — a reviewer clicking during round 2 must
-   not hit a 404. Flip visibility BEFORE the SuSy upload. Side effect while private: the two
+   not hit a 404. Flip visibility BEFORE the SuSy upload. After the flip, verify from a
+   LOGGED-OUT/private browser window that the repository, both DAS-named tags and the
+   pre-registration file are anonymously accessible — the letter's present-tense
+   availability claims are checked by exactly that test. Side effect while private: the two
    GitHub-exposed commits are not publicly served; public serving resumes with visibility.
 
 *Resolved in Phase 3:* keyword drop (done, five places), ACE re-gloss (done, acronym kept),
@@ -1570,7 +1576,7 @@ are given here.
 ### Phase 7 — resubmit (author-only; the point of no return)
 
 **Deadline CONFIRMED 2026-09-01, and the planned resubmission date is the same day.** Everything
-agent-side is complete at pass-57 / `v2.30` (pass-51's acceptance-readiness fixes plus the
+agent-side is complete at pass-58 / `v2.31` (pass-51's acceptance-readiness fixes plus the
 seven-lens panel review: the response letter's stale abstract quote and two superseded E1
 p-values corrected, SA01/SA02 renamed to the typeset Tables A23–A24, and the cover letter's
 stale 84-passage count made count-free — D-0057 / CR-0032); nothing in the repository blocks that date. The
@@ -1591,7 +1597,7 @@ warning that portal metadata does not update from the PDF. Re-enter both by hand
   CEC benchmark suites; nonparametric statistical comparison; reproducibility`
 
 **Generate both companion PDFs fresh.** The response letter's source was edited in passes 42, 43 and
-50, 53, 54, 56 and 57, and the change register must come from `git diff v2.13 v2.30`. Read its passage count
+50, 53, 54, 56, 57 and 58, and the change register must come from `git diff v2.13 v2.31`. Read its passage count
 off its own front page — no figure for it should be quoted anywhere, because every copy has gone stale.
 
 **After upload, no rebuilds.** The DAS-named tag becomes the frozen record of what was resubmitted

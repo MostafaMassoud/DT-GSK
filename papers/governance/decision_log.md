@@ -3010,3 +3010,50 @@ applying all surfaced fixes.
   cross-artifact audit re-run at the close.
 - **Anchor.** 87af854 (apply+mint HEAD at close). NEXT free ids: CR-0038
   and D-0063.
+
+## D-0063 (2026-08-29) - Pass-58: second affiliation for A.W.M. (author metadata)
+
+- **Decision.** The author directed (2026-08-29) that Ali Wagdy Mohamed carry
+  a second affiliation: University of Science and Technology, Zewail City of
+  Science and Technology, 6th of October City, Giza 12588, Egypt. Mint
+  **pass-58**, tag **v2.31**. Registered as **CR-0038**.
+- **Scope.** Author metadata only: the \\Author line and address block in
+  main.tex and supplementary.tex, the DOCX shim's author/center block, the
+  A.W.M. affiliation in CITATION.cff, and the kit's portal author table.
+  No number, rank, p-value, decision or claim changes. Page counts unchanged
+  (49/83); the main PDF was double-built byte-identical; the response
+  letter's manuscript page anchors were re-verified against the new render;
+  the change register (v2.13..HEAD) records the affiliation passages in both
+  documents, so the referees' marked-changes trail covers it.
+- **Folded documentation fixes (from the same-day four-lens open-issues
+  sweep, all evidence-verified before the write):** the public-flip item's
+  anonymous-access sentence, spliced mid-sentence by commit 25236eb, is
+  re-seated after the 404 sentence; What-remains items 3-5 are marked done
+  (the Pop=100 banner fix, the PAPER_REVIEW_PROMPT old-title mention, and
+  the freeze-inventory asymmetry were each verified already discharged);
+  CLAUDE.md's two stale next-free id statements and the superseded
+  unpushed-cleanup warning are corrected, and rule 6 gains the phase_09
+  evidence_binding_verification.csv carve-out (rewritten every pass by
+  convention); the package manifest's DAS note (stale at v2.28 since
+  pass-55) and hand-typed generated_utc are replaced with computed values;
+  the acceptance-readiness P3 purge-ticket pointer is re-aimed at the
+  withheld PRIVATE_OPS.md; SKILL.md and runbook.md gate-battery anchors now
+  name the pass-56 commit-field-resolvability gate.
+- **Validation.** check_manifest 15/15 + sources 2/2; reproducibility and
+  package manifests re-minted with computed commit fields and verified
+  against disk post-write; validate_citation_cff over all 31 tags at the
+  close; provenance gate green once CR-0038 is registered (it correctly
+  failed in the window between the source comment citing CR-0038 and this
+  registration).
+- **Gate amendment (validate_cross_format_parity).** The new author-line
+  superscript "1,2" made the affiliation paragraph unmatchable in the PDF
+  text channel: the leading address label extracts flush against the
+  author superscripts and the second label extracts as a digit-only line
+  that normalize_pdf_text strips as a margin number. The paragraph check
+  gains a narrowly-scoped PASS_FORMAT_DIFF class
+  (affiliation-label-adjacency) that accepts only when the paragraph with
+  its superscript address-label digits removed is verbatim in the PDF;
+  full battery re-read 774 rows / 0 FAIL after the change.
+- **Anchor.** Apply commit 8b83a39 (affiliation + rebuilt renders); the
+  close commit carries the manifests, governance pair and doc sync. NEXT
+  free ids: CR-0039 and D-0064.

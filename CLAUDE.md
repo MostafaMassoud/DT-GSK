@@ -24,12 +24,21 @@ documents assumed does not exist. Nothing in the repository blocks it — everyt
 complete. The letter invites a request for more time, which is now the only source of margin there
 is. **The repo was set PRIVATE on 2026-08-28 (author, to finalize) and MUST be public again before
 the upload** — the DAS names its URL and tags, and reviewers will click. Detail:
-[REVISION_STATUS.md](REVISION_STATUS.md) §5 items 1 and 6.
+[REVISION_STATUS.md](REVISION_STATUS.md) Section 5 items 1 and 6.
 
-**Current freeze: pass-57 / `v2.30`** — minted, tagged and **PUSHED** (2026-08-29). All 30 tags
-are on `origin`; `v2.13` and `v2.30`, the two the Data Availability Statement names, resolve
-there at the same commits as local. `main` is in sync. The repo is still **PRIVATE** — flipping
-it public is the remaining step before a referee can follow the DAS.
+**Current freeze: pass-58 / `v2.31`** — minted and tagged (2026-08-29); push, then verify with
+`git status -sb` and `git ls-remote --tags origin` — the DAS names `v2.13` and `v2.31`. The repo
+is still **PRIVATE** — flipping it public is the remaining step before a referee can follow the
+DAS. Next free ids: **CR-0039 / D-0064** — verify free at apply time.
+**Pass-58 (2026-08-29, D-0063 / CR-0038) is an author-directed author-metadata pass:** Ali Wagdy
+Mohamed gains affiliation 2 (University of Science and Technology, Zewail City of Science and
+Technology, 6th of October City, Giza 12588, Egypt) in the manuscript, the DOCX shim, the
+supplement, CITATION.cff and the kit's portal table. All four gated renders were rebuilt at their
+pinned epochs (page counts unchanged 49/83; main PDF double-built byte-identical; the response
+letter's page anchors re-verified against the new render); the change register records the
+affiliation passages. The same close repaired the severed public-flip sentence, the stale
+next-free ids in this file, the package manifest's stale v2.28 DAS note and hand-typed
+timestamp, and marked the What-remains items 3-5 done.
 **Pass-57 (2026-08-29, D-0062 / CR-0037) closed the optional-queued and immutable-history items:**
 artifact_binding's checksum column re-derived (84 stale pairs, two independent derivations in
 agreement); Section 3.2 states protocol conformance (no suite protocol prescribes a population
@@ -74,7 +83,8 @@ added (files[10] had no epoch-pinned builder), five mypy errors under five “cl
 fixed, and a hosted CI asserted by fourteen documents was retracted — it has never existed in any
 commit. **New gate: `check_reproducibility_manifest.py`** — that manifest had gone stale INSIDE
 its own pass three times, always refreshed before the artifacts were rebuilt, and nothing read it.
-Next free: CR-0036 / D-0061.
+(Next free then: CR-0036 / D-0061; both long consumed — read the current pair off the freeze
+paragraph at the top of this block.)
 **Pass-53** was the previous remediation pass (D-0058 / CR-0033): the Supplementary's ninth
 limitation still said the tier boundaries were “unvaried, so their sensitivity is untested” nine
 pages before S9.5 varies them and finds against the shipped profile twice; the Conclusions now
@@ -124,16 +134,17 @@ attestation re-mint — note that `git.dirty` is **always** true there and canno
 junit XMLs already sit in the tree), then the **public-release cleanup**: tracked docs no longer carry the private
 bundle's path, the purge full SHAs, or reviewer-verbatim words — the operational identifiers
 live ONLY in the withheld `papers/review_2026_08_24/PRIVATE_OPS.md`; results staging was
-quarantined to `../DT-GSK_cleanup_2026-08-29/`. **The cleanup commits were left UNPUSHED by
-contract — verify `git status -sb` against origin before relying on remote state.**
+quarantined to `../DT-GSK_cleanup_2026-08-29/`. **The cleanup commits were held unpushed by
+contract at first and pushed later the same day; as always, verify `git status -sb` against origin
+before relying on remote state.**
 **Pass-52 / v2.25 (2026-08-29, D-0057 / CR-0032) applied a fourteen-agent seven-lens panel review
 of the response letter:** 28 confirmed findings fixed — topmost, the letter's quote of the revised
 abstract said 'scalar control' where the shipped abstract says 'scalar parameters', and two E1
 cells carried superseded exact-zero p-values (now canonical 6.8e-4 / 4.0e-6); SA01/SA02 became
 the typeset Tables A23–A24; the cover letter's stale 84-passage count is now count-free wording
 (both twins). The package manifest's recorded byte sizes had been silently stale since pass-51
-(no gate checks them) — fixed. **D-0057 / CR-0032 are filed; next free are CR-0033 and D-0058** —
-verify free at apply time. The paragraphs
+(no gate checks them) — fixed. **D-0057 / CR-0032 are filed** (the then-next-free
+CR-0033 / D-0058 were consumed by pass-53; the current pair lives in the freeze paragraph above). The paragraphs
 below about passes 42–45 are kept because their *lessons* stand, not because they describe the
 current tag.
 
@@ -259,6 +270,8 @@ Everything else in this file is a pointer.
    freeze manifests and several `.tex` files are CRLF; others are LF. Check before editing.
 6. **Append-only trees:** `papers/build_prompt_phases/`, `papers/review_2026_07_22/`,
    `papers/governance/remediation_2026_07_18/`. Stale content there is correct — do not "fix" it.
+   One carve-out: `phase_09/evidence_binding_verification.csv` is a living verification output,
+   refreshed in place at every pass by convention.
 7. **Never run `papers/scripts/finalize_evidence.py`** (standing instruction).
 8. **Work only in this repository checkout.** A divergent copy lives in the PhD-Projects monorepo;
    each freeze manifest hashes only its own tree, so both can report "15/15" while disagreeing.

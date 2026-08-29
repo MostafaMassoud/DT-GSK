@@ -505,6 +505,22 @@ def check_document(kind: str, rows: Rows) -> None:
                 status, method = "PASS_FORMAT_DIFF", "alnum-window-coverage"
                 det = f"coverage={cov:.2f}"
                 fo = "OMML vs PDF math glyph order/spacing"
+            elif (text[:1].isdigit()
+                  and alnum_channel(
+                      re.sub(r"(?:^|(?<=\)))\s*\d+(?=\s|[A-Z])", "", text))
+                  in pdf_alnum):
+                # The affiliation block's superscript address labels ("1 ...",
+                # "2 ...") do not survive the PDF text channel: the leading
+                # label extracts flush against the author line's trailing
+                # superscripts ("...Mohamed 1,2" -> alnum "...Mohamed12") and
+                # later labels extract as digit-only lines, which
+                # normalize_pdf_text strips as margin numbers. Accept only
+                # when the paragraph with those label digits removed is
+                # verbatim in the PDF.
+                status, method = "PASS_FORMAT_DIFF", "affiliation-label-adjacency"
+                det = "verbatim once superscript address labels are dropped"
+                fo = ("address-label superscripts merge or vanish in the PDF "
+                      "extraction stream")
             else:
                 status, method = "FAIL", "alnum-window-coverage"
                 det, fo = f"coverage={cov:.2f}", ""

@@ -270,8 +270,9 @@ uploads on 2026-09-01 per §14; no agent-side work remains.
   letter) → re-enter title/keywords by hand → submit.
 - **P2 — Author, optional:** send the prepared extension request if any
   upload-day risk materializes (draft beside the response letter).
-- **P3 — Author, after the public flip:** file the GitHub purge ticket
-  (ready text + SHAs in `docs/development/github_exposure_traffic_record.md`).
+- **P3 — Author, after the public flip:** file the GitHub purge ticket (ready text +
+  full SHAs moved by the 2026-08-29 cleanup to the withheld `papers/review_2026_08_24/PRIVATE_OPS.md`;
+  the traffic record keeps short prefixes and points there).
 - **P4 — none.** No open agent-side items.
 
 ## 14. Final checklist (state at close, all VERIFIED)
