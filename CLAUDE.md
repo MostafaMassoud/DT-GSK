@@ -26,10 +26,10 @@ is. **The repo was set PRIVATE on 2026-08-28 (author, to finalize) and MUST be p
 the upload** — the DAS names its URL and tags, and reviewers will click. Detail:
 [REVISION_STATUS.md](REVISION_STATUS.md) §5 items 1 and 6.
 
-**Current freeze: pass-57 / `v2.30`** — minted and tagged **locally; NOT pushed** — verify
-`git status -sb` and `git ls-remote --tags origin`, because the Data Availability Statement names
-`v2.30`. The repo is still **PRIVATE** — flipping it public is the remaining step before a
-referee can follow the DAS.
+**Current freeze: pass-57 / `v2.30`** — minted, tagged and **PUSHED** (2026-08-29). All 30 tags
+are on `origin`; `v2.13` and `v2.30`, the two the Data Availability Statement names, resolve
+there at the same commits as local. `main` is in sync. The repo is still **PRIVATE** — flipping
+it public is the remaining step before a referee can follow the DAS.
 **Pass-57 (2026-08-29, D-0062 / CR-0037) closed the optional-queued and immutable-history items:**
 artifact_binding's checksum column re-derived (84 stale pairs, two independent derivations in
 agreement); Section 3.2 states protocol conformance (no suite protocol prescribes a population
