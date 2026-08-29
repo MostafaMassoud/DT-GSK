@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="MASTER PROMPT — DT-GSK MAJOR-REVISION ACCEPTANCE-READINESS REVIEW - GSK Family Python Documentation">
+  <title>MASTER PROMPT — DT-GSK MAJOR-REVISION ACCEPTANCE-READINESS REVIEW | GSK Family Python Documentation</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <div class="site-shell">
+    <aside class="sidebar">
+<div class="brand"><a href="index.html">GSK Family Python</a></div>
+<input class="nav-search" type="search" placeholder="Filter docs" aria-label="Filter docs">
+<nav class="nav-list" aria-label="Documentation">
+<section><h2>Getting Started</h2>
+<a class="nav-link" href="getting-started_configuration.html">Configuration</a>
+<a class="nav-link" href="getting-started_explainer.html">Explainer</a>
+<a class="nav-link" href="getting-started_runbook.html">Runbook</a>
+<a class="nav-link" href="getting-started_troubleshooting.html">Troubleshooting</a>
+<a class="nav-link" href="getting-started_tutorial.html">Tutorial</a>
+<a class="nav-link" href="getting-started_user_guide.html">User Guide</a>
+</section>
+<section><h2>Reference</h2>
+<a class="nav-link" href="reference_api.html">API Reference</a>
+<a class="nav-link" href="reference_architecture.html">Architecture</a>
+<a class="nav-link" href="reference_benchmark_mapping.html">Benchmark Mapping</a>
+<a class="nav-link" href="reference_benchmark_protocol.html">Benchmark Protocol</a>
+<a class="nav-link" href="reference_cec2011_cpp_python_equivalence_review.html">CEC2011 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013_cpp_python_equivalence_review.html">CEC2013 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2013lsgo_cpp_python_equivalence_review.html">CEC2013LSGO C++ to Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2017_cpp_python_equivalence_review.html">CEC2017 C++ vs Python Equivalence Review</a>
+<a class="nav-link" href="reference_cec2020_cpp_python_equivalence_review.html">CEC2020 C++ to Python Equivalence Review</a>
+<a class="nav-link" href="index.html">Documentation Index</a>
+<a class="nav-link" href="reference_fp_regime.html">Floating-Point Regime Verification</a>
+<a class="nav-link" href="reference_diagrams.html">Flowcharts And Diagrams</a>
+<a class="nav-link" href="reference_glossary.html">Glossary</a>
+<a class="nav-link" href="LICENSES.html">Licenses</a>
+<a class="nav-link" href="reference_module_dependencies.html">Module Dependencies</a>
+<a class="nav-link" href="reference_project_structure.html">Project Structure</a>
+<a class="nav-link" href="reference_python_optimizer_interface.html">Python Optimizer Interface</a>
+<a class="nav-link" href="reference_result_schema.html">Result Schema</a>
+<a class="nav-link" href="reference_seed_policy.html">Seed Policy</a>
+<a class="nav-link" href="reference_workflows.html">Workflows</a>
+</section>
+<section><h2>Algorithm Guides</h2>
+<a class="nav-link" href="algorithms_agsk.html">AGSK — Adaptive Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_apgsk.html">APGSK — Adaptive-Parameters Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_atmals-gsk.html">ATMALS-GSK — Adaptive Tuning, Memory, Adaptive Local Search</a>
+<a class="nav-link" href="algorithms_dt-gsk.html">DT-GSK — Dimension-Tiered Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_egsk.html">EGSK — Enhanced Gaining-Sharing Knowledge</a>
+<a class="nav-link" href="algorithms_fdb-agsk.html">FDB-AGSK — Fitness-Distance-Balance AGSK</a>
+<a class="nav-link" href="algorithms_gsk.html">GSK — Gaining-Sharing Knowledge</a>
+</section>
+<section><h2>Development</h2>
+<a class="nav-link" href="development_BUG_resume_summary_truncation.html">BUG-RESUME-01 — resume mode truncates (and mis-computes) the per-dimension summary CSV</a>
+<a class="nav-link" href="development_LSGO_ACCELERATION_PLAN.html">CEC2013LSGO Acceleration Plan — all 7 GSK-family algorithms, bit-identically</a>
+<a class="nav-link" href="development_LSGO_INTEGRATION_CAMPAIGN.html">CEC2013LSGO Integration — Campaign Plan</a>
+<a class="nav-link" href="development_CEC2017_PREC_adjudication.html">CEC2017-PREC — adjudication (CLOSED 2026-07-25)</a>
+<a class="nav-link" href="development_code_reading_guide.html">Code Reading Guide</a>
+<a class="nav-link" href="development_contributor_guide.html">Contributor Guide</a>
+<a class="nav-link" href="development_DECC_G_port_record.html">DECC-G port — fidelity and validation record</a>
+<a class="nav-link" href="development_developer_guide.html">Developer Guide</a>
+<a class="nav-link" href="development_README.html">Development Docs</a>
+<a class="nav-link" href="development_acceptance_readiness_review_2026_08_28.html">DT-GSK Acceptance-Readiness Review — 2026-08-28 (executed at pass-50 / v2.23; fixes landed as pass-51 / v2.24)</a>
+<a class="nav-link" href="development_dt_gsk_core_reference.html">DT-GSK Core Reference — the vendored core and its byte-identity lock</a>
+<a class="nav-link" href="development_evidence_rerun_runbook.html">DT-GSK re-run runbook — corrected implementation (C006 + graph backend)</a>
+<a class="nav-link" href="development_egsk_port_spec.html">EGSK — Algorithm Spec &amp; Porting Verdict</a>
+<a class="nav-link" href="development_extension_guide.html">Extension Guide</a>
+<a class="nav-link" href="development_FAMILY_ACCELERATION_PLAN.html">Family-wide acceleration plan — 7 algorithms x 5 suites, bit-identical only</a>
+<a class="nav-link" href="development_FINAL_PUBLICATION_PLAN.html">FINAL PUBLICATION PLAN — DT-GSK, Four(/Five)-Suite Scope</a>
+<a class="nav-link" href="development_github_exposure_traffic_record.html">GitHub exposure window and the clone record</a>
+<a class="nav-link" href="development_ACCELERATION_CAMPAIGN_PROMPT.html">GSK-Family Acceleration Campaign — Execution Prompt</a>
+<a class="nav-link" href="development_maintenance_guide.html">Maintenance Guide</a>
+<a class="nav-link" href="development_PAPER_COMPLETION_PLAN.html">Paper Completion Plan — five-suite manuscript to `dtgsk-submission-v2.0`</a>
+<a class="nav-link" href="development_PORT_05_TUNING_TRIAGE.html">Porting project-05 tuning into 02 — Phase 1 audit and triage</a>
+<a class="nav-link" href="development_REFERENCE_PROMOTION_PLAN.html">Reference Promotion Plan — CEC2013LSGO now, CEC2020 behind its completeness gate</a>
+<a class="nav-link" href="development_round_one_review_record.html">Round-one peer review — the public record</a>
+<a class="nav-link" href="development_SIBLING_CAMPAIGN_TRANSFER.html">Sibling-Campaign Transfer — every tuning that can make the GSK family fast</a>
+</section>
+<section><h2>Research</h2>
+<a class="nav-link" href="research_egsk_validation_appendix.html">EGSK Validation Appendix — Paired Port-vs-Reference Equivalence</a>
+<a class="nav-link" href="research_numerical_examples.html">Numerical Examples</a>
+<a class="nav-link" href="research_performance.html">Performance</a>
+<a class="nav-link" href="research_reproducibility.html">Reproducibility</a>
+<a class="nav-link" href="research_researcher_handbook.html">Researcher Handbook</a>
+<a class="nav-link" href="research_statistical_analysis.html">Statistical Analysis (GSK-family comparison)</a>
+<a class="nav-link" href="research_validation_report.html">Validation Report</a>
+</section>
+<section><h2>Prompts</h2>
+<a class="nav-link" href="prompt_documentation-deep-upgrade.html">Deep Documentation Review &amp; Upgrade Prompt — GSK Family Python</a>
+<a class="nav-link" href="prompt_project-review.html">Deep Expert Review Prompt For GSK Family Python</a>
+<a class="nav-link" href="prompt_documentation-review.html">Documentation Review Prompt</a>
+<a class="nav-link" href="prompt_publication-polish.html">Final Publication Prompt — Production-Ready Q1 Release of GSK Family Python v1.1</a>
+<a class="nav-link active" href="prompt_change-register-acceptance-review.html">MASTER PROMPT — DT-GSK MAJOR-REVISION ACCEPTANCE-READINESS REVIEW</a>
+</section>
+<section><h2>Python API</h2>
+<a class="nav-link" href="api_index.html">API Module Index</a>
+<a class="nav-link api-link" href="api/gsk_family.__init__.html">gsk_family.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.__init__.html">gsk_family.analysis.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.family_report.html">gsk_family.analysis.family_report</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.figures.html">gsk_family.analysis.figures</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.latex_tables.html">gsk_family.analysis.latex_tables</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.project_policy.html">gsk_family.analysis.project_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.result_loader.html">gsk_family.analysis.result_loader</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistical_tests.html">gsk_family.analysis.statistical_tests</a>
+<a class="nav-link api-link" href="api/gsk_family.analysis.statistics.html">gsk_family.analysis.statistics</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.__init__.html">gsk_family.benchmark_adapter.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.factory.html">gsk_family.benchmark_adapter.factory</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.problem.html">gsk_family.benchmark_adapter.problem</a>
+<a class="nav-link api-link" href="api/gsk_family.benchmark_adapter.protocol.html">gsk_family.benchmark_adapter.protocol</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.__init__.html">gsk_family.cli.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.list.html">gsk_family.cli.list</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.run.html">gsk_family.cli.run</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.stats.html">gsk_family.cli.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.cli.validate.html">gsk_family.cli.validate</a>
+<a class="nav-link api-link" href="api/gsk_family.common.__init__.html">gsk_family.common.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.common.bounds.html">gsk_family.common.bounds</a>
+<a class="nav-link api-link" href="api/gsk_family.common.donors.html">gsk_family.common.donors</a>
+<a class="nav-link api-link" href="api/gsk_family.common.numeric_compat.html">gsk_family.common.numeric_compat</a>
+<a class="nav-link api-link" href="api/gsk_family.common.population.html">gsk_family.common.population</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reduction.html">gsk_family.common.reduction</a>
+<a class="nav-link api-link" href="api/gsk_family.common.reference_rng.html">gsk_family.common.reference_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.rng.html">gsk_family.common.rng</a>
+<a class="nav-link api-link" href="api/gsk_family.common.threefry_rng.html">gsk_family.common.threefry_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.__init__.html">gsk_family.optimizers.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_profiles.html">gsk_family.optimizers._dt_profiles</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._dt_rng.html">gsk_family.optimizers._dt_rng</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers._kernels.html">gsk_family.optimizers._kernels</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.agsk.html">gsk_family.optimizers.agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.apgsk.html">gsk_family.optimizers.apgsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_gsk.html">gsk_family.optimizers.atmals_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.atmals_helpers.html">gsk_family.optimizers.atmals_helpers</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.dt_gsk.html">gsk_family.optimizers.dt_gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.egsk.html">gsk_family.optimizers.egsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.__init__.html">gsk_family.optimizers.external.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._base.html">gsk_family.optimizers.external._base</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external._telemetry_shim.html">gsk_family.optimizers.external._telemetry_shim</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.cmaes.html">gsk_family.optimizers.external.cmaes</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.decc_g.html">gsk_family.optimizers.external.decc_g</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.ebowithcmar.html">gsk_family.optimizers.external.ebowithcmar</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.jso.html">gsk_family.optimizers.external.jso</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade.html">gsk_family.optimizers.external.lshade</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.lshade_spacma.html">gsk_family.optimizers.external.lshade_spacma</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.mos_cec2013lsgo.html">gsk_family.optimizers.external.mos_cec2013lsgo</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.external.shade_ils.html">gsk_family.optimizers.external.shade_ils</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_agsk.html">gsk_family.optimizers.fdb_agsk</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.fdb_scores.html">gsk_family.optimizers.fdb_scores</a>
+<a class="nav-link api-link" href="api/gsk_family.optimizers.gsk.html">gsk_family.optimizers.gsk</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.__init__.html">gsk_family.runners.__init__</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.config.html">gsk_family.runners.config</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.fp_regime.html">gsk_family.runners.fp_regime</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.output.html">gsk_family.runners.output</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.parallel.html">gsk_family.runners.parallel</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.performance.html">gsk_family.runners.performance</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.run_experiment.html">gsk_family.runners.run_experiment</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.seed_policy.html">gsk_family.runners.seed_policy</a>
+<a class="nav-link api-link" href="api/gsk_family.runners.verification.html">gsk_family.runners.verification</a>
+<a class="nav-link api-link" href="api/gsk_family.stats.html">gsk_family.stats</a>
+<a class="nav-link api-link" href="api/gsk_family.types.html">gsk_family.types</a>
+</section>
+</nav></aside>
+    <main class="content">
+      <article class="doc-card">
+        <h1 id="master-prompt-dt-gsk-major-revision-acceptance-readiness-review">MASTER PROMPT — DT-GSK MAJOR-REVISION ACCEPTANCE-READINESS REVIEW</h1>
+<h1 id="change-register-revised-manuscript-package">(Change Register + revised manuscript package)</h1>
+<blockquote><strong>Internal quality-assurance instrument.</strong> A checklist the authors apply to</blockquote>
+<blockquote>their own work before resubmission. It is <strong>not</strong> the journal&#x27;s peer review</blockquote>
+<blockquote>and does not substitute for it. It directs *auditing* — verifying documents</blockquote>
+<blockquote>against the evidence they cite — never the authoring of new scientific</blockquote>
+<blockquote>claims.</blockquote>
+<p>Act as a coordinated panel of senior experts: metaheuristic-optimization researchers, evolutionary-computation benchmarking specialists, statistical methodologists, experimental-design and causal-attribution experts, reproducibility auditors, scientific editors, and maximally demanding journal reviewers.</p>
+<p>Conduct an exhaustive, adversarial, acceptance-oriented review of the round-one major revision of:</p>
+<p>&quot;DT-GSK: Dimension-Tiered Adaptive Configuration Selection and Deterministic Refinement for Gaining-Sharing Knowledge Optimization&quot; (Algorithms, MDPI — manuscript algorithms-4507562)</p>
+<p>The question is never *whether text was added* in response to a reviewer point. It is whether each concern is now <strong>scientifically, statistically, experimentally, and editorially resolved</strong> — and what could still trigger another major revision, rejection, demands for further experiments, or loss of reviewer confidence.</p>
+<p>---</p>
+<h1 id="0-inputs-scope-and-evidence-discipline">0. INPUTS, SCOPE, AND EVIDENCE DISCIPLINE</h1>
+<h2 id="0-1-input-set">0.1 Input set</h2>
+<p>Work from whichever of these are attached; name, at the top of your report, which ones you actually received:</p>
+<ol>
+<li><strong>The Change Register</strong> (~92 changed passages, each shown *as submitted*</li>
+<p>and *as revised*, tagged with the reviewer point it answers).</p>
+<li>The revised <strong>main manuscript</strong> (47 pp) and <strong>supplementary material</strong></li>
+<p>(80 pp, Sections S1–S9).</p>
+<li>The <strong>marked-up</strong> manuscript and supplement (latexdiff).</li>
+<li>The <strong>point-by-point response</strong> to the reviewers.</li>
+</ol>
+<h2 id="0-2-the-cardinal-evidence-rule">0.2 The cardinal evidence rule</h2>
+<p><strong>Never assert what you cannot see.</strong> Every finding must carry one of these verifiability labels, and the label must be honest:</p>
+<ul>
+<li><code>VERIFIED</code> — the defect is visible in the attached text; quote it (≤25</li>
+<p>words) with its location (register entry number, or file:line as shown).</p>
+<li><code>INFERRED</code> — a reasoned conclusion from what is attached; state the</li>
+<p>premises.</p>
+<li><code>NOT CHECKABLE FROM PROVIDED INPUTS</code> — the check requires a document you</li>
+<p>were not given. Say exactly which document and what to look for. <strong>Do not simulate the answer.</strong></p>
+</ul>
+<p>The Change Register shows *only changed passages*. Unchanged text, full sections, figures, and tables are largely invisible in it. Whole-document audits (abstract, title, limitations, consistency sweeps) performed from the register alone are <code>INFERRED</code> at best — mark them so.</p>
+<h2 id="0-3-anti-hallucination-rules">0.3 Anti-hallucination rules</h2>
+<ul>
+<li>Never invent numbers, p-values, quotes, line numbers, or citations. If a</li>
+<p>value is needed but absent, write <code>[NOT IN PROVIDED INPUTS]</code>.</p>
+<li>The register renders raw LaTeX. Lines beginning with <code>%</code> (including</li>
+<p><code>% BIND:</code> provenance comments) are <strong>source comments that never render in the PDF</strong> — do not flag them as reader-visible text, and do not treat their wording as manuscript prose.</p>
+<li>Reviewer-facing documents (register, response letter, cover letter)</li>
+<p>legitimately reference reviewers and revision rounds; the published manuscript and supplement deliberately do not. Do not report that split as an inconsistency.</p>
+</ul>
+<h2 id="0-4-calibration-discipline">0.4 Calibration discipline</h2>
+<p>Past deep reviews of this project refuted roughly half of all findings on verification, and most proposed fixes were unsafe as written. Therefore:</p>
+<ul>
+<li>Before reporting any finding, <strong>attempt to refute it yourself</strong> from the</li>
+<p>attached text. Report only findings that survive, and say what refutation you attempted.</p>
+<li>Attach a confidence to every finding: <code>CERTAIN</code> / <code>LIKELY</code> / <code>POSSIBLE</code>.</li>
+<li>Every proposed fix must name its <strong>blast radius</strong>: which other sections,</li>
+<p>tables, statistics, or claims the fix would touch, and what could break.</p>
+<li>Do not manufacture findings to fill a section. An empty section reading</li>
+<p>&quot;no findings that survive verification&quot; is a valid, welcome result.</p>
+<li>Report each distinct issue <strong>exactly once</strong>, in its most specific section,</li>
+<p>and cross-reference it elsewhere by ID.</p>
+</ul>
+<h2 id="0-5-ground-truth-anchors">0.5 Ground-truth anchors</h2>
+<p>Use these as orientation; <strong>verify each against the attached documents and report any mismatch as a finding rather than silently trusting either side</strong>:</p>
+<ul>
+<li>Five revision experiments: E1 refinement basis, E2 matched initial</li>
+<p>population, E3 tier-constant transplants, E4 selected-constant sensitivity (exploratory, descriptive-only), E5 dimension-boundary sensitivity. All pre-registered; deviations recorded as dated amendments.</p>
+<li>Statistical convention: tie-corrected Friedman + Iman–Davenport omnibus;</li>
+<p>paired Wilcoxon on per-function means with a stated |d| &lt; 1e-8 tie band applied before ranking; Holm correction with per-experiment families; Vargha–Delaney A12 companion; W/T/L at the 1e-8 tolerance.</p>
+<li>Known adverse findings the paper itself carries: the learned eigenframe</li>
+<p>loses to plain coordinate axes at both active dimensions under the stated tie band; ISM shows no standalone benefit and adds measurable overhead (~+57.3/+36.3/+30.3 % where reported); the D = 30 middle profile is beaten from *both* neighbouring tiers; matched initial NP removes first place at D = 50/100; C2 is narrowed to D = 10 and D = 50.</p>
+<li>CEC2013LSGO runs DT-GSK at NP_init = 5D = 5000 vs comparators&#x27; 100 — a</li>
+<p>50-fold asymmetry that is disclosed but not experimentally controlled.</p>
+<li>Evidence lives in named, additive, non-superseding releases; one internal</li>
+<p>control&#x27;s residual is attributed, by a promoted re-execution, to a cross-build difference (deterministic per build, divergent across builds).</p>
+</ul>
+<p>---</p>
+<h1 id="1-reviewer-point-closure-the-central-audit">1. REVIEWER-POINT CLOSURE — THE CENTRAL AUDIT</h1>
+<p>For each point below: restate the concern in one sentence; identify every register entry addressing it; audit the <strong>scientific adequacy</strong> of the response (not its existence); then classify:</p>
+<p>CLOSED / MOSTLY CLOSED / PARTIALLY CLOSED / OPEN / NEW ISSUE CREATED</p>
+<p>with the remaining risk and required action. Be strict. Produce the summary as one canonical matrix:</p>
+<p>| Point | Concern | Revision made | New evidence | Verdict | Remaining risk | Required action |</p>
+<h2 id="r1-1-abstract-grammar">R1.1 — Abstract grammar</h2>
+<p>Verify the rewritten opening reads naturally and the claimed word count is plausible from the visible text.</p>
+<h2 id="r1-2-adaptive-control-terminology">R1.2 — &quot;Adaptive control&quot; terminology</h2>
+<p>The retitle and the ACE re-expansion (&quot;Adaptive Configuration Engine&quot;). Audit every visible occurrence for semantic residue: does anything still read as closed-loop control in the control-theory sense? Check glossary and acronym-table entries visible in the register.</p>
+<h2 id="r1-3-r2-2-population-size-fairness-e2">R1.3 / R2.2 — Population-size fairness (E2)</h2>
+<p>E2 matches the comparators&#x27; <strong>initial</strong> NP only; DT-GSK&#x27;s own reduction law and tier floors are retained. Verify the text never claims more than that. Assess the consequence that first place at D = 50/100 is lost at matched NP: are the headline claims now correctly qualified everywhere they appear? Separately audit the <strong>CEC2013LSGO 50-fold asymmetry</strong>: is disclosure enough, or could a reviewer reasonably demand a matched-population LSGO experiment? Classify that risk (Critical/Major/Moderate/Minor/Acceptable) with reasoning, including what such an experiment would cost.</p>
+<h2 id="r1-4-omnibus-convention">R1.4 — Omnibus convention</h2>
+<p>Tie-corrected Friedman + Iman–Davenport everywhere. Hunt for residual classical-χ² values presented as decision-bearing (a clearly labelled audit-companion value is acceptable). Confirm no decision silently changed.</p>
+<h2 id="r2-1-tiering-vs-tier-constant-e3">R2.1 — Tiering vs tier-constant (E3)</h2>
+<p>What exactly does a whole-profile transplant identify? Verify the paper claims only profile-level effects, never key-level attribution. Audit the D = 30 adverse result and its wording. Then answer the deeper question in its own subsection: <strong>does an empirically inferior shipped tier weaken the central tiering novelty, or only expose an improvable implementation choice?</strong> Does C2, narrowed to D = 10/50, remain a publishable contribution — and is the narrowing consistently worded everywhere visible?</p>
+<h2 id="r2-3-refinement-basis-e1">R2.3 — Refinement basis (E1)</h2>
+<p>Three arms: none / coordinate axes / learned eigenframe. Verify the value-of-refinement vs value-of-basis distinction is kept everywhere; that the D = 100 conclusion matches the stated tie-band convention; and that no visible passage still sells the learned basis (&quot;structure-aware refinement&quot;, &quot;geometry-driven gain&quot;, &quot;learned-basis benefit&quot; and kin). Rule on the untested <strong>matched random-orthonormal basis</strong>: critical missing experiment, worthwhile-but-nonessential, or acceptable limitation — and why.</p>
+<h2 id="r2-4-interaction-structure-memory">R2.4 — Interaction-structure memory</h2>
+<p>ISM is now a specified negative result. The predictable killer question: <strong>&quot;If ISM costs measurable overhead and shows no benefit, why is it still in the algorithm?&quot;</strong> Treat this as a major acceptance risk. Evaluate the candidate strategies — retain as investigated negative mechanism; drop from the recommended configuration; present an ISM-free variant; split study algorithm from recommended implementation; justify via the frozen pre-registered design — and argue for the strongest, given that the configuration is hash-frozen and every result binds to it.</p>
+<h2 id="r2-5-descriptive-aggregate-vs-inference">R2.5 — Descriptive aggregate vs inference</h2>
+<p>Audit every visible use of best/first/second/rank language. Descriptive ranks must never read as inferential separation, especially DT-GSK vs eGSK (separated only at CEC2017 D = 10). Flag any unsupported &quot;outperforms / superior / dominates / state-of-the-art / best algorithm&quot; — noting that *negated* uses (&quot;we make no state-of-the-art claim&quot;) are correct and must not be flagged.</p>
+<h2 id="r2-6-family-only-scope">R2.6 — Family-only scope</h2>
+<p>Verify no visible passage generalizes from best-in-family to best-in-field. Judge whether the exploratory SHADE-ILS / MOS / DECC-G material helps, distracts, or invites cross-paradigm demands — and whether its current framing contains it.</p>
+<h2 id="r2-7-sensitivity-both-halves-e4-e5">R2.7 — Sensitivity, both halves (E4 + E5)</h2>
+<p>E4: seven constants, two levels, 15 runs/cell, exploratory by registration — verify it is never treated as inferential, that the one favorable ordinal flip is not oversold, that the &quot;no tested constant is knife-edge&quot; claim is scoped to the executed levels, and that registered deviations (one-sided D = 100 levels) are disclosed at point of use. E5: five boundary contrasts, one Holm family, one cell reused from E3, T2/T3 one-sided by geometry — verify the mixed result is reported adverse-first, that D = 30 (beaten from both sides) and D = 100 (T2 set better, ordinal unchanged) enter limitations rather than claims, and that C2&#x27;s narrowed scope is untouched by every cell. Then judge whether D = 30 / D = 100 findings demand retuning, redesign, limitation wording, or future work — remembering any retune would unfreeze a pre-registered configuration.</p>
+<p>---</p>
+<h1 id="2-experiment-audits-e1-e5-single-canonical-location">2. EXPERIMENT AUDITS E1–E5 (single canonical location)</h1>
+<p>For each experiment, one structured audit — do not repeat it elsewhere:</p>
+<ol>
+<li>Research question and estimand</li>
+<li>Experimental unit; treatment; control; what stayed fixed</li>
+<li>Functions × runs × dimensions; pairing and seed identity</li>
+<li>Statistical test; tie handling; correction family; effect size</li>
+<li>Preregistration status; amendments; anything post-hoc</li>
+<li>Confounds and internal-validity threats</li>
+<li><strong>Does any stated conclusion exceed the estimand?</strong> (quote it if so)</li>
+<li>Missing control that a reviewer could demand, and whether it is truly</li>
+<p>needed</p>
+<li>Verdict: sound / sound-with-caveats / inadequate — with the caveats</li>
+</ol>
+<p>---</p>
+<h1 id="3-contribution-audit-c1-c3">3. CONTRIBUTION AUDIT C1–C3</h1>
+<p>One canonical claim–evidence matrix:</p>
+<p>| Claim | Exact visible wording (quoted) | Evidence | Contrast that supports it | Statistical status | Limitations attached | Verdict | Safer wording if needed |</p>
+<p>Verdicts: fully supported / supported as narrowed / partially supported / overstated / ambiguous. For C1 (deterministic final polish), C2 (dimension-tiered configuration scaffold, narrowed), C3 (controlled, budget-fair family evaluation). Check the narrowed wording is identical at every visible site — introduction bullet, algorithm section, conclusions, abstract.</p>
+<p>---</p>
+<h1 id="4-cross-cutting-audits">4. CROSS-CUTTING AUDITS</h1>
+<p>Each of these produces findings only where verification survives; reference the closure matrix instead of repeating it.</p>
+<p><strong>4.1 Preregistration language.</strong> Audit every visible use of preregistered / frozen / signed / prespecified / exploratory / post-hoc / amendment / additive / non-superseding. Classify each experiment as confirmatory, preregistered-revision, exploratory, post-hoc, or audit/reproduction — and flag any blurring that could suggest retrospective hypothesis construction.</p>
+<p><strong>4.2 Provenance and the release architecture.</strong> Multiple additive releases carry the evidence. Can an independent reviewer tell which release produced which table? Draft the provenance table (Evidence → suite → experiment → release → build → runs → frozen/re-run) and judge whether it belongs in the supplement. Audit the cross-build residual explanation: is &quot;deterministic per build, divergent across builds, demonstrated by a promoted re-execution with zero seed mismatches&quot; distinguishable — to a skeptic — from ordinary irreproducibility? If not, specify the exact added wording.</p>
+<p><strong>4.3 Complexity vs demonstrated value.</strong> After the revision evidence (eigenframe negative, ISM negative, D30 mis-specified, D100 tier beaten, NP-dependent first places): is the mechanism stack still justified by what survives? Would a reviewer argue a simpler variant (coordinate refinement + narrowed tiering) is the real contribution? State the strongest honest framing that does not require unfreezing the design.</p>
+<p><strong>4.4 Negative results as strength.</strong> Judge whether the adverse findings read as credible transparency or self-undermining. Recommend framing that preserves the surviving contribution without softening any finding.</p>
+<p><strong>4.5 Computational cost.</strong> Is the reported cost information (runtime table, ISM overheads, eigendecomposition cost) sufficient for the complexity being defended? Name any missing table only if a reviewer would realistically demand it.</p>
+<p><strong>4.6 Convergence evidence.</strong> From what is visible: do the convergence figures support any mechanistic claim, or only descriptive dynamics — and does the text respect that line?</p>
+<p><strong>4.7 Figures and tables.</strong> For each figure/table visible or described: necessity, caption self-containment, and whether any visual implies significance that the statistics do not support. For the critical-difference figure specifically: it is a <strong>bar-plus-shaded-cohort design, not a conventional connected-groups Demšar diagram</strong> — verify the caption says exactly what the shading and the dashed best+CD line mean, and that &quot;within one CD of best&quot; cannot be misread as pairwise non-significance between arbitrary pairs.</p>
+<p><strong>4.8 Front-to-back document review</strong> *(only to the extent the text is attached; otherwise mark <code>NOT CHECKABLE</code>)*: title (is every term still earned after the evidence? propose alternatives only if clearly superior); abstract sentence-by-sentence (classify each empirical sentence: directly supported / descriptive-only / qualified / overstated); introduction narrative coherence after the narrowing; related-work coverage (name topics needing literature verification — <strong>never invent citations</strong>); algorithm-spec completeness and main-vs-supplement parity; limitations completeness against the full known list (family scope, NP asymmetry incl. LSGO, untested random basis, ISM negative, D30/D100 findings, sensitivity breadth and 15-run cells, key-level attribution open, cross-build divergence, unisolated ARGP and deep-stall restart); conclusions bounded by evidence (classify each; propose exact rewording only for violations); S9 placement and whether any S9 result that changes a main claim is prominently summarized in the main text.</p>
+<p>---</p>
+<h1 id="5-change-by-change-audit-all-92-passages">5. CHANGE-BY-CHANGE AUDIT — ALL ~92 PASSAGES</h1>
+<p>Review <strong>every</strong> register entry, not a sample. For each, one verdict line:</p>
+<p>#NN file:line — OK | ISSUE(id) | PROPAGATE(where) | EDITORIAL</p>
+<ul>
+<li>OK: correctly addresses its point, no side effects visible.</li>
+<li>ISSUE: opens a finding (register its ID once, in the right section).</li>
+<li>PROPAGATE: the change is right but implies a matching change elsewhere</li>
+<p>that is not visible in the register — name the location to verify.</p>
+<li>EDITORIAL: correct in substance; wording could improve (only if worth a</li>
+<p>reviewer&#x27;s attention).</p>
+</ul>
+<p>Then the mandatory hunt for <strong>new problems created by the revision</strong>: contradictions between changed and unchanged text, newly weakened contributions, new statistical or terminology inconsistencies, new reproducibility complexity. Present each as: problem solved → new problem introduced → evidence → fix.</p>
+<p>---</p>
+<h1 id="6-risk-decisions-and-the-plan">6. RISK, DECISIONS, AND THE PLAN</h1>
+<p><strong>6.1 Acceptance-risk register</strong> (canonical; everything else references it):</p>
+<p>| ID | Risk | Severity (CRITICAL/MAJOR/MODERATE/MINOR) | P(reviewer notices) (VH/H/M/L) | Consequence (reject / major rev / minor rev / clarification / editorial) | Required fix | Confidence |</p>
+<p><strong>6.2 Experiment decision matrix.</strong> For each candidate — matched random-orthonormal basis; ISM-free variant; matched-NP CEC2013LSGO; D = 30 retune; D = 100 upper-tier retune; wider sensitivity; ARGP ablation; deep-stall-restart ablation; cross-paradigm comparison; efficiency scaling — classify: REQUIRED BEFORE RESUBMISSION / STRONGLY RECOMMENDED / USEFUL BUT OPTIONAL / NOT NEEDED, each with a one-line justification <strong>and an approximate run cost</strong>. Recommending an experiment is a claim that its absence materially threatens acceptance — hold that bar. Do not recommend experiments whose answer existing evidence already contains.</p>
+<p><strong>6.3 Simulated reviews.</strong> Four independent reports — A: algorithm/novelty; B: experimental design/benchmarking; C: statistics/reproducibility; D: maximally skeptical senior reviewer — each with assessment, strengths, major concerns, minor concerns, recommendation (Accept / Minor / Major / Reject). Then the overlap synthesis: which concerns appear in ≥2 reviews (these are the real threats).</p>
+<p><strong>6.4 Editor simulation.</strong> As handling editor: decision + reasoning + the exact, finite list of changes that would move the paper to ACCEPT.</p>
+<p><strong>6.5 Prioritized plan.</strong> P0 acceptance-critical → P1 major scientific → P2 reviewer-proofing → P3 presentation → P4 optional. Every item: location; problem; why a reviewer cares; exact change; evidence required; blast radius; verification method. No generic advice (&quot;improve clarity&quot;) — only executable instructions.</p>
+<p><strong>6.6 Final checklist.</strong> Reviewer points closed; claims ≤ evidence; statistics convention uniform; fairness disclosed (incl. LSGO); negative findings integrated; terminology consistent; figures/tables sound; provenance traceable; preregistration language precise; limitations complete; conclusions bounded; no unsupported superiority language; no family-to-global drift; no residual eigenframe-benefit language; no hidden NP issue; no sensitivity overclaim. Mark each: PASS / FAIL(id) / NEEDS VERIFICATION(where).</p>
+<p>---</p>
+<h1 id="7-required-output-structure">7. REQUIRED OUTPUT STRUCTURE</h1>
+<ol>
+<li><strong>Inputs received</strong> (which documents; what was therefore checkable)</li>
+<li><strong>Executive assessment</strong> (≤1 page) + likely editorial decision</li>
+<li><strong>Top 10 acceptance threats</strong> (IDs into the risk register)</li>
+<li>Reviewer-point closure matrix (§1)</li>
+<li>Experiment audits E1–E5 (§2)</li>
+<li>Contribution matrix C1–C3 (§3)</li>
+<li>Cross-cutting audits (§4, only sections with surviving findings in</li>
+<p>full; others as &quot;no surviving findings&quot;)</p>
+<li>Change-by-change verdict list, all ~92 (§5) + new-problems section</li>
+<li>Acceptance-risk register (§6.1)</li>
+<li>Experiment decision matrix (§6.2)</li>
+<li>Simulated reviewers A–D + overlap synthesis (§6.3)</li>
+<li>Editor decision + path to ACCEPT (§6.4)</li>
+<li>Prioritized implementation plan P0–P4 (§6.5)</li>
+<li>Final checklist (§6.6)</li>
+<li><strong>Refuted-findings appendix</strong> — findings you raised and then refuted</li>
+<p>yourself, with the refutation (this calibrates the rest of the report)</p>
+</ol>
+<p>---</p>
+<h1 id="8-quality-bar-and-critical-rules">8. QUALITY BAR AND CRITICAL RULES</h1>
+<ul>
+<li>Document-specific, evidence-pinned, adversarial, exhaustive, actionable.</li>
+<li>Every finding: location + quote + label (<code>VERIFIED</code>/<code>INFERRED</code>/`NOT</li>
+<p>CHECKABLE`) + confidence + consequence + exact fix + blast radius.</p>
+<li>Never hide or soften unfavorable evidence to please a reviewer; the</li>
+<p>strategy is the opposite — the paper becomes hard to reject because every claim is accurately bounded, directly supported, statistically defensible, experimentally fair, and transparent.</p>
+<li>The goal in one line:</li>
+</ul>
+<p>maximum scientific defensibility + maximum reviewer confidence + minimum unresolved acceptance risk.</p>
+      </article>
+    </main>
+    <aside class="page-toc" aria-label="On this page">
+<h2>On This Page</h2>
+<a class="toc-level-1" href="#master-prompt-dt-gsk-major-revision-acceptance-readiness-review">MASTER PROMPT — DT-GSK MAJOR-REVISION ACCEPTANCE-READINESS REVIEW</a>
+<a class="toc-level-1" href="#change-register-revised-manuscript-package">(Change Register + revised manuscript package)</a>
+<a class="toc-level-1" href="#0-inputs-scope-and-evidence-discipline">0. INPUTS, SCOPE, AND EVIDENCE DISCIPLINE</a>
+<a class="toc-level-2" href="#0-1-input-set">0.1 Input set</a>
+<a class="toc-level-2" href="#0-2-the-cardinal-evidence-rule">0.2 The cardinal evidence rule</a>
+<a class="toc-level-2" href="#0-3-anti-hallucination-rules">0.3 Anti-hallucination rules</a>
+<a class="toc-level-2" href="#0-4-calibration-discipline">0.4 Calibration discipline</a>
+<a class="toc-level-2" href="#0-5-ground-truth-anchors">0.5 Ground-truth anchors</a>
+<a class="toc-level-1" href="#1-reviewer-point-closure-the-central-audit">1. REVIEWER-POINT CLOSURE — THE CENTRAL AUDIT</a>
+<a class="toc-level-2" href="#r1-1-abstract-grammar">R1.1 — Abstract grammar</a>
+<a class="toc-level-2" href="#r1-2-adaptive-control-terminology">R1.2 — &quot;Adaptive control&quot; terminology</a>
+<a class="toc-level-2" href="#r1-3-r2-2-population-size-fairness-e2">R1.3 / R2.2 — Population-size fairness (E2)</a>
+<a class="toc-level-2" href="#r1-4-omnibus-convention">R1.4 — Omnibus convention</a>
+<a class="toc-level-2" href="#r2-1-tiering-vs-tier-constant-e3">R2.1 — Tiering vs tier-constant (E3)</a>
+<a class="toc-level-2" href="#r2-3-refinement-basis-e1">R2.3 — Refinement basis (E1)</a>
+<a class="toc-level-2" href="#r2-4-interaction-structure-memory">R2.4 — Interaction-structure memory</a>
+<a class="toc-level-2" href="#r2-5-descriptive-aggregate-vs-inference">R2.5 — Descriptive aggregate vs inference</a>
+<a class="toc-level-2" href="#r2-6-family-only-scope">R2.6 — Family-only scope</a>
+<a class="toc-level-2" href="#r2-7-sensitivity-both-halves-e4-e5">R2.7 — Sensitivity, both halves (E4 + E5)</a>
+<a class="toc-level-1" href="#2-experiment-audits-e1-e5-single-canonical-location">2. EXPERIMENT AUDITS E1–E5 (single canonical location)</a>
+<a class="toc-level-1" href="#3-contribution-audit-c1-c3">3. CONTRIBUTION AUDIT C1–C3</a>
+<a class="toc-level-1" href="#4-cross-cutting-audits">4. CROSS-CUTTING AUDITS</a>
+<a class="toc-level-1" href="#5-change-by-change-audit-all-92-passages">5. CHANGE-BY-CHANGE AUDIT — ALL ~92 PASSAGES</a>
+<a class="toc-level-1" href="#6-risk-decisions-and-the-plan">6. RISK, DECISIONS, AND THE PLAN</a>
+<a class="toc-level-1" href="#7-required-output-structure">7. REQUIRED OUTPUT STRUCTURE</a>
+<a class="toc-level-1" href="#8-quality-bar-and-critical-rules">8. QUALITY BAR AND CRITICAL RULES</a>
+</aside>
+  </div>
+  <script src="assets/search.js"></script>
+</body>
+</html>

@@ -82,7 +82,7 @@ floors, not estimates.
   does not cross `/` is not an exclusion. Verify with `git check-ignore -v <path>`, never by
   reading the pattern.
 - **The private history bundle:** the never-push branches `archive/revision-pass-39-full` and
-  `revision/pass-39` were bundled to `D:/AI/Research-Lab/DT-GSK-private-history.bundle` and
+  `revision/pass-39` were bundled to the author's private bundle outside the repository and
   deleted (2026-08-28). The bundle carries this material; the never-push rule now applies to its
   refs and to the bundle file itself.
 
@@ -108,10 +108,10 @@ guarantee, and both commits were still served when this was closed.
 D-0049 and the Phase 0 work order originally named only `b9846e4`. Verified 2026-08-27, the
 rewind left **two** commits unreachable from every branch and tag, and **both are still served**:
 
-| Commit (full SHA is what Support needs) | Carries | Still served |
+| Commit (Support needs the full SHA -- held privately) | Carries | Served when last verified (2026-08-27) |
 |---|---|---|
-| `b9846e47024e48a0f8ce3e4f22bffbd794b2a355` | seven third-party copyrighted PDFs, 38.8 MiB, under `reference_papers/Academic_Research_Guidelines/` | **HTTP 206** |
-| `bddfe24ede2dbf934bc76636a61b4f14ff3ff470` | `papers/submission/AUTHOR_DATA_HANDOFF.md` (16.9 KiB) -- co-author biographical data published before its subjects approved it | **HTTP 206** |
+| `b9846e4` (full SHA in the withheld `papers/review_2026_08_24/PRIVATE_OPS.md`) | seven third-party copyrighted PDFs, 38.8 MiB, under `reference_papers/Academic_Research_Guidelines/` | HTTP 206 |
+| `bddfe24` (full SHA in the same withheld file) | `papers/submission/AUTHOR_DATA_HANDOFF.md` (16.9 KiB) -- co-author biographical data published before its subjects approved it | HTTP 206 |
 
 `bddfe24` is the parent of `b9846e4`. Purging only the child leaves the parent serving the
 handoff, and the parent is the one carrying other people's personal data. **A request naming one
@@ -141,7 +141,7 @@ Re-run the reachability check and expect **404** where it now returns 206:
 
 Until then, and permanently afterwards: the branches that carried this material
 (`archive/revision-pass-39-full`, `revision/pass-39`) were **bundled and deleted 2026-08-28**;
-their history lives only in `D:/AI/Research-Lab/DT-GSK-private-history.bundle`. **Never fetch
+their history lives only in the author's private bundle outside the repository. **Never fetch
 that bundle into a repository with a public remote and never push its refs** -- doing so would
 re-anchor the very objects a purge would ask GitHub to collect, making it pointless and a second
 request harder to justify. Note the local-evidence consequence: with the branches gone, the two

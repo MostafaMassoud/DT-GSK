@@ -62,6 +62,7 @@
 <a class="nav-link" href="development_DECC_G_port_record.html">DECC-G port — fidelity and validation record</a>
 <a class="nav-link" href="development_developer_guide.html">Developer Guide</a>
 <a class="nav-link" href="development_README.html">Development Docs</a>
+<a class="nav-link" href="development_acceptance_readiness_review_2026_08_28.html">DT-GSK Acceptance-Readiness Review — 2026-08-28 (executed at pass-50 / v2.23; fixes landed as pass-51 / v2.24)</a>
 <a class="nav-link" href="development_dt_gsk_core_reference.html">DT-GSK Core Reference — the vendored core and its byte-identity lock</a>
 <a class="nav-link" href="development_evidence_rerun_runbook.html">DT-GSK re-run runbook — corrected implementation (C006 + graph backend)</a>
 <a class="nav-link" href="development_egsk_port_spec.html">EGSK — Algorithm Spec &amp; Porting Verdict</a>
@@ -91,6 +92,7 @@
 <a class="nav-link" href="prompt_project-review.html">Deep Expert Review Prompt For GSK Family Python</a>
 <a class="nav-link" href="prompt_documentation-review.html">Documentation Review Prompt</a>
 <a class="nav-link" href="prompt_publication-polish.html">Final Publication Prompt — Production-Ready Q1 Release of GSK Family Python v1.1</a>
+<a class="nav-link" href="prompt_change-register-acceptance-review.html">MASTER PROMPT — DT-GSK MAJOR-REVISION ACCEPTANCE-READINESS REVIEW</a>
 </section>
 <section><h2>Python API</h2>
 <a class="nav-link" href="api_index.html">API Module Index</a>
@@ -180,8 +182,11 @@
 <p>Neither is a defect awaiting repair. Any drift back toward the pre-revision story is treated as a critical integrity defect, and the audit instrument says so in terms.</p>
 <h2 id="editorial-obligations-attached-to-the-decision">Editorial obligations attached to the decision</h2>
 <p>The decision letter set a <strong>short revision window</strong> and a five-point check-list. Four of the five are discharged or inapplicable: references are relevant, the point-by-point response exists, no reviewer recommended a reference, and nothing was found impossible to address.</p>
-<p><strong>The fifth is discharged on the repository side (2026-08-27/28).</strong> The letter asks that revisions be *highlighted in the manuscript* so editors and reviewers can see the changes. The project now produces exactly that: a <strong>latexdiff marked-up manuscript</strong> (additions underlined, deletions struck through, in place) *and* a <strong>change register</strong> listing all 75 changed passages as-submitted against as-revised with the reviewer point each answers — both derived from the tagged diff, both rebuildable from <code>papers/scripts/</code>. One rendering limit is disclosed in the response rather than left to be discovered: latexdiff emits preamble changes as comments, so the retitle does not appear as visible markup and is named in the letter instead. Whether the editors accept this treatment is their call, but what is being sent is the thing the check-list asks for, not a substitute.</p>
+<p><strong>The fifth is discharged on the repository side (2026-08-27/28).</strong> The letter asks that revisions be *highlighted in the manuscript* so editors and reviewers can see the changes. The project now produces exactly that: a <strong>latexdiff marked-up manuscript</strong> (additions underlined, deletions struck through, in place) *and* a <strong>change register</strong> listing all 93 changed passages as-submitted against as-revised with the reviewer point each answers — both derived from the tagged diff, both rebuildable from <code>papers/scripts/</code>. One rendering limit is disclosed in the response rather than left to be discovered: latexdiff emits preamble changes as comments, so the retitle does not appear as visible markup and is named in the letter instead. Whether the editors accept this treatment is their call, but what is being sent is the thing the check-list asks for, not a substitute.</p>
 <p><strong>A claim recorded here earlier was wrong and is withdrawn.</strong> This paragraph used to say the manuscript already highlights a few author-flagged passages, so a blanket pass would collide with existing markup. <strong>It does not.</strong> Checked 2026-08-27 across <code>main.tex</code>, <code>supplementary.tex</code> and all six section files: no <code>\hl</code>, no <code>soul</code>, no <code>colorbox</code>, no highlighting macro of any kind. The only hits are the word &quot;highlighted&quot; in ordinary prose. There is no markup to collide with, so the obstacle that reasoning rested on does not exist.</p>
+<h2 id="round-two-addendum-2026-08-28">Round-two addendum (2026-08-28)</h2>
+<p>Ahead of resubmission, a fifth pre-registered experiment was added: <strong>E5, dimension-boundary sensitivity</strong> (pre-registration Amendment A4, filed before execution; 1,740 new runs promoted as the additive release <code>rev2-rel-2026-08-28-203c78744</code>, with the fifth registered cell reused from round one&#x27;s E3). It answers the *threshold* half of the sensitivity request that the round-one study E4 had answered only for constants. Result, adverse cells first: at D = 30 the shipped middle profile is beaten from <strong>both</strong> neighbouring tiers; at D = 100 the 50 ≤ D &lt; 100 set beats the shipped upper profile on paired means while the family ordinal is unchanged; the boundaries are insensitive at D = 10 and D = 50 — exactly where the narrowed contribution claims them. Reported in Supplementary S9.5 / Table A47, limitations updated.</p>
+<p>The same pass fixed a statistical-convention deviation the round-one analyzer carried (the manuscript&#x27;s stated 10⁻⁸ tie rule was not applied to E1–E3; Amendments A5–A6 record the correction and its one decision-level consequence — the E1 D = 100 basis contrast is separated under the stated rule), and retired the last pre-revision claim sites named by an external second-round audit. Frozen state: pass-49 / tag v2.22.</p>
 <h2 id="where-the-rest-lives">Where the rest lives</h2>
 <ul>
 <li><strong>Current state, always:</strong> <a href="../../REVISION_STATUS.md"><code>REVISION_STATUS.md</code></a> — §2 for the</li>
@@ -202,6 +207,7 @@
 <a class="toc-level-2" href="#the-ten-points-and-what-happened">The ten points and what happened</a>
 <a class="toc-level-2" href="#two-submitted-claims-were-falsified-and-both-were-accepted-into-the-paper">Two submitted claims were falsified, and both were accepted into the paper</a>
 <a class="toc-level-2" href="#editorial-obligations-attached-to-the-decision">Editorial obligations attached to the decision</a>
+<a class="toc-level-2" href="#round-two-addendum-2026-08-28">Round-two addendum (2026-08-28)</a>
 <a class="toc-level-2" href="#where-the-rest-lives">Where the rest lives</a>
 </aside>
   </div>

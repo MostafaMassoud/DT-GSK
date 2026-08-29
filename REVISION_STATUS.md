@@ -10,7 +10,7 @@ what is happening, what is done, and what is next.
 | **Manuscript** | `algorithms-4507562` — *Algorithms* (MDPI) |
 | **Submitted** | 2026-08-01 from freeze **pass-38 / tag v2.13** (anchor `b515907`) |
 | **Editorial status** | **MAJOR REVISION** — 2 reviewers, received 2026-08-24 |
-| **Branch** | `main` — **published** at `02d1791`, tracking `origin/main`, and since 2026-08-28 the **only** branch: the development-history branches were bundled to `D:/AI/Research-Lab/DT-GSK-private-history.bundle` (restore-tested) and deleted. Never fetch that bundle into a repo with a public remote. |
+| **Branch** | `main` — **published** at `02d1791`, tracking `origin/main`, and since 2026-08-28 the **only** branch: the development-history branches were bundled to the author's private history bundle outside the repository (restore-tested; location in the withheld `papers/review_2026_08_24/PRIVATE_OPS.md`) and deleted. Never fetch that bundle into a repo with a public remote. |
 | **Progress** | **COMPLETE** — all ten reviewer points answered; phases 1–7 applied; five experiments run, analysed and written up (E5 added ahead of resubmission, pass-49); the reopened-items batch (pass-50), the acceptance-readiness review (pass-51) and the seven-lens panel review of the response letter (pass-52) are all applied. |
 | **Freeze** | **pass-52 / tag v2.25** (anchor `b6a18d1`, close `709d6ff`) · `check_manifest` 15/15 + `sources 2/2` · v2.13 … v2.25 all resolve; the DAS names v2.13/v2.25. Repo is **PRIVATE until upload day** — flip public before SuSy upload. Next free ids **CR-0033 / D-0058**. |
 | **Revision deadline** | **2026-09-01 CONFIRMED** — also the planned resubmission date, so **zero slack**; the extension-request draft is the only margin (§5) |
@@ -28,7 +28,7 @@ population-size confound, which makes addressing it effectively mandatory.
 republishing a confidential report is the journal's act at acceptance, in the journal's own form —
 not the authors' to take unilaterally, mid-revision. The verbatim record, Reviewer 1's original PDF
 and the point-by-point response are on disk, ignored by `.gitignore`; their git history lives only in
-the private bundle `D:/AI/Research-Lab/DT-GSK-private-history.bundle` (the never-push branches were
+the author's private history bundle outside the repository (the never-push branches were
 bundled and deleted 2026-08-28). Read the verbatim record on disk before drafting
 any rebuttal sentence; the summaries below are lossy by design.
 
@@ -613,8 +613,8 @@ check_manifest                     # then verify with `git cat-file -s`, not the
 6. **DOCX epoch.** `1783641600`, **not** the PDF's `1783468800`. A persisted `SOURCE_DATE_EPOCH` in the shell silently yields a non-reproducible DOCX that still passes `check_manifest`. Unset it between builds; build twice and diff.
 7. **`check_manifest` hashes the working tree, not the committed blob.** A Word-resaved DOCX once passed 15/15. Verify with `git cat-file -s` after committing.
 8. **BIND-window drift is silent.** `validate_evidence_bindings.py` only checks that each extracted token's digits appear in both renders — it never reports tokens that *left* a window. Three edits change paragraph line counts (E8c +3, E9 +8, O1 +1). E8c is capped at 3 specifically to keep `88` bound; E9's shift only evicts trivially-present dimension labels. Re-read the six lines above each touched `% BIND:` after applying.
-9. **Wrong repo.** Work only in `D:/AI/Research-Lab/DT-GSK`. The divergent PhD-Projects copy hashes only its own tree — both can report "15/15" while disagreeing.
-10. **Branch.** Work on `main` — the only branch since 2026-08-28. The private history (reviewer reports, co-author handoff, seven copyrighted PDFs, commit messages gendering an anonymous reviewer) lives in `D:/AI/Research-Lab/DT-GSK-private-history.bundle`: **never fetch it into a repo with a public remote, never merge its refs into `main`, never copy the bundle into the repo tree.** Restore only into a detached private clone.
+9. **Wrong repo.** Work only in this repository checkout. The divergent PhD-Projects copy hashes only its own tree — both can report "15/15" while disagreeing.
+10. **Branch.** Work on `main` — the only branch since 2026-08-28. The private history (reviewer reports, co-author handoff, seven copyrighted PDFs, commit messages unsuitable for publication) lives in the author's private history bundle outside the repository: **never fetch it into a repo with a public remote, never merge its refs into `main`, never copy the bundle into the repo tree.** Restore only into a detached private clone.
 11. **Untracked-by-design files.** E12 edits `response_to_reviewers.md`, which is gitignored at `.gitignore:56` (D-0049, verified `rc=0`). It will not show in `git status` and will not be reviewed by any tracked-files sweep — but it ships to the reviewers. Do not re-add it to git.
 12. **Residuals accepted, not fixed, in pass-42** — record them in the decision log so they are not re-discovered as new defects:
  - `supplementary.tex:1539` three-vs-four tier boundaries (S14-016).
@@ -1632,7 +1632,7 @@ you are one section too late — that history is §3.
 | **No monospace** | `\texttt` count stays 0 — and `audit_manuscript.py` has **no** `\texttt` gate, so grep separately. Line numbering stays off (`\let\linenumbers\relax`). |
 | **Blocked phrases** | "state-of-the-art", "best algorithm" — enforced by `audit_manuscript.py`. |
 | **Do not run** | `papers/scripts/finalize_evidence.py` (standing instruction). Drive promotion manually. |
-| **Dual-repo hazard** | Work only in `D:/AI/Research-Lab/DT-GSK`. A divergent copy lives in the PhD-Projects monorepo; each freeze manifest hashes only its own tree, so both can report "15/15" while disagreeing. |
+| **Dual-repo hazard** | Work only in this repository checkout. A divergent copy lives in the PhD-Projects monorepo; each freeze manifest hashes only its own tree, so both can report "15/15" while disagreeing. |
 | **v2.13 is frozen history** | Per D-0045, a revision is a **new freeze pass through change control** — never an edit to the submitted state. |
 
 ## 8. Where state actually lives

@@ -62,6 +62,7 @@
 <a class="nav-link" href="development_DECC_G_port_record.html">DECC-G port — fidelity and validation record</a>
 <a class="nav-link" href="development_developer_guide.html">Developer Guide</a>
 <a class="nav-link" href="development_README.html">Development Docs</a>
+<a class="nav-link" href="development_acceptance_readiness_review_2026_08_28.html">DT-GSK Acceptance-Readiness Review — 2026-08-28 (executed at pass-50 / v2.23; fixes landed as pass-51 / v2.24)</a>
 <a class="nav-link" href="development_dt_gsk_core_reference.html">DT-GSK Core Reference — the vendored core and its byte-identity lock</a>
 <a class="nav-link" href="development_evidence_rerun_runbook.html">DT-GSK re-run runbook — corrected implementation (C006 + graph backend)</a>
 <a class="nav-link" href="development_egsk_port_spec.html">EGSK — Algorithm Spec &amp; Porting Verdict</a>
@@ -91,6 +92,7 @@
 <a class="nav-link" href="prompt_project-review.html">Deep Expert Review Prompt For GSK Family Python</a>
 <a class="nav-link" href="prompt_documentation-review.html">Documentation Review Prompt</a>
 <a class="nav-link" href="prompt_publication-polish.html">Final Publication Prompt — Production-Ready Q1 Release of GSK Family Python v1.1</a>
+<a class="nav-link" href="prompt_change-register-acceptance-review.html">MASTER PROMPT — DT-GSK MAJOR-REVISION ACCEPTANCE-READINESS REVIEW</a>
 </section>
 <section><h2>Python API</h2>
 <a class="nav-link" href="api_index.html">API Module Index</a>
@@ -194,15 +196,15 @@
 <li><strong>The <code>.gitignore</code> trap that caused it:</strong> <code>CLAUDE.md</code> &quot;Never break these&quot; item 10 -- a glob that</li>
 <p>does not cross <code>/</code> is not an exclusion. Verify with <code>git check-ignore -v &lt;path&gt;</code>, never by reading the pattern.</p>
 <li><strong>The private history bundle:</strong> the never-push branches <code>archive/revision-pass-39-full</code> and</li>
-<p><code>revision/pass-39</code> were bundled to <code>D:/AI/Research-Lab/DT-GSK-private-history.bundle</code> and deleted (2026-08-28). The bundle carries this material; the never-push rule now applies to its refs and to the bundle file itself.</p>
+<p><code>revision/pass-39</code> were bundled to the author&#x27;s private bundle outside the repository and deleted (2026-08-28). The bundle carries this material; the never-push rule now applies to its refs and to the bundle file itself.</p>
 </ul>
 <p>---</p>
-<h1 id="remediation-the-github-support-purge-request-closed-will-not-be-filed">Remediation: the GitHub Support purge request -- CLOSED, WILL NOT BE FILED</h1>
-<p><strong>Status: closed by author decision, 2026-08-28. The request will not be made.</strong> It was deferred on 2026-08-27 and closed the following day. <strong>This section is a record, not a to-do: do not re-raise it, and do not act on it without the author saying so.</strong></p>
+<h1 id="remediation-the-github-support-purge-request-reopened-to-be-filed">Remediation: the GitHub Support purge request -- REOPENED, TO BE FILED</h1>
+<p><strong>Status: reopened by author instruction, 2026-08-28 (reversing the same-day closure), to be FILED by the author.</strong> Timing note: the repository is currently PRIVATE, so the objects are not publicly served and the served-by-SHA verification cannot be re-run from outside. File the ticket immediately AFTER the repository goes public on upload day (2026-09-01), when the claim in the request text is checkable again; the ticket itself is valid either way.</p>
 <p>It is kept rather than deleted because it documents a decision about material that is not the author&#x27;s alone -- seven third-party copyrighted PDFs and a co-author&#x27;s biographical data. Recording that the remediation was considered and declined is more honest than leaving no trace of it. The state below does not change on its own: unreachable git objects carry no expiry date, GitHub collects on an unannounced schedule with no guarantee, and both commits were still served when this was closed.</p>
 <h2 id="scope-two-unreachable-commits-not-one">Scope -- TWO unreachable commits, not one</h2>
 <p>D-0049 and the Phase 0 work order originally named only <code>b9846e4</code>. Verified 2026-08-27, the rewind left <strong>two</strong> commits unreachable from every branch and tag, and <strong>both are still served</strong>:</p>
-<div class="table-wrap"><table><thead><tr><th>Commit (full SHA is what Support needs)</th><th>Carries</th><th>Still served</th></tr></thead><tbody><tr><td><code>b9846e47024e48a0f8ce3e4f22bffbd794b2a355</code></td><td>seven third-party copyrighted PDFs, 38.8 MiB, under <code>reference_papers/Academic_Research_Guidelines/</code></td><td><strong>HTTP 206</strong></td></tr><tr><td><code>bddfe24ede2dbf934bc76636a61b4f14ff3ff470</code></td><td><code>papers/submission/AUTHOR_DATA_HANDOFF.md</code> (16.9 KiB) -- co-author biographical data published before its subjects approved it</td><td><strong>HTTP 206</strong></td></tr></tbody></table></div>
+<div class="table-wrap"><table><thead><tr><th>Commit (Support needs the full SHA -- held privately)</th><th>Carries</th><th>Served when last verified (2026-08-27)</th></tr></thead><tbody><tr><td><code>b9846e4</code> (full SHA in the withheld <code>papers/review_2026_08_24/PRIVATE_OPS.md</code>)</td><td>seven third-party copyrighted PDFs, 38.8 MiB, under <code>reference_papers/Academic_Research_Guidelines/</code></td><td>HTTP 206</td></tr><tr><td><code>bddfe24</code> (full SHA in the same withheld file)</td><td><code>papers/submission/AUTHOR_DATA_HANDOFF.md</code> (16.9 KiB) -- co-author biographical data published before its subjects approved it</td><td>HTTP 206</td></tr></tbody></table></div>
 <p><code>bddfe24</code> is the parent of <code>b9846e4</code>. Purging only the child leaves the parent serving the handoff, and the parent is the one carrying other people&#x27;s personal data. <strong>A request naming one SHA is an incomplete request.</strong></p>
 <p>The web UI also still renders the tree: <code>GET /tree/b9846e4.../reference_papers</code> returns <strong>HTTP 200</strong>.</p>
 <p>Last good commit before the pair, and still on <code>main</code>: <code>de762a4745845e625c6c264df1e31a421c7634e0</code>.</p>
@@ -212,7 +214,7 @@
 <h2 id="after-the-purge">After the purge</h2>
 <p>Re-run the reachability check and expect <strong>404</strong> where it now returns 206:</p>
 <p>curl -s -o NUL -w &quot;%{http_code}\n&quot; -r 0-0 \ https://raw.githubusercontent.com/MostafaMassoud/DT-GSK/&lt;full-sha&gt;/&lt;path&gt;</p>
-<p>Until then, and permanently afterwards: the branches that carried this material (<code>archive/revision-pass-39-full</code>, <code>revision/pass-39</code>) were <strong>bundled and deleted 2026-08-28</strong>; their history lives only in <code>D:/AI/Research-Lab/DT-GSK-private-history.bundle</code>. <strong>Never fetch that bundle into a repository with a public remote and never push its refs</strong> -- doing so would re-anchor the very objects a purge would ask GitHub to collect, making it pointless and a second request harder to justify. Note the local-evidence consequence: with the branches gone, the two commits are unreachable in the working repo and a future <code>git gc</code> will prune the local copies; the bundle is then the only local evidence of what they contained.</p>
+<p>Until then, and permanently afterwards: the branches that carried this material (<code>archive/revision-pass-39-full</code>, <code>revision/pass-39</code>) were <strong>bundled and deleted 2026-08-28</strong>; their history lives only in the author&#x27;s private bundle outside the repository. <strong>Never fetch that bundle into a repository with a public remote and never push its refs</strong> -- doing so would re-anchor the very objects a purge would ask GitHub to collect, making it pointless and a second request harder to justify. Note the local-evidence consequence: with the branches gone, the two commits are unreachable in the working repo and a future <code>git gc</code> will prune the local copies; the bundle is then the only local evidence of what they contained.</p>
 <p>The two SHAs will stop resolving on GitHub once collected. They still resolve in any local clone that has them, which is where the evidence for this record lives; nothing here depends on GitHub continuing to serve them.</p>
       </article>
     </main>
@@ -224,7 +226,7 @@
 <a class="toc-level-2" href="#what-the-capture-covers-and-what-was-already-lost">What the capture covers, and what was already lost</a>
 <a class="toc-level-2" href="#what-this-does-not-establish">What this does not establish</a>
 <a class="toc-level-2" href="#where-the-rest-lives">Where the rest lives</a>
-<a class="toc-level-1" href="#remediation-the-github-support-purge-request-closed-will-not-be-filed">Remediation: the GitHub Support purge request -- CLOSED, WILL NOT BE FILED</a>
+<a class="toc-level-1" href="#remediation-the-github-support-purge-request-reopened-to-be-filed">Remediation: the GitHub Support purge request -- REOPENED, TO BE FILED</a>
 <a class="toc-level-2" href="#scope-two-unreachable-commits-not-one">Scope -- TWO unreachable commits, not one</a>
 <a class="toc-level-2" href="#why-this-request-can-actually-succeed">Why this request can actually succeed</a>
 <a class="toc-level-2" href="#after-the-purge">After the purge</a>

@@ -2602,8 +2602,8 @@ applying all surfaced fixes.
   R1.3's Location corrected to Sections 3.2/4.9 (the Conclusions carry no NP
   qualification) and R2.1's to Section 3.3 for the C2-narrowing sentence;
   'elite archive' corrected to the manuscript's 'diversity archive'; the
-  reviewer's dropped severity sentence ('Here is a more serious concern.')
-  restored; E5's 'before any of its runs executed' scoped to NEW runs (the
+  reviewer's dropped severity-signal sentence restored (verbatim only in the
+  withheld letter); E5's 'before any of its runs executed' scoped to NEW runs (the
   reused fifth cell predates Amendment A4); the load-bearing 'other' restored
   in the build-residual sentence; the protocol-conformance design note no
   longer attributed to the manuscript; the 26-divergent-cells unit glossed as

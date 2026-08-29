@@ -189,7 +189,7 @@ Never edit or reinterpret primary evidence merely to make it agree with the manu
 > **Publication topology (SQUASH):** the public history is one commit per published state, so an
 > `anchor_commit` in a governance record does **not** resolve on origin — `published_commit` does
 > (disclosed in README). The never-push development-history branches were **bundled to
-> `D:/AI/Research-Lab/DT-GSK-private-history.bundle` and deleted (2026-08-28)** — `main` is the
+> the author's private history bundle outside the repository and deleted (2026-08-28)** — `main` is the
 > only branch. The bundle carries the reviewer reports and copyrighted PDFs: **never fetch it
 > into a repo with a public remote, never merge its refs, never copy it into the tree.** Withheld
 > under **D-0049** (on disk, deliberately untracked): both reviewer reports, the point-by-point
@@ -1610,7 +1610,7 @@ guard; three values were reported pdf=NO docx=NO while present in both
 formats. Any "267 BIND / 721 token" figure anywhere is three-suite-era.
 
 **(d) Repository split and hygiene (affects reproducibility review).** The
-project ships from the standalone repo `D:/AI/Research-Lab/DT-GSK` (origin
+project ships from this standalone repository (origin
 `MostafaMassoud/DT-GSK`, single squashed history + this session's commits;
 tags `v2.1`, `v2.2` on origin). The monorepo copy re-converged at
 `faf93dd8d` with lineage tag `dtgsk-submission-v2.2-2026-07-31`; root

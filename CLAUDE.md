@@ -84,11 +84,12 @@ file is gated and carries no leading `v`, so a `v2.1x` sweep misses it.
 
 **Work on `main` — it is now the ONLY branch** (author decision, 2026-08-28). The private
 development history — formerly the branches `archive/revision-pass-39-full` and
-`revision/pass-39` — was moved whole into **`D:/AI/Research-Lab/DT-GSK-private-history.bundle`**
-(outside the repo tree; restore-tested: both refs, matching tips, the withheld files and the two
+`revision/pass-39` — was moved whole into **the author's private history bundle**, kept outside
+the repository (location recorded in the withheld `papers/review_2026_08_24/PRIVATE_OPS.md`;
+restore-tested: both refs, matching tips, the withheld files and the two
 GitHub-exposed commits all readable). The old rule transfers to the bundle: it carries the
-reviewers' reports, the co-author handoff, the seven copyrighted PDFs, and commit messages that
-gender an anonymous reviewer — so **never fetch it into a repo with a public remote, never merge
+reviewers' reports, the co-author handoff, the seven copyrighted PDFs, and commit messages
+unsuitable for publication — so **never fetch it into a repo with a public remote, never merge
 its refs into `main`, never copy the bundle into the repo tree or any public location.** Restore,
 whenever needed, only into a detached private clone: `git init x && git -C x fetch <bundle>
 "refs/heads/*:refs/heads/*"`. (`public/squash-candidate`, which held nothing not already on
@@ -188,7 +189,7 @@ Everything else in this file is a pointer.
 6. **Append-only trees:** `papers/build_prompt_phases/`, `papers/review_2026_07_22/`,
    `papers/governance/remediation_2026_07_18/`. Stale content there is correct — do not "fix" it.
 7. **Never run `papers/scripts/finalize_evidence.py`** (standing instruction).
-8. **Work only in `D:/AI/Research-Lab/DT-GSK`.** A divergent copy lives in the PhD-Projects monorepo;
+8. **Work only in this repository checkout.** A divergent copy lives in the PhD-Projects monorepo;
    each freeze manifest hashes only its own tree, so both can report "15/15" while disagreeing.
 9. **The repository is PUBLIC and some files are deliberately untracked** (D-0049). Pinned in
    `.gitignore`, present on disk, retained in git only on the never-pushed archive branch: both

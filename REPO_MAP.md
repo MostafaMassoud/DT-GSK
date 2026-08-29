@@ -82,6 +82,9 @@ papers/                    LaTeX manuscript + review-pack pipeline; governance/ 
                            tracked); submission/ the upload staging — tracked ZIPs
                            + SUBMISSION_KIT.md, plus the deliberately untracked
                            marked PDFs, change register and response-letter PDF
+paper-revisions/           Frozen journal-round snapshots: revision-1.0 is the
+                           as-reviewed round-1 package (journal-stamped PDFs plus
+                           the v2.13-matching source). Never edited
 word/                      Word-build assets (reference.docx, field_registry.csv)
 reference_papers/          Bibliography bundle (references.bib + index). Most PDFs are
                            gitignored; Academic_Research_Guidelines/ IS tracked.
