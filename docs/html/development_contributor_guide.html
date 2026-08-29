@@ -193,13 +193,13 @@
 </ol>
 <p>The path from idea to merge, and where each gate sits:</p>
 <pre class="mermaid">flowchart LR
-  A[Branch off main] --&gt; B[Edit code + docs together]
-  B --&gt; C[python -m pytest -q&lt;br/&gt;unit / smoke / regression / 3 doc gates]
-  C --&gt; D[ruff check + scoped mypy]
-  D --&gt; E[build_docs_html.py&lt;br/&gt;regenerate HTML twins]
-  E --&gt; F{All green?}
+  A[&quot;Branch off main&quot;] --&gt; B[&quot;Edit code + docs together&quot;]
+  B --&gt; C[&quot;python -m pytest -q&lt;br/&gt;unit / smoke / regression / 3 doc gates&quot;]
+  C --&gt; D[&quot;ruff check + scoped mypy&quot;]
+  D --&gt; E[&quot;build_docs_html.py&lt;br/&gt;regenerate HTML twins&quot;]
+  E --&gt; F{&quot;All green?&quot;}
   F -- no --&gt; B
-  F -- yes --&gt; G[Open pull request]</pre>
+  F -- yes --&gt; G[&quot;Open pull request&quot;]</pre>
 <h3 id="what-the-local-gate-enforces">What the local gate enforces</h3>
 <p><code>python -m pytest</code> is not just unit tests — it also runs three documentation gates that frequently catch contribution mistakes. Knowing them up front saves a red CI run:</p>
 <ul>

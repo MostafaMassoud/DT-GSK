@@ -1,8 +1,8 @@
 {
   "schema": "submission_package_manifest/v1",
-  "generated_utc": "2026-08-29T09:45:00Z",
-  "manuscript_version_id": "v2.25",
-  "manuscript_version_note": "Freeze pass-52, tag v2.25. The round-one major-revision response to algorithms-4507562, extended ahead of resubmission with the E5 dimension-boundary study (S9.5/Table A47) and the canonical near-zero statistical rule (pre-registration Amendments A4-A6), then closed by the acceptance-readiness review fixes of pass-51 and the seven-lens panel-review fixes of pass-52 (cover-letter register count made count-free; response-letter quote and E1 values corrected). Supersedes v2.13 as the submission basis; v2.13 remains the frozen record of what was originally submitted and is never edited in place. The repository is public (temporarily private while the resubmission is finalized; it must be public again before upload) and cited in the Data Availability Statement (https://github.com/MostafaMassoud/DT-GSK), which names v2.13 for the submitted version and v2.25 for this revised one. No Zenodo deposit and no repository DOI; the article DOI is assigned by the journal after acceptance.",
+  "generated_utc": "2026-08-29T03:25:00Z",
+  "manuscript_version_id": "v2.26",
+  "manuscript_version_note": "Freeze pass-53, tag v2.26. The round-one major-revision response to algorithms-4507562, extended ahead of resubmission with the E5 dimension-boundary study (S9.5/Table A47) and the canonical near-zero statistical rule (pre-registration Amendments A4-A6), then closed by the acceptance-readiness fixes of pass-51, the seven-lens panel-review fixes of pass-52, and the full remediation of pass-53, which reconciled the Supplementary's boundary-sensitivity limitation with Section S9.5, stated the retention rationale for the interaction-structure memory, carried C2's narrowing to the Introduction, and restored deterministic PDF builds by pinning the epoch inside the builders. Supersedes v2.13 as the submission basis; v2.13 remains the frozen record of what was originally submitted and is never edited in place. The repository is public (temporarily private while the resubmission is finalized; it must be public again before upload) and cited in the Data Availability Statement (https://github.com/MostafaMassoud/DT-GSK), which names v2.13 for the submitted version and v2.26 for this revised one. No Zenodo deposit and no repository DOI; the article DOI is assigned by the journal after acceptance.",
   "target_journal": "Algorithms (MDPI)",
   "evidence_release": [
     "rel-2026-07-20-67d9345f9 (CEC2017, CEC2011, CEC2013 - primary)",
@@ -12,39 +12,39 @@
     "rev2-rel-2026-08-28-203c78744 (round-two revision experiments: E5 dimension-boundary study and the canonical near-zero re-analysis of E1-E5; additive)",
     "g1-rel-2026-08-28-65b3d39e6 (D-0051 identity re-execution; demonstrates the Table A45 residual as a build difference; additive)"
   ],
-  "authoritative_commit": "b6a18d176447d8c735cb8678c535db2cc5f922e3",
+  "authoritative_commit": "86411e61f0e478815d1ee0b9ea815836e2e34cdf",
   "pre_freeze_base_commit": "b9846e4 (abbreviated deliberately; the full SHA is held in the withheld papers/review_2026_08_24/PRIVATE_OPS.md because this commit is one of two unreachable objects pending a provider-side purge)",
   "hash_algorithm": "SHA-256",
   "submission_files": [
     {
       "role": "main-manuscript-pdf",
       "path": "papers/DT-GSK.pdf",
-      "pages": 47,
+      "pages": 48,
       "build_epoch": 1783468800,
-      "sha256": "761f646ef94efd9128513e4361834813c9c6b6c635e67db554ea34da472878cc",
-      "bytes": 825262
+      "sha256": "5d97083a8f8c88b8b58c9b6f0e99a5450ba7160395f9971487bb3195ef91dc72",
+      "bytes": 827801
     },
     {
       "role": "main-manuscript-docx",
       "path": "papers/DT-GSK.docx",
       "build": "deterministic docx render",
-      "sha256": "0be87aafcefcbd32c85e8b7a03d9fbde4d767be81fa43d64a470cbbbe548baf8",
-      "bytes": 1028068
+      "sha256": "b9a04055d1cc0068bfe4deadc0066280ad167be5a9880544382925cff553ee9e",
+      "bytes": 1021918
     },
     {
       "role": "supplement-pdf",
       "path": "papers/supplementary.pdf",
       "pages": 80,
       "build_epoch": 1783468800,
-      "sha256": "074ae5467af9bb504e6edf64e57729f13231882fb3c42ec502ee53ead0cbebf0",
-      "bytes": 1758777
+      "sha256": "7ae1cd266d782ec16657011036606e9497ad09111881cc5cb7854e0857988d05",
+      "bytes": 1759320
     },
     {
       "role": "supplement-docx",
       "path": "papers/supplementary.docx",
       "build": "deterministic docx render",
-      "sha256": "781f229308b1156e069fe06a2b230c7e8a852a087905c95b2b53f3039f21ac11",
-      "bytes": 9626627
+      "sha256": "d319a6ebf54c9143697e2dacd11fd9c281d4dda4becd36709c063885dff54650",
+      "bytes": 9626843
     },
     {
       "role": "cover-letter-pdf",

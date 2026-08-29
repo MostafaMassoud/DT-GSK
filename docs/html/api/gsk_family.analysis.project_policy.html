@@ -167,28 +167,31 @@
 <p>Project-level optimizer and comparator policy for the analysis layer.</p>
 <p>Dependency-free single source of truth for the GSK-family optimizer ids and the
 reference-comparator panel consumed by the statistical-analysis modules.
-Vendored and adapted from the source DT-GSK project; ``RUNNABLE_OPTIMIZERS``
-reflects this project&#x27;s seven locally executable optimizers.</p>
+Vendored and adapted from the source DT-GSK project. ``RUNNABLE_OPTIMIZERS`` is
+the seven-method GSK family panel every statistical claim is computed over. It is
+NOT the set of optimizers this repository can execute locally: the runner also
+accepts the eight external SOTA baselines in
+``gsk_family.optimizers.EXTERNAL_OPTIMIZER_IDS``, for fifteen runnable ids in all.</p>
 <h2 id="members">Members</h2>
-<section class="api-member" id="function-normalize-algorithm-id-47">
+<section class="api-member" id="function-normalize-algorithm-id-56">
 <div class="member-kind">function</div>
 <h2>normalize_algorithm_id</h2>
 <pre><code>normalize_algorithm_id(value: str) -&gt; str</code></pre>
 <p>Return a lowercase canonical algorithm/comparator identifier.</p>
 </section>
-<section class="api-member" id="function-is-runnable-optimizer-53">
+<section class="api-member" id="function-is-runnable-optimizer-62">
 <div class="member-kind">function</div>
 <h2>is_runnable_optimizer</h2>
 <pre><code>is_runnable_optimizer(value: str) -&gt; bool</code></pre>
-<p>Return True when *value* names a locally executable optimizer.</p>
+<p>Return True when *value* names a member of the seven-method family panel.</p>
 </section>
-<section class="api-member" id="function-require-runnable-optimizer-58">
+<section class="api-member" id="function-require-runnable-optimizer-67">
 <div class="member-kind">function</div>
 <h2>require_runnable_optimizer</h2>
 <pre><code>require_runnable_optimizer(value: str) -&gt; str</code></pre>
 <p>Normalize *value* or raise ValueError if it is reference-only.</p>
 </section>
-<section class="api-member" id="function-is-reference-comparator-67">
+<section class="api-member" id="function-is-reference-comparator-76">
 <div class="member-kind">function</div>
 <h2>is_reference_comparator</h2>
 <pre><code>is_reference_comparator(value: str) -&gt; bool</code></pre>
@@ -200,10 +203,10 @@ reflects this project&#x27;s seven locally executable optimizers.</p>
 <h2>On This Page</h2>
 <a class="toc-level-1" href="#gsk-family-analysis-project-policy">gsk_family.analysis.project_policy</a>
 <a class="toc-level-2" href="#members">Members</a>
-<a class="toc-level-2" href="#function-normalize-algorithm-id-47">normalize_algorithm_id</a>
-<a class="toc-level-2" href="#function-is-runnable-optimizer-53">is_runnable_optimizer</a>
-<a class="toc-level-2" href="#function-require-runnable-optimizer-58">require_runnable_optimizer</a>
-<a class="toc-level-2" href="#function-is-reference-comparator-67">is_reference_comparator</a>
+<a class="toc-level-2" href="#function-normalize-algorithm-id-56">normalize_algorithm_id</a>
+<a class="toc-level-2" href="#function-is-runnable-optimizer-62">is_runnable_optimizer</a>
+<a class="toc-level-2" href="#function-require-runnable-optimizer-67">require_runnable_optimizer</a>
+<a class="toc-level-2" href="#function-is-reference-comparator-76">is_reference_comparator</a>
 </aside>
   </div>
   <script src="../assets/search.js"></script>

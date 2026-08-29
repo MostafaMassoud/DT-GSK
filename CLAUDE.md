@@ -26,9 +26,18 @@ is. **The repo was set PRIVATE on 2026-08-28 (author, to finalize) and MUST be p
 the upload** — the DAS names its URL and tags, and reviewers will click. Detail:
 [REVISION_STATUS.md](REVISION_STATUS.md) §5 items 1 and 6.
 
-**Current freeze: pass-52 / `v2.25`** — minted, tagged, pushed; `v2.13` through `v2.25` all
+**Current freeze: pass-53 / `v2.26`** — minted, tagged, pushed; `v2.13` through `v2.25` all
 resolve (publicly again once the repo is flipped back), the Data Availability Statement names
-`v2.25`, and `main.tex` says so. The chronicle since the round-two audit, newest last:
+`v2.26`, and `main.tex` says so. **Pass-53 (2026-08-29, D-0058 / CR-0033) is the full
+remediation pass:** all five review instruments were retuned and re-applied, and their
+consolidated findings fixed — topmost, the Supplementary's ninth limitation still said the tier
+boundaries were “unvaried, so their sensitivity is untested” nine pages before S9.5 varies them
+and finds against the shipped profile twice; the Conclusions now state why ISM and its
+eigenbasis are retained (the configuration was checksum-locked before the isolations ran, so the
+isolations correct the claims, not the method); C2's narrowing reached the Introduction. **The
+deterministic PDF epoch had been absent from `build_pdf.py`/`build_supplementary.py` since
+pass-51** — shipped PDFs carried wall-clock stamps under a manifest claiming double-build
+identity; the epoch is now pinned inside both builders. Next free: CR-0034 / D-0059. The chronicle since the round-two audit, newest last:
 **pass-49** answered the external second-round audit: **E5
 dimension-boundary sensitivity** ran (registered as Amendment A4 BEFORE execution; release
 `rev2-rel-2026-08-28-203c78744`; S9.5 / Table A47 — D30's middle profile beaten from BOTH

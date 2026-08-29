@@ -220,9 +220,10 @@
 <blockquote>pre-submission remediation** (not from-scratch construction). Re-verify against</blockquote>
 <blockquote>the repo if this date has moved.</blockquote>
 <blockquote></blockquote>
-<blockquote>- <strong>Remediation ledger — 73/80 fully closed</strong></blockquote>
-<blockquote>  (<code>papers/governance/remediation_2026_07_18/ticket_status.csv</code>; the</blockquote>
-<blockquote>  <code>closed_verified</code> + <code>superseded_with_evidence</code> lifecycle states). All quality</blockquote>
+<blockquote>- <strong>Remediation ledger — 80/80 terminal</strong> (70 <code>closed_verified</code> + 10</blockquote>
+<blockquote>  <code>superseded_with_evidence</code>; no ticket is open)</blockquote>
+<blockquote>  (<code>papers/governance/remediation_2026_07_18/ticket_status.csv</code>, column</blockquote>
+<blockquote>  <code>lifecycle_status</code>). All quality</blockquote>
 <blockquote>  gates are <strong>green</strong> (build hygiene, cross-format PDF/DOCX/JSON parity,</blockquote>
 <blockquote>  provenance-claim, citation-usage, environment attestation).</blockquote>
 <blockquote>- <strong>RT-001 is CLOSED — do not re-run it.</strong> The six-comparator re-timing was</blockquote>
@@ -255,10 +256,10 @@
 <ul>
 <li><strong>Package &amp; runner.</strong> <code>gsk_family</code> under <code>src/gsk_family/</code>; canonical runner</li>
 <p><code>python run.py</code>; installed console scripts <code>gsk-run</code>, <code>gsk-list</code>, <code>gsk-validate</code>, <code>gsk-stats</code>, <code>gsk-family-run</code>.</p>
-<li><strong>Runnable optimizers (7):</strong> <code>gsk</code>, <code>agsk</code>, <code>apgsk</code>, <code>fdb-agsk</code>, <code>atmals-gsk</code>,</li>
-<p><code>egsk</code>, <code>dt-gsk</code> (the tuple <code>OPTIMIZER_IDS</code> in <code>src/gsk_family/optimizers/__init__.py</code>; the analysis layer mirrors the same seven as <code>RUNNABLE_OPTIMIZERS</code> in <code>src/gsk_family/analysis/project_policy.py</code>). <strong>eGSK</strong> is now a runnable optimizer (<code>src/gsk_family/optimizers/egsk.py</code>, dispatched by the runner; <code>python run.py --optimizer egsk</code> works and <code>gsk-list</code> shows it): a faithful port whose only deviation is the interior-point refinement, which uses <code>scipy.optimize.minimize(method=&quot;SLSQP&quot;)</code> in place of the old-platform&#x27;s <code>fmincon</code> (validated as statistically equivalent — see <code>docs/research/egsk_validation_appendix.md</code>, <code>scripts/validate_egsk_vs_reference.py</code>, <code>tests/unit/test_egsk.py</code>). eGSK is <strong>also</strong> the comparator of record in the published statistical panel, whose eGSK cells are reported from the committed old-platform reference CSVs. Docs that describe eGSK as runnable are correct and must not be flagged; a doc that lists any count of runnable optimizers other than seven is a finding.</p>
+<li><strong>GSK family (7):</strong> <code>gsk</code>, <code>agsk</code>, <code>apgsk</code>, <code>fdb-agsk</code>, <code>atmals-gsk</code>,</li>
+<p><code>egsk</code>, <code>dt-gsk</code> (the tuple <code>FAMILY_OPTIMIZER_IDS</code> in <code>src/gsk_family/optimizers/__init__.py</code>; the analysis layer mirrors the same seven as <code>RUNNABLE_OPTIMIZERS</code> in <code>src/gsk_family/analysis/project_policy.py</code>). <strong>The runner accepts fifteen optimizer ids</strong> — <code>OPTIMIZER_IDS</code> is <code>FAMILY_OPTIMIZER_IDS</code> plus the eight <code>EXTERNAL_OPTIMIZER_IDS</code> (<code>mos-cec2013lsgo</code>, <code>shade-ils</code>, <code>decc-g</code>, <code>cmaes</code>, <code>ebowithcmar</code>, <code>jso</code>, <code>lshade</code>, <code>lshade-spacma</code>), which are runnable under the project&#x27;s protocol but are <strong>not</strong> part of the statistical panel. Of those fifteen, the <strong>seven</strong> above form the panel every statistical claim is computed over. Keep the two counts distinct: a doc saying the runner accepts seven ids, or that the panel has fifteen members, is a finding. <strong>eGSK</strong> is now a runnable optimizer (<code>src/gsk_family/optimizers/egsk.py</code>, dispatched by the runner; <code>python run.py --optimizer egsk</code> works and <code>gsk-list</code> shows it): a faithful port whose only deviation is the interior-point refinement, which uses <code>scipy.optimize.minimize(method=&quot;SLSQP&quot;)</code> in place of the old-platform&#x27;s <code>fmincon</code> (validated as statistically equivalent — see <code>docs/research/egsk_validation_appendix.md</code>, <code>scripts/validate_egsk_vs_reference.py</code>, <code>tests/unit/test_egsk.py</code>). eGSK is <strong>also</strong> the comparator of record in the published statistical panel, whose eGSK cells are reported from the committed old-platform reference CSVs. Docs that describe eGSK as runnable are correct and must not be flagged; a doc that lists any count of GSK-family panel members other than seven is a finding, as is one that lists any count of runner-accepted optimizer ids other than fifteen.</p>
 <li><strong>Benchmark suites (6):</strong> <code>cec2017</code>, <code>cec2011</code>, <code>cec2020</code>, <code>cec2013</code>,</li>
-<p><code>cec2013lsgo</code>, <code>sphere</code> (<code>SUPPORTED_SUITES</code> in <code>src/gsk_family/benchmark_adapter/protocol.py</code>; <code>CEC_SUITES</code> is the same tuple minus <code>sphere</code>). CEC2017 excludes F2 (functions F1, F3–F30) across D=10/30/50/100. Only three of the six ship a committed reference tree — <code>cec2017</code>, <code>cec2013</code>, and <code>cec2011</code> under <code>benchmarks/cec_reference_results/</code>; a doc that promises committed reference evidence for <code>cec2020</code>, <code>cec2013lsgo</code>, or <code>sphere</code> overstates what exists.</p>
+<p><code>cec2013lsgo</code>, <code>sphere</code> (<code>SUPPORTED_SUITES</code> in <code>src/gsk_family/benchmark_adapter/protocol.py</code>; <code>CEC_SUITES</code> is the same tuple minus <code>sphere</code>). CEC2017 excludes F2 (functions F1, F3–F30) across D=10/30/50/100. Keep two counts distinct: *suites present in code* (six, above) versus *suites with committed reference evidence* (<strong>five</strong> — <code>cec2017</code>, <code>cec2013</code>, <code>cec2011</code>, <code>cec2013lsgo</code>, and <code>cec2020</code>, each with a full 7-optimizer tree under <code>benchmarks/cec_reference_results/</code>). The three primary suites are covered by the primary release <code>rel-2026-07-20-67d9345f9</code>; <code>cec2013lsgo</code> and <code>cec2020</code> are separate, non-superseding per-suite releases whose cells carry a <code>NOT_VERIFIED</code> verdict with reason <code>NO_REFERENCE</code> by design — no external ground-truth bank exists for either suite. <code>sphere</code> is the pure-Python smoke problem and carries none. Do not assert a suite count without checking which sense you mean, and do not claim reference evidence for <code>sphere</code>.</p>
 <li><strong>Statistics surface.</strong> The <code>gsk-stats</code> CLI (<code>src/gsk_family/cli/stats.py</code>) and</li>
 <p>the runner <code>--stats</code> flag drive <code>src/gsk_family/analysis/</code> to produce the 7-algorithm GSK-family panel (Friedman ranks, pairwise Wilcoxon + Holm, Vargha–Delaney effect sizes, Nemenyi critical-difference diagrams, LaTeX fragments) documented under <code>docs/research/statistical_analysis.md</code>. That panel feeds the <code>papers/</code> review-pack (<code>DT-GSK-CEC2017-review.pdf</code>, regenerated on demand — not committed; the shipped papers are <code>DT-GSK.pdf</code> + <code>supplementary.pdf</code>). Docs must state the <strong>reference-first</strong> data policy: every panel algorithm — the proposed method included — is loaded from the committed reference tables (<code>benchmarks/cec_reference_results/&lt;suite&gt;/&lt;optimizer&gt;/</code>, read-only, flat layout with <code>per_run.csv</code>, <code>curves/</code>, <code>gen_logs/</code>; full 7-optimizer coverage for cec2017, cec2011, and cec2013), with a locally reproduced run under <code>results/_run_all/</code> used only as a fallback for cells the reference tree does not carry. A doc that presents <code>results/_run_all/</code> as the proposed method&#x27;s primary statistics source is stale.</p>
 <li><strong>Reference data is read-only.</strong> No documented normal-run command may write</li>
@@ -277,10 +278,10 @@
 <h2 id="ground-truth-contract-must-hold-in-every-doc">Ground-truth contract (must hold in every doc)</h2>
 <p>The reviewer must treat the following as the source of truth and flag any doc that contradicts it. These are the facts most prone to drift:</p>
 <ul>
-<li><strong>Runnable optimizers (7).</strong> <code>gsk</code>, <code>agsk</code>, <code>apgsk</code>, <code>fdb-agsk</code>,</li>
-<p><code>atmals-gsk</code>, <code>egsk</code>, <code>dt-gsk</code> — the tuple <code>OPTIMIZER_IDS</code> in <code>src/gsk_family/optimizers/__init__.py</code>. <code>dt-gsk</code> is this family&#x27;s own proposed/headline method; the rest are baselines/variants. <strong>eGSK</strong> is a runnable port (<code>src/gsk_family/optimizers/egsk.py</code>; its interior-point refinement substitutes <code>scipy.optimize.minimize(method=&quot;SLSQP&quot;)</code> for the old-platform&#x27;s <code>fmincon</code>, validated as statistically equivalent) that is <strong>also</strong> the comparator of record whose statistical-panel cells are reported from the committed old-platform reference CSVs. Docs describing eGSK as runnable are correct.</p>
+<li><strong>GSK family (7); runner-accepted ids (15).</strong> <code>gsk</code>, <code>agsk</code>, <code>apgsk</code>,</li>
+<p><code>fdb-agsk</code>, <code>atmals-gsk</code>, <code>egsk</code>, <code>dt-gsk</code> — the tuple <code>FAMILY_OPTIMIZER_IDS</code> in <code>src/gsk_family/optimizers/__init__.py</code>. The runner accepts <strong>fifteen</strong> ids: <code>OPTIMIZER_IDS</code> is those seven plus the eight <code>EXTERNAL_OPTIMIZER_IDS</code> external SOTA baselines, which are runnable but not part of the panel. Every statistical claim is computed over the seven. <code>dt-gsk</code> is this family&#x27;s own proposed/headline method; the rest are baselines/variants. <strong>eGSK</strong> is a runnable port (<code>src/gsk_family/optimizers/egsk.py</code>; its interior-point refinement substitutes <code>scipy.optimize.minimize(method=&quot;SLSQP&quot;)</code> for the old-platform&#x27;s <code>fmincon</code>, validated as statistically equivalent) that is <strong>also</strong> the comparator of record whose statistical-panel cells are reported from the committed old-platform reference CSVs. Docs describing eGSK as runnable are correct.</p>
 <li><strong>Benchmark suites (6).</strong> <code>cec2017</code>, <code>cec2011</code>, <code>cec2020</code>, <code>cec2013</code>,</li>
-<p><code>cec2013lsgo</code>, <code>sphere</code> (<code>SUPPORTED_SUITES</code> in <code>src/gsk_family/benchmark_adapter/protocol.py</code>). CEC2017 excludes F2; the run-all path covers F1, F3–F30 across D=10/30/50/100. Committed reference evidence exists for <code>cec2017</code>, <code>cec2013</code>, and <code>cec2011</code> only.</p>
+<p><code>cec2013lsgo</code>, <code>sphere</code> (<code>SUPPORTED_SUITES</code> in <code>src/gsk_family/benchmark_adapter/protocol.py</code>). CEC2017 excludes F2; the run-all path covers F1, F3–F30 across D=10/30/50/100. Committed reference evidence exists for <strong>five</strong> of them — <code>cec2017</code>, <code>cec2013</code>, <code>cec2011</code>, <code>cec2013lsgo</code>, and <code>cec2020</code> — under <code>benchmarks/cec_reference_results/</code>; <code>sphere</code> is the smoke problem and carries none.</p>
 <li><strong>Statistics tooling.</strong> The <code>gsk-stats</code> console script</li>
 <p>(<code>src/gsk_family/cli/stats.py</code>) and the runner <code>--stats</code> flag build the 7-algorithm GSK-family statistical panel via <code>src/gsk_family/analysis/</code>. Outputs land under <code>results/_run_all/_analysis/&lt;suite&gt;/</code> unless <code>--out</code> overrides it. Docs describing this surface must state the reference-first policy (<code>analysis/result_loader.py::load_algorithm</code>): <strong>all</strong> panel algorithms, the proposed method included, are read from the committed read-only reference tables, with <code>results/_run_all/</code> as fallback only; eGSK&#x27;s panel cells likewise come from the committed reference CSVs (eGSK is the comparator of record here even though it is separately runnable).</p>
 <li><strong>Parallel backend.</strong> The default runner dispatches runs across a</li>
@@ -299,12 +300,14 @@
 <p>(<code>getting-started/</code>, <code>reference/</code>, <code>algorithms/</code>, <code>development/</code>, <code>research/</code>, <code>prompt/</code>) — *not* as flat <code>docs/*.md</code> files. The only top-level Markdown files in <code>docs/</code> are <code>index.md</code> and <code>LICENSES.md</code>.</p>
 <li><strong>HTML build.</strong> The static site is generated by</li>
 <p><code>python scripts/build_docs_html.py</code> into <code>docs/html/</code> (default <code>--output-root docs/html</code>). Docs must point at that script and that output, and must say HTML is regenerated after Markdown/docstring edits.</p>
-<li><strong>Scripts inventory.</strong> <code>scripts/</code> contains <strong>nineteen</strong> Python utilities plus a</li>
+<li><strong>Scripts inventory.</strong> <code>scripts/</code> contains <strong>twenty-one</strong> Python utilities plus a</li>
 <p><code>README.md</code>, grouped by role:</p>
 <li><strong>Suite launchers (5):</strong> <code>run_all_cec2011.py</code>, <code>run_all_cec2013.py</code>,</li>
 <p><code>run_all_cec2013lsgo.py</code>, <code>run_all_cec2017.py</code>, <code>run_all_cec2020.py</code>.</p>
 <li><strong>Family / campaign drivers:</strong> <code>run_gsk_family.py</code>; <code>run_campaign.py</code></li>
 <p>(one-command, resumable post-fix evidence campaign driver).</p>
+<li><strong>Revision-experiment drivers:</strong> <code>run_revision_experiments.py</code> (the</li>
+<p>one-command, resumable driver for the E1–E4 revision experiments) and <code>run_e1_basis_contrast.py</code> (the E1 coordinate-basis arm of the refinement-basis contrast).</p>
 <li><strong>Ablation drivers:</strong> <code>run_ablation.py</code>; <code>run_overlay_ablation_51.py</code></li>
 <p>(51-run overlay direct-isolation ablation for CEC2017 D50/D100 and CEC2013 D50).</p>
 <li><strong>Evidence-lifecycle tools:</strong> <code>promote_evidence.py</code> (staging→immutable</li>
@@ -342,20 +345,28 @@ Operating rules:
 
 Ground-truth contract you must enforce (flag any doc that contradicts it):
 
-- Runnable optimizers are SEVEN: gsk, agsk, apgsk, fdb-agsk, atmals-gsk, egsk,
-  dt-gsk (the tuple OPTIMIZER_IDS in src/gsk_family/optimizers/__init__.py;
+- The GSK FAMILY is SEVEN: gsk, agsk, apgsk, fdb-agsk, atmals-gsk, egsk,
+  dt-gsk (the tuple FAMILY_OPTIMIZER_IDS in src/gsk_family/optimizers/__init__.py;
   RUNNABLE_OPTIMIZERS in src/gsk_family/analysis/project_policy.py mirrors the
-  same seven). eGSK is now a runnable port
+  same seven). The RUNNER ACCEPTS FIFTEEN optimizer ids: OPTIMIZER_IDS is those
+  seven plus the eight EXTERNAL_OPTIMIZER_IDS SOTA baselines
+  (mos-cec2013lsgo, shade-ils, decc-g, cmaes, ebowithcmar, jso, lshade,
+  lshade-spacma), which are runnable under this project&#x27;s protocol but are NOT
+  part of the statistical panel. Every statistical claim is computed over the
+  seven. eGSK is now a runnable port
   (src/gsk_family/optimizers/egsk.py; its interior-point refinement uses
   scipy.optimize.minimize(method=&quot;SLSQP&quot;) in place of the old-platform&#x27;s fmincon,
   validated as statistically equivalent) that is ALSO the comparator of record
   whose statistical-panel cells are reported from committed old-platform reference
-  CSVs. Do not flag docs that describe eGSK as runnable; a doc listing any
-  runnable-optimizer count other than seven is a finding.
+  CSVs. Do not flag docs that describe eGSK as runnable; a doc listing a
+  GSK-family panel size other than seven, or a runner-accepted id count other
+  than fifteen, is a finding.
 - Benchmark suites are SIX: cec2017, cec2011, cec2020, cec2013, cec2013lsgo,
   sphere (SUPPORTED_SUITES in src/gsk_family/benchmark_adapter/protocol.py).
   CEC2017 excludes F2 (F1, F3-F30) across D=10/30/50/100. Committed reference
-  evidence covers cec2017, cec2013, cec2011 only.
+  evidence covers FIVE of them - cec2017, cec2013, cec2011, cec2013lsgo and
+  cec2020 - under benchmarks/cec_reference_results/; sphere is the smoke problem
+  and carries none.
 - The gsk-stats CLI (src/gsk_family/cli/stats.py) and the runner --stats flag
   drive src/gsk_family/analysis/ to build the 7-algorithm GSK-family statistical
   panel (Friedman, pairwise Wilcoxon+Holm, Vargha-Delaney, Nemenyi). The data
@@ -392,8 +403,9 @@ Ground-truth contract you must enforce (flag any doc that contradicts it):
   reference, algorithms, development, research, prompt) — not flat docs/*.md.
   Only docs/index.md and docs/LICENSES.md sit at the docs root.
 - The HTML site is built by python scripts/build_docs_html.py into docs/html/.
-- scripts/ has nineteen Python utilities (the five run_all_&lt;suite&gt;.py launchers,
+- scripts/ has twenty-one Python utilities (the five run_all_&lt;suite&gt;.py launchers,
   run_gsk_family.py, run_campaign.py, run_ablation.py, run_overlay_ablation_51.py,
+  run_revision_experiments.py, run_e1_basis_contrast.py,
   promote_evidence.py, retime_comparators.py, recover_apgsk_perrun.py,
   parity_trace.py, wilcoxon_reference.py, build_docs_html.py,
   validate_profile_lock.py, analyze_dt_diagnostics.py,
@@ -401,8 +413,14 @@ Ground-truth contract you must enforce (flag any doc that contradicts it):
   there are NO removed per-phase runner/build scripts. Never reference them.
 - Test tiers: tests/unit, tests/smoke, tests/regression, tests/performance,
   plus tests/test_imports.py.
-- The old/upstream platform&#x27;s literal name is allowed ONLY in
-  docs/reference/seed_policy.md. Everywhere else use oblique wording. Do not
+- The old/upstream platform&#x27;s literal name is PROVENANCE-SCOPED, not
+  single-file: it is permitted where it states factual provenance (the eGSK port
+  documentation and docs/reference/seed_policy.md, plus the eGSK-provenance
+  mentions in SKILL.md, README.md and BENCHMARK_RULES.md), and it also appears
+  legitimately throughout src/, tests/, scripts/ and benchmarks/ for the same
+  provenance reason. It must NOT describe this project&#x27;s runtime or imply the
+  platform is required. Flag only non-provenance uses; the former
+  &quot;allowed ONLY in docs/reference/seed_policy.md&quot; rule is superseded. Do not
   type that token yourself anywhere in your report.
 
 Review roles (apply the lens that fits each phase):
@@ -573,14 +591,18 @@ Checks:
 - Numba runtime behavior is documented: availability is reported at startup,
   suite-JIT status is reported, and numba_threads: 0 auto-caps internal Numba
   threads during parallel runs to avoid oversubscription.
-- The seed-policy page is the ONLY place that intentionally keeps old-platform
-  seed wording (the upstream tool&#x27;s literal name). Confirm the exception is
-  scoped to that one file and is justified in context.
+- The seed-policy page intentionally keeps old-platform seed wording (the
+  upstream tool&#x27;s literal name). Under the PROVENANCE-SCOPED rule that token is
+  also permitted wherever it states factual provenance -- the eGSK port
+  documentation, and the eGSK/parity provenance notes across src/, tests/,
+  scripts/ and benchmarks/. Confirm each use is provenance, not a claim about
+  this project&#x27;s runtime.
 
-PASS: reproducibility surface is complete and the seed-policy exception is the
-only place the old-platform name appears.
-FAIL: a missing reproducibility element, a mis-stated seed policy, or the
-old-platform token appearing outside seed_policy.md.
+PASS: reproducibility surface is complete and every old-platform mention states
+factual provenance.
+FAIL: a missing reproducibility element, a mis-stated seed policy, or an
+old-platform mention that describes this project&#x27;s runtime or implies the
+platform is required.
 
 ------------------------------------------------------------------------------
 Phase 6 — maintenance and release docs
@@ -600,7 +622,7 @@ Checks:
   tests/performance (and tests/test_imports.py). No invented tiers.
 - No reference to removed per-phase runner/build scripts or obsolete staged
   workflow wording. The build step points at scripts/build_docs_html.py.
-- The documented scripts inventory matches the nineteen real utilities in scripts/.
+- The documented scripts inventory matches the twenty-one real utilities in scripts/.
 
 PASS: maintenance/release guidance is accurate and references only real tooling.
 FAIL: any removed-script reference, any wrong test-tier name, or a stale
@@ -612,7 +634,9 @@ Phase 7 — polish and terminology
 
 Run the searches in the automated-checks appendix, then:
 
-- Confirm no stale old-platform names appear outside docs/reference/seed_policy.md.
+- Confirm every old-platform name states factual provenance (eGSK port,
+  seed-policy wording, parity records) and none describes this project&#x27;s
+  runtime or implies the platform is required.
 - Confirm no awkward replacement phrases, broken links, stale file names,
   duplicated sections, or obsolete commands remain.
 - Confirm no stale performance defaults from the older sixty-percent or
@@ -681,9 +705,9 @@ stale_prefix=&quot;results/&quot;; grep -rniE &quot;${stale_prefix}gsk/cec2017&q
 grep -rniE &quot;thread[- ]?pool&quot; docs --include=*.md     # any framing of the DEFAULT dispatch as threads is a hit
 grep -rnE &quot;--parallel|--workers&quot; docs --include=*.md  # then keep only lines that present these as REQUIRED for a normal run</code></pre>
 <p>Exceptions: the <code>results/.../&lt;suite&gt;</code> pattern is allowed when the same line (or its immediate context) is explicitly demonstrating a custom <code>--output-root</code>. A <code>thread</code>-pool mention is allowed only when it refers to the helper in <code>parallel.py</code>, never to the default run dispatch.</p>
-<h3 id="d-forbidden-token-confinement">D. Forbidden-token confinement</h3>
-<pre><code class="code-block">grep -rni &quot;&lt;old-platform name&gt;&quot; docs --include=*.md   # expect hits ONLY in docs/reference/seed_policy.md</code></pre>
-<p>Run the sweep using the literal upstream tool name (the six-letter word starting &quot;M&quot;, ending &quot;atlab&quot;) as the pattern, but do <strong>not</strong> transcribe that token into your written report. Any hit outside <code>docs/reference/seed_policy.md</code> is a finding.</p>
+<h3 id="d-platform-token-scope-sweep-provenance-scoped-not-single-file">D. Platform-token scope sweep (provenance-scoped, not single-file)</h3>
+<pre><code class="code-block">grep -rni &quot;&lt;old-platform name&gt;&quot; docs --include=*.md   # then classify every hit</code></pre>
+<p>Run the sweep using the literal upstream tool name (the six-letter word starting &quot;M&quot;, ending &quot;atlab&quot;) as the pattern, but do <strong>not</strong> transcribe that token into your written report. The token is <strong>permitted</strong> where it states factual provenance — <code>docs/reference/seed_policy.md</code>, the eGSK port documentation, and the parity/provenance notes that legitimately carry it across <code>src/</code>, <code>tests/</code>, <code>scripts/</code> and <code>benchmarks/</code> (about 78 occurrences there, all provenance). It is a finding only where it describes this project&#x27;s runtime or implies the platform is required. Classify each hit; do not report location alone as the defect.</p>
 <h3 id="e-removed-script-sweep-should-return-0-hits">E. Removed-script sweep (should return 0 hits)</h3>
 <pre><code class="code-block">removed_runner_prefix=&quot;run_&quot;; removed_build_prefix=&quot;build_&quot;; removed_suffix=&quot;phase&quot;
 removed_method_prefix=&quot;phase method&quot;; removed_method_suffix=&quot;ology&quot;
@@ -709,9 +733,10 @@ grep -rniE &quot;${removed_runner_prefix}${removed_suffix}(1[89]|2[0-5])|${remov
 <p>Confirm <code>per_run.csv</code> is always <code>%.10e</code> and convergence curves are always <code>%.16e</code>; any other precision attached to those artifacts is a finding. Confirm docs mention that <code>--convergence-graphs</code> enables PNG rendering while median-run convergence CSV artifacts are written either way.</p>
 <h3 id="j-scripts-inventory-cross-check">J. Scripts-inventory cross-check</h3>
 <p>Any doc that enumerates the contents of <code>scripts/</code> must match the live directory. List the real Python utilities, then diff that set against every doc that quotes a count or a file list (this prompt, <code>project-review.md</code>, <code>documentation-deep-upgrade.md</code>, <code>docs/development/maintenance_guide.md</code>, <code>docs/reference/project_structure.md</code>, <code>scripts/README.md</code>):</p>
-<pre><code class="code-block">ls scripts/*.py    # expect nineteen: run_all_cec2011/2013/2013lsgo/2017/2020.py,
+<pre><code class="code-block">ls scripts/*.py    # expect twenty-one: run_all_cec2011/2013/2013lsgo/2017/2020.py,
                    # run_gsk_family.py, run_campaign.py, run_ablation.py,
-                   # run_overlay_ablation_51.py, promote_evidence.py,
+                   # run_overlay_ablation_51.py, run_revision_experiments.py,
+                   # run_e1_basis_contrast.py, promote_evidence.py,
                    # retime_comparators.py, recover_apgsk_perrun.py,
                    # parity_trace.py, wilcoxon_reference.py, build_docs_html.py,
                    # validate_profile_lock.py, analyze_dt_diagnostics.py,
@@ -768,8 +793,8 @@ grep -rniE &quot;${removed_runner_prefix}${removed_suffix}(1[89]|2[0-5])|${remov
 <ul>
 <li><strong>Package:</strong> <code>gsk_family</code> under <code>src/gsk_family/</code>. Canonical runner</li>
 <p><code>python run.py</code>; console scripts <code>gsk-run</code>, <code>gsk-list</code>, <code>gsk-validate</code>, <code>gsk-stats</code>, <code>gsk-family-run</code>.</p>
-<li><strong>Runnable optimizers (7):</strong> <code>gsk</code>, <code>agsk</code>, <code>apgsk</code>, <code>fdb-agsk</code>, <code>atmals-gsk</code>,</li>
-<p><code>egsk</code>, <code>dt-gsk</code> (the canonical tuple is <code>OPTIMIZER_IDS</code> in <code>src/gsk_family/optimizers/__init__.py</code>). <strong>eGSK</strong> is now a <strong>runnable optimizer</strong> (<code>src/gsk_family/optimizers/egsk.py</code>, in <code>OPTIMIZER_IDS</code> and the runner dispatch; <code>python run.py --optimizer egsk</code> works): a faithful MATLAB port whose only deviation is the interior-point refinement, which uses <code>scipy.optimize.minimize(method=&quot;SLSQP&quot;)</code> in place of MATLAB <code>fmincon</code> (validated as statistically equivalent — see <code>docs/research/egsk_validation_appendix.md</code>). eGSK also <strong>remains a reference comparator</strong>: its published statistical-panel cells are reported from the committed <code>scipy</code>-SLSQP port CSVs (the comparator of record), not a MATLAB <code>fmincon</code> reference. A comment that lists any other count of runnable optimizers is <strong>stale</strong>; do not flag eGSK-runnable documentation as an error.</p>
+<li><strong>GSK family (7):</strong> <code>gsk</code>, <code>agsk</code>, <code>apgsk</code>, <code>fdb-agsk</code>, <code>atmals-gsk</code>,</li>
+<p><code>egsk</code>, <code>dt-gsk</code> (the canonical tuple is <code>FAMILY_OPTIMIZER_IDS</code> in <code>src/gsk_family/optimizers/__init__.py</code>; <code>OPTIMIZER_IDS</code> is the fifteen ids the runner accepts — those seven plus the eight <code>EXTERNAL_OPTIMIZER_IDS</code> SOTA baselines, which are runnable but not part of the statistical panel). <strong>eGSK</strong> is now a <strong>runnable optimizer</strong> (<code>src/gsk_family/optimizers/egsk.py</code>, in <code>OPTIMIZER_IDS</code> and the runner dispatch; <code>python run.py --optimizer egsk</code> works): a faithful MATLAB port whose only deviation is the interior-point refinement, which uses <code>scipy.optimize.minimize(method=&quot;SLSQP&quot;)</code> in place of MATLAB <code>fmincon</code> (validated as statistically equivalent — see <code>docs/research/egsk_validation_appendix.md</code>). eGSK also <strong>remains a reference comparator</strong>: its published statistical-panel cells are reported from the committed <code>scipy</code>-SLSQP port CSVs (the comparator of record), not a MATLAB <code>fmincon</code> reference. A comment that lists any other count of runnable optimizers is <strong>stale</strong>; do not flag eGSK-runnable documentation as an error.</p>
 <li><strong>Benchmark suites (6):</strong> <code>cec2017</code>, <code>cec2011</code>, <code>cec2020</code>, <code>cec2013</code>,</li>
 <p><code>cec2013lsgo</code>, <code>sphere</code> (<code>SUPPORTED_SUITES</code> in <code>src/gsk_family/benchmark_adapter/protocol.py</code>). CEC2017 excludes F2 (functions F1, F3–F30) across D=10/30/50/100. Committed reference evidence covers <code>cec2017</code>, <code>cec2013</code>, and <code>cec2011</code> only.</p>
 <li><strong>DT-GSK port:</strong> vendored under <code>src/gsk_family/optimizers/_dt_core.py</code>,</li>
@@ -791,7 +816,7 @@ grep -rniE &quot;${removed_runner_prefix}${removed_suffix}(1[89]|2[0-5])|${remov
 <li>Remove stale comments, TODOs that no longer describe real work, commented-out</li>
 <p>code, and vague notes such as &quot;fix later&quot; unless they are linked to an active issue or a real technical-debt item.</p>
 <li>Keep terminology Python-first. The external reference platform&#x27;s literal name</li>
-<p>must not appear outside the documented seed-policy exception (<code>docs/reference/seed_policy.md</code>) — and inline code is never that exception, so it must never appear in <code>src/</code>, <code>tests/</code>, <code>scripts/</code>, <code>benchmarks/</code>, or <code>configs/</code>.</p>
+<p>is <strong>provenance-scoped</strong>, not confined to one file: it is legitimate wherever it states factual provenance — the port docstrings, the parity records, the oracle references — and it does appear that way roughly 78 times across <code>src/</code>, <code>tests/</code>, <code>scripts/</code> and <code>benchmarks/</code>. Do <strong>not</strong> report those occurrences as leaks. It is a finding only where a comment or docstring describes this project&#x27;s runtime as that platform, or implies the platform is required to run this code.</p>
 <li>Keep command examples consistent with the current runner contract: parallel</li>
 <p>execution is on by default (process backend); automatic workers use <code>DEFAULT_WORKER_COUNT = 2</code> (or 1 on a one-core machine); full-campaign examples should show <code>--parallel --workers 2</code>; CEC2017 <code>F21</code>–<code>F30</code> automatic process runs retain an upper cap of 8; higher <code>--workers N</code> values are explicit user overrides. Convergence-graph PNGs are off by default for direct CLI runs; <code>--convergence-graphs</code> / <code>convergence_graphs: true</code> enables PNG rendering and leaves median-run curve CSV files enabled either way.</p>
 <li>Prefer exact identifiers in docstrings: optimizer IDs, suite IDs, field names,</li>
@@ -1063,8 +1088,8 @@ rg -n &quot;TODO|FIXME|HACK|XXX|temporary|legacy|obsolete|removed&quot; src test
 <li>[ ] No comment states a stale optimizer count, worker fraction, default backend,</li>
 <p>output root, or seed behavior.</p>
 <li>[ ] No comment references removed scripts/workflows or non-existent backends.</li>
-<li>[ ] The forbidden upstream-platform token appears nowhere in</li>
-<p><code>src/</code>, <code>tests/</code>, <code>scripts/</code>, <code>benchmarks/</code>, or <code>configs/</code>.</p>
+<li>[ ] Every upstream-platform token in <code>src/</code>, <code>tests/</code>, <code>scripts/</code>,</li>
+<p><code>benchmarks/</code> and <code>configs/</code> states factual provenance (port origin, parity record, oracle reference) — roughly 78 such occurrences exist and are correct; none describes this project&#x27;s runtime or implies the platform is required.</p>
 <li>[ ] DT-GSK byte-identity invariants (substream RNG, thread pinning, fair-start</li>
 <p>opt-out) are documented at their code sites and not weakened.</p>
 <li>[ ] eGSK is described as a runnable optimizer (port; scipy-SLSQP substitutes</li>
@@ -1091,7 +1116,7 @@ rg -n &quot;TODO|FIXME|HACK|XXX|temporary|legacy|obsolete|removed&quot; src test
 <a class="toc-level-3" href="#a-link-and-anchor-integrity">A. Link and anchor integrity</a>
 <a class="toc-level-3" href="#b-citation-validity-path-line">B. Citation validity (`path:line`)</a>
 <a class="toc-level-3" href="#c-stale-defaults-sweep-these-should-all-return-0-hits-in-prose">C. Stale-defaults sweep (these should all return 0 hits in prose)</a>
-<a class="toc-level-3" href="#d-forbidden-token-confinement">D. Forbidden-token confinement</a>
+<a class="toc-level-3" href="#d-platform-token-scope-sweep-provenance-scoped-not-single-file">D. Platform-token scope sweep (provenance-scoped, not single-file)</a>
 <a class="toc-level-3" href="#e-removed-script-sweep-should-return-0-hits">E. Removed-script sweep (should return 0 hits)</a>
 <a class="toc-level-3" href="#f-orientation-box-sweep">F. Orientation-box sweep</a>
 <a class="toc-level-3" href="#g-mermaid-syntax-sweep">G. Mermaid syntax sweep</a>

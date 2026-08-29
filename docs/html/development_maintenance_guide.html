@@ -170,14 +170,16 @@
 <blockquote><a href="development_extension_guide.html">Extension Guide</a>. After reading it you will know which</blockquote>
 <blockquote>commands to run on a schedule, what to verify when a dependency changes, and</blockquote>
 <blockquote>how to record new reference evidence. The three console commands below</blockquote>
-<blockquote>(<code>gsk-list</code>, <code>gsk-run</code>, <code>gsk-validate</code>) are the installed entry points; the</blockquote>
+<blockquote>(<code>gsk-list</code>, <code>gsk-run</code>, <code>gsk-validate</code>) are three of the five installed entry</blockquote>
+<blockquote>points — <code>pyproject.toml</code> <code>[project.scripts]</code> also defines <code>gsk-family-run</code></blockquote>
+<blockquote>(an alias of <code>gsk-run</code>) and <code>gsk-stats</code>; the</blockquote>
 <blockquote><a href="reference_glossary.html">glossary</a> defines the terms.</blockquote>
 <h2 id="regular-checks">Regular Checks</h2>
 <p>A quick recurring pass to catch breakage early. The first command runs the test suite; the second lists the registered optimizers and suites and confirms the reference data is reachable; the third runs a tiny end-to-end experiment.</p>
 <pre><code class="code-block language-powershell">python -m pytest
 gsk-list --optimizers --benchmarks --references benchmarks/cec_reference_results
 gsk-run --config configs/smoke.yml --root .</code></pre>
-<p><code>python -m pytest</code> also runs the three documentation gates (docstring coverage, doc-list resolution, and HTML link resolution); a green run therefore confirms both code and docs are healthy. <code>gsk-list</code> should report the seven runnable optimizers (<code>gsk</code>, <code>agsk</code>, <code>apgsk</code>, <code>fdb-agsk</code>, <code>atmals-gsk</code>, <code>egsk</code>, <code>dt-gsk</code>) and the six suites (<code>sphere</code>, <code>cec2011</code>, <code>cec2013</code>, <code>cec2013lsgo</code>, <code>cec2017</code>, <code>cec2020</code>). Add the ruff correctness lint and the scoped mypy gate to the recurring pass as well (the same two commands CI runs):</p>
+<p><code>python -m pytest</code> also runs the three documentation gates (docstring coverage, doc-list resolution, and HTML link resolution); a green run therefore confirms both code and docs are healthy. <code>gsk-list</code> should report <strong>fifteen</strong> optimizer ids: the seven-method GSK-family panel (<code>gsk</code>, <code>agsk</code>, <code>apgsk</code>, <code>fdb-agsk</code>, <code>atmals-gsk</code>, <code>egsk</code>, <code>dt-gsk</code>) — the panel every statistical claim in the manuscript is computed over — plus eight external SOTA baselines (<code>mos-cec2013lsgo</code>, <code>shade-ils</code>, <code>decc-g</code>, <code>cmaes</code>, <code>ebowithcmar</code>, <code>jso</code>, <code>lshade</code>, <code>lshade-spacma</code>) that are runnable under the project&#x27;s protocol but are <strong>not</strong> part of that panel. Under <code>benchmarks:</code> it lists the five CEC suites (<code>cec2011</code>, <code>cec2013</code>, <code>cec2013lsgo</code>, <code>cec2017</code>, <code>cec2020</code>), with <code>sphere</code> reported separately under <code>smoke problems:</code>. Add the ruff correctness lint and the scoped mypy gate to the recurring pass as well (the same two commands CI runs):</p>
 <pre><code class="code-block language-powershell">python -m ruff check src tests scripts
 python -m mypy src/gsk_family/cli src/gsk_family/runners src/gsk_family/common `
   --ignore-missing-imports --follow-imports=skip</code></pre>

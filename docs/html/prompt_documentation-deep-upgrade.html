@@ -271,11 +271,11 @@
 <p><strong>Mission.</strong> Make <code>docs/</code> complete, accurate, readable, and rich enough that a reader can install the package, run it, understand every algorithm mathematically, reproduce and validate the published results, extend the code, and audit every design decision — *without any external context*. Treat the documentation as the canonical reference for the project. Accuracy outranks ambition: a smaller true statement beats a larger guessed one.</p>
 <p>---</p>
 <h2 id="1-ground-truth-do-not-contradict-verify-against-code-before-writing">1. Ground truth (do not contradict; verify against code before writing)</h2>
-<p>This project is a faithful <strong>Python port of an upstream reference implementation</strong> (a numerical-computing platform). <strong>Never name that source platform anywhere except <code>docs/reference/seed_policy.md</code></strong> — that single file (and its generated HTML twin <code>docs/html/reference_seed_policy.html</code>) is the *only* place the old platform name is permitted. Everywhere else write &quot;the reference implementation&quot; or &quot;the upstream source&quot;. In this prompt itself, when you must show the grep that polices the token, write it obliquely as <code>&lt;platform-name&gt;</code>. (Scope update: the token is now PERMITTED for factual provenance — the eGSK port and docs/reference/seed_policy.md — and prohibited only as a description of this project&#x27;s runtime; the former single-file rule is superseded.)</p>
+<p>This project is a faithful <strong>Python port of an upstream reference implementation</strong> (a numerical-computing platform). The platform&#x27;s literal name is <strong>provenance-scoped</strong>: it is permitted wherever it states factual provenance — <code>docs/reference/seed_policy.md</code> (and its generated HTML twin <code>docs/html/reference_seed_policy.html</code>), the eGSK port documentation, and the port-origin, oracle and parity notes that carry it across <code>src/</code>, <code>tests/</code>, <code>scripts/</code> and <code>benchmarks/</code> (about 78 occurrences there, all provenance). It is <strong>prohibited as a description of this project&#x27;s runtime</strong> or anywhere it would imply the platform is required to run this code; in that role, write &quot;the reference implementation&quot; or &quot;the upstream source&quot; instead. <strong>The former single-file rule — &quot;allowed ONLY in <code>seed_policy.md</code>&quot; — is superseded; do not re-apply it.</strong> In this prompt itself, when you must show the grep that polices the token, write it obliquely as <code>&lt;platform-name&gt;</code>.</p>
 <h3 id="1-1-fixed-facts-must-match-exactly">1.1 Fixed facts (must match exactly)</h3>
 <ul>
 <li><strong>Runnable optimizers (7):</strong> <code>gsk</code>, <code>agsk</code>, <code>apgsk</code>, <code>fdb-agsk</code>, <code>atmals-gsk</code>,</li>
-<p><code>egsk</code>, <code>dt-gsk</code> (<code>dt-gsk</code> is this family&#x27;s own proposed/headline method; the others are baselines/variants). Kernels live under <code>src/gsk_family/optimizers/</code>; the canonical tuple is <code>OPTIMIZER_IDS</code> in <code>src/gsk_family/optimizers/__init__.py</code>. <strong>eGSK</strong> is a runnable optimizer (<code>src/gsk_family/optimizers/egsk.py</code>, registered in <code>OPTIMIZER_IDS</code>, <code>RUNNABLE_OPTIMIZERS</code>, and the runner dispatch; <code>python run.py --optimizer egsk</code> works and <code>gsk-list</code> shows it): it is a faithful port whose only deviation is the interior-point refinement, which uses <code>scipy.optimize.minimize(method=&quot;SLSQP&quot;)</code> in place of the reference&#x27;s <code>fmincon</code>. eGSK *also* remains a reference comparator — its statistical-comparison-panel cells are reported from the committed reference CSVs under <code>benchmarks/cec_reference_results/</code> (the comparator of record). Document eGSK as runnable; do <strong>not</strong> flag eGSK-runnable docs as errors.</p>
+<p><code>egsk</code>, <code>dt-gsk</code> (<code>dt-gsk</code> is this family&#x27;s own proposed/headline method; the others are baselines/variants). Kernels live under <code>src/gsk_family/optimizers/</code>; the canonical tuple is <code>FAMILY_OPTIMIZER_IDS</code> in <code>src/gsk_family/optimizers/__init__.py</code>. The runner accepts <strong>fifteen</strong> ids: <code>OPTIMIZER_IDS</code> is those seven plus the eight <code>EXTERNAL_OPTIMIZER_IDS</code> SOTA baselines (<code>mos-cec2013lsgo</code>, <code>shade-ils</code>, <code>decc-g</code>, <code>cmaes</code>, <code>ebowithcmar</code>, <code>jso</code>, <code>lshade</code>, <code>lshade-spacma</code>), which are runnable under this project&#x27;s protocol but are <strong>not</strong> part of the statistical panel — every statistical claim is computed over the seven. <strong>eGSK</strong> is a runnable optimizer (<code>src/gsk_family/optimizers/egsk.py</code>, registered in <code>OPTIMIZER_IDS</code>, <code>RUNNABLE_OPTIMIZERS</code>, and the runner dispatch; <code>python run.py --optimizer egsk</code> works and <code>gsk-list</code> shows it): it is a faithful port whose only deviation is the interior-point refinement, which uses <code>scipy.optimize.minimize(method=&quot;SLSQP&quot;)</code> in place of the reference&#x27;s <code>fmincon</code>. eGSK *also* remains a reference comparator — its statistical-comparison-panel cells are reported from the committed reference CSVs under <code>benchmarks/cec_reference_results/</code> (the comparator of record). Document eGSK as runnable; do <strong>not</strong> flag eGSK-runnable docs as errors.</p>
 <li><strong>Benchmark suites (6, in code):</strong> <code>cec2017</code>, <code>cec2011</code>, <code>cec2020</code>,</li>
 <p><code>cec2013</code>, <code>cec2013lsgo</code>, <code>sphere</code> — all six are dispatched by <code>make_problem</code> in <code>src/gsk_family/benchmark_adapter/factory.py</code>. <strong>CEC2017 excludes F2:</strong> the run-all path covers functions F1, F3–F30 across D=10/30/50/100. State this wherever CEC2017&#x27;s function coverage is enumerated. Keep two counts distinct: *suites present in code* (six, above) versus *suites with committed reference evidence* (<strong>five</strong> — <code>cec2017</code>, <code>cec2013</code>, <code>cec2011</code>, <code>cec2013lsgo</code>, and <code>cec2020</code>, each with a full 7-optimizer tree under <code>benchmarks/cec_reference_results/</code>). The three primary suites are covered by the primary release <code>rel-2026-07-20-67d9345f9</code>; <code>cec2013lsgo</code> and <code>cec2020</code> are separate, non-superseding per-suite releases whose cells carry a <code>NOT_VERIFIED</code> verdict with reason <code>NO_REFERENCE</code> by design — no external ground-truth bank exists for either suite. <code>sphere</code> is the pure-Python smoke problem and carries none. Do not assert a suite count without checking which sense you mean, and do not claim reference evidence for <code>sphere</code>.</p>
 <li><strong>Statistical-comparison surface:</strong> the <code>gsk-stats</code> CLI</li>
@@ -353,8 +353,8 @@
 <ol>
 <li><strong>Accuracy over completeness.</strong> Every factual claim must be traceable to a</li>
 <p>specific symbol in the codebase. Cite <code>path:line</code>. The cited line must actually contain the claimed symbol and be <strong>in range</strong> for that file. If you cannot verify a statement from code, mark it <code>TODO(verify)</code> — never invent behaviour, numbers, or results.</p>
-<li><strong>Forbidden platform name</strong> appears only in <code>seed_policy.md</code> (+ its HTML</li>
-<p>twin). Grep before finishing (§7). Never write the literal token in this prompt or any other doc.</p>
+<li><strong>Platform name is provenance-scoped</strong> (§1): permitted where it states</li>
+<p>factual provenance — <code>seed_policy.md</code> (+ its HTML twin), the eGSK port documentation, and the port-origin/oracle/parity notes in <code>src/</code>, <code>tests/</code>, <code>scripts/</code> and <code>benchmarks/</code> — and prohibited only as a description of this project&#x27;s runtime. Grep before finishing (§7) and classify each hit; do not apply the superseded single-file rule. Never write the literal token in this prompt or any other doc.</p>
 <li><strong>No removed-script references.</strong> Never mention the deleted <code>phaseNN</code> scripts</li>
 <p>or methodology (§1.2).</p>
 <li><strong>Evidence-bounded claims.</strong> Do not assert exact numerical equivalence to the</li>
@@ -481,7 +481,7 @@
 <h3 id="phase-g2-statistical-analysis-the-publication-panel">Phase G2 — Statistical analysis &amp; the publication panel</h3>
 <p>Bring <code>research/statistical_analysis.md</code> (and any statistics section of <code>researcher_handbook.md</code>) to the §3 quality bar, code-cited against <code>src/gsk_family/cli/stats.py</code> and <code>src/gsk_family/analysis/</code> (<code>family_report.py</code>, <code>result_loader.py</code>, <code>statistical_tests.py</code>, <code>statistics.py</code>, <code>figures.py</code>, <code>latex_tables.py</code>, <code>project_policy.py</code>):</p>
 <ul>
-<li>Define the <strong>7-algorithm panel</strong> precisely: the seven runnable optimizers,</li>
+<li>Define the <strong>7-algorithm panel</strong> precisely: the seven panel optimizers,</li>
 <p>where <strong>eGSK</strong>&#x27;s panel cells are reported from the committed reference CSVs (the comparator of record). eGSK is itself runnable — document it as such.</p>
 <li>Explain each method the reader will see in the paper and the generated tables:</li>
 <p>the <strong>Friedman</strong> test with mean ranks; <strong>pairwise Wilcoxon signed-rank</strong> tests with a <strong>Holm</strong> multiple-comparison correction; <strong>Vargha–Delaney</strong> effect sizes; and <strong>Nemenyi critical-difference</strong> diagrams. State what each answers and how to read it.</p>
@@ -522,7 +522,8 @@
 <ul>
 <li>[ ] Every code-facing fact present, correct, and cited.</li>
 <li>[ ] At least one concrete example (schema row, config block, or API call).</li>
-<li>[ ] <code>seed_policy.md</code> is the *only* file naming the upstream platform.</li>
+<li>[ ] Every mention of the upstream platform states factual provenance</li>
+<p>(seed formulas, port origin, oracle or parity record) — never this project&#x27;s runtime.</p>
 </ul>
 <p>**Research (<code>research/*</code>).**</p>
 <ul>
@@ -608,11 +609,12 @@ from the same fair X0 for a given (dim, func, run).</code></pre>
 python -m ruff check src tests scripts
 python scripts/build_docs_html.py                     # rebuild HTML twins -&gt; docs/html/
 gsk-validate --compare results/_run_all/gsk/cec2017 benchmarks/cec_reference_results</code></pre>
-<h3 id="7-1-forbidden-token-sweep">7.1 Forbidden-token sweep</h3>
-<p>The platform name may appear <strong>only</strong> in <code>seed_policy.md</code> (+ its HTML twin). Substitute the real token for <code>&lt;forbidden-platform-name&gt;</code>:</p>
-<pre><code class="code-block language-bash"># Expect ONLY: docs/reference/seed_policy.md  and  docs/html/reference_seed_policy.html
+<h3 id="7-1-platform-token-scope-sweep">7.1 Platform-token scope sweep</h3>
+<p>The platform name is <strong>provenance-scoped</strong>, not confined to one file (§1). Substitute the real token for <code>&lt;forbidden-platform-name&gt;</code>:</p>
+<pre><code class="code-block language-bash"># Classify every hit; expect provenance hits in docs/reference/seed_policy.md,
+# its HTML twin, and the eGSK port pages.
 grep -rniIl &quot;&lt;forbidden-platform-name&gt;&quot; docs</code></pre>
-<p>Any other hit is a Critical failure. Also sweep for removed-script references:</p>
+<p>A hit is a Critical failure only when it describes this project&#x27;s runtime or implies the platform is required to run this code; a hit that states factual provenance is correct and must not be &quot;fixed&quot;. The same sweep over <code>src/</code>, <code>tests/</code>, <code>scripts/</code> and <code>benchmarks/</code> returns about 78 hits, all provenance — do not report them as leaks. Also sweep for removed-script references:</p>
 <pre><code class="code-block language-bash"># Expect NO hits anywhere in docs/
 removed_runner_prefix=&quot;run_&quot;; removed_build_prefix=&quot;build_&quot;; removed_suffix=&quot;phase&quot;
 removed_method_prefix=&quot;phase method&quot;; removed_method_suffix=&quot;ology&quot;
@@ -693,8 +695,8 @@ grep -rnIE &quot;^\s*\&quot;[^\&quot;]+\&quot;\s*(--|==|-\.)&quot; docs --includ
 <p>anchors resolve; <code>docs/index.md</code> lists every page once.</p>
 <li>[ ] Every <code>path:line</code> citation points at a real, in-range line holding the</li>
 <p>claimed symbol.</p>
-<li>[ ] Forbidden platform name confined to <code>seed_policy.md</code> (+ HTML twin); no</li>
-<p>removed-script references.</p>
+<li>[ ] Every platform-name mention states factual provenance, none describes</li>
+<p>this project&#x27;s runtime; no removed-script references.</p>
 <li>[ ] HTML rebuilt into <code>docs/html/</code>; pytest, ruff, link/anchor check,</li>
 <p>citation check, and validation pass.</p>
 <li>[ ] Full-campaign commands show <code>--parallel --workers 2</code>; default backend,</li>
@@ -727,7 +729,7 @@ grep -rnIE &quot;^\s*\&quot;[^\&quot;]+\&quot;\s*(--|==|-\.)&quot; docs --includ
 <a class="toc-level-2" href="#5-definition-of-done-per-document-type">5. Definition of done, per document type</a>
 <a class="toc-level-2" href="#6-templates-use-this-structure">6. Templates (use this structure)</a>
 <a class="toc-level-2" href="#7-verification-gates-run-and-report-results">7. Verification gates (run and report results)</a>
-<a class="toc-level-3" href="#7-1-forbidden-token-sweep">7.1 Forbidden-token sweep</a>
+<a class="toc-level-3" href="#7-1-platform-token-scope-sweep">7.1 Platform-token scope sweep</a>
 <a class="toc-level-3" href="#7-2-link-anchor-integrity">7.2 Link &amp; anchor integrity</a>
 <a class="toc-level-3" href="#7-3-code-citation-validity-path-line-must-point-at-a-real-in-range-line">7.3 Code-citation validity (`path:line` must point at a real, in-range line)</a>
 <a class="toc-level-3" href="#7-4-campaign-resource-hygiene">7.4 Campaign resource hygiene</a>

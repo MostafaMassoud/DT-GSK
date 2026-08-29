@@ -167,13 +167,17 @@
 <blockquote>folder, with goal-based reading paths to get you to the right page fast.</blockquote>
 <blockquote><strong>Who it is for.</strong> Everyone; start here.</blockquote>
 <p>Project documentation, grouped by folder. Browse the rendered site at <a href="index.html">html/index.html</a>.</p>
-<blockquote><strong>Project status (2026-08-25).</strong> The manuscript was submitted to *Algorithms*</blockquote>
-<blockquote>(MDPI) as <code>algorithms-4507562</code> from freeze pass-38 / tag v2.13, and has</blockquote>
-<blockquote>received a <strong>MAJOR REVISION</strong> from two reviewers. Revision work is in</blockquote>
-<blockquote>progress — see <strong><a href="../../REVISION_STATUS.md">REVISION_STATUS.md</a></strong> for the current</blockquote>
-<blockquote>state, which reviewer points are closed, and what remains.</blockquote>
-<blockquote>Evidence releases are unchanged: <code>rel-2026-07-20-67d9345f9</code> (primary) and</blockquote>
-<blockquote><code>abl-rel-2026-07-20</code> (ablation).</blockquote>
+<blockquote><strong>Project status (2026-08-29).</strong> The manuscript was submitted to *Algorithms*</blockquote>
+<blockquote>(MDPI) as <code>algorithms-4507562</code> from freeze pass-38 / tag v2.13, and received a</blockquote>
+<blockquote><strong>MAJOR REVISION</strong> from two reviewers. <strong>The revision work is complete</strong> and</blockquote>
+<blockquote>the package awaits author resubmission; the current freeze is pass-52 / tag</blockquote>
+<blockquote>v2.25. See <strong><a href="../../REVISION_STATUS.md">REVISION_STATUS.md</a></strong> for the current</blockquote>
+<blockquote>state, how each reviewer point was answered, and the authoritative current</blockquote>
+<blockquote>pass and tag — this box is deliberately not the place to look them up.</blockquote>
+<blockquote>**Evidence releases are additive and non-superseding, and there is more than</blockquote>
+<blockquote>one:** the current set is enumerated under <code>evidence_release</code> in</blockquote>
+<blockquote><code>papers/governance/submission_package_manifest.json</code>; resolve it from there</blockquote>
+<blockquote>rather than from any list pasted into a documentation page.</blockquote>
 <blockquote>The proposed method is <strong>DT-GSK</strong> (Dimension-Tiered Gaining-Sharing</blockquote>
 <blockquote>Knowledge); &quot;ISM&quot; names only its internal interaction-structure-memory</blockquote>
 <blockquote>mechanism, never the algorithm.</blockquote>
@@ -187,11 +191,16 @@
 <li><strong>Contribute code.</strong> <a href="development_code_reading_guide.html">Code Reading Guide</a> -&gt; <a href="development_developer_guide.html">Developer Guide</a> -&gt; <a href="development_extension_guide.html">Extension Guide</a> -&gt; <a href="development_contributor_guide.html">Contributor Guide</a>.</li>
 <li><strong>Look something up.</strong> <a href="getting-started_configuration.html">Configuration</a>, <a href="reference_api.html">API Reference</a>, <a href="reference_result_schema.html">Result Schema</a>, <a href="reference_glossary.html">Glossary</a>, <a href="reference_diagrams.html">Diagrams</a>.</li>
 </ul>
-<blockquote>The seven <strong>runnable</strong> optimizers are <code>gsk</code>, <code>agsk</code>, <code>apgsk</code>, <code>fdb-agsk</code>,</blockquote>
-<blockquote><code>atmals-gsk</code>, <code>egsk</code>, and <code>dt-gsk</code>. The benchmark registry supports six</blockquote>
-<blockquote><strong>suites</strong> -- the <code>sphere</code> suite plus five CEC suites (<code>cec2011</code>, <code>cec2013</code>,</blockquote>
-<blockquote><code>cec2013lsgo</code>, <code>cec2017</code>, <code>cec2020</code>) -- of which three (<code>cec2011</code>, <code>cec2013</code>,</blockquote>
-<blockquote><code>cec2017</code>) carry committed reference evidence. <code>egsk</code> is also a committed</blockquote>
+<blockquote>The seven-method <strong>GSK family</strong> -- <code>gsk</code>, <code>agsk</code>, <code>apgsk</code>, <code>fdb-agsk</code>,</blockquote>
+<blockquote><code>atmals-gsk</code>, <code>egsk</code>, and <code>dt-gsk</code> -- is the statistical panel every claim in</blockquote>
+<blockquote>the manuscript is computed over (<code>FAMILY_OPTIMIZER_IDS</code>). The runner accepts</blockquote>
+<blockquote>fifteen optimizer ids in total: those seven plus eight external SOTA baselines</blockquote>
+<blockquote>that are runnable but <strong>not</strong> part of the panel (see</blockquote>
+<blockquote><a href="#external-sota-baselines">External SOTA baselines</a> below). The benchmark</blockquote>
+<blockquote>registry supports five CEC <strong>suites</strong> (<code>cec2011</code>, <code>cec2013</code>, <code>cec2013lsgo</code>,</blockquote>
+<blockquote><code>cec2017</code>, <code>cec2020</code>), all five of which carry committed reference evidence</blockquote>
+<blockquote>under <code>benchmarks/cec_reference_results/</code>; <code>sphere</code> is registered alongside</blockquote>
+<blockquote>them as a smoke problem and carries none. <code>egsk</code> is also a committed</blockquote>
 <blockquote>reference comparator, and the statistical panel reports its cells from that</blockquote>
 <blockquote>reference data.</blockquote>
 <h2 id="getting-started-getting-started">Getting Started - <code>getting-started/</code></h2>
@@ -239,6 +248,9 @@
 <li><a href="algorithms_egsk.html">EGSK</a>: enhanced GSK -- dual adaptive knowledge factors, a fixed senior partition, and interior-point refinement (runnable MATLAB port; also a reference comparator).</li>
 <li><a href="algorithms_dt-gsk.html">DT-GSK</a>: <strong>this project&#x27;s proposed method</strong> -- Dimension-Tiered Gaining-Sharing Knowledge, adding a dimension-aware interaction-structure memory to the scaffold.</li>
 </ul>
+<h2 id="external-sota-baselines">External SOTA baselines</h2>
+<p>The package also ships and dispatches eight external state-of-the-art baselines -- <code>mos-cec2013lsgo</code>, <code>shade-ils</code>, <code>decc-g</code>, <code>cmaes</code>, <code>ebowithcmar</code>, <code>jso</code>, <code>lshade</code>, and <code>lshade-spacma</code> (<code>EXTERNAL_OPTIMIZER_IDS</code> in <code>src/gsk_family/optimizers/__init__.py</code>). They exist so comparisons against the state of the art can be <strong>run</strong> under this project&#x27;s own harness -- identical objective code, seed schedule, budget, and protocol as the GSK family -- instead of quoting published tables measured on other hardware, other implementations, and (for CEC2013LSGO&#x27;s Ackley functions) a different objective variant.</p>
+<p><strong>None of them belongs to the seven-method GSK-family statistical panel.</strong> They are runnable, but no statistical claim in the manuscript is computed over them; <code>EXTERNAL_OPTIMIZER_IDS</code> keeps that boundary explicit. <code>mos-cec2013lsgo</code>, <code>shade-ils</code>, and <code>decc-g</code> are large-scale specialists for the CEC2013LSGO regime; the remaining five target the bound-constrained suites (CEC2017 lineage) and also run on CEC2011/CEC2013. CMA-ES carries an <code>O(D^2)</code>-<code>O(D^3)</code> covariance update, so it is impractical at <code>D = 1000</code> and should not be launched on CEC2013LSGO without a cost check first. <code>decc-g</code> is first-party code with no author-code oracle -- see <a href="development_DECC_G_port_record.html">DECC-G Port Record</a>.</p>
 <h2 id="development-development">Development - <code>development/</code></h2>
 <p>Living guides (see the <a href="development_README.html">folder index</a>):</p>
 <ul>
@@ -251,6 +263,12 @@
 <li><a href="development_evidence_rerun_runbook.html">Evidence Re-run Runbook</a>: regenerating the <code>D &gt;= 50</code> DT-GSK evidence after a core behavior change -- affected-cell inventory, exact commands, and the manuscript edits that must follow.</li>
 <li><a href="development_egsk_port_spec.html">EGSK Port Spec</a>: porting analysis and decision record for the EGSK MATLAB port (the algorithm guide is <a href="algorithms_egsk.html">EGSK</a>).</li>
 </ul>
+<p>Campaign and governance records (living):</p>
+<ul>
+<li><a href="development_ACCELERATION_CAMPAIGN_PROMPT.html">Acceleration Campaign Prompt</a>: method and governance for the GSK-family speed campaign — the R1/R2/R3 risk ladder, the evidence-freeze constraint, and the priced options.</li>
+<li><a href="development_SIBLING_CAMPAIGN_TRANSFER.html">Sibling-Campaign Transfer</a>: which accelerations proven in the human-inspired sibling project transfer here, ranked by expected value against governance cost.</li>
+</ul>
+<p>The remaining thirteen pages in <code>development/</code> are dated evidence rather than current guidance — executed campaign plans, closed bug and adjudication records, and review records. They are indexed, with a status line each, under <strong><a href="development_README.html#historical-records-and-executed-campaign-plans-retained-as-dated-evidence-not-current-guidance">Historical records and executed campaign plans</a></strong>.</p>
 <h2 id="research-research">Research - <code>research/</code></h2>
 <ul>
 <li><a href="research_researcher_handbook.html">Researcher Handbook</a>: reproducible experiment procedure and interpretation.</li>
@@ -262,11 +280,13 @@
 <li><a href="research_statistical_analysis.html">Statistical Analysis</a>: the <code>gsk-stats</code> GSK-family comparison suite (Friedman ranks, Nemenyi CD, Wilcoxon/Holm, effect sizes, tables, and figures) plus the runner <code>--stats</code> live-report flag and the <code>papers/</code> review-pack workflow.</li>
 </ul>
 <h2 id="prompts-prompt">Prompts - <code>prompt/</code></h2>
+<p>Five review instruments; each is an internal quality-assurance checklist the authors apply to their own work, not the journal&#x27;s peer review:</p>
 <ul>
 <li><a href="prompt_project-review.html">Project Review</a>: deep expert-team audit of the whole project (code, docs, tests, reproducibility).</li>
 <li><a href="prompt_documentation-review.html">Documentation Review</a>: documentation consistency-and-accuracy gate (Part I) plus the inline docstring &amp; comment review (Part II).</li>
 <li><a href="prompt_documentation-deep-upgrade.html">Documentation Deep Upgrade</a>: the documentation-depth authoring spec (numerical examples, flowcharts, deep algorithm guides); the full-repo pass is complete — use it when adding a new page.</li>
 <li><a href="prompt_publication-polish.html">Publication Polish</a>: the pre-publication hardening pass — repository-wide cleanup, documentation modernization, and Q1/GitHub/Zenodo release preparation.</li>
+<li><a href="prompt_change-register-acceptance-review.html">Change-Register Acceptance Review</a>: the acceptance-readiness audit of the change register and the revised manuscript package, verifying every recorded passage against the evidence it cites. Its executed output is <a href="development_acceptance_readiness_review_2026_08_28.html">Acceptance-Readiness Review 2026-08-28</a>.</li>
 </ul>
 <h2 id="python-api">Python API</h2>
 <ul>
@@ -281,6 +301,7 @@
 <a class="toc-level-2" href="#getting-started-getting-started">Getting Started - `getting-started/`</a>
 <a class="toc-level-2" href="#reference-reference">Reference - `reference/`</a>
 <a class="toc-level-2" href="#algorithm-guides-algorithms">Algorithm Guides - `algorithms/`</a>
+<a class="toc-level-2" href="#external-sota-baselines">External SOTA baselines</a>
 <a class="toc-level-2" href="#development-development">Development - `development/`</a>
 <a class="toc-level-2" href="#research-research">Research - `research/`</a>
 <a class="toc-level-2" href="#prompts-prompt">Prompts - `prompt/`</a>

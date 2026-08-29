@@ -2625,3 +2625,89 @@ applying all surfaced fixes.
   byte-identical across two independent build pairs.
 - **Anchor.** b6a18d1 (apply); mint, close and tag v2.25 follow. NEXT free
   ids: CR-0033 and D-0058.
+
+## D-0058 (2026-08-29) - Pass-53: full remediation of the five-instrument review register
+
+- **Decision.** All five live review instruments were retuned to the current
+  state and re-applied; their consolidated findings were then fixed in one
+  pass, with only genuine submission-day operational work deferred (public
+  flip, GitHub purge ticket, SuSy portal fields). Manuscript fixes were NOT
+  deferred on the grounds that they cost a freeze cycle - the author's
+  instruction was explicit that a freeze cycle is not a reason to defer.
+  Mint **pass-53**, tag **v2.26**. Registered as **CR-0033**.
+- **The finding that justified the pass.** The Supplementary's ninth
+  limitation asserted that the sweep 'leaves the dimension-tier boundaries
+  themselves unvaried, so their sensitivity is untested' - nine pages before
+  Section S9.5, which varies exactly those boundaries and finds against the
+  shipped profile in two of five cells. Two independent reviewers rated it
+  Major; it sits on R2.7, a reviewer's own point, and the clause renders as
+  NEW underlined text in the marked-up copy. The main-text Conclusions had
+  been updated for E5; the supplement twin had not. Fifth member of the
+  stale-claim family (S3.5 pass-45, conclusions pass-50, S6.5 pass-51).
+- **The question the paper could not answer.** No published sentence said why
+  the interaction-structure memory and its eigenbasis still ship given
+  +57.3% wall-clock and no detectable benefit; the argument existed only in
+  the response letter. The Conclusions now state it: the evaluated
+  configuration was fixed and checksum-locked before the isolations ran, so
+  replacing a component in response to the experiment that measured it would
+  define a different algorithm and unbind every reported number. The
+  isolations correct the claims, not the method.
+- **Also fixed in the manuscript.** C2's narrowing carried to the
+  Introduction, where C2 is claimed (C1's had reached five sites, C2's one);
+  the abstract's separation quantifier scoped to CEC2017, being false for
+  CEC2013 D = 10 (p_Holm 0.0017, and favourable - the error was against the
+  authors); Section 4.9's first alternative explanation pointed at Section
+  S9.1, which now bears on it; the CEC2013LSGO fifty-fold initial-population
+  ratio disclosed in the main text and the replication scoped as
+  common-INITIAL-NP; Table A46's caption states the registered integer
+  convention; the C1 stage named consistently at six sites; four references
+  to 'the submitted manuscript' reworded; the Section S5.10 appositive no
+  longer mis-attributes the primary release id to Section S9; Section S9.4
+  enumerates all seven constants. Figure 4's value labels no longer sit
+  under the critical-difference rule.
+- **Build reproducibility restored (the quiet one).** `build_pdf.py` and
+  `build_supplementary.py` carried NO epoch handling and relied on the
+  operator exporting SOURCE_DATE_EPOCH / FORCE_SOURCE_DATE. Pass-51 and
+  pass-52 built in shells without them, so the shipped PDFs carried
+  wall-clock /CreationDate while the freeze manifest claimed double-build
+  byte-identity and the response letter told the reviewers the same. The
+  epoch is now pinned INSIDE both builders, as the register and marked-PDF
+  builders already do; a double build verifies byte-identical and
+  /CreationDate reads D:20260708000000Z. This is the inverse of the DOCX
+  trap: there a persisted variable broke determinism, here an absent one.
+- **Governance records.** reproducibility_manifest.json recorded wrong
+  sha256 AND bytes for all five shipped artifacts, stale since pass-45;
+  refreshed. published_commit was four passes stale (matched 4/15 hashes)
+  and its note asserted an identity that no longer held; both corrected.
+  evidence_release raised from five to the seven the DAS names (rev2 and g1
+  were missing). The recorded pytest count corrected to 618. CR-0029 through
+  CR-0033 appended to change_request_register.csv, where they had existed
+  only in decision-log prose - the 'verify ids free at apply time' rule was
+  unusable from the register itself. The dangling-commit full SHA
+  abbreviated in both manifests; the private bundle path removed from the
+  decision log (the cleanup's ninth site).
+- **Documentation.** SUBMISSION_KIT's paste-ready abstract was the v2.21
+  wording and would have put three reverted phrasings into the journal's own
+  abstract field; resynced with a hardened warning. The gsk-list health
+  check told maintainers to expect seven optimizer ids where the runner
+  reports fifteen (seven-method panel plus eight external baselines) -
+  corrected there and in nine further files. The runbook documented four
+  revision experiments where the driver runs five. BENCHMARK_RULES gained
+  the rev2 and g1 release blocks. Scripts inventory 19 -> 21 at nine sites;
+  six wrong path:line citations; mermaid label quoting; docs/index status
+  box; navigation for thirteen unlinked development records.
+- **Deliberately NOT done.** `benchmarks/cec_reference_results/README.md`
+  carries three stale release ids and one broken relative link, but it is
+  hash-bound in the primary evidence release (3403/3403). Evidence releases
+  are immutable and non-superseding, so the correction belongs to a
+  governance pass that can mint a new release, not to a documentation fix.
+  Recorded here so it is not rediscovered as new. Related hazard found while
+  proving it: `git checkout --` on that file writes CRLF under
+  core.autocrlf=true and breaks its manifest hash, because `.gitattributes`
+  protects the papers/ freeze files but not the evidence README.
+- **Validation.** check_manifest 15/15 + sources 2/2 after mint; thirteen
+  ladder gates PASS twice; ruff clean; package manifest verified sha AND
+  bytes post-write for all five entries (the pass-51 silent-staleness class
+  is now structurally impossible in that updater).
+- **Anchor.** 86411e6 (apply); mint, close and tag v2.26 follow. NEXT free
+  ids: CR-0034 and D-0059.

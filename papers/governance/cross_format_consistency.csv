@@ -60,7 +60,7 @@ DT-GSK.docx,caption,"Table 3.  Core notation: problem, population, and base-GSK 
 DT-GSK.docx,caption,Table 4.  Architecture of DT-GSK: the eight subsystems composed around,PASS,alnum-containment,,,61b8fbc860ef
 DT-GSK.docx,caption,Algorithm 1. Pseudo-code of the DT-GSK algorithm. The junior and senio,PASS,alnum-containment,,,821abb3bdae4
 DT-GSK.docx,caption,"Figure 1.  Flowchart of the base GSK algorithm of Mohamed et al. [5], ",PASS,alnum-containment,,,b540ee80c15b
-DT-GSK.docx,caption,"Figure 2.  Flowchart of the DT-GSK algorithm, drawn in the same style ",PASS,alnum-containment,,,40d2785dc2c4
+DT-GSK.docx,caption,"Figure 2.  Flowchart of the DT-GSK algorithm, drawn in the same style ",PASS,alnum-containment,,,d8a3ba931882
 DT-GSK.docx,caption,Table 5.  Subsystem activation across the frozen configuration’s four ,PASS,alnum-containment,,,d5c8be688636
 DT-GSK.docx,caption,Table 6.  Scaffold notation (Contribution C2): symbols for the ACE/ARG,PASS,alnum-containment,,,86c698fdcd68
 DT-GSK.docx,caption,Table 7.  Worked numeric example at D=50: the tier-resolved NLPSR sche,PASS,alnum-containment,,,c7ff14c96592
@@ -89,7 +89,7 @@ DT-GSK.docx,table_authored,authored_4 (Subsystem (Eq.)...),PASS,tex-detex-rowset
 DT-GSK.docx,table_authored,authored_5 (Symbol...),PASS_FORMAT_DIFF,tex-detex-rowset,"18/21 rows identical, 3 math-styling rows",LaTeX math command text vs OMML glyph extraction,1f6299a490ff
 DT-GSK.docx,table_authored,authored_6 (x...),PASS_FORMAT_DIFF,tex-detex-rowset,"7/8 rows identical, 1 math-styling rows",LaTeX math command text vs OMML glyph extraction,946c651233bc
 DT-GSK.docx,table_authored,authored_7 (Symbol...),PASS_FORMAT_DIFF,tex-detex-rowset,"8/11 rows identical, 3 math-styling rows",LaTeX math command text vs OMML glyph extraction,4c75a9c6530c
-DT-GSK.docx,table_authored,authored_8 (Stage...),PASS,tex-detex-rowset,4 rows identical,,a6c993e7e964
+DT-GSK.docx,table_authored,authored_8 (Stage...),PASS,tex-detex-rowset,4 rows identical,,4172b8784e21
 DT-GSK.docx,table_authored,authored_9 (Parameter...),PASS_FORMAT_DIFF,tex-detex-rowset,"13/15 rows identical, 2 math-styling rows",LaTeX math command text vs OMML glyph extraction,a8346afc72d2
 DT-GSK.docx,table_authored,authored_10 (Algorithm...),PASS,tex-detex-rowset,8 rows identical,,bf57517b59ae
 DT-GSK.docx,table_authored,authored_11 (Algorithm...),PASS,tex-detex-rowset,7 rows identical,,a828572428d6
@@ -105,11 +105,11 @@ DT-GSK.docx,table_authored,authored_18 (CEC2017 dimension...),PASS,tex-detex-row
 DT-GSK.docx,table_authored,authored_19 (GSK...),PASS,tex-detex-rowset,18 rows identical,,adb18cb00c10
 DT-GSK.docx,paragraph,"1 Operations Research Department, Faculty of Graduate Studie",PASS,alnum-containment,,,7a93bd7506f5
 DT-GSK.docx,paragraph,Keywords: metaheuristic optimization; gaining-sharing knowle,PASS,alnum-containment,,,045936c0fa2a
-DT-GSK.docx,paragraph,Bound-constrained continuous minimization under a hard evalu,PASS,alnum-containment,,,e9541d243148
+DT-GSK.docx,paragraph,Bound-constrained continuous minimization under a hard evalu,PASS,alnum-containment,,,f187e516b81f
 DT-GSK.docx,paragraph,GSK is a human-inspired metaheuristic whose junior and senio,PASS,alnum-containment,,,cccfb648edd7
 DT-GSK.docx,paragraph,The common boundary of the GSK-family variants cited in this,PASS,alnum-containment,,,b177584ae8f8
 DT-GSK.docx,paragraph,"C1 — a deterministic final polish. A one-shot, RNG-free dete",PASS,alnum-containment,,,16ae6b6264e1
-DT-GSK.docx,paragraph,C2 — a dimension-tiered adaptive scaffold. The Adaptive Conf,PASS,alnum-containment,,,d7da33ad99be
+DT-GSK.docx,paragraph,C2 — a dimension-tiered adaptive scaffold. The Adaptive Conf,PASS,alnum-containment,,,2e85af05dd06
 DT-GSK.docx,paragraph,"C3 — a controlled, reproducible family evaluation. A 13-subs",PASS,alnum-containment,,,e30aee9ef94c
 DT-GSK.docx,paragraph,"The interaction-structure memory is an online, decaying, evi",PASS,alnum-containment,,,1fa680972914
 DT-GSK.docx,paragraph,The remainder of the paper is organized as follows. Section ,PASS,alnum-containment,,,2684934a57fe
@@ -123,7 +123,7 @@ DT-GSK.docx,paragraph,Learning structure from the search itself is well establis
 DT-GSK.docx,paragraph,The interaction-structure memory occupies a point none of th,PASS,alnum-containment,,,d6d79815fbca
 DT-GSK.docx,paragraph,"Three technical deficiencies, each traceable to the variants",PASS,alnum-containment,,,84f06c4cfab0
 DT-GSK.docx,paragraph,"First, structure blindness. Every variant in Table 1 adapts ",PASS,alnum-containment,,,3845f36d8455
-DT-GSK.docx,paragraph,"Second, endgame refinement without determinism or budget saf",PASS,alnum-containment,,,b9b38b0aa27a
+DT-GSK.docx,paragraph,"Second, endgame refinement without determinism or budget saf",PASS,alnum-containment,,,ccd1bb197666
 DT-GSK.docx,paragraph,"Third, regime-limited adaptation evidence. AGSK’s and APGSK’",PASS,alnum-containment,,,7f2a7d4fe133
 DT-GSK.docx,paragraph,"The bounded gap is therefore: within the GSK operator style,",PASS,alnum-containment,,,4f623d6effb6
 DT-GSK.docx,paragraph,DT-GSK retains the junior and senior gaining-sharing vector-,PASS_FORMAT_DIFF,alnum-split-containment,paragraph verbatim in two contiguous runs,page-break/float interleaves PDF extraction mid-paragraph,132f9f3676a6
@@ -145,8 +145,8 @@ DT-GSK.docx,equation_display,"(10) xi←repair​xi+γ C(0,1), γ=rs u−�
 DT-GSK.docx,equation_display,"(11) G• ←λ G•+ηi ∈ I+​wi ϕ•(δi) ϕ•(δi)​⊤,  δi=ΔxiΔxi1, ",PASS_FORMAT_DIFF,equation-number + source identity,eq number rendered in PDF,OMML linear text vs PDF math glyph extraction order,d36bcfefa6c0
 DT-GSK.docx,equation_display,"(13) stream0 =threefry(seed),  streamk=threefry(sk),sk ",PASS_FORMAT_DIFF,equation-number + source identity,eq number rendered in PDF,OMML linear text vs PDF math glyph extraction order,aec582eeaa96
 DT-GSK.docx,paragraph,where Mseed=2 147 483 646 is the child-seed modulus (Supplem,PASS,alnum-containment,,,66a5b0e68732
-DT-GSK.docx,paragraph,"DT-GSK ships as a single frozen configuration, which resolve",PASS,alnum-containment,,,c9057dd146b0
-DT-GSK.docx,paragraph,One configuration asymmetry follows from running each algori,PASS,alnum-containment,,,8e2bb46c5166
+DT-GSK.docx,paragraph,"DT-GSK ships as a single frozen configuration, which resolve",PASS_FORMAT_DIFF,alnum-split-containment,paragraph verbatim in two contiguous runs,page-break/float interleaves PDF extraction mid-paragraph,c9057dd146b0
+DT-GSK.docx,paragraph,One configuration asymmetry follows from running each algori,PASS,alnum-containment,,,268cfbb403ee
 DT-GSK.docx,paragraph,Within one generation the subsystems execute in the fixed or,PASS,alnum-containment,,,8bb47f9982c5
 DT-GSK.docx,paragraph,Nonlinear Population-Size Reduction (NLPSR).,PASS,alnum-containment,,,af958851fbfa
 DT-GSK.docx,paragraph,Operator-arm sampling by the Adaptive Configuration Engine (,PASS,alnum-containment,,,9dee4a930faa
@@ -156,23 +156,23 @@ DT-GSK.docx,paragraph,"At D≥50, the interaction-graph (ISM) update from strict
 DT-GSK.docx,paragraph,The operator-credit update and Acceptance-Rate Gated Pruning,PASS,alnum-containment,,,3febff8ed8f0
 DT-GSK.docx,paragraph,Stagnation escape by the Budget-Safe Escape (BSE) mechanism.,PASS,alnum-containment,,,2b70c3b93279
 DT-GSK.docx,paragraph,The charged coordinate local search.,PASS,alnum-containment,,,77e386e15745
-DT-GSK.docx,paragraph,"At D≥50, the one-shot eigenframe final polish in the final b",PASS,alnum-containment,,,0dfc989b09b4
+DT-GSK.docx,paragraph,"At D≥50, the one-shot deterministic final polish in the fina",PASS,alnum-containment,,,3e097dd82350
 DT-GSK.docx,paragraph,The D≥100 upper-tier controllers do not form a separate step,PASS,alnum-containment,,,34d5807a60de
 DT-GSK.docx,paragraph,A step written “if D≥d” in Algorithm 1 is inactive below tie,PASS,alnum-containment,,,e5a3aa439619
-DT-GSK.docx,paragraph,Dimension-tier gating is stated once and holds everywhere. T,PASS,alnum-containment,,,96ddfb992da4
-DT-GSK.docx,paragraph,The scaffold answers a control and budget problem: a single ,PASS_FORMAT_DIFF,alnum-split-containment,paragraph verbatim in two contiguous runs,page-break/float interleaves PDF extraction mid-paragraph,9d18294f3550
+DT-GSK.docx,paragraph,Dimension-tier gating is stated once and holds everywhere. T,PASS,alnum-containment,,,5fb01703afb9
+DT-GSK.docx,paragraph,The scaffold answers a control and budget problem: a single ,PASS,alnum-containment,,,9d18294f3550
 DT-GSK.docx,paragraph,"Here each mechanism is specified with its trigger, timing, a",PASS,alnum-containment,,,231e99c350f9
 DT-GSK.docx,paragraph,"A fixed (KF,KR,Kexp) triple that suits one landscape or one ",PASS,alnum-containment,,,6344d983d891
 DT-GSK.docx,paragraph,ACE instead adapts at the operator level: it maintains a poo,PASS,alnum-containment,,,8ee45f6f913c
 DT-GSK.docx,paragraph,The probability floor that keeps ACE exploring also forces d,PASS,alnum-containment,,,e5aa78ba371c
 DT-GSK.docx,paragraph,NLPSR is explicitly not claimed as new. It keeps the concave,PASS,alnum-containment,,,5858f5e828fb
-DT-GSK.docx,paragraph,Greedy selection over a shrinking population can stagnate: n,PASS_FORMAT_DIFF,alnum-split-containment,paragraph verbatim in two contiguous runs,page-break/float interleaves PDF extraction mid-paragraph,358836064ddd
+DT-GSK.docx,paragraph,Greedy selection over a shrinking population can stagnate: n,PASS,alnum-containment,,,358836064ddd
 DT-GSK.docx,paragraph,BSE perturbs within the current basin; a search that is deep,PASS,alnum-containment,,,e0e9d7e5773f
-DT-GSK.docx,paragraph,"As established in Section 2, no cited GSK-family variant lea",PASS,alnum-containment,,,9b3bb489a61a
+DT-GSK.docx,paragraph,"As established in Section 2, no cited GSK-family variant lea",PASS_FORMAT_DIFF,alnum-split-containment,paragraph verbatim in two contiguous runs,page-break/float interleaves PDF extraction mid-paragraph,9b3bb489a61a
 DT-GSK.docx,paragraph,The interaction-structure memory accumulates this evidence i,PASS,alnum-containment,,,8c303d752868
 DT-GSK.docx,paragraph,"ISM consumes no extra objective evaluations, since it observ",PASS,alnum-containment,,,7e8c702a3778
 DT-GSK.docx,paragraph,The learned structure is exploited through two active channe,PASS,alnum-containment,,,f166561e914b
-DT-GSK.docx,paragraph,ISM activates at D≥50 under the frozen configuration; below ,PASS_FORMAT_DIFF,alnum-split-containment,paragraph verbatim in two contiguous runs,page-break/float interleaves PDF extraction mid-paragraph,e611d99ad20f
+DT-GSK.docx,paragraph,ISM activates at D≥50 under the frozen configuration; below ,PASS,alnum-containment,,,e611d99ad20f
 DT-GSK.docx,paragraph,"At the end of a budget-limited run, the incumbent typically ",PASS,alnum-containment,,,e663c093cb45
 DT-GSK.docx,paragraph,The deterministic final polish is a one-shot compass search ,PASS,alnum-containment,,,8cbc58a71f2b
 DT-GSK.docx,paragraph,"At D≥100, the frozen configuration enables a set of protecti",PASS,alnum-containment,,,00d9d618f0a1
@@ -224,7 +224,7 @@ DT-GSK.docx,paragraph,Figure 4 shows the Nemenyi critical-difference view (one 
 DT-GSK.docx,paragraph,The plots make one limitation explicit: DT-GSK and eGSK are ,PASS,alnum-containment,,,71dea8ed633b
 DT-GSK.docx,paragraph,The Friedman mean rank improves with dimension overall but i,PASS,alnum-containment,,,7946ff4335fe
 DT-GSK.docx,paragraph,"A prespecified robustness battery accompanies the release, a",PASS,alnum-containment,,,50d2ccbaefa7
-DT-GSK.docx,paragraph,Mean-based ranks are the prespecified primary; DT-GSK’s own ,PASS_FORMAT_DIFF,alnum-split-containment,paragraph verbatim in two contiguous runs,page-break/float interleaves PDF extraction mid-paragraph,f2de08b26fc4
+DT-GSK.docx,paragraph,Mean-based ranks are the prespecified primary; DT-GSK’s own ,PASS,alnum-containment,,,f2de08b26fc4
 DT-GSK.docx,paragraph,The per-problem five-statistic results of DT-GSK against the,PASS,alnum-containment,,,8cd061b20681
 DT-GSK.docx,paragraph,"Within the GSK-family panel, DT-GSK places second of seven o",PASS,alnum-containment,,,bd16ffa48231
 DT-GSK.docx,paragraph,The across-problem Holm-corrected Wilcoxon against eGSK is a,PASS,alnum-containment,,,1c3bc0a1553b
@@ -261,7 +261,7 @@ DT-GSK.docx,paragraph,At D=100 the same function is a comparable case: DT-GSK’
 DT-GSK.docx,paragraph,"Both convergence figures share one reading basis, stated onc",PASS,alnum-containment,,,2db5a12315ab
 DT-GSK.docx,paragraph,Table 19 reports DT-GSK’s measured per-run wall-clock time o,PASS,alnum-containment,,,04303eec6b57
 DT-GSK.docx,paragraph,"DT-GSK’s per-run time scales with dimension, from 4.93 s at ",PASS,alnum-containment,,,14fda41a6d19
-DT-GSK.docx,paragraph,"Three deserve explicit statement. First, the strongest measu",PASS,alnum-containment,,,ca07d86f6918
+DT-GSK.docx,paragraph,"Three deserve explicit statement. First, the strongest measu",PASS,alnum-containment,,,5d449af63cf0
 DT-GSK.docx,paragraph,"Third, CEC2017 is development-exposed; CEC2011 and CEC2013 c",PASS,alnum-containment,,,55abc4b398b5
 DT-GSK.docx,paragraph,The class-wise reading of Section 4.2.1 is that DT-GSK’s sta,PASS,alnum-containment,,,2a9262276a45
 DT-GSK.docx,paragraph,This distribution is consistent with the design intent of bl,PASS,alnum-containment,,,bbb9c75c0172
@@ -281,7 +281,7 @@ DT-GSK.docx,paragraph,The parameter-sensitivity evidence is exploratory and narr
 DT-GSK.docx,paragraph,The remaining limitations bounding these findings are stated,PASS,alnum-containment,,,a7f1ef3731cf
 DT-GSK.docx,paragraph,"Pairing is by common seed, problem and run rather than by an",PASS,alnum-containment,,,64cd8ec739f8
 DT-GSK.docx,paragraph,Component-level evidence anchors the mechanisms and frames t,PASS,alnum-containment,,,8810874e2a3b
-DT-GSK.docx,paragraph,A direct basis isolation sharpens this. In the memory’s term,PASS,alnum-containment,,,5e6ea8880385
+DT-GSK.docx,paragraph,A direct basis isolation sharpens this. In the memory’s term,PASS,alnum-containment,,,d23c0a750adf
 DT-GSK.docx,paragraph,It is presented alongside the reproducible dimension-tiered ,PASS,alnum-containment,,,9f41c9c61864
 DT-GSK.docx,paragraph,And evaluation beyond the family — non-GSK baselines under t,PASS,alnum-containment,,,916560cede01
 DT-GSK.docx,paragraph,The following supporting information accompanies this articl,PASS,alnum-containment,,,a492acafdb63
@@ -289,7 +289,7 @@ DT-GSK.docx,paragraph,"Conceptualization, M.E.M.; methodology, M.E.M. and A.W.M.
 DT-GSK.docx,paragraph,This research received no external funding.,PASS,alnum-containment,,,f0a8acde1574
 DT-GSK.docx,paragraph,Institutional Review Board Statement: Not applicable.,PASS,alnum-containment,,,e347cc3a4a40
 DT-GSK.docx,paragraph,Informed Consent Statement: Not applicable.,PASS,alnum-containment,,,89bd59ac9b67
-DT-GSK.docx,paragraph,"Data Availability Statement: The source code, configuration ",PASS,alnum-containment,,,c728b99e1836
+DT-GSK.docx,paragraph,"Data Availability Statement: The source code, configuration ",PASS,alnum-containment,,,dc9f1ed8c0a3
 DT-GSK.docx,paragraph,Use of Generative Artificial Intelligence: During the prepar,PASS,alnum-containment,,,04213b9238fd
 DT-GSK.docx,paragraph,"During the preparation and revision of this manuscript, the ",PASS,alnum-containment,,,2fe3fbc5bd15
 DT-GSK.docx,paragraph,Author A.W.M. is the originator of the baseline Gaining-Shar,PASS,alnum-containment,,,83921bdcc640
@@ -495,7 +495,7 @@ supplementary.docx,caption,Table A42.  CEC2020 at D=20: best / median / mean / w
 supplementary.docx,caption,Table A43.  Refinement-basis contrast on CEC2017 at the two dimensions,PASS,alnum-containment,,,6635d511e04c
 supplementary.docx,caption,Table A44.  DT-GSK at the comparators’ population value. Mean ranks an,PASS,alnum-containment,,,e0816b371216
 supplementary.docx,caption,Table A45.  Tiered configuration versus the two tier-constant transpla,PASS,alnum-containment,,,7c250cb2b96b
-supplementary.docx,caption,Table A46.  Exploratory one-factor sensitivity of DT-GSK’s panel stand,PASS,alnum-containment,,,07e607517897
+supplementary.docx,caption,Table A46.  Exploratory one-factor sensitivity of DT-GSK’s panel stand,PASS,alnum-containment,,,d0ea69a3300a
 supplementary.docx,caption,Table A47.  Dimension-boundary sensitivity on CEC2017 (E5). One Holm f,PASS,alnum-containment,,,e71ab5471eee
 supplementary.docx,table_generated,SA04 (Table SA04),PASS_FORMAT_DIFF,wsource-exact + tex-display-precision,29 data rows; header rows 1; all display strings derivable,DOCX = semantic full precision; PDF = display-rounded; equal at display precision,e0e17c42a877
 supplementary.docx,table_pdf_spot,SA04,PASS,squash-containment,3/3 sampled display values found,,
@@ -640,11 +640,11 @@ supplementary.docx,paragraph,One source file has changed since the evidence rele
 supplementary.docx,paragraph,"Any post-freeze change to the frozen sources, the configurat",PASS,alnum-containment,,,d735e9c31354
 supplementary.docx,paragraph,The single dimension-aware configuration is fixed once and r,PASS,alnum-containment,,,1ccc208e32ef
 supplementary.docx,paragraph,CEC2017 was the development suite: the tier-resolved paramet,PASS,alnum-containment,,,26f5fe88bfec
-supplementary.docx,paragraph,The conclusions summarize the limitations that bound this st,PASS,alnum-containment,,,24f9c4b753d7
+supplementary.docx,paragraph,The conclusions summarize the limitations that bound this st,PASS,alnum-containment,,,16f5f74c78bd
 supplementary.docx,paragraph,"Several limitations bound these findings. First, the mid-dim",PASS,alnum-window-coverage,coverage=0.99,,6164a905bfb5
 supplementary.docx,paragraph,"Seventh, the comparison is entirely within the GSK family. A",PASS,alnum-containment,,,d2eae3bd5371
 supplementary.docx,paragraph,"Eighth, three attribution gaps bound what the component evid",PASS,alnum-containment,,,a505b8cae002
-supplementary.docx,paragraph,"Ninth, the parameter-sensitivity evidence is exploratory and",PASS,alnum-containment,,,73a0a9d23f76
+supplementary.docx,paragraph,"Ninth, the parameter-sensitivity evidence is exploratory and",PASS,alnum-containment,,,5e4727174079
 supplementary.docx,paragraph,"Beyond these, the statistical scope is itself bounded: infer",PASS,alnum-containment,,,403d0b1b4f94
 supplementary.docx,paragraph,The reported win/tie/loss counts use a fixed absolute tie ba,PASS,alnum-containment,,,c21942f5e611
 supplementary.docx,paragraph,Recomputing the CEC2017 counts from the same frozen per-func,PASS,alnum-containment,,,e325eda7dc93
@@ -680,7 +680,7 @@ supplementary.docx,paragraph,The active local search uses the coordinate method 
 supplementary.docx,paragraph,The per-coordinate scale σcoord is floored at 10−3 span (i.e,PASS,alnum-containment,,,df5cc6cda226
 supplementary.docx,paragraph,Two endgame guards share a single absolute-scale signal: the,PASS_FORMAT_DIFF,alnum-split-containment,paragraph verbatim in two contiguous runs,page-break/float interleaves PDF extraction mid-paragraph,6ea910730838
 supplementary.docx,paragraph,The NLPSR population schedule carries a minimum-size floor g,PASS,alnum-containment,,,e7c970caa0e2
-supplementary.docx,paragraph,"All CEC2017, CEC2011 and CEC2013 values in the main paper an",PASS,alnum-containment,,,ae0b3831ad6c
+supplementary.docx,paragraph,"All CEC2017, CEC2011 and CEC2013 values in the main paper an",PASS,alnum-containment,,,106c1d7a46f9
 supplementary.docx,paragraph,The derived statistical artifacts behind every table and fig,PASS,alnum-containment,,,be2decf12827
 supplementary.docx,paragraph,Seeded stochastic analyses are themselves reproducible: the ,PASS,alnum-containment,,,09ed9e4545fd
 supplementary.docx,paragraph,The software state itself is attested rather than asserted. ,PASS,alnum-containment,,,122f5476d6a2
@@ -736,13 +736,13 @@ supplementary.docx,paragraph,"The evidence for this section is compound, and is 
 supplementary.docx,paragraph,The final polish was previously evaluated only as a whole: t,PASS,alnum-containment,,,6a3cb9049ed2
 supplementary.docx,paragraph,The coordinate arm is produced by supplying the identity mat,PASS,alnum-containment,,,00c9c4688aae
 supplementary.docx,paragraph,"Two findings follow, and they point in opposite directions. ",PASS,alnum-containment,,,26d2740ae9f0
-supplementary.docx,paragraph,DT-GSK initializes NP=5D while the six comparators run their,PASS,alnum-containment,,,bd97ed670f88
+supplementary.docx,paragraph,DT-GSK initializes NP=5D while the six comparators run their,PASS,alnum-containment,,,0d8c2bb0fd6f
 supplementary.docx,paragraph,The single-factor scope is declared. Only the initial popula,PASS,alnum-containment,,,e77e0f796fe9
 supplementary.docx,paragraph,The matched-initial-population control shows the 5D rule doe,PASS,alnum-containment,,,699bcaca6f06
-supplementary.docx,paragraph,The manuscript attributes its standing to resolving configur,PASS,alnum-containment,,,33f04e0d81cd
+supplementary.docx,paragraph,The manuscript attributes its standing to resolving configur,PASS,alnum-containment,,,810725b74fcc
 supplementary.docx,paragraph,"A transplant is not a component removal, and the reading is ",PASS,alnum-containment,,,8533bbf1fa5f
-supplementary.docx,paragraph,The result is mixed and is reported as such. Tiering is demo,PASS,alnum-containment,,,e2e98952525f
-supplementary.docx,paragraph,This study is exploratory by registration. It is reported de,PASS,alnum-containment,,,a8af4ee1d61a
+supplementary.docx,paragraph,The result is mixed and is reported as such. Tiering is demo,PASS,alnum-containment,,,0bc23cbc9bb3
+supplementary.docx,paragraph,This study is exploratory by registration. It is reported de,PASS,alnum-containment,,,e900ea7e7139
 supplementary.docx,paragraph,One deviation from the registered design was found after exe,PASS,alnum-containment,,,026d24a3baf9
 supplementary.docx,paragraph,"The registered headline form is an ordinal statement, and it",PASS,alnum-containment,,,60377d683d3a
 supplementary.docx,paragraph,Registered before execution as pre-registration Amendment A4,PASS,alnum-containment,,,29eac4253115

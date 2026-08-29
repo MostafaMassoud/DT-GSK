@@ -191,7 +191,7 @@ python -m pytest</code></pre>
 <p>After the test suite is green, confirm the registry and a tiny end-to-end run:</p>
 <pre><code class="code-block language-powershell">gsk-list --optimizers --benchmarks --references benchmarks/cec_reference_results
 gsk-run --config configs/smoke.yml --root .</code></pre>
-<p><code>gsk-list</code> should report the seven runnable optimizers (<code>gsk</code>, <code>agsk</code>, <code>apgsk</code>, <code>fdb-agsk</code>, <code>atmals-gsk</code>, <code>egsk</code>, <code>dt-gsk</code>) and the six suites (<code>sphere</code>, <code>cec2011</code>, <code>cec2013</code>, <code>cec2013lsgo</code>, <code>cec2017</code>, <code>cec2020</code>). Generated output lands under <code>results/_run_all/&lt;optimizer&gt;/&lt;suite&gt;/</code>; imported reference evidence under <code>benchmarks/cec_reference_results/</code> is read-only and never written by a run.</p>
+<p><code>gsk-list</code> should report <strong>fifteen</strong> optimizer ids: the seven-method GSK-family panel (<code>gsk</code>, <code>agsk</code>, <code>apgsk</code>, <code>fdb-agsk</code>, <code>atmals-gsk</code>, <code>egsk</code>, <code>dt-gsk</code>) — the panel every statistical claim in the manuscript is computed over — plus eight external SOTA baselines (<code>mos-cec2013lsgo</code>, <code>shade-ils</code>, <code>decc-g</code>, <code>cmaes</code>, <code>ebowithcmar</code>, <code>jso</code>, <code>lshade</code>, <code>lshade-spacma</code>) that are runnable under the project&#x27;s protocol but are <strong>not</strong> part of that panel. Under <code>benchmarks:</code> it lists the five CEC suites (<code>cec2011</code>, <code>cec2013</code>, <code>cec2013lsgo</code>, <code>cec2017</code>, <code>cec2020</code>), with <code>sphere</code> reported separately under <code>smoke problems:</code>. Generated output lands under <code>results/_run_all/&lt;optimizer&gt;/&lt;suite&gt;/</code>; imported reference evidence under <code>benchmarks/cec_reference_results/</code> is read-only and never written by a run.</p>
 <h2 id="development-principles">Development Principles</h2>
 <p>These are the standing rules that keep the port faithful and reproducible. Follow them by default; document any deliberate exception (see the last bullet).</p>
 <ul>
@@ -211,7 +211,8 @@ gsk-run --config configs/smoke.yml --root .</code></pre>
   benchmark_adapter/  problem factory, protocol metadata, shape validation
   cli/                thin entry points (run, list, validate, stats)
   common/             reference-faithful rng, donors, bounds, population helpers
-  optimizers/         the seven runnable optimizers (gsk + adaptive variants + egsk + dt-gsk)
+  optimizers/         the seven-method GSK family (gsk + adaptive variants + egsk + dt-gsk);
+                      external/ holds the eight SOTA baselines (runnable, not in the panel)
   runners/            config, seed policy, experiment driver, output, parallel
   stats.py            error and statistics conventions
   types.py            shared dataclasses exchanged across layers</code></pre>
