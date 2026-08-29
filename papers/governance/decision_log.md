@@ -2957,3 +2957,56 @@ applying all surfaced fixes.
   cross-artifact audit re-run at the close.
 - **Anchor.** 33ee170 (apply); mint, close and tag v2.29 follow. NEXT free
   ids: CR-0037 and D-0062.
+
+## D-0062 (2026-08-29) - Pass-57: closure of the optional-queued and immutable-history items
+
+- **Decision.** The author directed that the register's remaining
+  optional-queued items and the recorded-immutable items be fixed. Two
+  verification agents ran first (the checksum row plan; the protocol-NP
+  claim across all five suites). Mint **pass-57**, tag **v2.30**.
+  Registered as **CR-0037**.
+- **artifact_binding output_checksum re-derived.** 84 stale pairs across 48
+  of 71 rows - values dated from the pre-migration monorepo tree while the
+  artifacts were regenerated at the 2026-07-31/08-01 imports and later
+  passes. TWO independent derivations (the verification agent's row plan and
+  the applier's own recomputation from artifact_path) agreed on every pair
+  before the write; a structural check proved no other column changed. The
+  11 prose-valued rows (native-table n/a entries and the pass-53 revision
+  exhibits) are untouched by design. Format conventions preserved:
+  basename=hex pairs ';'-joined, never CSV-quoted, CRLF.
+- **The protocol-conformance sentence is in the manuscript.** Section 3.2's
+  asymmetry paragraph now states: both population settings are
+  protocol-conformant - each suite's protocol fixes its evaluation budget
+  and run count (the frozen protocol table) and prescribes no population
+  size. Generalized beyond the letter's CEC2017 form ONLY after verifying
+  every in-repo protocol authority for all five suites (BENCHMARK_RULES,
+  the manuscript's own protocol table, the SAP addendum's registered facts,
+  the SuiteProtocol dataclass, both protocol audits, all five equivalence
+  reviews): none prescribes or mentions a population size. The DOCX shim
+  mirrors it; the response letter's 'our observation here, not a manuscript
+  statement' aside becomes 'now also stated in Section 3.2' and the letter
+  is re-rendered.
+- **The immutable-history items are fixed by DISCLOSURE, the only correct
+  means.** Rewriting pushed history would move published tags, break the
+  Data Availability Statement, and violate D-0045. The freeze manifest now
+  carries immutable_history_note recording both blemishes where an auditor
+  will look: (1) the pass-54 commit c0028c1's MESSAGE cites anchor 4d6bd1b,
+  which resolves to nothing, while the manifest committed in that commit is
+  correct - commit messages cannot be corrected without rewriting pushed
+  history; (2) the manifest copies frozen inside tags v2.26-v2.28 stand as
+  minted, including v2.28's published_commit whose tail was invented while
+  expanding an abbreviation - corrected on main at pass-56 and gated by
+  check_manifest's resolvability check since.
+- **The heredoc backslash trap fired AGAIN during this pass** - a ref macro
+  authored through an inline heredoc shipped into the built PDF as a literal
+  carriage return plus 'ef', caught only by reading the render. The repair
+  added a LONE-CR audit: the standing no-lone-LF purity check cannot see a
+  bare 0x0D, which is exactly what a collapsed backslash-r produces. The
+  standing rule is unchanged and re-learned: author LaTeX and regex through
+  Write-tool scripts, never a heredoc.
+- **Validation.** check_manifest 15/15 + sources 2/2 with commit-field
+  resolvability; package and reproducibility manifests verified post-write;
+  Table 13 reference verified resolving in the render; ladder and
+  cross-artifact audit re-run at the close.
+- **Anchor.** 87af854 (apply+mint HEAD at close). NEXT free ids: CR-0038
+  and D-0063.

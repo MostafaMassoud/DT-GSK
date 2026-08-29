@@ -26,11 +26,19 @@ is. **The repo was set PRIVATE on 2026-08-28 (author, to finalize) and MUST be p
 the upload** — the DAS names its URL and tags, and reviewers will click. Detail:
 [REVISION_STATUS.md](REVISION_STATUS.md) §5 items 1 and 6.
 
-**Current freeze: pass-56 / `v2.29`** — minted, tagged and **PUSHED** (2026-08-29). All 29 tags
-are on `origin`; `v2.13` and `v2.29`, the two the Data Availability Statement names, resolve
-there at the same commits as local. `main` is in sync. The repo is still **PRIVATE** — flipping
-it public is the remaining step before a referee can follow the DAS.
-**Pass-56 (2026-08-29, D-0061 / CR-0036) closed the from-scratch five-instrument re-review:**
+**Current freeze: pass-57 / `v2.30`** — minted and tagged **locally; NOT pushed** — verify
+`git status -sb` and `git ls-remote --tags origin`, because the Data Availability Statement names
+`v2.30`. The repo is still **PRIVATE** — flipping it public is the remaining step before a
+referee can follow the DAS.
+**Pass-57 (2026-08-29, D-0062 / CR-0037) closed the optional-queued and immutable-history items:**
+artifact_binding's checksum column re-derived (84 stale pairs, two independent derivations in
+agreement); Section 3.2 states protocol conformance (no suite protocol prescribes a population
+size — verified for all five before generalizing); the freeze manifest's `immutable_history_note`
+discloses the two unfixable history blemishes — rewriting pushed history would break the DAS and
+violate D-0045, so disclosure IS the fix. **The heredoc backslash trap fired again** (a ref macro
+shipped as a literal CR + 'ef' into the built PDF, caught in the render); line-ending audits must
+check for LONE CR too, which the no-lone-LF assert misses.
+**Pass-56 (2026-08-29, D-0061 / CR-0036) preceded it, closing the from-scratch five-instrument re-review:**
 the cover letter's blanket 'before any result existed' pre-registration claim was false for E5
 on its natural reading and now matches the response letter's precise chronology; the stale-claim
 family's FIFTH recurrence (seven documents still called the E1 D = 100 contrast 'not separated'
