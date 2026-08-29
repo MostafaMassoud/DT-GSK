@@ -78,7 +78,8 @@ The subsystems below map onto the three contributions the project claims:
   along**: a three-arm isolation at fixed enablement finds the polish beating no
   refinement at both active dimensions (22/2/5 at `D=50`, 23/1/5 at `D=100`), while
   the *learned* eigenframe is **beaten by the plain coordinate axes** at `D=50`
-  (Holm 1.4e-4, 25 of 29 functions) and is not separated from them at `D=100`
+  (Holm 1.4e-4, 25 of 29 functions) and, under the canonical 1e-8 tie rule, at
+  `D=100` as well (Holm 0.0489)
   (Supplementary Materials, Section S9.1). C1 is therefore claimed **basis-neutrally**.
 - **C2 — Dimension-tiered adaptive scaffold.** The `pub` profile itself: ACE/ARGP
   operator selection, the NLPSR population schedule, and BSE + the diversity archive

@@ -254,8 +254,9 @@ python papers/scripts/generate_latex_tables.py
 python papers/scripts/generate_t16_bca.py
 python papers/scripts/generate_revision_exhibits.py   # S9 exhibits SA05-SA08 = Tables A43-A46
 
-# --- 7. Build the PDFs. Since pass-54 the epoch is pinned INSIDE the builders
-#     (build_pdf.py:67, build_supplementary.py:42, build_cover_letter.py:41),
+# --- 7. Build the PDFs. Since pass-53 the epoch is pinned INSIDE the builders
+#     (build_pdf.py:67, build_supplementary.py:42; pass-54's build_cover_letter.py
+#     pins it too, at :43),
 #     so do NOT export it here. Exporting it is now the only way to create the
 #     hazard step 7b warns about, because the DOCX writer prefers an inherited
 #     SOURCE_DATE_EPOCH over its own different default ---

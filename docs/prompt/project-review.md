@@ -154,13 +154,18 @@ outputs, tests, performance, and documentation.
 Ground-truth inventory (verify against the repo; do not assume it is stale, and
 do not invent items not present):
 
-- Runnable optimizers (7): gsk, agsk, apgsk, fdb-agsk, atmals-gsk, egsk, dt-gsk
-  (dt-gsk is this family's own proposed/headline method; the rest are
+- Family panel optimizers (7): gsk, agsk, apgsk, fdb-agsk, atmals-gsk, egsk,
+  dt-gsk (dt-gsk is this family's own proposed/headline method; the rest are
   baselines/variants). Source: src/gsk_family/optimizers/ (gsk.py, agsk.py,
   apgsk.py, fdb_agsk.py, atmals_gsk.py, egsk.py, dt_gsk.py, plus helpers
   _kernels.py, atmals_helpers.py, fdb_scores.py, and the dt-gsk support modules
-  _dt_profiles.py, _dt_rng.py, _dt_core.py, _dt_subsystems/). The canonical ID
-  list is the OPTIMIZER_IDS tuple in src/gsk_family/optimizers/__init__.py.
+  _dt_profiles.py, _dt_rng.py, _dt_core.py, _dt_subsystems/). These 7 are
+  FAMILY_OPTIMIZER_IDS; the runner ALSO accepts 8 external SOTA baselines
+  (EXTERNAL_OPTIMIZER_IDS — outside the statistical panel), so the canonical
+  OPTIMIZER_IDS tuple in src/gsk_family/optimizers/__init__.py holds 15 ids and
+  `gsk-list` prints 15. RUNNABLE_OPTIMIZERS (the 7 family ids) lives in
+  src/gsk_family/analysis/project_policy.py. Do NOT file the 15-id surface as
+  drift against the 7-id panel.
   eGSK is a runnable optimizer (a faithful port; its interior-point refinement
   substitutes scipy.optimize.minimize(method="SLSQP") for the reference fmincon,
   validated as statistically equivalent -- see
@@ -977,7 +982,7 @@ Tasks:
    src/gsk_family/analysis/ (family_report.py, result_loader.py,
    statistical_tests.py, statistics.py, figures.py, latex_tables.py,
    project_policy.py), plus docs/research/statistical_analysis.md.
-2. Verify the panel composition: the seven algorithms are the seven runnable
+2. Verify the panel composition: the seven algorithms are the seven FAMILY
    optimizers (gsk, agsk, apgsk, fdb-agsk, atmals-gsk, egsk, dt-gsk). eGSK is a
    runnable optimizer (port; scipy-SLSQP substitutes fmincon), and its panel
    cells are the comparator of record sourced from the committed reference CSVs;

@@ -1302,13 +1302,13 @@ worktree blind spot.
    keyword list in the revision form; portal metadata does not update from the PDF. Upload the
    revised manuscript, the supplementary, the figures and LaTeX-source zips, the cover letter,
    the response letter (`papers/submission/response_to_reviewers.pdf`, rendered
-   2026-08-29 from the pass-54 source), both changes-marked manuscripts and the change register
+   2026-08-29 from the current source), both changes-marked manuscripts and the change register
    (`DT-GSK-change-register.pdf`, every changed passage as-submitted vs
    as-revised --- read the live page and passage counts off the register's own front page; every
    numeric copy of them recorded elsewhere has gone stale). All four sit staged in
    `papers/submission/`, deliberately NOT in the repository
    (pinned in `.gitignore`) and regenerable --- the letter from its Markdown source on disk, the
-   marked copies and the register from `git diff v2.13 v2.27`. Paste text and the full
+   marked copies and the register from `git diff v2.13 v2.28`. Paste text and the full
    upload table are in `papers/submission/SUBMISSION_KIT.md`.
 3. **`runners/run_experiment.py:725`** (and `:714`) --- the cosmetic `Pop=100` banner defect, in
    `_optimizer_options_line`; **not** `_optimizer_population_size` at `:345`, which only sizes the
@@ -1381,7 +1381,7 @@ worktree blind spot.
    revision form. Portal metadata does not update from the PDF.
 6. **Make the repository PUBLIC again before uploading (author-only, 2026-09-01).** The author set it
    private on 2026-08-28 to finalize; verified private (API 404). The Data Availability Statement in
-   the revised manuscript names the repo URL and tags v2.13/v2.25, and the Supplementary's
+   the revised manuscript names the repo URL and tags v2.13/v2.28, and the Supplementary's
    pre-registration claim depends on public checkability — a reviewer clicking during round 2 must
    not hit a 404. Flip visibility BEFORE the SuSy upload. Side effect while private: the two
    GitHub-exposed commits are not publicly served; public serving resumes with visibility.
@@ -1570,7 +1570,7 @@ are given here.
 ### Phase 7 — resubmit (author-only; the point of no return)
 
 **Deadline CONFIRMED 2026-09-01, and the planned resubmission date is the same day.** Everything
-agent-side is complete at pass-54 / `v2.27` (pass-51's acceptance-readiness fixes plus the
+agent-side is complete at pass-55 / `v2.28` (pass-51's acceptance-readiness fixes plus the
 seven-lens panel review: the response letter's stale abstract quote and two superseded E1
 p-values corrected, SA01/SA02 renamed to the typeset Tables A23–A24, and the cover letter's
 stale 84-passage count made count-free — D-0057 / CR-0032); nothing in the repository blocks that date. The
@@ -1591,11 +1591,12 @@ warning that portal metadata does not update from the PDF. Re-enter both by hand
   CEC benchmark suites; nonparametric statistical comparison; reproducibility`
 
 **Generate both companion PDFs fresh.** The response letter's source was edited in passes 42, 43 and
-50, 53 and 54, and the change register must come from `git diff v2.13 v2.27`. Read its passage count
+50, 53 and 54, and the change register must come from `git diff v2.13 v2.28`. Read its passage count
 off its own front page — no figure for it should be quoted anywhere, because every copy has gone stale.
 
-**After upload, no rebuilds.** `v2.27` becomes the frozen record of what was resubmitted; any later
-revision is a new pass with a new superseding tag, never an edit to v2.27 in place (D-0045).
+**After upload, no rebuilds.** The DAS-named tag becomes the frozen record of what was resubmitted
+(read it off `papers/main.tex` at upload time); any later revision is a new pass with a new
+superseding tag, never an edit to the submitted tag in place (D-0045).
 
 
 SuSy upload; **re-enter the new title and revised keywords by hand** — portal metadata does not

@@ -39,7 +39,7 @@ claim, W/T/L direction); three orphan tables gained refs while SEVEN alleged orp
 as range-covered; three clearpage flushes cured the float inversions (supplement now 83 pp);
 87 algorithm-guide citations re-based; the register renders hunk context verbatim (a latent
 tex_escape ordering bug fixed with it).
-**Pass-54 (2026-08-29, D-0059 / CR-0034) is the current pass:** five review instruments were
+**Pass-54 (2026-08-29, D-0059 / CR-0034) preceded it:** five review instruments were
 retuned and re-applied from scratch and three cross-audits run beside them; 67 findings, all
 verified against bytes or the render before being acted on. Topmost, **both architecture tables
 (Table 4 row 8, Table 5 row 9) still carried the retired C1 name** on pages whose own prose said
@@ -77,11 +77,11 @@ decision flip: E1 D100 eigenframe-vs-coordinate now SEPARATED, Holm 0.0489), the
 basis-neutral, the tiering-thesis and causal-mis-specification prose is bounded, and the
 submission package manifest matches the actual bytes. (**The “195 words” recorded here at the
 time was wrong** — pass-54 measured the shipped abstract at 205 rendered words, already 204 at
-v2.26, against a 200-word guideline. It is deliberately NOT trimmed: the sentences carrying the
-CEC2020 and CEC2013LSGO outcomes are bound to registered wording banks RS-12/RS-13, and
-re-drafting registered outcome wording to meet a soft cap would cost more than five words are
-worth. The false count was removed from the response letter. Open author decision — trim the two
-unregistered opening sentences if the editor objects.)
+v2.26, against a 200-word guideline. It was left untrimmed through pass-54 because the sentences
+carrying the CEC2020 and CEC2013LSGO outcomes are bound to registered wording banks RS-12/RS-13;
+pass-55 then closed the author decision by trimming UNREGISTERED material only, to 199 rendered
+words, with the registered sentences byte-identical — see the pass-55 entry above. The false
+count was removed from the response letter.)
 **Pass-50 / v2.23 followed the same evening (author instruction: implement every reopened
 item):** the D-0051 re-execution is PROMOTED and cited (`g1-rel-2026-08-28-65b3d39e6`; Table A45
 now reports the residual as a demonstrated build difference), Figure 4 shades the within-one-CD
@@ -291,10 +291,11 @@ It ends on "PUBLISH READY", which is no longer the project's state. Do not read 
   commit SHA recorded by a governance record written before then — including older
   `anchor_commit` values — does **not** resolve. Since the private branches were bundled out and
   `main` became the only branch, ordinary commits are published as they are: `anchor_commit`
-  now resolves (it is `v2.27^`). `published_commit` names the PREVIOUS freeze's close, so its
+  now resolves (verify with `git cat-file -e` — tag-relative identities go stale every pass).
+  `published_commit` names the PREVIOUS freeze's close, so its
   tree is deliberately not the current freeze's. Disclosed in `README.md`.
-- Governance ids are sequential and must be verified free at apply time — next are **CR-0035** and
-  **D-0060**.
+- Governance ids are sequential and must be verified free at apply time — read the CURRENT
+  next-free pair off the "Right now" block above (this bullet has lagged it two passes running).
 - Evidence releases are additive and non-superseding. Frozen analysis outputs are never re-minted;
   new findings get a new release id.
 - Temporary files go in the session scratchpad, **outside** the repo. Never create scratch trees,

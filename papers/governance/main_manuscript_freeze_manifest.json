@@ -124,8 +124,8 @@
     "revision_analysis_pins": "NOT RE-RUN at pass-43, and not required: no analysis artifact was touched, which check_frozen_analysis confirms at 115/115."
   },
   "remint_note": "pass-48 MINTED 2026-08-27. The lesson is procedural: pass-47's applier printed a success message it never verified, so a replacement that silently failed to match shipped a false symbol. Assert the END STATE after a batch, never per-edit success - the same rule D-0039 recorded and this pass re-learned.",
-  "published_commit": "2ff36b7cf5be8258ef6c25da1c866c94ed2b232a",
-  "published_commit_note": "published_commit is the commit that carried the previous freeze's mint onto the published branch (the v2.25 close). It is NOT the same object as anchor_commit, which names this pass's apply commit; both resolve on the public branch. This field went four passes stale before pass-53 because nothing gates it - recompute it at every mint, and never assume anchor and published are the same commit.",
+  "published_commit": "2ff36b7cf40a682a7196d3fcfdc0cedda43d7d00",
+  "published_commit_note": "published_commit is the commit that carried the previous freeze's mint onto the published branch (for pass-55, the v2.27 close). It is NOT the same object as anchor_commit, which names this pass's apply commit; both resolve on the public branch. This field went four passes stale before pass-53 because nothing gates it - recompute it at every mint, and never assume anchor and published are the same commit.",
   "source_files": [
     {
       "path": "papers/supplementary.tex",

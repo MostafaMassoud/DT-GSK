@@ -115,8 +115,9 @@ standalone benefit** at its active tiers, and a three-arm isolation of the
 refinement basis added in revision sharpens that to harm: in the memory's terminal
 exploitation channel -- the basis the deterministic final polish searches
 along -- the learned eigenframe is **beaten by the plain coordinate axes** at
-`D = 50` (Holm 1.4e-4, 25 of 29 functions) and is not separated from them at
-`D = 100`. The polish itself survives: it beats no refinement at both active
+`D = 50` (Holm 1.4e-4, 25 of 29 functions) and, under the manuscript's
+canonical 1e-8 tie rule, at `D = 100` as well (Holm 0.0489). The polish itself
+survives: it beats no refinement at both active
 dimensions, so ISM is a specified negative result rather than a contribution,
 and the polish is claimed basis-neutrally. Both negative findings are reported
 in the abstract and conclusions rather than confined to a supplement.

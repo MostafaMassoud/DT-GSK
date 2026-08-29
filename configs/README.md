@@ -34,6 +34,7 @@ This directory contains YAML experiment configurations for `gsk-run`.
 | `_ablation/` | Generated per-cell ablation configs (`baseline.yml`, `no_<mechanism>.yml`, `only_<mechanism>.yml`, ...) written by `scripts/run_ablation.py`. Regenerated on each ablation launch — do not hand-edit; change `scripts/run_ablation.py` instead. |
 | `experimental/` | Opt-in diagnostics campaigns: `dt_diag.yml` / `dt_diag_15run.yml` (per-generation DT-GSK JSONL traces, analyzed by `scripts/analyze_dt_diagnostics.py`) and `dt_d10_scored.yml` (canonical D10 scored reproducer). |
 | `publish/` | Publication campaign configs; `dt_gsk_cec2017_final.yml` is the canonical DT-GSK CEC2017 paper run. |
+| `_recover/` | One-off recovery configs for regenerating lost reference cells (`apgsk_cec2017_recover.yml`, used with `scripts/recover_apgsk_perrun.py`); kept for provenance. |
 
 Run a config from the project root with:
 

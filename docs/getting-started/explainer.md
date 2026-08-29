@@ -79,7 +79,8 @@ memory at its active tiers, and a three-arm isolation of the refinement basis
 added in revision sharpens that to harm: in the memory's terminal exploitation
 channel — the basis the deterministic final polish searches along — the learned
 eigenframe is **beaten by the plain coordinate axes** at D50 (Holm 1.4e-4, 25
-of 29 functions) and is not separated from them at D100. The polish itself
+of 29 functions) and, under the canonical 1e-8 tie rule, at D100 as well
+(Holm 0.0489). The polish itself
 survives, beating no refinement at both active dimensions, so it is claimed
 basis-neutrally and the memory is a specified negative result rather than a
 contribution (see the Supplementary Materials, Sections S6 and S9.1).

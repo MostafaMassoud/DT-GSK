@@ -632,7 +632,7 @@ python papers\scripts\check_frozen_analysis.py
 python papers\scripts\validate_provenance_claims.py
 ```
 
-At freeze pass-54, `check_manifest.py` reads **15/15 plus `sources 2/2`** (the
+At freeze pass-55, `check_manifest.py` reads **15/15 plus `sources 2/2`** (the
 render-source line added after pass-42's hashed-render/unhashed-source blind
 spot) against its default
 `papers/governance/main_manuscript_freeze_manifest.json` (`--manifest` is

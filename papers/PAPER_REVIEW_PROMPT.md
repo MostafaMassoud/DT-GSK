@@ -179,7 +179,7 @@ Never edit or reinterpret primary evidence merely to make it agree with the manu
 > `papers/scripts/build_change_marked_pdf.py` / `build_change_register.py`.
 >
 > **Freeze:** pass-55, tag **v2.28** (v2.13 … v2.28 all resolve, all pushed), decision log through **D-0060**,
-> change requests through **CR-0033**; next free ids **CR-0034 / D-0059** (verify free at apply
+> change requests through **CR-0035**; next free ids **CR-0036 / D-0061** (verify free at apply
 > time). `check_manifest` = **15/15 files + sources 2/2** — the `source_files` gate (pass-43)
 > hashes `supplementary.tex` and `cover_letter.tex`, so an unbuilt source edit now fails the gate
 > that pass-42 slipped through. Any manuscript edit voids pass-55 → pass-56 re-mint + tag v2.29

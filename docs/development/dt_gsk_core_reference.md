@@ -30,7 +30,8 @@ what is claimed, not the basis it searches along. Two isolations bound the memor
 statistically significant standalone benefit** under Holm correction. The three-arm basis
 isolation added in revision (Supplementary Section S9.1) goes further: at fixed enablement
 the plain coordinate axes **outperform** the learned eigenframe at D=50 (Holm 1.4e-4, 25
-of 29 functions) and are not separated from it at D=100 — while the polish itself beats no
+of 29 functions) and, under the canonical 1e-8 tie rule, at D=100 as well (Holm
+0.0489) — while the polish itself beats no
 refinement at both active dimensions (22/2/5 at D=50, 23/1/5 at D=100; the coordinate arm
 28/1/0 and 25/1/3). Never describe either result as an improvement or a gain from ISM.
 

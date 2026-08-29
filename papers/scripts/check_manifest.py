@@ -27,6 +27,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import subprocess
 import sys
 from pathlib import Path
 
@@ -157,6 +158,21 @@ def main(argv: list[str] | None = None) -> int:
         if src_n:
             print(f"{label}sources {src_ok}/{src_n} match  {src_bad if src_bad else '[]'}")
             all_bad.extend(f"source: {s}" for s in src_bad)
+        # Commit-field resolvability. Pass-55's mint recorded a published_commit
+        # whose tail was invented while expanding an abbreviation, and nothing
+        # read the field, so the gate stayed green over a SHA that resolves to
+        # nothing. Every recorded commit field must name a real object.
+        for fld in ("anchor_commit", "published_commit"):
+            sha = manifest.get(fld)
+            if not sha:
+                continue
+            rc = subprocess.run(
+                ["git", "cat-file", "-e", str(sha) + "^{commit}"],
+                cwd=_ROOT, capture_output=True,
+            ).returncode
+            if rc != 0:
+                print(f"{label}{fld} DOES NOT RESOLVE: {sha}")
+                all_bad.append(f"{fld}: {sha} unresolvable")
         root_field = manifest.get("evidence_root")
         if root_field:
             evidence_root = (_ROOT / root_field).resolve()

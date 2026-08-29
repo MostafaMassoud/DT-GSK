@@ -44,12 +44,11 @@ GSK-family panel.
 
 (REGENERATED from papers/DT-GSK.pdf at pass-55, not hand-edited: this block
 went stale three times — it sat at the v2.21 wording for four passes, and then
-again at pass-53 and pass-55 the moment main.tex was touched. Regenerate it
+again at pass-53, pass-54 and pass-55 the moment main.tex was touched. Regenerate it
 with papers/scripts/ or by extracting page 1 of the PDF; never retype it. The
-PDF always wins. Note that the abstract runs slightly over the journal's
-200-word guideline: the sentences carrying the CEC2020 and CEC2013LSGO
-outcomes are pre-registered wording and were deliberately not re-drafted to
-shorten it — see decision log D-0059.)
+PDF always wins. The abstract is 199 rendered words, within the journal's
+200-word guideline; the pre-registered CEC2020 and CEC2013LSGO sentences are
+byte-identical before and after the pass-55 trim — see decision log D-0060.)
 
 ## 4. Keywords (paste as-is; semicolon-separated)
 
@@ -169,9 +168,9 @@ nonparametric comparison of metaheuristics, or adjacent DE/PSO families.
    are uploaded but hash-recorded nowhere. Freeze pass-55 and tag
    v2.28 are the frozen state of this resubmission, exactly as pass-38 / v2.13
    is the frozen state of the original.
-3. If a SECOND revision is requested, it becomes pass-55 through change
-   control: a new freeze pass and a new superseding tag, never an edit to
-   v2.28 in place (D-0045).
+3. If a SECOND revision is requested, it becomes a NEW freeze pass through
+   change control with a new superseding tag, never an edit to the submitted
+   tag in place (D-0045).
 4. Two of the uploaded artifacts — the response letter and the change register —
    are deliberately not in the repository (D-0049). They are regenerable: the
    response letter from its Markdown source on disk, the register from
