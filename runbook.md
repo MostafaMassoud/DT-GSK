@@ -302,6 +302,10 @@ python papers/scripts/validate_provenance_claims.py
 python papers/scripts/validate_evidence_bindings.py
 python papers/scripts/validate_docx.py papers/DT-GSK.docx
 python papers/scripts/validate_docx.py papers/supplementary.docx
+python scripts/check_package_contents.py  # builds sdist+wheel from `git archive HEAD`
+#     and fails if either carries the evidence bank, papers/, or withheld
+#     material. Added 2026-08-29 after a setuptools upgrade started honoring the
+#     old recursive package-data glob and produced a 1.2 GB wheel.
 
 # --- 8c. Freeze re-mint, after any change to one of the 15 files tracked in
 #     papers/governance/main_manuscript_freeze_manifest.json. Re-mint it

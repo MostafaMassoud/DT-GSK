@@ -34,6 +34,16 @@ the order they build on one another:
 - **Contribute code.** [Code Reading Guide](development/code_reading_guide.md) -> [Developer Guide](development/developer_guide.md) -> [Extension Guide](development/extension_guide.md) -> [Contributor Guide](development/contributor_guide.md).
 - **Look something up.** [Configuration](getting-started/configuration.md), [API Reference](reference/api.md), [Result Schema](reference/result_schema.md), [Glossary](reference/glossary.md), [Diagrams](reference/diagrams.md).
 
+> **User documentation vs internal research records.** The
+> `getting-started/`, `algorithms/`, `reference/`, and `research/` folders are
+> the curated user-facing documentation and follow the revised manuscript's
+> claims. The `development/` and `prompt/` folders, the governance trees under
+> `papers/`, and the dated review/audit reports are **internal research
+> records**: they document how the study was built and audited, are often
+> deliberately historical (append-only or dated), and may describe superseded
+> states by design. When a development-tree page and a user-facing page
+> disagree, the user-facing page and the manuscript win.
+
 > The seven-method **GSK family** -- `gsk`, `agsk`, `apgsk`, `fdb-agsk`,
 > `atmals-gsk`, `egsk`, and `dt-gsk` -- is the statistical panel every claim in
 > the manuscript is computed over (`FAMILY_OPTIMIZER_IDS`). The runner accepts

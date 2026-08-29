@@ -47,7 +47,13 @@ include = ["gsk_family*", "benchmarks*"]
 namespaces = true
 
 [tool.setuptools.package-data]
-"benchmarks" = ["cec_reference_results/**/*.csv", "cec_reference_results/**/*.md"]
+# The frozen evidence bank (benchmarks/cec_reference_results/, ~1.2 GB) is
+# distributed by the tagged repository named in the Data Availability
+# Statement, NEVER by pip artifacts. Older setuptools silently ignored a
+# recursive glob here; newer setuptools honors it and produced a 1.2 GB wheel
+# (caught 2026-08-29 by scripts/check_package_contents.py, which now gates
+# this). Only the bank's top-level README ships as package data.
+"benchmarks" = ["cec_reference_results/README.md"]
 "benchmarks.cec_suite_python" = ["cec_suite_readme.md", "cec_suite_readme.html"]
 "benchmarks.cec_suite_python.cec2011" = ["README.md"]
 "benchmarks.cec_suite_python.cec2013" = ["data.pkl", "README.md"]

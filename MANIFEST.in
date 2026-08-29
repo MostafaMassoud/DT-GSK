@@ -7,7 +7,6 @@ graft scripts
 graft tests
 graft benchmarks/cec_suite_python
 graft benchmarks/cec_suite_cpp
-recursive-include benchmarks/cec_reference_results *.csv *.md
 include benchmarks/README.md
 include benchmarks/__init__.py
 include benchmarks/cec_reference_results/README.md

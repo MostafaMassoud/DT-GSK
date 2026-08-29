@@ -253,6 +253,28 @@ the tagged repository release named in the manuscript's Data Availability
 Statement. The package version has never been bumped and awaits a
 post-acceptance publication decision.
 
+### Repository weight and what you actually need
+
+A full clone is ~1.3 GB, dominated by the frozen evidence bank under
+`benchmarks/cec_reference_results/` — the committed raw results every reported
+number is bound to. You only need that bank to re-derive the study's
+statistics; installing and *running* the optimizers needs none of it. For a
+code-only checkout:
+
+```bash
+git clone --filter=blob:none --sparse https://github.com/MostafaMassoud/DT-GSK
+cd DT-GSK
+git sparse-checkout set src benchmarks/cec_suite_python benchmarks/cec_suite_cpp configs tests scripts docs
+python -m pip install -e ".[dev]"
+```
+
+The pip artifacts themselves never carry the evidence bank (gated by
+`scripts/check_package_contents.py`). Moving the bank out of the repository
+into release assets is deliberately deferred until after the current review
+round: the manuscript's Data Availability Statement names this repository's
+tags as carrying the complete evidence, and that claim must stay true while
+referees are checking it.
+
 | Optimizer ID | Algorithm reference |
 |---|---|
 | `gsk` | Mohamed, A. W.; Hadi, A. A.; Mohamed, A. K. "Gaining-sharing knowledge based algorithm for solving optimization problems: a novel nature-inspired algorithm." International Journal of Machine Learning and Cybernetics, 11, 1501-1529, 2020. DOI: [10.1007/s13042-019-01053-x](https://doi.org/10.1007/s13042-019-01053-x). |
