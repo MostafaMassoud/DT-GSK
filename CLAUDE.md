@@ -26,8 +26,8 @@ is. **The repo was set PRIVATE on 2026-08-28 (author, to finalize) and MUST be p
 the upload** — the DAS names its URL and tags, and reviewers will click. Detail:
 [REVISION_STATUS.md](REVISION_STATUS.md) Section 5 items 1 and 6.
 
-**Current freeze: pass-59 / `v2.32`** — minted and tagged (2026-08-29); push, then verify with
-`git ls-remote --tags origin` — the DAS names `v2.13` and `v2.32`. The repo is still **PRIVATE** —
+**Current freeze: pass-59 / `v2.32`** — minted, tagged and **PUSHED** (2026-08-29); all 32
+tags are on `origin`, and `v2.13`/`v2.32` — the two the DAS names — resolve there. The repo is still **PRIVATE** —
 flipping it public is the remaining step before a referee can follow the DAS. Next free ids:
 **CR-0040 / D-0065** — verify free at apply time.
 **Pass-59 (2026-08-29, D-0064 / CR-0039):** the corresponding author's byline is the full name
