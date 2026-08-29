@@ -2,7 +2,7 @@
   "schema": "main_manuscript_freeze_manifest/v1",
   "phase": "PASS-54: remediation of the merged findings of five re-applied review instruments (project, documentation, publication-polish, manuscript, change-register acceptance) plus three targeted cross-audits. Manuscript: both architecture tables still carried the retired C1 stage name 'Eigenframe (final) polish' on pages whose own prose reads 'deterministic final polish', and the response letter promises the editor exactly that rename - renamed in Table 4, Table 5, the DOCX shim, the Section S9.4 parameter paragraph and the plain-language summary, while the E1 subsection title and arm names keep 'eigenframe' because there it names a contrasted arm. The supplement invited a commit-level pre-registration audit that the public repository fails (the CEC2020 addendum's signing commit does not resolve; the squashed public root postdates the release it registers): the claim now rests on the checksum binding, which holds, and the squash is disclosed as the reason commit dates are unavailable. The abstract's 'on that suite' followed two named suites and made the next clause false under the nearest antecedent (at CEC2013 D = 30 DT-GSK is third, not second) - scoped to CEC2017 and widened to 'either suite', verified on both. 'The tie band itself affects no significance decision' is removed, being contradicted by its own paragraph and by Section S9.1, where the canonical tie rule moves D = 100 across alpha. 'The single Holm-significant unfavorable headline cell in this study' is corrected: the pre-registered CEC2020 leg adds two at D = 20. The Conclusions now carry the basis negative at both active dimensions, C2's narrowing, and E2's adverse result, which had reached neither limitation ledger. The CEC2020 runner-up fact cited the APGSK paper at five sites and now cites the CEC2020 AGSK paper. Amendment A3 is disclosed as the Section S9 preamble promises; four reviewer-facing S9 tables gain cross-references; the Data Availability Statement's bare 'Table A45' is marked as supplementary. Letters: the cover letter's Markdown twin carried two paragraphs deleted from its LaTeX at pass-50, one contradicting the letter's own adverse-finding count, and the kit directs the author to paste that Markdown - the stale closing is dropped and the scope paragraph restored to the LaTeX, where the response letter already claims it stands. The response letter's abstract word count is removed rather than corrected: the abstract renders over the journal's guideline and was already over at v2.26, and the sentences carrying the CEC2020 and CEC2013LSGO outcomes are bound to registered wording banks that may not be re-drafted to shorten it. Build: build_cover_letter.py added, closing the last unpinned-epoch builder for a manifest-hashed artifact; all three PDFs double-build byte-identical. DAS names tag v2.27.",
   "generated_utc": "2026-08-29T09:05:00+00:00",
-  "anchor_commit": "072f6ec3feb657b116648f2f4a1dbf1e00515e0c",
+  "anchor_commit": "b7abf61da23db6f9792fc2d47ed7851313804e11",
   "pre_freeze_base_commit": "b9846e4 (abbreviated deliberately; the full SHA is held in the withheld papers/review_2026_08_24/PRIVATE_OPS.md because this commit is one of two unreachable objects pending a provider-side purge)",
   "evidence_release": {
     "primary": "rel-2026-07-20-67d9345f9",
@@ -50,7 +50,7 @@
     },
     {
       "path": "papers/sections/performance.tex",
-      "sha256": "996c6316071eefbf615b9fbe2f5dbf2d19f4b6d6de263b218aaebbf43da34b39",
+      "sha256": "8e30a5a111ae4d0b94cd4bc20182707e64da3f5bc61460008c9ef0a2d6987119",
       "bytes": 78018
     },
     {
@@ -60,13 +60,13 @@
     },
     {
       "path": "papers/DT-GSK.pdf",
-      "sha256": "35bafc2c657a2f8e46a702b23d016a27222d258203ebc16be7214dceef7ab273",
+      "sha256": "4ab96210499b80bcd2dc27fc1bcccaa0b7b21c860f1748e3e964414c659fef94",
       "bytes": 829894
     },
     {
       "path": "papers/DT-GSK.docx",
-      "sha256": "39676553662824466f6a29ef8209757f46fde8320b0c7b21e7e6592089959ecd",
-      "bytes": 1022241
+      "sha256": "d87574109597874c18a9569737de3e4e4ed276f56ec787b49ba20a39a6d1aac6",
+      "bytes": 1022246
     },
     {
       "path": "papers/supplementary.pdf",
