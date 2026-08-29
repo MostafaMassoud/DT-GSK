@@ -1830,7 +1830,7 @@ remaining evaluation budget so that MaxFES is met exactly.
 The active local search uses the \emph{coordinate} method (the subspace variant is
 implemented but not enabled in the frozen configuration).  In the endgame it is admitted
 by the joint of a time gate (consumed fraction $\ge$ start\_frac), an
-evaluation-budget cap ($eval\_budget\_frac\cdot\mathrm{MaxFES}$), a call period,
+evaluation-budget cap (eval\_budget\_frac $\cdot\ \mathrm{MaxFES}$), a call period,
 a post-search cooldown, and a post-restart block of $8$ generations, the same at
 every tier, that is armed only when a budget-safe escape has actually reseeded
 rows --- an escape whose Cauchy rescue cancelled the restart does not arm it.
@@ -2930,7 +2930,7 @@ at the time, then four dated extensions as further banks finished.
 ran, until the author surfaced the completed $D = 5$ block and directed a
 comparison (the entry's third extension, the first view touching the
 proposed method's data).  The registered analyses, tie rules and the
-Section~9 outcome sentences had been committed before any datum existed
+addendum's Section~9 outcome sentences had been committed before any datum existed
 and could not be altered by any inspection, and the remaining campaign was
 mechanically determined (unified seeds, locked configuration, overwrite
 disabled), so no inspection could influence the data still being
@@ -3825,8 +3825,9 @@ design's internal control.  Below the $D \ge 50$ gate the $D = 10$ arm ties
 throughout; at $D = 100$ it does not.  A promoted re-execution (release
 g1-rel-2026-08-28-65b3d39e6) resolves that residual as a build difference:
 the current build reproduces the transplant arm on all 26 divergent cells and
-the archived values on none, and reproduces both wherever the two legs
-agree.
+the archived values on none, and reproduces both wherever the two legs agree
+(26 divergent and 229 agreeing of the 255 (function, run) cells re-executed,
+with zero seed mismatches).
 
 @@NATIVETABLE!SA07@@
 
@@ -3936,7 +3937,10 @@ registered contrasts.
 
 
 @@TABLECAP!tab:rev-e5!SA09@@ Dimension-boundary sensitivity on CEC2017 (E5).  One Holm family
-across the five registered boundary contrasts; paired Wilcoxon on
+across the five registered boundary contrasts; four cells use 15 paired runs
+against the frozen tiered leg restricted to the same runs, and the $20 \to 31$
+cell at $D = 30$ reuses the 51 runs of the corresponding transplant; paired
+Wilcoxon on
 per-function means under the stated $10^{-8}$ tie rule, against the frozen
 tiered leg restricted to the same runs; W/T/L counted from the tiered side;
 the ordinal column re-ranks the panel with only the \dtgsk{} column
