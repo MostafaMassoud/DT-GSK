@@ -30,7 +30,8 @@ byte-identical to `DT-GSK-supplementary-changes-marked.pdf` before any edit — 
 are latexdiff marks, not shipped styling). Answered the same day by pass-64: the clean
 supplement, citation apparatus removed, re-sent by email.
 
-**Current freeze: pass-64 / `v2.37`** — minted and tagged (2026-09-01); the DAS now names
+**Current freeze: pass-64 / `v2.37`** — minted, tagged and **PUSHED** (2026-09-01; all 37
+tags on `origin`, v2.37 verified anonymously); the DAS now names
 `v2.13`/`v2.37`, while `v2.36` stays the frozen record of the SuSy resubmission. Next free
 ids: **CR-0045 / D-0070** — verify free at apply time.
 **Pass-64 (2026-09-01, D-0069 / CR-0044) makes the supplement standalone at the editorial
