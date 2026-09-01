@@ -499,24 +499,24 @@
     "revision": "rev-rel-2026-08-26-dd42d37eb  (round-one revision experiments E1-E4; additive, non-superseding)"
   },
   "superseded_anchor": "0d2bed9907faae38134c3e2969d250b1680a7305",
-  "updated_utc": "2026-08-29T09:55:00Z",
-  "update_note": "Re-verified at pass-54 (2026-08-29) AFTER every rebuild, which is the ordering that matters: this file went stale inside its own pass three times (pass-41 to pass-45, then pass-53, then pass-54's own first refresh), every time because it was updated at the apply commit and the artifacts were rebuilt afterwards. It is now gated by papers/scripts/check_reproducibility_manifest.py, which compares every digest and byte count against disk AND against the freeze manifest's files[], and checks anchor_commit_current. Run that gate after every rebuild, alongside check_manifest.py.",
+  "updated_utc": "2026-09-01T07:40:13Z",
+  "update_note": "Re-verified at pass-64 (2026-09-01) AFTER every rebuild, which is the ordering that matters: this file went stale inside its own pass three times (pass-41 to pass-45, then pass-53, then pass-54's own first refresh), every time because it was updated at the apply commit and the artifacts were rebuilt afterwards. It is now gated by papers/scripts/check_reproducibility_manifest.py, which compares every digest and byte count against disk AND against the freeze manifest's files[], and checks anchor_commit_current. Run that gate after every rebuild, alongside check_manifest.py.",
   "shipped_artifacts": {
     "papers/DT-GSK.pdf": {
-      "sha256": "1df7923f16677326f983adfd41ad0fa0b66c9687cbc77c5925afaa90afd04cc9",
+      "sha256": "4c829b308c5171136008900fde65900971aa69bce4fbcbf5100481feaf1e508d",
       "bytes": 830461
     },
     "papers/DT-GSK.docx": {
-      "sha256": "b842ee5d2f9fcc20a3911946f94bc912b964c1d216927c362e9da63bdf48746d",
-      "bytes": 1022628
+      "sha256": "abcc93c38a53cb3c1a5b2c9c8b720bd5f2e82ef118d74c198c71abfdaed1de14",
+      "bytes": 1022629
     },
     "papers/supplementary.pdf": {
-      "sha256": "dd1b49066f94c17b954c5f956c9f208bd02c7bd70c519e903296bc9239341c11",
-      "bytes": 1765772
+      "sha256": "6903ebf47e2fd63cd387086fc620beca9523c5d8a3dbf955578b41a4f3f6c83c",
+      "bytes": 1747825
     },
     "papers/supplementary.docx": {
-      "sha256": "947a6d325fe235a6092675e9b192baad18270c37730eb5b2e8f5b86a522838b7",
-      "bytes": 9628010
+      "sha256": "f700338ed9297f19dd55c05b789d4e25614db2e0ed6d7ef2a473e5a0e87d6488",
+      "bytes": 9621537
     },
     "papers/cover_letter.pdf": {
       "sha256": "4636dab0c08da6d4f12cc70bdad8de5422505abdd1e4158da9f125560ebb7704",
@@ -532,7 +532,7 @@
     "docx_source_date_epoch": 1783641600,
     "revision_release_correction": "Before first publication the revision release's provenance path fields were rewritten from absolute to repository-relative across 61 files, matching every earlier release; its manifest was re-minted and the correction recorded in the manifest's own correction field (D-0049)."
   },
-  "anchor_commit_current": "fcb17f20b274287441703e376d4dee2b3207eed8",
-  "published_commit_current": "709d6ff3a0ddca2184745fc18951ecf4179ba63d",
-  "anchor_note": "anchor_commit_current is the freeze anchor of the current pass (pass-63). It is recorded alongside published_commit_current rather than being repointed at whatever resolves: the anchor/published distinction is the project's disclosed convention (README, and the freeze manifest's published_commit_note), and collapsing them would destroy the anchor record. The Phase-0 and Phase-12 blocks in this file are self-labelled historical and are left as minted."
+  "anchor_commit_current": "725aa829c7758b690fbd927fd279639ec2e7ddb6",
+  "published_commit_current": "a49dcb30d9293d08a20955eb52261c73c1d41a95",
+  "anchor_note": "anchor_commit_current is the freeze anchor of the current pass (pass-64). It is recorded alongside published_commit_current rather than being repointed at whatever resolves: the anchor/published distinction is the project's disclosed convention (README, and the freeze manifest's published_commit_note), and collapsing them would destroy the anchor record. The Phase-0 and Phase-12 blocks in this file are self-labelled historical and are left as minted."
 }

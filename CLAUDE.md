@@ -15,20 +15,32 @@ Python package: `gsk_family` (under `src/`). Console entry points are `gsk-*`.
 The repository exists to support a **published claim**, not to be a general framework. Most files
 are frozen or hash-bound. Assume nothing is casually editable.
 
-## Right now (2026-08-30)
+## Right now (2026-09-01)
 
 **✅ RESUBMITTED 2026-08-30 — two days ahead of the confirmed 2026-09-01 deadline.** The round-1
 revision was uploaded from pass-63 / v2.36 (source zip, PDF, supplement, figures zip, marked
-copies + change register bundle, cover letter), with replies filed to the editor and both
+copies zip, cover letter), with replies filed to the editor and both
 reviewers. **The submitted state is tag v2.36: never rebuild or retag it** — any future change
-is a new pass. The manuscript now awaits round 2. **The repo was set PRIVATE on 2026-08-28 (author, to finalize) and MUST be public again before
-the upload** — the DAS names its URL and tags, and reviewers will click. Detail:
-[REVISION_STATUS.md](REVISION_STATUS.md) Section 5 items 1 and 6.
+is a new pass. The manuscript now awaits round 2. **The repo is PUBLIC again** — verified
+anonymously 2026-09-01: the repo, the DAS-named tags and the pre-registration all resolve,
+and the withheld files 404. Detail: [REVISION_STATUS.md](REVISION_STATUS.md) Section 5 items 1 and 6.
+**2026-09-01 — the editorial office asked (email) for a standalone supplement**: no reference
+content, no highlighted markings. Their copy was the changes-marked file (verified
+byte-identical to `DT-GSK-supplementary-changes-marked.pdf` before any edit — the "markings"
+are latexdiff marks, not shipped styling). Answered the same day by pass-64: the clean
+supplement, citation apparatus removed, re-sent by email.
 
-**Current freeze: pass-63 / `v2.36`** — minted, tagged and **PUSHED** (2026-08-30); all 36
-tags are on `origin`, and `v2.13`/`v2.36` — the two the DAS names — resolve there. The repo is still **PRIVATE** —
-flipping it public is the remaining step before a referee can follow the DAS. Next free ids:
-**CR-0044 / D-0069** — verify free at apply time.
+**Current freeze: pass-64 / `v2.37`** — minted and tagged (2026-09-01); the DAS now names
+`v2.13`/`v2.37`, while `v2.36` stays the frozen record of the SuSy resubmission. Next free
+ids: **CR-0045 / D-0070** — verify free at apply time.
+**Pass-64 (2026-09-01, D-0069 / CR-0044) makes the supplement standalone at the editorial
+office's request:** all 30 cite callouts (31 key instances, 26 lines) removed as bare
+markers — the registered/verbatim sentences are byte-identical — and the bibliography block
+removed with the float-flush `\clearpage` kept; every supplement key stays cited in the main
+text, so `references.bib` and the role/word maps are untouched and only
+`citation_usage_map.csv` loses its 31 supplement rows. Supplement 83 → 82 pp; every
+sent-letter page anchor re-verified unmoved in the rebuilt render; zebra striping kept
+(table formatting, not markup). Four renders double-built byte-identical; ladder green.
 **Pass-63 (2026-08-30, D-0068 / CR-0043) re-dates the resubmission to 2026-08-30:** both letters
 re-dated 30 August 2026 and rebuilt, CFF date-released and planned-date updated (deadline
 2026-09-01 unchanged), zero-slack framing dropped — submitting two days early restores the margin.

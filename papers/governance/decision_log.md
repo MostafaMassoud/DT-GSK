@@ -3200,3 +3200,34 @@ applying all surfaced fixes.
 - **Validation.** check_manifest 15/15 + sources 2/2; reproducibility and
   package manifests re-minted and verified post-write; full ladder green.
 - **Anchor.** Apply commit fcb17f2. NEXT free ids: CR-0044 and D-0069.
+
+## D-0069 (2026-09-01) - Pass-64: supplement made standalone at the editorial office's request
+
+- **Decision.** Comply with the editorial office's email of 2026-09-01: the
+  supplementary material must carry no reference content and no highlighted
+  markings, and the revised file goes back by email. Mint **pass-64**, tag
+  **v2.37**. Registered as **CR-0044**.
+- **Scope.** The file the office reviewed was verified byte-identical to the
+  latexdiff changes-marked supplement before any edit - the "highlighted
+  markings" are diff marks, not shipped styling; the re-sent file is the
+  clean supplement. From papers/supplementary.tex: all 30 cite callouts
+  (31 key instances, 26 lines) removed as bare markers, and the
+  bibliography block (reftitle / externalbibliography / bibliography)
+  removed with the float-flush clearpage kept. The three registered or
+  verbatim-adopted sentences carrying cites (RS-12 at the S8 locus, the
+  adjacency disclosure, the S7 SHADE-ILS/MOS disclosure) lost only the
+  marker: every registered word is byte-identical. All 18 supplement keys
+  remain cited in the main text, so references.bib and the role/word maps
+  are unchanged; citation_usage_map.csv drops its 31 supplement rows.
+  Zebra row-striping stays: it is table formatting, not markup, and not
+  what the office saw. DAS bumped to v2.37 before the builds.
+- **No result changes.** No number, rank, p-value, decision or claim
+  changes; supplement 83 -> 82 pp (the reference list's final page);
+  every sent-letter page anchor re-verified unmoved in the rebuilt render
+  (pp. 53, 56, 59, 60, 76, 77, 78, 79, 81); main PDF unchanged at 49 pp;
+  all five auxiliary release identifiers verified present.
+- **Validation.** check_manifest 15/15 + sources 2/2; reproducibility and
+  package manifests re-minted and verified post-write; all four renders
+  double-built byte-identical (PDF epoch 1783468800, DOCX 1783641600);
+  full ladder green.
+- **Anchor.** Apply commit 725aa82. NEXT free ids: CR-0045 and D-0070.

@@ -6,13 +6,13 @@ what is happening, what is done, and what is next.
 
 | | |
 |---|---|
-| **Last updated** | 2026-08-30 |
+| **Last updated** | 2026-09-01 |
 | **Manuscript** | `algorithms-4507562` — *Algorithms* (MDPI) |
 | **Submitted** | 2026-08-01 from freeze **pass-38 / tag v2.13** (anchor `b515907`) |
-| **Editorial status** | **RESUBMITTED 2026-08-30** — round-1 revision uploaded (from pass-63 / v2.36): source zip, manuscript PDF, supplement, figures zip, marked copies zip (2 files — the change register was deliberately NOT attached; supply only on request, and restyle it plainly first), cover letter (pasted + PDF); replies filed to the editor and both reviewers with the response PDF attached; awaiting round 2 |
+| **Editorial status** | **RESUBMITTED 2026-08-30** — round-1 revision uploaded (from pass-63 / v2.36): source zip, manuscript PDF, supplement, figures zip, marked copies zip (2 files — the change register was deliberately NOT attached; supply only on request, and restyle it plainly first), cover letter (pasted + PDF); replies filed to the editor and both reviewers with the response PDF attached; awaiting round 2. **2026-09-01:** the editorial office asked by email for a standalone supplement (no reference content, no highlighted markings — their copy was the changes-marked file, verified byte-identical before any edit); answered the same day from **pass-64 / v2.37**: citation apparatus removed and the clean 82-pp supplement re-sent by email, every sent-letter page anchor verified unmoved |
 | **Branch** | `main` — **published** at `02d1791`, tracking `origin/main`, and since 2026-08-28 the **only** branch: the development-history branches were bundled to the author's private history bundle outside the repository (restore-tested; location in the withheld `papers/review_2026_08_24/PRIVATE_OPS.md`) and deleted. Never fetch that bundle into a repo with a public remote. |
 | **Progress** | **COMPLETE** — all ten reviewer points answered; phases 1–7 applied; five experiments run, analysed and written up (E5 added ahead of resubmission, pass-49); the reopened-items batch (pass-50), the acceptance-readiness review (pass-51) and the seven-lens panel review of the response letter (pass-52) are all applied. |
-| **Freeze** | **pass-63 / tag v2.36** (anchor `fcb17f2`) · `check_manifest` 15/15 + `sources 2/2` (gating commit-field resolvability) · **PUSHED 2026-08-30** — all 36 tags on `origin`; v2.13 and v2.36, the two the DAS names, verified resolving there. Repo is **PRIVATE until upload day** — flip public before SuSy upload. Next free ids **CR-0044 / D-0069**. |
+| **Freeze** | **pass-64 / tag v2.37** (anchor `725aa82`) · `check_manifest` 15/15 + `sources 2/2` (gating commit-field resolvability) · minted and tagged 2026-09-01 — the DAS names v2.13 and v2.37; v2.36 remains the frozen record of the 2026-08-30 SuSy resubmission. Repo is **PUBLIC** (verified anonymously 2026-09-01: repo, tags and pre-registration resolve; withheld files 404). Next free ids **CR-0045 / D-0070**. |
 | **Revision deadline** | **2026-09-01 CONFIRMED** — **met**: resubmitted 2026-08-30, two days ahead (Section 5) |
 
 ---
@@ -1382,7 +1382,7 @@ worktree blind spot.
    none survives.
 5. **SuSy portal (author-only)** — the new title and the revised keyword list must be re-entered in the
    revision form. Portal metadata does not update from the PDF.
-6. **Make the repository PUBLIC again before uploading (author-only, upload day 2026-08-30).** The author set it
+6. ✅ **DONE — the repository is PUBLIC again** (verified anonymously 2026-09-01: the repo, tags v2.13/v2.36/v2.37 and the pre-registration all resolve; the withheld files 404). Original item: make it public before uploading (author-only, upload day 2026-08-30). The author set it
    private on 2026-08-28 to finalize; verified private (API 404). The Data Availability Statement in
    the revised manuscript names the repo URL and tags v2.13/v2.36, and the Supplementary's
    pre-registration claim depends on public checkability — a reviewer clicking during round 2 must
