@@ -72,7 +72,7 @@ ax.text(3.0, 52.6, "DT-GSK", fontsize=21, fontweight="bold", color=INK,
         va="center", ha="left")
 ax.text(16.6, 52.6,
         "Dimension-Tiered Adaptive Configuration Selection and Deterministic "
-        "Refinement\nfor Gaining–Sharing Knowledge Optimization",
+        "Refinement\nfor Gaining-Sharing Knowledge Optimization",
         fontsize=9.6, color=MUTED, va="center", ha="left", linespacing=1.25)
 ax.plot([3, 107], [49.4, 49.4], color=EDGE, lw=1.2)
 
@@ -125,7 +125,7 @@ box(P2_X + 2.5, P2_Y + 22.5, P2_W - 5, 7.6, "white", T_MID, lw=1.5)
 ax.text(P2_X + P2_W / 2, P2_Y + 28.1, "tier-selected configuration",
         fontsize=9.5, fontweight="bold", color=T_HIGH, ha="center", va="center")
 ax.text(P2_X + P2_W / 2, P2_Y + 25.1,
-        "resolved from D before the first evaluation —\nfrozen and hash-locked",
+        "resolved from D before the first evaluation,\nthen frozen and hash-locked",
         fontsize=8.2, color=MUTED, ha="center", va="center", linespacing=1.25)
 
 arrow(P2_X + P2_W / 2, P2_Y + 22.3, P2_X + P2_W / 2, P2_Y + 19.6)
@@ -135,7 +135,7 @@ box(P2_X + 2.5, P2_Y + 9.0, P2_W - 5, 10.4, "white", T_MID, lw=1.5)
 ax.text(P2_X + P2_W / 2, P2_Y + 17.1, "adaptive GSK scaffold",
         fontsize=9.5, fontweight="bold", color=T_HIGH, ha="center", va="center")
 ax.text(P2_X + P2_W / 2, P2_Y + 13.6,
-        "junior and senior gaining–sharing phases;\n"
+        "junior and senior gaining-sharing phases;\n"
         "the GSK vector-update equations are retained\n"
         "at every tier",
         fontsize=8.2, color=INK, ha="center", va="center", linespacing=1.3)
@@ -176,8 +176,8 @@ for i, (name, role) in enumerate(suites):
             ha="left", va="center")
 
 ax.text(P3_X + P3_W / 2, P3_Y + 2.9,
-        "matched budgets, paired seeds, nonparametric tests —\n"
-        "findings scoped to the GSK family",
+        "matched budgets, paired seeds, nonparametric tests;\n"
+        "all findings scoped to the GSK family",
         fontsize=8.2, color=INK, ha="center", va="center", linespacing=1.3)
 
 # ------------------------------------------------- connecting arrows
@@ -186,7 +186,7 @@ arrow(P2_X + P2_W + 0.4, 27.2, P3_X - 0.4, 27.2, lw=3.0, ms=20, color=GREEN)
 
 # footer strip
 ax.text(55, 4.2,
-        "Configuration chosen by dimension — not one operating point for "
+        "Configuration chosen by dimension, not one operating point for "
         "every problem size",
         fontsize=9.6, color=INK, fontstyle="italic", ha="center", va="center")
 
