@@ -6,8 +6,8 @@ message: >-
   preferred-citation. If you use the GSK-family baselines re-implemented here,
   please also cite their original sources, listed under references.
 type: software
-version: "2.36"
-date-released: 2026-08-30
+version: "2.37"
+date-released: 2026-09-01
 license: MIT
 repository-code: "https://github.com/MostafaMassoud/DT-GSK"
 # No DOI field. Author decision 2026-08-01 (D-0037): no Zenodo deposit and no
@@ -86,10 +86,11 @@ preferred-citation:
       orcid: "https://orcid.org/0000-0002-5895-2632"
   notes: >-
     Under revision at Algorithms (MDPI): submitted 2026-08-01, major revision
-    received 2026-08-24, revised version prepared; resubmission planned
-    2026-08-30 (deadline 2026-09-01) and NOT yet made. Not yet accepted. Update this entry when the
-    revised version is actually uploaded, and again with the volume, article
-    number, and DOI on publication.
+    received 2026-08-24, revised version resubmitted 2026-08-30 (two days
+    ahead of the 2026-09-01 deadline); the supplementary material was revised
+    on 2026-09-01 per the editorial office's formatting request (reference
+    content and markings removed) and supplied by email. Not yet accepted.
+    Update this entry with the volume, article number, and DOI on publication.
 references:
   - type: article
     authors:

@@ -91,27 +91,27 @@ exhibits.  Unless a caption states otherwise, the following frozen
 protocol applies throughout.
 CEC2017 is the primary suite with 29 scored functions (F1, F3--F30; F2 is
 excluded per protocol), $D \in \{10, 30, 50, 100\}$, 51 runs per
-(function, dimension) cell, and $\mathrm{MaxFES} = 10^{4} \cdot D$~@@CITE!awad2016problem@@.
+(function, dimension) cell, and $\mathrm{MaxFES} = 10^{4} \cdot D$.
 
 CEC2011 comprises 22 real-world problems at their native dimensions with
 25 runs per problem and $\mathrm{MaxFES} = 150{,}000$; on problems without
 published optima the error column is undefined by design and the raw best
-objective value is authoritative~@@CITE!das2011cec2011@@.
+objective value is authoritative.
 
 CEC2013 is the second comparison suite, reported for breadth of
 comparison: 28 functions, $D \in \{10, 30, 50\}$, 51 runs per
-cell, and $\mathrm{MaxFES} = 10^{4}\,D$~@@CITE!liang2013cec2013@@.
+cell, and $\mathrm{MaxFES} = 10^{4}\,D$.
 
 CEC2020 is the pre-registered confirmatory suite: 10 functions at
 $D \in \{5, 10, 15, 20\}$, with F6 and F7 undefined at $D = 5$ (38 scored
 cells), 30 runs per cell, and a dimension-dependent budget of
 $\mathrm{MaxFES} = 5 \times 10^{4}$, $10^{6}$, $3 \times 10^{6}$ and
-$10^{7}$ at $D = 5, 10, 15, 20$ respectively~@@CITE!yue2020cec2020@@.
+$10^{7}$ at $D = 5, 10, 15, 20$ respectively.
 
 CEC2013LSGO is the large-scale suite, family-internal by registered scope:
 15 functions at native $D = 1000$ (F13/F14 at $D = 905$), 25 runs per
 function, $\mathrm{MaxFES} = 3 \times 10^{6}$, reported on the raw
-best-objective basis~@@CITE!li2013lsgo@@.
+best-objective basis.
 
 CEC2017, CEC2013 and CEC2020 report the final error $f(x) - f(x^{*})$ with
 the suite success floor (error values below $10^{-8}$ are treated as zero
@@ -126,13 +126,13 @@ cross-suite multiplicity family; the only cross-suite statement made
 anywhere is the count of independent per-suite descriptive standings.
 
 Pairwise inference uses the two-sided Wilcoxon signed-rank
-test~@@CITE!wilcoxon1945individual@@ with Holm's step-down
-correction~@@CITE!holm1979simple@@ at family level and $\alpha = 0.05$;
+test with Holm's step-down
+correction at family level and $\alpha = 0.05$;
 win/tie/loss counts use the tie rule $|\Delta| < 10^{-8}$.
 
-Panel ranking uses the Friedman test~@@CITE!friedman1937use@@ with the
+Panel ranking uses the Friedman test with the
 Iman--Davenport correction and Nemenyi post-hoc critical-difference (CD)
-analysis~@@CITE!demsar2006statistical@@.
+analysis.
 
 The panel order everywhere is GSK, \agsk{}, \apgsk{}, \fdbagsk{},
 \atmals{}, \egsk{}, \dtgsk{}, and all comparative wording is scoped
@@ -451,7 +451,7 @@ records them.
 \subsection{@@SECNUM!sec:supp:bca!S2.4.@@ Descriptive Bootstrap Rank-Stability Intervals on the CEC2017 Friedman Mean Ranks}\label{sec:supp:bca}
 
 Table~@@REF!tab:bca-ci@@ attaches $95\%$ bias-corrected and accelerated
-(BCa) bootstrap descriptive rank-stability intervals~@@CITE!efron1993introduction@@ to the
+(BCa) bootstrap descriptive rank-stability intervals to the
 CEC2017 Friedman mean ranks of the main paper: per dimension, the 29
 function-level midranks are resampled with $n_{\text{boot}} = 10{,}000$
 seeded replicates (base seed $20{,}260{,}422$), and the point
@@ -481,7 +481,7 @@ Second, \dtgsk{} and \egsk{} are never separated by the Nemenyi
 critical difference at any dimension ($k = 7$, $N = 29$,
 $\alpha = 0.05$, $\mathrm{CD} = 1.673$): differences inside a common CD
 band are reported as not statistically
-separable~@@CITE!demsar2006statistical@@.
+separable.
 
 The \apgsk{} evidence limitation of Section~@@REF!sec:supp:cec2017-tables@@
 applies to the $D = 10$--$50$ columns here as well.
@@ -1038,9 +1038,9 @@ deterministic trace.
 \subsection{@@SECNUM!sec:repro:freeze!S5.2.@@ Frozen Configuration and Freeze Manifest}\label{sec:repro:freeze}
 
 Table~@@REF!tab:comparator-params@@ lists the parameter settings of the six
-comparators --- GSK~@@CITE!mohamed2020gaining@@, \agsk{}~@@CITE!mohamed2020agsk@@,
-\apgsk{}~@@CITE!apgsk2021@@, \fdbagsk{}~@@CITE!fdbagsk2023@@,
-\atmals{}~@@CITE!alfadli2025atmals@@ and \egsk{}~@@CITE!jawad2024egsk@@ --- exactly
+comparators --- GSK, \agsk{},
+\apgsk{}, \fdbagsk{},
+\atmals{} and \egsk{} --- exactly
 as run here, so comparator fairness can be checked against stated values rather
 than inferred from six source publications. Every entry is read programmatically
 from the shipped optimizer modules; the frozen run\_config.json records
@@ -2054,7 +2054,7 @@ budget-safe escape (no\_bse), linkage-aware block crossover
 
 All seven cells share one frozen protocol: CEC2017 with the 29 scored
 functions (F1, F3--F30; F2 excluded), $D \in \{10, 30, 50, 100\}$,
-$\mathrm{MaxFES} = 10^{4}\cdot D$~@@CITE!awad2016problem@@, and $51$ runs per
+$\mathrm{MaxFES} = 10^{4}\cdot D$, and $51$ runs per
 (cell, function, dimension), matching the primary panel's run count.  The
 base seed is $20240620$ under the unified/threefry schedule; because the seed
 schedule contains no cell or algorithm term, all seven cells share identical
@@ -2090,7 +2090,7 @@ three from this scaffold matrix.
 \subsection{@@SECNUM!sec:supp:ablation:stats!S6.2.@@ Statistical Treatment}\label{sec:supp:ablation:stats}
 
 Per dimension, the seven cells are ranked over the common 29-function set by
-the Friedman test~@@CITE!friedman1937use,demsar2006statistical@@ on the
+the Friedman test on the
 per-function mean final error (lower rank is better).  The omnibus
 $p$-value is reported as the Iman--Davenport $F$ on the tie-corrected
 Friedman statistic, matching the convention used for the primary suites in
@@ -2100,8 +2100,8 @@ only increase the statistic and leaves every mean rank untouched.
 Table~@@REF!tab:abl-scaffold@@ reports the resulting mean-rank matrix and
 Figure~@@REF!fig:abl-rankdelta@@ the rank change from the baseline.  The
 inferential weight is carried by the full-vs-cell paired Wilcoxon signed-rank
-test across functions~@@CITE!wilcoxon1945individual@@, Holm-corrected
-~@@CITE!holm1979simple@@ within each dimension's family of six disabled-cell
+test across functions, Holm-corrected
+within each dimension's family of six disabled-cell
 comparisons at $\alpha = 0.05$; Table~@@REF!tab:abl-wilcoxon@@ reports the raw
 and Holm-adjusted $p$-values.
 
@@ -2148,8 +2148,8 @@ independent causal effect, and bars are not averaged across dimensions.
 
 
 @@TABLECAP!tab:abl-wilcoxon!SA02@@ Scaffold remove-one ablation on CEC2017: full-vs-cell paired Wilcoxon
-signed-rank test across the 29 functions~@@CITE!wilcoxon1945individual@@ with
-Holm correction~@@CITE!holm1979simple@@ within each dimension's six-comparison
+signed-rank test across the 29 functions with
+Holm correction within each dimension's six-comparison
 family ($\alpha = 0.05$), ordered by ascending raw $p$ within each dimension.
 $\Delta$rank repeats the mean-rank change from Table~@@REF!tab:abl-scaffold@@.
 Every contrast is a \emph{conditional} remove-one comparison with ISM off in
@@ -2326,7 +2326,7 @@ coordinate-pair interaction memory should, if it helps at all, help most on func
 with genuine variable interaction, we ask \emph{post hoc} (this analysis was not
 pre-registered) whether the aggregate null conceals a conditional benefit on those
 functions.  We partition the 29 scored CEC2017 functions into the four standard
-CEC2017 classes~@@CITE!awad2016problem@@ --- unimodal (F1, F3), simple multimodal
+CEC2017 classes --- unimodal (F1, F3), simple multimodal
 (F4--F10), hybrid (F11--F20), and composition (F21--F30) --- and, within each class,
 count the per-function win/tie/loss of the full overlay against the memory-off
 (no\_sgsm) cell (a win is a lower per-function mean error with the
@@ -2446,7 +2446,7 @@ $D = 1000$, with the two overlapping functions F13 and F14 at their native
 $D = 905$; 25 runs per function; a budget of $3 \times 10^{6}$ function
 evaluations per run; and the same seven-algorithm family panel and unified
 seed schedule (base seed 20240620) used throughout this
-paper~@@CITE!li2013lsgo@@.  Statistics on this suite use the raw best
+paper.  Statistics on this suite use the raw best
 objective value (CEC2011-style; the suite's error column is not populated),
 so magnitudes are not comparable across functions and no error floor is
 applied.  One benchmark-implementation disclosure governs every F3, F6 and
@@ -2479,7 +2479,7 @@ Amendments 1 and 2.
 The CEC2013LSGO analysis in this paper is family-internal: it ranks the
 seven GSK-family variants against one another under a common protocol.
 Dedicated large-scale optimizers --- for example
-SHADE-ILS~@@CITE!molina2018shadeils@@ and MOS~@@CITE!latorre2013mos@@ ---
+SHADE-ILS and MOS ---
 report substantially stronger published results on this suite than any
 GSK-family member, and no competitiveness with such specialists is claimed
 here; cross-paradigm comparison is outside this paper's scope.
@@ -2904,7 +2904,7 @@ F15 & Best & 3.54E+06 & 4.28E+06 & 6.87E+06 & 9.79E+06 & 1.75E+06 & 5.28E+06 & 8
 \noindent CEC2020 is reported as a pre-registered confirmatory suite: the
 statistical analysis plan for it was committed, with its SHA-256 recorded in
 the decision log, before a single result existed.  The protocol is the
-competition's own~@@CITE!yue2020cec2020@@: 10 functions at
+competition's own: 10 functions at
 $D \in \{5, 10, 15, 20\}$, with F6 and F7 undefined at $D = 5$, giving 38
 scored (function, dimension) cells; 30 runs per cell; and a
 dimension-dependent budget of $\mathrm{MaxFES} = 5 \times 10^{4}$,
@@ -2928,7 +2928,7 @@ suite.
 
 
 \paragraph{Declared adjacency.}
-AGSK was the runner-up of the CEC2020 competition~@@CITE!mohamed2020agsk@@, and
+AGSK was the runner-up of the CEC2020 competition, and
 the CEC2020 AGSK paper is a co-author's work.  This suite is therefore a comparator's home regime, and
 is reported as such.  Every dimension-gated \dtgsk{} subsystem is inactive
 at $D \le 20$, so \dtgsk{} runs its adaptive scaffold tier only on this
@@ -2956,7 +2956,7 @@ produced.
 \subsection{@@SECNUM!sec:supp:cec2020:standing!S8.1.@@ Descriptive Standing}\label{sec:supp:cec2020:standing}
 
 On AGSK's strongest suite --- the CEC2020 competition in which it was
-the runner-up~@@CITE!mohamed2020agsk@@ --- \dtgsk{} places fourth; the family
+the runner-up --- \dtgsk{} places fourth; the family
 panel corroborates AGSK's published strength in this regime.  That suite
 evaluates the low-dimensional boundary condition of the tiered design ---
 every dimension-gated \dtgsk{} subsystem is inactive at $D \le 20$ ---
@@ -4001,43 +4001,7 @@ the limitations, not the claims.
 
 
 
+
+
 \clearpage
-
-\section*{References}
-
-@@BIBENT!awad2016problem!1@@ Awad, N.H.; Ali, M.Z.; Liang, J.J.; Qu, B.Y.; Suganthan, P.N. Problem Definitions and Evaluation Criteria for the {CEC} 2017 Special Session and Competition on Single Objective Real-Parameter Numerical Optimization. Technical report, Nanyang Technological University, Singapore, 2016.
-
-@@BIBENT!das2011cec2011!2@@ Das, S.; Suganthan, P.N. Problem Definitions and Evaluation Criteria for the {CEC} 2011 Competition on Testing Evolutionary Algorithms on Real World Optimization Problems. Technical report, Jadavpur University and Nanyang Technological University, 2011.
-
-@@BIBENT!liang2013cec2013!3@@ Liang, J.J.; Qu, B.Y.; Suganthan, P.N.; Hern{\'a}ndez-D{\'i}az, A.G. Problem Definitions and Evaluation Criteria for the {CEC} 2013 Special Session on Real-Parameter Optimization. Technical report, Zhengzhou University and Nanyang Technological University, 2013.
-
-@@BIBENT!yue2020cec2020!4@@ Yue, C.T.; Price, K.V.; Suganthan, P.N.; Liang, J.J.; Ali, M.Z.; Qu, B.Y.; Awad, N.H.; Biswas, P.P. Problem Definitions and Evaluation Criteria for the {CEC} 2020 Special Session and Competition on Single Objective Bound Constrained Numerical Optimization. Technical Report 201911, Computational Intelligence Laboratory, Zhengzhou University, Zhengzhou China and Nanyang Technological University, Singapore, 2019.
-
-@@BIBENT!li2013lsgo!5@@ Li, X.; Tang, K.; Omidvar, M.N.; Yang, Z.; Qin, K. Benchmark Functions for the {CEC}'2013 Special Session and Competition on Large-Scale Global Optimization. Technical report, RMIT University, Melbourne, Australia, 2013.
-
-@@BIBENT!wilcoxon1945individual!6@@ Wilcoxon, F. Individual Comparisons by Ranking Methods. \emph{Biometrics Bulletin} \textbf{1945}, \emph{1},~80--83. doi:{\href{https://doi.org/10.2307/3001968}{10.2307/3001968}}.
-
-@@BIBENT!holm1979simple!7@@ Holm, S. A Simple Sequentially Rejective Multiple Test Procedure. \emph{Scandinavian Journal of Statistics} \textbf{1979}, \emph{6},~65--70. The 1979 issue predates CrossRef DOI assignment for this journal; the canonical stable identifier is the JSTOR record at https://www.jstor.org/stable/4615733.
-
-@@BIBENT!friedman1937use!8@@ Friedman, M. The Use of Ranks to Avoid the Assumption of Normality Implicit in the Analysis of Variance. \emph{Journal of the American Statistical Association} \textbf{1937}, \emph{32},~675--701. doi:{\href{https://doi.org/10.1080/01621459.1937.10503522}{10.1080/01621459.1937.10503522}}.
-
-@@BIBENT!demsar2006statistical!9@@ Dem\v{s}ar, J. Statistical Comparisons of Classifiers over Multiple Data Sets. \emph{Journal of Machine Learning Research} \textbf{2006}, \emph{7},~1--30. JMLR volumes from 2006 predate formal DOI assignment; the canonical publisher-hosted record is at https://www.jmlr.org/papers/v7/demsar06a.html.
-
-@@BIBENT!efron1993introduction!10@@ Efron, B.; Tibshirani, R.J. \emph{An Introduction to the Bootstrap}; Chapman \& Hall: New York, 1993. doi:{\href{https://doi.org/10.1201/9780429246593}{10.1201/9780429246593}}.
-
-@@BIBENT!mohamed2020gaining!11@@ Mohamed, A.W.; Hadi, A.A.; Mohamed, A.K. Gaining-Sharing Knowledge Based Algorithm for Solving Optimization Problems: A Novel Nature-Inspired Algorithm. \emph{International Journal of Machine Learning and Cybernetics} \textbf{2020}, \emph{11},~1501--1529. doi:{\href{https://doi.org/10.1007/s13042-019-01053-x}{10.1007/s13042-019-01053-x}}.
-
-@@BIBENT!mohamed2020agsk!12@@ Mohamed, A.W.; Hadi, A.A.; Mohamed, A.K.; Awad, N.H. Evaluating the Performance of Adaptive Gaining-Sharing Knowledge Based Algorithm on {CEC} 2020 Benchmark Problems. Proceedings of the 2020 IEEE Congress on Evolutionary Computation (CEC). IEEE, 2020, pp. 1--8. doi:{\href{https://doi.org/10.1109/CEC48606.2020.9185901}{10.1109/CEC48606.2020.9185901}}.
-
-@@BIBENT!apgsk2021!13@@ Mohamed, A.W.; Abutarboush, H.F.; Hadi, A.A.; Mohamed, A.K. Gaining-Sharing Knowledge Based Algorithm With Adaptive Parameters for Engineering Optimization. \emph{IEEE Access} \textbf{2021}, \emph{9},~65934--65946. doi:{\href{https://doi.org/10.1109/ACCESS.2021.3076091}{10.1109/ACCESS.2021.3076091}}.
-
-@@BIBENT!fdbagsk2023!14@@ Bak{\i}r, H.; Duman, S.; Guvenc, U.; Kahraman, H.T. Improved Adaptive Gaining-Sharing Knowledge Algorithm with {FDB}-Based Guiding Mechanism for Optimization of Optimal Reactive Power Flow Problem. \emph{Electrical Engineering} \textbf{2023}, \emph{105},~3121--3160. doi:{\href{https://doi.org/10.1007/s00202-023-01803-9}{10.1007/s00202-023-01803-9}}.
-
-@@BIBENT!alfadli2025atmals!15@@ Alfadli, N.M.; Oun, E.M.; Mohamed, A.W. Auto-Tuning Memory-Based Adaptive Local Search Gaining--Sharing Knowledge-Based Algorithm for Solving Optimization Problems. \emph{Algorithms} \textbf{2025}, \emph{18},~398. doi:{\href{https://doi.org/10.3390/a18070398}{10.3390/a18070398}}.
-
-@@BIBENT!jawad2024egsk!16@@ Jawad, M.A.; Roshdy, H.S.M.; Mohamed, A.W. Enhanced Gaining-Sharing Knowledge-Based Algorithm. \emph{Results in Control and Optimization} \textbf{2025}, \emph{19},~100542. doi:{\href{https://doi.org/10.1016/j.rico.2025.100542}{10.1016/j.rico.2025.100542}}.
-
-@@BIBENT!molina2018shadeils!17@@ Molina, D.; LaTorre, A.; Herrera, F. {SHADE} with Iterative Local Search for Large-Scale Global Optimization. 2018 IEEE Congress on Evolutionary Computation (CEC). IEEE, 2018, pp. 1--8. doi:{\href{https://doi.org/10.1109/CEC.2018.8477755}{10.1109/CEC.2018.8477755}}.
-
-@@BIBENT!latorre2013mos!18@@ LaTorre, A.; Muelas, S.; Pe{\~n}a, J.M. Large Scale Global Optimization: Experimental Results with {MOS}-based Hybrid Algorithms. Proceedings of the 2013 IEEE Congress on Evolutionary Computation. IEEE, 2013, pp. 2742--2749. doi:{\href{https://doi.org/10.1109/CEC.2013.6557901}{10.1109/CEC.2013.6557901}}.
 \end{document}
