@@ -72,7 +72,7 @@ ax.text(3.0, 52.6, "DT-GSK", fontsize=21, fontweight="bold", color=INK,
         va="center", ha="left")
 ax.text(16.6, 52.6,
         "Dimension-Tiered Adaptive Configuration Selection and Deterministic "
-        "Refinement\nfor Gaining-Sharing Knowledge Optimization",
+        "Refinement\nfor Gaining-Sharing Knowledge-Based Optimization Algorithm",
         fontsize=9.6, color=MUTED, va="center", ha="left", linespacing=1.25)
 ax.plot([3, 107], [49.4, 49.4], color=EDGE, lw=1.2)
 
