@@ -1,10 +1,10 @@
 # Cover Letter — Algorithms (MDPI)
 
 **To:** Editorial Office, *Algorithms* (MDPI)
-**Manuscript:** *DT-GSK: Dimension-Tiered Adaptive Configuration Selection and Deterministic Refinement for Gaining-Sharing Knowledge Optimization* — algorithms-4507562, revision 1
+**Manuscript:** *DT-GSK: Dimension-Tiered Adaptive Configuration Selection and Deterministic Refinement for Gaining-Sharing Knowledge-Based Optimization Algorithm* — algorithms-4507562, revision 1
 **Authors:** Mostafa Elsayed Ahmed Masoud (corresponding author), Heba Sayed Mohamed Roshdy, Ali Wagdy Mohamed
 **Corresponding author:** moustafa.masoud@gmail.com
-**Date:** 30 August 2026
+**Date:** 2 September 2026
 
 <!-- R-0004 clearance (2026-07-11): rewritten for the frozen target journal
      (MDPI Algorithms, decision D-0010). Scientific core is bound to the
@@ -18,7 +18,7 @@
 
 Dear Editors,
 
-We are pleased to submit the revised version of our manuscript, *DT-GSK: Dimension-Tiered Adaptive Configuration Selection and Deterministic Refinement for Gaining-Sharing Knowledge Optimization* (algorithms-4507562). All ten reviewer comments are addressed. Four called for new evidence; we answered them with five pre-registered experiments (34,191 optimizer runs in total), each with its design, statistical conventions and adverse-outcome wording committed to the public repository in advance — four experiments before any result existed, and the fifth (the dimension-boundary study) registered by amendment before any of its new runs executed. Accompanying this letter are the point-by-point response, a marked-up main manuscript, a marked-up Supplement, and a change register listing every changed passage as submitted against as revised. One change the marked copies cannot show is the title page itself: the retitle Reviewer 1 requested sits in the document preamble, which latexdiff records without displaying, so we flag it here.
+We are pleased to submit the revised version of our manuscript, *DT-GSK: Dimension-Tiered Adaptive Configuration Selection and Deterministic Refinement for Gaining-Sharing Knowledge-Based Optimization Algorithm* (algorithms-4507562). All ten reviewer comments are addressed. Four called for new evidence; we answered them with five pre-registered experiments (34,191 optimizer runs in total), each with its design, statistical conventions and adverse-outcome wording committed to the public repository in advance — four experiments before any result existed, and the fifth (the dimension-boundary study) registered by amendment before any of its new runs executed. Accompanying this letter are the point-by-point response, a marked-up main manuscript, a marked-up Supplement, and a change register listing every changed passage as submitted against as revised. One change the marked copies cannot show is the title page itself: the retitle Reviewer 1 requested sits in the document preamble, which latexdiff records without displaying, so we flag it here.
 
 The revision strengthened what holds. The deterministic final refinement earns its place at both dimensions where it is active; the family standing survives a matched-initial-population control, staying in the top two at every CEC2017 dimension; and the dimension-tier boundaries are insensitive to perturbation at D = 10 and D = 50 --- exactly where the narrowed contribution claims them. DT-GSK attains the best descriptive family-rank aggregate on CEC2017 (2.48) and CEC2013 (2.80), with the paper stating plainly that Holm-corrected tests separate it from the strongest baseline only at D = 10.
 
