@@ -3231,3 +3231,39 @@ applying all surfaced fixes.
   double-built byte-identical (PDF epoch 1783468800, DOCX 1783641600);
   full ladder green.
 - **Anchor.** Apply commit 725aa82. NEXT free ids: CR-0045 and D-0070.
+
+## D-0070 (2026-09-02) - Pass-65: Word-channel defects fixed before the DOCX reaches the editing team
+
+- **Decision.** The editorial office asked for the Word supplement so its
+  English-editing team can polish the language. Two defects in that exact
+  artifact are fixed before it is sent. Mint **pass-65**, tag **v2.38**.
+  Registered as **CR-0045**.
+- **Scope, and what is deliberately NOT touched.** Both fixes live in the
+  Word channel only. (1) `build_docx.py`'s `replace_refs` matched only
+  `\ref`, so the supplement's two `\eqref` calls reached pandoc untouched
+  and printed the raw label `[eq:opspec-conf]` in the body text; `\eqref`
+  now maps to a parenthesised REF field, so the DOCX reads "Equation (4)"
+  exactly as the PDF does. (2) `docProps` `dc:creator` and
+  `cp:lastModifiedBy` carried the short name "Mostafa Elsayed Masoud",
+  hardcoded at two sites in the builder and missed by the pass-59 full-name
+  sweep because docProps is ungated; Word shows that name in File Info, so
+  the editors would have read a different name from the byline three days
+  after we asked the office to record the full form. **No .tex file was
+  edited and no PDF was rebuilt**: DT-GSK.pdf, supplementary.pdf and
+  cover_letter.pdf are verified byte-identical to their v2.37 digests.
+- **The DAS deliberately still names v2.37.** Every previous pass bumped the
+  Data Availability Statement with the tag. This one does not: the article is
+  past proofs with the APC paid, so the PDF in production prints v2.37, and
+  the repository's own PDF must keep saying what the published paper says.
+  Tag v2.37 resolves permanently, so nothing a reader follows is broken.
+  CITATION.cff moves to 2.38 because its version is gated against the tags,
+  and its status note is corrected from "Not yet accepted" to production.
+- **No result changes.** No number, rank, p-value, decision or claim changes;
+  no page count changes; the supplement stays 82 pp and the main PDF 49 pp.
+  Supplement REF fields 87 to 89, CITATION fields still 0, no References
+  heading, no highlighting.
+- **Validation.** Both DOCX double-built byte-identical at epoch 1783641600;
+  cross-format parity 755 rows, 0 FAIL; check_manifest 15/15 + sources 2/2;
+  reproducibility and package manifests re-minted and verified post-write;
+  full ladder green twice.
+- **Anchor.** Apply commit 82f89b0. NEXT free ids: CR-0046 and D-0071.

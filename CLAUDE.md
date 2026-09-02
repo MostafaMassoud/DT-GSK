@@ -15,25 +15,36 @@ Python package: `gsk_family` (under `src/`). Console entry points are `gsk-*`.
 The repository exists to support a **published claim**, not to be a general framework. Most files
 are frozen or hash-bound. Assume nothing is casually editable.
 
-## Right now (2026-09-01)
+## Right now (2026-09-02)
 
-**✅ RESUBMITTED 2026-08-30 — two days ahead of the confirmed 2026-09-01 deadline.** The round-1
-revision was uploaded from pass-63 / v2.36 (source zip, PDF, supplement, figures zip, marked
-copies zip, cover letter), with replies filed to the editor and both
-reviewers. **The submitted state is tag v2.36: never rebuild or retag it** — any future change
-is a new pass. The manuscript now awaits round 2. **The repo is PUBLIC again** — verified
-anonymously 2026-09-01: the repo, the DAS-named tags and the pre-registration all resolve,
-and the withheld files 404. Detail: [REVISION_STATUS.md](REVISION_STATUS.md) Section 5 items 1 and 6.
-**2026-09-01 — the editorial office asked (email) for a standalone supplement**: no reference
-content, no highlighted markings. Their copy was the changes-marked file (verified
-byte-identical to `DT-GSK-supplementary-changes-marked.pdf` before any edit — the "markings"
-are latexdiff marks, not shipped styling). Answered the same day by pass-64: the clean
-supplement, citation apparatus removed, re-sent by email.
+**✅ ACCEPTED AND IN PRODUCTION at *Algorithms*.** The round-1 revision was resubmitted
+2026-08-30 from pass-63 / v2.36; review is over, the proofed version has been returned, the
+APC is paid, and the article is pending publication. **The published PDF prints DAS tag
+v2.37, so `main.tex` is deliberately NOT bumped past it** — later passes bump `CITATION.cff`
+and the tag but leave the DAS alone, so the repository keeps saying what the printed paper
+says (D-0070). v2.36 and v2.13 stay the frozen records of the resubmission and the original
+submission; never rebuild or retag either. Repo verified PUBLIC anonymously on 2026-09-01
+(repo, DAS-named tags and pre-registration all resolve; withheld files 404).
 
-**Current freeze: pass-64 / `v2.37`** — minted, tagged and **PUSHED** (2026-09-01; all 37
-tags on `origin`, v2.37 verified anonymously); the DAS now names
-`v2.13`/`v2.37`, while `v2.36` stays the frozen record of the SuSy resubmission. Next free
-ids: **CR-0045 / D-0070** — verify free at apply time.
+**The production correspondence, newest first.** 2026-09-02: the office asked for the **Word**
+supplement for its English-editing team, answered by pass-65 (below). 2026-09-01: the office
+asked for a **standalone supplement** with no reference content and no highlighted markings;
+their copy turned out to be the changes-marked file (verified byte-identical to
+`DT-GSK-supplementary-changes-marked.pdf` *before* any edit, so the "markings" were latexdiff
+marks, not shipped styling), and pass-64 answered it the same day. Also filed: the full-name
+byline, the title and keyword sync, and an original graphical abstract built in-house
+(`papers/scripts/build_graphical_abstract.py`). **Editor-facing prose carries no
+em-dashes** — author instruction, see [[no-ai-tell-style]].
+
+**Current freeze: pass-65 / `v2.38`** — minted and tagged 2026-09-02. Next free ids:
+**CR-0046 / D-0071** — verify free at apply time.
+**Pass-65 (2026-09-02, D-0070 / CR-0045) fixes two Word-channel defects before the DOCX
+reaches the journal's editing team:** `build_docx.py`'s `replace_refs` matched only `\ref`, so
+the supplement's two `\eqref` calls printed the raw label `[eq:opspec-conf]` in the body text
+(now a parenthesised REF field, matching the PDF's "Equation (4)"); and `docProps`
+`dc:creator` carried the short author name, hardcoded in the builder and invisible to every
+gate. **No `.tex` was edited and no PDF rebuilt** — all three PDFs verified byte-identical to
+v2.37. Both DOCX double-built identical; parity 755 rows, 0 FAIL.
 **Pass-64 (2026-09-01, D-0069 / CR-0044) makes the supplement standalone at the editorial
 office's request:** all 30 cite callouts (31 key instances, 26 lines) removed as bare
 markers — the registered/verbatim sentences are byte-identical — and the bibliography block

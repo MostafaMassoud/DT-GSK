@@ -1,8 +1,8 @@
 {
   "schema": "submission_package_manifest/v1",
-  "generated_utc": "2026-09-01T07:40:13Z",
-  "manuscript_version_id": "v2.37",
-  "manuscript_version_note": "Freeze pass-64, tag v2.37. Supersedes v2.36 as the current package state: at the editorial office's request (email, 2026-09-01) the Supplementary Materials carry no reference content and no highlighted markings - all 30 citation callouts and the bibliography block were removed (registered wording byte-identical; every supplement key remains cited in the main text), and the file re-sent by email is the clean supplement, not the changes-marked copy the office had reviewed. v2.36 remains the frozen record of the 2026-08-30 SuSy resubmission and v2.13 of the original submission; neither is ever edited in place (D-0045). The repository is public and cited in the Data Availability Statement (https://github.com/MostafaMassoud/DT-GSK), which names v2.13 for the submitted version and v2.37 for this revised one. No Zenodo deposit and no repository DOI; the article DOI is assigned by the journal after acceptance.",
+  "generated_utc": "2026-09-02T06:20:00Z",
+  "manuscript_version_id": "v2.38",
+  "manuscript_version_note": "Freeze pass-65, tag v2.38. A Word-channel correction only: the editorial office asked on 2026-09-02 for the Word supplement so their English-editing team could polish it, and two defects in that artifact were fixed first (a raw LaTeX label printed in the body text where pandoc had not converted \\eqref, and the short author name in the file properties). No manuscript source and no PDF changed: DT-GSK.pdf, supplementary.pdf and cover_letter.pdf are byte-identical to v2.37, the state the paper in production prints, and the Data Availability Statement deliberately still names v2.13 and v2.37 for that reason. v2.36 remains the frozen record of the 2026-08-30 SuSy resubmission and v2.13 of the original submission; neither is ever edited in place (D-0045). Repository public at https://github.com/MostafaMassoud/DT-GSK. No Zenodo deposit and no repository DOI; the article DOI is assigned by the journal after acceptance.",
   "target_journal": "Algorithms (MDPI)",
   "evidence_release": [
     "rel-2026-07-20-67d9345f9 (CEC2017, CEC2011, CEC2013 - primary)",
@@ -13,7 +13,7 @@
     "abl-rel-2026-07-20 (component isolation, incl. the promoted CEC2017 D50/D100 overlay; supplement-only, non-superseding)",
     "g1-rel-2026-08-28-65b3d39e6 (D-0051 identity re-execution; demonstrates the Table A45 residual as a build difference; additive)"
   ],
-  "authoritative_commit": "725aa829c7758b690fbd927fd279639ec2e7ddb6",
+  "authoritative_commit": "82f89b06af6c3953b784f747fd13ce0ca56e9989",
   "pre_freeze_base_commit": "b9846e4 (abbreviated deliberately; the full SHA is held in the withheld papers/review_2026_08_24/PRIVATE_OPS.md because this commit is one of two unreachable objects pending a provider-side purge)",
   "hash_algorithm": "SHA-256",
   "submission_files": [
@@ -29,8 +29,8 @@
       "role": "main-manuscript-docx",
       "path": "papers/DT-GSK.docx",
       "build": "deterministic docx render",
-      "sha256": "abcc93c38a53cb3c1a5b2c9c8b720bd5f2e82ef118d74c198c71abfdaed1de14",
-      "bytes": 1022629
+      "sha256": "9d952a3e55bd4418a26c326022c6855667de142d450a7d34e697c0f9d2e09ad3",
+      "bytes": 1022632
     },
     {
       "role": "supplement-pdf",
@@ -44,8 +44,8 @@
       "role": "supplement-docx",
       "path": "papers/supplementary.docx",
       "build": "deterministic docx render",
-      "sha256": "f700338ed9297f19dd55c05b789d4e25614db2e0ed6d7ef2a473e5a0e87d6488",
-      "bytes": 9621537
+      "sha256": "a72b45ec9f1396e8cc34fb5971e885cbbc3ac08b764f13f459b89363364f751b",
+      "bytes": 9621465
     },
     {
       "role": "cover-letter-pdf",

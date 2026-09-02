@@ -150,7 +150,7 @@ Never edit or reinterpret primary evidence merely to make it agree with the manu
 
 > **HISTORICAL BANNER (superseded).** The 2026-07-25 CEC2013LSGO scope change this banner once announced was EXECUTED in full (five-suite manuscript, sections S7/S8, two additional evidence releases) and the freeze has since advanced to pass-27. Read the DEFINITIVE CURRENT STATE block below, then the newest layer (currently **section 1.5.0-Q**); sections 1.5.0-M/N/O record how the scope change was executed and are historical.
 
-> ## DEFINITIVE CURRENT STATE — 2026-09-01 (pass-64 / v2.37; round-two, reopened-items, acceptance-readiness, panel-review, full-remediation, deferred-items-closure, re-review, queue-closure, author-metadata and supplement-standalone batches APPLIED; resubmitted 2026-08-30, supplement re-sent 2026-09-01 per editorial request) — read this first; it supersedes every layer below on any conflict
+> ## DEFINITIVE CURRENT STATE — 2026-09-02 (pass-65 / v2.38; the manuscript is IN PRODUCTION at Algorithms: proofs returned, APC paid, pending publication. All revision batches APPLIED; resubmitted 2026-08-30, supplement re-sent 2026-09-01 and its Word twin 2026-09-02, both per editorial request. The published PDF prints DAS tag v2.37, so main.tex is deliberately NOT bumped past it) — read this first; it supersedes every layer below on any conflict
 >
 > This snapshot is maintained as dated provenance layers (§1.5.0 through §1.5.0-R). The single
 > authoritative current state is stated here; the layers below are the dated record of how it was
@@ -160,7 +160,7 @@ Never edit or reinterpret primary evidence merely to make it agree with the manu
 > **Lifecycle:** submitted to *Algorithms* (MDPI) 2026-08-01 as pass-38 / tag **v2.13**, manuscript
 > ID **algorithms-4507562** · decision **MAJOR REVISION** (two unsigned reviewers, ten points —
 > dispositions and per-point verification duties in **§1.5.3-J**) · the revision is **COMPLETE and
-> published to the public repository** (v2.14 → v2.37, including the round-two
+> published to the public repository** (v2.14 → v2.38, including the round-two
 > pass-49/50 batches: E5 boundary sensitivity, the canonical tie rule, the audit's P0/P1/P2
 > corrections) but has **NOT yet been resubmitted through
 > SuSy**. **The resubmission deadline is CONFIRMED as 2026-09-01** — also the author's planned
@@ -178,7 +178,7 @@ Never edit or reinterpret primary evidence merely to make it agree with the manu
 > (as-submitted vs as-revised, keyword-attributed to reviewer points — read the passage count off the register's own front page; redesigned layout with TOC, badges and color-coded panels), rebuilt by
 > `papers/scripts/build_change_marked_pdf.py` / `build_change_register.py`.
 >
-> **Freeze:** pass-64, tag **v2.37** (v2.13 … v2.37 all resolve), decision log through **D-0069**,
+> **Freeze:** pass-65, tag **v2.38** (v2.13 … v2.38 all resolve; the DAS names v2.13/v2.37), decision log through **D-0070**,
 > change requests through **CR-0043**; next free ids **CR-0044 / D-0069** (verify free at apply
 > time). `check_manifest` = **15/15 files + sources 2/2** — the `source_files` gate (pass-43)
 > hashes `supplementary.tex` and `cover_letter.tex`, so an unbuilt source edit now fails the gate
