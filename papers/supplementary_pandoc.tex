@@ -1640,7 +1640,7 @@ read from evaluations the generation has already spent.
 The interaction-structure memory maintains an unsigned magnitude graph
 $G_{\mathrm{abs}}$ and a signed graph $G_{\mathrm{signed}}$ (with an auxiliary
 per-dimension self-weight and co-occurrence support used only for the confidence
-of Equation~\eqref{eq:opspec-conf}).  For each accepted move $i$ with strictly
+of Equation~(@@REF!eq:opspec-conf@@)).  For each accepted move $i$ with strictly
 positive improvement $\delta_i$, its displacement $\Delta x_i$ (restricted to
 its non-zero support) is $\ell_1$-normalized,
 
@@ -1730,7 +1730,7 @@ eigenvectors of the symmetrized signed graph $G_{\mathrm{signed}}$ ordered by
 descending $\lvert\text{eigenvalue}\rvert$ (coordinate axes when the graph
 carries no signal).  Unlike the crossover and local-search consumers, this polish
 is gated only on the presence of a non-zero signed signal and does \emph{not}
-require the graph-readiness condition of Equation~\eqref{eq:opspec-conf}, so it can
+require the graph-readiness condition of Equation~(@@REF!eq:opspec-conf@@), so it can
 act on $G_{\mathrm{signed}}$ before the confidence gate $\kappa_{\min}$ would admit
 a linkage block.  It then runs a deterministic, RNG-free compass search along one
 basis direction per iteration: the step (initialized at $0.05$ of the box span,

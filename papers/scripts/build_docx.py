@@ -109,7 +109,7 @@ DOC_SPECS = {
         "figure_prefix": "",
         "title": "DT-GSK: Dimension-Tiered Adaptive Configuration Selection and Deterministic "
                  "Refinement for Gaining-Sharing Knowledge Optimization",
-        "authors": "Mostafa Elsayed Masoud; Heba Sayed Mohamed Roshdy; "
+        "authors": "Mostafa Elsayed Ahmed Masoud; Heba Sayed Mohamed Roshdy; "
                    "Ali Wagdy Mohamed",
         "subject": "Dimension-tiered adaptive configuration selection and deterministic refinement for "
                    "Gaining-Sharing Knowledge (DT-GSK) optimization",
@@ -129,7 +129,7 @@ DOC_SPECS = {
         "figure_prefix": "B",
         "title": "Supplementary Material for: DT-GSK: Dimension-Tiered Adaptive Configuration "
                  "Selection and Deterministic Refinement for Gaining-Sharing Knowledge Optimization",
-        "authors": "Mostafa Elsayed Masoud; Heba Sayed Mohamed Roshdy; "
+        "authors": "Mostafa Elsayed Ahmed Masoud; Heba Sayed Mohamed Roshdy; "
                    "Ali Wagdy Mohamed",
         "subject": "Supplementary Material: dimension-tiered adaptive configuration selection and "
                    "deterministic refinement for Gaining-Sharing Knowledge (DT-GSK) optimization",
@@ -685,6 +685,15 @@ def number_section_headings(body: str, aux_labels: dict[str, str],
 
 
 def replace_refs(body: str) -> str:
+    """Map ``\\ref`` and ``\\eqref`` onto REF markers.
+
+    ``\\eqref`` prints its number in parentheses, so the parentheses are
+    emitted around the marker to match the PDF ("Equation (4)"). Handling it
+    here is what keeps the label out of the DOCX: an unmatched ``\\eqref``
+    reaches pandoc, which renders the raw label as link text.
+    """
+    body = re.sub(r"\\eqref\{([^}]+)\}",
+                  lambda m: "(" + _marker("REF", m.group(1)) + ")", body)
     return re.sub(r"\\ref\{([^}]+)\}",
                   lambda m: _marker("REF", m.group(1)), body)
 

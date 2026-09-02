@@ -665,13 +665,13 @@ supplementary.docx,paragraph,"Mixing and projection. The target is projected, mi
 supplementary.docx,paragraph,"ARGP freeze. After a warm-up fraction of the budget, an unfr",PASS,alnum-containment,,,21b753fecf1e
 supplementary.docx,paragraph,ARGP unfreeze (recoverable). A frozen arm that is sampled ag,PASS,alnum-containment,,,c02829a93374
 supplementary.docx,paragraph,The selector consumes no objective evaluations of its own: c,PASS,alnum-containment,,,e5f57a270e18
-supplementary.docx,paragraph,The interaction-structure memory maintains an unsigned magni,PASS_FORMAT_DIFF,alnum-window-coverage,coverage=0.92,OMML vs PDF math glyph order/spacing,2364ddbfffba
+supplementary.docx,paragraph,The interaction-structure memory maintains an unsigned magni,PASS,alnum-containment,,,c8953052e813
 supplementary.docx,paragraph,and the accumulators receive an improvement-weighted rank-on,PASS,alnum-containment,,,d111a4e3f9da
 supplementary.docx,equation_display,"Gabs←λ Gabs+ηi​wi viabsviabs​⊤,  Gsigned←λ Gsigned",PASS_FORMAT_DIFF,equation-number + source identity,unnumbered display math,OMML linear text vs PDF math glyph extraction order,505a23add0b4
 supplementary.docx,paragraph,after which each graph is symmetrized and its diagonal zeroe,PASS,alnum-containment,,,0ff3d0ef967c
 supplementary.docx,paragraph,At each linkage refresh the magnitude graph is max-normalize,PASS,alnum-containment,,,0b89158bb687
 supplementary.docx,paragraph,"reaches the floor κmin (the linkage gate: 0.55 by default, 0",PASS,alnum-containment,,,3b959a7d38c0
-supplementary.docx,paragraph,"The one-shot final polish (active at D≥50, armed at budget f",PASS,alnum-window-coverage,coverage=0.98,,cf1fe2ad3a47
+supplementary.docx,paragraph,"The one-shot final polish (active at D≥50, armed at budget f",PASS,alnum-containment,,,53ba6bfa95af
 supplementary.docx,paragraph,The number of junior coordinates follows the decaying schedu,PASS,alnum-containment,,,b9b6d1dd12a0
 supplementary.docx,paragraph,The senior mixing rate is psen=0.05 (0.15 at 20≤D<50). At D≥,PASS,alnum-containment,,,73ea0c83737f
 supplementary.docx,paragraph,"Beyond the credit update, the selector applies a recoverable",PASS,alnum-containment,,,1b785619055b
