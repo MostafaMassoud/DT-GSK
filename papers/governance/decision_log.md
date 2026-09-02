@@ -3300,3 +3300,35 @@ applying all surfaced fixes.
   byte-identical; check_manifest 15/15 + sources 2/2; reproducibility and
   package manifests re-minted and verified post-write; full ladder green.
 - **Anchor.** Apply commit 7729822. NEXT free ids: CR-0047 and D-0072.
+
+## D-0072 (2026-09-02) - Pass-67: title revised and affiliations corrected at proof stage
+
+- **Decision.** While returning the galley proof the authors revised the
+  article title and corrected both affiliations. Mint **pass-67**, tag
+  **v2.40**. Registered as **CR-0047**.
+- **Title.** "...for Gaining-Sharing Knowledge Optimization" becomes
+  "...for Gaining-Sharing Knowledge-Based Optimization Algorithm". The
+  author was offered the exact form and chose MDPI title case, matching how
+  the reference list writes the eGSK title ("Knowledge-Based Algorithm").
+  Note this is the SECOND title change: the first, from "Adaptive Control",
+  was made during review at Reviewer 1's request, and the editorial office
+  had just updated SuSy to that form. The proof response therefore asks
+  them to update the record once more, and says why.
+- **Affiliations.** Affiliation 1 becomes "Department of Operations
+  Research"; affiliation 2 gains the Mathematics Program, becomes October
+  Gardens, 6th of October, and **its postcode is corrected from 12588 to
+  12578**. Supplied verbatim by the authors in answer to the proof query
+  that asked for affiliation 2's department.
+- **Scope.** main.tex, supplementary.tex, CITATION.cff (the article title
+  under preferred-citation only - the software title names the software,
+  not the paper, and keeps its own wording), build_docx.py's DOCX metadata
+  for both documents, and SUBMISSION_KIT. The same changes were applied to
+  the proof source returned to the journal.
+- **No result changes.** Metadata only; no number, claim or registered
+  sentence changed. The Data Availability Statement still names v2.37, the
+  tag the paper in production prints (D-0070).
+- **Validation.** All four renders rebuilt twice and byte-identical; the
+  title and both affiliations read back out of each render; check_manifest
+  15/15 + sources 2/2; reproducibility and package manifests re-minted and
+  verified post-write; full ladder green.
+- **Anchor.** Apply commit 76ece26. NEXT free ids: CR-0048 and D-0073.

@@ -36,8 +36,12 @@ byline, the title and keyword sync, and an original graphical abstract built in-
 (`papers/scripts/build_graphical_abstract.py`). **Editor-facing prose carries no
 em-dashes** — author instruction, see [[no-ai-tell-style]].
 
-**Current freeze: pass-66 / `v2.39`** — minted and tagged 2026-09-02. Next free ids:
-**CR-0047 / D-0072** — verify free at apply time.
+**Current freeze: pass-67 / `v2.40`** — minted and tagged 2026-09-02. Next free ids:
+**CR-0048 / D-0073** — verify free at apply time.
+**Pass-67 (2026-09-02, D-0072 / CR-0047):** at proof stage the authors revised the TITLE to
+"...for Gaining-Sharing **Knowledge-Based Optimization Algorithm**" (the second title change;
+the office had just synced SuSy to the previous one) and corrected both affiliations
+(**postcode 12588 → 12578**, affiliation 2 gains the Mathematics Program). Metadata only.
 **Pass-66 (2026-09-02, D-0071 / CR-0046) aligns the supplement with the accepted article**
 before it is re-sent as LaTeX, PDF and DOCX. The authors corrected both affiliations while
 answering the proof queries (**postcode 12588 → 12578**, and affiliation 2 gains the

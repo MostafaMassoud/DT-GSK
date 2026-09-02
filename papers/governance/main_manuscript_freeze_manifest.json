@@ -1,8 +1,8 @@
 {
   "schema": "main_manuscript_freeze_manifest/v1",
-  "phase": "PASS-66: the Supplementary Materials aligned with the accepted article before being re-sent to the journal in all three formats. The authors supplied corrected affiliations while answering the proof queries (Department of Operations Research; affiliation 2 gains the Mathematics Program, becomes October Gardens, 6th of October, and its postcode is corrected from 12588 to 12578), and production's house-style change of post-hoc to post hoc, applied to all six occurrences in the article, is carried into the supplement's eight rendered sites - it had disagreed with the article and with itself. Also corrected: six spellings the article never uses (analysed, Colours, favour(able), per cent, run-time, sub-component) and one cross-reference, since the tier boundaries are given in main-text Table 5, not in a figure. Twenty-two edits, none touching a number, a claim or a registered sentence. Supplement PDF and DOCX each rebuilt twice and byte-identical, 82 pages unchanged, zero citation apparatus. The main manuscript is untouched: DT-GSK.pdf, DT-GSK.docx and cover_letter.pdf are byte-identical to v2.38, and the Data Availability Statement still names v2.37, which the paper in production prints.",
-  "generated_utc": "2026-09-02T15:40:00+00:00",
-  "anchor_commit": "7729822e04e16621e2f2d927c70a7387f6f6d758",
+  "phase": "PASS-67: the authors revised the article title and corrected both affiliations while returning the galley proof. The title becomes \"DT-GSK: Dimension-Tiered Adaptive Configuration Selection and Deterministic Refinement for Gaining-Sharing Knowledge-Based Optimization Algorithm\"; affiliation 1 becomes the Department of Operations Research, and affiliation 2 gains the Mathematics Program, becomes October Gardens, 6th of October, and has its postcode corrected from 12588 to 12578. Applied to main.tex, supplementary.tex, CITATION.cff (the article title only - the software title names the software, not the paper), the DOCX metadata for both documents, and the submission kit. All four renders rebuilt twice and byte-identical, with the title and both affiliations verified in each. No number, claim or registered sentence changes. The Data Availability Statement still names v2.37, the tag the paper in production prints (D-0070).",
+  "generated_utc": "2026-09-02T17:10:00+00:00",
+  "anchor_commit": "76ece2609213794f43d7459d13758c98798e559c",
   "pre_freeze_base_commit": "b9846e4 (abbreviated deliberately; the full SHA is held in the withheld papers/review_2026_08_24/PRIVATE_OPS.md because this commit is one of two unreachable objects pending a provider-side purge)",
   "evidence_release": {
     "primary": "rel-2026-07-20-67d9345f9",
@@ -30,8 +30,8 @@
   "files": [
     {
       "path": "papers/main.tex",
-      "sha256": "fdfab63ab1e58ece22ae6fb36353b1b4f0de22f508e6aa3e2e851d86b331c6e7",
-      "bytes": 27567
+      "sha256": "e2c795ffb2992e744d88c46aa624c041f3e6e4048e4d521ac6795433dbf65651",
+      "bytes": 27636
     },
     {
       "path": "papers/sections/introduction.tex",
@@ -60,23 +60,23 @@
     },
     {
       "path": "papers/DT-GSK.pdf",
-      "sha256": "4c829b308c5171136008900fde65900971aa69bce4fbcbf5100481feaf1e508d",
-      "bytes": 830461
+      "sha256": "5c63e60118b43edfdadfca6130731801f2b4125d7d5e65791672d00d38e26101",
+      "bytes": 831656
     },
     {
       "path": "papers/DT-GSK.docx",
-      "sha256": "9d952a3e55bd4418a26c326022c6855667de142d450a7d34e697c0f9d2e09ad3",
-      "bytes": 1022632
+      "sha256": "59bea61c486ac5b236266c558229c1015b89c36b109896ccba88d4fdb210b15f",
+      "bytes": 1022665
     },
     {
       "path": "papers/supplementary.pdf",
-      "sha256": "23d00e4b9761b457ae940788e1fcf6bda6001bba16c11e323cb5dd994738c240",
-      "bytes": 1747775
+      "sha256": "d12262f94206547c6aca8566e6b5527ad2c5d2c257db294457bd54bf83213996",
+      "bytes": 1747869
     },
     {
       "path": "papers/supplementary.docx",
-      "sha256": "6f40d8d442336f8a91cce98dc1ca721b56910dcb488f5b65f06ff64e83ca4368",
-      "bytes": 9621484
+      "sha256": "8d013b8435bd9c291e51484304ce38443516a0aec695329d7abedf790bf0ec00",
+      "bytes": 9621502
     },
     {
       "path": "papers/cover_letter.pdf",
@@ -124,14 +124,14 @@
     "revision_analysis_pins": "NOT RE-RUN at pass-43, and not required: no analysis artifact was touched, which check_frozen_analysis confirms at 115/115."
   },
   "remint_note": "pass-66 MINTED 2026-09-02. Lesson: when a journal restyles the article in production, the supplement does not follow. Compare the two RENDERS after any production round - the post-hoc change was invisible in our sources because production never touched them, and it would have published a pair that disagreed with itself.",
-  "published_commit": "b436ab21dcd5fbb4240313e29cf6bd39a5179234",
+  "published_commit": "7729822e04e16621e2f2d927c70a7387f6f6d758",
   "immutable_history_note": "Two recorded blemishes live in immutable, already-pushed history and are disclosed here rather than rewritten (rewriting would move published tags, break the Data Availability Statement, and violate D-0045): (1) the pass-54 commit c0028c1's MESSAGE cites anchor 4d6bd1b, which resolves to nothing - the manifest committed IN that commit records the correct anchor b7abf61da; commit messages cannot be corrected without rewriting pushed history. (2) The copies of THIS manifest frozen inside tags v2.26 through v2.28 carry their as-minted values, including v2.28's published_commit whose tail was invented while expanding a 9-hex abbreviation; the value was corrected on main at pass-56 and check_manifest has gated commit-field resolvability since. Tagged states are never edited in place (D-0045), so the in-tag copies stand as minted. Recorded at pass-57 (D-0062).",
   "published_commit_note": "published_commit is the commit that carried the previous freeze's mint onto the published branch (for pass-63, the v2.35 close). It is NOT the same object as anchor_commit, which names this pass's apply commit; both resolve on the public branch. This field went four passes stale before pass-53 because nothing gates it - recompute it at every mint, and never assume anchor and published are the same commit.",
   "source_files": [
     {
       "path": "papers/supplementary.tex",
-      "sha256": "9723a00f89a08ead642a938f6f58ac480cc4440b509c14ffe7aba3fddf1786e2",
-      "bytes": 246145
+      "sha256": "40d935b108ab2f47cbb93c02ceb1c9f10cfd7651cb109b8b1c14d4016505077c",
+      "bytes": 246161
     },
     {
       "path": "papers/cover_letter.tex",

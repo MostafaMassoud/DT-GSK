@@ -1,8 +1,8 @@
 {
   "schema": "submission_package_manifest/v1",
-  "generated_utc": "2026-09-02T15:40:00Z",
-  "manuscript_version_id": "v2.39",
-  "manuscript_version_note": "Freeze pass-66, tag v2.39. The Supplementary Materials re-sent to the journal in all three formats, aligned with the accepted article: corrected affiliations (including the Mathematics Program department and the 12588 to 12578 postcode correction), production's post-hoc to post hoc house style, six spellings the article never uses, and one cross-reference. No number, claim or registered sentence changed; the supplement stays 82 pages with no citation apparatus. The main manuscript is byte-identical to v2.38 and its Data Availability Statement still names v2.13 and v2.37, the tags the paper in production prints. v2.36 remains the frozen record of the 2026-08-30 SuSy resubmission and v2.13 of the original submission; neither is ever edited in place (D-0045). Repository public at https://github.com/MostafaMassoud/DT-GSK.",
+  "generated_utc": "2026-09-02T17:10:00Z",
+  "manuscript_version_id": "v2.40",
+  "manuscript_version_note": "Freeze pass-67, tag v2.40. The article title revised to \"DT-GSK: Dimension-Tiered Adaptive Configuration Selection and Deterministic Refinement for Gaining-Sharing Knowledge-Based Optimization Algorithm\" and both affiliations corrected (Department of Operations Research; affiliation 2 gains the Mathematics Program, becomes October Gardens, 6th of October, postcode 12588 to 12578), as returned with the galley proof. All four renders rebuilt twice and byte-identical; no number, claim or registered sentence changed. The Data Availability Statement still names v2.13 and v2.37, the tags the paper in production prints. v2.36 remains the frozen record of the 2026-08-30 SuSy resubmission and v2.13 of the original submission; neither is ever edited in place (D-0045). Repository public at https://github.com/MostafaMassoud/DT-GSK.",
   "target_journal": "Algorithms (MDPI)",
   "evidence_release": [
     "rel-2026-07-20-67d9345f9 (CEC2017, CEC2011, CEC2013 - primary)",
@@ -13,7 +13,7 @@
     "abl-rel-2026-07-20 (component isolation, incl. the promoted CEC2017 D50/D100 overlay; supplement-only, non-superseding)",
     "g1-rel-2026-08-28-65b3d39e6 (D-0051 identity re-execution; demonstrates the Table A45 residual as a build difference; additive)"
   ],
-  "authoritative_commit": "7729822e04e16621e2f2d927c70a7387f6f6d758",
+  "authoritative_commit": "76ece2609213794f43d7459d13758c98798e559c",
   "pre_freeze_base_commit": "b9846e4 (abbreviated deliberately; the full SHA is held in the withheld papers/review_2026_08_24/PRIVATE_OPS.md because this commit is one of two unreachable objects pending a provider-side purge)",
   "hash_algorithm": "SHA-256",
   "submission_files": [
@@ -22,30 +22,30 @@
       "path": "papers/DT-GSK.pdf",
       "pages": 49,
       "build_epoch": 1783468800,
-      "sha256": "4c829b308c5171136008900fde65900971aa69bce4fbcbf5100481feaf1e508d",
-      "bytes": 830461
+      "sha256": "5c63e60118b43edfdadfca6130731801f2b4125d7d5e65791672d00d38e26101",
+      "bytes": 831656
     },
     {
       "role": "main-manuscript-docx",
       "path": "papers/DT-GSK.docx",
       "build": "deterministic docx render",
-      "sha256": "9d952a3e55bd4418a26c326022c6855667de142d450a7d34e697c0f9d2e09ad3",
-      "bytes": 1022632
+      "sha256": "59bea61c486ac5b236266c558229c1015b89c36b109896ccba88d4fdb210b15f",
+      "bytes": 1022665
     },
     {
       "role": "supplement-pdf",
       "path": "papers/supplementary.pdf",
       "pages": 82,
       "build_epoch": 1783468800,
-      "sha256": "23d00e4b9761b457ae940788e1fcf6bda6001bba16c11e323cb5dd994738c240",
-      "bytes": 1747775
+      "sha256": "d12262f94206547c6aca8566e6b5527ad2c5d2c257db294457bd54bf83213996",
+      "bytes": 1747869
     },
     {
       "role": "supplement-docx",
       "path": "papers/supplementary.docx",
       "build": "deterministic docx render",
-      "sha256": "6f40d8d442336f8a91cce98dc1ca721b56910dcb488f5b65f06ff64e83ca4368",
-      "bytes": 9621484
+      "sha256": "8d013b8435bd9c291e51484304ce38443516a0aec695329d7abedf790bf0ec00",
+      "bytes": 9621502
     },
     {
       "role": "cover-letter-pdf",
