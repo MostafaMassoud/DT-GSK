@@ -17,7 +17,8 @@ Conduct an exhaustive, adversarial, acceptance-oriented review of the
 round-one major revision of:
 
     "DT-GSK: Dimension-Tiered Adaptive Configuration Selection and
-    Deterministic Refinement for Gaining-Sharing Knowledge Optimization"
+    Deterministic Refinement for Gaining-Sharing Knowledge-Based
+    Optimization Algorithm"
     (Algorithms, MDPI — manuscript algorithms-4507562)
 
 The question is never *whether text was added* in response to a reviewer

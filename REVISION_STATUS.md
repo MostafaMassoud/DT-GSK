@@ -1017,7 +1017,7 @@ period; `supplementary.tex` is double-space (202 vs 73). Match the file you are 
 ### Phase 3 (R1.2 title + R1.1/R2.4/R2.5 merged abstract) — applied 2026-08-25
 
 **New title, live everywhere:** *DT-GSK: Dimension-Tiered **Adaptive Configuration Selection** and
-Deterministic Refinement for Gaining-Sharing Knowledge Optimization*. Verified: the built PDF contains
+Deterministic Refinement for Gaining-Sharing Knowledge Optimization*. **[SUPERSEDED at pass-67, 2026-09-02: the tail is now "Gaining-Sharing Knowledge-Based Optimization Algorithm". This entry records what Phase 3 did and is left as it stood.]** Verified: the built PDF contains
 **zero** occurrences of "Adaptive Control", and the fatal cover-letter drift gate passes.
 
 Propagated across **20 files**: `main.tex` (header + `\Title`), `supplementary.tex`, both cover letters,
@@ -1326,7 +1326,7 @@ worktree blind spot.
 
 | Decision | Resolution |
 |---|---|
-| **New title** | `DT-GSK: Dimension-Tiered Adaptive Configuration Selection and Deterministic Refinement for Gaining-Sharing Knowledge Optimization` — Reviewer 1's own second suggestion. Keeps "Deterministic Refinement" (contribution C1), which both of his proposals dropped. **Applied in Phase 3** across 20 files; the built PDF carries zero occurrences of "Adaptive Control". |
+| **New title** | `DT-GSK: Dimension-Tiered Adaptive Configuration Selection and Deterministic Refinement for Gaining-Sharing Knowledge-Based Optimization Algorithm` — Reviewer 1's own second suggestion, with the tail extended at pass-67 (it read `... Gaining-Sharing Knowledge Optimization` from Phase 3 until then). Keeps "Deterministic Refinement" (contribution C1), which both of his proposals dropped. **Applied in Phase 3** across 20 files; the built PDF carries zero occurrences of "Adaptive Control". |
 | **"Operator-State Adaptation"** | Declined, with reason: tiering keys on problem dimension, resolved before the run (`_dt_profiles.py:253`), not on operator state. Declining one of two offered options reads as engagement. |
 | **R2.6 external baselines** | Take the reviewer's **second limb**: claims stay explicitly GSK-family-only. No external algorithm enters the panel. This requires **zero manuscript edits** — the restriction already exists in six places. Recommended (optional) defusal: one sentence in §S7 disclosing the repository's exploratory SHADE-ILS / MOS / DECC-G LSGO ports. |
 
