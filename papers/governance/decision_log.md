@@ -3383,3 +3383,28 @@ applying all surfaced fixes.
   unchanged; cross-format parity 755 rows, 0 FAIL; evidence bindings green,
   so no bound numeric token was disturbed; full ladder green.
 - **Anchor.** Apply commit 09bb379. NEXT free ids: CR-0050 and D-0075.
+
+## D-0075 (2026-09-02) - Pass-70: table shading removed; a de-dashing artifact closed
+
+- **Decision.** The authors reported that the supplement's tables alternated
+  white and grey rows, which the MDPI table style does not use. Remove the
+  shading. Mint **pass-70**, tag **v2.43**. Registered as **CR-0050**.
+- **The two channels shaded for different reasons, and both had to be fixed.**
+  In the PDF it was the `\zebra` macro expanding to `\rowcolors`; it is now
+  a no-op, with all 27 call sites left in place so no table's structure is
+  touched and restoring the stripe stays a one-line edit. In the DOCX it was
+  NOT `\zebra` at all: `build_docx.py` wrote a grey `E7E6E6` fill onto every
+  header cell, in two separate code paths. Both are removed, so the header
+  is distinguished by its bold run and rule, as in the PDF. Had only the
+  LaTeX side been changed, the Word file the editors are reading would still
+  have been shaded.
+- **A pass-69 artifact closed with it.** The de-dashing had turned one dash
+  pair into parentheses whose closing paren began a new line, so the break
+  rendered as a space: "overlapping groups )". A line-absorbing comment
+  fixes it. **No gate detects this class** - it was found by reading the
+  rendered page, which is the standing rule this project keeps relearning.
+- **No result changes.** Presentation only; page counts unchanged at 48 and
+  82; zero shading elements across all 70 tables in the two DOCX files.
+- **Validation.** Four artifacts rebuilt; cross-format parity 755 rows,
+  0 FAIL; evidence bindings green; full ladder green.
+- **Anchor.** Apply commit 67ba0b1. NEXT free ids: CR-0051 and D-0076.

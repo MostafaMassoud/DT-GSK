@@ -1,8 +1,8 @@
 {
   "schema": "main_manuscript_freeze_manifest/v1",
-  "phase": "PASS-69: em-dash density reduced in the Supplementary Materials at the supervisor's request that traces of AI drafting be minimised, dashes used where commas belong being the example named. 148 of the supplement's 156 printing em-dashes become commas, colons, semicolons or parentheses; 8 remain where replacing them would harm clarity. Every site was judged against its own sentence rather than find-and-replaced, paired parentheticals were applied atomically so no half could land alone, and parenthesis balance over the rendered text is unchanged. No wording changed. The pre-registered RS-12 sentence keeps every word byte-identical and differs only in its two dashes, which are now commas. PDF and DOCX rebuilt twice and byte-identical, 82 pages unchanged, parity 755 rows 0 FAIL, evidence bindings green.",
-  "generated_utc": "2026-09-02T20:00:00+00:00",
-  "anchor_commit": "09bb379712c5f4e18058b90654747768e847d4ea",
+  "phase": "PASS-70: table row shading removed for consistency with the MDPI table style, at the authors' report that the supplement's tables alternated white and grey. The two channels shaded for different reasons and both were fixed: in the PDF the \\\\zebra macro (\\\\rowcolors) is now a no-op, its 27 call sites left in place so no table structure is touched; in the DOCX the fill was not \\\\zebra at all but a grey header cell written by build_docx.py, and both of its shading blocks are removed, leaving the header distinguished by its bold run and rule as in the PDF. A stray space before a parenthesis, left by the pass-69 de-dashing where the closing paren began a new line and rendered as 'overlapping groups )', is closed with a line-absorbing comment; it was caught by reading the page, not by any gate. Four artifacts rebuilt, zero shading elements across 70 tables, page counts unchanged at 48 and 82, parity 755 rows 0 FAIL, bindings green.",
+  "generated_utc": "2026-09-02T21:30:00+00:00",
+  "anchor_commit": "67ba0b1f8a3d9c4fac0f795ab71300a65dcc8fa1",
   "pre_freeze_base_commit": "b9846e4 (abbreviated deliberately; the full SHA is held in the withheld papers/review_2026_08_24/PRIVATE_OPS.md because this commit is one of two unreachable objects pending a provider-side purge)",
   "evidence_release": {
     "primary": "rel-2026-07-20-67d9345f9",
@@ -65,18 +65,18 @@
     },
     {
       "path": "papers/DT-GSK.docx",
-      "sha256": "59bea61c486ac5b236266c558229c1015b89c36b109896ccba88d4fdb210b15f",
-      "bytes": 1022665
+      "sha256": "f79c628e51a9f8e87641068b8fb000175a68080c9b92c63bf1de8b21e7bc90ef",
+      "bytes": 1022592
     },
     {
       "path": "papers/supplementary.pdf",
-      "sha256": "121b5e95c2275af195ce6101d126b8f5fe772c59594c110f7fea7ed903e429f4",
-      "bytes": 1747734
+      "sha256": "815c0b54b1dd384cb8a098afa4bc590ec00ca2b072d40cd4c996b13574f44aa6",
+      "bytes": 1683835
     },
     {
       "path": "papers/supplementary.docx",
-      "sha256": "53de29c5e5a56c66d1d13c517a913bdbc70d67f98c1e8a6b5b8c095267ee5aef",
-      "bytes": 9621331
+      "sha256": "cf500459c9c3c068b9930995b118d280cec5afba2e161d11623516257c7694ec",
+      "bytes": 9620418
     },
     {
       "path": "papers/cover_letter.pdf",
@@ -124,14 +124,14 @@
     "revision_analysis_pins": "NOT RE-RUN at pass-43, and not required: no analysis artifact was touched, which check_frozen_analysis confirms at 115/115."
   },
   "remint_note": "pass-66 MINTED 2026-09-02. Lesson: when a journal restyles the article in production, the supplement does not follow. Compare the two RENDERS after any production round - the post-hoc change was invisible in our sources because production never touched them, and it would have published a pair that disagreed with itself.",
-  "published_commit": "2f877256b6c2472ccab21e57b3fbf777c106cef0",
+  "published_commit": "09bb379712c5f4e18058b90654747768e847d4ea",
   "immutable_history_note": "Two recorded blemishes live in immutable, already-pushed history and are disclosed here rather than rewritten (rewriting would move published tags, break the Data Availability Statement, and violate D-0045): (1) the pass-54 commit c0028c1's MESSAGE cites anchor 4d6bd1b, which resolves to nothing - the manifest committed IN that commit records the correct anchor b7abf61da; commit messages cannot be corrected without rewriting pushed history. (2) The copies of THIS manifest frozen inside tags v2.26 through v2.28 carry their as-minted values, including v2.28's published_commit whose tail was invented while expanding a 9-hex abbreviation; the value was corrected on main at pass-56 and check_manifest has gated commit-field resolvability since. Tagged states are never edited in place (D-0045), so the in-tag copies stand as minted. Recorded at pass-57 (D-0062).",
   "published_commit_note": "published_commit is the commit that carried the previous freeze's mint onto the published branch (for pass-63, the v2.35 close). It is NOT the same object as anchor_commit, which names this pass's apply commit; both resolve on the public branch. This field went four passes stale before pass-53 because nothing gates it - recompute it at every mint, and never assume anchor and published are the same commit.",
   "source_files": [
     {
       "path": "papers/supplementary.tex",
-      "sha256": "705f87487b2923c850c531f14b29454543b063fb314a64a3a3fb6a80ff352065",
-      "bytes": 245740
+      "sha256": "94180c0d25a1c5163ce9a362db9921d006fe140ca78c3819d5c3bad7a8cb87b7",
+      "bytes": 245932
     },
     {
       "path": "papers/cover_letter.tex",
