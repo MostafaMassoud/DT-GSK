@@ -1,8 +1,8 @@
 {
   "schema": "main_manuscript_freeze_manifest/v1",
-  "phase": "PASS-70: table row shading removed for consistency with the MDPI table style, at the authors' report that the supplement's tables alternated white and grey. The two channels shaded for different reasons and both were fixed: in the PDF the \\\\zebra macro (\\\\rowcolors) is now a no-op, its 27 call sites left in place so no table structure is touched; in the DOCX the fill was not \\\\zebra at all but a grey header cell written by build_docx.py, and both of its shading blocks are removed, leaving the header distinguished by its bold run and rule as in the PDF. A stray space before a parenthesis, left by the pass-69 de-dashing where the closing paren began a new line and rendered as 'overlapping groups )', is closed with a line-absorbing comment; it was caught by reading the page, not by any gate. Four artifacts rebuilt, zero shading elements across 70 tables, page counts unchanged at 48 and 82, parity 755 rows 0 FAIL, bindings green.",
-  "generated_utc": "2026-09-02T21:30:00+00:00",
-  "anchor_commit": "67ba0b1f8a3d9c4fac0f795ab71300a65dcc8fa1",
+  "phase": "PASS-71: the cover letter de-dashed to match the manuscript. It was built at pass-68, before the pass-69 de-dashing, so it still carried four em-dashes and no longer matched either the manuscript or the plain-text version supplied to the author. Three body dashes become a colon and two commas, and the title/ID separator in the Manuscript header line becomes a comma. Both twins moved together. PDF rebuilt twice and byte-identical, 2 pages, zero dashes in the render. No wording, number or claim changed.",
+  "generated_utc": "2026-09-02T22:30:00+00:00",
+  "anchor_commit": "70d2cd3192c7100acf11ff5f1f9d6a9336085094",
   "pre_freeze_base_commit": "b9846e4 (abbreviated deliberately; the full SHA is held in the withheld papers/review_2026_08_24/PRIVATE_OPS.md because this commit is one of two unreachable objects pending a provider-side purge)",
   "evidence_release": {
     "primary": "rel-2026-07-20-67d9345f9",
@@ -80,8 +80,8 @@
     },
     {
       "path": "papers/cover_letter.pdf",
-      "sha256": "bf078150807c418d5718f9242700fad3e87516e44f295ee0cfbad607b949830f",
-      "bytes": 125739
+      "sha256": "754fba309081640e8eb1c46750c594f9b8d35e96b8d58b67a0d973a119aa3d0d",
+      "bytes": 125650
     },
     {
       "path": "papers/governance/claims_evidence_matrix.csv",
@@ -124,7 +124,7 @@
     "revision_analysis_pins": "NOT RE-RUN at pass-43, and not required: no analysis artifact was touched, which check_frozen_analysis confirms at 115/115."
   },
   "remint_note": "pass-66 MINTED 2026-09-02. Lesson: when a journal restyles the article in production, the supplement does not follow. Compare the two RENDERS after any production round - the post-hoc change was invisible in our sources because production never touched them, and it would have published a pair that disagreed with itself.",
-  "published_commit": "09bb379712c5f4e18058b90654747768e847d4ea",
+  "published_commit": "67ba0b1f8a3d9c4fac0f795ab71300a65dcc8fa1",
   "immutable_history_note": "Two recorded blemishes live in immutable, already-pushed history and are disclosed here rather than rewritten (rewriting would move published tags, break the Data Availability Statement, and violate D-0045): (1) the pass-54 commit c0028c1's MESSAGE cites anchor 4d6bd1b, which resolves to nothing - the manifest committed IN that commit records the correct anchor b7abf61da; commit messages cannot be corrected without rewriting pushed history. (2) The copies of THIS manifest frozen inside tags v2.26 through v2.28 carry their as-minted values, including v2.28's published_commit whose tail was invented while expanding a 9-hex abbreviation; the value was corrected on main at pass-56 and check_manifest has gated commit-field resolvability since. Tagged states are never edited in place (D-0045), so the in-tag copies stand as minted. Recorded at pass-57 (D-0062).",
   "published_commit_note": "published_commit is the commit that carried the previous freeze's mint onto the published branch (for pass-63, the v2.35 close). It is NOT the same object as anchor_commit, which names this pass's apply commit; both resolve on the public branch. This field went four passes stale before pass-53 because nothing gates it - recompute it at every mint, and never assume anchor and published are the same commit.",
   "source_files": [
@@ -135,8 +135,8 @@
     },
     {
       "path": "papers/cover_letter.tex",
-      "sha256": "16110ca3f4b80320c210053c20a8f68268df5ff79c81b3a7512bbff6883058d5",
-      "bytes": 7009
+      "sha256": "08a0b59475b8a1e3db4e810793635f783a77e72482b373070c597817997c0292",
+      "bytes": 7001
     }
   ],
   "source_files_note": "Canonical LaTeX sources whose RENDERS are tracked in files[] but which were not themselves hashed. The asymmetry has a failure mode and it fired in pass-42: cover_letter.tex was edited and the render was not rebuilt, so cover_letter.pdf still matched its recorded digest and the gate stayed green while the letter that ships to the editor still carried a retracted phrasing. Hashing the sources here makes that visible without changing files[], so the tracked-file count is unchanged and every recorded 15/15 remains true. main.tex is absent because it is already tracked in files[]."

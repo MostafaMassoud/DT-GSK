@@ -3408,3 +3408,22 @@ applying all surfaced fixes.
 - **Validation.** Four artifacts rebuilt; cross-format parity 755 rows,
   0 FAIL; evidence bindings green; full ladder green.
 - **Anchor.** Apply commit 67ba0b1. NEXT free ids: CR-0051 and D-0076.
+
+## D-0076 (2026-09-02) - Pass-71: cover letter de-dashed
+
+- **Decision.** Bring the cover letter into line with the de-dashed
+  manuscript. Mint **pass-71**, tag **v2.44**. Registered as **CR-0051**.
+- **Why it was out of step.** The letter was rebuilt at pass-68, for the
+  title and date. Pass-69 then de-dashed the manuscript and the supplement
+  but not the letter, because the letter is not part of either document's
+  source. It therefore still carried four em-dashes, and disagreed with the
+  plain-text version already supplied to the author for the portal's
+  cover-letter field. **The lesson generalises: a change applied to "the
+  manuscript" does not reach the letters, and the two are read together.**
+- **Scope.** Three body dashes become a colon and two commas; the title/ID
+  separator in the Manuscript header line becomes a comma. Both twins moved
+  together, as the title-consistency gate requires.
+- **No result changes.** Punctuation only; 2 pages, unchanged.
+- **Validation.** PDF rebuilt twice and byte-identical; zero dashes in the
+  render; full ladder green.
+- **Anchor.** Apply commit 70d2cd3. NEXT free ids: CR-0052 and D-0077.

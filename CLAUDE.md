@@ -36,8 +36,9 @@ byline, the title and keyword sync, and an original graphical abstract built in-
 (`papers/scripts/build_graphical_abstract.py`). **Editor-facing prose carries no
 em-dashes** — author instruction, see [[no-ai-tell-style]].
 
-**Current freeze: pass-70 / `v2.43`** — minted and tagged 2026-09-02. Next free ids:
-**CR-0051 / D-0076** — verify free at apply time.
+**Current freeze: pass-71 / `v2.44`** — minted and tagged 2026-09-02. Next free ids:
+**CR-0052 / D-0077** — verify free at apply time.
+**Pass-71 (2026-09-02, D-0076 / CR-0051):** the cover letter de-dashed. It had been left behind by pass-69 because **the letters are not part of the manuscript sources** — a change applied to "the manuscript" does not reach them, and they are read together.
 **Pass-70 (2026-09-02, D-0075 / CR-0050):** table row shading removed for MDPI style. **The two channels shaded for different reasons** — the PDF via `\zebra`/`\rowcolors` (now a no-op), the DOCX via a grey `E7E6E6` header fill written by `build_docx.py` in two code paths. Fixing only the LaTeX would have left the Word file shaded. A pass-69 de-dashing artifact (`groups )`, a closing paren starting a line) was closed with it, found by **reading the page** — no gate detects that class.
 **Pass-69 (2026-09-02, D-0074 / CR-0049):** supervisor instruction to minimise AI-drafting tells —
 **148 of the supplement's 156 printing em-dashes** became commas, colons, semicolons or
