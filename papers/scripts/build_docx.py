@@ -108,7 +108,7 @@ DOC_SPECS = {
         "table_prefix": "",     # SEQ Table cached values are plain integers
         "figure_prefix": "",
         "title": "DT-GSK: Dimension-Tiered Adaptive Configuration Selection and Deterministic "
-                 "Refinement for Gaining-Sharing Knowledge Optimization",
+                 "Refinement for Gaining-Sharing Knowledge-Based Optimization Algorithm",
         "authors": "Mostafa Elsayed Ahmed Masoud; Heba Sayed Mohamed Roshdy; "
                    "Ali Wagdy Mohamed",
         "subject": "Dimension-tiered adaptive configuration selection and deterministic refinement for "
@@ -128,7 +128,7 @@ DOC_SPECS = {
         "table_prefix": "A",    # supplement exhibits: Tables A1.., Figures B1..
         "figure_prefix": "B",
         "title": "Supplementary Material for: DT-GSK: Dimension-Tiered Adaptive Configuration "
-                 "Selection and Deterministic Refinement for Gaining-Sharing Knowledge Optimization",
+                 "Selection and Deterministic Refinement for Gaining-Sharing Knowledge-Based Optimization Algorithm",
         "authors": "Mostafa Elsayed Ahmed Masoud; Heba Sayed Mohamed Roshdy; "
                    "Ali Wagdy Mohamed",
         "subject": "Supplementary Material: dimension-tiered adaptive configuration selection and "

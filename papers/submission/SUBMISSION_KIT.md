@@ -16,7 +16,7 @@ form matches the paper exactly (D16.5).
 
 ## 2. Title (paste exactly)
 
-DT-GSK: Dimension-Tiered Adaptive Configuration Selection and Deterministic Refinement for Gaining-Sharing Knowledge Optimization
+DT-GSK: Dimension-Tiered Adaptive Configuration Selection and Deterministic Refinement for Gaining-Sharing Knowledge-Based Optimization Algorithm
 
 ## 3. Abstract (plain-text version of the shipped abstract)
 
@@ -60,11 +60,11 @@ nonparametric statistical comparison; reproducibility
 
 ## 5. Authors (enter in this order)
 
-Affiliation 1 (all three): Operations Research Department, Faculty of Graduate
+Affiliation 1 (all three): Department of Operations Research, Faculty of Graduate
 Studies for Statistical Research, Cairo University, Giza 12613, Egypt
-Affiliation 2 (A.W.M. only, added 2026-08-29): University of Science and
-Technology, Zewail City of Science and Technology, 6th of October City,
-Giza 12588, Egypt
+Affiliation 2 (A.W.M. only, added 2026-08-29; corrected 2026-09-02): University of
+Science and Technology, Mathematics Program, Zewail City of Science and Technology,
+October Gardens, 6th of October, Giza 12578, Egypt
 
 | # | Name | Email | ORCID | Affiliations | Role |
 |---|---|---|---|---|---|
