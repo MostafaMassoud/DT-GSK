@@ -3267,3 +3267,36 @@ applying all surfaced fixes.
   reproducibility and package manifests re-minted and verified post-write;
   full ladder green twice.
 - **Anchor.** Apply commit 82f89b0. NEXT free ids: CR-0046 and D-0071.
+
+## D-0071 (2026-09-02) - Pass-66: supplement aligned with the accepted article
+
+- **Decision.** Before the Supplementary Materials are re-sent to the journal
+  as LaTeX, PDF and DOCX, align them with the accepted article. Mint
+  **pass-66**, tag **v2.39**. Registered as **CR-0046**.
+- **Affiliations (author-supplied).** Answering the proof query about
+  affiliation 2's department, the authors corrected both: affiliation 1
+  becomes "Department of Operations Research"; affiliation 2 gains the
+  Mathematics Program, becomes October Gardens, 6th of October, and its
+  **postcode is corrected from 12588 to 12578**. Applied to the supplement,
+  to the proof returned to the journal, and to CITATION.cff.
+- **Production restyling the supplement never saw.** A word-level diff of our
+  article PDF against the MDPI proof established that production changed
+  "post-hoc" to "post hoc" at all six occurrences in the article. The
+  supplement hyphenated eight of its nine, so the published pair would have
+  disagreed and the supplement disagreed with itself - its own S6.6 heading
+  read "(Post-Hoc)" while the article's Supplementary Materials statement
+  called that section "the post hoc function-class analysis". All eight
+  rendered sites are now open. The single `% BIND` comment keeps the hyphen:
+  it is a governance record, not rendered text.
+- **Six spellings the article never uses** (analysed, Colours, favour(able),
+  "per cent", run-time, sub-component) brought into line, and one
+  cross-reference corrected: the tier boundaries are given in main-text
+  Table 5, not in a figure. Figure 2's caption was read and states none.
+- **No result changes.** Twenty-two edits, none touching a number, a claim or
+  a registered sentence; supplement unchanged at 82 pages with zero citation
+  apparatus. The main manuscript is untouched and verified byte-identical to
+  v2.38; the Data Availability Statement still names v2.37 (D-0070).
+- **Validation.** Supplement PDF and DOCX each rebuilt twice and
+  byte-identical; check_manifest 15/15 + sources 2/2; reproducibility and
+  package manifests re-minted and verified post-write; full ladder green.
+- **Anchor.** Apply commit 7729822. NEXT free ids: CR-0047 and D-0072.

@@ -353,7 +353,7 @@ supplementary.docx,heading,S2.1. CEC2017 Head-to-Head Detail: DT-GSK vs. GSK,PA
 supplementary.docx,heading,S2.2. CEC2011 Detail,PASS,pdf-outline-match,,,0e91bb0e395c
 supplementary.docx,heading,S2.3. CEC2013 Second Comparison Suite Detail,PASS,pdf-outline-match,,,cd5112c444ab
 supplementary.docx,heading,S2.4. Descriptive Bootstrap Rank-Stability Intervals on the CEC2017 Fr,PASS,pdf-outline-match,,,f7e41f40005d
-supplementary.docx,heading,S2.5. Post-hoc Robustness: Endpoint Choice and Randomization Inference,PASS,pdf-outline-match,,,8e846dba4af2
+supplementary.docx,heading,S2.5. Post Hoc Robustness: Endpoint Choice and Randomization Inference,PASS,pdf-outline-match,,,5d5f586c93f8
 supplementary.docx,heading_runin,Endpoint invariance.,PASS,pdf-text-containment,,,a7d4a2d60bb8
 supplementary.docx,heading_runin,Monte Carlo sign-flip inference.,PASS,pdf-text-containment,,,bad43beb61d7
 supplementary.docx,heading,S2.6. Additional CEC2017 Rank Views: Overall Bars and Dimension Trend,PASS,pdf-outline-match,,,67fd546b08b0
@@ -395,7 +395,7 @@ supplementary.docx,heading_runin,Interpretation boundary.,PASS,pdf-text-containm
 supplementary.docx,heading,"S6.3. Findings (Conditional, ISM Off)",PASS,pdf-outline-match,,,95de577a907e
 supplementary.docx,heading,S6.4. What This Study Does Not Establish,PASS,pdf-outline-match,,,ef0c3c0ae51f
 supplementary.docx,heading,S6.5. ISM-Overlay Isolation: Direct Component Study,PASS,pdf-outline-match,,,a2ca7240436f
-supplementary.docx,heading,S6.6. Conditional-Benefit Analysis by Function Class (Post-Hoc),PASS,pdf-outline-match,,,fe6669432be9
+supplementary.docx,heading,S6.6. Conditional-Benefit Analysis by Function Class (Post Hoc),PASS,pdf-outline-match,,,fe6669432be9
 supplementary.docx,heading,S6.7. Implementation Caveats: Two Corrected Defects and Their Evidence,PASS,pdf-outline-match,,,3833fba87b28
 supplementary.docx,heading_runin,The interaction graph’s compiled kernels were silently disabled in the,PASS,pdf-text-containment,,,a944ac152150
 supplementary.docx,heading_runin,The final polish previously refined a one-generation-stale incumbent.,PASS,pdf-text-containment,,,cb7a28e121a8
@@ -472,10 +472,10 @@ supplementary.docx,caption,Table A20.  Current names and the legacy identifiers 
 supplementary.docx,caption,Table A21.  Acronyms used in the text that are not mathematical symbol,PASS,alnum-containment,,,b163f4669d00
 supplementary.docx,caption,Table A22.  Frozen run parameters of the shipped configuration (per-su,PASS,alnum-containment,,,9f0d3892d591
 supplementary.docx,caption,Table A23.  Scaffold remove-one ablation on CEC2017: mean Friedman ran,PASS,alnum-containment,,,fe8ebc533e94
-supplementary.docx,caption,Figure B27.  Conditional rank degradation from removing each scaffold ,PASS,alnum-containment,,,dcee0264c5d9
+supplementary.docx,caption,Figure B27.  Conditional rank degradation from removing each scaffold ,PASS,alnum-containment,,,0f5e5b3ba95e
 supplementary.docx,caption,Table A24.  Scaffold remove-one ablation on CEC2017: full-vs-cell pair,PASS,alnum-containment,,,bedc30c24881
 supplementary.docx,caption,Table A25.  Direct ISM-overlay isolation: the full overlay versus each,PASS,alnum-containment,,,1e92b0559d72
-supplementary.docx,caption,Table A26.  Post-hoc conditional-benefit analysis: per-function win/ti,PASS,alnum-containment,,,a75033d493f1
+supplementary.docx,caption,Table A26.  Post hoc conditional-benefit analysis: per-function win/ti,PASS,alnum-containment,,,a75033d493f1
 supplementary.docx,caption,Table A27.  CEC2013LSGO family-only tie-corrected Friedman mean ranks ,PASS,alnum-containment,,,6240659b6a2e
 supplementary.docx,caption,"Table A28.  Across-function Wilcoxon signed-rank layer on CEC2013LSGO,",PASS,alnum-containment,,,749913e438da
 supplementary.docx,caption,Table A29.  Registered confirmatory layer on CEC2013LSGO: per-function,PASS,alnum-containment,,,c8a24675fefe
@@ -492,7 +492,7 @@ supplementary.docx,caption,Table A39.  CEC2020 at D=5: best / median / mean / wo
 supplementary.docx,caption,Table A40.  CEC2020 at D=10: best / median / mean / worst / SD of the ,PASS,alnum-containment,,,9733d9b2966a
 supplementary.docx,caption,Table A41.  CEC2020 at D=15: best / median / mean / worst / SD of the ,PASS,alnum-containment,,,416c02e3d7dc
 supplementary.docx,caption,Table A42.  CEC2020 at D=20: best / median / mean / worst / SD of the ,PASS,alnum-containment,,,ce79b992ee14
-supplementary.docx,caption,Table A43.  Refinement-basis contrast on CEC2017 at the two dimensions,PASS,alnum-containment,,,0d0d9320537a
+supplementary.docx,caption,Table A43.  Refinement-basis contrast on CEC2017 at the two dimensions,PASS,alnum-containment,,,f2967da70933
 supplementary.docx,caption,Table A44.  DT-GSK at the comparators’ population value. Mean ranks an,PASS,alnum-containment,,,e0816b371216
 supplementary.docx,caption,Table A45.  Tiered configuration versus the two tier-constant transpla,PASS,alnum-containment,,,0b0aa4c53873
 supplementary.docx,caption,Table A46.  Exploratory one-factor sensitivity of DT-GSK’s panel stand,PASS,alnum-containment,,,d0ea69a3300a
@@ -571,7 +571,7 @@ supplementary.docx,table_generated,SA08 (Table A46),PASS_FORMAT_DIFF,wsource-exa
 supplementary.docx,table_pdf_spot,SA08,PASS,squash-containment,6/6 sampled display values found,,
 supplementary.docx,table_generated,SA09 (Table A47),PASS_FORMAT_DIFF,wsource-exact + tex-display-precision,5 data rows; header rows 1; all display strings derivable,DOCX = semantic full precision; PDF = display-rounded; equal at display precision,9bda5921b339
 supplementary.docx,table_pdf_spot,SA09,PASS,squash-containment,6/6 sampled display values found,,
-supplementary.docx,paragraph,"1 Operations Research Department, Faculty of Graduate Studie",PASS_FORMAT_DIFF,affiliation-label-adjacency,verbatim once superscript address labels are dropped,address-label superscripts merge or vanish in the PDF extraction stream,97f83fb02ff4
+supplementary.docx,paragraph,"1 Department of Operations Research, Faculty of Graduate Stu",PASS_FORMAT_DIFF,affiliation-label-adjacency,verbatim once superscript address labels are dropped,address-label superscripts merge or vanish in the PDF extraction stream,c04e58e06820
 supplementary.docx,paragraph,Keywords: metaheuristic optimization; gaining-sharing knowle,PASS,alnum-containment,,,045936c0fa2a
 supplementary.docx,paragraph,This Supplementary Material is organized so that the main pa,PASS,alnum-containment,,,bfe1f9fe9630
 supplementary.docx,paragraph,CEC2011 comprises 22 real-world problems at their native dim,PASS,alnum-containment,,,3054e1f57213
@@ -600,7 +600,7 @@ supplementary.docx,paragraph,Table A17 attaches 95% bias-corrected and accelera
 supplementary.docx,paragraph,Two qualifications accompany this table wherever its ranks a,PASS,alnum-containment,,,415d9ffabf5c
 supplementary.docx,paragraph,"Second, DT-GSK and eGSK are never separated by the Nemenyi c",PASS,alnum-containment,,,b8f258725ed5
 supplementary.docx,paragraph,The APGSK evidence limitation of Section S1 applies to the D,PASS,alnum-containment,,,e2d4f6f2fe45
-supplementary.docx,paragraph,This subsection reports two post-hoc sensitivity checks — no,PASS,alnum-containment,,,5fb5429da8df
+supplementary.docx,paragraph,This subsection reports two post hoc sensitivity checks — no,PASS,alnum-containment,,,5fb5429da8df
 supplementary.docx,paragraph,Re-deriving the Friedman mean ranks under a median endpoint ,PASS,alnum-containment,,,454c9aaeb40a
 supplementary.docx,paragraph,Values are the DT-GSK Friedman mean rank (lower is better; s,PASS,alnum-containment,,,396b0dc8a3ec
 supplementary.docx,paragraph,Replacing the normal-approximation p-value of the headline p,PASS,alnum-containment,,,ca41657f4c2e
@@ -642,7 +642,7 @@ supplementary.docx,paragraph,The single dimension-aware configuration is fixed o
 supplementary.docx,paragraph,CEC2017 was the development suite: the tier-resolved paramet,PASS,alnum-containment,,,26f5fe88bfec
 supplementary.docx,paragraph,The conclusions summarize the limitations that bound this st,PASS,alnum-containment,,,16f5f74c78bd
 supplementary.docx,paragraph,"Several limitations bound these findings. First, the mid-dim",PASS,alnum-window-coverage,coverage=0.99,,6164a905bfb5
-supplementary.docx,paragraph,"Seventh, the comparison is entirely within the GSK family. A",PASS,alnum-containment,,,315170e62468
+supplementary.docx,paragraph,"Seventh, the comparison is entirely within the GSK family. A",PASS,alnum-containment,,,e3647f152a64
 supplementary.docx,paragraph,"Eighth, three attribution gaps bound what the component evid",PASS,alnum-containment,,,a505b8cae002
 supplementary.docx,paragraph,"Ninth, the parameter-sensitivity evidence is exploratory and",PASS,alnum-containment,,,5e4727174079
 supplementary.docx,paragraph,"Beyond these, the statistical scope is itself bounded: infer",PASS,alnum-containment,,,403d0b1b4f94
@@ -652,7 +652,7 @@ supplementary.docx,paragraph,"This is consistent with, rather than contrary to, 
 supplementary.docx,paragraph,The method and its structure-memory subsystem were renamed d,PASS,alnum-containment,,,0c4dccf92d73
 supplementary.docx,paragraph,The main-text notation table defines every mathematical symb,PASS,alnum-containment,,,9297695c7bdb
 supplementary.docx,paragraph,Table A22 completes the main-text frozen-parameter table. Th,PASS,alnum-containment,,,da9a0f121c02
-supplementary.docx,paragraph,This subsection records the operator-level constants and upd,PASS,alnum-containment,,,ef50bc012555
+supplementary.docx,paragraph,This subsection records the operator-level constants and upd,PASS,alnum-containment,,,83ca3ec44bb2
 supplementary.docx,paragraph,The adaptive credit-based selector samples one of five fixed,PASS,alnum-containment,,,f20572a22835
 supplementary.docx,paragraph,The credit is an exponential moving average at learning rate,PASS,alnum-containment,,,6c7edb0f38b7
 supplementary.docx,paragraph,"The following states the order of operations, the timing con",PASS,alnum-containment,,,e09a034c674c
@@ -713,7 +713,7 @@ supplementary.docx,paragraph,"In the pre-fix binary, the eigenframe polish was i
 supplementary.docx,paragraph,"CEC2013LSGO is the large-scale suite of this study, reported",PASS,alnum-containment,,,b28905164a3d
 supplementary.docx,paragraph,"Two evidential tiers apply, fixed by the pre-registered anal",PASS,alnum-containment,,,77be8bba812c
 supplementary.docx,paragraph,The CEC2013LSGO analysis in this paper is family-internal: i,PASS,alnum-containment,,,98a8fd32bd63
-supplementary.docx,paragraph,For completeness: the public repository cited in the Data Av,PASS,alnum-containment,,,722d30c403e8
+supplementary.docx,paragraph,For completeness: the public repository cited in the Data Av,PASS,alnum-containment,,,5181f39f7239
 supplementary.docx,paragraph,DT-GSK runs the same hash-frozen configuration here as on th,PASS,alnum-containment,,,612e2d3ae83f
 supplementary.docx,paragraph,The registered standing statement for this suite is quoted f,PASS,alnum-containment,,,d04cfd343984
 supplementary.docx,paragraph,Table A28 reports the across-function Wilcoxon signed-rank l,PASS,alnum-containment,,,fc03848c10a8
@@ -731,7 +731,7 @@ supplementary.docx,paragraph,"Two registered layers are reported, both Holm-corr
 supplementary.docx,paragraph,Table A37 reports the registered effect-size family: run-lev,PASS,alnum-containment,,,4321b58e9b9b
 supplementary.docx,paragraph,All three registered robustness variants were computed. The ,PASS,alnum-containment,,,25c356a17eaf
 supplementary.docx,paragraph,Tables A39–A42 report the five-statistic per-function record,PASS,alnum-containment,,,566097cd0ea6
-supplementary.docx,paragraph,The five experiments in this section isolate design choices ,PASS,alnum-containment,,,c5a361867e01
+supplementary.docx,paragraph,The five experiments in this section isolate design choices ,PASS,alnum-containment,,,6942ad802a40
 supplementary.docx,paragraph,"The evidence for this section is compound, and is named here",PASS_FORMAT_DIFF,alnum-split-containment,paragraph verbatim in two contiguous runs,page-break/float interleaves PDF extraction mid-paragraph,be2d39922dcb
 supplementary.docx,paragraph,The final polish was previously evaluated only as a whole: t,PASS,alnum-containment,,,9be8ac54cfce
 supplementary.docx,paragraph,The coordinate arm is produced by supplying the identity mat,PASS,alnum-containment,,,00c9c4688aae
@@ -744,7 +744,7 @@ supplementary.docx,paragraph,"A transplant is not a component removal, and the r
 supplementary.docx,paragraph,The result is mixed and is reported as such. Tiering is demo,PASS,alnum-containment,,,5e801c6a4212
 supplementary.docx,paragraph,This study is exploratory by registration. It is reported de,PASS,alnum-containment,,,feaa1fa6db80
 supplementary.docx,paragraph,One deviation from the registered design was found after exe,PASS,alnum-containment,,,b500adbe1c4b
-supplementary.docx,paragraph,"The registered headline form is an ordinal statement, and it",PASS,alnum-containment,,,60377d683d3a
+supplementary.docx,paragraph,"The registered headline form is an ordinal statement, and it",PASS,alnum-containment,,,5a4b53295b00
 supplementary.docx,paragraph,Registered before execution as pre-registration Amendment A4,PASS,alnum-containment,,,b0249ab36062
 supplementary.docx,paragraph,"The result is mixed in an informative way, and the adverse c",PASS,alnum-containment,,,2d5f1183bdc7
 supplementary.docx,citation_keys,0 distinct keys in 0 fields,PASS,set-equality vs canonical \cite inventory,,,da39a3ee5e6b

@@ -1,8 +1,8 @@
 {
   "schema": "main_manuscript_freeze_manifest/v1",
-  "phase": "PASS-65: two Word-channel defects fixed before the DOCX supplement goes to the journal's English-editing team, which asked for it on 2026-09-02. (1) build_docx.py's replace_refs matched only \\ref, so the supplement's two \\eqref calls reached pandoc untouched and printed the raw label [eq:opspec-conf] in the body text; \\eqref now maps to a parenthesised REF field, matching the PDF's 'Equation (4)'. (2) docProps dc:creator and cp:lastModifiedBy carried the short name 'Mostafa Elsayed Masoud', hardcoded in the builder and missed by the pass-59 full-name sweep because docProps is ungated; both DOCX now carry the full name. No .tex was touched, so DT-GSK.pdf, supplementary.pdf and cover_letter.pdf are byte-identical to the artifacts the journal holds, and the Data Availability Statement deliberately still names tag v2.37, which is what the paper in production prints. Both DOCX double-built byte-identical; supplement REF fields 87 to 89, CITATION 0; parity 755 rows, 0 FAIL.",
-  "generated_utc": "2026-09-02T06:20:00+00:00",
-  "anchor_commit": "82f89b06af6c3953b784f747fd13ce0ca56e9989",
+  "phase": "PASS-66: the Supplementary Materials aligned with the accepted article before being re-sent to the journal in all three formats. The authors supplied corrected affiliations while answering the proof queries (Department of Operations Research; affiliation 2 gains the Mathematics Program, becomes October Gardens, 6th of October, and its postcode is corrected from 12588 to 12578), and production's house-style change of post-hoc to post hoc, applied to all six occurrences in the article, is carried into the supplement's eight rendered sites - it had disagreed with the article and with itself. Also corrected: six spellings the article never uses (analysed, Colours, favour(able), per cent, run-time, sub-component) and one cross-reference, since the tier boundaries are given in main-text Table 5, not in a figure. Twenty-two edits, none touching a number, a claim or a registered sentence. Supplement PDF and DOCX each rebuilt twice and byte-identical, 82 pages unchanged, zero citation apparatus. The main manuscript is untouched: DT-GSK.pdf, DT-GSK.docx and cover_letter.pdf are byte-identical to v2.38, and the Data Availability Statement still names v2.37, which the paper in production prints.",
+  "generated_utc": "2026-09-02T15:40:00+00:00",
+  "anchor_commit": "7729822e04e16621e2f2d927c70a7387f6f6d758",
   "pre_freeze_base_commit": "b9846e4 (abbreviated deliberately; the full SHA is held in the withheld papers/review_2026_08_24/PRIVATE_OPS.md because this commit is one of two unreachable objects pending a provider-side purge)",
   "evidence_release": {
     "primary": "rel-2026-07-20-67d9345f9",
@@ -70,13 +70,13 @@
     },
     {
       "path": "papers/supplementary.pdf",
-      "sha256": "6903ebf47e2fd63cd387086fc620beca9523c5d8a3dbf955578b41a4f3f6c83c",
-      "bytes": 1747825
+      "sha256": "23d00e4b9761b457ae940788e1fcf6bda6001bba16c11e323cb5dd994738c240",
+      "bytes": 1747775
     },
     {
       "path": "papers/supplementary.docx",
-      "sha256": "a72b45ec9f1396e8cc34fb5971e885cbbc3ac08b764f13f459b89363364f751b",
-      "bytes": 9621465
+      "sha256": "6f40d8d442336f8a91cce98dc1ca721b56910dcb488f5b65f06ff64e83ca4368",
+      "bytes": 9621484
     },
     {
       "path": "papers/cover_letter.pdf",
@@ -123,15 +123,15 @@
     "audit_manuscript": "NOT RE-RUN at pass-43. Pass-41 result: exit 0; terminology_hits 0; blocked_wording_hits 2 (pre-existing). Should be re-run before resubmission if the author wants it current.",
     "revision_analysis_pins": "NOT RE-RUN at pass-43, and not required: no analysis artifact was touched, which check_frozen_analysis confirms at 115/115."
   },
-  "remint_note": "pass-65 MINTED 2026-09-02. Lesson: an artifact can pass every gate and still be wrong for its reader. The DOCX carried a raw LaTeX label in its body text and the wrong author name in its file properties, and no gate covers either (docProps is ungated by design; the label leaked because one macro was outside the shim regex). Before sending an artifact to a human who will EDIT it, read what they will see, not what the gates check.",
-  "published_commit": "7af939a54ca27160d9975ef962dbd7c8209841ee",
+  "remint_note": "pass-66 MINTED 2026-09-02. Lesson: when a journal restyles the article in production, the supplement does not follow. Compare the two RENDERS after any production round - the post-hoc change was invisible in our sources because production never touched them, and it would have published a pair that disagreed with itself.",
+  "published_commit": "b436ab21dcd5fbb4240313e29cf6bd39a5179234",
   "immutable_history_note": "Two recorded blemishes live in immutable, already-pushed history and are disclosed here rather than rewritten (rewriting would move published tags, break the Data Availability Statement, and violate D-0045): (1) the pass-54 commit c0028c1's MESSAGE cites anchor 4d6bd1b, which resolves to nothing - the manifest committed IN that commit records the correct anchor b7abf61da; commit messages cannot be corrected without rewriting pushed history. (2) The copies of THIS manifest frozen inside tags v2.26 through v2.28 carry their as-minted values, including v2.28's published_commit whose tail was invented while expanding a 9-hex abbreviation; the value was corrected on main at pass-56 and check_manifest has gated commit-field resolvability since. Tagged states are never edited in place (D-0045), so the in-tag copies stand as minted. Recorded at pass-57 (D-0062).",
   "published_commit_note": "published_commit is the commit that carried the previous freeze's mint onto the published branch (for pass-63, the v2.35 close). It is NOT the same object as anchor_commit, which names this pass's apply commit; both resolve on the public branch. This field went four passes stale before pass-53 because nothing gates it - recompute it at every mint, and never assume anchor and published are the same commit.",
   "source_files": [
     {
       "path": "papers/supplementary.tex",
-      "sha256": "a51395a0332d28cb687d96f57cf10abf4e49172680aacf9dedc4655ce6130749",
-      "bytes": 246118
+      "sha256": "9723a00f89a08ead642a938f6f58ac480cc4440b509c14ffe7aba3fddf1786e2",
+      "bytes": 246145
     },
     {
       "path": "papers/cover_letter.tex",

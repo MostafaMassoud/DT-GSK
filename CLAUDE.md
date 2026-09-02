@@ -36,8 +36,16 @@ byline, the title and keyword sync, and an original graphical abstract built in-
 (`papers/scripts/build_graphical_abstract.py`). **Editor-facing prose carries no
 em-dashes** — author instruction, see [[no-ai-tell-style]].
 
-**Current freeze: pass-65 / `v2.38`** — minted and tagged 2026-09-02. Next free ids:
-**CR-0046 / D-0071** — verify free at apply time.
+**Current freeze: pass-66 / `v2.39`** — minted and tagged 2026-09-02. Next free ids:
+**CR-0047 / D-0072** — verify free at apply time.
+**Pass-66 (2026-09-02, D-0071 / CR-0046) aligns the supplement with the accepted article**
+before it is re-sent as LaTeX, PDF and DOCX. The authors corrected both affiliations while
+answering the proof queries (**postcode 12588 → 12578**, and affiliation 2 gains the
+Mathematics Program); production's `post-hoc` → `post hoc` restyling of the article is carried
+into the supplement's eight rendered sites (it had disagreed with the article *and with
+itself*); six spellings the article never uses are aligned; and one cross-reference is fixed
+(the tier boundaries live in main Table 5, not a figure). **Lesson: production restyles the
+article but never the supplement — diff the two RENDERS after every production round.**
 **Pass-65 (2026-09-02, D-0070 / CR-0045) fixes two Word-channel defects before the DOCX
 reaches the journal's editing team:** `build_docx.py`'s `replace_refs` matched only `\ref`, so
 the supplement's two `\eqref` calls printed the raw label `[eq:opspec-conf]` in the body text
