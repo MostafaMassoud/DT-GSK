@@ -1581,11 +1581,9 @@ def build_native_table(table_id: str) -> tuple[etree._Element, str, int, int]:
             tcw.set(qn("w:w"), str(col_w[c] if c < len(col_w)
                                    else min(col_w, default=500)))
             tcw.set(qn("w:type"), "dxa")
-            if header:
-                shd = etree.SubElement(tcpr, qn("w:shd"))
-                shd.set(qn("w:val"), "clear")
-                shd.set(qn("w:color"), "auto")
-                shd.set(qn("w:fill"), "E7E6E6")
+            # Header shading removed at the authors' request (2026-09-02) for
+            # consistency with the MDPI table style, which carries no cell
+            # fill; the header stays distinguished by its bold run and rule.
             p = etree.SubElement(tc, qn("w:p"))
             ppr = etree.SubElement(p, qn("w:pPr"))
             st = etree.SubElement(ppr, qn("w:pStyle"))
@@ -1614,10 +1612,7 @@ def build_native_table(table_id: str) -> tuple[etree._Element, str, int, int]:
             if span > 1:
                 gs = etree.SubElement(tcpr, qn("w:gridSpan"))
                 gs.set(qn("w:val"), str(span))
-            shd = etree.SubElement(tcpr, qn("w:shd"))
-            shd.set(qn("w:val"), "clear")
-            shd.set(qn("w:color"), "auto")
-            shd.set(qn("w:fill"), "E7E6E6")
+            # Shading removed here too, same reason as the header cells above.
             p = etree.SubElement(tc, qn("w:p"))
             ppr = etree.SubElement(p, qn("w:pPr"))
             stp = etree.SubElement(ppr, qn("w:pStyle"))

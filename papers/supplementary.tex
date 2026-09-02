@@ -67,7 +67,10 @@
 % Zebra striping for data tables (matches main.tex; the generated table
 % fragments begin with \zebra). xcolor[table] is provided by the MDPI class.
 \definecolor{zebragray}{gray}{0.94}
-\newcommand{\zebra}{\rowcolors{2}{zebragray}{white}}
+% Row striping removed at the authors' request, for consistency with the
+% MDPI table style. \zebra is kept as a no-op so every table that calls it
+% is unaffected structurally; restoring the stripe is a one-line edit.
+\newcommand{\zebra}{}
 
 % SI column type for tables
 \sisetup{
@@ -2538,7 +2541,7 @@ The value 50 follows a structural rule recorded in the configuration file
 at the time the entries were introduced: it matches the benchmark's own
 declared group structure (the suite builds its partially separable
 functions from groups of 25, 50 and 100 variables, with F8--F11 using
-twenty groups of 50 and F13/F14 using 50-dimensional overlapping groups
+twenty groups of 50 and F13/F14 using 50-dimensional overlapping groups%
 ) rather than any observed result, and no parameter search was run.
 The timing is disclosed rather than glossed: the two entries were added on
 2026-07-24, while \dtgsk{} CEC2013LSGO results had existed in the
