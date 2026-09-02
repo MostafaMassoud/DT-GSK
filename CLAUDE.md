@@ -36,8 +36,10 @@ byline, the title and keyword sync, and an original graphical abstract built in-
 (`papers/scripts/build_graphical_abstract.py`). **Editor-facing prose carries no
 em-dashes** — author instruction, see [[no-ai-tell-style]].
 
-**Current freeze: pass-67 / `v2.40`** — minted and tagged 2026-09-02. Next free ids:
-**CR-0048 / D-0073** — verify free at apply time.
+**Current freeze: pass-68 / `v2.41`** — minted and tagged 2026-09-02. Next free ids:
+**CR-0049 / D-0074** — verify free at apply time.
+**Pass-68 (2026-09-02, D-0073 / CR-0048):** cover letter re-titled and re-dated 2 September 2026
+(both twins together — a gate fails if their titles disagree).
 **Pass-67 (2026-09-02, D-0072 / CR-0047):** at proof stage the authors revised the TITLE to
 "...for Gaining-Sharing **Knowledge-Based Optimization Algorithm**" (the second title change;
 the office had just synced SuSy to the previous one) and corrected both affiliations

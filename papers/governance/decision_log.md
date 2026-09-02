@@ -3332,3 +3332,20 @@ applying all surfaced fixes.
   15/15 + sources 2/2; reproducibility and package manifests re-minted and
   verified post-write; full ladder green.
 - **Anchor.** Apply commit 76ece26. NEXT free ids: CR-0048 and D-0073.
+
+## D-0073 (2026-09-02) - Pass-68: cover letter re-titled and re-dated
+
+- **Decision.** Bring the cover letter into line with the revised title and
+  date it today. Mint **pass-68**, tag **v2.41**. Registered as **CR-0048**.
+- **Scope.** The manuscript title becomes "...for Gaining-Sharing
+  Knowledge-Based Optimization Algorithm" at both occurrences in each twin,
+  and the date moves from 30 August to 2 September 2026. Both twins are
+  edited together: validate_document_consistency exits 1 if cover_letter.md
+  and cover_letter.tex disagree on the title. The letter's body is unchanged
+  and still recounts the round-one revision.
+- **No result changes.** Letter metadata only; 2 pages, unchanged.
+- **Validation.** PDF rebuilt twice at the pinned epoch and byte-identical;
+  the title and date read back out of the render (the "KnowledgeBased" seen
+  in pdftotext is the extractor dropping a hyphen at a line break - the page
+  itself breaks correctly as "Knowledge-" / "Based"); full ladder green.
+- **Anchor.** Apply commit 2f87725. NEXT free ids: CR-0049 and D-0074.

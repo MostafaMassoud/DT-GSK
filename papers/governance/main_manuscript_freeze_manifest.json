@@ -1,8 +1,8 @@
 {
   "schema": "main_manuscript_freeze_manifest/v1",
-  "phase": "PASS-67: the authors revised the article title and corrected both affiliations while returning the galley proof. The title becomes \"DT-GSK: Dimension-Tiered Adaptive Configuration Selection and Deterministic Refinement for Gaining-Sharing Knowledge-Based Optimization Algorithm\"; affiliation 1 becomes the Department of Operations Research, and affiliation 2 gains the Mathematics Program, becomes October Gardens, 6th of October, and has its postcode corrected from 12588 to 12578. Applied to main.tex, supplementary.tex, CITATION.cff (the article title only - the software title names the software, not the paper), the DOCX metadata for both documents, and the submission kit. All four renders rebuilt twice and byte-identical, with the title and both affiliations verified in each. No number, claim or registered sentence changes. The Data Availability Statement still names v2.37, the tag the paper in production prints (D-0070).",
-  "generated_utc": "2026-09-02T17:10:00+00:00",
-  "anchor_commit": "76ece2609213794f43d7459d13758c98798e559c",
+  "phase": "PASS-68: the cover letter carries the revised title and is re-dated 2 September 2026. Both twins move together because validate_document_consistency fails if cover_letter.md and cover_letter.tex disagree on the title. The letter's body is otherwise unchanged: it remains the account of the round-one revision. PDF rebuilt twice at the pinned epoch and byte-identical, 2 pages, with the title and date read back out of the render. No number, claim or registered sentence changes; no other artifact is touched.",
+  "generated_utc": "2026-09-02T18:30:00+00:00",
+  "anchor_commit": "2f877256b6c2472ccab21e57b3fbf777c106cef0",
   "pre_freeze_base_commit": "b9846e4 (abbreviated deliberately; the full SHA is held in the withheld papers/review_2026_08_24/PRIVATE_OPS.md because this commit is one of two unreachable objects pending a provider-side purge)",
   "evidence_release": {
     "primary": "rel-2026-07-20-67d9345f9",
@@ -80,8 +80,8 @@
     },
     {
       "path": "papers/cover_letter.pdf",
-      "sha256": "4636dab0c08da6d4f12cc70bdad8de5422505abdd1e4158da9f125560ebb7704",
-      "bytes": 125501
+      "sha256": "bf078150807c418d5718f9242700fad3e87516e44f295ee0cfbad607b949830f",
+      "bytes": 125739
     },
     {
       "path": "papers/governance/claims_evidence_matrix.csv",
@@ -124,7 +124,7 @@
     "revision_analysis_pins": "NOT RE-RUN at pass-43, and not required: no analysis artifact was touched, which check_frozen_analysis confirms at 115/115."
   },
   "remint_note": "pass-66 MINTED 2026-09-02. Lesson: when a journal restyles the article in production, the supplement does not follow. Compare the two RENDERS after any production round - the post-hoc change was invisible in our sources because production never touched them, and it would have published a pair that disagreed with itself.",
-  "published_commit": "7729822e04e16621e2f2d927c70a7387f6f6d758",
+  "published_commit": "76ece2609213794f43d7459d13758c98798e559c",
   "immutable_history_note": "Two recorded blemishes live in immutable, already-pushed history and are disclosed here rather than rewritten (rewriting would move published tags, break the Data Availability Statement, and violate D-0045): (1) the pass-54 commit c0028c1's MESSAGE cites anchor 4d6bd1b, which resolves to nothing - the manifest committed IN that commit records the correct anchor b7abf61da; commit messages cannot be corrected without rewriting pushed history. (2) The copies of THIS manifest frozen inside tags v2.26 through v2.28 carry their as-minted values, including v2.28's published_commit whose tail was invented while expanding a 9-hex abbreviation; the value was corrected on main at pass-56 and check_manifest has gated commit-field resolvability since. Tagged states are never edited in place (D-0045), so the in-tag copies stand as minted. Recorded at pass-57 (D-0062).",
   "published_commit_note": "published_commit is the commit that carried the previous freeze's mint onto the published branch (for pass-63, the v2.35 close). It is NOT the same object as anchor_commit, which names this pass's apply commit; both resolve on the public branch. This field went four passes stale before pass-53 because nothing gates it - recompute it at every mint, and never assume anchor and published are the same commit.",
   "source_files": [
@@ -135,8 +135,8 @@
     },
     {
       "path": "papers/cover_letter.tex",
-      "sha256": "8505a8d19c37c8a346c234c78e75c3423126466bb7fa1b477116e4e97dd9ca0c",
-      "bytes": 6975
+      "sha256": "16110ca3f4b80320c210053c20a8f68268df5ff79c81b3a7512bbff6883058d5",
+      "bytes": 7009
     }
   ],
   "source_files_note": "Canonical LaTeX sources whose RENDERS are tracked in files[] but which were not themselves hashed. The asymmetry has a failure mode and it fired in pass-42: cover_letter.tex was edited and the render was not rebuilt, so cover_letter.pdf still matched its recorded digest and the gate stayed green while the letter that ships to the editor still carried a retracted phrasing. Hashing the sources here makes that visible without changing files[], so the tracked-file count is unchanged and every recorded 15/15 remains true. main.tex is absent because it is already tracked in files[]."
