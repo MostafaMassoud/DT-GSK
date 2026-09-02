@@ -178,8 +178,8 @@ anomaly in the evidence tree), so the \apgsk{} cells at the three lower
 dimensions were taken from the final-checkpoint columns of the
 per-generation logs of the same runs (verified equivalent during the
 evidence audit) and were never imputed. The missing per-run records
-were subsequently recovered after the freeze --- deterministically,
-from the seed-identical per-run logs --- in a documented post-freeze recovery;
+were subsequently recovered after the freeze (deterministically,
+from the seed-identical per-run logs) in a documented post-freeze recovery;
 the recovered records reproduce the tabulated values, which are
 therefore unchanged.
 
@@ -253,7 +253,7 @@ function), one table per dimension.
 These are two-algorithm detail tables behind the family-panel exhibits
 of the main paper; they support no panel-wide claim.  The corresponding
 panel-wide Wilcoxon + Holm inference against \emph{all six} comparators
---- including the cells that are unfavorable to \dtgsk{} --- is in the
+(including the cells that are unfavorable to \dtgsk{}) is in the
 main paper (the CEC2017 across-function Wilcoxon--Holm summary table) and is not restated here.
 
 
@@ -261,7 +261,7 @@ main paper (the CEC2017 across-function Wilcoxon--Holm summary table) and is not
 @@TABLECAP!tab:h2h\_d10!T2@@ CEC2017 at $D = 10$ (29 functions, 51 runs): best / median /
 worst / mean / SD of the final error (success floor $10^{-8}$) for GSK
 vs.\ \dtgsk{}; best mean per function in bold.  Two-algorithm detail
-behind the family-panel exhibits --- no panel-wide claim.
+behind the family-panel exhibits: no panel-wide claim.
 
 @@NATIVETABLE!T2@@
 
@@ -272,7 +272,7 @@ behind the family-panel exhibits --- no panel-wide claim.
 @@TABLECAP!tab:h2h\_d30!T3@@ CEC2017 at $D = 30$ (29 functions, 51 runs): best / median /
 worst / mean / SD of the final error (success floor $10^{-8}$) for GSK
 vs.\ \dtgsk{}; best mean per function in bold.  Two-algorithm detail
-behind the family-panel exhibits --- no panel-wide claim.
+behind the family-panel exhibits: no panel-wide claim.
 
 @@NATIVETABLE!T3@@
 
@@ -283,7 +283,7 @@ behind the family-panel exhibits --- no panel-wide claim.
 @@TABLECAP!tab:h2h\_d50!T4@@ CEC2017 at $D = 50$ (29 functions, 51 runs): best / median /
 worst / mean / SD of the final error (success floor $10^{-8}$) for GSK
 vs.\ \dtgsk{}; best mean per function in bold.  Two-algorithm detail
-behind the family-panel exhibits --- no panel-wide claim.
+behind the family-panel exhibits: no panel-wide claim.
 
 @@NATIVETABLE!T4@@
 
@@ -294,7 +294,7 @@ behind the family-panel exhibits --- no panel-wide claim.
 @@TABLECAP!tab:h2h\_d100!T5@@ CEC2017 at $D = 100$ (29 functions, 51 runs): best / median /
 worst / mean / SD of the final error (success floor $10^{-8}$) for GSK
 vs.\ \dtgsk{}; best mean per function in bold.  Two-algorithm detail
-behind the family-panel exhibits --- no panel-wide claim.
+behind the family-panel exhibits: no panel-wide claim.
 
 @@NATIVETABLE!T5@@
 
@@ -338,9 +338,9 @@ corresponding panel-wide tests include a significant loss to \egsk{}
 
 
 
-The per-problem five-statistic detail behind that summary --- relocated here
+The per-problem five-statistic detail behind that summary, relocated here
 from the main text so the main paper carries only the corroborative ranking
-and significance --- is given in Table~@@REF!tab:cec2011-perproblem@@.
+and significance, is given in Table~@@REF!tab:cec2011-perproblem@@.
 
 
 
@@ -371,7 +371,7 @@ CEC2013 is a second comparison suite reported for breadth within the
 same frozen protocol; it is not an independence argument of any kind.
 
 The panel-level disclosure at $D = 30$ is stated up front, alongside
---- not after --- the head-to-head detail: on CEC2013 at $D = 30$,
+(not after) the head-to-head detail: on CEC2013 at $D = 30$,
 \dtgsk{} places \emph{third} by Friedman mean rank ($3.38$) behind
 \egsk{} ($3.07$) and \atmals{} ($3.34$).
 
@@ -460,8 +460,8 @@ estimates reproduce the main-text rank table exactly at two-decimal
 display.
 Because these intervals resample each algorithm's \emph{fixed} per-function
 midranks rather than re-ranking the algorithms within every bootstrap
-sample, they are \emph{descriptive} rank-stability intervals --- summarizing
-how stable each mean rank is under function resampling --- and not
+sample, they are \emph{descriptive} rank-stability intervals, summarizing
+how stable each mean rank is under function resampling, and not
 inferential rank-uncertainty (confidence) intervals; no ordering probability
 is read from them.
 
@@ -507,7 +507,7 @@ evidence basis.
 
 \subsection{@@SECNUM!sec:supp:posthoc!S2.5.@@ Post Hoc Robustness: Endpoint Choice and Randomization Inference}\label{sec:supp:posthoc}
 
-This subsection reports two \emph{post hoc} sensitivity checks --- not part of
+This subsection reports two \emph{post hoc} sensitivity checks, not part of
 the prespecified analysis plan, which fixes the raw-error endpoint and the
 normal-approximation Wilcoxon signed-rank test.  Both are computed from the
 frozen per-run and descriptive-statistics artifacts of the evidence release (no
@@ -557,7 +557,7 @@ approximation is therefore not the source of any reported significance.
 For completeness, Figures~@@REF!fig:supp-overall-ranks@@ and~@@REF!fig:supp-rank-trend@@
 render the same seven-algorithm CEC2017 Friedman mean ranks reported by the main
 paper's family-panel rank table (the authoritative numbers) and its per-dimension
-bar chart --- here as the overall aggregate ranking and as a rank-versus-dimension
+bar chart, here as the overall aggregate ranking and as a rank-versus-dimension
 trend. They are relocated from the main text to reduce redundancy among the rank
 exhibits: all such renderings derive from a single analysis output (the per-dimension
 Friedman-rank CSVs), so they add no data and support no claim beyond the main-paper
@@ -865,7 +865,7 @@ legend.  All panels carry 7/7 series.  Suite-level outcome context:
 
 Figures~@@REF!fig:sconv-cec2013-d30-a@@--@@REF!fig:sconv-cec2013-d30-d@@
 cover all 28 functions of the CEC2013 second comparison suite at
-$D = 30$ --- the only prespecified CEC2013 convergence dimension ---
+$D = 30$, the only prespecified CEC2013 convergence dimension,
 split into four sub-grids (F1--F8 / F9--F16 / F17--F24 / F25--F28).
 
 The panel-level outcome disclosure for this suite and dimension applies
@@ -936,7 +936,7 @@ without re-deriving the schedule.
 size reduction schedule under the frozen configuration for all
 four dimension tiers ($NP_{\text{init}} = 5D$;
 $N_{\min} = 12/12/25/25$): population size vs.\ consumed budget
-fraction.  Analytic evaluation of the frozen formula --- no empirical
+fraction.  Analytic evaluation of the frozen formula: no empirical
 result values.}\label{fig:nlpsr-schedule}
 
 \end{figure}
@@ -997,7 +997,7 @@ low-dimension seeds recovered and verified from the surviving generation
 logs after their single-file sidecars were overwritten by a later run --- with zero mismatches, zero
 duplicate keys and, within each schedule, zero duplicate seed values (the
 schedule is intentionally optimizer-independent, so the same key maps to
-the same seed across all seven algorithms --- the basis of the paired
+the same seed across all seven algorithms, the basis of the paired
 comparison), and verified pairing validity for every comparator pair on
 the primary release's three suites.
 
@@ -1006,7 +1006,7 @@ Within a run, a 13-substream append-only, prefix-locked counter-based
 RNG layer child-seeds all subsystems from the one run seed
 ($\mathrm{stream}_{k}$ for $k \in \{0, \dots, 12\}$, with stream~0 the
 run seed verbatim), so toggling any subsystem cannot disturb any other
-subsystem's draw order --- the property that makes exact reproduction
+subsystem's draw order, the property that makes exact reproduction
 byte-stable and test-enforced. Table~@@REF!tab:notation-rng@@ gives the
 substream key referenced by the main-text core notation table.
 
@@ -1039,9 +1039,9 @@ deterministic trace.
 \subsection{@@SECNUM!sec:repro:freeze!S5.2.@@ Frozen Configuration and Freeze Manifest}\label{sec:repro:freeze}
 
 Table~@@REF!tab:comparator-params@@ lists the parameter settings of the six
-comparators --- GSK, \agsk{},
+comparators (GSK, \agsk{},
 \apgsk{}, \fdbagsk{},
-\atmals{} and \egsk{} --- exactly
+\atmals{} and \egsk{}) exactly
 as run here, so comparator fairness can be checked against stated values rather
 than inferred from six source publications. Every entry is read programmatically
 from the shipped optimizer modules; the frozen run\_config.json records
@@ -1094,11 +1094,11 @@ we record it in full.
 
 \begin{enumerate}\itemsep2pt
 \item \textbf{Original freeze (2026-07-10, anchor 708a927bf).}  The
-  manifest pinned the core sources under their production filenames ---
+  manifest pinned the core sources under their production filenames:
   ism\_gsk.py a274e0f83b4efd3c,
   \_ism\_core.py 1ef815cee5d4c9c3,
   \_ism\_profiles.py c3dcdce3a3477dca,
-  \_ism\_rng.py db1cc028b3ebc145 --- with a Merkle digest over
+  \_ism\_rng.py db1cc028b3ebc145, with a Merkle digest over
   the subsystem sources (e532fc4435fd407cf585c5ee57ba3de8).  The evidence
   produced under this freeze was release rel-2026-07-10-262fc16c9.
 \item \textbf{Post-freeze audit.}  Two defects were found in the frozen core: a
@@ -1198,13 +1198,13 @@ primary-suite comparison can be read with its selection exposure in view.
 
 CEC2017 was the \emph{development suite}: the tier-resolved parameter values
 were set against CEC2017 at the reported budget and run count ($n=51$), and no
-CEC2011 or CEC2013 result was consulted during configuration selection --- those
+CEC2011 or CEC2013 result was consulted during configuration selection; those
 two suites are held out with respect to the tuning choices. No CEC2020 or
 CEC2013LSGO result existed when the configuration was frozen; the sole
-later configuration change --- the two CEC2013LSGO linkage-block-size
-entries --- is disclosed with its timing in Section~S7. Before the final
-configuration was promoted, \textbf{six} full-panel candidate configurations ---
-including the one ultimately selected --- were
+later configuration change, the two CEC2013LSGO linkage-block-size
+entries, is disclosed with its timing in Section~S7. Before the final
+configuration was promoted, \textbf{six} full-panel candidate configurations,
+including the one ultimately selected, were
 compared against the complete seven-algorithm family panel on CEC2017. ``Full
 panel'' is the criterion that defines this count: each candidate was run against
 all seven algorithms on the full function set, not through a smoke test, a
@@ -1222,10 +1222,10 @@ suites that did not inform selection place \dtgsk{} second on CEC2011 (a
 Holm-significant loss to \egsk{}), third on CEC2013 at $D = 30$ but first
 overall (2.80), fourth on the pre-registered CEC2020, and tied-first
 descriptive on CEC2013LSGO; the non-development evidence is therefore
-mixed --- strongest where the tiered subsystems are active and weakest
-where they are structurally off --- rather than uniformly favorable or
-unfavorable. This tempers ---
-without eliminating --- the optimistic-selection concern and bounds how far the
+mixed, strongest where the tiered subsystems are active and weakest
+where they are structurally off, rather than uniformly favorable or
+unfavorable. This tempers,
+without eliminating, the optimistic-selection concern and bounds how far the
 primary-suite standing should be generalized.
 
 \subsection{@@SECNUM!sec:repro:limitations!S5.4.@@ Limitations in Full}\label{sec:repro:limitations}
@@ -1248,12 +1248,12 @@ Second, the structure memory and the polish are gated to $D \geq 50$
 under the frozen configuration, so at $D \leq 30$ \dtgsk{} runs essentially
 the adaptive scaffold: low-dimension behavior reflects this structural
 gating rather than the tier-gated mechanisms, the memory itself depends
-on accepted moves --- a stalled run feeds it no signal --- and the
+on accepted moves (a stalled run feeds it no signal) and the
 polish fires at most once, with whatever basis has been
 learned. 
 Third, every comparative finding is panel-relative by design: the study
 establishes standings within the seven-algorithm GSK family on the five
-suites at the stated budgets. The cost is external calibration --- no
+suites at the stated budgets. The cost is external calibration: no
 claim is made relative to other metaheuristic families or to CEC
 competition winners, and none can be read from these results. What the
 scope does buy is attribution: one code base, one protocol and one
@@ -1263,7 +1263,7 @@ Fourth, the \egsk{} panel cells derive from a port whose SLSQP polish
 substitutes the reference implementation's fmincon-based solver. Cross-implementation
 runtime and environment comparability is therefore limited, and no
 runtime-superiority claim is made anywhere in this paper. The main-text runtime table reports
-\dtgsk{}'s own per-run cost only --- comparator timings came from a separate
+\dtgsk{}'s own per-run cost only; comparator timings came from a separate
 measurement session, so no cross-algorithm runtime comparison is drawn. These costs were
 measured with the interaction graph's compiled kernels active: an
 earlier release had silently executed the bit-for-bit-equivalent
@@ -1292,8 +1292,8 @@ high-$D$ tiers where \dtgsk{}'s per-run cost is largest.
 Seventh, the comparison is entirely within the GSK family. As
 disclosed in the Conflicts of Interest, five of its six comparators were
 authored or co-authored by two of the present authors. No external, non-GSK
-baseline --- an L-SHADE-class or CMA-ES method, or a structure-learning
-method such as differential grouping --- enters any panel, table, figure or
+baseline (an L-SHADE-class or CMA-ES method, or a structure-learning
+method such as differential grouping) enters any panel, table, figure or
 claim here to calibrate the family against the broader state of the art; the
 repository does contain runnable non-GSK implementations and, for three
 large-scale specialists, CEC2013LSGO result banks produced under this paper's
@@ -1301,8 +1301,8 @@ protocol, none of them analyzed here (Section~S7.1).  The standings are
 interpretable only within this panel and not as a placement in the
 wider field. Relatedly, \dtgsk{}'s self-initialization (the documented
 shared-$X_{0}$ exception) means that no \dtgsk{} cell begins from the
-shared initial population --- the self-init applies at every dimension
---- a disclosed fairness asymmetry.  It is bounded by the
+shared initial population (the self-init applies at every dimension),
+a disclosed fairness asymmetry.  It is bounded by the
 matched-initial-population control of Section~S9.2: held to the comparators'
 initial $NP = 100$, \dtgsk{} stays within the panel's top two at every
 CEC2017 dimension, but its first places at $D = 50$ and $D = 100$ do not
@@ -1313,9 +1313,9 @@ essentially the scaffold.
 Eighth, three attribution gaps bound what the component evidence can say.
 The corroborative weight rests on the two suites held out from
 configuration selection, CEC2011 and CEC2013: CEC2017 is
-\emph{development-exposed} --- it
+\emph{development-exposed} (it
 informed the frozen configuration and is also the source of the headline
-rank --- so its standing is a performance estimate on a tuned-against
+rank), so its standing is a performance estimate on a tuned-against
 suite rather than an untouched confirmatory one. The
 final-polish isolation removes the \emph{entire} deterministic compass
 endgame, so any effect it measures attaches to that phase as a whole, not to the
@@ -1360,8 +1360,8 @@ the reporting floor it absorbs every difference. It is therefore worth asking
 whether the tally is an artifact of that choice.
 
 Recomputing the CEC2017 counts from the same frozen per-function means under a
-\emph{relative} band --- a tie when
-$|a-b| \le \rho \max(|a|,|b|)$, retaining the $10^{-8}$ floor --- leaves the
+\emph{relative} band (a tie when
+$|a-b| \le \rho \max(|a|,|b|)$, retaining the $10^{-8}$ floor) leaves the
 direction of every panel cell unchanged at $\rho = 1\%$ except one, and changes
 two cells at $\rho = 5\%$. Both are \egsk{} cells at the upper tiers: at
 $D = 50$ the 13--0--16 record becomes 12--7--10, and at $D = 100$ the 12--0--17
@@ -1373,7 +1373,7 @@ text. Those are precisely the two cells whose Holm-corrected tests are \emph{not
 significant ($p_{\mathrm{Holm}} = 1.0$ and $0.795$), and where the paper already
 states that \dtgsk{} and \egsk{} are not separable. The sensitivity shows that
 the apparent margin in those cells depends on how a tie is defined, which is an
-argument for reading them as ties in both directions --- not as evidence for
+argument for reading them as ties in both directions, not as evidence for
 \dtgsk{}. Every Holm decision, every Friedman rank, and every reported
 significance is computed from the tests themselves and is unaffected by the tie
 band, which enters only the descriptive counts.
@@ -1614,7 +1614,7 @@ source that implements it, so the specification can be checked line by line.
 \item \textbf{Mixing and projection.} The target is projected, mixed into $\pi$
   by an exponential moving average at rate $c=0.10$, and the result projected
   again. The projection is the Euclidean projection onto
-  $\{\pi_m\ge\pi_{\min}=0.05,\ \sum_m \pi_m = 1\}$ --- not a floor followed by
+  $\{\pi_m\ge\pi_{\min}=0.05,\ \sum_m \pi_m = 1\}$, not a floor followed by
   renormalization. \hfill\_ace\_project\_probs, \_dt\_core.py
 \item \textbf{ARGP freeze.} After a warm-up fraction of the budget, an unfrozen
   arm whose rolling acceptance over the trailing window falls below the tier
@@ -1679,7 +1679,7 @@ correspondingly the per-update cost of $O(24\,D^2)$ is incurred once per ten
 generations, i.e.\ an amortized $\approx O(2.4\,D^2)$ per generation, against the
 $O(NP\,D^2)$ per-\emph{update} worst case at $D=50$--$99$, where every accepted move
 contributes an uncapped rank-one scatter each generation.
-\emph{Event-driven updates.} Two graph updates fall outside this steady cadence. First, whenever the charged coordinate local search improves at least one individual, that generation's accepted local-search displacements are injected a second time --- at the local-search source weight $0.25$ but \emph{without} the usual $\lambda=0.95$ fade (an injection at decay $1$) --- and the linkage blocks are re-extracted immediately rather than waiting for the next five-generation refresh. Second, after a budget-safe-escape event --- a partial restart, or any Cauchy perturbation, including a successful rescue that cancels the restart --- the retained graph is halved ($\times 0.50$) and a five-generation cooldown suppresses block re-use until the post-escape population has produced fresh evidence, after which blocks are re-extracted; the deep-stall restart itself does not touch the graph. Both transitions are frozen defaults of the shipped configuration.
+\emph{Event-driven updates.} Two graph updates fall outside this steady cadence. First, whenever the charged coordinate local search improves at least one individual, that generation's accepted local-search displacements are injected a second time, at the local-search source weight $0.25$ but \emph{without} the usual $\lambda=0.95$ fade (an injection at decay $1$), and the linkage blocks are re-extracted immediately rather than waiting for the next five-generation refresh. Second, after a budget-safe-escape event (a partial restart, or any Cauchy perturbation, including a successful rescue that cancels the restart), the retained graph is halved ($\times 0.50$) and a five-generation cooldown suppresses block re-use until the post-escape population has produced fresh evidence, after which blocks are re-extracted; the deep-stall restart itself does not touch the graph. Both transitions are frozen defaults of the shipped configuration.
 
 
 \paragraph{Graph-to-block extraction and readiness.}
@@ -1715,8 +1715,8 @@ and $\tau_b$ is the Jaccard stability of the block against the previous refresh.
 At $D\ge 50$ the fixed floor is replaced by an adaptive threshold: the median of
 the last $30$ recorded confidences, floored at $0.12$, with a static warm-up
 over the first $5$ refreshes.  Because this adaptive floor is relative to the
-recent confidence history, it can settle below the static $\kappa_{\min}$ --- as
-low as the $0.12$ hard floor --- and the separate absolute-minimum safeguard is
+recent confidence history, it can settle below the static $\kappa_{\min}$ (as
+low as the $0.12$ hard floor), and the separate absolute-minimum safeguard is
 disabled in the frozen configuration; at $D\ge 50$ a linkage block may therefore
 be committed at a lower nominal confidence than the $D<50$ gate would admit,
 trading precision for earlier structural commitment in the larger upper-tier
@@ -1735,8 +1735,8 @@ require the graph-readiness condition of Equation~(@@REF!eq:opspec-conf@@), so i
 act on $G_{\mathrm{signed}}$ before the confidence gate $\kappa_{\min}$ would admit
 a linkage block.  It then runs a deterministic, RNG-free compass search along one
 basis direction per iteration: the step (initialized at $0.05$ of the box span,
-$0.02$ by default) grows by a factor $1.3$ after an improving probe --- capped at
-half the box span --- and halves after a full non-improving sweep, terminating at
+$0.02$ by default) grows by a factor $1.3$ after an improving probe, capped at
+half the box span, and halves after a full non-improving sweep, terminating at
 the budget cap or when the step falls below $10^{-12}$ of the span.  The polish
 operates on the working incumbent, re-materialized atomically from the current
 population best at entry to the final slice, so the incumbent vector and its fitness
@@ -1769,8 +1769,8 @@ expectation.  The crossover is then a two-stage composition rather than a single
 Bernoulli$(K_R)$ mask: each junior (resp.\ senior) candidate is admitted only if it
 also passes an \emph{independent} crossover draw at rate $K_R$ (separate uniform
 streams for the two partitions), and a coordinate failing its draw keeps its parent
-value.  When a linkage-block mask is active for a row --- the tier mix
-probability $0.70/0.40/0.70/0.70$ --- the junior/senior choice and the $K_R$
+value.  When a linkage-block mask is active for a row (the tier mix
+probability $0.70/0.40/0.70/0.70$), the junior/senior choice and the $K_R$
 gate are taken once for the whole block (block granularity), copying the block
 together; at $D\ge50$ a blockwise row uses the learned partition with
 probability $0.5$ when the graph is ready, and the random partition otherwise; a force-nonzero guarantee sets one random coordinate whenever a row would
@@ -1797,7 +1797,7 @@ mutant coordinates are spliced, with midpoint bound repair.  Because each arm's 
 is the \emph{summed} (not averaged) signed fitness delta of the individuals that drew
 it and the number of draws is proportional to the arm's current probability, credit
 accrual is exposure-dependent: a widely drawn arm accumulates proportionally more total
-credit for the same per-capita effect --- a positive-feedback coupling bounded only by
+credit for the same per-capita effect, a positive-feedback coupling bounded only by
 the improving-arm credit restriction and the simplex floor $\pi_{\min}=0.05$.
 
 
@@ -1807,7 +1807,7 @@ warm-up of $0.15$ of the budget it maintains a rolling window of the last $30$
 \emph{generations} of per-arm acceptance (one row pushed per generation, not per
 decision).  An arm whose windowed acceptance falls below the tier threshold
 $\tau_{\mathrm{argp}}$ ($0.02$ for $D<50$, $0.010$ for $D\ge 50$) is soft-frozen to the
-probability floor $p_{\min}=0.05$ --- not removed --- provided at least two arms remain
+probability floor $p_{\min}=0.05$, not removed, provided at least two arms remain
 active, and the residual probability mass is renormalized over the active arms.  A
 frozen arm is \emph{re-activated} as soon as its windowed acceptance recovers to
 $\tau_{\mathrm{argp}}$ or above, so the retirement is reversible rather than a permanent
@@ -1834,7 +1834,7 @@ the restart for that generation.  Otherwise $\operatorname{round}(0.30\,NP)$ row
 $D<50$ ($\operatorname{round}(0.10\,NP)$ at $D\ge 50$; the parameter table's
 $r_{\text{rst}}$) are reseeded, each drawn from the diversity archive with
 probability $0.5$ (jittered per coordinate by $0.1\cdot D^{-1/2}\cdot\mathrm{span}$),
-else --- where basin memory is enabled ($D\ge 100$) --- from a basin-novelty pool
+else, where basin memory is enabled ($D\ge 100$), from a basin-novelty pool
 holding $4\times$ as many uniform candidates as the rows that fall through to it,
 else uniformly at random, all repaired to bounds; every row count is clamped to the
 remaining evaluation budget so that MaxFES is met exactly.
@@ -1847,7 +1847,7 @@ by the joint of a time gate (consumed fraction $\ge$ start\_frac), an
 evaluation-budget cap (eval\_budget\_frac $\cdot\ \mathrm{MaxFES}$), a call period,
 a post-search cooldown, and a post-restart block of $8$ generations, the same at
 every tier, that is armed only when a budget-safe escape has actually reseeded
-rows --- an escape whose Cauchy rescue cancelled the restart does not arm it.
+rows; an escape whose Cauchy rescue cancelled the restart does not arm it.
 The parameter table's budget/ROI gate adds one further condition at the highest
 tier.  The coordinate branch carries no confidence gate; the
 local-search confidence gate ($\kappa_{\mathrm{ls}}=0.45$ at $D\ge 50$, the static
@@ -1855,8 +1855,8 @@ warm-up value, thereafter superseded by the same adaptive rolling-median rule
 as the linkage gate) governs only the dormant ISM-block subspace variant, not
 the shipped coordinate search.  When it runs
 it selects the elite\_count best individuals, orders axes by descending
-population standard deviation, and --- round-robin from a cursor that persists across
-local-search generations --- probes one coordinate per elite at
+population standard deviation, and (round-robin from a cursor that persists across
+local-search generations) probes one coordinate per elite at
 $x_0 \pm \delta\,e_{\text{coord}}$ with
 $\delta = step\_scale\cdot\sigma_{\text{coord}}\cdot step\_decay$, where
 step\_decay shrinks linearly from $1.0$ to $0.25$ over the endgame window;
@@ -1888,8 +1888,8 @@ consecutive generations, after which accepted improvements are clipped to a rela
 $10^{-3}\lvert f\rvert$ band.  The frozen-broaden guard activates when the log-drop EMA
 falls below $-3.0$ and acceptance stays below $0.05$ for $10$ generations, opening a
 $20$-generation window that multiplies $K_R$ by $1.5$.  Because both activation gates
-read the \emph{absolute} log-drop --- not normalized by $\lvert f\rvert$, span, or the
-initial drop --- they are objective-scale-dependent: rescaling $f\mapsto c\,f$ shifts each
+read the \emph{absolute} log-drop (not normalized by $\lvert f\rvert$, span, or the
+initial drop), they are objective-scale-dependent: rescaling $f\mapsto c\,f$ shifts each
 trigger by $\log_{10} c$.  This is a deliberate asymmetry with the escape stall test,
 which uses the scale-aware $\varepsilon=10^{-8}$; on the shifted-and-scaled CEC functions
 these guards therefore act as tuned late-stage heuristics rather than scale-invariant
@@ -1902,7 +1902,7 @@ The NLPSR population schedule carries a minimum-size floor governor
 example from $25$ to $32$ at $D=100$) until either the budget fraction reaches $0.70$ or
 $64$ linkage-commit generations have accrued.  The quantity it counts is a per-generation
 linkage-commit decision, \emph{not} an objective-evaluation sample, so despite the source
-label (``sample-protected'') it protects population diversity, not evaluation samples ---
+label (``sample-protected'') it protects population diversity, not evaluation samples;
 it merely slows the L-SHADE-style population reduction.  One reproducibility note is
 worth stating explicitly: the fitness-affecting link-lift EMA read-back that feeds the
 senior-widening and broaden gates runs unconditionally in the per-generation loop of the
@@ -1919,7 +1919,7 @@ All CEC2017, CEC2011 and CEC2013 values in the main paper and in this
 Supplementary Material derive from the promoted, read-only primary
 evidence release accompanying this article (release
 rel-2026-07-20-67d9345f9, anchor commit
-67d9345f9502a9a584e645fa8948f60a61d70e29) --- except those of
+67d9345f9502a9a584e645fa8948f60a61d70e29), except those of
 Section~@@REF!sec:supp:revision@@, which carry the compound provenance that
 section states.  That primary release's manifest
 records a SHA-256 checksum for every one of its 3{,}403 files (per-run
@@ -1932,9 +1932,9 @@ cec2020-rel-2026-07-29-5867abe1e, 336 files), each carrying its own
 SHA-256 manifest; and the Section~S6 component study derives from the
 immutable ablation release identified there.
 
-The derived statistical artifacts behind every table and figure ---
+The derived statistical artifacts behind every table and figure (
 descriptive statistics, Wilcoxon/Holm, Friedman/Iman--Davenport,
-Nemenyi, effect sizes, and bootstrap outputs --- are versioned as
+Nemenyi, effect sizes, and bootstrap outputs) are versioned as
 checksummed analysis bundles in the repository, and every exhibit is
 bound to its authoritative CSV
 sources, generator command, and output checksum in
@@ -1947,8 +1947,8 @@ base seed $20{,}260{,}422$ and re-derive byte-identically.
 
 
 The software state itself is attested rather than asserted.  The full test
-suite (618 tests) and every release gate --- build hygiene,
-provenance-claim consistency, cross-format parity, and both Word validators ---
+suite (618 tests) and every release gate (
+provenance-claim consistency, cross-format parity, and both Word validators)
 were executed twice and completed with zero failures, on an interpreter
 (Python~3.10.11) and dependency set verified to lie inside the support
 envelope declared in pyproject.toml; a green suite on an
@@ -1969,7 +1969,7 @@ is traceable to exactly one release.
 
 Second, the \emph{strict-source rule}: per-run quantities may be read
 only from the release's per\_run.csv files, with a single
-sanctioned, audited exception --- for \apgsk{} on CEC2017 at
+sanctioned, audited exception: for \apgsk{} on CEC2017 at
 $D = 10/30/50$, where the per-run sidecar was overwritten by a later
 $D = 100$-only invocation, the per-run source is the final-checkpoint
 column of the corresponding per-generation logs, whose equivalence was
@@ -1979,7 +1979,7 @@ statistics and all 5{,}916 recomputed seeds match).
 No missing value was ever imputed, and no measured quantity in any
 released file was ever edited by hand: every per-run CSV, summary table
 and seed schedule in every release is the machine-minted output of the run
---- or, in one recovered case, of the audited recovery tool --- that
+(or, in one recovered case, of the audited recovery tool) that
 produced it, re-hashed after promotion.  Three released-file histories
 postdate their original emission and are named here rather than left
 implicit.  First, the \apgsk{} CEC2017 per-run file: its lost
@@ -1987,7 +1987,7 @@ $D = 10/30/50$ rows were restored by the validated deterministic recovery
 registered as change request CR-0006, and the restored rows reproduce the
 frozen summary statistics exactly.  Second, two overlay documentation
 files of the ablation release were regenerated against the 51-run results
-under that release's dated amendment A1 --- a documentation-only
+under that release's dated amendment A1, a documentation-only
 amendment with zero data files changed.  Third, the CEC2013LSGO release
 carries files authored at promotion rather than emitted by a run: the
 provenance sidecars recording the transformed Ackley variant used on F3,
@@ -2035,7 +2035,7 @@ changes no primary number, claim, equation, label, or figure; it adds a new,
 separately released body of evidence.  Every value below derives from the
 single immutable ablation release abl-rel-2026-07-20, whose manifest
 records a SHA-256 checksum for each of its 1{,}297 files, and which is
-distinct from --- and held separately in the repository from --- the primary
+distinct from, and held separately in the repository from, the primary
 evidence release, and is read under the same strict-source discipline.
 
 \subsection{@@SECNUM!sec:supp:ablation:design!S6.1.@@ Remove-One Design}\label{sec:supp:ablation:design}
@@ -2044,7 +2044,7 @@ The study removes one scaffold component at a time from the full frozen
 configuration and measures the resulting change in performance, with the
 interaction-structure memory (ISM) held \emph{off} in every cell.  Seven
 cells are compared: a baseline full-scaffold cell and six remove-one
-cells that each disable exactly one component --- ACE operator control
+cells that each disable exactly one component: ACE operator control
 (no\_ace), NLPSR population reduction (no\_psr),
 budget-safe escape (no\_bse), linkage-aware block crossover
 (no\_linkage), the charged coordinate local search
@@ -2082,10 +2082,10 @@ restart seed pool, a real algorithmic dependency rather than a toggle leak.
 Second, disabling BSE (no\_bse) does \emph{not} disable the separate
 deep-stall restart, which remains active in that cell, so no\_bse is
 not a ``no-escape'' condition.  Three further frozen flags are prespecified
-exclusions from this matrix --- the ARGP pool-pruning control, the
+exclusions from this matrix: the ARGP pool-pruning control, the
 ISM-dependent final polish (whose contribution belongs to the ISM-overlay
 design, Section~@@REF!sec:supp:ablation:sgsm@@), and the deep-stall restart
-(which overlaps BSE) --- and no contribution of any sign is claimed for those
+(which overlaps BSE); and no contribution of any sign is claimed for those
 three from this scaffold matrix.
 
 \subsection{@@SECNUM!sec:supp:ablation:stats!S6.2.@@ Statistical Treatment}\label{sec:supp:ablation:stats}
@@ -2110,7 +2110,7 @@ and Holm-adjusted $p$-values.
 Each delta is a \emph{conditional remove-one contribution}: the effect of
 disabling one component given all other scaffold components enabled and ISM
 off.  These are not independent causal effects, they do not decompose
-additively, and --- because several mechanisms flip sign across dimensions ---
+additively, and, because several mechanisms flip sign across dimensions,
 they are never averaged across dimensions.  No result is generalized beyond
 CEC2017 or beyond the tested dimensions.  A geometric-mean error ratio can be
 inflated by a few near-optimum functions and is read only alongside the
@@ -2166,7 +2166,7 @@ both cells and 51 runs per cell; the four Holm-significant results are all
 
 
 Across the four dimensions, only four of the twenty-four (cell, dimension)
-contrasts survive Holm correction, and all four are \emph{favorable} ---
+contrasts survive Holm correction, and all four are \emph{favorable};
 removing the named component degrades performance: ACE at $D=10$
 (Holm $p = 1.1\times10^{-3}$) and, at $D=30$, the local search
 (Holm $p = 1.4\times10^{-3}$), NLPSR (Holm $p = 4.4\times10^{-3}$), and the
@@ -2229,8 +2229,8 @@ share one seed schedule (paired, common random numbers): the full overlay and
 three single-toggle variants that disable, in turn, the interaction-structure
 memory itself (no\_sgsm), its adaptive confidence gate
 (no\_adaptive), and the ISM-dependent final polish
-(no\_finalpolish).  Each cell runs $51$ paired repetitions ---
-matching the primary panel's run count --- at the
+(no\_finalpolish).  Each cell runs $51$ paired repetitions,
+matching the primary panel's run count, at the
 overlay's active tiers, $D \in \{50, 100\}$, on the primary CEC2017 suite (and,
 as a second suite, CEC2013 at $D = 50$).  Cells are compared on per-function
 mean final error by a paired Wilcoxon signed-rank test across functions,
@@ -2241,8 +2241,8 @@ differ overall (Iman--Davenport $F(3,84) = 5.59$,
 $p = 1.5\times10^{-3}$; $F(3,84) = 4.87$, $p = 3.6\times10^{-3}$; and
 $F(3,81) = 5.96$, $p = 1.0\times10^{-3}$ for CEC2017 $D50$, CEC2017 $D100$,
 and CEC2013 $D50$).  These omnibus values use the tie-corrected Friedman
-statistic with the Iman--Davenport $F$ --- the same decision criterion the
-main text applies to the primary suites --- so component and primary
+statistic with the Iman--Davenport $F$, the same decision criterion the
+main text applies to the primary suites, so component and primary
 omnibus figures are now directly comparable.  The classical chi-square
 approximation reported previously ($p = 2.4\times10^{-3}$,
 $5.2\times10^{-3}$, and $3.8\times10^{-3}$) is retained as an audit
@@ -2296,22 +2296,22 @@ leans slightly toward the memory being off ($A_{12} = 0.42$).  Measured on the
 corrected compiled backend (Section~@@REF!sec:supp:ablation:caveats@@), the
 memory's wall-time cost is substantial at every active tier:
 $\mathbf{{+}57.3\%}$ at CEC2017 $D50$, $\mathbf{{+}36.3\%}$ at $D100$, and
-$+30.3\%$ on CEC2013 $D50$ --- so it costs a third to well over half again in
+$+30.3\%$ on CEC2013 $D50$; so it costs a third to well over half again in
 wall-clock and buys no measurable accuracy return.  Second,
 \textbf{removing the complete final-polish phase changed performance
 significantly in these cells} (Holm $p = 0.002$, $0.005$, $0.002$;
 $A_{12} = 0.59$, $0.53$, $0.64$); the contrast removes the whole phase, so it
-does not by itself attribute the effect among the phase's parts---the
+does not by itself attribute the effect among the phase's parts (the
 basis-level attribution is provided by the direct isolation of
-Section~@@REF!sec:supp:rev:basis@@---while the adaptive confidence gate helps directionally but not
+Section~@@REF!sec:supp:rev:basis@@) while the adaptive confidence gate helps directionally but not
 significantly.  This corroborates the bundled-tier reading of the main text: the
 upper-tier behavior is a property of the full tier configuration rather
 than of the interaction-structure memory in isolation, and \dtgsk{}'s
-family-best standing rests on the complete dimension-tiered system --- of whose
+family-best standing rests on the complete dimension-tiered system, of whose
 added mechanisms only the final polish carries an isolated, statistically
 significant effect at these tiers (the no\_sgsm row is itself null, but it
-disables the memory entirely --- removing its linkage channel as well as its
-eigenbasis --- so it cannot separate the basis from the endgame;
+disables the memory entirely, removing its linkage channel as well as its
+eigenbasis, so it cannot separate the basis from the endgame;
 Section~@@REF!sec:supp:rev:basis@@ does that directly).  The interaction-structure memory's isolated
 utility at $D \le 100$ therefore remains unestablished; whether its
 structure-building role becomes decisive at larger scales is left to future work.
@@ -2363,20 +2363,20 @@ All 29 (aggregate)           & 29 & 15/0/14 (0.52) & 14/0/15 (0.48)\\
 No class shows a benefit that survives even a nominal sign test
 (Table~@@REF!tab:ism-subset@@; all subset
 $p > 0.3$; the interacting-vs-non-interacting contrast is $0.50$ vs $0.56$ at $D=50$
-and $0.45$ vs $0.56$ at $D=100$ --- the interacting classes never lead).  The only
+and $0.45$ vs $0.56$ at $D=100$: the interacting classes never lead).  The only
 favorable lean is on the
 $D=50$ hybrids (win-rate $0.70$, median per-function $\log_{10}$-error gain $+0.026$),
 and it reverses at $D=100$ (win-rate $0.40$, median $-0.002$); the
 composition functions lean the other way at $D=50$ (win-rate $0.30$) and are flat
 at $D=100$.  Together with the aggregate
 Vargha--Delaney $A_{12}\approx 0.50$, the point estimates cluster on \emph{no}
-average effect rather than on a small one --- though, absent a formal equivalence
+average effect rather than on a small one, though, absent a formal equivalence
 test, this evidence is consistent with zero rather than establishing it.  The aggregate null is therefore not explained by the separable-problem
 subset: no standalone benefit is detected even on the categories where variable
 interaction is present by construction. This is a failure to detect an effect
 under this design, not a demonstration that none exists.  We accordingly report the
 interaction-structure memory as a controlled negative result on cheap accepted-move
-structure-learning --- a boundary we believe is itself informative for the GSK family.
+structure-learning, a boundary we believe is itself informative for the GSK family.
 
 
 
@@ -2405,7 +2405,7 @@ that import named the wrong module path, so the earlier runs executed the
 \textsc{NumPy} path throughout.  The compiled kernels are built without fast-math and
 without thread-parallel reduction precisely so that they reproduce the \textsc{NumPy}
 arithmetic exactly, and we confirmed bit-identical optimization results across both
-backends --- the defect inflated wall-clock only.  The overhead and runtime figures
+backends: the defect inflated wall-clock only.  The overhead and runtime figures
 in this paper (Section~@@REF!sec:supp:ablation:sgsm@@ and the main-text runtime table)
 were re-measured with the compiled kernels active over the full 51-run overlay:
 the memory's wall-time cost is $+57.3\%$ at CEC2017 $D50$, $+36.3\%$ at $D100$,
@@ -2419,14 +2419,14 @@ running without it.
 \paragraph{The final polish previously refined a one-generation-stale incumbent.}
 In the pre-fix binary, the eigenframe polish was invoked with the incumbent
 materialized at the end of the \emph{previous} generation, and its accept test
-compared against that same stale value --- so the polish could start from, and
+compared against that same stale value; so the polish could start from, and
 accept against, a point the current generation had already improved upon.  Reported
 results were protected throughout by a best-ever shadow (no run could report a value
 worse than the best it found), so this was a loss of polish \emph{effectiveness},
 never a correctness defect.  The fix re-materializes the incumbent atomically at
 polish entry.  The isolation reported above therefore measures the polish
 \emph{un-handicapped}; its contribution remains Holm-significant on every suite and
-tier, and the headline panel ranks are unchanged relative to the pre-fix release ---
+tier, and the headline panel ranks are unchanged relative to the pre-fix release:
 the correction altered $D \geq 50$ trajectories without flipping any per-function
 panel ordering.
 
@@ -2479,16 +2479,16 @@ Amendments 1 and 2.
 
 The CEC2013LSGO analysis in this paper is family-internal: it ranks the
 seven GSK-family variants against one another under a common protocol.
-Dedicated large-scale optimizers --- for example
-SHADE-ILS and MOS ---
+Dedicated large-scale optimizers, for example
+SHADE-ILS and MOS,
 report substantially stronger published results on this suite than any
 GSK-family member, and no competitiveness with such specialists is claimed
 here; cross-paradigm comparison is outside this paper's scope.
 
 For completeness: the public repository cited in the Data Availability
 Statement additionally holds exploratory ports of SHADE-ILS, MOS
-and DECC-G --- the first two vendored byte-faithful copies, DECC-G first-party
-code written from its source paper, as that statement records --- executed on
+and DECC-G (the first two vendored byte-faithful copies, DECC-G first-party
+code written from its source paper, as that statement records) executed on
 this suite under the same harness and seed schedule.
 They are retained there as exploratory material outside the registered
 panel; they are not analyzed in this paper, they enter no ranking or test
@@ -2505,7 +2505,7 @@ suite alone, while all six comparators ran with empty optimizer options.
 A second configuration asymmetry is disclosed here because it is larger on
 this suite than anywhere else in the paper: \dtgsk{}'s
 $NP_{\mathrm{init}} = 5D$ rule gives $5{,}000$ individuals at $D = 1000$
-against the comparators' reference-implementation value of $100$ --- a
+against the comparators' reference-implementation value of $100$, a
 fifty-fold ratio at initialization, where the corresponding ratio is
 five-fold at $D = 100$ on the bound-constrained suites. The budget is
 equalized on function evaluations rather than on population size, so the
@@ -2515,10 +2515,10 @@ matched-population control of Section~@@REF!sec:supp:rev:np@@ covers
 CEC2017 only.
 The value 50 follows a structural rule recorded in the configuration file
 at the time the entries were introduced: it matches the benchmark's own
-declared group structure --- the suite builds its partially separable
+declared group structure (the suite builds its partially separable
 functions from groups of 25, 50 and 100 variables, with F8--F11 using
 twenty groups of 50 and F13/F14 using 50-dimensional overlapping groups
---- rather than any observed result, and no parameter search was run.
+) rather than any observed result, and no parameter search was run.
 The timing is disclosed rather than glossed: the two entries were added on
 2026-07-24, while \dtgsk{} CEC2013LSGO results had existed in the
 repository since 2026-07-21, so outcome-blindness is not asserted for
@@ -2547,8 +2547,8 @@ it carries no confirmatory weight, and the mandatory median-basis re-rank
 of the registered robustness family reproduces every ordinal, the
 registered relative-tie-band variant leaves every win/tie/loss split
 unchanged on the raw basis, while the
-leave-one-function-out variant --- registered as exploratory because the
-F7/F15 deletions are inspection-informed --- moves some ordinals and is
+leave-one-function-out variant, registered as exploratory because the
+F7/F15 deletions are inspection-informed, moves some ordinals and is
 recorded in full in the released robustness digest.
 
 
@@ -2560,7 +2560,7 @@ the 15 function blocks (native $D = 1000$; F13/F14 at $D = 905$; 25 runs;
 raw best-objective basis) with the Nemenyi critical distance
 $\mathrm{CD} = 2.326$ ($k = 7$, $N = 15$, $\alpha = 0.05$).  Lower rank
 is better; \dtgsk{} and \agsk{} are exactly tied-first.  Evidential
-tier: descriptive-after-inspection (addendum Section~6) --- these ranks
+tier: descriptive-after-inspection (addendum Section~6); these ranks
 were informally inspected before the analysis plan was signed, carry no
 confirmatory weight, and enter no confirmatory headline.
 }\label{tab:supp:lsgo:ranks}
@@ -2590,8 +2590,8 @@ per-function means of the raw best objective, decided by exact sign-flip
 enumeration over all $2^{15}$ patterns, with the normal-approximation $p$
 recorded alongside for continuity with the frozen suites and Holm
 correction over the $m = 6$ comparators.  No comparator separates from
-\dtgsk{} at $\alpha = 0.05$ after Holm --- the smallest Holm-adjusted
-$p$ is 0.2875 (\apgsk{} and \egsk{}) --- so this layer demonstrates no
+\dtgsk{} at $\alpha = 0.05$ after Holm: the smallest Holm-adjusted
+$p$ is 0.2875 (\apgsk{} and \egsk{}), so this layer demonstrates no
 separation in either direction; in particular, paired tests do not
 separate \dtgsk{} from \agsk{} (exact $p = 0.8469$, Holm-adjusted $1.0$).
 Per the addendum's pre-committed power disclosure, these $N = 15$
@@ -2605,7 +2605,7 @@ demonstrated, never as equivalence.
 \caption{@@TABLECAP!tab:supp:lsgo:wilcoxon@@ Across-function Wilcoxon signed-rank layer on CEC2013LSGO,
 \dtgsk{} vs.\ each family comparator ($n = 15$ paired per-function
 means of the raw best objective over 25 runs; zero differences
-$|\Delta| < 10^{-8}$ discarded before ranking --- none occurred,
+$|\Delta| < 10^{-8}$ discarded before ranking: none occurred,
 $n_{\mathrm{eff}} = 15$ throughout).  The decision $p$ is the exact
 two-sided sign-flip enumeration over all $2^{15}$ signed-rank patterns;
 the normal-approximation $p$ is recorded for continuity with the frozen
@@ -2956,11 +2956,11 @@ produced.
 
 \subsection{@@SECNUM!sec:supp:cec2020:standing!S8.1.@@ Descriptive Standing}\label{sec:supp:cec2020:standing}
 
-On AGSK's strongest suite --- the CEC2020 competition in which it was
-the runner-up --- \dtgsk{} places fourth; the family
+On AGSK's strongest suite, the CEC2020 competition in which it was
+the runner-up, \dtgsk{} places fourth; the family
 panel corroborates AGSK's published strength in this regime.  That suite
-evaluates the low-dimensional boundary condition of the tiered design ---
-every dimension-gated \dtgsk{} subsystem is inactive at $D \le 20$ ---
+evaluates the low-dimensional boundary condition of the tiered design (
+every dimension-gated \dtgsk{} subsystem is inactive at $D \le 20$)
 and is not affirmative evidence for the tiering choice itself.
 
 
@@ -2973,8 +2973,8 @@ mean of the four per-dimension mean ranks (2.0875) and \dtgsk{} places
 fourth of seven (4.1125).  Two binding wording constraints follow from the
 inferential layers below and are honored throughout this paper: \dtgsk{}
 is Holm-separated in only five of the twenty-four across-function pairwise
-cells (three in its favor --- \atmals{} and \egsk{} at $D = 15$,
-\egsk{} at $D = 20$; two against --- \agsk{} and \fdbagsk{} at
+cells (three in its favor: \atmals{} and \egsk{} at $D = 15$,
+\egsk{} at $D = 20$; two against: \agsk{} and \fdbagsk{} at
 $D = 20$), and no CEC2020 sentence claims superiority over \agsk{} or
 \fdbagsk{} at any dimension.
 
@@ -3204,7 +3204,7 @@ runs per cell, with BCa 95\% confidence intervals ($B = 10{,}000$) on
 the paired mean-error differences released in the analysis bundle.  Of
 the 228 cells, 198 carry a BCa interval and 30 are degenerate (all paired
 differences identical at the $10^{-8}$ floor); the degenerate cells are
-never silently omitted --- each released row carries the registered SAP
+never silently omitted: each released row carries the registered SAP
 Section~7 disclosure string verbatim, no CI (degenerate cell), and those
 cells are marked $^{\dagger}$ in the table.
 
@@ -3279,9 +3279,9 @@ registered disclosure string verbatim: no CI (degenerate cell).
 \subsection{@@SECNUM!sec:supp:cec2020:robustness!S8.5.@@ Robustness}\label{sec:supp:cec2020:robustness}
 
 All three registered robustness variants were computed.  The binding
-instability rule of the analysis plan --- if either across-dimension
+instability rule of the analysis plan (if either across-dimension
 aggregate variant flips \dtgsk{}'s ordinal relative to the primary
-aggregate, the main-text headline carries an instability disclosure ---
+aggregate, the main-text headline carries an instability disclosure)
 did \emph{not} fire: under both registered variants (the $D = 10/15/20$-only
 mean and the common-8-function-subset mean at all four dimensions)
 \dtgsk{}'s ordinal is stable at fourth
@@ -3300,7 +3300,7 @@ per-dimension rank and ordinal exactly.
 \begin{table}[H]
 \caption{@@TABLECAP!tab:supp:cec2020:robustness@@ CEC2020 registered across-dimension aggregate robustness: the
 primary descriptive aggregate (unweighted mean of the four per-dimension
-mean ranks) against the two registered variants --- the $D = 10/15/20$-only
+mean ranks) against the two registered variants: the $D = 10/15/20$-only
 mean and the common-8-function-subset mean at all four dimensions
 (ordinals in parentheses).  \dtgsk{}'s ordinal is stable across both
 variants, so the binding instability rule does not fire.
@@ -3648,7 +3648,7 @@ F10 & Best & 3.99E+02 & 3.99E+02 & 3.99E+02 & 3.99E+02 & 4.01E+02 & 3.99E+02 & 3
 \section{@@SECNUM!sec:supp:revision!S9.@@ Mechanism-Isolation and Sensitivity Experiments}\label{sec:supp:revision}
 
 \noindent The five experiments in this section isolate design choices that
-the original design introduced together --- the refinement basis, the
+the original design introduced together: the refinement basis, the
 population rule, the tier profiles, and the sensitivity of the
 configuration's constants (Section~@@REF!sec:supp:rev:sensitivity@@) and of
 its tier boundaries (Section~@@REF!sec:supp:rev:boundary@@).
@@ -3698,8 +3698,8 @@ The final polish was previously evaluated only as a whole: the released
 component study removed the entire final search procedure rather than testing
 the contribution of the basis it searches along
 (Section~@@REF!sec:supp:ablation:sgsm@@).  This experiment separates the two.
-Three arms differ in the direction set alone --- no refinement, the coordinate
-axes, and the learned eigenframe --- at the shipped configuration in every
+Three arms differ in the direction set alone (no refinement, the coordinate
+axes, and the learned eigenframe) at the shipped configuration in every
 other respect, with the interaction-structure memory and the linkage channel
 live, at $D \in \{50, 100\}$ with $51$ paired repetitions.
 Table~@@REF!tab:rev-e1@@ reports the contrast.
@@ -3719,7 +3719,7 @@ isolates the basis and nothing else.
 polish is active.  Paired Wilcoxon signed-rank across the 29 scored functions on
 per-function mean error, Holm-corrected within dimension over the registered
 two-contrast family; $A_{12}$ over the paired runs of all scored functions
-pooled --- not the per-function-averaged $A_{12}$ of Section~S6.5 --- computed with the first-named
+pooled (not the per-function-averaged $A_{12}$ of Section~S6.5), computed with the first-named
 arm as reference, so $A_{12} < 0.5$ favors the second; between-function scale
 dominates the pooled pairs and compresses the statistic toward $0.5$, so a
 value near $0.5$ here does not indicate a null contrast.  W/T/L counts functions with wins
@@ -3741,18 +3741,18 @@ Two findings follow, and they point in opposite directions.  The refinement
 itself is confirmed: against no refinement it wins on 22 of 29 functions at
 $D = 50$ and 23 of 29 at $D = 100$, and the coordinate arm alone wins on 28 of
 29 and 25 of 29 respectively.  The learned basis, however, does not merely fail
-to add value --- at $D = 50$ it is beaten by the plain coordinate axes on 25 of
+to add value: at $D = 50$ it is beaten by the plain coordinate axes on 25 of
 29 functions at $p_{\mathrm{Holm}} = 1.4\times10^{-4}$, and the single worst
 function shows the eigenframe arm two orders of magnitude behind.  At $D = 100$
 the same direction holds and, under the stated tie rule, is separated
 ($p_{\mathrm{Holm}} = 0.0489$, $n_{\mathrm{eff}} = 28$; the exact-zero
 convention of the first analysis release gave $0.054$, and the correction is
 recorded as Amendments A5-A6).  The conclusion the paper draws is
-restricted to what was tested: at both active dimensions on this suite ---
-sharply at $D = 50$, marginally at $D = 100$ --- with this estimator and
+restricted to what was tested: at both active dimensions on this suite (
+sharply at $D = 50$, marginally at $D = 100$) with this estimator and
 this exploitation channel, the learned eigenbasis degrades a refinement that
 works without it.  This is consistent with the configuration record noting that
-the learned basis matches the coordinate axes to $5\times10^{-5}$ --- an
+the learned basis matches the coordinate axes to $5\times10^{-5}$: an
 estimator carrying almost no information, whose residual rotations subtract from
 a search that the axes serve well.  Contribution~C1 is accordingly stated in
 basis-neutral terms throughout: the mechanism that earns its place is the
@@ -3771,8 +3771,8 @@ columns reused unchanged.
 
 The single-factor scope is declared.  Only the initial population size changes:
 the nonlinear reduction floor keeps its tier value, the high-dimension floor
-governor is untouched, and the diversity archive --- contrary to a statement in the
-registration, corrected there by amendment --- is capped at a fixed size in both
+governor is untouched, and the diversity archive (contrary to a statement in the
+registration, corrected there by amendment) is capped at a fixed size in both
 arms rather than scaling with $NP$, which makes the contrast cleaner than
 registered rather than wider.  Because $NP = 5D$ is a declared component of the
 dimension-tiered method and not an incidental setting, this experiment is an
@@ -3828,7 +3828,7 @@ differ between them.
 A transplant is not a component removal, and the reading is bounded accordingly.
 Carrying a tier's dictionary verbatim also carries the dimension-keyed gates
 inside it, so an arm may have mechanisms switched on or off relative to the
-tiered baseline at a given dimension --- that change in activation is the
+tiered baseline at a given dimension; that change in activation is the
 treatment, not a confound.  The experiment therefore licenses exactly one class
 of statement, that the tiered configuration does or does not outperform a
 tier-constant one at a given dimension.  No difference reported here may be
@@ -3861,18 +3861,18 @@ with zero seed mismatches).
 The result is mixed and is reported as such.  Tiering is demonstrated against
 the high-dimension transplant at $D = 10$ and at $D = 50$, where the tiered
 configuration wins on 22 and 19 of 29 functions respectively.  Against the
-low-dimension transplant it is not separated at $D = 50$ or $D = 100$ --- at
+low-dimension transplant it is not separated at $D = 50$ or $D = 100$ (at
 $D = 10$ it carries the tiered configuration by construction, so that tie is
-the design's internal control, not evidence --- and at $D = 30$ it is beaten: the parameter set that \dtgsk{} resolves at $D = 10$
+the design's internal control, not evidence), and at $D = 30$ it is beaten: the parameter set that \dtgsk{} resolves at $D = 10$
 outperforms the set it actually ships at $D = 30$, on 20 of 29 functions at
 $p_{\mathrm{Holm}} = 5.5\times10^{-3}$.  Contribution~C2 is narrowed to match:
 the evidence supports resolving configuration by dimension at the dimensions
 where it was demonstrated, and it identifies the shipped $20 \le D < 50$
-configuration as inferior to the tested transplant at that dimension --- a
+configuration as inferior to the tested transplant at that dimension, a
 configuration-level weakness, claimed neither for nor against the tiering
 principle itself.  This localizes a
-weakness the main text already discloses descriptively --- $D = 30$
-is \dtgsk{}'s weakest tier on both general suites --- and attributes it to that
+weakness the main text already discloses descriptively ($D = 30$
+is \dtgsk{}'s weakest tier on both general suites) and attributes it to that
 tier's values.  Which of the 88 differing keys carries the effect is not
 resolved by this design and is stated as open.
 
@@ -3901,8 +3901,8 @@ the executed levels are consequently larger than the registered twenty percent
 and lie on one side of the shipped value only.  Those rows are marked in the
 table, which prints the levels actually executed rather than the registered
 formula.  The executed levels bound what was tested: the robustness reading for those
-cells attaches to the larger perturbations actually run --- no monotonicity in
-perturbation size is assumed --- so the registered magnitude on the tested
+cells attaches to the larger perturbations actually run (no monotonicity in
+perturbation size is assumed), so the registered magnitude on the tested
 side, like the whole of the untested side, carries no claim.
 
 
@@ -3929,8 +3929,8 @@ A1).
 The registered headline form is an ordinal statement, and it holds: \dtgsk{}'s
 position within the family panel is unchanged in 26 of the 27 cells, with median
 error ratios within roughly two percent of unity throughout.  The single
-exception is favorable and instructive --- raising the population floor by one
-at $D = 30$ moves \dtgsk{} from second to first at that dimension --- and it
+exception is favorable and instructive (raising the population floor by one
+at $D = 30$ moves \dtgsk{} from second to first at that dimension), and it
 falls on the same tier that the transplant experiment of
 Section~@@REF!sec:supp:rev:tiering@@ identifies as mis-specified.  The two
 observations are consistent, and neither is a test of the other.  No constant
@@ -3946,7 +3946,7 @@ Section~@@REF!sec:supp:rev:sensitivity@@ varies constants within tiers; this
 one varies the tier boundaries themselves.  Each cell shifts one boundary of the frozen
 profile just far enough to change the profile assigned to the nearest official
 CEC2017 dimension, and re-runs \dtgsk{} at that dimension under the
-transplanted profile --- mechanically a single-dimension transplant of the
+transplanted profile: mechanically a single-dimension transplant of the
 Section~@@REF!sec:supp:rev:tiering@@ kind, so a shift changes the complete
 resolved profile and, by the registered rule, no difference is attributed to
 any individual mechanism.  Four cells were executed at 15 paired runs on the
@@ -3980,7 +3980,7 @@ runs).
 
 The result is mixed in an informative way, and the adverse cells are reported
 first.  At $D = 30$ the shipped middle profile is beaten from \emph{both}
-sides --- by the low-tier set ($p_{\mathrm{Holm}} = 5.5\times10^{-3}$; the
+sides: by the low-tier set ($p_{\mathrm{Holm}} = 5.5\times10^{-3}$; the
 Section~@@REF!sec:supp:rev:tiering@@ finding restated in boundary terms) and by
 the structure-tier set ($p_{\mathrm{Holm}} = 2.2\times10^{-3}$, 22 of 29
 functions), each lifting the descriptive ordinal from second to first.  At
