@@ -3349,3 +3349,37 @@ applying all surfaced fixes.
   in pdftotext is the extractor dropping a hyphen at a line break - the page
   itself breaks correctly as "Knowledge-" / "Based"); full ladder green.
 - **Anchor.** Apply commit 2f87725. NEXT free ids: CR-0049 and D-0074.
+
+## D-0074 (2026-09-02) - Pass-69: em-dash density reduced in the supplement
+
+- **Decision.** The supervisor asked that traces of AI drafting be minimised,
+  naming "the use of hyphens instead of commas". Apply that to the
+  Supplementary Materials. Mint **pass-69**, tag **v2.42**. Registered as
+  **CR-0049**.
+- **Scale.** The supplement carried 156 em-dashes that actually print (a
+  further 88 sit in source comments and never render). 148 are now commas,
+  colons, semicolons or parentheses; 8 remain where replacing them would
+  harm clarity, chiefly asides that already contain their own commas.
+- **Method, and why it was not a find-and-replace.** Every site was judged
+  against its own sentence: a comma for a short appositive, a colon for a
+  gloss or list, a semicolon between independent clauses, parentheses where
+  the aside carries internal commas. Paired parentheticals were applied
+  ATOMICALLY - if either half could not be matched uniquely, neither was
+  applied - because half a pair leaves an unbalanced parenthesis in a
+  published paper. Parenthesis balance over the comment-stripped text was
+  recomputed and had to be unchanged or nothing was written; on the first
+  attempt it was NOT unchanged, three anchors spanning line breaks having
+  left their partners stranded, and the run aborted before writing.
+- **No wording changed.** Where a closing parenthesis is followed by ", and"
+  or ", so", the conjunction was already in the sentence and only the dash
+  became punctuation.
+- **Registered wording, disclosed.** The pre-registered RS-12 sentence now
+  reads "On AGSK's strongest suite, the CEC2020 competition in which it was
+  the runner-up, DT-GSK places fourth". Every WORD is byte-identical to the
+  registered form; the two em-dashes are now commas. The registration fixes
+  the claim, and no claim moved, but the change is recorded here because the
+  standing rule is that registered wording is added beside, never edited.
+- **Validation.** PDF and DOCX rebuilt twice and byte-identical; 82 pages
+  unchanged; cross-format parity 755 rows, 0 FAIL; evidence bindings green,
+  so no bound numeric token was disturbed; full ladder green.
+- **Anchor.** Apply commit 09bb379. NEXT free ids: CR-0050 and D-0075.

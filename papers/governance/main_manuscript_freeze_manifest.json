@@ -1,8 +1,8 @@
 {
   "schema": "main_manuscript_freeze_manifest/v1",
-  "phase": "PASS-68: the cover letter carries the revised title and is re-dated 2 September 2026. Both twins move together because validate_document_consistency fails if cover_letter.md and cover_letter.tex disagree on the title. The letter's body is otherwise unchanged: it remains the account of the round-one revision. PDF rebuilt twice at the pinned epoch and byte-identical, 2 pages, with the title and date read back out of the render. No number, claim or registered sentence changes; no other artifact is touched.",
-  "generated_utc": "2026-09-02T18:30:00+00:00",
-  "anchor_commit": "2f877256b6c2472ccab21e57b3fbf777c106cef0",
+  "phase": "PASS-69: em-dash density reduced in the Supplementary Materials at the supervisor's request that traces of AI drafting be minimised, dashes used where commas belong being the example named. 148 of the supplement's 156 printing em-dashes become commas, colons, semicolons or parentheses; 8 remain where replacing them would harm clarity. Every site was judged against its own sentence rather than find-and-replaced, paired parentheticals were applied atomically so no half could land alone, and parenthesis balance over the rendered text is unchanged. No wording changed. The pre-registered RS-12 sentence keeps every word byte-identical and differs only in its two dashes, which are now commas. PDF and DOCX rebuilt twice and byte-identical, 82 pages unchanged, parity 755 rows 0 FAIL, evidence bindings green.",
+  "generated_utc": "2026-09-02T20:00:00+00:00",
+  "anchor_commit": "09bb379712c5f4e18058b90654747768e847d4ea",
   "pre_freeze_base_commit": "b9846e4 (abbreviated deliberately; the full SHA is held in the withheld papers/review_2026_08_24/PRIVATE_OPS.md because this commit is one of two unreachable objects pending a provider-side purge)",
   "evidence_release": {
     "primary": "rel-2026-07-20-67d9345f9",
@@ -70,13 +70,13 @@
     },
     {
       "path": "papers/supplementary.pdf",
-      "sha256": "d12262f94206547c6aca8566e6b5527ad2c5d2c257db294457bd54bf83213996",
-      "bytes": 1747869
+      "sha256": "121b5e95c2275af195ce6101d126b8f5fe772c59594c110f7fea7ed903e429f4",
+      "bytes": 1747734
     },
     {
       "path": "papers/supplementary.docx",
-      "sha256": "8d013b8435bd9c291e51484304ce38443516a0aec695329d7abedf790bf0ec00",
-      "bytes": 9621502
+      "sha256": "53de29c5e5a56c66d1d13c517a913bdbc70d67f98c1e8a6b5b8c095267ee5aef",
+      "bytes": 9621331
     },
     {
       "path": "papers/cover_letter.pdf",
@@ -124,14 +124,14 @@
     "revision_analysis_pins": "NOT RE-RUN at pass-43, and not required: no analysis artifact was touched, which check_frozen_analysis confirms at 115/115."
   },
   "remint_note": "pass-66 MINTED 2026-09-02. Lesson: when a journal restyles the article in production, the supplement does not follow. Compare the two RENDERS after any production round - the post-hoc change was invisible in our sources because production never touched them, and it would have published a pair that disagreed with itself.",
-  "published_commit": "76ece2609213794f43d7459d13758c98798e559c",
+  "published_commit": "2f877256b6c2472ccab21e57b3fbf777c106cef0",
   "immutable_history_note": "Two recorded blemishes live in immutable, already-pushed history and are disclosed here rather than rewritten (rewriting would move published tags, break the Data Availability Statement, and violate D-0045): (1) the pass-54 commit c0028c1's MESSAGE cites anchor 4d6bd1b, which resolves to nothing - the manifest committed IN that commit records the correct anchor b7abf61da; commit messages cannot be corrected without rewriting pushed history. (2) The copies of THIS manifest frozen inside tags v2.26 through v2.28 carry their as-minted values, including v2.28's published_commit whose tail was invented while expanding a 9-hex abbreviation; the value was corrected on main at pass-56 and check_manifest has gated commit-field resolvability since. Tagged states are never edited in place (D-0045), so the in-tag copies stand as minted. Recorded at pass-57 (D-0062).",
   "published_commit_note": "published_commit is the commit that carried the previous freeze's mint onto the published branch (for pass-63, the v2.35 close). It is NOT the same object as anchor_commit, which names this pass's apply commit; both resolve on the public branch. This field went four passes stale before pass-53 because nothing gates it - recompute it at every mint, and never assume anchor and published are the same commit.",
   "source_files": [
     {
       "path": "papers/supplementary.tex",
-      "sha256": "40d935b108ab2f47cbb93c02ceb1c9f10cfd7651cb109b8b1c14d4016505077c",
-      "bytes": 246161
+      "sha256": "705f87487b2923c850c531f14b29454543b063fb314a64a3a3fb6a80ff352065",
+      "bytes": 245740
     },
     {
       "path": "papers/cover_letter.tex",

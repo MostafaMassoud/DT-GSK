@@ -13,7 +13,7 @@
 > **State snapshot refreshed 2026-08-29.** Any dated status, tag, pass number, or open-item
 > list below this line is a point-in-time anchor from an earlier phase and is NOT current
 > state. The live state is [`REVISION_STATUS.md`](../../REVISION_STATUS.md) (start there) and
-> the `CLAUDE.md` "Right now" block. As of this refresh: **pass-68 / tag v2.41**
+> the `CLAUDE.md` "Right now" block. As of this refresh: **pass-69 / tag v2.42**
 > (decision log through **D-0068**, register through **CR-0043**,
 > next free **CR-0044 / D-0069** — verify free at apply time); the round-one revision at *Algorithms* (MDPI) is
 > complete and agent-side work is finished; resubmission is due **2026-09-01**

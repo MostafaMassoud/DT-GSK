@@ -36,8 +36,13 @@ byline, the title and keyword sync, and an original graphical abstract built in-
 (`papers/scripts/build_graphical_abstract.py`). **Editor-facing prose carries no
 em-dashes** — author instruction, see [[no-ai-tell-style]].
 
-**Current freeze: pass-68 / `v2.41`** — minted and tagged 2026-09-02. Next free ids:
-**CR-0049 / D-0074** — verify free at apply time.
+**Current freeze: pass-69 / `v2.42`** — minted and tagged 2026-09-02. Next free ids:
+**CR-0050 / D-0075** — verify free at apply time.
+**Pass-69 (2026-09-02, D-0074 / CR-0049):** supervisor instruction to minimise AI-drafting tells —
+**148 of the supplement's 156 printing em-dashes** became commas, colons, semicolons or
+parentheses (8 kept where a dash aids clarity). Pairs applied ATOMICALLY and parenthesis balance
+re-checked; the first attempt aborted unwritten when three line-spanning anchors stranded their
+partners. RS-12's registered sentence keeps every WORD, only its two dashes moved (disclosed).
 **Pass-68 (2026-09-02, D-0073 / CR-0048):** cover letter re-titled and re-dated 2 September 2026
 (both twins together — a gate fails if their titles disagree).
 **Pass-67 (2026-09-02, D-0072 / CR-0047):** at proof stage the authors revised the TITLE to
