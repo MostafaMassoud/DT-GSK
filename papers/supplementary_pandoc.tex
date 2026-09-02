@@ -38,11 +38,12 @@
 \maketitle
 
 \begin{center}\footnotesize
-@@SUP!1@@ \quad Operations Research Department, Faculty of Graduate Studies for
+@@SUP!1@@ \quad Department of Operations Research, Faculty of Graduate Studies for
 Statistical Research, Cairo University, Giza 12613, Egypt;
 moustafa.masoud@gmail.com (M.E.A.M.\ ORCID 0009-0003-8415-2158); hmhmdss@yahoo.com (H.S.M.R.\ ORCID 0000-0003-0387-5876); aliwagdy@gmail.com (A.W.M.\ ORCID 0000-0002-5895-2632)\\
-@@SUP!2@@ \quad University of Science and Technology, Zewail City of Science and
-Technology, 6th of October City, Giza 12588, Egypt\\
+@@SUP!2@@ \quad University of Science and Technology, Mathematics Program,
+Zewail City of Science and Technology, October Gardens, 6th of October,
+Giza 12578, Egypt\\
 * Correspondence: moustafa.masoud@gmail.com
 \end{center}
 
@@ -131,7 +132,7 @@ correction at family level and $\alpha = 0.05$;
 win/tie/loss counts use the tie rule $|\Delta| < 10^{-8}$.
 
 Panel ranking uses the Friedman test with the
-Iman--Davenport correction and Nemenyi post-hoc critical-difference (CD)
+Iman--Davenport correction and Nemenyi post hoc critical-difference (CD)
 analysis.
 
 The panel order everywhere is GSK, \agsk{}, \apgsk{}, \fdbagsk{},
@@ -504,9 +505,9 @@ evidence basis.
 
 
 
-\subsection{@@SECNUM!sec:supp:posthoc!S2.5.@@ Post-hoc Robustness: Endpoint Choice and Randomization Inference}\label{sec:supp:posthoc}
+\subsection{@@SECNUM!sec:supp:posthoc!S2.5.@@ Post Hoc Robustness: Endpoint Choice and Randomization Inference}\label{sec:supp:posthoc}
 
-This subsection reports two \emph{post-hoc} sensitivity checks --- not part of
+This subsection reports two \emph{post hoc} sensitivity checks --- not part of
 the prespecified analysis plan, which fixes the raw-error endpoint and the
 normal-approximation Wilcoxon signed-rank test.  Both are computed from the
 frozen per-run and descriptive-statistics artifacts of the evidence release (no
@@ -1271,7 +1272,7 @@ affected timings were re-measured in the 51-run regeneration
 (Supplementary Material, Section~S6.7). 
 Fifth, each suite's evidence stops at its own tested dimensions:
 $D \le 100$ on CEC2017, $D \le 50$ on CEC2013, native dimensions on CEC2011,
-$D \le 20$ on CEC2020, and $D = 1000$ (family-internal, post-hoc, 25 runs
+$D \le 20$ on CEC2020, and $D = 1000$ (family-internal, post hoc, 25 runs
 per cell) on CEC2013LSGO. The component-isolation evidence stops at
 $D \le 100$: no component contrast was run at the CEC2013LSGO scale, so
 the large-scale standing attributes nothing to the memory or the polish
@@ -1281,7 +1282,7 @@ specialists report in the literature; the family's evidence of
 competitiveness therefore ends at the dimensionalities of the
 bound-constrained suites. 
 Sixth, the study runs on a single host and environment: no
-independently verified second-environment cell exists, the run-time
+independently verified second-environment cell exists, the runtime
 NumPy/SciPy versions behind \egsk{}'s SciPy-SLSQP polish are not
 captured in the evidence release (only the analysis bundle's own
 environment is), and byte-identical reproduction at $D \geq 50$ requires
@@ -1296,7 +1297,7 @@ method such as differential grouping --- enters any panel, table, figure or
 claim here to calibrate the family against the broader state of the art; the
 repository does contain runnable non-GSK implementations and, for three
 large-scale specialists, CEC2013LSGO result banks produced under this paper's
-protocol, none of them analysed here (Section~S7.1).  The standings are
+protocol, none of them analyzed here (Section~S7.1).  The standings are
 interpretable only within this panel and not as a placement in the
 wider field. Relatedly, \dtgsk{}'s self-initialization (the documented
 shared-$X_{0}$ exception) means that no \dtgsk{} cell begins from the
@@ -1426,7 +1427,7 @@ first use.
 ACE & Adaptive Configuration Engine (operator-configuration selector)\\
 ARGP & Acceptance-Rate Gated Pruning\\
 BSE & Budget-Safe Escape\\
-CD & Critical Difference (Nemenyi post-hoc)\\
+CD & Critical Difference (Nemenyi post hoc)\\
 CMA-ES & Covariance Matrix Adaptation Evolution Strategy\\
 DE & Differential Evolution\\
 EWMA & Exponentially Weighted Moving Average\\
@@ -1541,7 +1542,7 @@ that \dtgsk{} is reproducible from the text.  Every value is transcribed from
 the hash-frozen sources of Section~@@REF!sec:repro:freeze@@ and is stated per
 dimension tier wherever the single dimension-aware configuration resolves it
 differently; the tier boundaries are $D<20$, $20\le D<50$ and $D\ge 50$ (with a
-further $D\ge 100$ extension), as in the main-text dimension-gating figure.
+further $D\ge 100$ extension), as in the main-text dimension-gating table.
 
 
 \paragraph{Knowledge-construction arms of ACE (main-text Equation~(7)).}
@@ -2137,7 +2138,7 @@ $^{\ast}$ marks a contrast that is Holm-significant within its dimension
 \caption{@@FIGCAP!fig:abl-rankdelta@@ Conditional rank degradation from removing each scaffold component on
 CEC2017 (\textbf{ISM off in every cell}; 51 runs; 29 functions).  Bars show
 the change in mean Friedman rank versus the full-scaffold baseline; positive
-means removing the component degrades rank.  Colours follow the frozen
+means removing the component degrades rank.  Colors follow the frozen
 per-cell palette; $\ast$ marks Holm-significant contrasts within a dimension
 ($\alpha = 0.05$).  Each bar is a conditional remove-one contribution, not an
 independent causal effect, and bars are not averaged across dimensions.
@@ -2318,7 +2319,7 @@ structure-building role becomes decisive at larger scales is left to future work
 
 
 
-\subsection{@@SECNUM!sec:supp:ablation:subset!S6.6.@@ Conditional-Benefit Analysis by Function Class (Post-Hoc)}\label{sec:supp:ablation:subset}
+\subsection{@@SECNUM!sec:supp:ablation:subset!S6.6.@@ Conditional-Benefit Analysis by Function Class (Post Hoc)}\label{sec:supp:ablation:subset}
 
 The direct isolation above (Table~@@REF!tab:ism-isolation@@) returns a null for the
 interaction-structure memory \emph{aggregated} over the CEC2017 functions.  Because a
@@ -2331,13 +2332,13 @@ CEC2017 classes --- unimodal (F1, F3), simple multimodal
 count the per-function win/tie/loss of the full overlay against the memory-off
 (no\_sgsm) cell (a win is a lower per-function mean error with the
 interaction-structure memory on; tie at $|\Delta| < 10^{-8}$).  The hybrid and
-composition functions, whose sub-component and rotation structure make variable
+composition functions, whose subcomponent and rotation structure make variable
 interaction explicit, are where such a memory should most plausibly help.
 
 
 
 \begin{table}[H]
-\caption{@@TABLECAP!tab:ism-subset@@ Post-hoc conditional-benefit analysis: per-function win/tie/loss of the full
+\caption{@@TABLECAP!tab:ism-subset@@ Post hoc conditional-benefit analysis: per-function win/tie/loss of the full
 overlay versus the memory-off (no\_sgsm) cell, by CEC2017 function class, at
 $D=50$ and $D=100$ (51 paired runs; a win is a lower per-function mean error with the
 interaction-structure memory on).  Exploratory; not part of the pre-registered
@@ -2490,7 +2491,7 @@ and DECC-G --- the first two vendored byte-faithful copies, DECC-G first-party
 code written from its source paper, as that statement records --- executed on
 this suite under the same harness and seed schedule.
 They are retained there as exploratory material outside the registered
-panel; they are not analysed in this paper, they enter no ranking or test
+panel; they are not analyzed in this paper, they enter no ranking or test
 reported here, and no claim in this paper rests on them.
 
 \subsection{@@SECNUM!sec:supp:lsgo:config!S7.2.@@ Configuration Provenance on This Suite}\label{sec:supp:lsgo:config}
@@ -3652,9 +3653,9 @@ population rule, the tier profiles, and the sensitivity of the
 configuration's constants (Section~@@REF!sec:supp:rev:sensitivity@@) and of
 its tier boundaries (Section~@@REF!sec:supp:rev:boundary@@).
 Their designs, estimands, statistical conventions and the wording to
-be used for each unfavourable outcome were registered in a signed addendum
+be used for each unfavorable outcome were registered in a signed addendum
 before any of them produced a result; the deviations discovered during
-post-hoc verification are recorded there as dated amendments and are
+post hoc verification are recorded there as dated amendments and are
 disclosed at the point of use below.  That addendum is published with the code
 and data, as revision\_experiments\_preregistration.md in the repository
 named in the Data Availability Statement, so the registered adverse wording
@@ -3719,7 +3720,7 @@ polish is active.  Paired Wilcoxon signed-rank across the 29 scored functions on
 per-function mean error, Holm-corrected within dimension over the registered
 two-contrast family; $A_{12}$ over the paired runs of all scored functions
 pooled --- not the per-function-averaged $A_{12}$ of Section~S6.5 --- computed with the first-named
-arm as reference, so $A_{12} < 0.5$ favours the second; between-function scale
+arm as reference, so $A_{12} < 0.5$ favors the second; between-function scale
 dominates the pooled pairs and compresses the statistic toward $0.5$, so a
 value near $0.5$ here does not indicate a null contrast.  W/T/L counts functions with wins
 credited to the first-named arm, ties at a tolerance of $10^{-8}$; the same
@@ -3896,7 +3897,7 @@ One deviation from the registered design was found after execution and is
 disclosed rather than smoothed.  The driver derived one perturbation pair per
 real-valued constant from the $D = 30$ tier values and applied that same pair at
 both dimensions.  For three constants whose shipped value differs at $D = 100$,
-the executed levels are consequently larger than the registered twenty per cent
+the executed levels are consequently larger than the registered twenty percent
 and lie on one side of the shipped value only.  Those rows are marked in the
 table, which prints the levels actually executed rather than the registered
 formula.  The executed levels bound what was tested: the robustness reading for those
@@ -3917,7 +3918,7 @@ shipped mean error.  Perturbed cells use 15 repetitions against the frozen
 panel's 51.  Real-valued constants are perturbed by $\pm 20\%$ and integer-valued
 constants to the nearest different integer, as registered; the table prints the
 levels actually executed.  $^{\ast}$Executed levels at $D = 100$ exceed the registered
-twenty per cent and are one-sided (registration amendment
+twenty percent and are one-sided (registration amendment
 A1).
 
 @@NATIVETABLE!SA08@@
@@ -3927,8 +3928,8 @@ A1).
 
 The registered headline form is an ordinal statement, and it holds: \dtgsk{}'s
 position within the family panel is unchanged in 26 of the 27 cells, with median
-error ratios within roughly two per cent of unity throughout.  The single
-exception is favourable and instructive --- raising the population floor by one
+error ratios within roughly two percent of unity throughout.  The single
+exception is favorable and instructive --- raising the population floor by one
 at $D = 30$ moves \dtgsk{} from second to first at that dimension --- and it
 falls on the same tier that the transplant experiment of
 Section~@@REF!sec:supp:rev:tiering@@ identifies as mis-specified.  The two
