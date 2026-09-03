@@ -14,17 +14,17 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Bound-constrained continuous minimization under a hard evaluation
-budget --- no derivatives, a fixed cap on objective evaluations, and
+budget (no derivatives, a fixed cap on objective evaluations, and
 landscapes that mix unimodal, multimodal, hybrid, and composition
-structure --- is the regime that the CEC benchmark protocols
+structure) is the regime that the CEC benchmark protocols
 formalize~\cite{awad2016problem,das2011cec2011}. % BIND: PR-01, PR-02 (suite-definition roles)
 Population metaheuristics are the standard instrument in this regime,
 and the literature that produces them has grown to the point where its
 own surveys ask for fewer new metaphors and for more rigorous,
 statistically tested analysis of the algorithm families that already
 exist~\cite{hussain2019metaheuristic,del2019bio}.
-This paper follows that prescription. It stays inside one family --- the
-gaining-sharing knowledge (GSK) algorithm and its published descendants ---
+This paper follows that prescription. It stays inside one family, the
+gaining-sharing knowledge (GSK) algorithm and its published descendants,
 and asks a single design question. Published GSK variants adapt control to a single
 operating point. Can control instead be resolved by \emph{dimension}, through
 an adaptive scaffold that reconfigures per tier and is closed by a
@@ -54,26 +54,26 @@ tunes its control parameters through a memory of recent enhancement rates,
 plus a randomized local search whose computational overhead its authors
 acknowledge~\cite{alfadli2025atmals}. % BIND: EC cards (BG-02, card-bounded descriptions)
 Each documented weakness in this lineage maps onto a named subsystem of
-the algorithm proposed here. Brittle fixed control --- the family's
-founding complaint --- is answered by an operator-level, bandit-style
+the algorithm proposed here. Brittle fixed control, the family's
+founding complaint, is answered by an operator-level, bandit-style
 credit-based adaptive operator selector
 with acceptance-gated pruning. Stagnation under GSK's greedy
 selection, the failure mode behind the family's escape and local-search
 additions, meets a hard-capped budget-safe escape and a restart
 that can never lose the global best. Late refinement that depends on a
 gradient-based solver or on randomized local search gives way to a
-deterministic, one-shot final polish --- the deterministic refinement of
+deterministic, one-shot final polish: the deterministic refinement of
 the title, realized as the deterministic final polish (C1). And the weakness that no
-descendant addresses --- recombination that treats every coordinate
-independently of the run's own improvement history --- is targeted by the
+descendant addresses (recombination that treats every coordinate
+independently of the run's own improvement history) is targeted by the
 interaction-structure memory (ISM), which this paper evaluates as an
 exploratory mechanism rather than as a source of the reported standing.
 
 The common boundary of the GSK-family variants cited in this paper is what
 they adapt: scalar control parameters, donor and selection policy, or the
-population's composition. Within that cited family --- surveyed in
+population's composition. Within that cited family (surveyed in
 Section~\ref{sec:related}, of which six algorithms form this paper's
-comparison panel --- none learns --- or exploits ---
+comparison panel), none learns, or exploits,
 the interaction structure of the moves the run has already
 accepted. % BIND: BG-03 (gap scoped to the GSK-family variants cited in this paper; single scope, matches Sections 2.1 and 2.3)
 Yet a run under greedy selection may leave recoverable traces of that
@@ -95,7 +95,7 @@ tiers?
 The contributions are:
 
 \begin{itemize}[leftmargin=*,labelsep=4.9mm]
-\item \textbf{C1 --- a deterministic final polish.} A one-shot, RNG-free
+\item \textbf{C1: a deterministic final polish.} A one-shot, RNG-free
   deterministic compass search executed on the eigenbasis of the ISM
   signed interaction matrix in the final budget slice (coordinate axes
   when the graph carries no signal). Every probe is charged through
@@ -113,13 +113,13 @@ The contributions are:
   basis-neutrally, and the eigenbasis is retained as a specified, reproducible
   negative result rather than as a source of the
   benefit. % BIND: MT-09; E1 basis isolation (rev-rel-2026-08-26-dd42d37eb)
-\item \textbf{C2 --- a dimension-tiered adaptive scaffold.} The
+\item \textbf{C2: a dimension-tiered adaptive scaffold.} The
   Adaptive Configuration Engine (ACE), an exponential-moving-average
   credit-based adaptive selector over a pool of complete operator settings, with
   Acceptance-Rate Gated Pruning (ARGP) of unproductive arms; a
   tier-floored Nonlinear Population-Size Reduction (NLPSR) schedule
-  --- a variant of the APGSK NLPSR schedule, explicitly not claimed
-  as new; a hard-capped Budget-Safe Escape (BSE) seeded from a distance-filtered
+  (a variant of the APGSK NLPSR schedule, explicitly not claimed
+  as new); a hard-capped Budget-Safe Escape (BSE) seeded from a distance-filtered
   diversity archive; and a deep-stall full restart (multi-start) that
   preserves the global best.
   ACE, NLPSR, BSE, the archive, and the restart modify cited
@@ -127,7 +127,7 @@ The contributions are:
   rule among the surveyed GSK variants. C2 is claimed for the dimensions where
   tiering was demonstrated, $D = 10$ and $D = 50$; the $20 \leq D < 50$ tier is
   disclosed as mis-specified (Section~\ref{sec:alg:scaffold}). % BIND: MT-02, MT-03, MT-04, MT-06, MT-07 (honest MOD/ORI labels)
-\item \textbf{C3 --- a controlled, reproducible family evaluation.} A
+\item \textbf{C3: a controlled, reproducible family evaluation.} A
   13-substream, append-only, prefix-locked random-number layer makes
   runs byte-stable and keeps each subsystem's draws on a named
   substream, so component-level re-evaluation is exact; paired optimizer-independent seeds, one
@@ -135,17 +135,17 @@ The contributions are:
   evidence releases
   bind every reported number to its release, from which the released
   analysis pipeline re-derives it in the declared supported environment. \dtgsk{} is evaluated
-  against the original GSK and its five published descendants ---
+  against the original GSK and its five published descendants (%
   \agsk{}, \apgsk{}, \fdbagsk{}, \egsk{}, and \atmals{}, which together
   form the seven-algorithm GSK-family panel, every member of which was re-executed
   in this repository under that single protocol and seed schedule rather
-  than quoted from its source publication --- on five suites: the CEC2017
+  than quoted from its source publication) on five suites: the CEC2017
   primary suite, the CEC2011 real-world optimization benchmark suite, the
   CEC2013 second comparison suite, the CEC2020 bound-constrained suite
   (pre-registered confirmatory), and the CEC2013LSGO large-scale suite
   (family-internal, post-hoc). Every comparative finding in this paper is scoped to that
   panel. The within-family scope is a design choice rather than an
-  omission --- one code base, one budget protocol, and one evaluation
+  omission: one code base, one budget protocol, and one evaluation
   harness confine implementation and environment confounds to the
   exceptions disclosed in Sections~\ref{sec:experiments}
   and~\ref{sec:conclusions} (the \egsk{} solver port and the documented

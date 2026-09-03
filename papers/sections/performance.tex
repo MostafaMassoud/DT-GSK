@@ -18,8 +18,8 @@ added under a registered analysis-plan addendum, are reported in
 Sections~\ref{sec:exp:cec2020} and~\ref{sec:exp:cec2013lsgo} at their
 registered evidential tiers, and the five-suite synthesis is confined to
 Section~\ref{sec:exp:discussion}. The evidence below is reported at that
-resolution --- tier by tier, with the unfavorable cells stated alongside
-the favorable ones --- because the dimension-resolved pattern, not a single
+resolution (tier by tier, with the unfavorable cells stated alongside
+the favorable ones) because the dimension-resolved pattern, not a single
 aggregate, is what the dimension-tiered design predicts and what the data
 support. Every comparative statement is scoped to this panel; no
 field-wide claim is made.
@@ -36,7 +36,7 @@ protocol, and the analysis pipeline
 (SciPy~1.15.3) runs
 restricted so that it can read only the immutable evidence releases
 identified in the Data Availability Statement and the Supplementary
-Materials --- never staging data and never
+Materials, never staging data and never
 literature-copied numbers
 presented as comparable.
 % BIND: environment_record.json (release_id, strict_source, packages); evidence_release_manifest_cec2013lsgo.json; evidence_release_manifest_cec2020.json
@@ -73,9 +73,9 @@ not evidence of deployment performance. The endpoint is the raw best objective
 value, and negative optima occur on some problems. The error column
 is NaN by design on problems without published optima, where
 best-fitness is authoritative.
-Infeasible evaluations --- for instance a failed trajectory integration
+Infeasible evaluations, for instance a failed trajectory integration
 or an out-of-domain intermediate value on the orbital-mechanics problems
---- receive the reference implementation's standard infeasibility penalty ($10^{30}$),
+receive the reference implementation's standard infeasibility penalty ($10^{30}$),
 applied identically for all seven algorithms, so a feasible candidate is
 always preferred to an infeasible one at selection.
 % BIND: PR-02, PR-04 (claims matrix; data_ledger.csv); benchmarks/cec_suite_python/cec2011/_constants.py (NAN_PENALTY)
@@ -94,8 +94,8 @@ $\mathrm{MaxFES} = 5 \times 10^{4}$, $10^{6}$, $3 \times 10^{6}$, and
 $10^{7}$ at $D = 5/10/15/20$; and the same error basis and $10^{-8}$
 floor as CEC2017.
 % BIND: SAP addendum Section 2 (protocol facts registered before any CEC2020 datum); RS-12
-The CEC2013LSGO large-scale suite~\cite{li2013lsgo} --- distinct from
-the bound-constrained CEC2013 suite above --- is the post-hoc,
+The CEC2013LSGO large-scale suite~\cite{li2013lsgo}, distinct from
+the bound-constrained CEC2013 suite above, is the post-hoc,
 \emph{family-internal} suite: 15 functions at their native $D = 1000$
 (F13 and F14 at 905 through their overlap), 25 runs,
 $\mathrm{MaxFES} = 3 \times 10^{6}$, and the raw best-objective basis
@@ -179,7 +179,7 @@ schedule of Table~\ref{tab:protocol} on byte-identical problem instances.
 % BIND: papers/governance/seed_and_pairing_audit.md Sec.4
 For the six comparators, run $r$ additionally starts from the same
 runner-generated initial population $X_{0}$; \dtgsk{} is the one
-documented exception --- it self-initializes its own $5 \cdot D$ population
+documented exception: it self-initializes its own $5 \cdot D$ population
 from the same seed-paired random stream, so its initial population is drawn
 under the identical seed but is \emph{not} byte-identical to the shared
 $X_{0}$. Pairing is therefore by common seed/problem/run rather than by an
@@ -192,8 +192,8 @@ result of a sidecar-overwrite anomaly in the evidence tree. Seeds and
 summary values for $D \in \{10, 30, 50\}$ were verified equivalent from the
 generation logs, so run-level statistics against APGSK at those dimensions
 were treated as disclosed-unavailable and were never imputed. The primary
-across-function test on per-function means --- the same test used for every
-comparator --- still applies to APGSK. Those run-level records were
+across-function test on per-function means, the same test used for every
+comparator, still applies to APGSK. Those run-level records were
 subsequently recovered and are present in the released bundle; only the
 non-deterministic wall-clock runtime remains unavailable at those
 dimensions. The recovery was deterministic, from the seed-identical per-run logs, and reproduces the frozen APGSK summaries exactly; because the primary analysis was already frozen when it landed, the manuscript conservatively retains the function-level basis reported here, and no headline number is affected.
@@ -208,7 +208,7 @@ dimensions. The recovery was deterministic, from the seed-identical per-run logs
 All runs were executed on a 22-logical-core Windows workstation
 (Windows 11, build 10.0.26200) under Python~3.10.11 with Numba~0.64.0
 JIT kernels. Campaigns parallelize only across independent
-(function, dimension, run) cells --- 15 worker processes, with no parallelism
+(function, dimension, run) cells: 15 worker processes, with no parallelism
 inside a run. Every cell records an environment.json
 manifest including the git commit, JIT state, and floating-point
 probe hashes of the shared RNG, the \dtgsk{} kernels, and the suite
@@ -256,8 +256,8 @@ comparator ports across producer commits, where a re-execution of the
 six comparators was verified \emph{not} to reproduce the frozen
 scientific columns exactly (a floating-point path shifted between the
 producing commits, amplified on a minority of runs by the chaotic
-search). The released evidence is unaffected --- it is the archived
-output of the original campaign --- but a bit-identical re-timing of the
+search). The released evidence is unaffected (it is the archived
+output of the original campaign), but a bit-identical re-timing of the
 comparators under current code is not achievable, which is why the
 runtime table is reported for \dtgsk{} only. Per-run raw
 CSVs, seed schedules, and verification manifests ship with the
@@ -279,7 +279,7 @@ is applied to the 29 paired per-function mean errors
 ($H_{0}$: the paired differences are symmetric about zero), with
 Holm step-down correction~\cite{holm1979simple} across the
 six simultaneous comparators at that dimension ($\alpha = 0.05$).
-Win/tie/loss counts use the tie rule $|\Delta| < 10^{-8}$ --- the same
+Win/tie/loss counts use the tie rule $|\Delta| < 10^{-8}$: the same
 $10^{-8}$ the suite uses to floor errors to zero, here applied to the
 per-function mean difference. This single absolute band is a coarse
 convention across functions of very different scales, so the win/tie/loss
@@ -287,7 +287,7 @@ tallies are a \emph{descriptive} companion only. The Friedman test ranks
 \emph{within} each function and is therefore invariant to per-function scale;
 the Wilcoxon signed-rank test, applied here across per-function mean
 differences, ranks the absolute differences \emph{across} functions and is
-accordingly \emph{not} scale-invariant --- functions with larger numerical
+accordingly \emph{not} scale-invariant; functions with larger numerical
 ranges carry more weight in it. This cross-function scale heterogeneity is a
 genuine limitation
 of the paired test, and is one reason the Friedman ranking is treated as the
@@ -318,8 +318,8 @@ recorded as $p = 1$ by convention, and any disagreement would have failed
 the release gate.
 The effective post-zero sample sizes are recorded in the released
 per-comparison $R^{+}/R^{-}$ workbooks. The released-workbook $A_{12}$ is
-computed over the 29 per-function mean errors --- the same unit as the
-across-function Wilcoxon --- and is therefore an \emph{unpaired}
+computed over the 29 per-function mean errors (the same unit as the
+across-function Wilcoxon) and is therefore an \emph{unpaired}
 distributional effect size, distinct from the run-level Vargha--Delaney
 $A_{12}$ in the released effect-size workbook; the 0.56/0.64/0.71
 thresholds are applied here as descriptive labels on that function-mean
@@ -364,8 +364,8 @@ and uncorrected forms. Both are released per panel in
 friedman\_ranks\_*.csv so the correction can be checked directly.
 % BIND: AN-OMNI-2017-D10..D100 (tie_correction_C, friedman_chi2_uncorrected); M-026
 The complete
-per-comparison workbooks --- including signed-rank sums $R^{+}$/$R^{-}$
-and per-function detail --- are released with the reproducibility bundle
+per-comparison workbooks, including signed-rank sums $R^{+}$/$R^{-}$
+and per-function detail, are released with the reproducibility bundle
 (they accompany the analysis scripts and are not typeset in the supplement).
 % BIND: captions_registry conventions (alpha, tie rule, CD formula, n_boot); environment_record.json (scipy)
 
@@ -426,7 +426,7 @@ panel, not by dominating \egsk{}.
 % BIND: TAB-T15 (eGSK rows); negative_findings.md item 3
 The ``Overall'' column (2.48 for \dtgsk{}, best of 7; \egsk{} second
 at 2.96) is the unweighted mean of the four per-dimension Friedman
-mean ranks --- a descriptive aggregation with no cross-dimension test
+mean ranks, a descriptive aggregation with no cross-dimension test
 attached. The Iman--Davenport correction applies to each
 per-dimension omnibus, not to the overall row.
 % BIND: RS-01 NARROWED (AN-RANKAGG-2017-OVERALL; friedman_ranks_cec2017_overall.csv)
@@ -471,8 +471,8 @@ separation~\cite{demsar2006statistical}. In every case the null hypothesis is
 that the compared algorithms' error distributions do not differ on the tested
 family, and the alternative is that they do; $\alpha = 0.05$ throughout.
 An effect size accompanies every test
---- the matched-pairs rank-biserial $r$ here, and BCa bootstrap intervals on the
-mean ranks in the Supplementary Materials --- because a $p$-value alone does not
+(the matched-pairs rank-biserial $r$ here, and BCa bootstrap intervals on the
+mean ranks in the Supplementary Materials) because a $p$-value alone does not
 convey magnitude. Two reporting rules follow and are applied throughout. First,
 an uncorrected family of per-comparator tests inflates the family-wise error
 rate, so no significance claim in this paper rests on an uncorrected
@@ -519,9 +519,9 @@ applied within each dimension (family size 6), so this 24-cell count aggregates
 four independent within-dimension families. It is a descriptive tally,
 not a single jointly family-wise-error-controlled result.
 % BIND: TAB-T15 (tally of the Dec. columns); Holm family = 6 per dimension (Sec. statistical protocol)
-As a sensitivity check, applying Holm once across all 24 hypotheses --- the
+As a sensitivity check, applying Holm once across all 24 hypotheses (the
 most conservative reading, in which the four dimensions are treated as a
-single family --- leaves 15 of the 24 cells significant. Only two cells do
+single family) leaves 15 of the 24 cells significant. Only two cells do
 not survive (\atmals{} at $D = 10$ and GSK at $D = 30$, both
 $p_{\mathrm{Holm}}$ just under $0.05$ within their own dimension), and the
 count of significant losses remains zero under either correction.
@@ -530,7 +530,7 @@ The unfavorable and borderline cells are stated plainly. Against
 \egsk{}, \dtgsk{} wins significantly only at $D = 10$
 ($p_{\mathrm{Holm}} = 0.0035$); at $D \in \{30, 50, 100\}$ the
 outcome is not significant ($p_{\mathrm{Holm}} = 0.199$, $1.0$, and $0.795$)
-with tabulated rank-biserial $r$ of $-0.286$, $-0.002$, and $-0.057$ ---
+with tabulated rank-biserial $r$ of $-0.286$, $-0.002$, and $-0.057$:
 negligible magnitudes, all three faintly negative and therefore leaning
 marginally toward \egsk{}.
 % BIND: TAB-T15 (eGSK rows); negative_findings.md items 1, 3
@@ -592,7 +592,7 @@ cohort at every dimension.}\label{fig:cd-cec2017}
 \end{figure}
 
 The Friedman mean rank improves with dimension overall but is not monotone
-across $D \in \{10, 30, 50, 100\}$ --- 2.88, 2.50, 2.21, 2.34 ---: $D = 30$
+across $D \in \{10, 30, 50, 100\}$ (2.88, 2.50, 2.21, 2.34): $D = 30$
 is an ordinal dip to second place and $D = 100$ is slightly worse than
 $D = 50$ (a rank-versus-dimension trend plot is provided in the Supplementary
 Materials).
@@ -603,7 +603,7 @@ A prespecified robustness battery accompanies the release, and two
 of its checks diverge from the primary analysis and therefore qualify
 every rank-ordering statement above. Re-ranking on median (rather
 than mean) per-function errors shifts win/tie/loss tallies materially
---- 21--4--4 becomes 17--10--2 against \egsk{} at $D = 10$ --- and
+(21--4--4 becomes 17--10--2 against \egsk{} at $D = 10$) and
 swaps two comparator pairs, \apgsk{}/\egsk{} at $D = 10$ and
 \fdbagsk{}/\atmals{} at $D = 50$. Excluding the disputed APGSK cells
 at $D \leq 50$ swaps GSK and \fdbagsk{} at $D = 30$.
@@ -619,7 +619,7 @@ paired runs. Dropping the pairing moves 11 cells from significant to
 non-significant and 21 in the opposite direction, with no sign reversals. The
 robustness criterion (no sign reversals) is met, and the net effect of
 dropping the pairing is an increase in significances rather than a
-simple power loss --- and an
+simple power loss; and an
 exploratory Benjamini--Hochberg
 companion~\cite{benjamini1995controlling} over the run-level tests is
 included in the released analysis workbooks (which accompany the
@@ -640,8 +640,8 @@ than presented as the check itself.
 %------------------------------------------------------------------
 
 The per-problem five-statistic results of \dtgsk{} against the original
-GSK on the 22 CEC2011 problems --- together with the \egsk{} loss and the
-\dtgsk{}-versus-GSK detail --- are reported in the Supplementary Materials,
+GSK on the 22 CEC2011 problems, together with the \egsk{} loss and the
+\dtgsk{}-versus-GSK detail, are reported in the Supplementary Materials,
 Section~S2 (the complete six-comparator across-problem Wilcoxon--Holm
 matrix is in the released analysis bundle), and the full convergence grids
 in Section~S3. The endpoint is the raw best objective value; error cells
@@ -670,9 +670,9 @@ the \dtgsk{}--\egsk{} Friedman-rank gap of $0.84$ is nonetheless within the
 Nemenyi critical difference of $1.92$ here.
 % BIND: AN-PW-2011-NATIVE (wilcoxon_holm_cec2011.csv, egsk row); negative_findings.md item 2
 The remaining pairwise outcomes at the same family size are two
-significant wins --- against \agsk{}
+significant wins, against \agsk{}
 ($p_{\mathrm{Holm}} = 1.6 \times 10^{-2}$) and \fdbagsk{}
-($p_{\mathrm{Holm}} = 4.2 \times 10^{-2}$) --- and no significant difference against GSK,
+($p_{\mathrm{Holm}} = 4.2 \times 10^{-2}$), and no significant difference against GSK,
 \apgsk{} ($p_{\mathrm{Holm}} = 0.137$ each), and \atmals{}
 ($p_{\mathrm{Holm}} = 0.323$).
 % BIND: AN-PW-2011-NATIVE (wilcoxon_holm_cec2011.csv all rows)
@@ -685,8 +685,8 @@ not survive Holm correction
 $p_{\mathrm{Holm}} = 0.137$) at $n = 22$ problems.
 % BIND: TAB-T06 (papers/tables/T06.tex; R+, R-, p, p_holm, W/T/L)
 CEC2011 therefore corroborates within-family competitiveness on
-real-world problems at native dimensions --- a competitive placement
-(second of seven) --- and does not corroborate first place; no headline
+real-world problems at native dimensions, a competitive placement
+(second of seven), and does not corroborate first place; no headline
 claim in this paper rests on CEC2011 alone.
 % BIND: IN-03 NARROWED (claims matrix)
 
@@ -705,8 +705,8 @@ a significant loss (Holm $p = 4.2 \times 10^{-2}$).}\label{fig:cec2011-ranks}
 \subsection{Results on the CEC2013 Second Comparison Suite}\label{sec:exp:cec2013}
 %------------------------------------------------------------------
 
-CEC2013 is reported as a second comparison suite --- for breadth of
-comparison under the identical protocol --- and carries no
+CEC2013 is reported as a second comparison suite, for breadth of
+comparison under the identical protocol, and carries no
 independence claim of any kind. The per-function five-statistic
 tables and the Wilcoxon summaries are in the Supplementary Materials,
 Section~S2; the panel-level numbers quoted here are re-derivable from
@@ -769,8 +769,8 @@ $2.7 \times 10^{-3}$ at $D = 10/30/50$; win/tie/loss 24--2--2,
 $314/37$).
 % BIND: TAB-T14 (papers/tables/T14.tex); AN-PW-2013-D10/D30/D50
 The dimension profile of these outcomes mirrors the primary suite:
-the mid-dimension tier is where the improved family variants ---
-\egsk{} and \atmals{} in particular --- are hardest to separate,
+the mid-dimension tier is where the improved family variants,
+\egsk{} and \atmals{} in particular, are hardest to separate,
 while the low- and upper-dimension tiers favor \dtgsk{} within the
 panel.
 % BIND: AN-OMNI-2013-D10/D30/D50 (ordinal reading of friedman_ranks_cec2013_D*.csv)
@@ -784,9 +784,9 @@ tested.
 \subsection{Results on the CEC2020 Pre-Registered Confirmatory Suite}\label{sec:exp:cec2020}
 %------------------------------------------------------------------
 
-CEC2020 is the one suite in this study whose entire analysis --- the
+CEC2020 is the one suite in this study whose entire analysis (the
 hypotheses, the analysis families, the tie rules, and the three candidate
-outcome sentences --- was committed to the repository before any CEC2020
+outcome sentences) was committed to the repository before any CEC2020
 result existed, at the signing of the registered
 analysis-plan addendum. The complete registered battery, its robustness
 checks, and the mid-campaign inspection ledger are reported in
@@ -801,19 +801,19 @@ $5 \times 10^{4}$ at $D = 5$ to $10^{7}$ at $D = 20$, and the error
 basis with the $10^{-8}$ floor.
 % BIND: SAP addendum Section 2 (registered protocol facts); yue2020cec2020
 
-On AGSK's strongest suite --- the CEC2020 competition in which it was
-the runner-up~\cite{mohamed2020agsk} --- \dtgsk{} places fourth; the family
+On AGSK's strongest suite, the CEC2020 competition in which it was
+the runner-up~\cite{mohamed2020agsk}, \dtgsk{} places fourth; the family
 panel corroborates AGSK's published strength in this regime.  That suite
-evaluates the low-dimensional boundary condition of the tiered design ---
-every dimension-gated \dtgsk{} subsystem is inactive at $D \leq 20$ ---
+evaluates the low-dimensional boundary condition of the tiered design (%
+every dimension-gated \dtgsk{} subsystem is inactive at $D \leq 20$)
 and is not affirmative evidence for the tiering choice itself.
 % BIND: RS-12 (SAP addendum Sec. 9 [AGSK first] variant verbatim, slot = fourth per Amendment 2 A2.3, factual clause corrected per Amendment 3 A3.2); friedman_ranks_cec2020_overall.csv (dt-gsk ordinal 4)
 ``Inactive'' here follows the gating taxonomy of
 Table~\ref{tab:dim-gating}: at the $D = 20$ cells the always-on scaffold
-does cross into its $20$--$49$ tier --- the optional
+does cross into its $20$--$49$ tier (the optional
 differential-evolution arm joins the ACE pool, the credit assignment
 splits into a top/bottom improvement memory, and several tier constants
-change --- while the gated subsystems themselves (the
+change) while the gated subsystems themselves (the
 interaction-structure memory, the deterministic final polish, and the
 upper-tier controllers) remain off.
 % BIND: ART-PARAMS (_dt_profiles.py tier dicts, hash-frozen); tab:architecture categories; tab:dim-gating activation rows; additive taxonomy clarification --- registered RS-12 wording untouched
@@ -876,15 +876,15 @@ Permutation $p$ & $7.0\times10^{-5}$ & $1.0\times10^{-5}$ & $1.0\times10^{-5}$ &
 \end{table}
 In the registered across-function pairwise layer, \dtgsk{} is
 Holm-separated in five of the twenty-four comparator--dimension cells:
-three favorable --- against \atmals{} and \egsk{} at $D = 15$, and
-against \egsk{} at $D = 20$ --- and two unfavorable --- against \agsk{}
+three favorable (against \atmals{} and \egsk{} at $D = 15$, and
+against \egsk{} at $D = 20$) and two unfavorable, against \agsk{}
 and \fdbagsk{} at $D = 20$. In the remaining nineteen cells, including
 every comparison at $D = 5$ and $D = 10$, no separation is demonstrated.
 % BIND: AN-PW-2020-D5..D20 (wilcoxon_holm_cec2020_5.csv, wilcoxon_holm_cec2020_10.csv, wilcoxon_holm_cec2020_15.csv, wilcoxon_holm_cec2020_20.csv)
 This fourth place is the boundary finding that the registered directional
-expectation predicted in advance --- \agsk{} and \apgsk{} favored on
+expectation predicted in advance (\agsk{} and \apgsk{} favored on
 their home regime, every dimension-gated \dtgsk{} subsystem structurally
-off at $D \leq 20$ --- and it is reported as such, not as a result that
+off at $D \leq 20$), and it is reported as such, not as a result that
 ``does not count''; no CEC2020 sentence in this paper claims superiority
 over \agsk{} or \fdbagsk{} at any dimension.
 % BIND: SAP addendum Section 3 (directional expectation); Amendment 2 A2.3 (binding wording constraints)
@@ -899,8 +899,8 @@ competition~\cite{mohamed2020agsk}, and its paper is a co-author's.
 
 The CEC2013LSGO analysis in this paper is family-internal: it ranks the
 seven GSK-family variants against one another under a common protocol.
-Dedicated large-scale optimizers --- for example
-SHADE-ILS~\cite{molina2018shadeils} and MOS~\cite{latorre2013mos} ---
+Dedicated large-scale optimizers, for example
+SHADE-ILS~\cite{molina2018shadeils} and MOS~\cite{latorre2013mos},
 report substantially stronger published results on this suite than any
 GSK-family member, and no competitiveness with such specialists is
 claimed here; cross-paradigm comparison is outside this paper's scope.
@@ -959,7 +959,7 @@ GSK & 3.867 & 4 & 8--0--7 & 0.7615 & 1.0000 \\
 The registered paired layers resolve the standing: across functions, no
 comparator separates from \dtgsk{} after Holm correction, and in
 particular the paired tests do not separate \dtgsk{} from \agsk{} (exact
-$p = 0.847$, Holm-adjusted $1.0$) --- the registered ceiling wording,
+$p = 0.847$, Holm-adjusted $1.0$); the registered ceiling wording,
 tied-first descriptive rank with no paired separation, applies verbatim.
 % BIND: AN-PW-LSGO-NATIVE (wilcoxon_holm_cec2013lsgo_native.csv, agsk row); Amendment 1 A1.3 (binding wording consequence)
 At run level the picture is regular in both directions, and both are
@@ -972,9 +972,9 @@ mean run-level effect across the 15 functions marginally favors that
 comparator (mean Cliff's delta $-0.0025$ against \dtgsk{}), so the
 effect layer supports no superiority claim over \atmals{} on this suite.
 % BIND: AN-EFF-LSGO-NATIVE (effect_sizes_cec2013lsgo_native.csv, atmals-gsk rows; mean of the 15 cliffs_delta cells = -0.002453)
-The one \dtgsk{}-specific configuration addition on this suite --- the
+The one \dtgsk{}-specific configuration addition on this suite (the
 two linkage-block-size entries for $D = 905$ and $D = 1000$ described in
-Section~\ref{sec:exp:settings} --- is disclosed, with its rule,
+Section~\ref{sec:exp:settings}) is disclosed, with its rule,
 rationale, and timing, in Supplementary Section~S7.
 % BIND: production_deviation_record.md D-8.4
 
@@ -989,18 +989,18 @@ before rendering, stratified over function category, difficulty tercile, and
 \dtgsk{} standing, and it deliberately includes an unfavorable case.
 At $D = 30$ the selected panel comprises F3 (unimodal, easy/strong),
 F10 (simple multimodal, hard/comparable), F12 (hybrid, hard/comparable),
-and F26 (composition, hard/weak --- the mandated unfavorable case).
+and F26 (composition, hard/weak, the mandated unfavorable case).
 At $D = 100$ it comprises F1 (unimodal, easy/strong),
 F5 (simple multimodal, easy/strong), F12 (hybrid, hard/comparable),
 and F26 (composition, hard/comparable).
 % BIND: AN-CONV-2017-D30/D100 (curve_selection_cec2017_D30.csv, curve_selection_cec2017_D100.csv)
 Every curve is the per-checkpoint \emph{mean} error across all 51
-runs of that algorithm --- the identical aggregation basis for all
+runs of that algorithm (the identical aggregation basis for all
 seven curves in every panel, with no smoothing and no
-interpolation --- on a log-error axis whose display-only floor of
+interpolation) on a log-error axis whose display-only floor of
 $10^{-14}$ marks exact zeros and never enters any statistic. The
-complete convergence sets --- CEC2017 at all four dimensions, CEC2011
-at native dimensions, and CEC2013 at the prespecified $D = 30$ --- are
+complete convergence sets (CEC2017 at all four dimensions, CEC2011
+at native dimensions, and CEC2013 at the prespecified $D = 30$) are
 in the Supplementary Materials, Section~S3.
 % BIND: captions_registry conventions (aggregation, display floor)
 
@@ -1039,8 +1039,8 @@ never enters any statistic; and one legend serves all panels.
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.92\textwidth]{figures/convergence/main_cec2017_D30.pdf}
-\caption{Family-overlay convergence on CEC2017 at $D = 30$ ---
-\dtgsk{}'s known-weak tier, ranked second behind \egsk{} --- for the four
+\caption{Family-overlay convergence on CEC2017 at $D = 30$ (%
+\dtgsk{}'s known-weak tier, ranked second behind \egsk{}) for the four
 prespecified functions: F3 (unimodal; easy/strong), F10 (simple multimodal;
 hard/comparable), F12 (hybrid; hard/comparable), F26 (composition;
 hard/weak, the mandated unfavorable case). Shared basis as stated above;
@@ -1074,7 +1074,7 @@ runtime-superiority claim; the figures characterize \dtgsk{}'s own cost.
 % BIND: AN-COST-2017 (cost_cec2017.csv, dt-gsk cec2017 rows); LM-04
 
 \dtgsk{}'s per-run time scales with dimension, from 4.93~s at $D = 10$ to
-41.59~s at $D = 100$ --- the bookkeeping cost of its scaffold and
+41.59~s at $D = 100$: the bookkeeping cost of its scaffold and
 structure-memory subsystems on top of the unchanged GSK vector-update operator. These are
 measured costs at matched evaluation budgets: the overhead is bookkeeping, not
 extra objective evaluations (Section~\ref{sec:algorithm}), and it grounds the
@@ -1135,7 +1135,7 @@ alone, so the advantage may rest on classical direct search rather than on
 anything learned during the run. The three-arm isolation of Supplementary
 Materials Section~S9.1 bears on this explanation and supports it: the coordinate
 arm alone beats no refinement at both active dimensions. Second, \dtgsk{} begins from
-$NP = 5D$ against the comparators' $NP = 100$ --- a five-fold difference
+$NP = 5D$ against the comparators' $NP = 100$, a five-fold difference
 at $D = 100$. The comparators' value is the family's
 reference-implementation setting. A matched-initial-population control
 isolates the asymmetry (Supplementary Materials,
@@ -1145,7 +1145,7 @@ are not reproduced there.
 % BIND: E2 (rev-rel-2026-08-26-dd42d37eb); rank-claim qualification
 Third, CEC2017 is
 development-exposed; CEC2011 and CEC2013 corroborate, but neither is
-independent of configuration selection --- the single configuration was fixed on
+independent of configuration selection: the single configuration was fixed on
 CEC2017 without consulting either suite, so they were not used for selection yet
 cannot be read as fully independent holdouts. None of the three is excluded by the
 evidence reported here, and each bounds how far the panel standing should be
@@ -1193,8 +1193,8 @@ second behind \egsk{}, and $D = 100$ is slightly worse than $D = 50$.
 The upper-tier ($D \geq 50$) behavior (Figures~\ref{fig:cd-cec2017}
 and~\ref{fig:conv-cec2017-d100}; Table~\ref{tab:friedman-cec2017}) arises under
 the frozen configuration, in which the interaction-structure memory
-and several subsystems --- the eigenframe polish and the raised population
-floor --- co-activate at $D \geq 50$.
+and several subsystems (the eigenframe polish and the raised population
+floor) co-activate at $D \geq 50$.
 This reading associates the upper-tier behavior with the bundled
 tier configuration rather than with any isolated component. A direct
 isolation of the interaction-structure memory (Supplementary Materials
@@ -1205,9 +1205,9 @@ memory's learned eigenframe outperformed by the coordinate axes in the polish
 at $D = 50$. Per-component attribution to
 the memory is therefore not claimed here (Section~\ref{sec:conclusions}).
 Conversely, at $D \leq 30$ \dtgsk{} runs essentially the
-adaptive scaffold, so low-dimension behavior --- including the
+adaptive scaffold, so low-dimension behavior, including the
 $D = 30$ second place and the composition-class weakness at
-$D = 10$ --- reflects this structural gating rather than the tier-gated
+$D = 10$, reflects this structural gating rather than the tier-gated
 mechanisms.
 % BIND: IN-02 NARROWED (X-ABL-02 T-1: intended-role clause removed; per-component attribution deferred as a RESULT-FREE pointer -- no ablation finding stated in main text per SS10.9; D>=50 co-gating disclosed), LM-02 (claims matrix)
 
@@ -1223,8 +1223,8 @@ holds the better Friedman rank. The two are never
 Nemenyi-separable on this suite.
 % BIND: TAB-T15; negative_findings.md items 3, 4
 On CEC2011, the aggregate is two significant wins, three with no
-significant difference, and one significant loss --- the loss to \egsk{}
-($p_{\mathrm{Holm}} = 4.2 \times 10^{-2}$) --- so the real-world
+significant difference, and one significant loss, the loss to \egsk{}
+($p_{\mathrm{Holm}} = 4.2 \times 10^{-2}$), so the real-world
 suite corroborates competitive placement (second of seven) within the
 family panel, not first place.
 % BIND: AN-PW-2011-NATIVE; IN-03 NARROWED
@@ -1237,15 +1237,15 @@ demonstrated, over four independent within-dimension Holm families
 (Section~\ref{sec:exp:cec2020}).
 % BIND: AN-PW-2020-D5..D20 (wilcoxon_holm_cec2020_5.csv, wilcoxon_holm_cec2020_10.csv, wilcoxon_holm_cec2020_15.csv, wilcoxon_holm_cec2020_20.csv)
 On CEC2013LSGO, the across-function paired layer separates no comparator
-from \dtgsk{}, and the run-level regularity --- better than all six on
-F4 and F8, worse than all six on F7 and F15 --- is stated in both
+from \dtgsk{}, and the run-level regularity (better than all six on
+F4 and F8, worse than all six on F7 and F15) is stated in both
 directions (Section~\ref{sec:exp:cec2013lsgo}).
 % BIND: AN-PW-LSGO-NATIVE (wilcoxon_holm_cec2013lsgo_native.csv); AN-PWRUN-LSGO-NATIVE (wilcoxon_run_cec2013lsgo_native.csv)
 Taken together, the evidence supports one calibrated statement:
 within the GSK-family panel and under the frozen budget-fair
 protocol, \dtgsk{} is first on two, tied-first on one, second on one,
 and fourth on one of the five suites' descriptive family-rank
-aggregates --- first on CEC2017 (2.48) and CEC2013 (2.80), tied-first
+aggregates: first on CEC2017 (2.48) and CEC2013 (2.80), tied-first
 with \agsk{} on CEC2013LSGO (3.13 each, with no paired separation),
 second on CEC2011 (3.36), and fourth on CEC2020 (4.11), the
 pre-registered confirmatory suite, where the wording-bank outcome

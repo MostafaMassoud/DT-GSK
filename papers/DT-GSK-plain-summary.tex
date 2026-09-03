@@ -89,9 +89,9 @@ and farthest neighbours in the population, and a \emph{senior} part, which
 draws from the best, middle and worst performers. The junior/senior split is not
 fixed: a decaying schedule governed by $K_{\exp}$ moves coordinates from junior
 to senior as the run proceeds, so the search shifts from local imitation to
-elite-guided refinement. Two scalars control the transfer --- the knowledge
+elite-guided refinement. Two scalars control the transfer: the knowledge
 factor $KF$ (step magnitude) and the knowledge ratio $KR$ (how many coordinates
-actually change) --- and selection is greedy.
+actually change); and selection is greedy.
 
 \subsection{What the descendants changed}
 
@@ -115,8 +115,8 @@ being precise about which, because it defines the gap.
       gradient-based interior-point refinement respectively.
 \end{itemize}
 
-Two things are common to all of them. What adapts is a \emph{scalar} --- a
-parameter value, or which individual knowledge flows from --- never
+Two things are common to all of them. What adapts is a \emph{scalar} (a
+parameter value, or which individual knowledge flows from), never
 \emph{which coordinates move together}. And each variant fixes its behaviour
 at a single operating point.
 
@@ -129,7 +129,7 @@ qualitatively with $D$.
 At $D = 10$ the space is small enough that careful structure learning and a
 deterministic endgame are affordable and pay off. At $D = 1000$ the same
 machinery consumes budget that a plain, well-scheduled population would spend
-better --- while controllers that are pointless at low $D$ (basin memory,
+better, while controllers that are pointless at low $D$ (basin memory,
 subspace floors, acceptance clipping) start to matter. Evidence bases compound
 this: AGSK and APGSK are evaluated at $D \leq 20$ under budgets far larger
 relative to dimension than the CEC2017 protocol, and FDB-AGSK at a tenth of the
@@ -140,7 +140,7 @@ standard budget with $D = 10$ untested.
 \section{What DT-GSK does differently}
 
 DT-GSK resolves control \emph{by dimension} rather than at one operating
-point. It defines four tiers --- $D<20$, $20$--$49$, $50$--$99$, $D\geq100$ ---
+point. It defines four tiers ($D<20$, $20$--$49$, $50$--$99$, $D\geq100$)
 and gates whole subsystems on or off across them.
 
 \hl{The tier is resolved once, from $D$, before the run starts, and never
@@ -172,8 +172,8 @@ CEC2020 $D{=}5$ cells and at the CEC2011 problems of dimension 1, 6 and 7.}
 
 Note what this table settles: the adaptive scaffold runs at \emph{every}
 tier. Three of the nine rows are gated as whole rows, and the two that most
-change what DT-GSK \emph{is} above $D=50$ --- the interaction memory and the
-deterministic polish --- do not exist below it. Only the polish is claimed as a
+change what DT-GSK \emph{is} above $D=50$ (the interaction memory and the
+deterministic polish) do not exist below it. Only the polish is claimed as a
 contribution; the memory is reported as a negative result (component 8). Two further mechanisms \emph{inside} the
 always-on rows carry dimension gates of their own: the ACE differential-evolution
 arm, which is present only for $20\leq D<100$, and the blockwise linkage mask,
@@ -234,7 +234,7 @@ remainder.}
 \section{The components, one by one}
 
 Nine subsystems. Six run at every tier; three are dimension-gated. Constants
-below are the frozen shipped configuration --- no tuning is performed or
+below are the frozen shipped configuration: no tuning is performed or
 permitted at run time.
 
 \subsection{1. The inherited GSK core (all tiers)}
@@ -246,12 +246,12 @@ requiring strict improvement.
 
 The senior partition fraction $p$ is tier-resolved: $0.05$ below $D=20$ and
 $0.15$ at $20$--$49$. At $D\geq50$ the base rate is $0.05$, with the
-worse-ranked half widened to $0.10$ --- but only while the trailing
+worse-ranked half widened to $0.10$, but only while the trailing
 ten-generation mean acceptance sits at or below $0.10$; above that floor the
 single rate $0.05$ is used for the whole population. The junior
 dimension count follows the decaying schedule
 $D_{\mathrm{jun}} = \mathrm{clip}(\lceil D(1-x)^{K_{\exp}}\rceil, 0, D)$, where
-$x$ is the consumed budget fraction --- so coordinates migrate from junior to
+$x$ is the consumed budget fraction, so coordinates migrate from junior to
 senior control as the run proceeds, and at $x=1$ every coordinate is senior.
 
 \subsection{2. NLPSR population-size reduction (all tiers)}
@@ -259,7 +259,7 @@ senior control as the run proceeds, and at $x=1$ every coordinate is senior.
 The population starts at $NP_{\mathrm{init}} = 5D$ and contracts on a
 \emph{nonlinear} $x^{(1-x)}$ schedule toward a tier floor: $N_{\min} = 12$
 below $D=50$, raised to $25$ at $D\geq50$. The alternative power-schedule
-exponent $\alpha_{\mathrm{psr}} = 1.0$ is present but inert --- the nonlinear
+exponent $\alpha_{\mathrm{psr}} = 1.0$ is present but inert: the nonlinear
 form is the one shipped.
 
 The $5D$ start is a documented fair-start exception: the six comparators run
@@ -269,14 +269,14 @@ identical evaluation allowance, with initialization and every later candidate
 counted against it, so the larger start buys breadth at the price of
 generations rather than extra evaluations. \hl{That asymmetry is now
 controlled, not merely disclosed.} Re-running DT-GSK at the comparators' $NP = 100$ leaves it first at
-10 unknowns and second at 30, 50 and 100 --- inside the top two everywhere --- so
+10 unknowns and second at 30, 50 and 100 (inside the top two everywhere), so
 the population rule is not what produces the standing. It is not innocent
 either: the difference is indistinguishable from zero at 10 and 30 and
 significant at 50 and 100, where holding the population at the panel value costs
 DT-GSK first place. The paper therefore qualifies its 50- and 100-unknown rank
 claims as resting in part on this rule.
 
-\subsection{3. ACE --- adaptive configuration engine (all tiers)}
+\subsection{3. ACE: adaptive configuration engine (all tiers)}
 
 A credit-based selector over a pool of five fixed arms, each a triple
 $(KF, KR, K_{\exp})$ of gaining--sharing rate, crossover rate and
@@ -300,8 +300,8 @@ generation, so a single generation exercises several configurations at once.
 
 The pool is deliberately spread: arm 1 takes small steps on few coordinates,
 arm 2 large steps on very few (high $K_{\exp}$ drains the junior set fast),
-arm 4 large steps on most. \hl{Arm 3 is unmodified GSK}, and with arm 5 ---
-same rates, slower junior decay --- it carries most of the initial mass, so
+arm 4 large steps on most. \hl{Arm 3 is unmodified GSK}, and with arm 5 (
+same rates, slower junior decay) it carries most of the initial mass, so
 \hl{DT-GSK starts as base GSK and must earn any departure from it}; the three
 exploratory arms begin at the floor.
 
@@ -313,8 +313,8 @@ Two qualifications on that table, both of which change what actually executes:
       $\kappa_{\dim} = 0$ below $D=20$, $20$ at $20$--$49$ and $40$ at
       $D\geq50$. The floor is $1.000$ at $D=20$, $0.667$ at $D=30$, $0.500$ at
       $D=40$, $0.800$ at $D=50$ and $0.400$ at $D=100$. So the low-$KR$ arms
-      never run at their listed rates above $D=20$ --- at $D=20$ every arm
-      updates every coordinate --- and arms 1 and 2 execute at the floor.
+      never run at their listed rates above $D=20$ (at $D=20$ every arm
+      updates every coordinate), and arms 1 and 2 execute at the floor.
 \item \textbf{$\pi_0$ is the five-arm vector.} It holds as printed at $D<20$
       and $D\geq100$, where arms 3 and 5 carry $0.85$ between them. In the two
       tiers that admit the sixth differential-evolution arm the five are
@@ -326,7 +326,7 @@ Two qualifications on that table, both of which change what actually executes:
 
 \hl{The credit rule.} Credit is an exponential moving average of realized
 improvement at learning rate $c = 0.10$, with probabilities projected onto the
-simplex under the floor $\pi_{\min} = 0.05$ --- so no arm is ever eliminated
+simplex under the floor $\pi_{\min} = 0.05$, so no arm is ever eliminated
 and any arm can recover. Two details matter:
 
 \begin{itemize}[leftmargin=1.2em, itemsep=1pt, topsep=3pt]
@@ -337,7 +337,7 @@ and any arm can recover. Two details matter:
       target is used with worsened arms floored at $\pi_{\min}$. If it yields
       \emph{no net improvement}, the credit target is restricted to the arms
       that did improve. The restricted branch is what stabilizes learning on
-      hard functions --- without it, a generation in which everything fails
+      hard functions; without it, a generation in which everything fails
       would push probability mass around on noise.
 \end{itemize}
 
@@ -352,7 +352,7 @@ and any arm can recover. Two details matter:
       again at $D \geq 100$.
 \end{itemize}
 
-\subsection{4. ARGP --- adaptive rank-gated pruning (all tiers)}
+\subsection{4. ARGP: adaptive rank-gated pruning (all tiers)}
 
 Arms whose windowed acceptance falls below a tier threshold after warm-up are
 \emph{soft-frozen} to the probability floor rather than removed, so a pruned
@@ -362,7 +362,7 @@ $0.02$, tightened to $0.010$ at $D\geq50$; warm-up $0.15$ of the budget.
 \subsection{5. Linkage block crossover (all tiers, from $D\geq10$)}
 
 For a tier-set fraction of the population the per-coordinate $KR$ mask is
-replaced by a \emph{block} mask over non-contiguous coordinate subsets --- the
+replaced by a \emph{block} mask over non-contiguous coordinate subsets: the
 mechanism through which structure, rather than a scalar, is adapted. The
 mechanism carries its own dimension gate: it needs $D\geq10$ below $D=50$ and
 $D\geq30$ above it, so it is inactive at the CEC2020 $D{=}5$ bank and at the
@@ -377,7 +377,7 @@ CEC2011 problems of dimension 1, 6 and 7.
 \item \textbf{Block source:} random below $D=50$. At $D\geq50$ a block-mask
       row draws the \textbf{ISM-learned partition with probability $0.50$} and
       the random partition otherwise, so roughly half the block rows stay
-      random even where the memory is active --- and all of them do until the
+      random even where the memory is active, and all of them do until the
       graph passes its readiness test. Nor is the crossover the memory's only
       route into the search: the deterministic final polish reads the signed graph
       directly for its basis (component 9), and at $D\geq100$ the count of
@@ -414,7 +414,7 @@ cooldown (gens) & 6 & 6 & 6 & 3\\
 \end{center}
 
 The \emph{coordinate} method is the one enabled. An ISM-block subspace variant
-exists in the code but is switched off in the frozen configuration --- a point
+exists in the code but is switched off in the frozen configuration, a point
 the paper corrects explicitly, since an earlier description had it the other
 way round.
 
@@ -426,7 +426,7 @@ over a signal window of 10); below $D=20$ it falls back to a single stagnation
 trigger with the two floors inactive. Detection window $W = 50$.
 
 When it fires, the top $\mathrm{round}(0.05\,NP)$ individuals by fitness are
-\emph{frozen} --- exempt from both rescue and restart. A Cauchy rescue then
+\emph{frozen}, exempt from both rescue and restart. A Cauchy rescue then
 perturbs the worst $\mathrm{round}(0.10\,NP)$ unfrozen rows by
 $r_s \cdot D^{-1/2} \cdot \mathrm{span} \cdot \mathcal{C}(0,1)$, with
 $r_s = 0.04$ at $D\geq20$ and $0.05$ below. A rescue that lowers the incumbent
@@ -435,7 +435,7 @@ the archive-seeded partial restart.
 
 \begin{itemize}[leftmargin=1.2em, itemsep=1pt, topsep=3pt]
 \item \textbf{Restart fraction:} $0.30$ below $D=50$, $0.10$ at $D\geq50$.
-\item \textbf{Max restarts:} 4 at $D<20$ and $50$--$99$; 2 otherwise --- a hard
+\item \textbf{Max restarts:} 4 at $D<20$ and $50$--$99$; 2 otherwise, a hard
       cap, so BSE can never overshoot MaxFES.
 \item \textbf{Archive:} fixed cap 200 at all $D$, L2 distance filter 0.05.
 \item \textbf{Deep-stall restart:} fires at stall fraction $0.25$ of the
@@ -444,10 +444,10 @@ the archive-seeded partial restart.
       global best can never lose ground.
 \end{itemize}
 
-\subsection{8. ISM --- interaction-structure memory (\emph{$D\geq50$ only})}
+\subsection{8. ISM: interaction-structure memory (\emph{$D\geq50$ only})}
 
-Two co-evolving accumulators --- a magnitude graph $G_{\mathrm{abs}}$ and a
-signed graph $G_{\mathrm{signed}}$ --- built from \emph{strictly improving}
+Two co-evolving accumulators (a magnitude graph $G_{\mathrm{abs}}$ and a
+signed graph $G_{\mathrm{signed}}$) built from \emph{strictly improving}
 accepted moves, sharing
 $G_\bullet \leftarrow \lambda G_\bullet + \eta\sum_i w_i\, v_i v_i^{\!\top}$
 with decay $\lambda = 0.95$ and commit rate $\eta = 1.0$. Rejected trials and
@@ -465,7 +465,7 @@ differential-evolution-arm moves, $0.25$ for local-search moves, $1$ otherwise.
       injections is $\lambda^{10}\approx0.60$ rather than $0.95$.
 \item \textbf{Confidence gate:} $\kappa_{\min} = 0.35$ for linkage ($0.45$ for
       the dormant subspace search), adaptive at $D\geq50$ on a rolling median
-      --- window 30, percentile $0.50$, floor $0.12$.
+      (window 30, percentile $0.50$, floor $0.12$).
 \item \textbf{Block extraction:} max-normalize, keep row edges
       $\geq \max(\varphi,\, \tfrac12 \max_k W_{jk})$ with $\varphi = 10^{-4}$,
       symmetrize, take connected components; discard below $b_{\min} = 2$, keep
@@ -479,13 +479,13 @@ differential-evolution-arm moves, $0.25$ for local-search moves, $1$ otherwise.
 
 \hl{Measured cost and outcome.} ISM consumes no extra objective evaluations,
 but the isolation measured a wall-clock overhead of \hl{+57.3\% (CEC2017
-$D{=}50$), +36.3\% ($D{=}100$) and +30.3\% (CEC2013 $D{=}50$)} --- and returned
+$D{=}50$), +36.3\% ($D{=}100$) and +30.3\% (CEC2013 $D{=}50$)}, and returned
 \hl{no detectable standalone benefit at its active tiers.} That null is a
 registered result, advertised in the abstract and conclusions.
 
 A later, sharper test went further. The route this test could isolate is the
 basis the pair-map hands the deterministic polish, and testing that route
-directly --- no refinement, the plain coordinate axes, the learned basis --- found
+directly (no refinement, the plain coordinate axes, the learned basis) found
 the \hl{learned basis is worse than the plain axes} at 50 unknowns, losing on 25
 of 29 problems. The refinement itself is fine, and beats doing nothing at both
 sizes where it runs; what fails is the learned geometry it was given. So the
@@ -499,7 +499,7 @@ than as a component of the contribution.
 One-shot, RNG-free compass search, armed at budget fraction $0.96$ under a cap
 of $0.02\,\mathrm{MaxFES}$. Its basis $V$ is the eigenvectors of the
 symmetrized $G_{\mathrm{signed}}$ ordered by descending $|\text{eigenvalue}|$
---- falling back to coordinate axes when the graph carries no signal.
+(falling back to coordinate axes when the graph carries no signal).
 
 Unlike the crossover and local-search consumers it is gated \emph{only} on a
 non-zero signed signal, not on graph readiness, so it can act before
@@ -510,13 +510,13 @@ cap or when the step falls below $10^{-12}$ of the span. Probes are accepted
 only on strict improvement, so the stage cannot corrupt the returned solution.
 
 Repeatability follows from having no RNG draws: the same input returns
-bit-identical output --- \emph{in the declared single-threaded environment.}
+bit-identical output, \emph{in the declared single-threaded environment.}
 The paper is explicit that this is not a cross-thread or cross-platform
 guarantee.
 
 \hl{Measured outcome: the polish works, its basis does not.} A three-arm
-isolation at fixed enablement --- no refinement, the coordinate axes, the
-learned eigenframe --- separates the two questions. The refinement itself is
+isolation at fixed enablement (no refinement, the coordinate axes, the
+learned eigenframe) separates the two questions. The refinement itself is
 confirmed: against no refinement the shipped eigenframe arm wins on 22 of 29
 functions at $D{=}50$ and 23 of 29 at $D{=}100$, and the coordinate-axis
 variant wins 28 of 29 and 25 of 29. The \emph{learned} basis is not: at
@@ -524,26 +524,26 @@ $D{=}50$ the coordinate axes beat it on 25 of 29
 ($p_{\mathrm{Holm}} = 1.4\times10^{-4}$) and, under the paper's canonical tie
 rule, at $D{=}100$ as well ($p_{\mathrm{Holm}} = 0.0489$). The paper therefore
 claims this contribution \hl{basis-neutrally}
-(Supplementary S9.1) --- what earns its place is the deterministic,
+(Supplementary S9.1): what earns its place is the deterministic,
 budget-exact endgame, not the geometry it searches along.
 
 \subsection{10. Upper-tier controllers (\emph{$D\geq100$ only})}
 
 \begin{itemize}[leftmargin=1.2em, itemsep=1pt, topsep=3pt]
-\item \textbf{A1 late-accept clip} --- tightens elitist acceptance late in the
+\item \textbf{A1 late-accept clip}: tightens elitist acceptance late in the
       budget. $\tau$-floor $0.85$; high-acceptance $0.30$; log-drop
       $\epsilon = -2.0$; streak $k = 5$; strict $\epsilon = 10^{-3}$; log-drop
       EMA $\alpha = 0.30$.
-\item \textbf{A2 frozen-streak broaden} --- widens $KR$ during frozen streaks.
+\item \textbf{A2 frozen-streak broaden}: widens $KR$ during frozen streaks.
       Acceptance floor $0.05$; log-drop $\epsilon = -3.0$; streak $k = 10$;
       window/cooldown 20/10 generations; $KR$ factor $1.5$.
-\item \textbf{FC4 late linkage random-mix} --- reverts to random linkage when
+\item \textbf{FC4 late linkage random-mix}: reverts to random linkage when
       measured learned-block lift turns negative. $\tau$-floor $0.50$;
       negative lift $-0.05$; severe lift $-0.20$; strength $0.5$; lift-EMA
       $\alpha = 0.20$.
 \item \textbf{Basin memory} and a \textbf{subspace-sampling floor}: enabled.
 \item A \textbf{budget/ROI gate}, which admits the coordinate local search
-      only from budget fraction $0.70$ --- the same threshold as this tier's
+      only from budget fraction $0.70$, the same threshold as this tier's
       local-search start fraction, so it is very nearly redundant, though the
       two are read at different points in the generation and can disagree on
       the generation that crosses the threshold. The trust-region displacement
@@ -644,7 +644,7 @@ max restarts $R_{\max}$ & 4 / 2 / 4 / 2 & hard cap on MaxFES\\
 archive & cap 200 (all $D$), L2 filter 0.05 & \\
 deep-stall & frac 0.25; min-budget 20\,000 & cooldown 0.15; stop 0.9\\
 \midrule
-\multicolumn{3}{@{}l}{\emph{ISM interaction memory --- $D{\geq}50$ only}}\\
+\multicolumn{3}{@{}l}{\emph{ISM interaction memory ($D{\geq}50$ only)}}\\
 \midrule
 enable gate & $D \geq 50$ & not allocated below\\
 decay $\lambda$ / commit rate $\eta$ & 0.95 / 1.0 & \\
@@ -657,7 +657,7 @@ block size range & $b_{\min} = 2$ to $b_{\max} = 10$ & larger split greedily\\
 readiness & $\geq 10$ updates, 2 refreshes, 4 non-trivial dims & \\
 escape response & graph $\times\,0.50$, 5-gen cooldown & BSE events only\\
 \midrule
-\multicolumn{3}{@{}l}{\emph{Deterministic final polish --- $D{\geq}50$ only}}\\
+\multicolumn{3}{@{}l}{\emph{Deterministic final polish ($D{\geq}50$ only)}}\\
 \midrule
 arming fraction $s_{\mathrm{fp}}$ & 0.96 & budget cap $0.02\,$MaxFES\\
 basis & eigenvectors of symmetrized $G_{\mathrm{signed}}$ & axes if no signal\\
@@ -683,7 +683,7 @@ budget/ROI gate & admits local search from budget fraction 0.70 & duplicates thi
 \textbf{INPUT:} objective $f$, dimension $D$, bounds $[\ell,u]$, budget MaxFES
 (suite-dependent), seed.\\[3pt]
 
-\textbf{1. Resolve the tier from $D$} --- once, before the run:\\
+\textbf{1. Resolve the tier from $D$} (once, before the run):\\
 \hspace*{4mm}$D<20$ \ \ \ \ \ \ $\rightarrow$ scaffold only (ACE+ARGP, NLPSR, blocks, LS, BSE, restart)\\
 \hspace*{4mm}$20\!-\!49$ \ \ \ \ $\rightarrow$ + differential-evolution arm in the ACE pool\\
 \hspace*{4mm}$50\!-\!99$ \ \ \ \ $\rightarrow$ + ISM graph, ISM-fed linkage blocks, deterministic final polish\\
@@ -700,7 +700,7 @@ ARGP soft-freezes\\
 \hspace*{4mm}\textbf{b.} Partition coordinates junior/senior by the $K_{\exp}$ schedule;
 build\\
 \hspace*{9mm}the trial vector (junior: near neighbours; senior: best/middle/worst).\\
-\hspace*{4mm}\textbf{c.} Apply the crossover mask --- block mask for 70\% of rows
+\hspace*{4mm}\textbf{c.} Apply the crossover mask: block mask for 70\% of rows
 (40\% at $20\!-\!49$);\\
 \hspace*{9mm}at $D\geq50$ half of those rows use ISM-supplied blocks once the
 graph is\\
@@ -712,9 +712,9 @@ graph is\\
 \hspace*{9mm}accepted moves; re-extract linkage blocks on the tier cadence.\\
 \hspace*{4mm}\textbf{g.} \emph{If stagnating:} BSE Cauchy rescue on the worst rows; if it\\
 \hspace*{9mm}fails, archive-seeded partial restart. On a deep stall, full\\
-\hspace*{9mm}re-initialization --- the global best is never discarded.\\
+\hspace*{9mm}re-initialization (the global best is never discarded).\\
 \hspace*{4mm}\textbf{h.} \emph{If $D\geq50$, once, on the first generation that reaches}\\
-\hspace*{9mm}$s_{\mathrm{fp}}=0.96$ \emph{of the budget:} deterministic final polish --- compass
+\hspace*{9mm}$s_{\mathrm{fp}}=0.96$ \emph{of the budget:} deterministic final polish, compass
 search\\
 \hspace*{9mm}along the signed-graph eigenbasis (step, evaluate, contract), no RNG\\
 \hspace*{9mm}draws, capped at $0.02\,$MaxFES. The loop then continues on the\\
@@ -728,7 +728,7 @@ search\\
 Step 1 and steps 3f/3h are where the novelty sits: the tier resolution is the
 organizing contribution, and the interaction memory and the deterministic final polish
 are subsystems written for DT-GSK rather than inherited. The base
-junior/senior operator is unchanged --- the contribution is \emph{where} each
+junior/senior operator is unchanged; the contribution is \emph{where} each
 mechanism is allowed to act, not a new base operator.
 
 \section{How it was tested}
@@ -806,7 +806,7 @@ Two disciplines matter for reading the results:
       test is claimed for them.
 \item \hl{Evidential tiers never cross.} An omnibus or Nemenyi separation is
       never reported as a paired-test result, and the CEC2013LSGO descriptive
-      layer --- inspected before the analysis plan was signed --- carries no
+      layer, inspected before the analysis plan was signed, carries no
       confirmatory weight anywhere.
 \end{itemize}
 
@@ -905,7 +905,7 @@ it leads at none of the four sizes. On the real-world set it is second.
       and other family members beat it at some sizes and on the real-world set.
 \item It does not claim the pair-map works. The direct test came back
       negative, and a later test of the one route by which it could affect the
-      answer came back worse than negative --- the plain alternative beat it.
+      answer came back worse than negative: the plain alternative beat it.
       Both are reported.
 \item It does not claim to run faster. One competitor, eGSK, could only be
       rebuilt using a substitute for one internal solver. That part uses some of
@@ -946,14 +946,14 @@ work out the best one directly. Its main idea is that it picks its own machinery
 based on how big the problem is, like choosing a gear before you set off, instead
 of using one setting for everything. Above a certain size it also finishes with a
 careful, repeatable polish rather than a random one. It was tested against six
-other published methods from \emph{its own family} --- not against the strongest
-methods in the field, a comparison the paper does not make --- across five
+other published methods from \emph{its own family} (not against the strongest
+methods in the field, a comparison the paper does not make) across five
 standard test collections with equal budgets. It came first on two, tied first on
 one, second on one, and fourth on one. It is weakest on small problems, where its
 size-gated machinery is switched off by design, and it loses on the real-world
 set. One of its mechanisms was tested on its own, cost 30 to 57 percent more
-computing time, showed no measurable benefit, and --- on a later, more direct
-test --- turned out to be actively worse than the simple alternative it replaced.
+computing time, showed no measurable benefit, and (on a later, more direct
+test) turned out to be actively worse than the simple alternative it replaced.
 The authors published that result instead of leaving it out, and stopped
 claiming the mechanism as a contribution.
 \end{tcolorbox}

@@ -21,7 +21,7 @@
 \begin{algorithm}[p]
 \caption{\textbf{Pseudo-code of the DT-GSK algorithm.} The junior and senior
 gaining-sharing \emph{vector-update equations} are retained unchanged; the
-generation around them is not---crossover masking, tie handling, the population
+generation around them is not: crossover masking, tie handling, the population
 size, and the senior partition are all modified. The added subsystems and their
 fixed execution order are listed in Section~\ref{sec:algorithm}.}
 \label{alg:dt-gsk}
@@ -67,8 +67,8 @@ fixed execution order are listed in Section~\ref{sec:algorithm}.}
 \Statex
 \Statex \emph{Note.}~\textnormal{The linkage block is learned at $D{\ge}50$ (random otherwise) and confidence-gated; the
 local search enters at $0.80$ of the budget below $D{=}50$ and at $0.70$ above, under its evaluation
-cap and cooldown; and the $D{\ge}100$ upper-tier controllers are cross-cutting---they act inside the
-reduction, trial-construction, acceptance and escape steps above and gate the local search---as
+cap and cooldown; and the $D{\ge}100$ upper-tier controllers are cross-cutting (they act inside the
+reduction, trial-construction, acceptance and escape steps above and gate the local search) as
 detailed in Section~\ref{sec:algorithm}.}
 \end{algorithmic}
 \end{algorithm}
