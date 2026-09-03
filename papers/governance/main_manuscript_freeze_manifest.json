@@ -1,8 +1,8 @@
 {
   "schema": "main_manuscript_freeze_manifest/v1",
-  "phase": "PASS-72: the second-round proof queries carried into the sources. Affiliation 2 reordered to the department-faculty-school-city-country sequence the editorial office requires (Mathematics Program first, then University of Science and Technology within Zewail City); Author 2's Yahoo address replaced with her institutional hebasayed@cu.edu.eg, the office having declined the Yahoo domain. The third query, four tables cited out of numerical order, is fixed in the proof returned to the office but deliberately NOT carried here: those edits were made against production's flattened proof file, whose section text and float placement differ from ours, so applying them blind to main.tex would be guesswork. All four renders rebuilt at their pinned epochs; the main PDF gains a page as the affiliation block rewraps; supplement unchanged at 82 pp; parity 755 rows 0 FAIL; bindings green.",
-  "generated_utc": "2026-09-03T09:00:00+00:00",
-  "anchor_commit": "60bf3613c9cf732ba09088fa8377437e22721192",
+  "phase": "PASS-73: em-dash density reduced in the repository's own manuscript sources. The de-dashing had reached the copy returned to the journal (round one), the Supplementary Materials and the cover letter, but never main.tex, the five section files or the plain-language summary, so the repository still read differently from what is being published. 275 of their 279 printing em-dashes become commas, colons, semicolons or parentheses; 14 remain where a dash aids clarity. Each site was judged against its own sentence. Pairs were applied atomically and the parenthesis-balance check aborted the first run unwritten, catching two proposals that opened a parenthetical whose closing point carried no dash; both closing halves were supplied by hand. No wording, number, claim or registered sentence changed. Page counts unchanged at 49, 82 and 11; parity 755 rows 0 FAIL; evidence bindings green; no undefined reference.",
+  "generated_utc": "2026-09-03T11:00:00+00:00",
+  "anchor_commit": "ce39cf3e400db82d0d8ff9d31e212da10b0626ac",
   "pre_freeze_base_commit": "b9846e4 (abbreviated deliberately; the full SHA is held in the withheld papers/review_2026_08_24/PRIVATE_OPS.md because this commit is one of two unreachable objects pending a provider-side purge)",
   "evidence_release": {
     "primary": "rel-2026-07-20-67d9345f9",
@@ -30,43 +30,43 @@
   "files": [
     {
       "path": "papers/main.tex",
-      "sha256": "74a6edfbf00eba2a3fe3217ac2d2d08e98af21a51ba57dc89a883016fa2dd7a7",
-      "bytes": 27638
+      "sha256": "d0adeb3eb7e85f82f4d5e6d396eb833671eb519b3791de108f11fd34160bf0fe",
+      "bytes": 27619
     },
     {
       "path": "papers/sections/introduction.tex",
-      "sha256": "060b96bf2cb236d9ea0e13f907faae3573b7bc74f597b32ec5bb02c38a7fb37c",
-      "bytes": 12566
+      "sha256": "ce8fe1e6b3daa064450543c3eb2456cfe31636aa67cf0dec16e1ebb021d12ffd",
+      "bytes": 12510
     },
     {
       "path": "papers/sections/related_work.tex",
-      "sha256": "d75757d7421872fa4285edf7b0ffbfb80ab738110f4ba2a8f4f796d21e8504c0",
-      "bytes": 21772
+      "sha256": "6a98699fd94beb01a8a7098fe8861687fa039e1020c9dd4873cab4b954c43b94",
+      "bytes": 21688
     },
     {
       "path": "papers/sections/proposed_algorithm.tex",
-      "sha256": "758b719b33737ecfb3b4e651ef5a5aaedabc3993d586a15ff7860c65741a9cf1",
-      "bytes": 58989
+      "sha256": "c9ffeba6f14365a03a0c33f61a6d5cafa324d6bdeb36b31567c8f422d773b85f",
+      "bytes": 58837
     },
     {
       "path": "papers/sections/performance.tex",
-      "sha256": "4021bb47be9cddce9741b96503ff49f1fd4774999b937607b402d4768c998a99",
-      "bytes": 78697
+      "sha256": "1c1f30a987fb8224d96d6cb9c16d5d9a1b3fdfa9b33d3d8c5d989b032d3f368c",
+      "bytes": 78471
     },
     {
       "path": "papers/sections/conclusions.tex",
-      "sha256": "3809aa479d683516f3b913479740ad4a98cfcb82ee059ee3b0698780d6a18737",
-      "bytes": 15688
+      "sha256": "08f8eb4d216f798bd4f9663083e8fce4f09e5298393f12115b8e1433564e6d56",
+      "bytes": 15625
     },
     {
       "path": "papers/DT-GSK.pdf",
-      "sha256": "4a1d5f3342d98ef2f5476141f951fa21f721ccac57354e3b1e32d0453bfe70f4",
-      "bytes": 831658
+      "sha256": "b2d19cc2d122302a7944fa15a1dbf37d16e46f0fc23060b2d23b5e2f456313d1",
+      "bytes": 830192
     },
     {
       "path": "papers/DT-GSK.docx",
-      "sha256": "6f4613abd95f3dc04f93648bc408093bf21abea94f69001fe09433347a3e8cb9",
-      "bytes": 1022594
+      "sha256": "5a7ed9cd3bda403bac1b6c7343e145fb2d4fbce768c96374e8803d995109459c",
+      "bytes": 1022372
     },
     {
       "path": "papers/supplementary.pdf",
@@ -124,7 +124,7 @@
     "revision_analysis_pins": "NOT RE-RUN at pass-43, and not required: no analysis artifact was touched, which check_frozen_analysis confirms at 115/115."
   },
   "remint_note": "pass-66 MINTED 2026-09-02. Lesson: when a journal restyles the article in production, the supplement does not follow. Compare the two RENDERS after any production round - the post-hoc change was invisible in our sources because production never touched them, and it would have published a pair that disagreed with itself.",
-  "published_commit": "70d2cd3192c7100acf11ff5f1f9d6a9336085094",
+  "published_commit": "60bf3613c9cf732ba09088fa8377437e22721192",
   "immutable_history_note": "Two recorded blemishes live in immutable, already-pushed history and are disclosed here rather than rewritten (rewriting would move published tags, break the Data Availability Statement, and violate D-0045): (1) the pass-54 commit c0028c1's MESSAGE cites anchor 4d6bd1b, which resolves to nothing - the manifest committed IN that commit records the correct anchor b7abf61da; commit messages cannot be corrected without rewriting pushed history. (2) The copies of THIS manifest frozen inside tags v2.26 through v2.28 carry their as-minted values, including v2.28's published_commit whose tail was invented while expanding a 9-hex abbreviation; the value was corrected on main at pass-56 and check_manifest has gated commit-field resolvability since. Tagged states are never edited in place (D-0045), so the in-tag copies stand as minted. Recorded at pass-57 (D-0062).",
   "published_commit_note": "published_commit is the commit that carried the previous freeze's mint onto the published branch (for pass-63, the v2.35 close). It is NOT the same object as anchor_commit, which names this pass's apply commit; both resolve on the public branch. This field went four passes stale before pass-53 because nothing gates it - recompute it at every mint, and never assume anchor and published are the same commit.",
   "source_files": [

@@ -3469,3 +3469,33 @@ applying all surfaced fixes.
   check_manifest 15/15 + sources 2/2; parity 755 rows, 0 FAIL; bindings
   green; full ladder green.
 - **Anchor.** Apply commit 60bf361. NEXT free ids: CR-0053 and D-0078.
+
+## D-0078 (2026-09-03) - Pass-73: the repository's own sources de-dashed
+
+- **Decision.** Apply the supervisor's de-dashing instruction to the
+  repository's manuscript sources, which it had never reached. Mint
+  **pass-73**, tag **v2.46**. Registered as **CR-0053**.
+- **Why they were left behind.** Pass-69 de-dashed the copy returned to the
+  journal and the Supplementary Materials; pass-71 did the cover letter.
+  None of those touched main.tex, the five section files, or the
+  plain-language summary, because the returned proof is production's own
+  flattened file and not built from our sources. The repository therefore
+  read differently from what is being published. **The pattern is now
+  familiar: a change described as applying to "the manuscript" reaches only
+  the file that was actually edited.**
+- **Scale.** 279 em-dashes printed across the seven files; 275 are now
+  commas, colons, semicolons or parentheses, and 14 remain where a dash
+  aids clarity.
+- **The balance check earned its keep a second time.** The first run
+  ABORTED without writing: two proposals opened a parenthetical whose
+  CLOSING point carried no dash, so no site existed for it and the pair
+  could never balance, leaving introduction.tex and conclusions.tex one
+  open parenthesis short. Both closing halves were supplied by hand after
+  reading the sentences (a semicolon-separated list item, and a trailing
+  appositive running to the end of a sentence).
+- **No result changes.** Punctuation only; page counts unchanged at 49, 82
+  and 11.
+- **Validation.** All four artifacts and the plain summary rebuilt;
+  check_manifest 15/15 + sources 2/2; parity 755 rows, 0 FAIL; evidence
+  bindings green; no undefined reference in any log; full ladder green.
+- **Anchor.** Apply commit ce39cf3. NEXT free ids: CR-0054 and D-0079.
