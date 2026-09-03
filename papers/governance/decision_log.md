@@ -3427,3 +3427,45 @@ applying all surfaced fixes.
 - **Validation.** PDF rebuilt twice and byte-identical; zero dashes in the
   render; full ladder green.
 - **Anchor.** Apply commit 70d2cd3. NEXT free ids: CR-0052 and D-0077.
+
+## D-0077 (2026-09-03) - Pass-72: second-round proof queries
+
+- **Decision.** Answer the editorial office's three second-round queries and
+  carry the two that belong to the manuscript's metadata into the sources.
+  Mint **pass-72**, tag **v2.45**. Registered as **CR-0052**.
+- **Affiliation 2** reordered to the department-faculty-school-city-country
+  sequence the office requires: "Mathematics Program, University of Science
+  and Technology, Zewail City of Science and Technology, October Gardens,
+  6th of October, Giza 12578, Egypt". Affiliation 1 already followed it.
+- **Author 2's email.** The office declined the Yahoo domain outright, so
+  hmhmdss@yahoo.com becomes hebasayed@cu.edu.eg, the institutional address
+  already held for her in SuSy. Note this reverses, for one author, the
+  2026-09-02 instruction to publish the personal addresses; the reversal is
+  the journal's requirement, not a change of the authors' preference, and
+  the other two addresses stand.
+- **Table citation order, and how it was actually fixed.** The office
+  reported Tables 6, 8, 10 and 13 cited out of sequence and offered two
+  remedies: remove the offending citations, or reorder the tables. We took
+  the first, so their layout is preserved. FOUR forward references were
+  removed (the notation paragraph's reference to Tables 6 and 8; two to
+  Table 10; one to Table 13) and ONE sentence was ADDED in Section 3.4
+  citing Table 8, which the removals would otherwise have left with no
+  in-text citation at all. **The result was verified, not assumed**: the
+  first-citation sequence was recomputed from the rebuilt .aux and reads
+  1..19 with no gaps.
+- **Not carried into main.tex.** Those table fixes were made against
+  production's flattened proof file, whose section text and float placement
+  differ from ours. Applying them blind to our sources would be guesswork,
+  so the repository keeps its own cross-references and this entry records
+  the divergence deliberately.
+- **A build trap worth recording.** The added citation was first written
+  inside `\hl{}` so it would show as a change. soul's `\hl` cannot wrap a
+  `\ref`, and the build aborted with "Argument of \T@ref has an extra }".
+  Highlight plain text only; never a cross-reference.
+- **No result changes.** Metadata and cross-reference placement only. The
+  main PDF gains a page as the affiliation block rewraps; the supplement is
+  unchanged at 82 pp.
+- **Validation.** All four renders rebuilt at their pinned epochs;
+  check_manifest 15/15 + sources 2/2; parity 755 rows, 0 FAIL; bindings
+  green; full ladder green.
+- **Anchor.** Apply commit 60bf361. NEXT free ids: CR-0053 and D-0078.

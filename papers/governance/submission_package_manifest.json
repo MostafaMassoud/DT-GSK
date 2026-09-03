@@ -1,7 +1,7 @@
 {
   "schema": "submission_package_manifest/v1",
-  "generated_utc": "2026-09-02T22:30:00Z",
-  "manuscript_version_id": "v2.44",
+  "generated_utc": "2026-09-03T09:00:00Z",
+  "manuscript_version_id": "v2.45",
   "manuscript_version_note": "Freeze pass-67, tag v2.40. The article title revised to \"DT-GSK: Dimension-Tiered Adaptive Configuration Selection and Deterministic Refinement for Gaining-Sharing Knowledge-Based Optimization Algorithm\" and both affiliations corrected (Department of Operations Research; affiliation 2 gains the Mathematics Program, becomes October Gardens, 6th of October, postcode 12588 to 12578), as returned with the galley proof. All four renders rebuilt twice and byte-identical; no number, claim or registered sentence changed. The Data Availability Statement still names v2.13 and v2.37, the tags the paper in production prints. v2.36 remains the frozen record of the 2026-08-30 SuSy resubmission and v2.13 of the original submission; neither is ever edited in place (D-0045). Repository public at https://github.com/MostafaMassoud/DT-GSK.",
   "target_journal": "Algorithms (MDPI)",
   "evidence_release": [
@@ -13,39 +13,39 @@
     "abl-rel-2026-07-20 (component isolation, incl. the promoted CEC2017 D50/D100 overlay; supplement-only, non-superseding)",
     "g1-rel-2026-08-28-65b3d39e6 (D-0051 identity re-execution; demonstrates the Table A45 residual as a build difference; additive)"
   ],
-  "authoritative_commit": "70d2cd3192c7100acf11ff5f1f9d6a9336085094",
+  "authoritative_commit": "60bf3613c9cf732ba09088fa8377437e22721192",
   "pre_freeze_base_commit": "b9846e4 (abbreviated deliberately; the full SHA is held in the withheld papers/review_2026_08_24/PRIVATE_OPS.md because this commit is one of two unreachable objects pending a provider-side purge)",
   "hash_algorithm": "SHA-256",
   "submission_files": [
     {
       "role": "main-manuscript-pdf",
       "path": "papers/DT-GSK.pdf",
-      "pages": 49,
+      "pages": 50,
       "build_epoch": 1783468800,
-      "sha256": "5c63e60118b43edfdadfca6130731801f2b4125d7d5e65791672d00d38e26101",
-      "bytes": 831656
+      "sha256": "4a1d5f3342d98ef2f5476141f951fa21f721ccac57354e3b1e32d0453bfe70f4",
+      "bytes": 831658
     },
     {
       "role": "main-manuscript-docx",
       "path": "papers/DT-GSK.docx",
       "build": "deterministic docx render",
-      "sha256": "f79c628e51a9f8e87641068b8fb000175a68080c9b92c63bf1de8b21e7bc90ef",
-      "bytes": 1022592
+      "sha256": "6f4613abd95f3dc04f93648bc408093bf21abea94f69001fe09433347a3e8cb9",
+      "bytes": 1022594
     },
     {
       "role": "supplement-pdf",
       "path": "papers/supplementary.pdf",
       "pages": 82,
       "build_epoch": 1783468800,
-      "sha256": "815c0b54b1dd384cb8a098afa4bc590ec00ca2b072d40cd4c996b13574f44aa6",
-      "bytes": 1683835
+      "sha256": "343d5515f572200fa65bf8ee86db4fb04341b165a2b518ec0131ac805181ef1d",
+      "bytes": 1683839
     },
     {
       "role": "supplement-docx",
       "path": "papers/supplementary.docx",
       "build": "deterministic docx render",
-      "sha256": "cf500459c9c3c068b9930995b118d280cec5afba2e161d11623516257c7694ec",
-      "bytes": 9620418
+      "sha256": "7ebf7f41256e56a7b10988d9277d712737afe869b2bfd5eb13c9431b01b5c716",
+      "bytes": 9620422
     },
     {
       "role": "cover-letter-pdf",
