@@ -22,7 +22,7 @@ one pure-Python package:
 3. **Analysis & paper tooling** — the `gsk-stats` statistical panel and the
    `papers/` manuscript pipeline.
 
-> **Current state:** the paper is accepted by *Algorithms* (MDPI); live state and
+> **Current state:** the paper is published (*Algorithms* 2026, 19(9), 769); live state and
 > open items are in [CLAUDE.md](CLAUDE.md), the short session entry point. Read
 > [REVISION_STATUS.md](REVISION_STATUS.md) by section before changing anything
 > under `papers/`.

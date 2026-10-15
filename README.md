@@ -2,10 +2,10 @@
 
 **Dimension-Tiered Gaining-Sharing Knowledge Optimization** -- the reference
 implementation, benchmark evidence, and reproducibility chain accompanying the
-manuscript *DT-GSK: Dimension-Tiered Adaptive Configuration Selection and
+article *DT-GSK: Dimension-Tiered Adaptive Configuration Selection and
 Deterministic Refinement for Gaining-Sharing Knowledge-Based Optimization
-Algorithm* (accepted by *Algorithms*, MDPI as `algorithms-4507562`; in
-production).
+Algorithm*, published in *Algorithms* 2026, 19(9), 769 (MDPI),
+https://doi.org/10.3390/a19090769.
 Current project state and open items are in [CLAUDE.md](CLAUDE.md); the
 detailed record is [REVISION_STATUS.md](REVISION_STATUS.md).
 
@@ -17,7 +17,7 @@ immutable evidence releases to which every reported number is bound.
 | | |
 |---|---|
 | License | MIT -- see [LICENSE](LICENSE) |
-| How to cite | [CITATION.cff](CITATION.cff) |
+| How to cite | The article: Masoud, M. E. A.; Roshdy, H. S. M.; Mohamed, A. W. *Algorithms* 2026, 19(9), 769, https://doi.org/10.3390/a19090769. The software: [CITATION.cff](CITATION.cff) |
 | Run something | The step-by-step [runbook.md Part 1](runbook.md#part-1-run-and-test-dt-gsk) (after cloning, open [runbook.html](runbook.html) from your copy in a web browser for a formatted version); experienced users can use the terse [Quick Start](#quick-start) |
 | Reproduce the study | [Reproducibility](#reproducibility) and [Statistical analysis](#statistical-analysis) |
 
@@ -293,7 +293,7 @@ referees are checking it.
 | `apgsk` | Mohamed, A. W.; Abutarboush, H. F.; Hadi, A. A.; Mohamed, A. K. "Gaining-sharing knowledge based algorithm with adaptive parameters for engineering optimization." IEEE Access, 9, 65934-65946, 2021. DOI: [10.1109/ACCESS.2021.3076091](https://doi.org/10.1109/ACCESS.2021.3076091). |
 | `fdb-agsk` | Bakir, H.; Duman, S.; Guvenc, U.; Kahraman, H. T. "Improved adaptive gaining-sharing knowledge algorithm with FDB-based guiding mechanism for optimization of optimal reactive power flow problem." Electrical Engineering, 105, 3121-3160, 2023. DOI: [10.1007/s00202-023-01803-9](https://doi.org/10.1007/s00202-023-01803-9). |
 | `atmals-gsk` | Alfadli, N. M.; Oun, E. M.; Mohamed, A. W. "Auto-Tuning Memory-Based Adaptive Local Search Gaining-Sharing Knowledge-Based Algorithm for Solving Optimization Problems." Algorithms, 18(7), 398, 2025. DOI: [10.3390/a18070398](https://doi.org/10.3390/a18070398). |
-| `dt-gsk` | This project's proposed method (Dimension-Tiered Gaining-Sharing Knowledge Optimization). Masoud, M. E.; Roshdy, H. S. M.; Mohamed, A. W. "DT-GSK: Dimension-Tiered Adaptive Configuration Selection and Deterministic Refinement for Gaining-Sharing Knowledge-Based Optimization Algorithm." Accepted by *Algorithms* (MDPI), 2026 as `algorithms-4507562`; in production. Cite the software metadata in [CITATION.cff](CITATION.cff) until the article appears. |
+| `dt-gsk` | This project's proposed method (Dimension-Tiered Gaining-Sharing Knowledge Optimization). Masoud, M. E.; Roshdy, H. S. M.; Mohamed, A. W. "DT-GSK: Dimension-Tiered Adaptive Configuration Selection and Deterministic Refinement for Gaining-Sharing Knowledge-Based Optimization Algorithm." *Algorithms* 2026, 19(9), 769, https://doi.org/10.3390/a19090769 (software metadata: [CITATION.cff](CITATION.cff)). |
 
 ## Repository Map
 

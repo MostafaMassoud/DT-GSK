@@ -34,10 +34,11 @@ recurred five times). There is no hosted CI; never claim one.
 
 ## Right now (2026-10-16)
 
-- **The paper is accepted (2026-09-02) and, per the author (2026-10-15),
-  published** in *Algorithms* (MDPI, `algorithms-4507562`). Its Data
-  Availability Statement prints tag **v2.37**, so `papers/main.tex` stays at
-  v2.37 (D-0070). Never rebuild, move or retag a published tag (v2.13 =
+- **The paper is published:** *Algorithms* 2026, 19(9), 769, https://doi.org/10.3390/a19090769
+  (online 2026-09-07, CC BY 4.0; manuscript `algorithms-4507562`, accepted
+  2026-09-02). README and CITATION.cff record it. Its Data Availability
+  Statement prints tag **v2.37**, so `papers/main.tex` stays at v2.37 (D-0070).
+  Never rebuild, move or retag a published tag (v2.13 =
   submission, v2.36 = resubmission, v2.37 = the printed article).
 - **Last freeze: pass-73 / tag v2.46** (2026-09-03, commit `64c70bb`). **Next
   free governance ids: CR-0054 / D-0079.** Before use, check that
@@ -84,18 +85,14 @@ recurred five times). There is no hosted CI; never claim one.
 2. **Declined by the author 2026-10-15; do not redo without asking:** a pooled
    15-function CEC2013LSGO panel in gsk-stats (needs the vendored
    `analysis/statistical_tests.py`, rule 11).
-3. **Record the publication:** README.md lines 7-8 and about 296, and
-   CITATION.cff about lines 89-96, still say "in production". Add DOI, volume
-   and pages when the author gives them (ordinary commit;
-   `validate_citation_cff.py` must stay green).
-4. **Author-only, status unknown:** the GitHub Support purge request for the
+3. **Author-only, status unknown:** the GitHub Support purge request for the
    two exposed commits was REOPENED 2026-08-28, to be filed after the public
    flip (decision_log.md, "GitHub purge"); nothing records that it was filed.
    Ask the author.
-5. Optional, needs author sign-off: README.md line 954 says "Two such commits
+4. Optional, needs author sign-off: README.md line 954 says "Two such commits
    touch other files under" `src/gsk_family/optimizers/`; there are three
    (3539977, 290854d, 86411e6).
-6. Optional: the "State snapshot" block (lines 13-19) of four
+5. Optional: the "State snapshot" block (lines 13-19) of four
    `docs/prompt/*.md` files (all but change-register-acceptance-review.md) is
    stale: it calls REVISION_STATUS.md the place to start and gives next free
    CR-0044 / D-0069 beside pass-73. Point it at CLAUDE.md "Right now", refresh

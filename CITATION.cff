@@ -11,9 +11,9 @@ date-released: 2026-09-02
 license: MIT
 repository-code: "https://github.com/MostafaMassoud/DT-GSK"
 # No DOI field. Author decision 2026-08-01 (D-0037): no Zenodo deposit and no
-# repository DOI are created for this work. The article DOI is assigned by
-# Algorithms (MDPI) after acceptance and belongs to the article, not to this
-# software record. Keep the version field above equal to the tag this file
+# repository DOI are created for this work. The article's DOI belongs to the
+# article and is recorded under preferred-citation, not as a software DOI.
+# Keep the version field above equal to the tag this file
 # ships inside (gated by papers/scripts/validate_citation_cff.py).
 abstract: >-
   Reference Python implementation of DT-GSK (Dimension-Tiered Gaining-Sharing
@@ -68,12 +68,20 @@ authors:
       Egypt
 preferred-citation:
   type: article
-  status: submitted
   title: >-
     DT-GSK: Dimension-Tiered Adaptive Configuration Selection and Deterministic
     Refinement for Gaining-Sharing Knowledge-Based Optimization Algorithm
   journal: Algorithms
   year: 2026
+  volume: 19
+  issue: 9
+  start: 769
+  doi: "10.3390/a19090769"
+  url: "https://doi.org/10.3390/a19090769"
+  date-published: 2026-09-07
+  issn: "1999-4893"
+  publisher:
+    name: MDPI
   authors:
     - family-names: Masoud
       given-names: Mostafa Elsayed Ahmed
@@ -86,14 +94,11 @@ preferred-citation:
       given-names: Ali Wagdy
       orcid: "https://orcid.org/0000-0002-5895-2632"
   notes: >-
-    In production at Algorithms (MDPI): submitted 2026-08-01, major revision
-    received 2026-08-24, revised version resubmitted 2026-08-30 (two days
-    ahead of the 2026-09-01 deadline). The supplementary material was revised
-    on 2026-09-01 per the editorial office's formatting request (reference
-    content and markings removed) and supplied by email; the proofed version
-    has been returned and the article-processing charge paid, so the article
-    is pending publication. Update this entry with the volume, article
-    number, and DOI once it appears.
+    Published open access (CC BY 4.0) in Algorithms 2026, volume 19, issue 9,
+    article 769, on 2026-09-07 (manuscript algorithms-4507562: submitted
+    2026-08-01, major revision received 2026-08-24, revised version
+    resubmitted 2026-08-30, accepted 2026-09-02). The article's Data
+    Availability Statement cites release tag v2.37 of this repository.
 references:
   - type: article
     authors:

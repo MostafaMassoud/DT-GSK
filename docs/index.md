@@ -7,13 +7,12 @@
 Project documentation, grouped by folder. Browse the rendered site at
 [html/index.html](html/index.html).
 
-> **Project status (2026-08-29).** The manuscript was submitted to *Algorithms*
-> (MDPI) as `algorithms-4507562` from freeze pass-38 / tag v2.13, and received a
-> **MAJOR REVISION** from two reviewers. **The revision work is complete** and
-> the package awaits author resubmission.
-> See **[REVISION_STATUS.md](../REVISION_STATUS.md)** for the current
-> state, how each reviewer point was answered, and the authoritative current
-> pass and tag — this box is deliberately not the place to look them up.
+> **Project status (2026-10-16).** The paper is published: *Algorithms* 2026, 19(9), 769 (MDPI),
+> https://doi.org/10.3390/a19090769 (manuscript `algorithms-4507562`, submitted from freeze
+> pass-38 / tag v2.13; its Data Availability Statement cites tag v2.37).
+> See **[CLAUDE.md](../CLAUDE.md)** for the current state, pass and tag, and
+> **[REVISION_STATUS.md](../REVISION_STATUS.md)** for how each reviewer point
+> was answered; this box is deliberately not the place to look them up.
 > **Evidence releases are additive and non-superseding, and there is more than
 > one:** the current set is enumerated under `evidence_release` in
 > `papers/governance/submission_package_manifest.json`; resolve it from there
