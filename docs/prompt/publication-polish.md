@@ -210,7 +210,7 @@ suite are done); DT-GSK shipping a **single `pub` profile** (the earlier
 and fully removed — no prompt may reference strong-candidate configs, scripts, tests,
 or docs as if they exist); the fail-closed FP-regime sentinel
 (`runners/fp_regime.py` + `docs/reference/fp_regime.md` +
-`tests/regression/test_fp_regime.py`); the current test count (618 tests — always re-collect before citing) and gate
+`tests/regression/test_fp_regime.py`); the current test count (always re-collect it with `python -m pytest --collect-only -q` before citing) and gate
 list; and the current directory layout. Remove references
 to finished phases, removed modules, the old PCG64/base-123456 seed era, superseded
 workflows, and any removed prompt/report (there is no `EGSK_IMPLEMENTATION_PROMPT.md`
@@ -229,14 +229,16 @@ adding, renaming, or removing any doc file requires updating the required-doc li
 Review the execution documentation: `README.md`, the root `runbook.md`,
 `docs/getting-started/` (runbook, tutorial, user_guide, configuration,
 troubleshooting, explainer), and the benchmark/developer guides. The root
-`runbook.md` and `docs/getting-started/runbook.md` must stay synchronized.
+`runbook.md` is the single source of `runbook.html` and
+`docs/getting-started/runbook.md`; regenerate both with
+`python scripts/build_runbook_html.py`.
 
 Rewrite run instructions to be minimal, beginner-friendly, copy-paste ready, and
 deterministic, with PowerShell (primary) and Linux shell variants where syntax
 differs. The single canonical path is: install (`pip install -e ".[dev]"`) → smoke
 run (`python run.py --root . --optimizer gsk --suite sphere ...`) → full campaign
 (`python run.py ... --parallel --workers 2 --convergence-graphs --overwrite`, or the
-`configs/*.yml` launchers; the panel suites are CEC2017, CEC2011, and CEC2013) →
+`configs/*.yml` launchers; the panel covers all five suites) →
 ablation (`python scripts/run_ablation.py ...` →
 `python papers/scripts/generate_ablation_matrix.py`) → validation (`gsk-validate`)
 → statistics (`gsk-stats --suite CEC2017 --dims 10,30,50,100`, plus

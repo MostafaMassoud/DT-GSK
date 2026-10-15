@@ -360,7 +360,7 @@ Runtime contract to verify (each item is a check, not an assumption):
   docstring, then rebuild HTML; never hand-edit docs/html/.
 - Root Markdown policy: the root holds three operating Markdown files --
   README.md (detailed landing page), SKILL.md (project agent file), and
-  runbook.md (concise copy-paste build-and-run command reference) -- plus the six
+  runbook.md (run-and-test guide plus copy-paste command reference) -- plus the six
   governance docs (PROJECT_RULES.md, DESIGN_GUIDE.md, ARCHITECTURE.md,
   BENCHMARK_RULES.md, CODING_STANDARD.md, PERFORMANCE_RULES.md), the release
   record FINAL_RELEASE_REPORT.md, and the top-level REPO_MAP.md navigation index.
@@ -640,8 +640,9 @@ Tasks:
    PERFORMANCE_RULES.md), FINAL_RELEASE_REPORT.md, and REPO_MAP.md. Confirm:
    - README.md is the detailed landing page;
    - SKILL.md is the project agent file;
-   - runbook.md is the concise copy-paste command reference and its commands
-     match the runner contract;
+   - runbook.md is the run-and-test guide (Part 1) plus the copy-paste command
+     reference (Part 2), its commands match the runner contract, and
+     `python scripts/build_runbook_html.py --check` exits 0;
    - REPO_MAP.md is the top-level navigation index;
    - all review/documentation prompts live under docs/prompt/ (not the root);
    - flag any root-level Markdown outside that intentional set as a

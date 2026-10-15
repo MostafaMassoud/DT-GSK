@@ -22,7 +22,7 @@ companions:
   read-only evidence policy that performance work must not disturb.
 - [ARCHITECTURE.md](ARCHITECTURE.md) and [DESIGN_GUIDE.md](DESIGN_GUIDE.md) — the
   module layout and design intent behind the runner and optimizers.
-- [runbook.md](runbook.md) — the terse copy-paste command companion; the
+- [runbook.md](runbook.md): the run-and-test guide and copy-paste command companion; the
   narrative version lives in [README.md](README.md) and the agent operating
   contract in [SKILL.md](SKILL.md).
 - [docs/research/performance.md](docs/research/performance.md) — the in-depth

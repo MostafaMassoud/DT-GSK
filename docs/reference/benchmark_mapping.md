@@ -102,17 +102,17 @@ Python benchmark runtime evaluates objectives directly; validation compares
 generated summary statistics to imported reference statistics after a run (see
 [result_schema.md](result_schema.md) for the verdict format).
 
-Committed reference tables currently exist for three suites only — `cec2017`,
-`cec2013`, and `cec2011`, each carrying the full 7-optimizer GSK-family panel.
-`cec2020`, `cec2013lsgo`, and `sphere` are implemented in code (the "Implemented"
-rows above are code coverage, not reference coverage) but ship no reference
-tables, so validation has nothing to compare against for them.
+Committed reference tables exist for all five CEC suites (`cec2011`,
+`cec2013`, `cec2013lsgo`, `cec2017`, `cec2020`), each carrying the full
+7-optimizer GSK-family panel. Only `sphere` ships no reference tables, so
+validation has nothing to compare against for it.
 
 The same imported reference tables under `benchmarks/cec_reference_results/`
 serve a second consumer: the statistical-analysis layer
 (`gsk_family.analysis`, driven by `gsk-stats`) reads them as the family
 comparison panel — every column, the proposed optimizer included, is loaded
-reference-first, with locally reproduced runs as the fallback. So a reference
+reference-first, with a locally reproduced run as the fallback for the proposed
+optimizer only. So a reference
 CSV can play two roles — a validation baseline for `gsk-validate` and a panel
 column for the family Friedman/Wilcoxon report — without ever being fed to an
 optimizer at runtime.

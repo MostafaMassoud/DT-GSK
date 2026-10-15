@@ -31,11 +31,14 @@ For each requested dimension the suite builds the **7-algorithm GSK-family
 panel** — the proposed algorithm plus the six committed reference comparators
 (`gsk`, `agsk`, `apgsk`, `fdb-agsk`, `egsk`, `atmals-gsk`) — over the common
 benchmark functions, and reports the statistics below. The committed reference
-tree carries the full 7-optimizer panel for three suites: **CEC2017**
+tree carries the full 7-optimizer panel for five suites: **CEC2017**
 (F1, F3–F30 — the withdrawn F2 is excluded — at D = 10/30/50/100, 51 runs),
 **CEC2011** (22 real-world problems at their native per-function dimensions,
-25 runs), and **CEC2013** (the second comparison suite: 28 functions at
-D = 10/30/50, 51 runs, no exclusions).
+25 runs), **CEC2013** (the second comparison suite: 28 functions at
+D = 10/30/50, 51 runs, no exclusions), **CEC2020** (10 functions at
+D = 5/10/15/20, 30 runs; F6 and F7 are undefined at D = 5) and **CEC2013LSGO**
+(15 functions, 25 runs; F1-F12 and F15 at D = 1000, F13-F14 at D = 905). Only
+CEC2017 excludes a function.
 
 - **Friedman ranking** — average rank per algorithm (lower is better) with the
   Friedman chi-squared p-value (`statistical_tests.friedman_rank_test`).
@@ -192,20 +195,20 @@ every algorithm — the proposed method included:
   `gen_logs/` convergence assets.
 - A **locally reproduced run** under
   `results/_run_all/<optimizer>/<suite>/summary/` is used only as a **fallback**
-  for cells the reference tree does not carry. The policy is implemented in
+  for cells the reference tree does not carry. In `gsk-stats` only the
+  proposed optimizer has this fallback; comparators are read from
+  `--reference-root` alone. The policy is implemented in
   `analysis/result_loader.py` (`load_algorithm`: reference first, reproduced
   fallback) and `analysis/family_report.py` (`analyze_family` resolves the
   proposed method's CSV the same way).
 
-Two resolution caveats when working below the per-function summaries:
+Two resolution notes when working below the per-function summaries:
 
 - The panel statistics themselves operate on **per-function mean errors** (one
   value per function), never on raw per-run values.
-- `per_run.csv` gives full per-run (seed-level) resolution for **`dt-gsk`** on
-  every panel suite and dimension; some comparators carry only **partial**
-  per-run coverage (their per-dimension summary CSVs are the complete source).
-  Seed-matched per-run analyses are therefore guaranteed only for the proposed
-  method — comparator claims should stay at per-function summary resolution.
+- `per_run.csv` gives full per-run (seed-level) resolution for every optimizer
+  on every committed suite and dimension (unified seeds, so runs pair across
+  optimizers).
 
 ## Usage
 
@@ -221,7 +224,32 @@ gsk-stats --suite CEC2011
 
 # CEC2013 (second comparison suite: 28 functions, D = 10/30/50)
 gsk-stats --suite CEC2013 --dims 10,30,50
+
+# CEC2020 (D = 5/10/15/20; F6/F7 are undefined at D = 5, so N = 8/10/10/10)
+gsk-stats --suite CEC2020
+
+# CEC2013LSGO (D = 1000: F1-F12 and F15, N = 13; F13/F14 run at D = 905 and
+# are too few on their own for a Friedman panel)
+gsk-stats --suite CEC2013LSGO
 ```
+
+On CEC2020, `gsk-stats` reproduces the paper's Friedman mean ranks and panel
+sizes exactly, but it is not the paper's analysis pipeline (that is
+`papers/scripts/phase6b_run_analysis_newsuites.py`). Its Friedman p-value is the
+chi-squared p, not the Iman-Davenport p the frozen bundles report. Its Wilcoxon
+tests keep zero differences with scipy's `zero_method='zsplit'`, while the
+bundles discard |d| < 1e-8 and enumerate the exact sign-flip distribution, so
+one CEC2020 Holm decision differs: D = 20, `dt-gsk` vs eGSK is `=` here and a
+win in the paper. The same tie-rule difference flips three CEC2013 decisions: at
+D = 50, `dt-gsk` vs AGSK, APGSK and FDB-AGSK is `+` here (Holm p = 0.041) and a
+tie in the paper (Holm p = 0.062). CEC2017 and CEC2011 decisions agree. On
+CEC2013LSGO the paper pools all 15 functions into one
+panel, which `gsk-stats` does not do; the published numbers are in the frozen
+bundle `papers/analysis/lsgo-rel-2026-07-28-ff1a046ef/`.
+
+To compare your own runs, build a panel folder in which they replace the
+committed files (`python scripts/build_stats_panel.py --suite <suite> --results
+<your run.py --output-root> --out my_panel`) and pass `--reference-root my_panel`.
 
 ### During a run (`--stats`)
 
@@ -238,7 +266,10 @@ gsk-run --optimizer dt-gsk --suite cec2017 --dimension 10 --dimension 30 --stats
 ```
 
 `gsk-stats` remains the way to produce the figures, CSV, and LaTeX artifacts
-after a run; `--stats` is purely the live console/per-run report.
+after a run; `--stats` is purely the live console/per-run report. One known gap,
+to be fixed separately: the runner's `--stats` panel still drops F2 on CEC2013,
+CEC2020 and CEC2013LSGO, while `gsk-stats` keeps it, so take the comparison for
+those suites from `gsk-stats`.
 
 **Self-validation against a committed reference table.** The `--stats` path has a
 generic self-validation hook: when it runs an optimizer that has *committed
@@ -250,7 +281,7 @@ GSK-family algorithms**. This hook is general and only fires when such a
 self-reference table is present.
 
 Because the committed reference tree now carries the full DT-GSK panel for
-CEC2017, CEC2011, and CEC2013 (it is the paper's single source of truth — see
+all five suites (it is the paper's single source of truth; see
 [Data sources](#data-sources)), this hook **does** fire when you re-run
 `dt-gsk` with `--stats`: the freshly reproduced run is compared against the
 committed reference DT-GSK as an `DT-GSK-REF` row. Read that row as a
@@ -305,7 +336,7 @@ multiple comparators in one dimension.
 
 | Symptom | Likely cause | Fix |
 |---|---|---|
-| `gsk-stats` exits nonzero, "no … summaries found" | The reference tree lacks the proposed optimizer for that suite **and** no local fallback run exists. | The committed panel already covers `dt-gsk` on CEC2017/CEC2011/CEC2013; for another `--proposed <id>` or suite, run `gsk-run` first. |
+| `gsk-stats` exits nonzero, "no … summaries found" | The reference tree lacks the proposed optimizer for that suite **and** no local fallback run exists. | The committed panel covers `dt-gsk` on all five suites; check `--dims` against the suite (CEC2020 is 5,10,15,20; CEC2013LSGO 1000); for another `--proposed <id>` or suite, run `gsk-run` first. |
 | `gsk-stats` exits nonzero, "reference tree missing" | `--reference-root` points nowhere. | Point it at `benchmarks/cec_reference_results`. |
 | A comparator column is blank | No committed reference table for that algorithm/dimension. | Expected for partial coverage; it is omitted, not fabricated. |
 | Figures not produced | `--no-figures` was passed. | Re-run without `--no-figures`. |

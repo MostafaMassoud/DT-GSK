@@ -175,7 +175,7 @@
 <blockquote><strong>State snapshot refreshed 2026-08-29.</strong> Any dated status, tag, pass number, or open-item</blockquote>
 <blockquote>list below this line is a point-in-time anchor from an earlier phase and is NOT current</blockquote>
 <blockquote>state. The live state is <a href="../../REVISION_STATUS.md"><code>REVISION_STATUS.md</code></a> (start there) and</blockquote>
-<blockquote>the <code>CLAUDE.md</code> &quot;Right now&quot; block. As of this refresh: <strong>pass-71 / tag v2.44</strong></blockquote>
+<blockquote>the <code>CLAUDE.md</code> &quot;Right now&quot; block. As of this refresh: <strong>pass-73 / tag v2.46</strong></blockquote>
 <blockquote>(decision log through <strong>D-0068</strong>, register through <strong>CR-0043</strong>,</blockquote>
 <blockquote>next free <strong>CR-0044 / D-0069</strong> — verify free at apply time); the round-one revision at *Algorithms* (MDPI) is</blockquote>
 <blockquote>complete and agent-side work is finished; resubmission is due <strong>2026-09-01</strong></blockquote>
@@ -517,7 +517,7 @@ Runtime contract to verify (each item is a check, not an assumption):
   docstring, then rebuild HTML; never hand-edit docs/html/.
 - Root Markdown policy: the root holds three operating Markdown files --
   README.md (detailed landing page), SKILL.md (project agent file), and
-  runbook.md (concise copy-paste build-and-run command reference) -- plus the six
+  runbook.md (run-and-test guide plus copy-paste command reference) -- plus the six
   governance docs (PROJECT_RULES.md, DESIGN_GUIDE.md, ARCHITECTURE.md,
   BENCHMARK_RULES.md, CODING_STANDARD.md, PERFORMANCE_RULES.md), the release
   record FINAL_RELEASE_REPORT.md, and the top-level REPO_MAP.md navigation index.
@@ -797,8 +797,9 @@ Tasks:
    PERFORMANCE_RULES.md), FINAL_RELEASE_REPORT.md, and REPO_MAP.md. Confirm:
    - README.md is the detailed landing page;
    - SKILL.md is the project agent file;
-   - runbook.md is the concise copy-paste command reference and its commands
-     match the runner contract;
+   - runbook.md is the run-and-test guide (Part 1) plus the copy-paste command
+     reference (Part 2), its commands match the runner contract, and
+     `python scripts/build_runbook_html.py --check` exits 0;
    - REPO_MAP.md is the top-level navigation index;
    - all review/documentation prompts live under docs/prompt/ (not the root);
    - flag any root-level Markdown outside that intentional set as a

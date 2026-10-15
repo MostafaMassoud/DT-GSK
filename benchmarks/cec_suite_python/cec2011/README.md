@@ -13,7 +13,7 @@ Paper settings:
 - n=25 independent runs.
 - fixed 150000 function evaluations per run.
 - no function exclusions.
-- comparison panel: discovered at runtime from committed reference results (currently GSK).
+- comparison panel: discovered at runtime from committed reference results (currently the seven GSK-family optimizers).
 
 ## Problems
 

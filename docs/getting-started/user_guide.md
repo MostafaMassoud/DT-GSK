@@ -10,8 +10,8 @@
 > tables, and locate every file the runner writes.
 > **Prerequisites:** Python 3.10–3.13 and the repository checked out. New to the
 > concepts? Read the [Explainer](explainer.md) first. Want a guided first run?
-> Use the [Tutorial](tutorial.md). For a bare command list, see the
-> [Runbook](runbook.md).
+> Use the [Tutorial](tutorial.md). For the step-by-step install, test and run
+> guide, see the [Runbook](runbook.md).
 
 This guide covers normal Python use. The upstream reference runtime, CMake, and
 any compiled bridge are **not** part of the normal Python workflow and are not
@@ -71,12 +71,14 @@ smoke problems:
 references:
   cec2011: 441 csv files
   cec2013: 1211 csv files
+  cec2013lsgo: 134 csv files
   cec2017: 1666 csv files
+  cec2020: 308 csv files
 ```
 
 The `references:` block lists only the suites that carry committed reference
-evidence — currently `cec2011`, `cec2013`, and `cec2017`, the three suites the
-statistical panel actually reads. Underscore-prefixed companion releases under
+evidence: currently all five CEC suites, which the statistical panel reads.
+Underscore-prefixed companion releases under
 the reference root (`_ablation`, `_paper_tables`) are intentionally skipped, and
 the per-suite counts grow as more evidence is promoted, so treat them as a
 present/absent signal rather than exact figures.
@@ -171,7 +173,9 @@ gsk-run --optimizer gsk --suite cec2017 --dimension 10 --function 1 --runs 1 --s
 ```
 
 `--max-evaluations 1000` is a deliberately small budget so the run finishes
-quickly; `--overwrite` replaces any existing rows for the same cell. Output
+quickly. `--overwrite` rebuilds GSK's whole CEC2017 `per_run.csv` from this one
+run, discarding every other cell recorded there; if that tree holds runs you
+want to keep, add a fresh `--output-root`. Output
 lands under the default `results/_run_all` tree described in
 [Output locations](#output-locations). Each flag
 maps to a config field — see [Configuration](configuration.md) for the full
@@ -193,7 +197,7 @@ This shipped smoke config deliberately omits `egsk` and the proposed `dt-gsk`
 to stay fast; to exercise the full seven-optimizer family, name them explicitly
 on the CLI, for example
 `gsk-run --optimizer gsk,agsk,apgsk,fdb-agsk,atmals-gsk,egsk,dt-gsk --suite cec2017 ...`
-(see the [Runbook](runbook.md#cec2017-all-optimizers) for the full-sweep form).
+(see the [Runbook](runbook.md#step-5-run-the-algorithms-on-a-benchmark-suite) for the full-sweep form).
 
 Console progress logging is on by default. A long CEC campaign prints the
 campaign banner, each optimizer's dispatch and detailed configuration, the
@@ -252,17 +256,22 @@ reference tree does not carry.
 gsk-stats --suite CEC2017 --dims 10,30,50,100
 gsk-stats --suite CEC2011
 gsk-stats --suite CEC2013 --dims 10,30,50
+gsk-stats --suite CEC2020
+gsk-stats --suite CEC2013LSGO
 ```
 
 CEC2013 (28 functions, dims 10/30/50, 51 runs) is the second comparison suite
-alongside CEC2017; CEC2011 (22 real-world problems, native dims, 25 runs)
-completes the trio. The 7-algorithm panel compares the six reference comparators
+alongside CEC2017; CEC2011 (22 real-world problems, native dims, 25 runs) is the
+real-world suite, and CEC2020 (D = 5/10/15/20) and CEC2013LSGO (D = 1000)
+complete the five. The 7-algorithm panel compares the six reference comparators
 (`gsk`, `agsk`, `apgsk`, `fdb-agsk`, `egsk`, `atmals-gsk`) against the proposed
 `dt-gsk` (override with `--proposed`). Every algorithm — the proposed `dt-gsk`
 included — is read **reference-first** from
-`benchmarks/cec_reference_results/<suite>/<optimizer>/`; a locally reproduced
-run under `results/_run_all/` is only a fallback for cells the reference tree
-lacks. Outputs land under
+`benchmarks/cec_reference_results/<suite>/<optimizer>/`; only the proposed
+optimizer falls back to a locally reproduced run under
+`results/_run_all/<proposed>/<suite>/summary/`, and only for a dimension the
+reference tree lacks; comparators are read from the reference tree alone.
+Outputs land under
 `results/_run_all/_analysis/<suite>/`. Add `--no-figures` to skip the PNGs, or
 `--alpha 0.01` to tighten the significance level. See
 [Statistical Analysis](../research/statistical_analysis.md) for the full method.

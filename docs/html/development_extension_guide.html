@@ -375,7 +375,7 @@ def optimize(
 <li>Keep CLI modules thin; business logic belongs in <code>runners</code>, <code>analysis</code>, or</li>
 <p><code>benchmark_adapter</code>. (<code>gsk-stats</code>, for example, is a thin wrapper over the <code>analysis/</code> statistical suite.)</p>
 <li>Add smoke tests (model on <code>tests/smoke/test_stats_cli_smoke.py</code>) and update</li>
-<p>the <a href="getting-started_runbook.html">runbook</a>. If you quote the new command in any doc, the documentation-command gate (<code>tests/smoke/test_documentation_commands.py</code>) will execute it — keep the quoted invocation runnable.</p>
+<p>the root <a href="../../runbook.md">runbook</a> (then regenerate its twins with <code>python scripts/build_runbook_html.py</code>). If you quote the new command in any doc, the documentation-command gate (<code>tests/smoke/test_documentation_commands.py</code>) will execute it — keep the quoted invocation runnable.</p>
 </ol>
       </article>
     </main>

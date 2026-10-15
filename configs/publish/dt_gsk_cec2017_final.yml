@@ -7,8 +7,11 @@
 # Canonical regime: unified Threefry seed schedule, error vs known optimum,
 # F2 excluded, 51 runs, 10000*D NFEs. Do not switch RNG/seeds for the main paper.
 #
-# Generate the family statistical report after the run:
-#   python -m gsk_family.cli.stats --suite CEC2017 --dims 10,30,50,100 --results-root results/_publish
+# Generate the family statistical report after the run. gsk-stats reads the
+# committed panel first, so --results-root results/_publish alone would report
+# the bank, not this run. Build a panel with this run on top, then analyse it:
+#   python scripts/build_stats_panel.py --suite cec2017 --results results/_publish --out results/_publish_panel
+#   python -m gsk_family.cli.stats --suite CEC2017 --dims 10,30,50,100 --reference-root results/_publish_panel
 optimizers:
   - dt-gsk
 suite: cec2017

@@ -308,7 +308,8 @@ that pattern.
    `benchmark_adapter`. (`gsk-stats`, for example, is a thin wrapper over the
    `analysis/` statistical suite.)
 4. Add smoke tests (model on `tests/smoke/test_stats_cli_smoke.py`) and update
-   the [runbook](../getting-started/runbook.md). If you quote the new command in
+   the root [runbook](../../runbook.md) (then regenerate its twins with
+   `python scripts/build_runbook_html.py`). If you quote the new command in
    any doc, the documentation-command gate
    (`tests/smoke/test_documentation_commands.py`) will execute it — keep the
    quoted invocation runnable.

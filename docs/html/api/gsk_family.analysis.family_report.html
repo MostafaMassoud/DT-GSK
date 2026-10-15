@@ -184,7 +184,7 @@ first; a locally reproduced run under
 ``results/_run_all/&lt;proposed&gt;/&lt;suite&gt;/summary/`` is used only as a fallback
 for cells the reference tree does not carry.</p>
 <h2 id="members">Members</h2>
-<section class="api-member" id="class-dimresult-45">
+<section class="api-member" id="class-dimresult-49">
 <div class="member-kind">class</div>
 <h2>DimResult</h2>
 <pre><code>DimResult</code></pre>
@@ -195,21 +195,36 @@ dim : int
     Problem dimension.
 stat_result : StatAnalysisResult
     Full vendored result (text report + Friedman panel + Wilcoxon dict).
+    Below three common functions its Friedman panel is ``None`` and its
+    text carries an omission line instead of the placeholder ranking.
 mean_ranks : dict[str, float] | None
     ``{algorithm: mean_rank}`` from the Friedman panel, or ``None`` when the
-    panel could not be built (fewer than three algorithms with data).
+    panel could not be built (fewer than three algorithms with data, or
+    fewer than three common functions).
 n_funcs : int
     Number of benchmark functions used for the Friedman ranking.
 wilcoxon_rows : list[WilcoxonRow]
     Holm-corrected per-comparator rows for the LaTeX summary table.</p>
 </section>
-<section class="api-member" id="function-holm-rows-70">
+<section class="api-member" id="function-holm-rows-77">
 <div class="member-kind">function</div>
 <h2>_holm_rows</h2>
 <pre><code>_holm_rows(stat_result: StatAnalysisResult, alpha: float = 0.05) -&gt; list[WilcoxonRow]</code></pre>
 <p>Build Holm-corrected :class:`WilcoxonRow` entries from a stat result.</p>
 </section>
-<section class="api-member" id="function-analyze-family-114">
+<section class="api-member" id="function-omit-placeholder-ranking-121">
+<div class="member-kind">function</div>
+<h2>_omit_placeholder_ranking</h2>
+<pre><code>_omit_placeholder_ranking(text: str, suite: str, dim: int, n_common: int) -&gt; str</code></pre>
+<p>Replace the vendored Friedman and nearest-peer blocks with one omission line.</p>
+<p>Below three common functions ``friedman_rank_test`` returns positional
+placeholder ranks (1..k in panel order), and ``run_statistical_analysis``
+has already formatted them as the last two blocks of the per-dimension
+text: the &quot;GSK-family Friedman ranking&quot; table and the rank-based
+&quot;position vs nearest peer&quot; table. Both are cut here. The per-comparator
+Wilcoxon blocks before them do not use the ranking and are kept.</p>
+</section>
+<section class="api-member" id="function-analyze-family-146">
 <div class="member-kind">function</div>
 <h2>analyze_family</h2>
 <pre><code>analyze_family(suite: str, dims: Sequence[int], *, results_root: Path | None = None, reference_root: Path | None = None, proposed: str = DEFAULT_PROPOSED, excluded_funcs: Sequence[int] | None = None, alpha: float = 0.05) -&gt; list[DimResult]</code></pre>
@@ -231,7 +246,8 @@ proposed : str
 excluded_funcs : sequence of int, optional
     Function IDs to drop. When ``None`` (default) the exclusion is resolved
     per suite from ``result_loader.SUITE_EXCLUDED_FUNCS`` (CEC2017 drops F2;
-    CEC2011/CEC2013 drop nothing).
+    CEC2011, CEC2013, CEC2020 and CEC2013LSGO drop nothing; an
+    unregistered suite drops nothing).
 alpha : float
     Significance level for the Holm correction.</p>
 <p>Returns
@@ -240,13 +256,13 @@ list[DimResult]
     One entry per dimension that had a reproduced proposed-algorithm summary
     with at least one function; dimensions without data are skipped.</p>
 </section>
-<section class="api-member" id="function-write-friedman-csv-193">
+<section class="api-member" id="function-write-friedman-csv-237">
 <div class="member-kind">function</div>
 <h2>_write_friedman_csv</h2>
 <pre><code>_write_friedman_csv(path: Path, dim_results: list[DimResult]) -&gt; None</code></pre>
 <p>Write the Algorithm x dimension mean-rank CSV (with an Overall column).</p>
 </section>
-<section class="api-member" id="function-write-report-224">
+<section class="api-member" id="function-write-report-268">
 <div class="member-kind">function</div>
 <h2>write_report</h2>
 <pre><code>write_report(dim_results: list[DimResult], out_dir: Path, suite: str, *, proposed: str = DEFAULT_PROPOSED, make_figures: bool = True) -&gt; list[Path]</code></pre>
@@ -268,7 +284,7 @@ make_figures : bool
 list[Path]
     All written artifact paths, in creation order.</p>
 </section>
-<section class="api-member" id="function-generate-family-report-309">
+<section class="api-member" id="function-generate-family-report-353">
 <div class="member-kind">function</div>
 <h2>generate_family_report</h2>
 <pre><code>generate_family_report(suite: str, dims: Sequence[int], out_dir: Path, *, results_root: Path | None = None, reference_root: Path | None = None, proposed: str = DEFAULT_PROPOSED, excluded_funcs: Sequence[int] | None = None, make_figures: bool = True, alpha: float = 0.05) -&gt; tuple[list[DimResult], list[Path]]</code></pre>
@@ -284,12 +300,13 @@ tuple[list[DimResult], list[Path]]
 <h2>On This Page</h2>
 <a class="toc-level-1" href="#gsk-family-analysis-family-report">gsk_family.analysis.family_report</a>
 <a class="toc-level-2" href="#members">Members</a>
-<a class="toc-level-2" href="#class-dimresult-45">DimResult</a>
-<a class="toc-level-2" href="#function-holm-rows-70">_holm_rows</a>
-<a class="toc-level-2" href="#function-analyze-family-114">analyze_family</a>
-<a class="toc-level-2" href="#function-write-friedman-csv-193">_write_friedman_csv</a>
-<a class="toc-level-2" href="#function-write-report-224">write_report</a>
-<a class="toc-level-2" href="#function-generate-family-report-309">generate_family_report</a>
+<a class="toc-level-2" href="#class-dimresult-49">DimResult</a>
+<a class="toc-level-2" href="#function-holm-rows-77">_holm_rows</a>
+<a class="toc-level-2" href="#function-omit-placeholder-ranking-121">_omit_placeholder_ranking</a>
+<a class="toc-level-2" href="#function-analyze-family-146">analyze_family</a>
+<a class="toc-level-2" href="#function-write-friedman-csv-237">_write_friedman_csv</a>
+<a class="toc-level-2" href="#function-write-report-268">write_report</a>
+<a class="toc-level-2" href="#function-generate-family-report-353">generate_family_report</a>
 </aside>
   </div>
   <script src="../assets/search.js"></script>

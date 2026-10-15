@@ -6,6 +6,11 @@
 # Usage:
 #   python run.py --config configs/family_cec2013lsgo.yml --workers 14
 #
+# dt-gsk: this config does NOT reproduce the published dt-gsk bank (no
+# linkage_block_size_by_dim, so D=905 and D=1000 fall back to block_size 10).
+# Run dt-gsk with configs/dtgsk_cec2013lsgo.yml. --optimizer is ignored when
+# --config is given.
+#
 # Resume is automatic and safe: re-running the same line skips every completed
 # (function, run, seed) cell. Do NOT add `overwrite: true` unless you intend to
 # discard existing runs -- it is scoped per optimizer, so it would clear exactly

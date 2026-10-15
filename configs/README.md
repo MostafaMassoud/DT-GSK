@@ -16,7 +16,7 @@ This directory contains YAML experiment configurations for `gsk-run`.
 | `agsk_cec2020.yml` | AGSK-focused CEC2020 campaign template. |
 | `family_cec2011.yml` | Seven-optimizer family panel on CEC2011. |
 | `family_cec2013.yml` | Seven-optimizer family panel on CEC2013. |
-| `family_cec2013lsgo.yml` | Seven-optimizer family panel on CEC2013LSGO (native dimensions). |
+| `family_cec2013lsgo.yml` | Seven-optimizer family panel on CEC2013LSGO (native dimensions). Its dt-gsk leg does not match the published bank; run DT-GSK with `dtgsk_cec2013lsgo.yml`. |
 | `family_cec2017.yml` | Seven-optimizer family panel on CEC2017, the primary suite. |
 | `family_cec2020.yml` | Seven-optimizer family panel on CEC2020. |
 | `baselines_cec2011.yml` | External SOTA baselines on CEC2011. |

@@ -145,11 +145,7 @@ Slower-moving upkeep that keeps the evidence base broad and current.
   `python papers/scripts/generate_review_pack.py` after schema or curve-naming
   changes, and check `papers/DT-GSK-CEC2017-review_missing.log` for gaps; the
   pack needs no LaTeX (MiKTeX is only for the full `papers/main.tex` paper).
-- Expand imported reference-comparison tables for `cec2013lsgo` and `cec2020`
-  (registered in `SUPPORTED_SUITES` but carrying no committed reference tables
-  yet — `cec2013` now carries the full 7-optimizer panel alongside `cec2011` and
-  `cec2017`, so the committed evidence covers three suites). Recall the CEC2017
-  scored set excludes `F2` (it covers `F1`, `F3`-`F30`) across D=10/30/50/100.
+- Recall the CEC2017 scored set excludes `F2` (it covers `F1`, `F3`-`F30`) across D=10/30/50/100.
 - When triaging DT-GSK behaviour with the diagnostics analyzer
   (`scripts/analyze_dt_diagnostics.py`), read **`ls_hit_rate`** — the fraction of
   local-search triggers that produced any improvement — as the honest measure of

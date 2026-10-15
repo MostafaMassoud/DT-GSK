@@ -252,6 +252,7 @@ python scripts\run_overlay_ablation_51.py --suite cec2013
 # Scaffold remove-one ablation -- the D&gt;=50 cells
 python scripts\run_ablation.py --dimension 50,100 --runs 25 --workers 15</code></pre>
 <h3 id="4-3-statistics-tables-figures">4.3 Statistics, tables, figures</h3>
+<blockquote><code>gsk-stats</code> reads the committed panel first, so run these only after the section 5.1 flat-layout refresh, or analyse the staging runs now with <code>python scripts/build_stats_panel.py --suite &lt;suite&gt; --results results/_run_all --out results/_own_panel</code> and <code>gsk-stats --suite &lt;SUITE&gt; --reference-root results/_own_panel --out results/_own_panel/_analysis</code>.</blockquote>
 <pre><code class="code-block language-powershell">python -m gsk_family.cli.stats --suite CEC2017 --dims 10,30,50,100
 python -m gsk_family.cli.stats --suite CEC2013 --dims 10,30,50
 python -m gsk_family.cli.stats --suite CEC2011

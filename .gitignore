@@ -144,3 +144,20 @@ papers/submission/DT-GSK-graphical-abstract.png
 papers/submission/DT-GSK-supplement-latex-source.zip
 papers/submission/algorithms-4507562-supplementary-latex.zip
 papers/submission/algorithms-4507562-supplementary.docx
+
+# The runbook, README and getting-started docs send a reader's own runs,
+# panels and comparisons to these folders, keeping the tracked
+# results/_run_all/ clean. Not evidence; never committed.
+/test_results/
+/my_results/
+/my_panel/
+/comparison/
+/comparison_mine/
+/results/_own_panel/
+/results/_publish_panel/
+/results/_smoke/
+/results/_rerun/
+/results/_reference_seed/
+/results/_targeted/
+/results/_targeted_reference_seed/
+/results/_tutorial/

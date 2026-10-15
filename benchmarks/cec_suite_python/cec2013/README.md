@@ -5,7 +5,7 @@ real-parameter benchmark suite.
 
 ## Role
 
-CEC2013 is an external hold-out suite (library-only in the current campaigns).
+CEC2013 is the second comparison suite of the published campaign, run with the full seven-optimizer panel.
 
 Paper settings:
 

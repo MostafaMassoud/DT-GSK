@@ -61,7 +61,7 @@ the order they build on one another:
 
 - [User Guide](getting-started/user_guide.md): install, list capabilities, run experiments, validate output, inspect results.
 - [Tutorial](getting-started/tutorial.md): step-by-step first run, reduced CEC run, and result comparison.
-- [Runbook](getting-started/runbook.md): operational commands for routine experiment work.
+- [Runbook](getting-started/runbook.md): step-by-step install, test, run and compare guide (Part 1 of the root runbook).
 - [Configuration](getting-started/configuration.md): YAML fields, CLI overrides, and safe output paths.
 - [Troubleshooting](getting-started/troubleshooting.md): common install, benchmark, and result issues.
 - [Explainer](getting-started/explainer.md): conceptual overview for newcomers.

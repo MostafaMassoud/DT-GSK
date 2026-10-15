@@ -554,9 +554,10 @@ in place of `fmincon`.
 Panel data for every algorithm — DT-GSK included — is loaded
 **reference-first** from the committed panel
 `benchmarks/cec_reference_results/<suite>/<optimizer>/` (the full 7-optimizer
-panel is committed for CEC2017, CEC2011, and CEC2013); a locally reproduced run
-under `results/_run_all/` is only a fallback for cells the reference tree does
-not carry. Across the panel DT-GSK appears as the row the analysis is built to
+panel is committed for all five suites); only the proposed optimizer falls back
+to a locally reproduced run under `results/_run_all/<proposed>/<suite>/summary/`,
+and only for a dimension the reference tree lacks; comparators are read from the
+reference tree alone. Across the panel DT-GSK appears as the row the analysis is built to
 defend: Friedman ranks + Nemenyi critical-difference diagrams, Holm-corrected
 pairwise Wilcoxon, Vargha-Delaney A12 / Cliff's delta effect sizes, win/tie/loss
 tallies, BCa bootstrap intervals, LaTeX tables, and 7-curve convergence grids, all

@@ -5,10 +5,21 @@ single-objective benchmark suite.
 
 ## Role
 
-CEC2020 is a context suite.  It is importable, tested, and runnable through the
-runner (`scripts/run_all_cec2020.py`, `configs/agsk_cec2020.yml`); the imported
-reference panel carries AGSK only, so the suite stays outside the main
-7-optimizer paper comparison.
+CEC2020 is the pre-registered confirmatory suite of the published comparison.
+All seven GSK-family optimizers (`gsk`, `agsk`, `apgsk`, `fdb-agsk`,
+`atmals-gsk`, `egsk`, `dt-gsk`) run on it, and the committed reference panel
+under `benchmarks/cec_reference_results/cec2020/` carries all seven (release
+`cec2020-rel-2026-07-29-5867abe1e`). Launch the campaign with
+`scripts/run_all_cec2020.py`, which runs `configs/family_cec2020.yml`;
+`configs/agsk_cec2020.yml` is that panel's AGSK-only subset.
+
+Paper settings:
+
+- D=5, 10, 15, 20 (F6 and F7 are undefined at D=5, so 38 scored cells).
+- n=30 independent runs.
+- budget = 50,000 / 1,000,000 / 3,000,000 / 10,000,000 evaluations at
+  D=5 / 10 / 15 / 20.
+- no function exclusions.
 
 ## Function Groups
 

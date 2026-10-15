@@ -1,557 +1,316 @@
 # Runbook
 
-> **What this page is.** A quick, copy-paste command reference for routine
-> operation - the commands with only the context needed to choose the right one.
-> **Who it is for.** Anyone who already knows the workflow and just wants the
-> command to run.
-> **Prerequisites.** The package installed (see [User Guide](user_guide.md)).
-> **Want explanations?** Each command is explained step by step in the
-> [User Guide](user_guide.md); for a guided first run, see the
-> [Tutorial](tutorial.md).
+> Generated from the root [runbook.md](../../runbook.md) by `scripts/build_runbook_html.py`; edit that file, not this one. This page is Part 1, the run-and-test guide. Part 2, the maintainer and paper-pipeline reference, is in the [root runbook](../../runbook.md#part-2-maintainer-and-paper-pipeline-reference), and a standalone formatted copy is [runbook.html](../../runbook.html).
 
-Run every command from the project root (the directory that contains
-`run.py`, `pyproject.toml`, and the `configs/` folder):
+How to install, test and run DT-GSK (the proposed Dimension-Tiered
+Gaining-Sharing Knowledge algorithm) and the six GSK-family algorithms it is
+compared with, on five CEC benchmark suites.
 
-```powershell
-cd <path-to-your-DT-GSK-checkout>
-```
-
-The canonical runner is `python run.py`, which prepends `src/` to the import
-path so it works without installing the package. Once you have run
-`python -m pip install -e ".[dev]"`, the console scripts `gsk-run`
-(alias `gsk-family-run`), `gsk-list`, `gsk-validate`, and `gsk-stats` are
-equivalent and shorter; this runbook mixes both forms. Commands use PowerShell
-(the project's primary shell on Windows) but work the same in other shells.
-
-## Command Picker
-
-| I want to... | Jump to |
+| If you want to | Read |
 |---|---|
-| Confirm the install works | [Verify The Environment](#verify-the-environment) |
-| See which optimizers/suites/references exist | [List Runtime Assets](#list-runtime-assets) |
-| Run the tiniest possible job | [Smoke Run](#smoke-run) |
-| Reproduce one published cell | [Targeted Runs](#targeted-runs) |
-| Run one optimizer on one CEC cell | [Single Optimizer Run](#single-optimizer-run) |
-| Reproduce every paper artifact, in order | [Full Paper Pipeline](#full-paper-pipeline) |
-| Run the full 7-optimizer CEC2017 sweep | [CEC2017 All Optimizers](#cec2017-all-optimizers) |
-| Run another CEC suite end to end | [Other Full Sweeps](#other-full-sweeps) |
-| Run the second comparison suite | [CEC2013 Family Panel](#cec2013-family-panel) |
-| Run the large-scale (LSGO) suite, all 7 optimizers | [CEC2013-LSGO Family Panel](#cec2013-lsgo-family-panel) |
-| Check a run against reference tables | [Validate Results](#validate-results) |
-| Produce paper-grade Friedman/Wilcoxon stats | [Statistical Analysis](#statistical-analysis) |
-| Isolate what each DT-GSK mechanism contributes | [DT-GSK Ablation](#dt-gsk-ablation) |
-| Build the advisor review PDF | [Paper Review Pack](#paper-review-pack) |
-| Recover from a crash mid-sweep | [Tight On Memory](#tight-on-memory) and the [Troubleshooting](troubleshooting.md#a-worker-process-dies-or-the-pool-breaks-mid-run) page |
+| Install, test and run the algorithms, and compare their results | [Part 1](#part-1-run-and-test-dt-gsk) (about 30 minutes to a first result, most of it installing and testing) |
+| Rebuild the paper, run the revision experiments, or run the release gates | [Part 2](../../runbook.md#part-2-maintainer-and-paper-pipeline-reference) |
 
-## Verify The Environment
+## Part 1. Run and test DT-GSK
+
+Type every command in a terminal, inside the project folder (the folder that
+contains `run.py`). The commands are the same on Windows, Linux and macOS
+unless a step says otherwise.
+
+### Step 1. Get the code
+
+You need Git (on Windows, install "Git for Windows" from
+[git-scm.com](https://git-scm.com/downloads)).
+
+```shell
+git clone https://github.com/MostafaMassoud/DT-GSK.git
+cd DT-GSK
+```
+
+On Windows, clone into a short folder (for example, type `cd C:\` before the
+two commands above), because some file paths in the repository are long. The
+download is about 340 MB, and the folder then needs about 1.7 GB of disk space,
+mostly for the paper's published results, which Step 6 uses; the Python
+environment of Step 2 adds about 0.6 GB.
+
+### Step 2. Install Python and the requirements
+
+Use **Python 3.10 (64-bit)**. All of the paper's results were produced with
+Python 3.10.11; on Windows, use the 64-bit Windows installer of Python 3.10.11
+from [python.org](https://www.python.org/downloads/release/python-31011/).
+Python 3.11 to 3.13 are accepted but were not tested, and Python 3.14 is not
+supported. MATLAB and a C compiler are not needed.
+
+Create a virtual environment inside the project folder and activate it.
+
+**Windows** (Command Prompt or PowerShell):
 
 ```powershell
+py -3.10 -m venv .venv
+.venv\Scripts\activate
+```
+
+If PowerShell says that running scripts is disabled, run this line and then
+the activate line again (it affects only that window):
+
+```powershell
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+```
+
+**Linux or macOS:**
+
+```bash
+python3.10 -m venv .venv
+source .venv/bin/activate
+```
+
+The prompt now starts with `(.venv)`. Then, on every system:
+
+```shell
+python --version
+python -m pip install --upgrade pip
 python -m pip install -e ".[dev]"
+```
+
+`python --version` should print `Python 3.10.x`. The install downloads a few
+hundred MB and can take several minutes; wait for the line that starts with
+`Successfully installed`. It installs NumPy, SciPy, pandas, matplotlib, PyYAML
+and Numba, the commands `gsk-run`, `gsk-list`, `gsk-stats` and `gsk-validate`,
+and the test tools.
+
+> **Every new terminal window:** go to the project folder and activate the environment again (`.venv\Scripts\activate` on Windows, `source .venv/bin/activate` on Linux or macOS) before running anything below.
+
+### Step 3. Test the code
+
+A quick check (about five to ten minutes the first time, while Numba compiles;
+faster later):
+
+```shell
+python -m pytest -q tests/smoke
+```
+
+The full test suite (allow ten minutes or more the first time, while Numba
+compiles its kernels; later runs are faster):
+
+```shell
 python -m pytest -q
 ```
 
-A healthy run ends with a `passed` summary line. If the console scripts are
-later reported as "not found", reopen the shell or fall back to `python run.py`
-(see [Troubleshooting](troubleshooting.md#gsk-run-is-not-found)).
+Both should end with a line that says `passed` and no `failed`. Both also
+report a few `warnings` (a `UserWarning` about `linkage_block_size_by_dim`),
+and the full suite reports `2 skipped`; all of these are expected.
 
-## List Runtime Assets
+### Step 4. Run your first experiment
+
+DT-GSK on one CEC2017 function, with a deliberately tiny budget:
+
+```shell
+python run.py --root . --optimizer dt-gsk --suite cec2017 --function 1 --dimension 10 --runs 1 --max-evaluations 2000 --output-root test_results
+```
+
+- The first run can pause for a minute or two while Numba compiles, both before and after it prints its settings. Later runs start in seconds.
+- Near the end it prints `PASS  DT-GSK`. A little above that, a "Mean Comparison" table compares the test with the paper's result: its Status column shows `v`, and the Summary line under it ends with `v Worse: 1`. That is expected, because the test uses 2,000 evaluations instead of the full budget of 100,000.
+- Keep test runs in their own folder (here `test_results`), never in your real results folder. A run skips every run it already finds in its folder, whatever budget produced it, so a short test left there would be kept as if it were a real result.
+
+### Step 5. Run the algorithms on a benchmark suite
+
+`run.py` is the only script you need. Its settings are command-line options:
+
+| Option | Meaning |
+|---|---|
+| `--optimizer` | `gsk`, `agsk`, `apgsk`, `fdb-agsk`, `atmals-gsk`, `egsk` or `dt-gsk`; several are separated by commas |
+| `--suite` | `cec2011`, `cec2013`, `cec2013lsgo`, `cec2017` or `cec2020` |
+| `--function` | the functions to run, for example `1:30` (a range) or `1,3,5` |
+| `--dimension` | the dimensions, for example `10,30,50,100`; `native` for CEC2011 and CEC2013LSGO, where each problem has its own fixed dimension |
+| `--runs` | independent runs per function and dimension; always give it, because the default is 1 |
+| `--parallel --workers 4` | runs 4 runs at the same time (without it, only 2); raise it to use more of your CPU cores, see [Use more CPU cores to run faster](#use-more-cpu-cores-to-run-faster) |
+| `--numba-threads 1` | one thread per job, as in the paper; keep it |
+| `--output-root my_results` | the folder where your results are written |
+
+The evaluation budget of each suite (for example 10000 x D for CEC2017) and the
+random seeds are set automatically to the paper's protocol, so do not add
+`--max-evaluations` to a real run.
+
+The paper's settings, all seven algorithms in one command per suite:
+
+**CEC2017**: functions 1 to 30 (F2 is left out automatically, as in the
+paper), D = 10, 30, 50, 100, 51 runs.
+
+```shell
+python run.py --root . --optimizer gsk,agsk,apgsk,fdb-agsk,atmals-gsk,egsk,dt-gsk --suite cec2017 --function 1:30 --dimension 10,30,50,100 --runs 51 --parallel --workers 4 --numba-threads 1 --output-root my_results
+```
+
+**CEC2011**: 22 real-world problems, each at its own fixed dimension, 25 runs.
+
+```shell
+python run.py --root . --optimizer gsk,agsk,apgsk,fdb-agsk,atmals-gsk,egsk,dt-gsk --suite cec2011 --function 1:22 --dimension native --runs 25 --parallel --workers 4 --numba-threads 1 --output-root my_results
+```
+
+**CEC2013**: 28 functions, D = 10, 30, 50, 51 runs.
+
+```shell
+python run.py --root . --optimizer gsk,agsk,apgsk,fdb-agsk,atmals-gsk,egsk,dt-gsk --suite cec2013 --function 1:28 --dimension 10,30,50 --runs 51 --parallel --workers 4 --numba-threads 1 --output-root my_results
+```
+
+**CEC2020**: 10 functions, D = 5, 10, 15, 20, 30 runs (F6 and F7 are not
+defined at D = 5 and are skipped there automatically, as in the paper).
+
+```shell
+python run.py --root . --optimizer gsk,agsk,apgsk,fdb-agsk,atmals-gsk,egsk,dt-gsk --suite cec2020 --function 1:10 --dimension 5,10,15,20 --runs 30 --parallel --workers 4 --numba-threads 1 --output-root my_results
+```
+
+**CEC2013LSGO**: 15 functions at D = 1000 (F13 and F14 at D = 905), 25 runs.
+Two commands: the first runs the six other algorithms, the second runs DT-GSK
+with its own settings file. Always run DT-GSK on this suite with the second
+command only; added to the first, it would run with the wrong settings.
+
+```shell
+python run.py --root . --optimizer gsk,agsk,apgsk,fdb-agsk,atmals-gsk,egsk --suite cec2013lsgo --function 1:15 --dimension native --runs 25 --parallel --workers 2 --numba-threads 1 --output-root my_results
+python run.py --root . --config configs/dtgsk_cec2013lsgo.yml --workers 2 --output-root my_results
+```
+
+Good to know:
+
+- **One algorithm only:** put a single name after `--optimizer`, for example `--optimizer dt-gsk`.
+- **A smaller part:** change the values already in the command, for example `--dimension 10,30,50,100` to `--dimension 10`. Do not add a second `--dimension`, `--function` or `--optimizer` at the end: repeated options are added together, not replaced. For CEC2017, F2 is left out automatically only with exactly `1:30`; for a smaller set leave it out yourself, for example `--function 1,3:10`.
+- **If a run stops** (a crash, a reboot, Ctrl-C), type the same command again: finished runs are kept and only the missing ones run. Do not add `--overwrite`, which deletes the algorithm's earlier results for that suite in the folder.
+
+**Closest match to the paper at D = 50 and above.** In the same terminal,
+before the `run.py` command, set six thread variables to 1:
+
+**Windows PowerShell:**
 
 ```powershell
-gsk-list --optimizers --benchmarks --references benchmarks/cec_reference_results
+$env:OMP_NUM_THREADS=1; $env:MKL_NUM_THREADS=1; $env:OPENBLAS_NUM_THREADS=1; $env:VECLIB_MAXIMUM_THREADS=1; $env:NUMEXPR_NUM_THREADS=1; $env:NUMBA_NUM_THREADS=1
 ```
 
-## Smoke Run
+**Linux or macOS:**
 
-The fastest sanity check: one optimizer, the `sphere` smoke problem, a tiny
-budget. It finishes in seconds and writes a complete (if trivial) output tree.
-
-```powershell
-python run.py --root . --optimizer gsk --suite sphere --function 1 --dimension 4 --runs 1 --max-evaluations 80 --overwrite
+```bash
+export OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 NUMEXPR_NUM_THREADS=1 NUMBA_NUM_THREADS=1
 ```
 
-Or run the equivalent committed config, which targets one CEC2017 cell:
+In Command Prompt, type `set OMP_NUM_THREADS=1`, then the same `set` line for each of `MKL_NUM_THREADS`, `OPENBLAS_NUM_THREADS`, `VECLIB_MAXIMUM_THREADS`, `NUMEXPR_NUM_THREADS` and `NUMBA_NUM_THREADS`.
 
-```powershell
-gsk-run --config configs/smoke.yml --root .
+#### Use more CPU cores to run faster
+
+The commands above use `--workers 4`, so four runs go at the same time (without
+`--workers`, the program uses only 2). If your computer has more cores, raise
+this number and the run finishes sooner. The results stay exactly the same, as
+long as `--numba-threads 1` is kept: each run's random seed depends only on the
+function, the dimension and the run number, never on how many workers there
+are.
+
+**1. Find how many cores your computer has** (this works on every system):
+
+```shell
+python -c "import os; print(os.cpu_count())"
 ```
 
-## Single Optimizer Run
+Other ways: `echo %NUMBER_OF_PROCESSORS%` in Command Prompt,
+`$env:NUMBER_OF_PROCESSORS` in PowerShell, `nproc` on Linux, and
+`sysctl -n hw.ncpu` on macOS.
 
-```powershell
-python run.py --root . --optimizer agsk --suite cec2017 --dimension 10 --function 1 --runs 1 --seed 20240620 --max-evaluations 1000 --output-root results --overwrite
+**2. Choose the number of workers:**
+
+- Start from your number of cores minus 2, so the computer stays responsive for other work.
+- Do not go above the number of runs per function (51 for CEC2017 and CEC2013, 30 for CEC2020, 25 for CEC2011 and CEC2013LSGO). The program finishes all runs of one function before it starts the next, so extra workers would only wait.
+- Some numbers use the cores better than their neighbours, because the runs of each function are shared out in rounds: for 51 runs choose 13, 17 or 26 workers; for 30 runs, 10 or 15; for 25 runs, 9 or 13. For example, 14 to 16 workers are no faster than 13 on CEC2017.
+- Each worker is a separate program that needs its own memory, so make sure the computer has memory to spare, above all on CEC2013LSGO (about 2 GB per worker). If a run ends with `WARN <ALGORITHM> failed=N`, lower `--workers` and run the same command again; only the missing runs are repeated.
+
+**3. Put your number after `--workers`.** For example, on a computer with 16
+cores (16 minus 2 is 14, and for the 51 runs of CEC2017, 13 workers are as fast
+as 14):
+
+```shell
+python run.py --root . --optimizer gsk,agsk,apgsk,fdb-agsk,atmals-gsk,egsk,dt-gsk --suite cec2017 --function 1:30 --dimension 10,30,50,100 --runs 51 --parallel --workers 13 --numba-threads 1 --output-root my_results
 ```
 
-## Full Paper Pipeline
+Full runs take a long time. Approximate time for all seven algorithms together,
+measured on the authors' 22-core computer (yours may be slower):
 
-The complete data-to-PDF sequence, mirrored from the project-root
-[runbook.md](../../runbook.md) (its "Full Paper Pipeline" section — the two are
-kept consistent; the root runbook adds the per-stage variants). `--workers 15`
-matches `configs/publish/`; drop to the safe baseline `2` if memory-constrained.
-Dependency order: 1 data -> 3 stats -> 5/6 figures & tables -> 7 build; and
-2 ablation -> 4 aggregate -> 6 table.
+| Suite | CPU-hours | With the workers shown above (4; 2 for CEC2013LSGO) | With 13 to 15 workers, as in the paper |
+|---|---|---|---|
+| CEC2011 | about 65 | about 16 hours | about 5 hours |
+| CEC2013 | about 105 | about 1 day | about 7 hours |
+| CEC2017 | about 260 | about 3 days | about 1 day |
+| CEC2020 | about 260 | about 3 days | about 20 hours |
+| CEC2013LSGO | about 960 | about 20 days | about 3 days with 13 workers, if the computer has about 32 GB of memory |
 
-```powershell
-# --- 1. Generate run data: the three benchmark campaigns ---
-python run.py --root . --optimizer gsk,agsk,apgsk,fdb-agsk,atmals-gsk,egsk,dt-gsk --suite cec2017 --function 1:30 --dimension 10,30,50,100 --runs 51 --parallel --workers 15 --convergence-graphs --overwrite
-python run.py --root . --optimizer gsk,agsk,apgsk,fdb-agsk,atmals-gsk,egsk,dt-gsk --suite cec2011 --function 1:22 --dimension native --runs 25 --parallel --workers 15 --convergence-graphs --overwrite
-python run.py --root . --optimizer gsk,agsk,apgsk,fdb-agsk,atmals-gsk,egsk,dt-gsk --suite cec2013 --function 1:28 --dimension 10,30,50 --runs 51 --parallel --workers 15 --convergence-graphs --overwrite
+### Step 6. Compare the algorithms
 
-# --- 2. DT-GSK scaffold ablation: CEC2017, all dimensions ---
-python scripts/run_ablation.py --dimension 10,30,50,100 --runs 51 --workers 15
+**The comparison from the paper's published results** (nothing to run first):
 
-# --- 3. Statistical panels (per suite) ---
-python -m gsk_family.cli.stats --suite CEC2017 --dims 10,30,50,100
-python -m gsk_family.cli.stats --suite CEC2011
-python -m gsk_family.cli.stats --suite CEC2013 --dims 10,30,50
-
-# --- 4. Aggregate the ablation (per dimension) ---
-python papers/scripts/generate_ablation_matrix.py --dimension 10
-python papers/scripts/generate_ablation_matrix.py --dimension 30
-python papers/scripts/generate_ablation_matrix.py --dimension 50
-python papers/scripts/generate_ablation_matrix.py --dimension 100
-
-# --- 5. Figures ---
-python papers/scripts/generate_full_convergence.py
-python papers/scripts/generate_cec2011_convergence.py
-python papers/scripts/generate_cec2013_convergence.py --dimension 30
-python papers/scripts/generate_nemenyi_cd.py
-python papers/scripts/generate_rank_charts.py
-python papers/scripts/generate_trace_figures.py
-python papers/scripts/generate_nlpsr_trajectory.py
-python papers/scripts/generate_adaptive_params_panel.py
-
-# --- 6. Tables (read frozen, checked-in evidence: benchmarks/cec_reference_results/_paper_tables/
-#     and papers/analysis/rel-2026-07-20-67d9345f9/ — not results/ staging) ---
-python papers/scripts/generate_latex_tables.py
-python papers/scripts/generate_t16_bca.py
-
-# --- 7. Build the PDFs ---
-python papers/scripts/build_pdf.py
-python papers/scripts/build_supplementary.py
-python papers/scripts/generate_review_pack.py
-
-# --- 8. Quality gates ---
-python -m pytest -q
-python -m ruff check .
-python scripts\validate_profile_lock.py --root .
-python scripts\build_docs_html.py
+```shell
+gsk-stats --suite cec2017 --out comparison/cec2017
+gsk-stats --suite cec2011 --out comparison/cec2011
+gsk-stats --suite cec2013 --out comparison/cec2013
+gsk-stats --suite cec2020 --out comparison/cec2020
+gsk-stats --suite cec2013lsgo --out comparison/cec2013lsgo
 ```
 
-## CEC2017 All Optimizers
+Each command writes, into the folder after `--out`, a text report
+(`<suite>_statistical_report.txt`) with the Friedman mean ranks of the seven
+algorithms and, for DT-GSK against each other algorithm, the Wilcoxon
+signed-rank test and the win/tie/loss counts; a CSV of the ranks; two LaTeX
+tables; and figures. The p-values in the text report are not corrected for
+multiple comparisons; the Holm-corrected ones are in
+`<suite>_wilcoxon_summary.tex`. The CEC2011 results are labelled `D0`, meaning
+each problem at its own dimension.
 
-Use a visible worker count in campaign commands. The safe baseline is
-`--workers 2`; increase the number only when you know the machine has spare CPU
-and memory and you are not running other heavy work. `--convergence-graphs`
-opts in to rendered PNG plots; omit it when you only need the convergence CSV
-files.
+`gsk-stats` is a convenience tool, so its numbers are close to the paper's but
+not always identical: it uses a simpler rule for tied pairs in the Wilcoxon
+test, and on CEC2013LSGO it ranks the 13 functions at D = 1000, while the paper
+pools all 15. So a few Wilcoxon decisions differ (for example CEC2013 at
+D = 50, where `gsk-stats` shows three DT-GSK wins that the paper reports as
+ties). The exact statistics reported in the paper are in the files
+`friedman_ranks_*.csv` and `wilcoxon_holm_*.csv`, in the suite's subfolder (for
+example `cec2017/`) of these folders under `papers/analysis/`:
+`rel-2026-07-20-67d9345f9/` (CEC2011, CEC2013, CEC2017),
+`cec2020-rel-2026-07-29-5867abe1e/` and `lsgo-rel-2026-07-28-ff1a046ef/`.
 
-```powershell
-python run.py --root . --optimizer gsk,agsk,apgsk,fdb-agsk,atmals-gsk,egsk,dt-gsk --suite cec2017 --function 1:30 --dimension 10,30,50,100 --runs 51 --parallel --workers 2 --convergence-graphs --overwrite
+**Including your own runs.** `gsk-stats` reads the published results first, so
+your runs are not used by the commands above. Collect them into a panel folder
+first; your files replace the published ones for the same algorithm and
+dimension, and everything you did not run keeps its published result:
+
+```shell
+python scripts/build_stats_panel.py --suite cec2017 --results my_results --out my_panel
+gsk-stats --suite cec2017 --reference-root my_panel --out comparison_mine/cec2017
 ```
 
-This runs all seven panel optimizers. `egsk` executes via its scipy-SLSQP
-port of the MATLAB reference, and its statistical-panel cells come from the
-committed `scipy`-SLSQP port run (the comparator of record).
-`--function 1:30` is an inclusive range; the CEC2017 *scored* set excludes the
-withdrawn F2, so per-function tables and statistics cover F1 and F3-F30. Each
-generated cell is one `(optimizer, suite, dimension, function)` group with 51
-independent runs.
-
-`--overwrite` recomputes matching cells. Omit it only when you intentionally
-want to **resume**: without `--overwrite`, cells whose runs already exist in
-`summary/per_run.csv` are skipped, so a sweep interrupted by a crash or reboot
-picks up where it left off. With `--overwrite`, the runner rebuilds that
-optimizer/suite `per_run.csv` from scratch: **all** previously recorded rows are
-discarded, not just the cells named in the command — so when overwriting, name
-the full cell set you want the tree to contain.
-
-## Other Full Sweeps
-
-```powershell
-# CEC2020 - 10 functions, dims 5/10/15/20
-python run.py --root . --optimizer gsk,agsk,apgsk,fdb-agsk,atmals-gsk,egsk,dt-gsk --suite cec2020 --function 1:10 --dimension 5,10,15,20 --runs 51 --parallel --workers 2 --convergence-graphs --overwrite
-
-# CEC2013 - 28 functions, dims 10/30/50 (see the CEC2013 Family Panel section below)
-python run.py --root . --optimizer gsk,agsk,apgsk,fdb-agsk,atmals-gsk,egsk,dt-gsk --suite cec2013 --function 1:28 --dimension 10,30,50 --runs 51 --parallel --workers 2 --convergence-graphs --overwrite
-
-# CEC2011 - native per-problem dims. NOTE: --function defaults to F1 only, so you
-# MUST pass --function 1:22 to run the whole suite (22 problems).
-python run.py --root . --optimizer gsk,agsk,apgsk,fdb-agsk,atmals-gsk,egsk,dt-gsk --suite cec2011 --function 1:22 --dimension native --runs 25 --parallel --workers 2 --convergence-graphs --overwrite
-
-# CEC2013-LSGO - 15 funcs, native D=1000 (F13-F14: D=905), 3,000,000 evals/run; VERY
-# expensive. MUST use --dimension native (a fixed --dimension 1000 errors on F13/F14).
-# Full 7-optimizer panel + cost/scheduling caveats: see "CEC2013-LSGO Family Panel" below.
-python run.py --root . --optimizer gsk,agsk,apgsk,fdb-agsk,atmals-gsk,egsk,dt-gsk --suite cec2013lsgo --function 1:15 --dimension native --runs 25 --parallel --workers 2 --convergence-graphs --overwrite
-```
-
-## CEC2013 Family Panel
-
-CEC2013 is the paper's **second comparison suite**: 28 functions, dims 10/30/50,
-51 runs (the CEC2013 competition standard). Run the full 7-optimizer panel
-(`egsk` runs via the scipy-SLSQP port; the statistical panel reads `egsk` from
-the committed `scipy`-SLSQP port CSVs, the comparator of record):
-
-```powershell
-python run.py --root . --optimizer gsk,agsk,apgsk,fdb-agsk,atmals-gsk,egsk,dt-gsk --suite cec2013 --function 1:28 --dimension 10,30,50 --runs 51 --parallel --workers 2 --convergence-graphs --overwrite
-```
-
-Then build the CEC2013 family report (Friedman ranks, Nemenyi CD, pairwise
-Wilcoxon/Holm, effect sizes) — comparators are read from
-`benchmarks/cec_reference_results/cec2013/`:
-
-```powershell
-python -m gsk_family.cli.stats --suite CEC2013 --dims 10,30,50
-```
-
-CEC2013 convergence-curve grids (28 functions at a chosen dimension):
-
-```powershell
-python papers/scripts/generate_cec2013_convergence.py --dimension 30
-```
-
-## CEC2013-LSGO Family Panel
-
-CEC2013-LSGO is the CEC-2013 **large-scale global optimization** suite: 15
-functions at native dimensions — **D=1000** for F1–F12 and F15, **D=905** for the
-overlapping-group functions F13–F14 — scored on **raw objective value** (no
-optimum subtraction, like CEC2011), with a **3,000,000-evaluation** budget per
-run. All seven optimizers run on it unchanged (`egsk` via the scipy-SLSQP port).
-It is registered in code (`CEC_SUITES` in `benchmark_adapter/protocol.py`) but
-carries **no committed reference-results tree**, so a fresh run populates
-`results/_run_all/` and the panel reads from there — not from
-`benchmarks/cec_reference_results/`.
-
-> **Cost & scheduling — read first.** This is by far the heaviest sweep in the
-> project: 7 optimizers × 15 functions × 25 runs × 3,000,000 evaluations at
-> D≈1000. Run it on an **idle machine**, and **not** concurrently with any
-> timing-critical campaign — competing for CPU contaminates wall-clock
-> measurements. (The RT-001 comparator re-timing that this warning originally
-> referenced is closed and must not be re-run.) D=1000 is memory-heavy, so tune
-> `--workers` to your RAM (start low; see "Tight On Memory"). Always pass
-> `--dimension native`: a fixed `--dimension 1000` errors on F13/F14 (native
-> D=905).
-
-Do a **bounded end-to-end check first** (2 functions, 1 run, reduced budget) to
-confirm the pipeline in minutes before committing to the full multi-hour sweep:
-
-```powershell
-python run.py --root . --optimizer gsk,agsk,apgsk,fdb-agsk,atmals-gsk,egsk,dt-gsk --suite cec2013lsgo --function 1,12 --dimension native --runs 1 --max-evaluations 50000 --parallel --workers 2 --overwrite
-```
-
-Full 7-optimizer panel (native dims, full 3,000,000-evaluation budget, 25 runs). Use
-`--workers 13`: the runner dispatches each function-cell's 25 runs as a barrier
-(`ceil(25 / workers)` waves), so 13 is the knee that cuts 3 waves to 2 (~1.5x vs 12);
-14-22 give the same 2 waves and >22 cannot help on a 22-core box. `--numba-threads 1`
-keeps the batch kernel byte-stable at D>=50.
-
-```powershell
-python run.py --root . --optimizer gsk,agsk,apgsk,fdb-agsk,atmals-gsk,egsk,dt-gsk --suite cec2013lsgo --function 1:15 --dimension native --runs 25 --parallel --workers 13 --numba-threads 1 --convergence-graphs --overwrite
-```
-
-The 7-in-one command runs the optimizers **sequentially** (`[1/7]` -> `[7/7]`); the 13
-workers parallelize the 25 runs *within* each function-cell, not the optimizers. To run
-them **one at a time** instead -- cleaner failure isolation, and an early `gsk` result in
-hand before the slow ones -- launch each as its own command (each writes to its own
-`results/_run_all/<optimizer>/cec2013lsgo/`, so they never collide):
-
-```powershell
-python run.py --root . --optimizer gsk        --suite cec2013lsgo --function 1:15 --dimension native --runs 25 --parallel --workers 13 --numba-threads 1 --convergence-graphs --overwrite
-python run.py --root . --optimizer agsk       --suite cec2013lsgo --function 1:15 --dimension native --runs 25 --parallel --workers 13 --numba-threads 1 --convergence-graphs --overwrite
-python run.py --root . --optimizer apgsk      --suite cec2013lsgo --function 1:15 --dimension native --runs 25 --parallel --workers 13 --numba-threads 1 --convergence-graphs --overwrite
-python run.py --root . --optimizer fdb-agsk   --suite cec2013lsgo --function 1:15 --dimension native --runs 25 --parallel --workers 13 --numba-threads 1 --convergence-graphs --overwrite
-python run.py --root . --optimizer egsk       --suite cec2013lsgo --function 1:15 --dimension native --runs 25 --parallel --workers 13 --numba-threads 1 --convergence-graphs --overwrite
-python run.py --root . --optimizer atmals-gsk --suite cec2013lsgo --function 1:15 --dimension native --runs 25 --parallel --workers 13 --numba-threads 1 --convergence-graphs --overwrite
-python run.py --root . --optimizer dt-gsk     --suite cec2013lsgo --function 1:15 --dimension native --runs 25 --parallel --workers 13 --numba-threads 1 --convergence-graphs --overwrite
-```
-
-Rough per-optimizer wall time (from the measured relative cost): `gsk` ~2.5 h;
-`agsk`/`apgsk`/`fdb-agsk`/`egsk` ~3-4 h each; `atmals-gsk` ~6 h (local search, ~2.4x gsk);
-`dt-gsk` ~12 h (scaffold + structure memory + eigenframe polish, ~4.8x gsk). The
-evaluation kernel is identical across all seven (numba batch, byte-stable at
-`threads=1`) -- the spread is the optimizers' own subsystems, not the benchmark.
-
-Output lands in `results/_run_all/<optimizer>/cec2013lsgo/summary/`. Then build the
-raw-objective family report (Friedman ranks, pairwise Wilcoxon/Holm, effect sizes)
-from those fresh results:
-
-```powershell
-python -m gsk_family.cli.stats --suite cec2013lsgo
-```
-
-## Config Launchers
-
-```powershell
-python scripts\run_all_cec2017.py
-python scripts\run_all_cec2011.py
-python scripts\run_all_cec2020.py
-python scripts\run_all_cec2013.py
-python scripts\run_all_cec2013lsgo.py
-```
-
-You can also drive campaigns directly from the YAML files in `configs/`:
-
-```powershell
-python run.py --root . --config configs/all_cec2017.yml
-python run.py --root . --config configs/all_optimizers_smoke.yml
-python run.py --root . --config configs/all_optimizers_cec2017_reduced.yml
-```
-
-## Tight On Memory
-
-Run one optimizer at a time with the same safe worker baseline. Omit
-`--overwrite` only when you intentionally want to resume.
-
-```powershell
-python run.py --root . --optimizer gsk --suite cec2017 --function 1:30 --dimension 10,30,50,100 --runs 51 --parallel --workers 2 --convergence-graphs --overwrite
-python run.py --root . --optimizer agsk --suite cec2017 --function 1:30 --dimension 10,30,50,100 --runs 51 --parallel --workers 2 --convergence-graphs --overwrite
-python run.py --root . --optimizer apgsk --suite cec2017 --function 1:30 --dimension 10,30,50,100 --runs 51 --parallel --workers 2 --convergence-graphs --overwrite
-python run.py --root . --optimizer fdb-agsk --suite cec2017 --function 1:30 --dimension 10,30,50,100 --runs 51 --parallel --workers 2 --convergence-graphs --overwrite
-python run.py --root . --optimizer atmals-gsk --suite cec2017 --function 1:30 --dimension 10,30,50,100 --runs 51 --parallel --workers 2 --convergence-graphs --overwrite
-python run.py --root . --optimizer egsk --suite cec2017 --function 1:30 --dimension 10,30,50,100 --runs 51 --parallel --workers 2 --convergence-graphs --overwrite
-python run.py --root . --optimizer dt-gsk --suite cec2017 --function 1:30 --dimension 10,30,50,100 --runs 51 --parallel --workers 2 --convergence-graphs --overwrite
-```
-
-Need more speed? Increase the worker count deliberately:
-
-```powershell
-python run.py --root . --optimizer gsk --suite cec2017 --function 1:30 --dimension 10,30,50,100 --runs 51 --parallel --workers 4 --convergence-graphs --overwrite
-```
-
-## Targeted Runs
-
-```powershell
-# One optimizer, one function, one dimension
-python run.py --root . --optimizer agsk --suite cec2017 --function 5 --dimension 30 --runs 51 --parallel --workers 2 --convergence-graphs --overwrite
-
-# Same run with reference seed policy
-python run.py --root . --optimizer agsk --suite cec2017 --function 5 --dimension 30 --runs 51 --seed-policy reference --parallel --workers 2 --convergence-graphs --overwrite
-```
-
-`--seed-policy reference` reproduces the published per-optimizer seed labels for
-a single cell (see the [Seed Policy reference](../reference/seed_policy.md));
-the default `unified` policy is what every family campaign uses.
-
-## Where Output Lands
-
-Generated runs are written under one root, keyed by optimizer and suite:
-
-```text
-results/_run_all/<optimizer>/<suite>/
-  summary/    # per_run.csv, per-dimension summary CSVs, seed_schedule.csv, environment.json, verification.json
-  curves/     # median-run convergence CSVs (+ graphs/*.png when --convergence-graphs)
-  gen_logs/   # CheckpointErrors_<alg>_F<k>_D<dim>.csv per-checkpoint logs
-```
-
-`gsk-stats` writes to `results/_run_all/_analysis/<suite>/`. The imported,
-read-only reference evidence stays under `benchmarks/cec_reference_results/`;
-the runner refuses to write generated output there. Exact filenames and CSV
-columns are in the [Result Schema](../reference/result_schema.md).
-
-## Validate Results
-
-The first form audits that the reference tree is well formed; the second
-compares a generated run tree against it and prints a `verdict:` line
-(`CONSISTENT` / `DEVIATES`) plus counts and a win/tie/loss tally. The exit code
-is non-zero on `DEVIATES` or when no comparable functions were found, so the
-command is script-friendly. The equivalent console script is `gsk-validate`.
-
-```powershell
-python -m gsk_family.cli.validate --references benchmarks/cec_reference_results
-python -m gsk_family.cli.validate --compare results/_run_all/gsk/cec2017 benchmarks/cec_reference_results
-```
-
-Reduced-budget runs will not reproduce full-budget reference statistics; read a
-comparison on such a run as a schema/consistency check, not a benchmark claim
-(see the [Validation Report](../research/validation_report.md)).
-
-## Statistical Analysis
-
-Produce the paper-grade GSK-family comparison (Friedman ranks, Nemenyi CD,
-pairwise Wilcoxon/Holm, and effect sizes) for the proposed optimizer
-(`dt-gsk` by default) against the committed reference comparators. Outputs
-(text report, Friedman-rank CSV, LaTeX fragments, CD/rank PNGs) land under
-`results/_run_all/_analysis/<suite>/`.
-
-```powershell
-gsk-stats --suite CEC2017 --dims 10,30,50,100
-gsk-stats --suite CEC2011
-gsk-stats --suite CEC2013 --dims 10,30,50
-```
-
-The 7-algorithm panel is the six reference comparators
-(`gsk`, `agsk`, `apgsk`, `fdb-agsk`, `egsk`, `atmals-gsk`) plus the proposed
-`dt-gsk`.
-
-**Single source of truth.** All paper statistics — the proposed `dt-gsk`
-included — are read from the committed reference panel
-`benchmarks/cec_reference_results/<suite>/<optimizer>/` first; a locally
-reproduced run under `results/_run_all/` is used only as a fallback for cells
-the reference tree does not carry. The convergence-figure generators read
-curves and gen_logs from the same reference tree.
-
-Useful `gsk-stats` flags (all optional):
-
-| Flag | Default | Effect |
-|---|---|---|
-| `--suite` | `CEC2017` | Suite to analyse (`CEC2017`, `CEC2011`, `CEC2013`). |
-| `--dims` | suite standard set | Comma-separated dimensions, e.g. `10,30,50,100`. |
-| `--proposed` | `dt-gsk` | Optimizer id anchoring the pairwise comparisons. |
-| `--results-root` | `results/_run_all` | Reproduced-results root. |
-| `--reference-root` | `benchmarks/cec_reference_results` | Reference-results root. |
-| `--out` | `<results-root>/_analysis/<suite>` | Output directory. |
-| `--alpha` | `0.05` | Significance level for Holm/Wilcoxon/Nemenyi. |
-| `--no-figures` | off | Skip the matplotlib CD/rank PNGs (text + CSV + LaTeX only). |
-| `--strict-source` | off | Publication mode: refuse any empirical input outside `benchmarks/cec_reference_results/` (no `results/` fallback; missing cells fail loudly) and write a `source_use_audit.csv` of every opened data file beside the report. |
-
-Outputs (text report, Friedman-rank CSV, LaTeX fragments, and Nemenyi
-critical-difference + rank PNGs) land under
-`results/_run_all/_analysis/<suite>/` (lower-cased suite name).
-
-To instead stream the per-dimension Wilcoxon + Friedman analysis **live during a
-run**, add the opt-in `--stats` flag. It is off by default and, by design, skips
-vanilla `gsk` (the baseline anchor); `cec2011` is supported via its single
-per-suite rollup panel. Add it on any non-baseline optimizer:
-
-```powershell
-python run.py --root . --optimizer dt-gsk --suite cec2017 --dimension 10 --dimension 30 --stats
-```
-
-(`--dimension` may be repeated, comma-separated, or given as a `START:STOP`
-range.) See [Statistical Analysis](../research/statistical_analysis.md) for the
-methodology and how to read the tables.
-
-## Paper Review Pack
-
-Build the single-PDF advisor review pack from the reproduced DT-GSK run plus
-the committed comparator checkpoints:
-
-```powershell
-python papers/scripts/generate_review_pack.py
-```
-
-This writes `papers/DT-GSK-CEC2017-review.pdf` (matplotlib `PdfPages`, no
-LaTeX needed): a headline dashboard, 7-algorithm CEC2017/CEC2011 mean tables,
-and 7-algorithm GSK-family convergence grids (GSK, AGSK, APGSK, FDB-AGSK,
-eGSK, ATMALS-GSK, DT-GSK), reading checkpoint CSVs from
-`benchmarks/cec_reference_results/<suite>/<alg>/gen_logs/` (comparators) and
-`results/_run_all/dt-gsk/<suite>/gen_logs/` (dt-gsk). Missing curves are
-never fabricated: they are skipped on the plot and listed in
-`papers/DT-GSK-CEC2017-review_missing.log`. See
-[papers/README.md](../../papers/README.md) for the full layout.
-
-## DT-GSK Ablation
-
-The scaffold ablation isolates each DT-GSK mechanism by toggling
-`optimizer_options` flags (every mechanism defaults to `true` in the locked
-profile, so a cell disables exactly one). Six mechanisms plus the baseline give
-seven cells: ACE (`ace_enabled`), NLPSR (`psr_enabled`), BSE (`bse_enabled`),
-linkage crossover (`linkage_blockwise_enabled`), coordinate endgame local search
-(`local_search_enabled`; the locked `pub` profile runs the coordinate method,
-not the subspace/Nelder-Mead variant), and the elite archive (`arch_enabled`).
-**SGSM
-(`interaction_graph_enabled`) stays off in every cell** — the SGSM overlay is
-ablated separately (the CEC2013 hold-out design with `full` / `no-adaptive` /
-`no-sgsm` cells).
-
-```powershell
-# inspect the per-cell configs without running
-python scripts/run_ablation.py --dimension 30 --dry-run
-
-# run the default cell set (baseline + one disable-one cell per mechanism), n=25
-python scripts/run_ablation.py --dimension 30 --runs 25 --workers 2
-
-# aggregate the cells you just ran -> results/ablation/ablation_matrix_rank_summary_cec2017_D30.csv
-# (point --ablation-root at the fresh per-cell tree; run_ablation.py prints this exact
-#  line on completion. Without it the script defaults to the promoted immutable release
-#  benchmarks/cec_reference_results/_ablation/scaffold instead of your new run.)
-python papers/scripts/generate_ablation_matrix.py --ablation-root results/_ablation --suite cec2017 --dimension 30
-
-# render the scaffold-ablation supplement tables (SA01/SA02) -> papers/tables/SA01.tex, SA02.tex
-# (reads the manifest-verified frozen release copy, not the fresh results/ablation/ aggregate)
-python papers/scripts/generate_ablation_exhibits.py
-```
-
-Useful flags: `--suite {cec2017,cec2011,cec2013}` (cec2011 uses native dims),
-`--mode {remove-one,add-one}`, `--dimension 10,30,50,100`, `--runs` (default
-25), `--workers`, `--only <cells>`, `--dry-run`. Per-cell configs are written
-to `configs/_ablation/<cell>.yml` and per-cell output lands under
-`results/_ablation/<cell>/dt-gsk/<suite>/`. The full option surface and the
-ATMALS-GSK-protocol variants are in the project-root
-[runbook.md](../../runbook.md#dt-gsk-ablation-cec2017).
-
-## DT-GSK Diagnostics
-
-Opt-in per-generation telemetry for root-cause analysis. It is **default off** and
-**observational** — enabling it never alters DT-GSK's RNG order, evaluations, or
-result for a given seed (the core's `generation_callback` path draws no RNG and
-evaluates no objective). Enable it through `optimizer_options.dt_diagnostics` in a
-YAML config; the runner writes one JSONL trace per cell to
-`<output_root>/dt-gsk/<suite>/diagnostics/DTTrace_<suite>_F<func>_D<dim>_R<run>_S<seed>.jsonl`.
-
-```yaml
-# configs/experimental/dt_diag.yml
-optimizers: [dt-gsk]
-suite: cec2017
-functions: [4, 13, 19, 26, 30]
-dimensions: [10, 30, 50, 100]
-runs: 5
-seed: 20240620
-seed_policy: unified
-rand_generator: threefry
-parallel: true
-workers: 2
-generation_logs: true
-convergence_graphs: false
-overwrite: true
-output_root: results/_experimental/dt_diag
-optimizer_options:
-  dt_diagnostics: true
-  dt_diagnostics_include_all_fields: true
-```
-
-```powershell
-python run.py --root . --config configs/experimental/dt_diag.yml
-python scripts/analyze_dt_diagnostics.py `
-  --input results/_experimental/dt_diag/dt-gsk/cec2017/diagnostics `
-  --out   results/_experimental/dt_diag/dt-gsk/cec2017/diagnostics_analysis
-```
-
-The analyzer aggregates the traces into `diagnostics_summary.csv`,
-`wrong_basin_candidates.csv`, and per-subsystem summaries (ACE entropy, linkage
-reliability, diversity/population, local-search ROI, boundary hits). Wrong-basin
-flagging is general across all functions/dimensions — never hard-coded to a single
-function. The JSONL fields come straight from the core's `DTGSKGenerationLog`.
-
-## Build HTML Documentation
-
-```powershell
-python scripts\build_docs_html.py
-```
-
-Open `docs/html/index.html` in a browser to browse the reference-style static
-documentation site.
-
-## Clean Generated Python Caches
-
-Only remove generated caches inside the project root:
-
-```powershell
-Get-ChildItem -Path . -Recurse -Directory -Filter __pycache__ | Remove-Item -Recurse -Force
-Get-ChildItem -Path . -Recurse -Directory -Filter .pytest_cache | Remove-Item -Recurse -Force
-```
-
-Do not remove imported reference evidence.
-
-## Campaign Checklist
-
-- Config file is committed or archived.
-- `seed`, `seed_policy`, and `rand_generator` are explicit.
-- `output_root` is not inside `benchmarks/cec_reference_results`.
-- `output_root` points at the tree that *contains* the suite folders, never at
-  a suite folder itself — the runner writes `<output_root>/<optimizer>/<suite>/`,
-  so an `output_root` ending in a suite name creates a doubled
-  `<suite>/<optimizer>/<suite>/` path (see
-  [Troubleshooting](troubleshooting.md#output-lands-in-a-doubled-suite-path)).
-- `--overwrite` is present only when recomputing is intended.
-- Reduced budget is clearly labelled.
-- `environment.json` and `verification.json` are kept with summaries.
+For another suite, replace `cec2017` everywhere in both lines. Wait until each
+dimension you ran has finished for all functions (the script warns about a
+partial file, and about a run with fewer runs or a smaller budget than the
+published one), and compare `comparison_mine` with `comparison`, not with the
+tables in the paper.
+
+### Step 7. Find your results
+
+Each algorithm writes to `my_results/<algorithm>/<suite>/summary/`:
+
+| File | Contents |
+|---|---|
+| `per_run.csv` | one row per run: function, dimension, run, seed, best fitness, error, evaluations used and runtime |
+| `<algorithm>_<suite>_D<d>.csv` | the Best, Median, Mean, Worst and SD of each function's error at dimension d (CEC2011 and CEC2013LSGO: of the objective value, so the `error` column of `per_run.csv` is `NaN` there; CEC2011 also writes `<algorithm>_cec2011.csv`, every problem you ran in one table) |
+| `run_config.json`, `environment.json` | the exact settings and software versions of the run |
+
+Convergence curves are in `my_results/<algorithm>/<suite>/curves/`. The paper's
+own result for every run of every algorithm is in
+`benchmarks/cec_reference_results/<suite>/<algorithm>/per_run.csv`.
+
+### Troubleshooting
+
+| Problem | What to do |
+|---|---|
+| `'git' is not recognized` | Install Git (Step 1) and open a new terminal. |
+| `Filename too long` while cloning (Windows) | Clone into a short folder such as `C:\DT-GSK`, or run `git config --global core.longpaths true` first. |
+| `'python' is not recognized`, or the wrong version | On Windows use `py -3.10` as in Step 2; `py --list` shows the installed versions. |
+| `python3.10: command not found` (Linux or macOS) | Install Python 3.10 (Ubuntu: `sudo add-apt-repository ppa:deadsnakes/ppa`, then `sudo apt install python3.10 python3.10-venv`; macOS: the python.org installer; anywhere: pyenv), or use your system `python3` if `python3 --version` shows 3.11 to 3.13 (accepted, not tested). Then repeat Step 2. |
+| `ensurepip is not available` when creating the environment (Debian or Ubuntu) | Install the venv module for that Python, for example `sudo apt install python3.10-venv` (or `python3.12-venv`), delete the `.venv` folder, and repeat Step 2. |
+| `running scripts is disabled on this system` (PowerShell) | Run `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass`, then activate again; or use Command Prompt. |
+| `No module named 'gsk_family'`, or `gsk-stats` is not recognized | The environment is not active in this window: activate it (Step 2). If it still fails, run `python -m pip install -e ".[dev]"` again. |
+| A run pauses for a minute or more after it starts, or after it prints its settings | Numba is compiling its kernels once; wait. |
+| The "Mean Comparison" table shows `v` and `Worse` after a short test | Expected when `--max-evaluations` cuts the budget. |
+| A run ends with `WARN <ALGORITHM> failed=N` instead of `PASS`, or stops with an error that mentions `skipped_runs.csv` (often a memory error, for example on CEC2013LSGO) | Lower `--workers` and run the same command again; only the missing runs are repeated. |
+| `gsk-stats` says `reference directory not found` | If the message lists the suites it found, fix the spelling after `--suite`. Otherwise the published results are missing: use a full clone (Step 1), and run the command from the project folder. |

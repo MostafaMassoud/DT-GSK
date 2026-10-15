@@ -64,21 +64,22 @@ provenance set (`environment.json`, `run_config.json`, `seed_schedule.csv`,
 `verification.json`, `phase0_protocol.json`), and the `curves/` and `gen_logs/`
 convergence assets. The full 7-optimizer panel is committed for **CEC2017**,
 **CEC2011**, and **CEC2013** (the second comparison suite: 28 functions,
-D = 10/30/50, 51 runs); `cec2020` (agsk only) and `cec2013lsgo` (`decc-g`,
-`mos`) are partial context suites.
+D = 10/30/50, 51 runs), and also for **CEC2020** (D = 5/10/15/20, 30 runs) and
+**CEC2013-LSGO** (D = 1000, F13-F14 at D = 905, 25 runs), whose directories
+carry no `curves/`.
 
 The analysis layer loads this tree **first** and treats a locally reproduced
 run under `results/_run_all/` only as a fallback for cells the reference tree
-does not carry (`analysis/result_loader.py::load_algorithm`,
+does not carry; in `gsk-stats` that fallback exists for the proposed optimizer
+only, and comparators come from `--reference-root` alone
+(`analysis/result_loader.py::load_algorithm`,
 `analysis/family_report.py`). The convergence-figure generators
 (`papers/scripts/generate_full_convergence.py`,
 `generate_cec2011_convergence.py`, `generate_cec2013_convergence.py`) likewise
-read `curves/` and `gen_logs/` from the reference tree. One resolution caveat:
-`per_run.csv` is complete for `dt-gsk` on every panel suite and dimension,
-while some comparators carry only partial per-run coverage — their
-per-dimension summary CSVs are the complete comparator source, so seed-matched
-per-run analyses are guaranteed only for the proposed method (see
-[Statistical Analysis — Data sources](statistical_analysis.md#data-sources)).
+read `curves/` and `gen_logs/` from the reference tree. `per_run.csv` is complete for every optimizer on every committed suite and
+dimension, and the unified seed schedule pairs runs across optimizers (the
+APGSK CEC2017 D10/30/50 rows were restored by a seed-exact re-run under D-0011;
+see [Statistical Analysis: Data sources](statistical_analysis.md#data-sources)).
 
 ## Seeds
 

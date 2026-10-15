@@ -1,0 +1,690 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DT-GSK Runbook</title>
+<!-- Generated from runbook.md by scripts/build_runbook_html.py. Do not edit by hand. -->
+<style>
+:root {
+  --bg: #fbfbfa; --surface: #ffffff; --text: #1f2328; --muted: #59636e;
+  --border: #d8dee4; --accent: #0b6bcb; --accent-soft: #e8f1fb;
+  --code-bg: #f3f4f6; --code-text: #1f2328; --callout: #fff8e6; --callout-border: #e0a800;
+  --part2: #6e7781;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1216; --surface: #161b22; --text: #e6edf3; --muted: #9da7b3;
+    --border: #30363d; --accent: #58a6ff; --accent-soft: #132339;
+    --code-bg: #1c2128; --code-text: #e6edf3; --callout: #2a2410; --callout-border: #b08800;
+    --part2: #8b949e;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1216; --surface: #161b22; --text: #e6edf3; --muted: #9da7b3;
+  --border: #30363d; --accent: #58a6ff; --accent-soft: #132339;
+  --code-bg: #1c2128; --code-text: #e6edf3; --callout: #2a2410; --callout-border: #b08800;
+  --part2: #8b949e;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 16px; }
+body { margin: 0; background: var(--bg); color: var(--text);
+  font: 16px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+.layout { display: grid; grid-template-columns: 290px minmax(0, 1fr); max-width: 1280px; margin: 0 auto; }
+nav.toc { position: sticky; top: 0; height: 100vh; overflow-y: auto; padding: 28px 18px 28px 24px;
+  border-right: 1px solid var(--border); font-size: 14px; }
+nav.toc .brand { font-weight: 700; font-size: 17px; margin-bottom: 4px; }
+nav.toc .sub { color: var(--muted); margin-bottom: 18px; }
+nav.toc a { display: block; color: var(--muted); text-decoration: none; padding: 4px 10px; border-radius: 6px;
+  border-left: 3px solid transparent; }
+nav.toc a:hover { color: var(--text); background: var(--accent-soft); }
+nav.toc a.active { color: var(--accent); border-left-color: var(--accent); background: var(--accent-soft); }
+nav.toc a.nav-part { margin-top: 14px; font-weight: 650; color: var(--text); }
+nav.toc a.nav-step { padding-left: 20px; }
+nav.toc summary { cursor: pointer; font-weight: 650; color: var(--muted); margin-bottom: 6px; }
+@media (min-width: 1001px) { nav.toc summary { display: none; } }
+main { padding: 36px 48px 80px; min-width: 0; }
+.content { max-width: 860px; }
+h1 { font-size: 34px; line-height: 1.2; margin: 0 0 12px; letter-spacing: -0.01em; }
+h2 { font-size: 26px; line-height: 1.25; margin: 48px 0 12px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+h3 { font-size: 20px; margin: 36px 0 10px; color: var(--accent); }
+h4 { font-size: 17px; margin: 24px 0 8px; }
+p, ul, ol { margin: 0 0 14px; }
+li { margin: 6px 0; }
+p, li, blockquote { overflow-wrap: anywhere; }
+td, th { overflow-wrap: break-word; }
+td:first-child code { white-space: nowrap; overflow-wrap: normal; }
+a { color: var(--accent); }
+code { font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace; font-size: 0.88em;
+  background: var(--code-bg); color: var(--code-text); padding: 1px 6px; border-radius: 5px; overflow-wrap: anywhere; }
+pre { position: relative; background: var(--code-bg); border: 1px solid var(--border); border-radius: 10px;
+  padding: 14px 16px; margin: 0 0 18px; overflow-x: auto; }
+pre code { background: none; padding: 0; font-size: 13.5px; line-height: 1.55; white-space: pre; overflow-wrap: normal; }
+.copy { position: absolute; top: 8px; right: 8px; font: 12px/1 system-ui, sans-serif; padding: 6px 10px;
+  border-radius: 6px; border: 1px solid var(--border); background: var(--surface); color: var(--muted); cursor: pointer; }
+.copy:hover { color: var(--text); border-color: var(--accent); }
+.copy.done { color: var(--accent); border-color: var(--accent); }
+.table-wrap { overflow-x: auto; margin: 0 0 18px; border: 1px solid var(--border); border-radius: 10px; }
+table { border-collapse: collapse; width: 100%; font-size: 15px; background: var(--surface); }
+th, td { text-align: left; vertical-align: top; padding: 9px 12px; border-bottom: 1px solid var(--border); }
+th { background: var(--code-bg); font-weight: 650; }
+tr:last-child td { border-bottom: none; }
+blockquote { margin: 0 0 18px; padding: 12px 16px; background: var(--callout); border-left: 4px solid var(--callout-border);
+  border-radius: 0 8px 8px 0; }
+.part { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 8px 36px 28px;
+  margin-bottom: 28px; }
+.part.maintainer { border-style: dashed; }
+.part.maintainer > h2:first-child { color: var(--part2); }
+.part > h1:first-child, .part > h2:first-child { margin-top: 28px; }
+.badge { display: inline-block; font-size: 12px; font-weight: 650; letter-spacing: 0.04em; text-transform: uppercase;
+  padding: 3px 10px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); margin: 24px 0 0; }
+.badge.maint { background: var(--code-bg); color: var(--part2); }
+.theme { margin-top: 18px; font: 13px system-ui, sans-serif; padding: 6px 10px; border-radius: 6px;
+  border: 1px solid var(--border); background: var(--surface); color: var(--muted); cursor: pointer; }
+.top { position: fixed; right: 18px; bottom: 18px; padding: 8px 12px; border-radius: 999px; background: var(--surface);
+  border: 1px solid var(--border); color: var(--muted); text-decoration: none; font-size: 13px; }
+@media (max-width: 1000px) {
+  .layout { display: block; }
+  nav.toc { position: static; height: auto; border-right: none; border-bottom: 1px solid var(--border); padding: 20px 16px; }
+  main { padding: 20px 16px 64px; }
+  .part { padding: 4px 16px 20px; }
+}
+@media print {
+  nav.toc, .copy, .top, .theme { display: none; }
+  .layout { display: block; }
+  .part { border: none; padding: 0; }
+  pre { white-space: pre-wrap; }
+}
+</style>
+</head>
+<body>
+<div class="layout">
+  <nav class="toc" aria-label="Contents">
+    <div class="brand">DT-GSK Runbook</div>
+    <div class="sub">Install, test and run</div>
+    <details id="contents" open>
+      <summary>Contents</summary>
+        <a class="nav-part" href="#part-1-run-and-test-dt-gsk">Part 1. Run and test DT-GSK</a>
+        <a class="nav-step" href="#step-1-get-the-code">Step 1. Get the code</a>
+        <a class="nav-step" href="#step-2-install-python-and-the-requirements">Step 2. Install Python and the requirements</a>
+        <a class="nav-step" href="#step-3-test-the-code">Step 3. Test the code</a>
+        <a class="nav-step" href="#step-4-run-your-first-experiment">Step 4. Run your first experiment</a>
+        <a class="nav-step" href="#step-5-run-the-algorithms-on-a-benchmark-suite">Step 5. Run the algorithms on a benchmark suite</a>
+        <a class="nav-step" href="#use-more-cpu-cores-to-run-faster">Use more CPU cores to run faster</a>
+        <a class="nav-step" href="#step-6-compare-the-algorithms">Step 6. Compare the algorithms</a>
+        <a class="nav-step" href="#step-7-find-your-results">Step 7. Find your results</a>
+        <a class="nav-step" href="#troubleshooting">Troubleshooting</a>
+        <a class="nav-part" href="#part-2-maintainer-and-paper-pipeline-reference">Part 2. Maintainer and paper-pipeline reference</a>
+        <a class="nav-step" href="#discover-before-you-run">Discover Before You Run</a>
+        <a class="nav-step" href="#setup">Setup</a>
+        <a class="nav-step" href="#journal-revision-experiments-one-command">Journal Revision Experiments (one command)</a>
+        <a class="nav-step" href="#after-the-campaign-promotion-analysis-exhibits">After The Campaign (promotion, analysis, exhibits)</a>
+        <a class="nav-step" href="#full-paper-pipeline-in-order">Full Paper Pipeline (in order)</a>
+        <a class="nav-step" href="#smoke-test">Smoke Test</a>
+        <a class="nav-step" href="#cec2017-all-optimizers">CEC2017 All Optimizers</a>
+        <a class="nav-step" href="#other-full-sweeps">Other Full Sweeps</a>
+        <a class="nav-step" href="#cec2013-family-panel">CEC2013 Family Panel</a>
+        <a class="nav-step" href="#config-launchers">Config Launchers</a>
+        <a class="nav-step" href="#common-flags">Common Flags</a>
+        <a class="nav-step" href="#tight-on-memory">Tight On Memory</a>
+        <a class="nav-step" href="#targeted-runs">Targeted Runs</a>
+        <a class="nav-step" href="#results-and-validation">Results And Validation</a>
+        <a class="nav-step" href="#statistical-analysis">Statistical Analysis</a>
+        <a class="nav-step" href="#paper-review-pack">Paper Review Pack</a>
+        <a class="nav-step" href="#dt-gsk-diagnostics">DT-GSK Diagnostics</a>
+        <a class="nav-step" href="#dt-gsk-ablation-cec2017">DT-GSK Ablation (CEC2017)</a>
+        <a class="nav-step" href="#slow-or-crashing">Slow Or Crashing</a>
+        <a class="nav-step" href="#quality-checks">Quality Checks</a>
+        <a class="nav-step" href="#freeze-pass-cycle-the-passes-49-52-recipe">Freeze-Pass Cycle (the passes-49..52 recipe)</a>
+    </details>
+    <button class="theme" type="button" id="theme">Switch light / dark</button>
+  </nav>
+  <main>
+    <div class="content">
+      <section class="part">
+        <span class="badge">For everyone</span>
+<h1 id="runbook">Runbook</h1>
+<p>How to install, test and run DT-GSK (the proposed Dimension-Tiered Gaining-Sharing Knowledge algorithm) and the six GSK-family algorithms it is compared with, on five CEC benchmark suites.</p>
+<div class="table-wrap"><table><thead><tr><th>If you want to</th><th>Read</th></tr></thead><tbody><tr><td>Install, test and run the algorithms, and compare their results</td><td><a href="#part-1-run-and-test-dt-gsk">Part 1</a> (about 30 minutes to a first result, most of it installing and testing)</td></tr><tr><td>Rebuild the paper, run the revision experiments, or run the release gates</td><td><a href="#part-2-maintainer-and-paper-pipeline-reference">Part 2</a></td></tr></tbody></table></div>
+<h2 id="part-1-run-and-test-dt-gsk">Part 1. Run and test DT-GSK</h2>
+<p>Type every command in a terminal, inside the project folder (the folder that contains <code>run.py</code>). The commands are the same on Windows, Linux and macOS unless a step says otherwise.</p>
+<h3 id="step-1-get-the-code">Step 1. Get the code</h3>
+<p>You need Git (on Windows, install &quot;Git for Windows&quot; from <a href="https://git-scm.com/downloads">git-scm.com</a>).</p>
+<pre><code class="code-block language-shell">git clone https://github.com/MostafaMassoud/DT-GSK.git
+cd DT-GSK</code></pre>
+<p>On Windows, clone into a short folder (for example, type <code>cd C:\</code> before the two commands above), because some file paths in the repository are long. The download is about 340 MB, and the folder then needs about 1.7 GB of disk space, mostly for the paper&#x27;s published results, which Step 6 uses; the Python environment of Step 2 adds about 0.6 GB.</p>
+<h3 id="step-2-install-python-and-the-requirements">Step 2. Install Python and the requirements</h3>
+<p>Use <strong>Python 3.10 (64-bit)</strong>. All of the paper&#x27;s results were produced with Python 3.10.11; on Windows, use the 64-bit Windows installer of Python 3.10.11 from <a href="https://www.python.org/downloads/release/python-31011/">python.org</a>. Python 3.11 to 3.13 are accepted but were not tested, and Python 3.14 is not supported. MATLAB and a C compiler are not needed.</p>
+<p>Create a virtual environment inside the project folder and activate it.</p>
+<p><strong>Windows</strong> (Command Prompt or PowerShell):</p>
+<pre><code class="code-block language-powershell">py -3.10 -m venv .venv
+.venv\Scripts\activate</code></pre>
+<p>If PowerShell says that running scripts is disabled, run this line and then the activate line again (it affects only that window):</p>
+<pre><code class="code-block language-powershell">Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass</code></pre>
+<p><strong>Linux or macOS:</strong></p>
+<pre><code class="code-block language-bash">python3.10 -m venv .venv
+source .venv/bin/activate</code></pre>
+<p>The prompt now starts with <code>(.venv)</code>. Then, on every system:</p>
+<pre><code class="code-block language-shell">python --version
+python -m pip install --upgrade pip
+python -m pip install -e &quot;.[dev]&quot;</code></pre>
+<p><code>python --version</code> should print <code>Python 3.10.x</code>. The install downloads a few hundred MB and can take several minutes; wait for the line that starts with <code>Successfully installed</code>. It installs NumPy, SciPy, pandas, matplotlib, PyYAML and Numba, the commands <code>gsk-run</code>, <code>gsk-list</code>, <code>gsk-stats</code> and <code>gsk-validate</code>, and the test tools.</p>
+<blockquote><strong>Every new terminal window:</strong> go to the project folder and activate the environment again (<code>.venv\Scripts\activate</code> on Windows, <code>source .venv/bin/activate</code> on Linux or macOS) before running anything below.</blockquote>
+<h3 id="step-3-test-the-code">Step 3. Test the code</h3>
+<p>A quick check (about five to ten minutes the first time, while Numba compiles; faster later):</p>
+<pre><code class="code-block language-shell">python -m pytest -q tests/smoke</code></pre>
+<p>The full test suite (allow ten minutes or more the first time, while Numba compiles its kernels; later runs are faster):</p>
+<pre><code class="code-block language-shell">python -m pytest -q</code></pre>
+<p>Both should end with a line that says <code>passed</code> and no <code>failed</code>. Both also report a few <code>warnings</code> (a <code>UserWarning</code> about <code>linkage_block_size_by_dim</code>), and the full suite reports <code>2 skipped</code>; all of these are expected.</p>
+<h3 id="step-4-run-your-first-experiment">Step 4. Run your first experiment</h3>
+<p>DT-GSK on one CEC2017 function, with a deliberately tiny budget:</p>
+<pre><code class="code-block language-shell">python run.py --root . --optimizer dt-gsk --suite cec2017 --function 1 --dimension 10 --runs 1 --max-evaluations 2000 --output-root test_results</code></pre>
+<ul>
+<li>The first run can pause for a minute or two while Numba compiles, both before and after it prints its settings. Later runs start in seconds.</li>
+<li>Near the end it prints <code>PASS  DT-GSK</code>. A little above that, a &quot;Mean Comparison&quot; table compares the test with the paper&#x27;s result: its Status column shows <code>v</code>, and the Summary line under it ends with <code>v Worse: 1</code>. That is expected, because the test uses 2,000 evaluations instead of the full budget of 100,000.</li>
+<li>Keep test runs in their own folder (here <code>test_results</code>), never in your real results folder. A run skips every run it already finds in its folder, whatever budget produced it, so a short test left there would be kept as if it were a real result.</li>
+</ul>
+<h3 id="step-5-run-the-algorithms-on-a-benchmark-suite">Step 5. Run the algorithms on a benchmark suite</h3>
+<p><code>run.py</code> is the only script you need. Its settings are command-line options:</p>
+<div class="table-wrap"><table><thead><tr><th>Option</th><th>Meaning</th></tr></thead><tbody><tr><td><code>--optimizer</code></td><td><code>gsk</code>, <code>agsk</code>, <code>apgsk</code>, <code>fdb-agsk</code>, <code>atmals-gsk</code>, <code>egsk</code> or <code>dt-gsk</code>; several are separated by commas</td></tr><tr><td><code>--suite</code></td><td><code>cec2011</code>, <code>cec2013</code>, <code>cec2013lsgo</code>, <code>cec2017</code> or <code>cec2020</code></td></tr><tr><td><code>--function</code></td><td>the functions to run, for example <code>1:30</code> (a range) or <code>1,3,5</code></td></tr><tr><td><code>--dimension</code></td><td>the dimensions, for example <code>10,30,50,100</code>; <code>native</code> for CEC2011 and CEC2013LSGO, where each problem has its own fixed dimension</td></tr><tr><td><code>--runs</code></td><td>independent runs per function and dimension; always give it, because the default is 1</td></tr><tr><td><code>--parallel --workers 4</code></td><td>runs 4 runs at the same time (without it, only 2); raise it to use more of your CPU cores, see <a href="#use-more-cpu-cores-to-run-faster">Use more CPU cores to run faster</a></td></tr><tr><td><code>--numba-threads 1</code></td><td>one thread per job, as in the paper; keep it</td></tr><tr><td><code>--output-root my_results</code></td><td>the folder where your results are written</td></tr></tbody></table></div>
+<p>The evaluation budget of each suite (for example 10000 x D for CEC2017) and the random seeds are set automatically to the paper&#x27;s protocol, so do not add <code>--max-evaluations</code> to a real run.</p>
+<p>The paper&#x27;s settings, all seven algorithms in one command per suite:</p>
+<p><strong>CEC2017</strong>: functions 1 to 30 (F2 is left out automatically, as in the paper), D = 10, 30, 50, 100, 51 runs.</p>
+<pre><code class="code-block language-shell">python run.py --root . --optimizer gsk,agsk,apgsk,fdb-agsk,atmals-gsk,egsk,dt-gsk --suite cec2017 --function 1:30 --dimension 10,30,50,100 --runs 51 --parallel --workers 4 --numba-threads 1 --output-root my_results</code></pre>
+<p><strong>CEC2011</strong>: 22 real-world problems, each at its own fixed dimension, 25 runs.</p>
+<pre><code class="code-block language-shell">python run.py --root . --optimizer gsk,agsk,apgsk,fdb-agsk,atmals-gsk,egsk,dt-gsk --suite cec2011 --function 1:22 --dimension native --runs 25 --parallel --workers 4 --numba-threads 1 --output-root my_results</code></pre>
+<p><strong>CEC2013</strong>: 28 functions, D = 10, 30, 50, 51 runs.</p>
+<pre><code class="code-block language-shell">python run.py --root . --optimizer gsk,agsk,apgsk,fdb-agsk,atmals-gsk,egsk,dt-gsk --suite cec2013 --function 1:28 --dimension 10,30,50 --runs 51 --parallel --workers 4 --numba-threads 1 --output-root my_results</code></pre>
+<p><strong>CEC2020</strong>: 10 functions, D = 5, 10, 15, 20, 30 runs (F6 and F7 are not defined at D = 5 and are skipped there automatically, as in the paper).</p>
+<pre><code class="code-block language-shell">python run.py --root . --optimizer gsk,agsk,apgsk,fdb-agsk,atmals-gsk,egsk,dt-gsk --suite cec2020 --function 1:10 --dimension 5,10,15,20 --runs 30 --parallel --workers 4 --numba-threads 1 --output-root my_results</code></pre>
+<p><strong>CEC2013LSGO</strong>: 15 functions at D = 1000 (F13 and F14 at D = 905), 25 runs. Two commands: the first runs the six other algorithms, the second runs DT-GSK with its own settings file. Always run DT-GSK on this suite with the second command only; added to the first, it would run with the wrong settings.</p>
+<pre><code class="code-block language-shell">python run.py --root . --optimizer gsk,agsk,apgsk,fdb-agsk,atmals-gsk,egsk --suite cec2013lsgo --function 1:15 --dimension native --runs 25 --parallel --workers 2 --numba-threads 1 --output-root my_results
+python run.py --root . --config configs/dtgsk_cec2013lsgo.yml --workers 2 --output-root my_results</code></pre>
+<p>Good to know:</p>
+<ul>
+<li><strong>One algorithm only:</strong> put a single name after <code>--optimizer</code>, for example <code>--optimizer dt-gsk</code>.</li>
+<li><strong>A smaller part:</strong> change the values already in the command, for example <code>--dimension 10,30,50,100</code> to <code>--dimension 10</code>. Do not add a second <code>--dimension</code>, <code>--function</code> or <code>--optimizer</code> at the end: repeated options are added together, not replaced. For CEC2017, F2 is left out automatically only with exactly <code>1:30</code>; for a smaller set leave it out yourself, for example <code>--function 1,3:10</code>.</li>
+<li><strong>If a run stops</strong> (a crash, a reboot, Ctrl-C), type the same command again: finished runs are kept and only the missing ones run. Do not add <code>--overwrite</code>, which deletes the algorithm&#x27;s earlier results for that suite in the folder.</li>
+</ul>
+<p><strong>Closest match to the paper at D = 50 and above.</strong> In the same terminal, before the <code>run.py</code> command, set six thread variables to 1:</p>
+<p><strong>Windows PowerShell:</strong></p>
+<pre><code class="code-block language-powershell">$env:OMP_NUM_THREADS=1; $env:MKL_NUM_THREADS=1; $env:OPENBLAS_NUM_THREADS=1; $env:VECLIB_MAXIMUM_THREADS=1; $env:NUMEXPR_NUM_THREADS=1; $env:NUMBA_NUM_THREADS=1</code></pre>
+<p><strong>Linux or macOS:</strong></p>
+<pre><code class="code-block language-bash">export OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 NUMEXPR_NUM_THREADS=1 NUMBA_NUM_THREADS=1</code></pre>
+<p>In Command Prompt, type <code>set OMP_NUM_THREADS=1</code>, then the same <code>set</code> line for each of <code>MKL_NUM_THREADS</code>, <code>OPENBLAS_NUM_THREADS</code>, <code>VECLIB_MAXIMUM_THREADS</code>, <code>NUMEXPR_NUM_THREADS</code> and <code>NUMBA_NUM_THREADS</code>.</p>
+<h4 id="use-more-cpu-cores-to-run-faster">Use more CPU cores to run faster</h4>
+<p>The commands above use <code>--workers 4</code>, so four runs go at the same time (without <code>--workers</code>, the program uses only 2). If your computer has more cores, raise this number and the run finishes sooner. The results stay exactly the same, as long as <code>--numba-threads 1</code> is kept: each run&#x27;s random seed depends only on the function, the dimension and the run number, never on how many workers there are.</p>
+<p><strong>1. Find how many cores your computer has</strong> (this works on every system):</p>
+<pre><code class="code-block language-shell">python -c &quot;import os; print(os.cpu_count())&quot;</code></pre>
+<p>Other ways: <code>echo %NUMBER_OF_PROCESSORS%</code> in Command Prompt, <code>$env:NUMBER_OF_PROCESSORS</code> in PowerShell, <code>nproc</code> on Linux, and <code>sysctl -n hw.ncpu</code> on macOS.</p>
+<p><strong>2. Choose the number of workers:</strong></p>
+<ul>
+<li>Start from your number of cores minus 2, so the computer stays responsive for other work.</li>
+<li>Do not go above the number of runs per function (51 for CEC2017 and CEC2013, 30 for CEC2020, 25 for CEC2011 and CEC2013LSGO). The program finishes all runs of one function before it starts the next, so extra workers would only wait.</li>
+<li>Some numbers use the cores better than their neighbours, because the runs of each function are shared out in rounds: for 51 runs choose 13, 17 or 26 workers; for 30 runs, 10 or 15; for 25 runs, 9 or 13. For example, 14 to 16 workers are no faster than 13 on CEC2017.</li>
+<li>Each worker is a separate program that needs its own memory, so make sure the computer has memory to spare, above all on CEC2013LSGO (about 2 GB per worker). If a run ends with <code>WARN &lt;ALGORITHM&gt; failed=N</code>, lower <code>--workers</code> and run the same command again; only the missing runs are repeated.</li>
+</ul>
+<p><strong>3. Put your number after <code>--workers</code>.</strong> For example, on a computer with 16 cores (16 minus 2 is 14, and for the 51 runs of CEC2017, 13 workers are as fast as 14):</p>
+<pre><code class="code-block language-shell">python run.py --root . --optimizer gsk,agsk,apgsk,fdb-agsk,atmals-gsk,egsk,dt-gsk --suite cec2017 --function 1:30 --dimension 10,30,50,100 --runs 51 --parallel --workers 13 --numba-threads 1 --output-root my_results</code></pre>
+<p>Full runs take a long time. Approximate time for all seven algorithms together, measured on the authors&#x27; 22-core computer (yours may be slower):</p>
+<div class="table-wrap"><table><thead><tr><th>Suite</th><th>CPU-hours</th><th>With the workers shown above (4; 2 for CEC2013LSGO)</th><th>With 13 to 15 workers, as in the paper</th></tr></thead><tbody><tr><td>CEC2011</td><td>about 65</td><td>about 16 hours</td><td>about 5 hours</td></tr><tr><td>CEC2013</td><td>about 105</td><td>about 1 day</td><td>about 7 hours</td></tr><tr><td>CEC2017</td><td>about 260</td><td>about 3 days</td><td>about 1 day</td></tr><tr><td>CEC2020</td><td>about 260</td><td>about 3 days</td><td>about 20 hours</td></tr><tr><td>CEC2013LSGO</td><td>about 960</td><td>about 20 days</td><td>about 3 days with 13 workers, if the computer has about 32 GB of memory</td></tr></tbody></table></div>
+<h3 id="step-6-compare-the-algorithms">Step 6. Compare the algorithms</h3>
+<p><strong>The comparison from the paper&#x27;s published results</strong> (nothing to run first):</p>
+<pre><code class="code-block language-shell">gsk-stats --suite cec2017 --out comparison/cec2017
+gsk-stats --suite cec2011 --out comparison/cec2011
+gsk-stats --suite cec2013 --out comparison/cec2013
+gsk-stats --suite cec2020 --out comparison/cec2020
+gsk-stats --suite cec2013lsgo --out comparison/cec2013lsgo</code></pre>
+<p>Each command writes, into the folder after <code>--out</code>, a text report (<code>&lt;suite&gt;_statistical_report.txt</code>) with the Friedman mean ranks of the seven algorithms and, for DT-GSK against each other algorithm, the Wilcoxon signed-rank test and the win/tie/loss counts; a CSV of the ranks; two LaTeX tables; and figures. The p-values in the text report are not corrected for multiple comparisons; the Holm-corrected ones are in <code>&lt;suite&gt;_wilcoxon_summary.tex</code>. The CEC2011 results are labelled <code>D0</code>, meaning each problem at its own dimension.</p>
+<p><code>gsk-stats</code> is a convenience tool, so its numbers are close to the paper&#x27;s but not always identical: it uses a simpler rule for tied pairs in the Wilcoxon test, and on CEC2013LSGO it ranks the 13 functions at D = 1000, while the paper pools all 15. So a few Wilcoxon decisions differ (for example CEC2013 at D = 50, where <code>gsk-stats</code> shows three DT-GSK wins that the paper reports as ties). The exact statistics reported in the paper are in the files <code>friedman_ranks_*.csv</code> and <code>wilcoxon_holm_*.csv</code>, in the suite&#x27;s subfolder (for example <code>cec2017/</code>) of these folders under <code>papers/analysis/</code>: <code>rel-2026-07-20-67d9345f9/</code> (CEC2011, CEC2013, CEC2017), <code>cec2020-rel-2026-07-29-5867abe1e/</code> and <code>lsgo-rel-2026-07-28-ff1a046ef/</code>.</p>
+<p><strong>Including your own runs.</strong> <code>gsk-stats</code> reads the published results first, so your runs are not used by the commands above. Collect them into a panel folder first; your files replace the published ones for the same algorithm and dimension, and everything you did not run keeps its published result:</p>
+<pre><code class="code-block language-shell">python scripts/build_stats_panel.py --suite cec2017 --results my_results --out my_panel
+gsk-stats --suite cec2017 --reference-root my_panel --out comparison_mine/cec2017</code></pre>
+<p>For another suite, replace <code>cec2017</code> everywhere in both lines. Wait until each dimension you ran has finished for all functions (the script warns about a partial file, and about a run with fewer runs or a smaller budget than the published one), and compare <code>comparison_mine</code> with <code>comparison</code>, not with the tables in the paper.</p>
+<h3 id="step-7-find-your-results">Step 7. Find your results</h3>
+<p>Each algorithm writes to <code>my_results/&lt;algorithm&gt;/&lt;suite&gt;/summary/</code>:</p>
+<div class="table-wrap"><table><thead><tr><th>File</th><th>Contents</th></tr></thead><tbody><tr><td><code>per_run.csv</code></td><td>one row per run: function, dimension, run, seed, best fitness, error, evaluations used and runtime</td></tr><tr><td><code>&lt;algorithm&gt;_&lt;suite&gt;_D&lt;d&gt;.csv</code></td><td>the Best, Median, Mean, Worst and SD of each function&#x27;s error at dimension d (CEC2011 and CEC2013LSGO: of the objective value, so the <code>error</code> column of <code>per_run.csv</code> is <code>NaN</code> there; CEC2011 also writes <code>&lt;algorithm&gt;_cec2011.csv</code>, every problem you ran in one table)</td></tr><tr><td><code>run_config.json</code>, <code>environment.json</code></td><td>the exact settings and software versions of the run</td></tr></tbody></table></div>
+<p>Convergence curves are in <code>my_results/&lt;algorithm&gt;/&lt;suite&gt;/curves/</code>. The paper&#x27;s own result for every run of every algorithm is in <code>benchmarks/cec_reference_results/&lt;suite&gt;/&lt;algorithm&gt;/per_run.csv</code>.</p>
+<h3 id="troubleshooting">Troubleshooting</h3>
+<div class="table-wrap"><table><thead><tr><th>Problem</th><th>What to do</th></tr></thead><tbody><tr><td><code>&#x27;git&#x27; is not recognized</code></td><td>Install Git (Step 1) and open a new terminal.</td></tr><tr><td><code>Filename too long</code> while cloning (Windows)</td><td>Clone into a short folder such as <code>C:\DT-GSK</code>, or run <code>git config --global core.longpaths true</code> first.</td></tr><tr><td><code>&#x27;python&#x27; is not recognized</code>, or the wrong version</td><td>On Windows use <code>py -3.10</code> as in Step 2; <code>py --list</code> shows the installed versions.</td></tr><tr><td><code>python3.10: command not found</code> (Linux or macOS)</td><td>Install Python 3.10 (Ubuntu: <code>sudo add-apt-repository ppa:deadsnakes/ppa</code>, then <code>sudo apt install python3.10 python3.10-venv</code>; macOS: the python.org installer; anywhere: pyenv), or use your system <code>python3</code> if <code>python3 --version</code> shows 3.11 to 3.13 (accepted, not tested). Then repeat Step 2.</td></tr><tr><td><code>ensurepip is not available</code> when creating the environment (Debian or Ubuntu)</td><td>Install the venv module for that Python, for example <code>sudo apt install python3.10-venv</code> (or <code>python3.12-venv</code>), delete the <code>.venv</code> folder, and repeat Step 2.</td></tr><tr><td><code>running scripts is disabled on this system</code> (PowerShell)</td><td>Run <code>Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass</code>, then activate again; or use Command Prompt.</td></tr><tr><td><code>No module named &#x27;gsk_family&#x27;</code>, or <code>gsk-stats</code> is not recognized</td><td>The environment is not active in this window: activate it (Step 2). If it still fails, run <code>python -m pip install -e &quot;.[dev]&quot;</code> again.</td></tr><tr><td>A run pauses for a minute or more after it starts, or after it prints its settings</td><td>Numba is compiling its kernels once; wait.</td></tr><tr><td>The &quot;Mean Comparison&quot; table shows <code>v</code> and <code>Worse</code> after a short test</td><td>Expected when <code>--max-evaluations</code> cuts the budget.</td></tr><tr><td>A run ends with <code>WARN &lt;ALGORITHM&gt; failed=N</code> instead of <code>PASS</code>, or stops with an error that mentions <code>skipped_runs.csv</code> (often a memory error, for example on CEC2013LSGO)</td><td>Lower <code>--workers</code> and run the same command again; only the missing runs are repeated.</td></tr><tr><td><code>gsk-stats</code> says <code>reference directory not found</code></td><td>If the message lists the suites it found, fix the spelling after <code>--suite</code>. Otherwise the published results are missing: use a full clone (Step 1), and run the command from the project folder.</td></tr></tbody></table></div>
+      </section>
+      <section class="part maintainer">
+        <span class="badge maint">For maintainers</span>
+<h2 id="part-2-maintainer-and-paper-pipeline-reference">Part 2. Maintainer and paper-pipeline reference</h2>
+<p>The rest of this runbook is the terse copy-paste reference behind the paper: the revision experiments, the complete data-to-PDF pipeline, the release gates and the freeze cycle, plus advanced run variants. Everything in Part 1 still applies. Run everything from the repository root (the folder that contains <code>run.py</code>, <code>pyproject.toml</code>, and <code>src/gsk_family/</code>); every command passes <code>--root .</code>, so it is portable regardless of where the checkout lives on disk.</p>
+<p>For the narrative version of these commands -- with rationale, defaults, the console-output contract, and the parallel-backend guide -- see <a href="README.md">README.md</a>. The two documents are kept consistent; this runbook is the terse copy-paste companion.</p>
+<p><strong>Optimizers (7 runnable):</strong> <code>gsk</code>, <code>agsk</code>, <code>apgsk</code>, <code>fdb-agsk</code>, <code>atmals-gsk</code>, <code>dt-gsk</code> (the proposed Dimension-Tiered Gaining-Sharing Knowledge), and <code>egsk</code>. <code>egsk</code> is a runnable optimizer ID, but its statistical-panel cells still come from the committed reference data under <code>benchmarks/cec_reference_results/</code>. <strong>Suites (6):</strong> <code>cec2017</code>, <code>cec2011</code>, <code>cec2020</code>, <code>cec2013</code>, <code>cec2013lsgo</code>, <code>sphere</code>.</p>
+<h2 id="discover-before-you-run">Discover Before You Run</h2>
+<pre><code class="code-block language-powershell"># Full CLI help (every flag, with defaults)
+python run.py --root . --help
+
+# What optimizers, benchmarks, and reference evidence are available
+gsk-list --optimizers --benchmarks --references benchmarks/cec_reference_results</code></pre>
+<p><code>gsk-list</code> is installed by the editable install (<code>pip install -e .</code>). From a plain <code>pip</code> checkout, run <code>$env:PYTHONPATH = &quot;src&quot;</code> in the shell first and then call <code>python -m gsk_family.cli.list</code> instead (see <a href="#setup">Setup</a>).</p>
+<h2 id="setup">Setup</h2>
+<p>Editable install with the dev extra (enables the <code>gsk-*</code> console scripts plus test, lint, and docs tooling), then run the test suite:</p>
+<pre><code class="code-block language-powershell">python -m pip install -e &quot;.[dev]&quot;
+python -m pytest -q</code></pre>
+<p>Plain pip instead (libraries only, no editable package, so no <code>gsk-*</code> scripts). <code>python run.py</code> and <code>scripts\run_gsk_family.py</code> work as they are, because each adds <code>src/</code> to the import path itself. The <code>python -m gsk_family.cli.*</code> module forms do not, and neither do most other scripts that import <code>gsk_family</code> (for example the <code>scripts\run_all_*.py</code> and <code>scripts\run_ablation.py</code> launchers, <code>papers\scripts\generate_ablation_matrix.py</code> and <code>generate_ablation_exhibits.py</code>): they stop with <code>ModuleNotFoundError: No module named &#x27;gsk_family&#x27;</code> unless <code>src</code> is on <code>PYTHONPATH</code>, so set it once per shell, from the repository root:</p>
+<pre><code class="code-block language-powershell">python -m pip install -r requirements.txt        # runtime only
+python -m pip install -r requirements-dev.txt    # runtime + dev tooling
+$env:PYTHONPATH = &quot;src&quot;                          # for python -m gsk_family.cli.* and the scripts\ launchers</code></pre>
+<p>Requires CPython <code>&gt;=3.10,&lt;3.14</code>. The runtime stack is NumPy, SciPy, pandas, matplotlib, PyYAML, and Numba (version ranges pinned in <code>pyproject.toml</code>).</p>
+<h2 id="journal-revision-experiments-one-command">Journal Revision Experiments (one command)</h2>
+<p>The five reviewer-requested experiments from the Algorithms revision: E1-E4 from the round-1 major revision (D-0047, CR-0023), plus E5, added in round 2 and pre-registered as <strong>Amendment A4</strong> before it executed. The other six round-1 reviewer points needed no runs and are already applied.</p>
+<p><strong>Rehearse first — 20 seconds, and it verifies itself:</strong></p>
+<pre><code class="code-block language-powershell">python scripts\run_revision_experiments.py --smoke</code></pre>
+<p>Runs every kind of leg through the identical code path at tiny scope (2 functions, 2 runs, one dimension, 3,000 evaluations), then checks that each leg actually wrote the rows it promised and prints <code>SMOKE PASSED</code> or <code>SMOKE FAILED</code>. Output goes to <code>results/_revision_smoke/</code>, which is gitignored and can never reach the campaign tree. Do not start the real run until this is green.</p>
+<p><strong>Then the real thing. This is the whole command:</strong></p>
+<pre><code class="code-block language-powershell">python scripts\run_revision_experiments.py</code></pre>
+<p>Start it and leave it. It is <strong>resumable</strong>: after any interruption — Ctrl-C, a reboot, a crashed leg — re-run the identical line and it continues from the first incomplete cell instead of repeating finished work. Every leg is written <code>overwrite: false</code>.</p>
+<div class="table-wrap"><table><thead><tr><th>Leg</th><th>Reviewer point</th><th>What it runs</th><th>Runs</th></tr></thead><tbody><tr><td>E1</td><td>R2.3</td><td>Coordinate-basis final polish (the missing third arm)</td><td>2,958</td></tr><tr><td>E2</td><td>R1.3 / R2.2</td><td>DT-GSK at the comparators&#x27; <code>NP = 100</code></td><td>5,916</td></tr><tr><td>E3</td><td>R2.1</td><td>Uniform vs tiered: the D=10 and D=100 parameter sets applied at every dimension</td><td>11,832</td></tr><tr><td>E4</td><td>R2.7</td><td>Parameter sensitivity, 27 one-factor cells</td><td>11,745</td></tr><tr><td>E5</td><td>R2.7</td><td>Dimension-boundary sensitivity, 4 executed cells (round 2, Amendment A4)</td><td>1,740</td></tr><tr><td></td><td></td><td><strong>Total</strong></td><td><strong>34,191</strong></td></tr></tbody></table></div>
+<p>E5 registers <strong>five</strong> boundary cells but runs four. The fifth — boundary 20 -&gt; 31, i.e. the low-tier parameter set applied at D = 30 — is identical by construction to E3&#x27;s uniform-low arm at D = 30 (51 runs per function), so it is reused from the promoted round-1 release <code>rev-rel-2026-08-26-dd42d37eb</code> rather than re-executed. E5&#x27;s four executed cells use 15 runs per function, as E4 does.</p>
+<p>Roughly 25–33 hours at 15 workers for E1–E4; E5&#x27;s four cells add about five percent to that. Progress is printed and appended to <code>results/_revision/driver.log</code>, so a detached run can be followed with:</p>
+<pre><code class="code-block language-powershell">Get-Content -Wait results\_revision\driver.log</code></pre>
+<p>Useful variants:</p>
+<pre><code class="code-block language-powershell">python scripts\run_revision_experiments.py --smoke        # 20 s rehearsal, self-verifying
+python scripts\run_revision_experiments.py --status       # progress table, runs nothing
+python scripts\run_revision_experiments.py --dry-run      # the plan, runs nothing
+python scripts\run_revision_experiments.py --only E1,E2   # a subset
+python scripts\run_revision_experiments.py --only E5      # the round-2 leg alone
+python scripts\run_revision_experiments.py --workers 8    # fewer workers</code></pre>
+<p><code>--smoke</code> composes with the others, so <code>--smoke --dry-run</code> shows the rehearsal plan without running it.</p>
+<p>The smoke run prints per-function comparisons against the reference bank that will look alarming — &quot;Worse: 2&quot;, errors around 1e+09. That is expected and not a failure: 3,000 evaluations against the reference&#x27;s 100,000–1,000,000. Judge the smoke by the <code>SMOKE PASSED</code> line, not by those tables.</p>
+<p>Notes that matter:</p>
+<ul>
+<li>Output is staged under <code>results/_revision/</code>, <strong>never</strong> <code>benchmarks/</code>. Promotion into an evidence release is a separate, deliberate step.</li>
+<li>The driver pins <code>OMP</code>/<code>MKL</code>/<code>OPENBLAS</code>/<code>NUMBA</code> thread counts to 1 per worker. D &gt;= 50 byte-stability depends on that; do not run the legs by hand without it.</li>
+<li>E3&#x27;s override dictionaries are generated programmatically from <code>_dt_profiles.pub_overrides()</code>. Eighty-eight config keys differ between the D=10 and D=100 tiers — never transcribe them.</li>
+<li><strong>E1 is driven by <code>scripts/run_e1_basis_contrast.py</code>, not by a YAML config.</strong> It needs the research hook <code>research_oracle_basis</code>, which the public adapter deliberately does not forward and which <code>tests/regression/test_dormant_mechanisms_unreachable.py</code> exists to keep unreachable from every config, profile, CLI and adapter path — that test also pins the adapter&#x27;s source text, and <code>dt_gsk.py</code> is hash-gated by <code>validate_provenance_claims.py</code>. Expressing E1 as a config would break a regression test and a hash gate. The tripwire scans <code>src/gsk_family</code> only and its docstring records that reaching the hooks &quot;requires a new evidence release&quot;, which is what E1 produces. Nothing under <code>src/</code> is modified.</li>
+<li>The pre-registration addendum is <strong>signed</strong>: <code>papers/review_2026_08_24/revision_experiments_preregistration.md</code>, dated 2026-08-25, before any result from these experiments existed. It records that §1.4 of <code>papers/build_prompt_phases/phase_05/ablation_preregistration.md</code> — which binds that a mechanism be verified ON in the baseline at a dimension before a disable delta is claimed there — does <strong>not</strong> govern E1 or E3, and registers replacement rules rather than reinterpreting it: E1 holds enablement constant and substitutes the basis, E3 is a configuration transplant with its own binding rule. E3 licenses only &quot;the tiered configuration does / does not outperform a tier-constant one at dimension d&quot;; no E3 cell may be attributed to a single subsystem. E4 is registered <strong>exploratory</strong> — descriptive only, no hypothesis tests and no corrected p-values. The addendum is append-only: two amendments dated 2026-08-26 record an E4 perturbation-level deviation at D=100 and a corrected E2 scope statement.</li>
+</ul>
+<h2 id="after-the-campaign-promotion-analysis-exhibits">After The Campaign (promotion, analysis, exhibits)</h2>
+<p>The campaign of record is already through this chain. Run it in this order:</p>
+<pre><code class="code-block language-powershell">python papers/scripts/promote_revision_experiments.py --dry-run
+python papers/scripts/promote_revision_experiments.py
+python papers/scripts/analyze_revision_experiments.py
+python papers/scripts/generate_revision_exhibits.py</code></pre>
+<ul>
+<li><strong>Promotion</strong> writes the flat, manifest-bound tree <code>benchmarks/cec_reference_results/_revision/</code> — release <strong><code>rev-rel-2026-08-26-dd42d37eb</code></strong>, 31 arms, 252 files, read-only — not the retired <code>_releases/&lt;release-id&gt;/</code> layout. <code>curves/</code> and per-session console logs are excluded by manifest, never silently dropped. Re-running against an existing tree verifies instead of re-copying, and adds only missing arms.</li>
+<li><strong>Analysis</strong> is strict-source: it reads the promoted tree plus the two frozen releases it pairs with, never <code>results/</code>. It mints the self-manifested bundle <code>papers/analysis/rev-rel-2026-08-26-dd42d37eb/</code> and refuses to emit unless seed pairing verifies and its pinned known-answer battery reproduces.</li>
+<li><strong>Exhibits</strong> render SA05--SA08 — Supplementary Section S9, Tables A43--A46 — and their Word twins from that bundle, from the same plain data in both formats.</li>
+</ul>
+<p>The release is <strong>additive and non-superseding</strong>: the primary release <code>rel-2026-07-20-67d9345f9</code> is untouched and <code>check_frozen_analysis</code> still reads 115/115 byte-identical.</p>
+<h2 id="full-paper-pipeline-in-order">Full Paper Pipeline (in order)</h2>
+<p>The complete data-to-PDF sequence. <code>--workers 15</code> is shown (matches <code>configs/publish/</code>); drop to the safe baseline <code>2</code> if memory-constrained (see <a href="#common-flags">Common Flags</a>). <strong>Dependency order:</strong> §1 data -&gt; §3 stats -&gt; §5/§6 figures &amp; tables -&gt; §7 build; and §2 ablation -&gt; §4 aggregate -&gt; §6 table. The granular sections below this one give variants (tight-on-memory, reference-seed, per-optimizer, targeted). The numbered comments in the block below (1 to 8d) are pipeline stages, not Part 1&#x27;s Steps; the &quot;see runbook.md step 7&quot; in <code>papers/scripts/build_change_marked_pdf.py</code> means stage 7 here (Build the PDFs).</p>
+<pre><code class="code-block language-powershell"># --- 1. Generate run data: the three benchmark campaigns ---
+# Thread pinning is NOT optional at D &gt;= 50. run.py pins nothing by itself
+# (scripts/run_campaign.py sets the six variables below to 1, and
+# scripts/run_revision_experiments.py sets five of them for its workers),
+# and thread count sets floating-point reduction order in DT-GSK&#x27;s Numba
+# kernels, which --numba-threads 1 pins per worker, and in NumPy&#x27;s BLAS/LAPACK
+# calls (the eigendecomposition behind the final polish among them), which only
+# the BLAS/OpenMP variables reach, and only when set before Python starts. An
+# unpinned re-run is not comparable with a pinned one. It is NOT a promise that
+# a pinned re-run reproduces archived bytes: D-0051 demonstrated the opposite
+# across builds -- a pinned re-execution reproduced the transplant arm on all
+# 26 divergent cells and the archive on none. Pin it so a run is comparable
+# with itself.
+# --overwrite rebuilds each optimizer&#x27;s per_run.csv for the suite from scratch.
+# After an interruption, re-run the same line WITHOUT it to resume; but an
+# optimizer the interrupted run never reached still holds any earlier rows,
+# which a resume keeps, so re-run that optimizer with --overwrite instead.
+$env:OMP_NUM_THREADS=1; $env:MKL_NUM_THREADS=1; $env:OPENBLAS_NUM_THREADS=1
+$env:VECLIB_MAXIMUM_THREADS=1; $env:NUMEXPR_NUM_THREADS=1; $env:NUMBA_NUM_THREADS=1
+python run.py --root . --optimizer gsk,agsk,apgsk,fdb-agsk,atmals-gsk,egsk,dt-gsk --suite cec2017 --function 1:30 --dimension 10,30,50,100 --runs 51 --parallel --workers 15 --numba-threads 1 --convergence-graphs --overwrite
+python run.py --root . --optimizer gsk,agsk,apgsk,fdb-agsk,atmals-gsk,egsk,dt-gsk --suite cec2011 --function 1:22 --dimension native --runs 25 --parallel --workers 15 --numba-threads 1 --convergence-graphs --overwrite
+python run.py --root . --optimizer gsk,agsk,apgsk,fdb-agsk,atmals-gsk,egsk,dt-gsk --suite cec2013 --function 1:28 --dimension 10,30,50 --runs 51 --parallel --workers 15 --numba-threads 1 --convergence-graphs --overwrite
+
+# --- 1b. The two additional suites (five-suite scope, CR-0019). CEC2020 runs its
+#     locked family config and resumes. CEC2013LSGO takes two lines: DT-GSK reproduces
+#     only under configs/dtgsk_cec2013lsgo.yml, and scripts/run_all_cec2013lsgo.py is a
+#     one-cell GSK smoke, not a campaign ---
+python scripts/run_all_cec2020.py --workers 15
+python run.py --root . --optimizer gsk,agsk,apgsk,fdb-agsk,atmals-gsk,egsk --suite cec2013lsgo --function 1:15 --dimension native --runs 25 --parallel --workers 4 --numba-threads 1
+python run.py --root . --config configs/dtgsk_cec2013lsgo.yml --workers 4
+
+# --- 2. DT-GSK scaffold ablation: CEC2017, all dimensions ---
+python scripts/run_ablation.py --dimension 10,30,50,100 --runs 51 --workers 15
+
+# --- 3. Statistical panels (per suite). These report the COMMITTED panel in
+#     benchmarks/cec_reference_results/, not step 1&#x27;s output: results/_run_all/
+#     is read only for a proposed-optimizer cell the panel lacks, and the panel
+#     carries every cell. To analyse step 1&#x27;s runs, see &quot;Analysing your own
+#     runs&quot; under Statistical Analysis below ---
+python -m gsk_family.cli.stats --suite CEC2017 --dims 10,30,50,100
+python -m gsk_family.cli.stats --suite CEC2011
+python -m gsk_family.cli.stats --suite CEC2013 --dims 10,30,50
+
+# --- 3b. Registered CEC2020 + CEC2013LSGO batteries (phase6b; reads the two
+#     promoted releases, reproduces Amendments 1-3&#x27;s pinned values or fails).
+#     One run per suite: the driver refuses --suite both, because the two
+#     suites belong to different releases. --out-root keeps each re-run out of
+#     the committed bundles under papers/analysis/, which it would otherwise
+#     rewrite with this checkout&#x27;s git head and working directory ---
+python papers/scripts/phase6b_run_analysis_newsuites.py --suite cec2020 --out-root &quot;$env:TEMP\phase6b_cec2020&quot;
+python papers/scripts/phase6b_run_analysis_newsuites.py --suite cec2013lsgo --out-root &quot;$env:TEMP\phase6b_lsgo&quot;
+
+# --- 4. Aggregate the ablation (per dimension) ---
+python papers/scripts/generate_ablation_matrix.py --dimension 10
+python papers/scripts/generate_ablation_matrix.py --dimension 30
+python papers/scripts/generate_ablation_matrix.py --dimension 50
+python papers/scripts/generate_ablation_matrix.py --dimension 100
+
+# --- 5. Figures ---
+python papers/scripts/generate_full_convergence.py
+python papers/scripts/generate_cec2011_convergence.py
+python papers/scripts/generate_cec2013_convergence.py --dimension 30
+python papers/scripts/generate_nemenyi_cd.py
+python papers/scripts/generate_rank_charts.py
+python papers/scripts/generate_trace_figures.py
+python papers/scripts/generate_nlpsr_trajectory.py
+python papers/scripts/generate_adaptive_params_panel.py
+
+# --- 6. Tables (read frozen, checked-in evidence: benchmarks/cec_reference_results/_paper_tables/,
+#     papers/analysis/rel-2026-07-20-67d9345f9/ and papers/analysis/rev-rel-2026-08-26-dd42d37eb/
+#     — not results/ staging) ---
+python papers/scripts/generate_latex_tables.py
+python papers/scripts/generate_t16_bca.py
+python papers/scripts/generate_revision_exhibits.py   # S9 exhibits SA05-SA08 = Tables A43-A46
+
+# --- 7. Build the PDFs. Since pass-53 the epoch is pinned INSIDE the builders
+#     (build_pdf.py:67, build_supplementary.py:42; pass-54&#x27;s build_cover_letter.py
+#     pins it too, at :43),
+#     so do NOT export it here. Exporting it is now the only way to create the
+#     hazard step 7b warns about, because the DOCX writer prefers an inherited
+#     SOURCE_DATE_EPOCH over its own different default ---
+python papers/scripts/build_pdf.py
+python papers/scripts/build_supplementary.py
+python papers/scripts/build_cover_letter.py   # cover_letter.pdf is files[10]
+python papers/scripts/generate_review_pack.py
+
+# --- 7b. Word twins, IN A FRESH SHELL. The DOCX epoch is a different number and
+#     _word_ooxml.source_date_epoch() PREFERS an inherited SOURCE_DATE_EPOCH over
+#     its 1783641600 default, so a shell still carrying the PDF&#x27;s 1783468800
+#     silently produces a non-reproducible DOCX that still passes every gate.
+#     build_docx.py consumes the checked-in table sources under
+#     papers/tables/word_sources/*.json; it does not regenerate them ---
+Remove-Item Env:FORCE_SOURCE_DATE -ErrorAction SilentlyContinue
+$env:SOURCE_DATE_EPOCH = &quot;1783641600&quot;
+python papers/scripts/build_docx.py
+python papers/scripts/build_docx.py --supplementary
+# Both DOCX files are freeze-tracked. Build every artifact TWICE and byte-compare
+# before trusting check_manifest.
+
+# --- 8. Quality gates (code side) ---
+python -m pytest -q
+python -m ruff check .
+python scripts\validate_profile_lock.py --root .
+python scripts\build_docs_html.py
+
+# --- 8b. Manuscript gate battery (the pass-41 battery; commit-field resolvability gated since pass-56). Every one must exit 0;
+#     the three counted ones read 15/15, 115/115 and 755 rows / 0 FAIL ---
+python papers/scripts/check_manifest.py
+python papers/scripts/check_reproducibility_manifest.py  # ungated until pass-54;
+#     the reproducibility manifest went stale INSIDE its own pass three times,
+#     always by being refreshed before the artifacts were rebuilt. Run it AFTER
+#     every rebuild, not with the mint.
+python papers/scripts/check_frozen_analysis.py
+python papers/scripts/validate_cross_format_parity.py
+python papers/scripts/validate_document_consistency.py
+python papers/scripts/validate_build_hygiene.py
+python papers/scripts/validate_artifact_labels.py
+python papers/scripts/validate_citation_cff.py
+python papers/scripts/validate_citation_controls.py
+python papers/scripts/validate_provenance_claims.py
+python papers/scripts/validate_evidence_bindings.py
+python papers/scripts/validate_docx.py papers/DT-GSK.docx
+python papers/scripts/validate_docx.py papers/supplementary.docx
+python scripts/check_package_contents.py  # builds sdist+wheel from `git archive HEAD`
+#     and fails if either carries the evidence bank, papers/, or withheld
+#     material. Added 2026-08-29 after a setuptools upgrade started honoring the
+#     old recursive package-data glob and produced a 1.2 GB wheel.
+
+# --- 8c. Freeze re-mint, after any change to one of the 15 files tracked in
+#     papers/governance/main_manuscript_freeze_manifest.json. Re-mint it
+#     byte-surgically -- CRLF, 2-space indent, both `sha256` and `bytes`
+#     updated per file -- and verify the json.dumps(indent=2, ensure_ascii=False)
+#     round-trip AND the trailing-byte convention against the ORIGINAL bytes
+#     before rewriting; read_text()/write_text() normalize the line endings and
+#     break every hash. Procedure of record:
+#     docs/development/FINAL_PUBLICATION_PLAN.md (take the trailing bytes from
+#     the file, not from that document -- this manifest does end with a
+#     trailing CRLF) ---
+
+# --- 8d. check_manifest hashes the WORKING TREE, not the committed blob, so a
+#     re-saved binary can still pass 15/15. Close that blind spot by hand: each
+#     size below must equal the `bytes` recorded for that file in the manifest ---
+git cat-file -s HEAD:papers/DT-GSK.pdf
+git cat-file -s HEAD:papers/DT-GSK.docx
+git cat-file -s HEAD:papers/supplementary.pdf
+git cat-file -s HEAD:papers/supplementary.docx
+git cat-file -s HEAD:papers/cover_letter.pdf</code></pre>
+<h2 id="smoke-test">Smoke Test</h2>
+<p>A few seconds: one optimizer, one function, a tiny evaluation budget. Use this to confirm the toolchain before launching a full sweep:</p>
+<pre><code class="code-block language-powershell">python run.py --root . --optimizer gsk --suite sphere --function 1 --dimension 4 --runs 1 --max-evaluations 80 --overwrite</code></pre>
+<p>Or run a packaged smoke campaign from YAML:</p>
+<pre><code class="code-block language-powershell">python run.py --root . --config configs/smoke.yml --output-root results/_smoke</code></pre>
+<p>The config runs one reduced-budget GSK CEC2017 cell (F1, <code>D = 10</code>, 1,000 evaluations) with <code>overwrite: true</code> and names <code>results/_run_all/</code> as its output root. Keep <code>--output-root results/_smoke</code>: in the shared tree the run would rebuild <code>results/_run_all/gsk/cec2017/summary/per_run.csv</code> from that one run, and a later campaign run without <code>--overwrite</code> (such as <code>scripts\run_all_cec2017.py</code>) would keep its reduced-budget row as run 1 of F1 at <code>D = 10</code>, because resume matches function, dimension, run and seed only.</p>
+<h2 id="cec2017-all-optimizers">CEC2017 All Optimizers</h2>
+<p>Use a visible worker count in campaign commands. The safe baseline is <code>--workers 2</code>; increase the number only when you know the machine has spare CPU and memory and you are not running other heavy work. <code>--convergence-graphs</code> opts in to rendered PNG plots; omit it when you only need the convergence CSV files.</p>
+<pre><code class="code-block language-powershell">python run.py --root . --optimizer gsk,agsk,apgsk,fdb-agsk,atmals-gsk,egsk,dt-gsk --suite cec2017 --function 1:30 --dimension 10,30,50,100 --runs 51 --parallel --workers 2 --numba-threads 1 --convergence-graphs --overwrite</code></pre>
+<p>To resume after a crash or reboot, re-run the same line <strong>without</strong> <code>--overwrite</code>: runs already recorded are skipped. With it, the runner rebuilds each named optimizer&#x27;s <code>per_run.csv</code> for the suite from this invocation alone, discarding every earlier row, not only the cells the command names (see <a href="#common-flags">Common Flags</a>); this line names the whole suite, so nothing outside it is lost. The optimizers run one after another, so an optimizer the interrupted run never reached still holds whatever the tree held before, and a resume would keep it; re-run that optimizer with <code>--overwrite</code> instead. <code>--numba-threads 1</code> keeps the <code>D = 50</code> and <code>D = 100</code> cells comparable (see <a href="#full-paper-pipeline-in-order">Full Paper Pipeline</a> step 1).</p>
+<h2 id="other-full-sweeps">Other Full Sweeps</h2>
+<p>Benchmark backend defaults to <code>auto</code>, which uses the Python/Numba evaluator. Use <code>--parallel --workers 2</code> as the safe baseline; raise <code>2</code> deliberately when the machine has enough headroom. Each line pins one Numba thread per worker, as the locked <code>configs/family_*.yml</code> campaigns do (<code>numba_threads: 1</code>), and recomputes its suite from scratch (resuming is covered under <a href="#cec2017-all-optimizers">CEC2017 All Optimizers</a>). The CEC2020 and CEC2013-LSGO lines write to <code>results/_rerun/</code>, because the tracked campaign staging for those two suites already lives in <code>results/_run_all/</code> and <code>--overwrite</code> would rebuild it.</p>
+<pre><code class="code-block language-powershell"># CEC2020 - 10 functions, dims 5/10/15/20
+python run.py --root . --optimizer gsk,agsk,apgsk,fdb-agsk,atmals-gsk,egsk,dt-gsk --suite cec2020 --function 1:10 --dimension 5,10,15,20 --runs 30 --parallel --workers 2 --numba-threads 1 --convergence-graphs --output-root results/_rerun --overwrite
+
+# CEC2013 - 28 functions, dims 10/30/50
+python run.py --root . --optimizer gsk,agsk,apgsk,fdb-agsk,atmals-gsk,egsk,dt-gsk --suite cec2013 --function 1:28 --dimension 10,30,50 --runs 51 --parallel --workers 2 --numba-threads 1 --convergence-graphs --overwrite
+
+# CEC2011 - native per-problem dims
+python run.py --root . --optimizer gsk,agsk,apgsk,fdb-agsk,atmals-gsk,egsk,dt-gsk --suite cec2011 --function 1:22 --dimension native --runs 25 --parallel --workers 2 --numba-threads 1 --convergence-graphs --overwrite
+
+# CEC2013-LSGO - D=1000, very expensive; shown for one optimizer
+python run.py --root . --optimizer gsk --suite cec2013lsgo --function 1:15 --dimension 1000 --runs 25 --parallel --workers 2 --numba-threads 1 --convergence-graphs --output-root results/_rerun --overwrite</code></pre>
+<h2 id="cec2013-family-panel">CEC2013 Family Panel</h2>
+<p>CEC2013 is the second GSK-family comparison suite: 28 functions, dims 10/30/50, 51 runs (CEC2013 competition standard). Run the full 7-optimizer panel (note: <code>egsk</code> runs via the scipy-SLSQP port, and the statistical panel reads <code>egsk</code> from the committed <code>scipy</code>-SLSQP port CSVs, the comparator of record):</p>
+<pre><code class="code-block language-powershell">python run.py --root . --optimizer gsk,agsk,apgsk,fdb-agsk,atmals-gsk,egsk,dt-gsk --suite cec2013 --function 1:28 --dimension 10,30,50 --runs 51 --parallel --workers 2 --numba-threads 1 --convergence-graphs --overwrite</code></pre>
+<p>Tight on memory -- one optimizer at a time (repeat per optimizer id):</p>
+<pre><code class="code-block language-powershell">python run.py --root . --optimizer dt-gsk --suite cec2013 --function 1:28 --dimension 10,30,50 --runs 51 --parallel --workers 2 --numba-threads 1 --convergence-graphs --overwrite</code></pre>
+<p>The runs above land under <code>results/_run_all/&lt;optimizer&gt;/cec2013/</code>. Every committed panel CSV is unified-seed (each <code>run_config.json</code> records <code>seed_policy: unified</code>), so a <code>--seed-policy reference</code> run does not line up with them. That policy switches a comparator to its original implementation&#x27;s own seed formula, for parity checks against that implementation, and leaves <code>dt-gsk</code> on the unified seed under every policy (see <code>docs/reference/seed_policy.md</code>). Give such a run its own output root, so its rows never mix with or replace the runs in <code>results/_run_all/</code>:</p>
+<pre><code class="code-block language-powershell">python run.py --root . --optimizer agsk --suite cec2013 --function 1:28 --dimension 10,30,50 --runs 51 --seed-policy reference --parallel --workers 2 --numba-threads 1 --output-root results/_reference_seed --overwrite</code></pre>
+<p>The CEC2013 family report (Friedman ranks, Nemenyi CD, pairwise Wilcoxon/Holm, effect sizes) reads every optimizer, <code>dt-gsk</code> included, from <code>benchmarks/cec_reference_results/cec2013/</code>, which carries all seven, so it reports the committed panel rather than the runs above (see <a href="#statistical-analysis">Statistical Analysis</a> to analyse your own runs):</p>
+<pre><code class="code-block language-powershell">python -m gsk_family.cli.stats --suite CEC2013 --dims 10,30,50</code></pre>
+<p>CEC2013 convergence-curve grids (28 functions at a chosen dimension; the script finds the panel whether it lands in <code>benchmarks/cec_reference_results/cec2013/</code> or a reproduced-run tree):</p>
+<pre><code class="code-block language-powershell">python papers/scripts/generate_cec2013_convergence.py --dimension 30</code></pre>
+<p>The CEC2013 head-to-head (T11--T13) and Wilcoxon summary (T14) LaTeX tables are emitted by the shared table generator, which reads the promoted evidence at <code>benchmarks/cec_reference_results/_paper_tables/</code> and never touches <code>results/</code> staging:</p>
+<pre><code class="code-block language-powershell">python papers/scripts/generate_latex_tables.py</code></pre>
+<h2 id="config-launchers">Config Launchers</h2>
+<p>Only <code>run_all_cec2020.py</code> runs a paper campaign (<code>configs/family_cec2020.yml</code>). <code>run_all_cec2017.py</code> and <code>run_all_cec2011.py</code> run <code>configs/all_cec2017.yml</code> and <code>configs/all_cec2011.yml</code> (five optimizers without <code>egsk</code> and <code>dt-gsk</code>, 25 runs, unpinned Numba threads). <code>run_all_cec2013.py</code> and <code>run_all_cec2013lsgo.py</code> are one-cell GSK smokes (F1, 1 run, 1,000 evaluations, <code>--overwrite</code>, written under <code>results/</code>). For the paper&#x27;s settings use the commands in <a href="#step-5-run-the-algorithms-on-a-benchmark-suite">Part 1, Step 5</a>. The launchers live in <code>scripts/</code> (see <a href="scripts/README.md">scripts/README.md</a>):</p>
+<pre><code class="code-block language-powershell">python scripts\run_all_cec2017.py
+python scripts\run_all_cec2011.py
+python scripts\run_all_cec2020.py
+python scripts\run_all_cec2013.py
+python scripts\run_all_cec2013lsgo.py</code></pre>
+<p>You can also drive campaigns directly from the YAML files in <code>configs/</code>:</p>
+<pre><code class="code-block language-powershell">python run.py --root . --config configs/all_cec2017.yml   # five-optimizer, 25-run template, not the paper&#x27;s settings
+python run.py --root . --config configs/all_optimizers_smoke.yml
+python run.py --root . --config configs/all_optimizers_cec2017_reduced.yml</code></pre>
+<h2 id="common-flags">Common Flags</h2>
+<div class="table-wrap"><table><thead><tr><th>Flag</th><th>Effect</th></tr></thead><tbody><tr><td><code>--root .</code></td><td>Project root; keeps the command portable across checkout locations.</td></tr><tr><td><code>--optimizer a,b,c</code></td><td>Comma-separated optimizer IDs to run.</td></tr><tr><td><code>--suite NAME</code></td><td>One of the six suites.</td></tr><tr><td><code>--function 1:30</code> or <code>--function 5</code></td><td>Function range (<code>lo:hi</code>) or single ID.</td></tr><tr><td><code>--dimension 10,30,50,100</code> / <code>native</code></td><td>Comma-separated dims; <code>native</code> uses each problem&#x27;s intrinsic dimension (CEC2011).</td></tr><tr><td><code>--runs 51</code></td><td>Independent runs per cell (CEC2017 convention is 51; CEC2011 commonly 25).</td></tr><tr><td><code>--max-evaluations N</code></td><td>Override the evaluation budget (used by smoke cells).</td></tr><tr><td><code>--parallel</code> / <code>--serial</code></td><td>Process pool vs single process; parallel is the default unless <code>--serial</code>.</td></tr><tr><td><code>--workers N</code></td><td>Bound concurrent processes (and peak memory). Safe baseline <code>2</code>.</td></tr><tr><td><code>--convergence-graphs</code> / <code>--no-convergence-graphs</code></td><td>Render PNG curves, or write curve CSVs only.</td></tr><tr><td><code>--numba-threads 1</code></td><td>One Numba thread per worker process. <code>run.py</code> pins none by itself; keep it for DT-GSK at <code>D &gt;= 50</code> (see <a href="#full-paper-pipeline-in-order">Full Paper Pipeline</a> step 1).</td></tr><tr><td><code>--overwrite</code></td><td>Rebuild each named optimizer&#x27;s <code>per_run.csv</code> for the suite from this invocation alone, discarding every earlier row, not only the named cells. Omit it to resume: recorded runs are skipped, matched on function, dimension, run and seed only (not budget or code version).</td></tr><tr><td><code>--seed-policy reference</code></td><td>Use the reference seed labels instead of the default unified schedule.</td></tr><tr><td><code>--stats</code></td><td>Stream per-dimension Wilcoxon + Friedman analysis live (opt-in; skips vanilla <code>gsk</code>; <code>cec2011</code> reports via its per-suite rollup).</td></tr></tbody></table></div>
+<h2 id="tight-on-memory">Tight On Memory</h2>
+<p>Run one optimizer at a time with the same safe worker baseline. After a crash, re-run the same line <strong>without</strong> <code>--overwrite</code> to resume: runs already recorded are skipped.</p>
+<pre><code class="code-block language-powershell">python run.py --root . --optimizer gsk --suite cec2017 --function 1:30 --dimension 10,30,50,100 --runs 51 --parallel --workers 2 --numba-threads 1 --convergence-graphs --overwrite
+python run.py --root . --optimizer agsk --suite cec2017 --function 1:30 --dimension 10,30,50,100 --runs 51 --parallel --workers 2 --numba-threads 1 --convergence-graphs --overwrite
+python run.py --root . --optimizer apgsk --suite cec2017 --function 1:30 --dimension 10,30,50,100 --runs 51 --parallel --workers 2 --numba-threads 1 --convergence-graphs --overwrite
+python run.py --root . --optimizer fdb-agsk --suite cec2017 --function 1:30 --dimension 10,30,50,100 --runs 51 --parallel --workers 2 --numba-threads 1 --convergence-graphs --overwrite
+python run.py --root . --optimizer atmals-gsk --suite cec2017 --function 1:30 --dimension 10,30,50,100 --runs 51 --parallel --workers 2 --numba-threads 1 --convergence-graphs --overwrite
+python run.py --root . --optimizer egsk --suite cec2017 --function 1:30 --dimension 10,30,50,100 --runs 51 --parallel --workers 2 --numba-threads 1 --convergence-graphs --overwrite
+python run.py --root . --optimizer dt-gsk --suite cec2017 --function 1:30 --dimension 10,30,50,100 --runs 51 --parallel --workers 2 --numba-threads 1 --convergence-graphs --overwrite</code></pre>
+<p>Need more speed? Increase the worker count deliberately:</p>
+<pre><code class="code-block language-powershell">python run.py --root . --optimizer gsk --suite cec2017 --function 1:30 --dimension 10,30,50,100 --runs 51 --parallel --workers 4 --numba-threads 1 --convergence-graphs --overwrite</code></pre>
+<h2 id="targeted-runs">Targeted Runs</h2>
+<p>A targeted run gets its own output root. With <code>--overwrite</code> in the shared <code>results/_run_all/</code> tree it would rebuild that optimizer&#x27;s whole <code>per_run.csv</code> from this one cell, discarding every other cell already recorded there.</p>
+<pre><code class="code-block language-powershell"># One optimizer, one function, one dimension
+python run.py --root . --optimizer agsk --suite cec2017 --function 5 --dimension 30 --runs 51 --parallel --workers 2 --convergence-graphs --output-root results/_targeted --overwrite
+
+# Same run with reference seed policy (a separate root again, so the two seed policies never mix)
+python run.py --root . --optimizer agsk --suite cec2017 --function 5 --dimension 30 --runs 51 --seed-policy reference --parallel --workers 2 --convergence-graphs --output-root results/_targeted_reference_seed --overwrite</code></pre>
+<h2 id="results-and-validation">Results And Validation</h2>
+<p>Stats, summaries, seed schedules, metadata, and convergence curves are written under:</p>
+<pre><code class="code-block language-text">results/_run_all/&lt;optimizer&gt;/&lt;suite&gt;/</code></pre>
+<p>Validate imported reference evidence:</p>
+<pre><code class="code-block language-powershell">python -m gsk_family.cli.validate --references benchmarks/cec_reference_results</code></pre>
+<p>Compare generated results with imported references:</p>
+<pre><code class="code-block language-powershell">python -m gsk_family.cli.validate --compare results/_run_all/gsk/cec2017 benchmarks/cec_reference_results</code></pre>
+<h2 id="statistical-analysis">Statistical Analysis</h2>
+<p>Paper-grade GSK-family comparison (Friedman ranks, Nemenyi CD, pairwise Wilcoxon/Holm, effect sizes); outputs land under <code>results/_run_all/_analysis/&lt;suite&gt;/</code>:</p>
+<pre><code class="code-block language-powershell">python -m gsk_family.cli.stats --suite CEC2017 --dims 10,30,50,100</code></pre>
+<p><strong>Single source of truth.</strong> All paper statistics -- including the proposed <code>dt-gsk</code> -- are read from the committed reference panel <code>benchmarks/cec_reference_results/&lt;suite&gt;/&lt;optimizer&gt;/</code> (flat layout: <code>&lt;optimizer&gt;_&lt;suite&gt;_D&lt;dim&gt;.csv</code> + <code>per_run.csv</code> + <code>curves/</code> + <code>gen_logs/</code>). The convergence-figure generators (§5 of the pipeline) also read curves and gen_logs from there. For <code>gsk-stats</code>, a local reproduced run under <code>results/_run_all/</code> is read only for the proposed optimizer, and only when the reference tree lacks that cell; it never reads comparators from <code>results/</code>. (The review pack below loads through <code>result_loader.load_comparison_set</code>, which falls back to <code>results/</code> for any optimizer the reference tree lacks.)</p>
+<p><strong>Analysing your own runs.</strong> Because the committed panel is read first, a fresh run of a cell it already carries does not change the report. Build a panel folder in which your runs replace the committed files for the same optimizer and dimension (everything you did not run keeps the committed file), then point <code>--reference-root</code> at it; <code>--out</code> keeps the report apart from the default <code>results/_run_all/_analysis/</code>:</p>
+<pre><code class="code-block language-powershell">python scripts/build_stats_panel.py --suite cec2017 --results results/_run_all --out results/_own_panel
+gsk-stats --suite cec2017 --reference-root results/_own_panel --out results/_own_panel/_analysis</code></pre>
+<p><strong>Regenerating reference data (avoid the doubled-suite trap).</strong> The runner <strong>refuses</strong> any <code>output_root</code> equal to or inside <code>benchmarks/cec_reference_results</code> — <code>ensure_output_root_allowed</code> aborts at startup, because the reference tree is the frozen evidence base. Regenerate into a staging root under <code>results/</code> and promote the vetted bundle with <code>scripts/promote_evidence.py</code> (promotion writes a versioned <code>benchmarks/cec_reference_results/_releases/&lt;release-id&gt;/</code> subtree; it never rewrites the flat live <code>&lt;suite&gt;/&lt;optimizer&gt;/</code> layout). The runner writes <code>&lt;output_root&gt;/&lt;optimizer&gt;/&lt;suite&gt;/</code>, so point <code>output_root</code> at the containing tree, <strong>not</strong> at a suite folder itself:</p>
+<pre><code class="code-block language-powershell"># correct -&gt; results/_refresh_staging/&lt;optimizer&gt;/&lt;suite&gt;/...
+python run.py --root . --config &lt;cfg&gt;.yml   # with output_root: results/_refresh_staging
+# WRONG (creates &lt;root&gt;/cec2017/&lt;opt&gt;/cec2017/...):
+#   output_root: results/_refresh_staging/cec2017</code></pre>
+<p>Stream the per-dimension Wilcoxon + Friedman analysis live during a run with the opt-in <code>--stats</code> flag (default off; it skips vanilla <code>gsk</code> — <code>cec2011</code> is supported via its per-suite rollup):</p>
+<pre><code class="code-block language-powershell">python run.py --root . --optimizer dt-gsk --suite cec2017 --dimension 10 --dimension 30 --stats</code></pre>
+<h2 id="paper-review-pack">Paper Review Pack</h2>
+<p>Build the advisor review PDF (matplotlib <code>PdfPages</code>, no LaTeX): a headline dashboard, 7-algorithm CEC2017/CEC2011 mean tables, and 7-algorithm GSK-family convergence grids. Missing convergence curves are logged, never fabricated.</p>
+<pre><code class="code-block language-powershell">python papers/scripts/generate_review_pack.py</code></pre>
+<p>Writes <code>papers/DT-GSK-CEC2017-review.pdf</code> (and <code>..._missing.log</code>).</p>
+<h2 id="dt-gsk-diagnostics">DT-GSK Diagnostics</h2>
+<p>Opt-in per-generation telemetry for root-cause analysis (default off; observational — it never changes RNG order, evaluations, or results). Enable it via <code>optimizer_options.dt_diagnostics</code> in a YAML config; one JSONL trace is written per cell under <code>&lt;output_root&gt;/dt-gsk/&lt;suite&gt;/diagnostics/</code>:</p>
+<pre><code class="code-block language-yaml">optimizers: [dt-gsk]
+suite: cec2017
+functions: [4, 13, 19, 26, 30]
+dimensions: [10, 30, 50, 100]
+runs: 5
+seed: 20240620
+seed_policy: unified
+rand_generator: threefry
+parallel: true
+workers: 2
+generation_logs: true
+convergence_graphs: false
+overwrite: true
+output_root: results/_experimental/dt_diag
+optimizer_options:
+  dt_diagnostics: true
+  dt_diagnostics_include_all_fields: true</code></pre>
+<pre><code class="code-block language-powershell">python run.py --root . --config configs/experimental/dt_diag.yml
+python scripts/analyze_dt_diagnostics.py --input results/_experimental/dt_diag/dt-gsk/cec2017/diagnostics --out results/_experimental/dt_diag/dt-gsk/cec2017/diagnostics_analysis</code></pre>
+<p>The analyzer writes <code>diagnostics_summary.csv</code>, <code>wrong_basin_candidates.csv</code>, and per-subsystem summaries (ACE entropy, linkage reliability, diversity, local-search ROI, boundary hits). Wrong-basin flagging is general — never hard-coded to a function.</p>
+<h2 id="dt-gsk-ablation-cec2017">DT-GSK Ablation (CEC2017)</h2>
+<p>The scaffold ablation isolates each DT-GSK mechanism on the full CEC2017 suite (F1, F3--F30; n = 25) by toggling <code>optimizer_options</code> -- every mechanism defaults to <code>True</code> in the locked profile, so a cell disables exactly one. The vendored ISM core is byte-identity locked; these options are the sanctioned, code-untouching way to configure it. <strong>SGSM stays disabled throughout the scaffold ablation</strong> -- the SGSM overlay is ablated separately (the CEC2013 hold-out, <code>full</code> / <code>no-adaptive</code> / <code>no-sgsm</code> cells), not here.</p>
+<p>Mechanism toggles (set to <code>false</code> to disable that cell&#x27;s component):</p>
+<div class="table-wrap"><table><thead><tr><th><code>optimizer_options</code> key</th><th>Mechanism</th></tr></thead><tbody><tr><td><code>ace_enabled</code></td><td>ACE knowledge control</td></tr><tr><td><code>psr_enabled</code> / <code>sp_nlpsr_enabled</code></td><td>(NL)PSR population-size reduction</td></tr><tr><td><code>bse_enabled</code> (<code>bse_cauchy_enabled</code>)</td><td>Budget-Safe Escape (+ Cauchy rescue)</td></tr><tr><td><code>argp_enabled</code></td><td>Acceptance-Rate Gated Pool Pruning</td></tr><tr><td><code>linkage_blockwise_enabled</code></td><td>Linkage-aware block crossover</td></tr><tr><td><code>arch_enabled</code></td><td>Elite archive</td></tr><tr><td><code>local_search_enabled</code></td><td>Coordinate endgame local search (<code>local_search_method</code> defaults to <code>coordinate</code>)</td></tr><tr><td><code>final_polish_enabled</code></td><td>Eigenframe final polish</td></tr><tr><td><code>interaction_graph_enabled</code></td><td>SGSM interaction graph (off for this ablation)</td></tr><tr><td><code>deep_stall_restart_enabled</code></td><td>Deep-stall full restart</td></tr></tbody></table></div>
+<p>The pipeline is three scripts: <code>scripts/run_ablation.py</code> writes one config per cell under <code>configs/_ablation/</code> and runs each to its own output dir; <code>generate_ablation_matrix.py</code> rolls the cells up into the mean-Friedman-rank matrix; <code>generate_ablation_exhibits.py</code> renders the supplement tables.</p>
+<pre><code class="code-block language-powershell"># inspect the per-cell configs without running
+python scripts/run_ablation.py --dimension 30 --dry-run
+
+# run the default cell set (baseline + one disable-one cell per mechanism), n=25
+python scripts/run_ablation.py --dimension 30 --runs 25 --workers 2
+
+# or only a subset
+python scripts/run_ablation.py --only baseline,no_linkage,no_bse
+
+# aggregate the cells -&gt; results/ablation/ablation_matrix_rank_summary_cec2017_D30.csv
+python papers/scripts/generate_ablation_matrix.py --suite cec2017 --dimension 30
+
+# render the scaffold-ablation supplement tables (SA01/SA02) -&gt; papers/tables/SA01.tex, SA02.tex (\input in the supplement)
+# (reads the manifest-verified frozen release copy, not the fresh results/ablation/ aggregate)
+python papers/scripts/generate_ablation_exhibits.py</code></pre>
+<p>Per-cell output lands under <code>results/_ablation/&lt;cell&gt;/dt-gsk/&lt;suite&gt;/</code>. The default set is the baseline (full scaffold, SGSM off) plus one disable-one cell per mechanism; edit the <code>CELLS</code> dict in <code>scripts/run_ablation.py</code> to match the full 16-cell design. Some mechanisms have paired flags (e.g. <code>psr_enabled</code> vs <code>sp_nlpsr_enabled</code>, <code>bse_enabled</code> vs <code>bse_cauchy_enabled</code>) -- confirm the exact semantics in <code>src/gsk_family/optimizers/_dt_profiles.py</code> before finalizing the matrix.</p>
+<p>Preview the enabled/disabled matrix for every cell without running:</p>
+<pre><code class="code-block language-powershell">python scripts/run_ablation.py --dry-run          # remove-one (default)
+python scripts/run_ablation.py --mode add-one --dry-run</code></pre>
+<p><code>--mode</code> picks the ablation direction: <strong>remove-one</strong> (default) disables one mechanism from the full scaffold; <strong>add-one</strong> enables one from bare GSK (the ATMALS-GSK-style &quot;enable one, keep the rest at base&quot; design).</p>
+<p><strong>Match ATMALS-GSK&#x27;s protocol</strong> with <code>--suite</code> (two suites) and, if you want its exact direction, <code>--mode add-one</code>. ATMALS-GSK evaluated on CEC2017 (51 runs) and CEC2011 (25 runs); run the ablation on both:</p>
+<pre><code class="code-block language-powershell"># CEC2017 ablation at the main-study run count (51)
+python scripts/run_ablation.py --suite cec2017 --dimension 10,30,50,100 --runs 51 --workers 15
+# CEC2011 ablation (native dims; --dimension ignored)
+python scripts/run_ablation.py --suite cec2011 --runs 25 --workers 15
+python papers/scripts/generate_ablation_matrix.py --suite cec2011</code></pre>
+<p>Note: SGSM activates only at D &gt;= 50, and CEC2011&#x27;s native problem dims vary widely, so the CEC2011 ablation mostly probes the scaffold mechanisms rather than the SGSM overlay -- state that scope in the paper.</p>
+<blockquote>The parameter-sensitivity study is a <strong>separate</strong> experiment, not ablation evidence. It is E4 of the round-1 revision campaign: 27 one-factor cells at D=30 and D=100, n = 15, promoted inside <code>rev-rel-2026-08-26-dd42d37eb</code> and reported as Table A46 (exhibit SA08). It is registered <strong>exploratory</strong> -- descriptive only, no hypothesis tests and no corrected p-values. The older <code>results/dt-gsk/sweeps/parametric-study/</code> tree (n = 3) that T21/T22 would have come from is <strong>absent</strong> from this repository; that gap is EG-006 in <code>papers/governance/evidence_gap_register.md</code>, whose &quot;omit&quot; branch was exercised -- T21/T22 were never committed and the manuscript never cites them.</blockquote>
+<h2 id="slow-or-crashing">Slow Or Crashing</h2>
+<p>If a campaign is thrashing memory or a worker keeps dying, step down the concurrency before giving up on parallelism entirely:</p>
+<pre><code class="code-block language-powershell">python run.py &lt;args&gt; --parallel --workers 2    # safe baseline
+python run.py &lt;args&gt; --serial                  # single process, slowest but most robust</code></pre>
+<p>The default <code>process</code> backend self-heals: if a worker dies mid-run the pool is rebuilt and the affected work is retried, falling back to serial for a cell that still cannot complete -- so a run finishes rather than hanging. For CEC2017 composition cells (<code>F21</code>-<code>F30</code>) automatic process runs retain an upper memory-safety cap of 8 workers; an explicit <code>--workers N</code> is treated as your chosen speed/memory tradeoff.</p>
+<p>Avoid <code>--parallel-backend thread</code> for real campaigns. Calling the parallel Numba kernels from many Python threads can deadlock, and the threaded path does not scale for these GIL-bound loops. Use the default process backend, or <code>--serial</code>.</p>
+<h2 id="quality-checks">Quality Checks</h2>
+<pre><code class="code-block language-powershell">python -m pytest -q                                   # full test suite
+python -m pytest tests\smoke\test_documentation_commands.py -q   # doc-path + command smoke
+python -m ruff check .                                # lint
+python scripts\validate_profile_lock.py --root .      # profile-lock validation
+python scripts\build_docs_html.py                     # rebuild the HTML doc site</code></pre>
+<h2 id="freeze-pass-cycle-the-passes-49-52-recipe">Freeze-Pass Cycle (the passes-49..52 recipe)</h2>
+<p>Any edit to a hash-gated file (the 15 freeze files or the 2 hashed sources) voids the current pass and takes a full cycle. The order below is the one that worked four times in a row; deviations are where the recorded incidents live.</p>
+<ol>
+<li><strong>Edit sources; rebuild the gated renders they feed.</strong> Main PDF: <code>python papers/scripts/build_pdf.py</code>; DOCX: <code>build_docx.py</code> (+ <code>--supplementary</code> if supplementary.tex changed); supplement PDF: <code>build_supplementary.py</code>. Cover letter: <code>pdflatex</code> x2 in papers/ under <code>SOURCE_DATE_EPOCH=1783468800 FORCE_SOURCE_DATE=1</code>, then build twice and byte-compare (it must be deterministic).</li>
+<li><strong>Commit the APPLY.</strong> The marked PDFs and the change register diff <code>v2.13..HEAD</code> (committed refs, not the working tree), so they can only be rebuilt AFTER this commit: <code>build_change_marked_pdf.py --doc main</code> / <code>--doc supplementary</code>, then <code>build_change_register.py</code> — read the passage count it prints and sync it wherever it is quoted if it moved.</li>
+<li><strong>Mint the freeze manifest</strong> (papers/governance/main_manuscript_freeze_manifest.json, CRLF): byte-surgical text replacement, never json.dump; update sha256+bytes per changed file, generated_utc, anchor_commit = the apply commit, and the phase text. <code>check_manifest.py</code> must then read 15/15 AND sources 2/2.</li>
+<li><strong>Update the package manifest</strong> (submission_package_manifest.json, CRLF): sha256, bytes, pages, version id, note, authoritative_commit. <strong>After writing, re-verify sha AND bytes against disk</strong> — the pass-51 updater&#x27;s size needle silently never matched and left stale byte counts that no gate checks (found and fixed in pass-52).</li>
+<li><strong>Run the 13-gate ladder twice</strong> (section 8b above plus profile-lock).</li>
+<li><strong>File the governance pair</strong> (next free CR-xxxx / D-xxxx — verify free at apply time), sync the status banners (REVISION_STATUS, CLAUDE.md, papers/PAPER_REVIEW_PROMPT.md), commit the close.</li>
+<li><strong>Bump CITATION.cff BEFORE cutting the tag</strong> (no leading v in the cff version; the tag-before-bump mistake was made twice and is caught by <code>validate_citation_cff.py</code>), then tag vN.NN and push main + tag.</li>
+</ol>
+<p>The reviewer-facing response letter is untracked (D-0049) and outside the freeze; its exact rebuild command — with the load-bearing <code>Ligatures=NoCommon</code>, <code>HyphenChar=None</code> and letter-specific epoch — is recorded in papers/submission/SUBMISSION_KIT.md. Sweep phrase-level policies against the RENDER (pdftotext), never only the source: line-wrapped phrases defeat source grep (pass-51 lesson).</p>
+      </section>
+    </div>
+  </main>
+</div>
+<a class="top" href="#">Back to top</a>
+<script>
+(function () {
+  document.querySelectorAll("pre").forEach(function (pre) {
+    var button = document.createElement("button");
+    button.className = "copy"; button.type = "button"; button.textContent = "Copy";
+    button.addEventListener("click", function () {
+      var text = pre.querySelector("code") ? pre.querySelector("code").innerText : pre.innerText;
+      function done() { button.textContent = "Copied"; button.classList.add("done");
+        setTimeout(function () { button.textContent = "Copy"; button.classList.remove("done"); }, 1500); }
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(done);
+      } else {
+        var area = document.createElement("textarea"); area.value = text; document.body.appendChild(area);
+        area.select(); try { document.execCommand("copy"); done(); } catch (e) {} document.body.removeChild(area);
+      }
+    });
+    pre.appendChild(button);
+  });
+  var links = Array.prototype.slice.call(document.querySelectorAll("nav.toc a[href^='#']"));
+  var byId = {};
+  links.forEach(function (a) { byId[a.getAttribute("href").slice(1)] = a; });
+  if ("IntersectionObserver" in window) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting && byId[entry.target.id]) {
+          links.forEach(function (a) { a.classList.remove("active"); });
+          byId[entry.target.id].classList.add("active");
+        }
+      });
+    }, { rootMargin: "0px 0px -75% 0px" });
+    Object.keys(byId).forEach(function (id) { var el = document.getElementById(id); if (el) observer.observe(el); });
+  }
+  var contents = document.getElementById("contents");
+  var narrow = window.matchMedia("(max-width: 1000px)");
+  function syncContents() {
+    if (narrow.matches) { contents.removeAttribute("open"); } else { contents.setAttribute("open", ""); }
+  }
+  syncContents();
+  if (narrow.addEventListener) { narrow.addEventListener("change", syncContents); } else { narrow.addListener(syncContents); }
+  var root = document.documentElement;
+  try { var saved = localStorage.getItem("runbook-theme"); if (saved) root.setAttribute("data-theme", saved); } catch (e) {}
+  document.getElementById("theme").addEventListener("click", function () {
+    var dark = root.getAttribute("data-theme") === "dark" ||
+      (!root.getAttribute("data-theme") && window.matchMedia("(prefers-color-scheme: dark)").matches);
+    var next = dark ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try { localStorage.setItem("runbook-theme", next); } catch (e) {}
+  });
+})();
+</script>
+</body>
+</html>

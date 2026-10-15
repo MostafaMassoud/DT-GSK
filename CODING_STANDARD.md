@@ -324,9 +324,8 @@ deterministic given a seed.
 
 ## 8. Tests
 
-Tests live under `tests/` in tiers; the suite currently collects 618 tests.
-Re-check the live count with `python -m pytest --collect-only -q` rather than
-hard-coding a number.
+Tests live under `tests/` in tiers. Check the live count with
+`python -m pytest --collect-only -q` rather than hard-coding a number.
 
 | Tier | Path | What it covers |
 | --- | --- | --- |
@@ -377,8 +376,10 @@ Documentation is gated like code by
 - **UTF-8 clean, no mojibake.** All Markdown and source MUST be ASCII/UTF-8 clean
   — no smart-quote/em-dash corruption, no double-encoded characters. The HTML
   builder reads with `encoding="utf-8"`; broken bytes surface as garbled output.
-- **Keep the two runbooks in sync.** The root [runbook.md](runbook.md) and the
-  in-site `docs/getting-started/runbook.md` must agree when run commands change.
+- **Regenerate the runbook twins.** The root [runbook.md](runbook.md) is the
+  only source. After editing it, run `python scripts/build_runbook_html.py`,
+  which rewrites `runbook.html` and the in-site `docs/getting-started/runbook.md`
+  (`tests/smoke/test_runbook_html.py` fails while either is stale).
 - **Respect the platform-name rule.** The upstream numeric-platform product
   name is permitted for factual provenance (the vendored eGSK port lineage and
   `docs/reference/seed_policy.md`), but must never describe this project's own

@@ -8,15 +8,13 @@
   F5-F7: Hybrid functions
   F8-F10: Composition functions
 
-Library suite (audit cross M-07)
---------------------------------
-This suite is **library-only** in the DT-GSK project.  It is fully
-importable and JIT-warmed by every worker process (see
-``gsk.experiment._do_warmup`` and ``gsk.benchmark_factory.init_cec_worker``)
-but it is **not** wired into ``SUITE_META``.  The standard ``run.py``
-subcommands (``baseline``, ``step2``, ``cec2011``, ``cec2013``) do not
-benchmark CEC2020.  It is reserved for the next-version **DT-GSK**
-fork (the high-D / structure-aware layer above DT-GSK).
+Campaign suite (audit cross M-07, superseded: was library-only)
+---------------------------------------------------------------
+This suite is a campaign suite: the pre-registered confirmatory suite of
+the paper (D=5/10/15/20, 30 runs, seven-optimizer panel via
+``configs/family_cec2020.yml``). F6/F7 are undefined at D=5 by the
+protocol and are dropped from the cross-product
+(``factory.CEC2020_PROTOCOL_EXCLUDED_CELLS``).
 
 Numerical precision: this suite intentionally drops ``fastmath=True``
 from its Numba kernels (audit H-01) so that the basic-kernel outputs
@@ -27,9 +25,7 @@ Usage:
   from benchmarks.cec_suite_python.cec2020 import cec2020_func
   f = cec2020_func(x, func_id)   # x: (M, D) or (D,), func_id: 1-10
 
-Runner-parity dimensions are ``{5, 10, 15, 20}``.  Public F1 and F8 are
-unavailable at D=5 and D=15 because the staged C++/MEX reference distribution
-does not ship marker files for those cells.
+Runner-parity dimensions are ``{5, 10, 15, 20}``.
 """
 
 from .functions import (

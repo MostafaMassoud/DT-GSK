@@ -10,19 +10,23 @@ No external CEC source tree is required for normal runs.
 | CEC2017 | 30 functions, F2 excluded in aggregates | Primary campaign suite (51 runs) | yes |
 | CEC2011 | 22 real-world problems | Real-world campaign suite (25 runs) | yes |
 | CEC2013LSGO | 15 large-scale functions | Large-scale campaign suite (25 runs, 3e6 FEs) | yes |
-| CEC2013 | 28 functions | External hold-out; library-only in the current campaigns | no |
-| CEC2020 | 10 functions | Library-only reserve suite | no |
+| CEC2013 | 28 functions | Second comparison suite (51 runs) | yes |
+| CEC2020 | 10 functions | Pre-registered confirmatory suite (30 runs) | yes |
 
 All five suites are served by
 `gsk_family.benchmark_adapter.factory.make_problem` (suite
 protocol/metadata in `benchmark_adapter/protocol.py`) and runnable through
 `run.py` (`src/gsk_family/cli/run.py`). In this project the scored paper
-pipeline is **cec2017 (primary), cec2011, and cec2013** — the frozen evidence
-release `rel-2026-07-20-67d9345f9` covers exactly those three. CEC2013LSGO has
-complete 375-run campaign banks for all 10 algorithms (`family_cec2013lsgo.yml`
-/ `baselines_cec2013lsgo.yml`) but is not yet in the paper's scored panel;
-CEC2020 is a fully-validated context suite (`family_cec2020.yml` /
-`baselines_cec2020.yml`).
+pipeline covers all five suites. The frozen evidence release
+`rel-2026-07-20-67d9345f9` covers **cec2017 (primary), cec2011, and cec2013**;
+CEC2020 and CEC2013LSGO, added under a registered analysis-plan addendum, have
+their own releases (`cec2020-rel-2026-07-29-5867abe1e`,
+`lsgo-rel-2026-07-28-ff1a046ef`) built from the seven-optimizer family panels
+(`family_cec2020.yml`; on CEC2013LSGO, `family_cec2013lsgo.yml` for the six
+comparators and `dtgsk_cec2013lsgo.yml` for DT-GSK, whose bank reproduces only
+under that config). The external-baseline banks
+(`baselines_cec2020.yml`, `baselines_cec2013lsgo.yml`) are not part of the
+paper panel.
 
 ## CEC2017
 
@@ -56,10 +60,10 @@ Important implementation notes:
 
 ## CEC2013
 
-Role: external hold-out suite (library-only in the current campaigns; not part
-of the paper pipeline).
+Role: second comparison suite of the paper pipeline, run with the full
+seven-optimizer panel.
 
-Suite conventions (if run):
+Suite conventions:
 
 - D=10, 30, 50.
 - n=51 independent runs.
@@ -80,7 +84,7 @@ for that cell.
 
 ## CEC2011
 
-Role: real-world campaign suite — one of the three scored paper suites.
+Role: real-world campaign suite, one of the five scored paper suites.
 
 Paper settings:
 
@@ -94,22 +98,23 @@ Each function has its own dimension and bounds.  Use `cec2011_dim(func_id)` and
 
 ## CEC2020
 
-Role: library-only reserve suite.
+Role: pre-registered confirmatory suite of the paper pipeline (D=5/10/15/20,
+n=30, seven-optimizer panel; `configs/family_cec2020.yml`).
 
 The CEC2020 port is tested, importable, and runnable through the adapter.  It
 ships local Numba kernels for composition weights and shift/rotate fast paths.
-It is not part of the paper campaign pipeline.
 
 ## CEC2013LSGO
 
-Role: large-scale campaign suite — one of the three scored paper suites
-(alongside CEC2017 and CEC2011).
+Role: large-scale campaign suite, one of the five scored paper suites
+(alongside CEC2011, CEC2013, CEC2017 and CEC2020).
 
 Paper settings:
 
 - 15 native large-scale functions; D=1000 (F13-F14 use D=905).
-- n=25 independent runs (`configs/family_cec2013lsgo.yml` /
-  `configs/baselines_cec2013lsgo.yml`).
+- n=25 independent runs (`configs/family_cec2013lsgo.yml` for the six
+  comparators, `configs/dtgsk_cec2013lsgo.yml` for DT-GSK;
+  `configs/baselines_cec2013lsgo.yml` for the external baselines).
 - budget = 3,000,000 evaluations per run.
 
 ## Maintenance Notes

@@ -157,7 +157,7 @@ pull request when you change:
 | output files / artifact schema | `docs/reference/result_schema.md` |
 | seed policy | `docs/reference/seed_policy.md` |
 | validation thresholds / parity decisions | `docs/research/validation_report.md` |
-| CLI commands or flags | `docs/getting-started/runbook.md` |
+| CLI commands or flags | root `runbook.md`, then `python scripts/build_runbook_html.py` |
 
 After any of these doc or docstring edits, regenerate the HTML twins with
 `python scripts/build_docs_html.py` and commit them so the link-resolution gate

@@ -118,7 +118,7 @@ ValueError: Config key 'suite' is required.
 | `data_root` | `benchmarks/cec_suite_python` | Python benchmark evaluator/data root. |
 | `benchmark_backend` | `auto` | Evaluator backend. `auto` and `python` both use the Python/Numba evaluator. |
 | `benchmark_fp_mode` | `default` | Benchmark floating-point regime: `default` or `strict` (see the [FP Regime reference](../reference/fp_regime.md)). |
-| `overwrite` | `false` | Replace existing per-run rows for the same cells. |
+| `overwrite` | `false` | Rebuild each listed optimizer's `per_run.csv` for the suite from this run alone, discarding every earlier row, not only the configured cells. `false` resumes, skipping recorded runs. |
 | `parallel` | `true` | Dispatch independent run tasks across workers. |
 | `parallel_backend` | `process` | `process` (default, true multi-core) or `thread` (GIL-bound; tiny/debug runs). |
 | `workers` | `2` (`1` on a one-core machine) | Worker count for parallel runs; campaign commands should spell out `--parallel --workers 2`, and users can raise `N` explicitly when the machine has enough headroom. |
@@ -190,7 +190,7 @@ off in every cell.
 
 The ablation script writes one YAML per cell under `configs/_ablation/` — those
 files are ordinary run configs whose only non-default block is
-`optimizer_options`. See the [Runbook](runbook.md#dt-gsk-ablation) for the
+`optimizer_options`. See the [Runbook](../../runbook.md#dt-gsk-ablation-cec2017) for the
 end-to-end ablation pipeline.
 
 ## DT-GSK deep-stall full restart (multi-start)
@@ -236,8 +236,13 @@ Direct CLI arguments build the same in-memory config as a YAML file. This is
 convenient for a single cell:
 
 ```powershell
-gsk-run --optimizer agsk --suite cec2020 --dimension 10 --function 1 --runs 1 --seed 20240620 --max-evaluations 1000 --overwrite
+gsk-run --optimizer agsk --suite cec2020 --dimension 10 --function 1 --runs 1 --seed 20240620 --max-evaluations 1000 --output-root test_results --overwrite
 ```
+
+Keep `--output-root`: `results/_run_all/` holds the tracked CEC2020 and
+CEC2013LSGO campaign staging. Any run there rewrites that optimizer's
+`summary/seed_schedule.csv`, and `--overwrite` also rebuilds its `per_run.csv`
+from this one run.
 
 Selectors are flexible: `--function` and `--dimension` accept a single value
 (`7`), a comma-separated list (`1,3,5`), a repeated flag, or an inclusive

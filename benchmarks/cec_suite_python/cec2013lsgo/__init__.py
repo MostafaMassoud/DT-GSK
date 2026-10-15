@@ -18,8 +18,9 @@ Campaign suite (audit cross M-07, superseded: was library-only pre-rename)
 --------------------------------------------------------------------------
 This suite is a campaign suite in this project: it backs the
 ``family_cec2013lsgo.yml`` / ``baselines_cec2013lsgo.yml`` large-scale
-campaigns (10 algorithms complete at 375/375 runs as of 2026-07-27; the
-suite is not yet part of the paper's scored panel). Problems are served by
+campaigns (the seven-optimizer panel is scored in the paper under release
+lsgo-rel-2026-07-28-ff1a046ef; DT-GSK runs via ``dtgsk_cec2013lsgo.yml``).
+Problems are served by
 ``gsk_family.benchmark_adapter.factory.make_problem`` and JIT
 kernels are warmed per spawned worker by
 ``gsk_family.runners.run_experiment._init_process_worker`` when

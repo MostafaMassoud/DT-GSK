@@ -43,8 +43,9 @@ runs) are full comparison suites — the committed reference panel under
 optimizers for CEC2017, CEC2011, and CEC2013, and it is the paper's single
 source of truth (a local run under `results/_run_all/` is only a fallback; see
 [Statistical Analysis — Data sources](statistical_analysis.md#data-sources)).
-`cec2020` (agsk only) and `cec2013lsgo` (`decc-g`, `mos`) carry partial context
-panels. List the live roster at any time with `gsk-list`.
+`cec2020` (D = 5/10/15/20, 30 runs) and `cec2013lsgo` (D = 1000, 25 runs) carry
+full seven-optimizer panels too; the paper reports them as registered addendum
+suites. List the live roster at any time with `gsk-list`.
 
 `dt-gsk` is a deliberate **fair-start exception**: it self-initializes its own
 `5*D` (`np_init_mult * D`) population from the shared unified `threefry(seed)`

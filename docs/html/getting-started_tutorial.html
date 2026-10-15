@@ -191,7 +191,7 @@ python -m pytest</code></pre>
 <h2 id="4-run-one-direct-cec2017-cell">4. Run one direct CEC2017 cell</h2>
 <p>Now run a single cell directly from CLI flags instead of a config file.</p>
 <pre><code class="code-block language-powershell">gsk-run --optimizer gsk --suite cec2017 --dimension 10 --function 1 --runs 1 --seed 20240620 --max-evaluations 1000 --overwrite</code></pre>
-<p>The reduced budget (<code>--max-evaluations 1000</code>) keeps the tutorial quick; <code>--overwrite</code> replaces any existing rows for this cell.</p>
+<p>The reduced budget (<code>--max-evaluations 1000</code>) keeps the tutorial quick. <code>--overwrite</code> rebuilds <code>results/_run_all/gsk/cec2017/summary/per_run.csv</code> from this one run, discarding any other GSK CEC2017 runs recorded there. If that tree holds runs you want to keep, add <code>--output-root results/_tutorial</code> and read the paths below under that root instead.</p>
 <h2 id="5-inspect-output">5. Inspect output</h2>
 <p>The results live under the optimizer/suite path:</p>
 <pre><code class="code-block language-text">results/_run_all/gsk/cec2017/</code></pre>
@@ -209,7 +209,7 @@ python -m pytest</code></pre>
 <p>This shipped config omits <code>egsk</code> and the proposed <code>dt-gsk</code> to stay fast. To run the full seven-optimizer family, name them on the CLI instead:</p>
 <pre><code class="code-block language-powershell">gsk-run --optimizer gsk,agsk,apgsk,fdb-agsk,atmals-gsk,egsk,dt-gsk --suite sphere --function 1 --dimension 4 --runs 1 --max-evaluations 120 --root . --overwrite</code></pre>
 <h2 id="8-produce-a-statistical-comparison">8. Produce a statistical comparison</h2>
-<p>With runs on disk for the proposed optimizer, build the GSK-family statistical report (Friedman ranks, Nemenyi critical-difference, pairwise Wilcoxon + Holm, and effect sizes):</p>
+<p>Build the GSK-family statistical report (Friedman ranks, Nemenyi critical-difference, pairwise Wilcoxon + Holm, and effect sizes). It reads the committed reference panel first, so it works without any run of your own, and the reduced-budget run above does not enter it:</p>
 <pre><code class="code-block language-powershell">gsk-stats --suite CEC2017 --dims 10</code></pre>
 <p>It writes a text report, a Friedman-rank CSV, LaTeX fragments, and CD/rank PNGs under <code>results/_run_all/_analysis/cec2017/</code>. The panel compares the proposed <code>dt-gsk</code> against the six reference comparators. (Use <code>--no-figures</code> to skip the PNG figures; the text report, CSV, and LaTeX fragments are still written.) For a richer narrative, see <a href="research_statistical_analysis.html">Statistical Analysis</a>.</p>
 <p>Tip: to watch the same analysis stream <strong>live during a run</strong>, add the opt-in <code>--stats</code> flag to a <code>gsk-run</code> command on a non-baseline optimizer (it skips vanilla <code>gsk</code>; fixed-dimension suites and the native-dimension <code>cec2011</code> rollup are both supported):</p>

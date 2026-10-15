@@ -5,15 +5,16 @@ optimization (LSGO) benchmark suite.
 
 ## Role
 
-CEC2013-LSGO is the large-scale arm of the publication campaign — one of the
-three scored suites alongside CEC2017 and CEC2011.
+CEC2013-LSGO is the large-scale arm of the publication campaign, one of the
+five scored suites alongside CEC2011, CEC2013, CEC2017 and CEC2020.
 
 Paper settings:
 
 - 15 functions.
 - D = 1000 native (F13-F14 use D = 905: 20 overlapping groups, overlap 5).
-- n = 25 independent runs (`configs/family_cec2013lsgo.yml` /
-  `configs/baselines_cec2013lsgo.yml`).
+- n = 25 independent runs (`configs/family_cec2013lsgo.yml` for the six
+  comparators, `configs/dtgsk_cec2013lsgo.yml` for DT-GSK;
+  `configs/baselines_cec2013lsgo.yml` for the external baselines).
 - budget = 3,000,000 evaluations per run.
 - Optimal value `f* = 0` for every function; the runner records raw fitness
   (`statistics_basis = raw`).

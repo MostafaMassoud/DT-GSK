@@ -223,25 +223,25 @@ strict mode, raises :class:`StrictSourceViolation` if the path lies
 outside the canonical immutable evidence tree
 (``benchmarks/cec_reference_results/``).</p>
 </section>
-<section class="api-member" id="class-functionstats-204">
+<section class="api-member" id="class-functionstats-217">
 <div class="member-kind">class</div>
 <h2>FunctionStats</h2>
 <pre><code>FunctionStats</code></pre>
 <p>Normalized per-function statistics.</p>
 <div class="method-list"><h3>Methods</h3>
-<section class="api-member" id="method-has-mean-213">
+<section class="api-member" id="method-has-mean-226">
 <div class="member-kind">method</div>
 <h2>has_mean</h2>
 <pre><code>has_mean(self) -&gt; bool</code></pre>
 <p>Return True if mean error is available.</p>
 </section>
-<section class="api-member" id="method-has-full-stats-217">
+<section class="api-member" id="method-has-full-stats-230">
 <div class="member-kind">method</div>
 <h2>has_full_stats</h2>
 <pre><code>has_full_stats(self) -&gt; bool</code></pre>
 <p>Return True if all five statistics are available.</p>
 </section>
-<section class="api-member" id="method-mean-sd-str-224">
+<section class="api-member" id="method-mean-sd-str-237">
 <div class="member-kind">method</div>
 <h2>mean_sd_str</h2>
 <pre><code>mean_sd_str(self, fmt: str = &#x27;.2E&#x27;) -&gt; str</code></pre>
@@ -249,19 +249,19 @@ outside the canonical immutable evidence tree
 </section>
 </div>
 </section>
-<section class="api-member" id="class-algorithmresult-236">
+<section class="api-member" id="class-algorithmresult-249">
 <div class="member-kind">class</div>
 <h2>AlgorithmResult</h2>
 <pre><code>AlgorithmResult</code></pre>
 <p>Normalized results for one algorithm at one suite/dimension.</p>
 <div class="method-list"><h3>Methods</h3>
-<section class="api-member" id="method-func-ids-247">
+<section class="api-member" id="method-func-ids-260">
 <div class="member-kind">method</div>
 <h2>func_ids</h2>
 <pre><code>func_ids(self) -&gt; List[int]</code></pre>
 <p>Sorted list of available function IDs.</p>
 </section>
-<section class="api-member" id="method-mean-errors-251">
+<section class="api-member" id="method-mean-errors-264">
 <div class="member-kind">method</div>
 <h2>mean_errors</h2>
 <pre><code>mean_errors(self, excluded: Optional[set[int]] = None) -&gt; Dict[int, float]</code></pre>
@@ -269,7 +269,7 @@ outside the canonical immutable evidence tree
 <p>Compatible with ``wilcoxon_signed_rank()`` and
 ``friedman_rank_test()`` in ``gsk.statistical_tests``.</p>
 </section>
-<section class="api-member" id="method-len-266">
+<section class="api-member" id="method-len-279">
 <div class="member-kind">method</div>
 <h2>__len__</h2>
 <pre><code>__len__(self) -&gt; int</code></pre>
@@ -277,19 +277,19 @@ outside the canonical immutable evidence tree
 </section>
 </div>
 </section>
-<section class="api-member" id="function-parse-func-id-274">
+<section class="api-member" id="function-parse-func-id-287">
 <div class="member-kind">function</div>
 <h2>_parse_func_id</h2>
 <pre><code>_parse_func_id(raw: str) -&gt; int</code></pre>
 <p>Parse function ID from either &#x27;F1&#x27; or &#x27;1&#x27; format.</p>
 </section>
-<section class="api-member" id="function-parse-float-282">
+<section class="api-member" id="function-parse-float-295">
 <div class="member-kind">function</div>
 <h2>_parse_float</h2>
 <pre><code>_parse_float(raw: str) -&gt; Optional[float]</code></pre>
 <p>Parse a float, returning None for empty/missing values.</p>
 </section>
-<section class="api-member" id="function-load-summary-csv-293">
+<section class="api-member" id="function-load-summary-csv-306">
 <div class="member-kind">function</div>
 <h2>load_summary_csv</h2>
 <pre><code>load_summary_csv(path: str | Path) -&gt; Dict[int, FunctionStats]</code></pre>
@@ -308,7 +308,7 @@ dict[int, FunctionStats]
     Mapping from function ID to normalised statistics.
     Empty dict if file does not exist or is unparseable.</p>
 </section>
-<section class="api-member" id="function-reference-csv-path-373">
+<section class="api-member" id="function-reference-csv-path-386">
 <div class="member-kind">function</div>
 <h2>_reference_csv_path</h2>
 <pre><code>_reference_csv_path(alg: str, suite: str, dim: int, base_dir: Optional[Path] = None) -&gt; Optional[Path]</code></pre>
@@ -317,19 +317,19 @@ dict[int, FunctionStats]
   {alg}_{suite}_D{dim}.csv,  {alg}_{suite}_D{dim}.txt,
   {alg}_{suite}.csv (CEC2011)</p>
 </section>
-<section class="api-member" id="function-candidate-result-filenames-405">
+<section class="api-member" id="function-candidate-result-filenames-418">
 <div class="member-kind">function</div>
 <h2>_candidate_result_filenames</h2>
 <pre><code>_candidate_result_filenames(alg: str, suite: str, dim: int) -&gt; list[str]</code></pre>
 <p>Return accepted local result filenames for one algorithm/suite/dim.</p>
 </section>
-<section class="api-member" id="function-first-existing-summary-413">
+<section class="api-member" id="function-first-existing-summary-426">
 <div class="member-kind">function</div>
 <h2>_first_existing_summary</h2>
 <pre><code>_first_existing_summary(summary_dir: Path, alg: str, suite: str, dim: int) -&gt; Optional[Path]</code></pre>
 <p>Return the first matching CSV in ``summary_dir`` using stable precedence.</p>
 </section>
-<section class="api-member" id="function-reproduced-csv-path-424">
+<section class="api-member" id="function-reproduced-csv-path-437">
 <div class="member-kind">function</div>
 <h2>_reproduced_csv_path</h2>
 <pre><code>_reproduced_csv_path(alg: str, suite: str, dim: int, results_dir: Optional[Path] = None) -&gt; Optional[Path]</code></pre>
@@ -345,14 +345,14 @@ artifacts remain readable.</p>
 <p>In strict-source mode this resolver refuses to run at all: reproduced
 staging paths are never admissible for publication analyses.</p>
 </section>
-<section class="api-member" id="function-load-reference-469">
+<section class="api-member" id="function-load-reference-482">
 <div class="member-kind">function</div>
 <h2>load_reference</h2>
 <pre><code>load_reference(alg: str, suite: str, dim: int, base_dir: Optional[Path] = None) -&gt; Optional[AlgorithmResult]</code></pre>
 <p>Load reference results from benchmarks/cec_reference_results/.</p>
 <p>Returns None if the file does not exist or is empty.</p>
 </section>
-<section class="api-member" id="function-load-reproduced-497">
+<section class="api-member" id="function-load-reproduced-510">
 <div class="member-kind">function</div>
 <h2>load_reproduced</h2>
 <pre><code>load_reproduced(alg: str, suite: str, dim: int, results_dir: Optional[Path] = None) -&gt; Optional[AlgorithmResult]</code></pre>
@@ -361,7 +361,7 @@ staging paths are never admissible for publication analyses.</p>
 :class:`StrictSourceViolation` in strict-source mode: reproduced staging
 data is never an admissible publication source (Section 2.3).</p>
 </section>
-<section class="api-member" id="function-load-algorithm-532">
+<section class="api-member" id="function-load-algorithm-545">
 <div class="member-kind">function</div>
 <h2>load_algorithm</h2>
 <pre><code>load_algorithm(alg: str, suite: str, dim: int, results_dir: Optional[Path] = None, ref_base_dir: Optional[Path] = None) -&gt; Optional[AlgorithmResult]</code></pre>
@@ -374,7 +374,7 @@ the reference tree does not carry.</p>
 immutable evidence release raises :class:`StrictSourceViolation` (fail
 loudly, Section 2.3) instead of silently reading staging data.</p>
 </section>
-<section class="api-member" id="function-load-comparison-set-562">
+<section class="api-member" id="function-load-comparison-set-575">
 <div class="member-kind">function</div>
 <h2>load_comparison_set</h2>
 <pre><code>load_comparison_set(suite: str, dim: int, algorithms: Sequence[str], results_dir: Optional[Path] = None, ref_base_dir: Optional[Path] = None, require_mean: bool = False) -&gt; Dict[str, AlgorithmResult]</code></pre>
@@ -399,7 +399,7 @@ dict[str, AlgorithmResult]
     Successfully loaded algorithms.  Missing algorithms are
     silently omitted.</p>
 </section>
-<section class="api-member" id="function-discover-reference-algorithms-606">
+<section class="api-member" id="function-discover-reference-algorithms-619">
 <div class="member-kind">function</div>
 <h2>discover_reference_algorithms</h2>
 <pre><code>discover_reference_algorithms(suite: str, base_dir: Optional[Path] = None) -&gt; List[str]</code></pre>
@@ -409,7 +409,7 @@ dict[str, AlgorithmResult]
 list[str]
     Sorted list of algorithm directory names.</p>
 </section>
-<section class="api-member" id="function-common-func-ids-631">
+<section class="api-member" id="function-common-func-ids-644">
 <div class="member-kind">function</div>
 <h2>common_func_ids</h2>
 <pre><code>common_func_ids(results: Dict[str, AlgorithmResult], excluded: Optional[set[int]] = None, require_mean: bool = True) -&gt; List[int]</code></pre>
@@ -427,7 +427,7 @@ require_mean : bool
 list[int]
     Sorted list of common function IDs.</p>
 </section>
-<section class="api-member" id="function-provenance-report-678">
+<section class="api-member" id="function-provenance-report-691">
 <div class="member-kind">function</div>
 <h2>provenance_report</h2>
 <pre><code>provenance_report(results: Dict[str, AlgorithmResult]) -&gt; str</code></pre>
@@ -435,7 +435,7 @@ list[int]
 <p>Returns a CSV-formatted string with columns:
 Algorithm, Suite, Dimension, Provenance, NumFunctions, SourcePath</p>
 </section>
-<section class="api-member" id="function-availability-matrix-694">
+<section class="api-member" id="function-availability-matrix-707">
 <div class="member-kind">function</div>
 <h2>availability_matrix</h2>
 <pre><code>availability_matrix(suites_dims: Optional[Dict[str, list[int]]] = None, algorithms: Optional[list[str]] = None, results_dir: Optional[Path] = None, ref_base_dir: Optional[Path] = None) -&gt; Dict[str, Dict[str, Optional[str]]]</code></pre>
@@ -455,23 +455,23 @@ Useful for reporting which tables can be generated.</p>
 <a class="toc-level-2" href="#function-get-source-audit-107">get_source_audit</a>
 <a class="toc-level-2" href="#function-clear-source-audit-112">clear_source_audit</a>
 <a class="toc-level-2" href="#function-audit-source-open-117">audit_source_open</a>
-<a class="toc-level-2" href="#class-functionstats-204">FunctionStats</a>
-<a class="toc-level-2" href="#class-algorithmresult-236">AlgorithmResult</a>
-<a class="toc-level-2" href="#function-parse-func-id-274">_parse_func_id</a>
-<a class="toc-level-2" href="#function-parse-float-282">_parse_float</a>
-<a class="toc-level-2" href="#function-load-summary-csv-293">load_summary_csv</a>
-<a class="toc-level-2" href="#function-reference-csv-path-373">_reference_csv_path</a>
-<a class="toc-level-2" href="#function-candidate-result-filenames-405">_candidate_result_filenames</a>
-<a class="toc-level-2" href="#function-first-existing-summary-413">_first_existing_summary</a>
-<a class="toc-level-2" href="#function-reproduced-csv-path-424">_reproduced_csv_path</a>
-<a class="toc-level-2" href="#function-load-reference-469">load_reference</a>
-<a class="toc-level-2" href="#function-load-reproduced-497">load_reproduced</a>
-<a class="toc-level-2" href="#function-load-algorithm-532">load_algorithm</a>
-<a class="toc-level-2" href="#function-load-comparison-set-562">load_comparison_set</a>
-<a class="toc-level-2" href="#function-discover-reference-algorithms-606">discover_reference_algorithms</a>
-<a class="toc-level-2" href="#function-common-func-ids-631">common_func_ids</a>
-<a class="toc-level-2" href="#function-provenance-report-678">provenance_report</a>
-<a class="toc-level-2" href="#function-availability-matrix-694">availability_matrix</a>
+<a class="toc-level-2" href="#class-functionstats-217">FunctionStats</a>
+<a class="toc-level-2" href="#class-algorithmresult-249">AlgorithmResult</a>
+<a class="toc-level-2" href="#function-parse-func-id-287">_parse_func_id</a>
+<a class="toc-level-2" href="#function-parse-float-295">_parse_float</a>
+<a class="toc-level-2" href="#function-load-summary-csv-306">load_summary_csv</a>
+<a class="toc-level-2" href="#function-reference-csv-path-386">_reference_csv_path</a>
+<a class="toc-level-2" href="#function-candidate-result-filenames-418">_candidate_result_filenames</a>
+<a class="toc-level-2" href="#function-first-existing-summary-426">_first_existing_summary</a>
+<a class="toc-level-2" href="#function-reproduced-csv-path-437">_reproduced_csv_path</a>
+<a class="toc-level-2" href="#function-load-reference-482">load_reference</a>
+<a class="toc-level-2" href="#function-load-reproduced-510">load_reproduced</a>
+<a class="toc-level-2" href="#function-load-algorithm-545">load_algorithm</a>
+<a class="toc-level-2" href="#function-load-comparison-set-575">load_comparison_set</a>
+<a class="toc-level-2" href="#function-discover-reference-algorithms-619">discover_reference_algorithms</a>
+<a class="toc-level-2" href="#function-common-func-ids-644">common_func_ids</a>
+<a class="toc-level-2" href="#function-provenance-report-691">provenance_report</a>
+<a class="toc-level-2" href="#function-availability-matrix-707">availability_matrix</a>
 </aside>
   </div>
   <script src="../assets/search.js"></script>

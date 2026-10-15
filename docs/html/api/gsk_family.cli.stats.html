@@ -170,23 +170,35 @@
 7-algorithm Friedman panel with mean ranks, pairwise Wilcoxon signed-rank tests
 with a Holm correction and Vargha-Delaney effect sizes, Nemenyi
 critical-difference diagrams, rank charts, and LaTeX table fragments.</p>
-<p>The proposed algorithm&#x27;s per-function mean errors come from its locally
-reproduced run under ``results/_run_all/&lt;proposed&gt;/&lt;suite&gt;/summary/``; the
-comparators come from the committed reference tables under
-``benchmarks/cec_reference_results/&lt;suite&gt;/``. Outputs are written to
-``results/_run_all/_analysis/&lt;suite&gt;/`` unless ``--out`` is given.</p>
+<p>Every algorithm, the proposed one included, is read reference-first from the
+committed panel ``benchmarks/cec_reference_results/&lt;suite&gt;/&lt;optimizer&gt;/``
+(``--reference-root``). Only the proposed algorithm has a fallback, a locally
+reproduced run under ``results/_run_all/&lt;proposed&gt;/&lt;suite&gt;/summary/``
+(``--results-root``), read for a dimension only when the reference tree lacks
+that cell; comparators are read from ``--reference-root`` alone. A fresh run
+of a cell the committed panel already carries is therefore not what gets
+analysed. To analyse your own runs, lay their summary CSVs out as
+``&lt;root&gt;/&lt;suite&gt;/&lt;optimizer&gt;/&lt;optimizer&gt;_&lt;suite&gt;_D&lt;dim&gt;.csv`` (CEC2011:
+``&lt;optimizer&gt;_cec2011.csv``) and pass ``--reference-root &lt;root&gt;``; the folder
+must also hold the six comparators, so prefer
+``python scripts/build_stats_panel.py``, which copies the committed panel and
+overlays your files. Function exclusions follow
+``result_loader.SUITE_EXCLUDED_FUNCS`` (only CEC2017 drops F2). Outputs are
+written to ``results/_run_all/_analysis/&lt;suite&gt;/`` unless ``--out`` is given.</p>
 <p>Examples
 --------
     gsk-stats --suite CEC2017 --dims 10,30,50,100
-    gsk-stats --suite CEC2011 --no-figures</p>
+    gsk-stats --suite CEC2011 --no-figures
+    gsk-stats --suite CEC2020                  # D5, D10, D15, D20
+    gsk-stats --suite CEC2013LSGO              # D1000 (F1-F12, F15)</p>
 <h2 id="members">Members</h2>
-<section class="api-member" id="function-parse-dims-42">
+<section class="api-member" id="function-parse-dims-54">
 <div class="member-kind">function</div>
 <h2>_parse_dims</h2>
 <pre><code>_parse_dims(value: str | None, suite: str) -&gt; list[int]</code></pre>
 <p>Parse a comma-separated dimension list, defaulting per suite.</p>
 </section>
-<section class="api-member" id="function-main-54">
+<section class="api-member" id="function-main-66">
 <div class="member-kind">function</div>
 <h2>main</h2>
 <pre><code>main(argv: list[str] | None = None) -&gt; int</code></pre>
@@ -198,8 +210,8 @@ comparators come from the committed reference tables under
 <h2>On This Page</h2>
 <a class="toc-level-1" href="#gsk-family-cli-stats">gsk_family.cli.stats</a>
 <a class="toc-level-2" href="#members">Members</a>
-<a class="toc-level-2" href="#function-parse-dims-42">_parse_dims</a>
-<a class="toc-level-2" href="#function-main-54">main</a>
+<a class="toc-level-2" href="#function-parse-dims-54">_parse_dims</a>
+<a class="toc-level-2" href="#function-main-66">main</a>
 </aside>
   </div>
   <script src="../assets/search.js"></script>

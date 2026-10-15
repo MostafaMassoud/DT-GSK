@@ -149,6 +149,8 @@ python scripts\run_ablation.py --dimension 50,100 --runs 25 --workers 15
 
 ### 4.3 Statistics, tables, figures
 
+> `gsk-stats` reads the committed panel first, so run these only after the section 5.1 flat-layout refresh, or analyse the staging runs now with `python scripts/build_stats_panel.py --suite <suite> --results results/_run_all --out results/_own_panel` and `gsk-stats --suite <SUITE> --reference-root results/_own_panel --out results/_own_panel/_analysis`.
+
 ```powershell
 python -m gsk_family.cli.stats --suite CEC2017 --dims 10,30,50,100
 python -m gsk_family.cli.stats --suite CEC2013 --dims 10,30,50

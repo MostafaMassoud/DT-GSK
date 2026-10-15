@@ -64,8 +64,11 @@ Now run a single cell directly from CLI flags instead of a config file.
 gsk-run --optimizer gsk --suite cec2017 --dimension 10 --function 1 --runs 1 --seed 20240620 --max-evaluations 1000 --overwrite
 ```
 
-The reduced budget (`--max-evaluations 1000`) keeps the tutorial quick;
-`--overwrite` replaces any existing rows for this cell.
+The reduced budget (`--max-evaluations 1000`) keeps the tutorial quick.
+`--overwrite` rebuilds `results/_run_all/gsk/cec2017/summary/per_run.csv` from
+this one run, discarding any other GSK CEC2017 runs recorded there. If that
+tree holds runs you want to keep, add `--output-root results/_tutorial` and read
+the paths below under that root instead.
 
 ## 5. Inspect output
 
@@ -129,9 +132,10 @@ gsk-run --optimizer gsk,agsk,apgsk,fdb-agsk,atmals-gsk,egsk,dt-gsk --suite spher
 
 ## 8. Produce a statistical comparison
 
-With runs on disk for the proposed optimizer, build the GSK-family statistical
-report (Friedman ranks, Nemenyi critical-difference, pairwise Wilcoxon + Holm,
-and effect sizes):
+Build the GSK-family statistical report (Friedman ranks, Nemenyi
+critical-difference, pairwise Wilcoxon + Holm, and effect sizes). It reads the
+committed reference panel first, so it works without any run of your own, and
+the reduced-budget run above does not enter it:
 
 ```powershell
 gsk-stats --suite CEC2017 --dims 10

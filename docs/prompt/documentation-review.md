@@ -200,9 +200,10 @@ are true, consistent, and navigable, or list exactly what is not.
   method included — is loaded from the committed reference tables
   (`benchmarks/cec_reference_results/<suite>/<optimizer>/`, read-only, flat
   layout with `per_run.csv`, `curves/`, `gen_logs/`; full 7-optimizer coverage
-  for cec2017, cec2011, and cec2013), with a locally reproduced run under
+  for all five suites), with a locally reproduced run under
   `results/_run_all/` used only as a fallback for cells the reference tree does
-  not carry. A doc that presents `results/_run_all/` as the proposed method's
+  not carry (in `gsk-stats`, for the proposed optimizer only; comparators come
+  from `--reference-root` alone). A doc that presents `results/_run_all/` as the proposed method's
   primary statistics source is stale.
 - **Reference data is read-only.** No documented normal-run command may write
   into `benchmarks/cec_reference_results/` or the suite data under
@@ -394,9 +395,10 @@ Ground-truth contract you must enforce (flag any doc that contradicts it):
   policy is REFERENCE-FIRST: every panel algorithm, the proposed method
   included, is read from the committed read-only tables under
   benchmarks/cec_reference_results/<suite>/<optimizer>/ (full 7-optimizer
-  coverage for cec2017, cec2011, cec2013); a locally reproduced run under
+  coverage for all five suites); a locally reproduced run under
   results/_run_all/<optimizer>/<suite>/summary/ is only a fallback for cells
-  the reference tree does not carry.
+  the reference tree does not carry (in gsk-stats, for the proposed optimizer
+  only; comparators come from --reference-root alone).
 - Default run dispatch is a PROCESS pool (ProcessPoolExecutor in
   src/gsk_family/runners/run_experiment.py). The default is NOT a thread pool.
 - Automatic worker count is 2 on machines with at least two logical cores,
