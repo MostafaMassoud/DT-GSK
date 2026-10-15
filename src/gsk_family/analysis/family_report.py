@@ -26,7 +26,7 @@ for cells the reference tree does not carry.
 from __future__ import annotations
 
 import csv
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 from pathlib import Path
 from typing import Sequence
 
@@ -38,7 +38,11 @@ from .statistical_tests import StatAnalysisResult, run_statistical_analysis
 DEFAULT_RESULTS_ROOT = Path("results/_run_all")
 DEFAULT_REFERENCE_ROOT = Path("benchmarks/cec_reference_results")
 DEFAULT_PROPOSED = "dt-gsk"
-DEFAULT_EXCLUDED_FUNCS: tuple[int, ...] = (2,)
+# Fallback for a suite with no ``result_loader.SUITE_EXCLUDED_FUNCS`` entry:
+# exclude nothing. F2 is dropped only where a suite protocol says so
+# (CEC2017); the old ``(2,)`` fallback silently dropped a legitimate F2 on
+# every unregistered suite (Amendment 1 Section A1.1 hazard).
+DEFAULT_EXCLUDED_FUNCS: tuple[int, ...] = ()
 
 
 @dataclass
@@ -51,9 +55,12 @@ class DimResult:
         Problem dimension.
     stat_result : StatAnalysisResult
         Full vendored result (text report + Friedman panel + Wilcoxon dict).
+        Below three common functions its Friedman panel is ``None`` and its
+        text carries an omission line instead of the placeholder ranking.
     mean_ranks : dict[str, float] | None
         ``{algorithm: mean_rank}`` from the Friedman panel, or ``None`` when the
-        panel could not be built (fewer than three algorithms with data).
+        panel could not be built (fewer than three algorithms with data, or
+        fewer than three common functions).
     n_funcs : int
         Number of benchmark functions used for the Friedman ranking.
     wilcoxon_rows : list[WilcoxonRow]
@@ -111,6 +118,31 @@ def _holm_rows(stat_result: StatAnalysisResult, alpha: float = 0.05) -> list[Wil
     return rows
 
 
+def _omit_placeholder_ranking(text: str, suite: str, dim: int, n_common: int) -> str:
+    """Replace the vendored Friedman and nearest-peer blocks with one omission line.
+
+    Below three common functions ``friedman_rank_test`` returns positional
+    placeholder ranks (1..k in panel order), and ``run_statistical_analysis``
+    has already formatted them as the last two blocks of the per-dimension
+    text: the "GSK-family Friedman ranking" table and the rank-based
+    "position vs nearest peer" table. Both are cut here. The per-comparator
+    Wilcoxon blocks before them do not use the ranking and are kept.
+    """
+    title = f"GSK-family Friedman ranking ({suite.upper()}) -- D={dim}"
+    title_at = text.find(f"|{title:^78}|")
+    banner_at = text.rfind("\n+", 0, title_at) if title_at != -1 else -1
+    if banner_at == -1:
+        raise RuntimeError(
+            f"no Friedman block for {suite} D={dim} in the vendored report text; "
+            "update family_report._omit_placeholder_ranking"
+        )
+    noun = "function" if n_common == 1 else "functions"
+    return (
+        f"{text[:banner_at]}\n  Friedman ranking omitted at D={dim}: only {n_common} common "
+        f"{noun} (at least 3 are needed).\n"
+    )
+
+
 def analyze_family(
     suite: str,
     dims: Sequence[int],
@@ -140,7 +172,8 @@ def analyze_family(
     excluded_funcs : sequence of int, optional
         Function IDs to drop. When ``None`` (default) the exclusion is resolved
         per suite from ``result_loader.SUITE_EXCLUDED_FUNCS`` (CEC2017 drops F2;
-        CEC2011/CEC2013 drop nothing).
+        CEC2011, CEC2013, CEC2020 and CEC2013LSGO drop nothing; an
+        unregistered suite drops nothing).
     alpha : float
         Significance level for the Holm correction.
 
@@ -175,6 +208,17 @@ def analyze_family(
             excluded_funcs=tuple(excluded_funcs),
         )
         friedman = stat_result.friedman_gsk_family
+        if friedman is not None and len(friedman.func_ids) < 3:
+            # friedman_rank_test returns POSITIONAL placeholder ranks (1..k in
+            # panel order) below three functions; they are not a ranking and
+            # must never reach the text report, CSV, LaTeX, figures or the CLI
+            # summary. The vendored text already holds them, so cut them there.
+            stat_result = replace(
+                stat_result,
+                text=_omit_placeholder_ranking(stat_result.text, suite, dim, len(friedman.func_ids)),
+                friedman_gsk_family=None,
+            )
+            friedman = None
         mean_ranks = dict(friedman.mean_ranks) if friedman is not None else None
         n_funcs = len(friedman.func_ids) if friedman is not None else 0
         rows = _holm_rows(stat_result, alpha=alpha)

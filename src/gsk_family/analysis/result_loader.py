@@ -178,6 +178,12 @@ SUITE_DIMS: dict[str, list[int]] = {
     "CEC2017": [10, 30, 50, 100],
     "CEC2013": [10, 30, 50],
     "CEC2011": [0],  # mixed per-function dims; 0 is sentinel
+    "CEC2020": [5, 10, 15, 20],
+    # D=1000 holds F1-F12 and F15. F13/F14 run at D=905 and form a separate
+    # two-function cell, too small for a Friedman panel (pass --dims 905 to
+    # see it). The paper's pooled 15-function panel is computed by
+    # papers/scripts/phase6b_run_analysis_newsuites.py, not by this module.
+    "CEC2013LSGO": [1000],
 }
 
 # Functions excluded per suite
@@ -190,10 +196,17 @@ SUITE_DIMS: dict[str, list[int]] = {
 # CEC 2011: real-world application problems; F2 (Lennard--Jones potential)
 # is a legitimate engineering problem with no numerical-instability issue,
 # so no function is excluded here.
+# CEC 2020 and CEC2013LSGO: nothing is excluded either, so gsk-stats never
+# applies the CEC2017 F2 rule to another suite (Amendment 1 Section A1.1
+# names that leak as a hazard). CEC2020 F6/F7 are absent at D=5 because the
+# benchmark does not define them there; that is a property of the data files,
+# not an exclusion.
 SUITE_EXCLUDED_FUNCS: dict[str, set[int]] = {
     "CEC2017": {2},
     "CEC2013": set(),
     "CEC2011": set(),
+    "CEC2020": set(),
+    "CEC2013LSGO": set(),
 }
 
 

@@ -131,10 +131,16 @@ class TestComparisonSets:
     def test_suite_dims(self):
         assert SUITE_DIMS["CEC2017"] == [10, 30, 50, 100]
         assert SUITE_DIMS["CEC2011"] == [0]
+        assert SUITE_DIMS["CEC2020"] == [5, 10, 15, 20]
+        assert SUITE_DIMS["CEC2013LSGO"] == [1000]
 
     def test_excluded_funcs(self):
         assert 2 in SUITE_EXCLUDED_FUNCS["CEC2017"]
         assert len(SUITE_EXCLUDED_FUNCS["CEC2011"]) == 0
+        # Amendment 1 A1.1: F2 is legitimate on every suite except CEC2017.
+        assert SUITE_EXCLUDED_FUNCS["CEC2020"] == set()
+        assert SUITE_EXCLUDED_FUNCS["CEC2013LSGO"] == set()
+        assert [s for s, ex in SUITE_EXCLUDED_FUNCS.items() if 2 in ex] == ["CEC2017"]
 
 
 class TestCommonFuncIds:

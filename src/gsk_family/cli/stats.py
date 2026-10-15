@@ -6,16 +6,28 @@ Builds the paper-grade statistical comparison of the proposed optimizer
 with a Holm correction and Vargha-Delaney effect sizes, Nemenyi
 critical-difference diagrams, rank charts, and LaTeX table fragments.
 
-The proposed algorithm's per-function mean errors come from its locally
-reproduced run under ``results/_run_all/<proposed>/<suite>/summary/``; the
-comparators come from the committed reference tables under
-``benchmarks/cec_reference_results/<suite>/``. Outputs are written to
-``results/_run_all/_analysis/<suite>/`` unless ``--out`` is given.
+Every algorithm, the proposed one included, is read reference-first from the
+committed panel ``benchmarks/cec_reference_results/<suite>/<optimizer>/``
+(``--reference-root``). Only the proposed algorithm has a fallback, a locally
+reproduced run under ``results/_run_all/<proposed>/<suite>/summary/``
+(``--results-root``), read for a dimension only when the reference tree lacks
+that cell; comparators are read from ``--reference-root`` alone. A fresh run
+of a cell the committed panel already carries is therefore not what gets
+analysed. To analyse your own runs, lay their summary CSVs out as
+``<root>/<suite>/<optimizer>/<optimizer>_<suite>_D<dim>.csv`` (CEC2011:
+``<optimizer>_cec2011.csv``) and pass ``--reference-root <root>``; the folder
+must also hold the six comparators, so prefer
+``python scripts/build_stats_panel.py``, which copies the committed panel and
+overlays your files. Function exclusions follow
+``result_loader.SUITE_EXCLUDED_FUNCS`` (only CEC2017 drops F2). Outputs are
+written to ``results/_run_all/_analysis/<suite>/`` unless ``--out`` is given.
 
 Examples
 --------
     gsk-stats --suite CEC2017 --dims 10,30,50,100
     gsk-stats --suite CEC2011 --no-figures
+    gsk-stats --suite CEC2020                  # D5, D10, D15, D20
+    gsk-stats --suite CEC2013LSGO              # D1000 (F1-F12, F15)
 """
 
 from __future__ import annotations
@@ -60,7 +72,10 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument(
         "--dims",
         default=None,
-        help="Comma-separated dimensions (default: the suite's standard set).",
+        help=(
+            "Comma-separated dimensions (default: the suite's standard set; "
+            "CEC2011 uses 0, its native per-problem dimensions)."
+        ),
     )
     parser.add_argument(
         "--proposed",
@@ -105,7 +120,13 @@ def main(argv: list[str] | None = None) -> int:
     ref_base = reference_root / suite.lower()
     if not ref_base.is_dir():
         print(f"reference directory not found: {ref_base}")
-        print("statistical comparison requires the bundled GSK-family reference tables.")
+        if reference_root.is_dir():
+            known = sorted(
+                p.name for p in reference_root.iterdir() if p.is_dir() and not p.name.startswith("_")
+            )
+            print(f"  suites found under {reference_root}: {', '.join(known) or 'none'}; check --suite.")
+        else:
+            print("statistical comparison requires the bundled GSK-family reference tables.")
         return 1
 
     strict = bool(args.strict_source)
@@ -139,7 +160,8 @@ def main(argv: list[str] | None = None) -> int:
     if not dim_results:
         print(f"no reproduced '{args.proposed}' summaries found under {results_root} for {suite}.")
         print(f"  searched dimensions: {dims}")
-        print("  run the experiment pipeline for the proposed optimizer first (see runbook.md).")
+        print(f"  the committed panel under {ref_base} lacks it too; check --dims for this suite,")
+        print("  or run the experiment pipeline for the proposed optimizer first (see runbook.md).")
         return 1
 
     print(f"GSK-family statistical report — {suite}")
@@ -150,8 +172,16 @@ def main(argv: list[str] | None = None) -> int:
             best, best_rank = order[0]
             p = r.stat_result.friedman_gsk_family.p_value
             print(f"  D{r.dim}: N={r.n_funcs}  Friedman p={p:.3g}  best={best} ({best_rank:.3f})")
+            # The line above keeps the documented "best=<alg> (<rank>)" format;
+            # any algorithm sharing the best mean rank is named on its own line.
+            tied = [alg for alg, rank in order[1:] if rank == best_rank]
+            if tied:
+                print(f"        tied for best with {best}: {', '.join(tied)}")
         else:
-            print(f"  D{r.dim}: Friedman panel unavailable (insufficient comparators)")
+            print(
+                f"  D{r.dim}: Friedman panel unavailable "
+                "(needs >= 3 common functions and >= 3 algorithms)"
+            )
     print(f"  wrote {len(written)} artifact(s) to {out_dir}")
     if audit_path is not None:
         print(f"  strict-source mode: source-use audit written to {audit_path}")
