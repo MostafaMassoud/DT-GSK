@@ -82,8 +82,8 @@ reset the working directory between calls; always use absolute paths or `cd`
 into the root first.
 
 2.6 **Root-file discipline.** The project root holds a fixed inventory of thirteen
-Markdown documents: the session entry point [CLAUDE.md](CLAUDE.md), the current-state
-record [REVISION_STATUS.md](REVISION_STATUS.md), the three operating files —
+Markdown documents: the session entry point [CLAUDE.md](CLAUDE.md) (live state), the
+detailed record [REVISION_STATUS.md](REVISION_STATUS.md), the three operating files —
 [README.md](README.md), [SKILL.md](SKILL.md), [runbook.md](runbook.md) — the
 newcomer orientation map [REPO_MAP.md](REPO_MAP.md), the six governance files
 listed in §10, and the release report
@@ -100,9 +100,9 @@ hand; no gate will catch it for you.
 
 CLAUDE.md and REVISION_STATUS.md were added 2026-08-25 at the author's explicit
 request, to give a resuming session a cheap entry point during the journal
-revision. CLAUDE.md is a pointer file and must stay short; REVISION_STATUS.md is
-the single place current state is recorded, so status must not be duplicated into
-the other eleven. Resist growth: a new root guide is almost always a section in an
+revision. CLAUDE.md must stay short; since 2026-10-16 it carries the live state
+and open items, and REVISION_STATUS.md is the detailed record behind them. Status
+must not be duplicated into the other eleven. Resist growth: a new root guide is almost always a section in an
 existing file.
 
 ---

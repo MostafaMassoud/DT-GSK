@@ -6,8 +6,8 @@ manuscript *DT-GSK: Dimension-Tiered Adaptive Configuration Selection and
 Deterministic Refinement for Gaining-Sharing Knowledge-Based Optimization
 Algorithm* (accepted by *Algorithms*, MDPI as `algorithms-4507562`; in
 production).
-Current project state, including the open revision work, is recorded in
-[REVISION_STATUS.md](REVISION_STATUS.md).
+Current project state and open items are in [CLAUDE.md](CLAUDE.md); the
+detailed record is [REVISION_STATUS.md](REVISION_STATUS.md).
 
 The repository ships a seven-optimizer GSK-family panel -- DT-GSK together with six
 re-implemented GSK-family baselines -- adapters for five CEC benchmark suites,
@@ -299,8 +299,8 @@ referees are checking it.
 
 ```text
 DT-GSK/
-  CLAUDE.md            <- session entry point (short; points everywhere else)
-  REVISION_STATUS.md   <- current state: review, progress, next steps
+  CLAUDE.md            <- session entry point (short; live state, open items, rules)
+  REVISION_STATUS.md   <- detailed record: review, every pass, traps
   README.md
   SKILL.md
   runbook.md  runbook.html   <- run-and-test guide; the .html is generated from the .md

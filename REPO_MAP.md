@@ -22,9 +22,10 @@ one pure-Python package:
 3. **Analysis & paper tooling** — the `gsk-stats` statistical panel and the
    `papers/` manuscript pipeline.
 
-> **Current state** — the manuscript is under **major revision** at *Algorithms*
-> (MDPI). Read [REVISION_STATUS.md](REVISION_STATUS.md) before changing anything
-> under `papers/`; [CLAUDE.md](CLAUDE.md) is the short session entry point.
+> **Current state:** the paper is accepted by *Algorithms* (MDPI); live state and
+> open items are in [CLAUDE.md](CLAUDE.md), the short session entry point. Read
+> [REVISION_STATUS.md](REVISION_STATUS.md) by section before changing anything
+> under `papers/`.
 
 ## Read order for a new developer
 
@@ -39,8 +40,8 @@ one pure-Python package:
 ```
 run.py                     Canonical entry point -> cli.run:main
 pyproject.toml             Packaging, console scripts, tool config
-CLAUDE.md                  Session entry point (auto-loaded; short, pointer-only)
-REVISION_STATUS.md         CURRENT STATE: peer review, progress, next steps
+CLAUDE.md                  Session entry point (auto-loaded; short; live state, open items)
+REVISION_STATUS.md         Record: review, every pass, traps (Appendix A = old CLAUDE.md)
 REPO_MAP.md                This file
 ARCHITECTURE.md            Structural map        DESIGN_GUIDE.md   Rationale & how-to
 PROJECT_RULES.md           Governance "constitution"

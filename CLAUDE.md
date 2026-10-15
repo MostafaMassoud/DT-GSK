@@ -1,403 +1,251 @@
 # CLAUDE.md
 
-Auto-loaded every session, so it is deliberately short. It carries only what a session cannot
-cheaply re-derive, and points at the one file the task actually needs. **Do not read the root
-documents speculatively** — they total ~300 KB.
+Auto-loaded every session. It holds what a new session needs to continue
+without re-reading the repository, so keep it short. The full pass-by-pass
+chronicle that used to live here is REVISION_STATUS.md, Appendix A. **Do not
+read the large root documents speculatively** (REVISION_STATUS.md about 186 KB,
+README.md about 51 KB, SKILL.md about 48 KB): open only the file a task needs,
+using the table at the end. Injected claude-mem observations can be stale; git,
+this file and the memory files win. If the copy of this file in your context
+has no "Open items" section, it is stale: read CLAUDE.md from disk.
 
 ## What this repo is
 
-DT-GSK (Dimension-Tiered Gaining-Sharing Knowledge): a single-algorithm research repo built around
-one manuscript. Seven optimizers behind one contract — `gsk`, `agsk`, `apgsk`, `fdb-agsk`,
-`atmals-gsk`, `egsk`, and the proposed `dt-gsk` — evaluated on five CEC suites (`cec2011`,
-`cec2013`, `cec2013lsgo`, `cec2017`, `cec2020`) under one locked, budget-fair paired protocol.
-Python package: `gsk_family` (under `src/`). Console entry points are `gsk-*`.
+DT-GSK (Dimension-Tiered Gaining-Sharing Knowledge): the code and evidence
+behind one paper. The paper's panel is seven GSK-family optimizers (`gsk`,
+`agsk`, `apgsk`, `fdb-agsk`, `atmals-gsk`, `egsk`, and the proposed `dt-gsk`)
+on five CEC suites (`cec2011`, `cec2013`, `cec2013lsgo`, `cec2017`, `cec2020`)
+under one locked, budget-fair paired protocol; eight external comparators are
+also registered. Python package `gsk_family` under `src/`; runner
+`python run.py`; console scripts `gsk-*`. Public repository
+https://github.com/MostafaMassoud/DT-GSK, branch `main` only. Most files are
+frozen or hash-bound: assume nothing is casually editable.
 
-The repository exists to support a **published claim**, not to be a general framework. Most files
-are frozen or hash-bound. Assume nothing is casually editable.
+**Claim wording (README, docs, emails):** the learned ISM eigenbasis was shown
+harmful (plain coordinate axes beat it at D = 50), so contribution C1 is "a
+deterministic final polish", claimed basis-neutrally; C2 (tiering) is claimed
+only at D = 10 and D = 50 (the 20 <= D < 50 tier is mis-specified). Saying the
+mechanism computes an eigenbasis is fine; calling the eigenbasis a contribution
+or a benefit is not (REVISION_STATUS.md section 3, Phase 7). Do not
+over-correct: the polish itself still beats no refinement at both active
+dimensions, C3 is not narrowed, and the E1 D = 100 eigenframe-vs-coordinate
+contrast is SEPARATED (Holm 0.0489; "not separated" is a stale claim that has
+recurred five times). There is no hosted CI; never claim one.
 
-## Right now (2026-09-02)
+## Right now (2026-10-16)
 
-**✅ ACCEPTED AND IN PRODUCTION at *Algorithms*.** The round-1 revision was resubmitted
-2026-08-30 from pass-63 / v2.36; review is over, the proofed version has been returned, the
-APC is paid, and the article is pending publication. **The published PDF prints DAS tag
-v2.37, so `main.tex` is deliberately NOT bumped past it** — later passes bump `CITATION.cff`
-and the tag but leave the DAS alone, so the repository keeps saying what the printed paper
-says (D-0070). v2.36 and v2.13 stay the frozen records of the resubmission and the original
-submission; never rebuild or retag either. Repo verified PUBLIC anonymously on 2026-09-01
-(repo, DAS-named tags and pre-registration all resolve; withheld files 404).
+- **The paper is accepted (2026-09-02) and, per the author (2026-10-15),
+  published** in *Algorithms* (MDPI, `algorithms-4507562`). Its Data
+  Availability Statement prints tag **v2.37**, so `papers/main.tex` stays at
+  v2.37 (D-0070). Never rebuild, move or retag a published tag (v2.13 =
+  submission, v2.36 = resubmission, v2.37 = the printed article).
+- **Last freeze: pass-73 / tag v2.46** (2026-09-03, commit `64c70bb`). **Next
+  free governance ids: CR-0054 / D-0079.** Before use, check that
+  `grep -c '^CR-0054,' papers/governance/change_request_register.csv` and
+  `grep -c '^## D-0079' papers/governance/decision_log.md` both print 0 (a bare
+  grep also finds D-0078's own "NEXT free ids" line). One line per pass from
+  pass-49 on: `git log --oneline --grep="^Close pass"`.
+- **Since v2.46: ordinary commits only** (`git log --oneline v2.46..main`; no
+  freeze pass, no ids, no published number changed), pushed 2026-10-16:
+  `bc13511` gsk-stats keeps F2 on CEC2020 and CEC2013LSGO (only CEC2017 drops
+  it), adds suite default dims and `scripts/build_stats_panel.py` (rank your
+  own runs); `4bb1974` runbook.md Part 1 "Run and test DT-GSK" for anyone, with
+  `runbook.html` and `docs/getting-started/runbook.md` generated from it, and
+  stale run docs fixed repo-wide.
+- Never hard-code the test count (PROJECT_RULES 8.2; re-collect with
+  `python -m pytest --collect-only -q`). The environment attestation
+  (`papers/governance/environment_attestation/attestation.json`, script
+  `papers/scripts/make_environment_attestation.py`) and the supplement keep the
+  published 618; a re-mint is freeze-pass work (rule 3) and the author's call.
 
-**The production correspondence, newest first.** 2026-09-02: the office asked for the **Word**
-supplement for its English-editing team, answered by pass-65 (below). 2026-09-01: the office
-asked for a **standalone supplement** with no reference content and no highlighted markings;
-their copy turned out to be the changes-marked file (verified byte-identical to
-`DT-GSK-supplementary-changes-marked.pdf` *before* any edit, so the "markings" were latexdiff
-marks, not shipped styling), and pass-64 answered it the same day. Also filed: the full-name
-byline, the title and keyword sync, and an original graphical abstract built in-house
-(`papers/scripts/build_graphical_abstract.py`). **Editor-facing prose carries no
-em-dashes** — author instruction, see [[no-ai-tell-style]].
+## Open items (next steps)
 
-**Current freeze: pass-73 / `v2.46`** — minted and tagged 2026-09-03. Next free ids:
-**CR-0054 / D-0079** — verify free at apply time.
-**Pass-73 (2026-09-03, D-0078 / CR-0053) de-dashes the REPOSITORY's own sources** (main.tex, the five sections, the plain summary): 275 of 279 printing em-dashes replaced, 14 kept. They had been missed because passes 69 and 71 edited the returned proof, the supplement and the letter — **a change described as applying to "the manuscript" reaches only the file actually edited.** The parenthesis-balance check aborted the first run unwritten, catching two parentheticals whose closing point carried no dash.
-**Pass-72 (2026-09-03, D-0077 / CR-0052) answers the SECOND proof round:** affiliation 2 reordered to department-faculty-school-city-country; Author 2's **Yahoo address refused by the journal** and replaced with `hebasayed@cu.edu.eg`; and four out-of-sequence table citations removed (plus one added for Table 8, which the removals would have orphaned) so the first-citation order reads **1..19 with no gaps** — recomputed from the rebuilt `.aux`, not assumed. The table fixes live only in the returned proof, not in `main.tex`: production's file is flattened and its float placement differs. **Trap: `\hl` cannot wrap a `\ref` — the build aborts.**
-**Pass-71 (2026-09-02, D-0076 / CR-0051):** the cover letter de-dashed. It had been left behind by pass-69 because **the letters are not part of the manuscript sources** — a change applied to "the manuscript" does not reach them, and they are read together.
-**Pass-70 (2026-09-02, D-0075 / CR-0050):** table row shading removed for MDPI style. **The two channels shaded for different reasons** — the PDF via `\zebra`/`\rowcolors` (now a no-op), the DOCX via a grey `E7E6E6` header fill written by `build_docx.py` in two code paths. Fixing only the LaTeX would have left the Word file shaded. A pass-69 de-dashing artifact (`groups )`, a closing paren starting a line) was closed with it, found by **reading the page** — no gate detects that class.
-**Pass-69 (2026-09-02, D-0074 / CR-0049):** supervisor instruction to minimise AI-drafting tells —
-**148 of the supplement's 156 printing em-dashes** became commas, colons, semicolons or
-parentheses (8 kept where a dash aids clarity). Pairs applied ATOMICALLY and parenthesis balance
-re-checked; the first attempt aborted unwritten when three line-spanning anchors stranded their
-partners. RS-12's registered sentence keeps every WORD, only its two dashes moved (disclosed).
-**Pass-68 (2026-09-02, D-0073 / CR-0048):** cover letter re-titled and re-dated 2 September 2026
-(both twins together — a gate fails if their titles disagree).
-**Pass-67 (2026-09-02, D-0072 / CR-0047):** at proof stage the authors revised the TITLE to
-"...for Gaining-Sharing **Knowledge-Based Optimization Algorithm**" (the second title change;
-the office had just synced SuSy to the previous one) and corrected both affiliations
-(**postcode 12588 → 12578**, affiliation 2 gains the Mathematics Program). Metadata only.
-**Pass-66 (2026-09-02, D-0071 / CR-0046) aligns the supplement with the accepted article**
-before it is re-sent as LaTeX, PDF and DOCX. The authors corrected both affiliations while
-answering the proof queries (**postcode 12588 → 12578**, and affiliation 2 gains the
-Mathematics Program); production's `post-hoc` → `post hoc` restyling of the article is carried
-into the supplement's eight rendered sites (it had disagreed with the article *and with
-itself*); six spellings the article never uses are aligned; and one cross-reference is fixed
-(the tier boundaries live in main Table 5, not a figure). **Lesson: production restyles the
-article but never the supplement — diff the two RENDERS after every production round.**
-**Pass-65 (2026-09-02, D-0070 / CR-0045) fixes two Word-channel defects before the DOCX
-reaches the journal's editing team:** `build_docx.py`'s `replace_refs` matched only `\ref`, so
-the supplement's two `\eqref` calls printed the raw label `[eq:opspec-conf]` in the body text
-(now a parenthesised REF field, matching the PDF's "Equation (4)"); and `docProps`
-`dc:creator` carried the short author name, hardcoded in the builder and invisible to every
-gate. **No `.tex` was edited and no PDF rebuilt** — all three PDFs verified byte-identical to
-v2.37. Both DOCX double-built identical; parity 755 rows, 0 FAIL.
-**Pass-64 (2026-09-01, D-0069 / CR-0044) makes the supplement standalone at the editorial
-office's request:** all 30 cite callouts (31 key instances, 26 lines) removed as bare
-markers — the registered/verbatim sentences are byte-identical — and the bibliography block
-removed with the float-flush `\clearpage` kept; every supplement key stays cited in the main
-text, so `references.bib` and the role/word maps are untouched and only
-`citation_usage_map.csv` loses its 31 supplement rows. Supplement 83 → 82 pp; every
-sent-letter page anchor re-verified unmoved in the rebuilt render; zebra striping kept
-(table formatting, not markup). Four renders double-built byte-identical; ladder green.
-**Pass-63 (2026-08-30, D-0068 / CR-0043) re-dates the resubmission to 2026-08-30:** both letters
-re-dated 30 August 2026 and rebuilt, CFF date-released and planned-date updated (deadline
-2026-09-01 unchanged), zero-slack framing dropped — submitting two days early restores the margin.
-**Pass-62 (2026-08-29, D-0067 / CR-0042) closes the crushed-back-matter family:** the Supplementary
-Materials and Abbreviations statements — the last two users of mdpi.cls's 9/9 zero-leading
-style — re-declared at 9/11.5 beside the four fixed at pass-61; the class's other 9/9 sites
-verified to carry real leading via their own spacing/linespread wrappers. No pagination shift,
-anchors verified, ladder green.
-**Pass-61 (2026-08-29, D-0066 / CR-0041) is presentation part two:** the four mdpi.cls back-matter
-statements re-declared at 9/11.5 (the class sets 9/9 — zero leading, visibly crushed), and the
-Section 3 execution-order list gains item separation plus a keep-together guard (one block on
-page 15). One page shift (Section 3.3 statement 16→15) — the letter's single reference updated
-and rebuilt; all other anchors verified. Pages 49/83, ladder green.
-**Pass-60 (2026-08-29, D-0065 / CR-0040) is an author-directed presentation pass:** the DAS keeps
-the primary release inline and defers the five auxiliary release identifiers to the supplement
-and the repository manifests (the inline hash-ID enumeration read as machine output), and
-Algorithm 1 is re-rendered (sections/algorithm_pseudocode_render.tex — one line per step, no
-orphaned anchors, compact closing note) with semantics and the frozen loop order unchanged and
-the phase_03 canonical sources untouched. Pages 49/83, anchors re-verified, full ladder green.
-**Pass-59 (2026-08-29, D-0064 / CR-0039):** the corresponding author's byline is the full name
-**Mostafa Elsayed Ahmed Masoud**, initials **M.E.A.M.** in the address block, CRediT statement and
-Conflicts of Interest, across twelve live documents (manuscript, supplement, cover letter,
-plain-language summary, CITATION.cff, README, kit, letter and companions); historical records
-untouched; every render rebuilt at its pinned epoch and double-built byte-identical, pages
-unchanged 49/83, letter anchors re-verified; the DAS was bumped BEFORE the builds this time.
-**Pass-58 (2026-08-29, D-0063 / CR-0038) is an author-directed author-metadata pass:** Ali Wagdy
-Mohamed gains affiliation 2 (University of Science and Technology, Zewail City of Science and
-Technology, 6th of October City, Giza 12588, Egypt) in the manuscript, the DOCX shim, the
-supplement, CITATION.cff and the kit's portal table. All four gated renders were rebuilt at their
-pinned epochs (page counts unchanged 49/83; main PDF double-built byte-identical; the response
-letter's page anchors re-verified against the new render); the change register records the
-affiliation passages. The same close repaired the severed public-flip sentence, the stale
-next-free ids in this file, the package manifest's stale v2.28 DAS note and hand-typed
-timestamp, and marked the What-remains items 3-5 done.
-**Pass-57 (2026-08-29, D-0062 / CR-0037) closed the optional-queued and immutable-history items:**
-artifact_binding's checksum column re-derived (84 stale pairs, two independent derivations in
-agreement); Section 3.2 states protocol conformance (no suite protocol prescribes a population
-size — verified for all five before generalizing); the freeze manifest's `immutable_history_note`
-discloses the two unfixable history blemishes — rewriting pushed history would break the DAS and
-violate D-0045, so disclosure IS the fix. **The heredoc backslash trap fired again** (a ref macro
-shipped as a literal CR + 'ef' into the built PDF, caught in the render); line-ending audits must
-check for LONE CR too, which the no-lone-LF assert misses.
-**Pass-56 (2026-08-29, D-0061 / CR-0036) preceded it, closing the from-scratch five-instrument re-review:**
-the cover letter's blanket 'before any result existed' pre-registration claim was false for E5
-on its natural reading and now matches the response letter's precise chronology; the stale-claim
-family's FIFTH recurrence (seven documents still called the E1 D = 100 contrast 'not separated'
-against the canonical Holm 0.0489) is corrected; CITATION.cff gains the missing eGSK source;
-`check_manifest.py` now gates commit-field RESOLVABILITY after the pass-55 mint recorded a
-published_commit with an invented tail (caught live by the new gate); RS-12's quoted verbatim
-matches the abstract locus; the three unbound shipped figures are bound. Mint scripts must
-compute SHAs with `git rev-parse`, never type them.
-**Pass-55 (2026-08-29, D-0060 / CR-0035) preceded it, closing the deferred register items 4-10
-by author direction:** the abstract is 199 rendered words with the registered sentences byte-identical (two
-candidate trims REFUTED in verification); one additive sentence scopes the inactive-at-D<=20
-claim to the gating taxonomy; six verified supplement refinements landed (pooled-A12 compression,
-the E3 constructed tie, the E5 2.34->1.97 movement, S7.1 port provenance, the S9.4 monotonicity
-claim, W/T/L direction); three orphan tables gained refs while SEVEN alleged orphans were refuted
-as range-covered; three clearpage flushes cured the float inversions (supplement now 83 pp);
-87 algorithm-guide citations re-based; the register renders hunk context verbatim (a latent
-tex_escape ordering bug fixed with it).
-**Pass-54 (2026-08-29, D-0059 / CR-0034) preceded it:** five review instruments were
-retuned and re-applied from scratch and three cross-audits run beside them; 67 findings, all
-verified against bytes or the render before being acted on. Topmost, **both architecture tables
-(Table 4 row 8, Table 5 row 9) still carried the retired C1 name** on pages whose own prose said
-“deterministic final polish”, while the response letter promises the editor exactly that rename —
-pass-53 had renamed six prose sites and recorded it done, and a source-side grep missed the table
-cells because they use the same words in a different grammatical role. **Only the render catches
-this class.** Second, the Supplementary invited a **commit-level pre-registration audit the public
-repository fails** (the CEC2020 signing commit does not resolve; the squashed root postdates the
-release it registers) — the claim now rests on the checksum binding, which holds, and the squash
-is disclosed. Also: the abstract's “on that suite” followed two named suites and made a rank claim
-false; the CEC2020 runner-up fact cited the APGSK paper at five sites; the tie-band and
-single-unfavourable-cell claims were contradicted by the paper itself; C2's narrowing and E2's
-adverse result reached the Conclusions; Amendment A3 is disclosed. `build_cover_letter.py` was
-added (files[10] had no epoch-pinned builder), five mypy errors under five “clean” assertions were
-fixed, and a hosted CI asserted by fourteen documents was retracted — it has never existed in any
-commit. **New gate: `check_reproducibility_manifest.py`** — that manifest had gone stale INSIDE
-its own pass three times, always refreshed before the artifacts were rebuilt, and nothing read it.
-(Next free then: CR-0036 / D-0061; both long consumed — read the current pair off the freeze
-paragraph at the top of this block.)
-**Pass-53** was the previous remediation pass (D-0058 / CR-0033): the Supplementary's ninth
-limitation still said the tier boundaries were “unvaried, so their sensitivity is untested” nine
-pages before S9.5 varies them and finds against the shipped profile twice; the Conclusions now
-state why ISM and its eigenbasis are retained (the configuration was checksum-locked before the
-isolations ran, so the isolations correct the claims, not the method); C2's narrowing reached the
-Introduction. **The deterministic PDF epoch had been absent from
-`build_pdf.py`/`build_supplementary.py` since pass-51** — shipped PDFs carried wall-clock stamps
-under a manifest claiming double-build identity; the epoch is now pinned inside both builders.
-The chronicle since the round-two audit, newest last:
-**pass-49** answered the external second-round audit: **E5
-dimension-boundary sensitivity** ran (registered as Amendment A4 BEFORE execution; release
-`rev2-rel-2026-08-28-203c78744`; S9.5 / Table A47 — D30's middle profile beaten from BOTH
-neighbouring tiers, D100's upper profile beaten by the T2 set with the family ordinal unchanged,
-D10/D50 insensitive; **C2 as narrowed is untouched**), the **canonical 1e-8 tie rule** the paper
-stated but the revision analyzer skipped is implemented and regenerated (Amendments A5–A6; one
-decision flip: E1 D100 eigenframe-vs-coordinate now SEPARATED, Holm 0.0489), the C1 heading is
-basis-neutral, the tiering-thesis and causal-mis-specification prose is bounded, and the
-submission package manifest matches the actual bytes. (**The “195 words” recorded here at the
-time was wrong** — pass-54 measured the shipped abstract at 205 rendered words, already 204 at
-v2.26, against a 200-word guideline. It was left untrimmed through pass-54 because the sentences
-carrying the CEC2020 and CEC2013LSGO outcomes are bound to registered wording banks RS-12/RS-13;
-pass-55 then closed the author decision by trimming UNREGISTERED material only, to 199 rendered
-words, with the registered sentences byte-identical — see the pass-55 entry above. The false
-count was removed from the response letter.)
-**Pass-50 / v2.23 followed the same evening (author instruction: implement every reopened
-item):** the D-0051 re-execution is PROMOTED and cited (`g1-rel-2026-08-28-65b3d39e6`; Table A45
-now reports the residual as a demonstrated build difference), Figure 4 shades the within-one-CD
-cohort instead of the detached ruler, the convergence captions state their shared protocol once
-in the body, the cover letter leads with closure and reports the three adverse findings plainly
-(re-dated 30 August 2026 at pass-63), references.bib is pruned to its 44 cited entries alongside the three
-citation-control files, the change register is redesigned (TOC, badges, color-coded panels; 92
-passages), and **every reviewer/revision-process reference is removed from the published
-artifacts** — S9 is now “Mechanism-Isolation and Sensitivity Experiments”; pre-registration
-language stays. The GitHub purge request is REOPENED to be filed after the public flip, and an
-extension-request draft sits withheld beside the response letter (sending is the author's call).
-**Pass-51 / v2.24 closed the evening (acceptance-readiness review, D-0056 / CR-0031):** the
-tuned review instrument was executed at maximal input over all 92 register passages plus
-rendered-text sweeps; five verified findings fixed — the S6.5 stale-open basis claim scoped to
-S9.1's answer (fourth member of the stale-claim family), three LINE-WRAPPED revision-process
-references the source-side sweep missed (sweep the RENDER for phrase policies, not the source),
-and the environment attestation re-minted at 618 tests after pass-49's statistics.py change.
-Register is rebuilt at each pass; read its passage count off its own front page.
-**After pass-52 (2026-08-29, ordinary commits, freeze untouched):** the roadmap's B1–B4 ops
-fixes landed (kit row-83 counts, package manifest at six releases, CFF date/abstract, and an
-attestation re-mint — note that `git.dirty` is **always** true there and cannot be made false:
-`make_environment_attestation.py` computes it from `git status --porcelain` while the mint's own
-junit XMLs already sit in the tree), then the **public-release cleanup**: tracked docs no longer carry the private
-bundle's path, the purge full SHAs, or reviewer-verbatim words — the operational identifiers
-live ONLY in the withheld `papers/review_2026_08_24/PRIVATE_OPS.md`; results staging was
-quarantined to `../DT-GSK_cleanup_2026-08-29/`. **The cleanup commits were held unpushed by
-contract at first and pushed later the same day; as always, verify `git status -sb` against origin
-before relying on remote state.**
-**Pass-52 / v2.25 (2026-08-29, D-0057 / CR-0032) applied a fourteen-agent seven-lens panel review
-of the response letter:** 28 confirmed findings fixed — topmost, the letter's quote of the revised
-abstract said 'scalar control' where the shipped abstract says 'scalar parameters', and two E1
-cells carried superseded exact-zero p-values (now canonical 6.8e-4 / 4.0e-6); SA01/SA02 became
-the typeset Tables A23–A24; the cover letter's stale 84-passage count is now count-free wording
-(both twins). The package manifest's recorded byte sizes had been silently stale since pass-51
-(no gate checks them) — fixed. **D-0057 / CR-0032 are filed** (the then-next-free
-CR-0033 / D-0058 were consumed by pass-53; the current pair lives in the freeze paragraph above). The paragraphs
-below about passes 42–45 are kept because their *lessons* stand, not because they describe the
-current tag.
-
-**Pass-45 came out of a deep application of this project's own review instrument** (97 agents over
-`papers/PAPER_REVIEW_PROMPT.md`, 14 stage-mapped dimensions, every finding adversarially verified).
-It discharged two **Major** main-text defects the revision had missed — §3.5, the subsection
-defining C1, still asserted the *pre-revision* position on the polish basis and routed to the
-superseded S6.5; and the evidence-discipline paragraph stated a release count the Data Availability
-Statement contradicts — plus four smaller items (CR-0028 / D-0053).
-
-**The calibration is the durable lesson: 44 of 82 findings were REFUTED, and 75 of 82 proposed
-remedies were unsafe as written.** That ratio now holds across four independent rounds. The
-instrument finds real defects; **never apply its prescriptions unexamined.** In pass-45 even the
-*report's own* safer remedy for the §3.5 fix was unsafe — it would have left one paragraph asserting
-both that the question is open and that it is settled. **Every tag bump drags
-`CITATION.cff`, `SUBMISSION_KIT.md` and `submission_package_manifest.json` with it**; the citation
-file is gated and carries no leading `v`, so a `v2.1x` sweep misses it.
-
-**Work on `main` — it is now the ONLY branch** (author decision, 2026-08-28). The private
-development history — formerly the branches `archive/revision-pass-39-full` and
-`revision/pass-39` — was moved whole into **the author's private history bundle**, kept outside
-the repository (location recorded in the withheld `papers/review_2026_08_24/PRIVATE_OPS.md`;
-restore-tested: both refs, matching tips, the withheld files and the two
-GitHub-exposed commits all readable). The old rule transfers to the bundle: it carries the
-reviewers' reports, the co-author handoff, the seven copyrighted PDFs, and commit messages
-unsuitable for publication — so **never fetch it into a repo with a public remote, never merge
-its refs into `main`, never copy the bundle into the repo tree or any public location.** Restore,
-whenever needed, only into a detached private clone: `git init x && git -C x fetch <bundle>
-"refs/heads/*:refs/heads/*"`. (`public/squash-candidate`, which held nothing not already on
-`main`, was deleted the same day; its commit `02d1791` remains reachable as `main`'s squash
-root.)
-
-**What pass-42 did.** Twelve alleged defects were verified and then challenged in the opposite
-direction; nine survived and are corrected (C1, C2, C3, C6, C7, C8+C9 merged, C10, C11, C12).
-**C4 is refuted and deliberately not edited** — its proposed "fix" was a regression.
-**Contribution C3 is NOT narrowed.** No number, rank, p-value or decision changed. Freeze pass-42,
-CR-0025 / D-0050, `check_manifest` 15/15, thirteen gates green, all five artifacts byte-reproducible.
-
-**The lesson that generalises:** the diagnoses were reliable, the prescriptions were not — 10 of 11
-audited fixes were unsafe as written and had to be repaired before use. **Challenge a proposed fix,
-not just the finding.** And read the built PDF: every defect this project has shipped was caught
-there and nowhere else.
-
-**The two author decisions that were open are now RESOLVED (pass-43, D-0051).**
-
-1. The Supplementary no longer contradicts the response letter. The letter concedes the D = 100
-   internal control does not hold; `supplementary.tex` had still asserted that no reported number
-   depends on which revision is used. Both ship in one package, so both would have reached the
-   referees. The exception is now recorded, pointed at the caption that already reports it as
-   unresolved, and bounded — the archived release every reported number derives from is unchanged.
-2. **A larger disclosure was drafted and REJECTED on challenge. Do not revive it.** It would have
-   named CR-0015 as the one bit-identity certification not spanning cec2017 D = 100 — refutable
-   from the register it cites, since **CR-0014, CR-0016 and CR-0018 all certify that cell**, the
-   last in an 84-cell bit-for-bit ledger. It also named a cause while disclaiming one, and located
-   it at contribution **C1**. **The standing rule holds: state the gap, never the causation.**
-
-**ANSWERED 2026-08-27 by re-execution (D-0051): the residual is a BUILD difference, demonstrated.**
-The five functions carrying it were re-run at CEC2017 D = 100, 51 runs each, under the current build
-with threads pinned as the campaign driver pins them. 255 cells, zero seed mismatches. **On the 26
-cells where the archive and the transplant arm differ, the fresh run reproduces the transplant arm
-on all 26 and the archive on none; on the 229 where they agree it reproduces both.** So the current
-build makes the transplant arm's values and the archive is what the earlier build made — between
-builds, not within one.
-
-**Two traps this experiment sets for anyone repeating it.** `run.py` does **not** pin threads (only
-`run_campaign.py` does) and D = 100 is thread-sensitive, so an unpinned re-run is meaningless. And a
-control drawn from cells where the two legs already *agree* cannot distinguish the builds — an early
-reading here went wrong exactly that way; the discriminating cells are the ones that differ.
-
-**No manuscript change follows.** The Supplementary already says the control re-executes archived
-runs and does not reproduce them exactly, and the caption reports the residual as unresolved *in the
-paper*; both stay true and are now evidenced. Claiming more would mean **promoting a diagnostic
-staging run as cited evidence** — new release id, manifest, binding — since every reported number is
-bound to a promoted release. **That promotion is CLOSED (author, 2026-08-28) and will not be done:**
-the diagnostic stays diagnostic, cited nowhere, with no release id minted for it. It is not pending
-work and should not be re-raised. Still recorded, and still
-true: the campaign's identity evidence samples ~one run per (algorithm, suite, dimension), so a
-27-in-1479 divergence sits below its resolution — those certifications are underpowered here, not
-wrong.
-
-**The hashed-render / unhashed-source blind spot is now gated.** The freeze hashed renders but only
-`main.tex` among their sources, which is how pass-42 edited `cover_letter.tex`, skipped the rebuild,
-and left the render matching its digest while the gate stayed green — on a letter that ships to the
-editor. The manifest now carries `source_files` and `check_manifest` reports
-`sources N/N` on its own line, so every recorded "15/15" stays true. Negative-tested: perturb a
-source, leave its render, and `files` still reads 15/15 while `sources` drops and the gate exits 1.
-
-## Read this first
-
-**➡ [REVISION_STATUS.md](REVISION_STATUS.md) — current state, always.** The manuscript is under
-**major revision** at *Algorithms* (MDPI) — the round-1 revision is complete and awaits author
-resubmission. That file holds the review outcome, how each of the ten reviewer points was answered,
-what each revision phase applied, the decisions already made, the open author decisions, and the
-full trap table. Start there; it exists so you do not have to read the decision log end to end.
-
-**Two submitted claims were falsified by the round-1 experiments and corrected in the paper.** The
-learned ISM eigenbasis is *harmful*, not neutral — plain coordinate axes beat it at D = 50 — so C1
-is renamed "a deterministic final polish" and claimed basis-neutrally. The polish itself survives: it
-still beats no refinement at both active dimensions. And the 20 ≤ D < 50 tier is *mis-specified*, so
-C2 is narrowed to the dimensions where tiering was shown, D = 10 and D = 50. Describing the mechanism
-as computing an eigenbasis is still correct; presenting the eigenbasis as a contribution or a benefit
-is not. Details: [REVISION_STATUS.md](REVISION_STATUS.md) §3, Phase 7.
-
-Everything else in this file is a pointer.
+1. **Runner fixes, proposed as a separate session, not started; covers all of
+   this item. Ask the author whether to do it here or start that session.**
+   (a) `run.py --stats` drops F2 on CEC2013, CEC2020 and CEC2013LSGO:
+   `src/gsk_family/runners/run_experiment.py` (CRLF) about line 509,
+   `or (2,)`. Use
+   `tuple(sorted(SUITE_EXCLUDED_FUNCS.get(config.suite.upper(), set())))` from
+   `src/gsk_family/analysis/result_loader.py` (keys upper case; a bare set
+   fails mypy). An empty tuple is passed through by the vendored code (no
+   fallback to `(2,)`). The emitter swallows exceptions and prints only
+   `[stats] skipped`, so tests must assert that the panel printed (extend
+   `tests/smoke/test_stats_flag_smoke.py`). (b) When a summary folder has no
+   `<opt>_<suite>_D*.csv` (every run of a cell failed) or, on CEC2011, after
+   any skipped run, `src/gsk_family/runners/verification.py`
+   `load_generated_tables` (about lines 202-208) reads
+   `summary/skipped_runs.csv` and raises "missing a Function column"; test on
+   a tmp `summary/` holding only `environment.json` + `skipped_runs.csv`.
+   (c) Stale docs: PERFORMANCE_RULES.md about 203-205 (removed tiny-run
+   heuristic), README.md about 783 ("separate process pool" per cell). Then
+   remove the "known gap" note in docs/research/statistical_analysis.md and the
+   `skipped_runs.csv` wording in the runbook Troubleshooting row. Rebuild
+   docs/html (code line numbers move the API pages).
+2. **Declined by the author 2026-10-15; do not redo without asking:** a pooled
+   15-function CEC2013LSGO panel in gsk-stats (needs the vendored
+   `analysis/statistical_tests.py`, rule 11).
+3. **Record the publication:** README.md lines 7-8 and about 296, and
+   CITATION.cff about lines 89-96, still say "in production". Add DOI, volume
+   and pages when the author gives them (ordinary commit;
+   `validate_citation_cff.py` must stay green).
+4. **Author-only, status unknown:** the GitHub Support purge request for the
+   two exposed commits was REOPENED 2026-08-28, to be filed after the public
+   flip (decision_log.md, "GitHub purge"); nothing records that it was filed.
+   Ask the author.
+5. Optional, needs author sign-off: README.md line 954 says "Two such commits
+   touch other files under" `src/gsk_family/optimizers/`; there are three
+   (3539977, 290854d, 86411e6).
+6. Optional: the "State snapshot" block (lines 13-19) of four
+   `docs/prompt/*.md` files (all but change-register-acceptance-review.md) is
+   stale: it calls REVISION_STATUS.md the place to start and gives next free
+   CR-0044 / D-0069 beside pass-73. Point it at CLAUDE.md "Right now", refresh
+   the ids, then rebuild docs/html.
 
 ## Never break these
 
-1. **Four shipped DT-GSK modules are hash-gated**, not just one: `dt_gsk.py`, `_dt_core.py`,
-   `_dt_profiles.py`, `_dt_rng.py` under `src/gsk_family/optimizers/`.
-   `papers/scripts/validate_provenance_claims.py` hashes them on a SHIPPED list — **even a comment
-   edit fails the gate.**
-2. **`benchmarks/cec_reference_results/` is READ-ONLY** frozen evidence. Never "regenerate" it.
-   Runners write under `results/` and nowhere else — `_run_all/` for the campaign, `_revision/` for
-   the revision driver (`scripts/run_revision_experiments.py`), `_ablation*/` for ablations.
-   `results/_revision/` is **untracked** (D-0049): it duplicates the promoted release, which is the
-   citable evidence. (The accumulated staging was quarantined outside the repo by the 2026-08-29
-   cleanup; future runs recreate the directory.)
-3. **`papers/` is a frozen manuscript under change control.** Any edit voids the freeze manifest and
-   belongs to a new freeze pass (see D-0045). Never edit the submitted state in place.
-4. **Never author LaTeX or regex through a bash heredoc** — backslash collapse has already shipped
-   corrupted macros into a released PDF. Use exact-match file editing.
-5. **Line endings are per file**, and multi-line edits fail silently against the wrong one. Both
-   freeze manifests and several `.tex` files are CRLF; others are LF. Check before editing.
-6. **Append-only trees:** `papers/build_prompt_phases/`, `papers/review_2026_07_22/`,
-   `papers/governance/remediation_2026_07_18/`. Stale content there is correct — do not "fix" it.
-   One carve-out: `phase_09/evidence_binding_verification.csv` is a living verification output,
-   refreshed in place at every pass by convention.
-7. **Never run `papers/scripts/finalize_evidence.py`** (standing instruction).
-8. **Work only in this repository checkout.** A divergent copy lives in the PhD-Projects monorepo;
-   each freeze manifest hashes only its own tree, so both can report "15/15" while disagreeing.
-9. **The repository is PUBLIC and some files are deliberately untracked** (D-0049). Pinned in
-   `.gitignore`, present on disk, retained in git only on the never-pushed archive branch: both
-   reviewers' reports, the point-by-point response (it quotes them), the co-author handoff
-   (biographies marked as awaiting their subjects' approval), and seven copyrighted third-party
-   PDFs. The **pre-registration is public on purpose** — the Supplementary Materials' claim that
-   adverse-outcome wording predates the outcomes is uncheckable without it. Do not re-add any of
-   the others, and never push a branch whose history contains them.
-10. **A `.gitignore` glob that does not cross `/` is not an exclusion.** `reference_papers/*.pdf`
-   silently matched nothing under `Academic_Research_Guidelines/` for the life of the repo, and
-   38.8 MiB of copyrighted PDFs reached the public remote. Recursive form alongside it now; check
-   `git check-ignore -v <path>` rather than trusting the pattern.
+1. **Four DT-GSK modules are hash-gated:** `dt_gsk.py`, `_dt_core.py`,
+   `_dt_profiles.py`, `_dt_rng.py` under `src/gsk_family/optimizers/`
+   (`papers/scripts/validate_provenance_claims.py`). Even a comment edit fails.
+   `_dt_subsystems/` is not hash-gated but is equally locked (PROJECT_RULES 5.3).
+2. **`benchmarks/cec_reference_results/` is READ-ONLY** frozen evidence; never
+   regenerate it. `run.py` and gsk-stats both default to `results/_run_all/`,
+   which holds tracked CEC2020/CEC2013LSGO staging, so always pass
+   `--output-root` to run.py and `--out` to gsk-stats (only
+   `scripts/run_campaign.py` should write there). `results/_revision/` is
+   untracked by design (D-0049). Evidence releases are additive and
+   non-superseding: frozen analysis outputs are never re-minted; a new finding
+   gets a new release id.
+3. **`papers/` is a frozen manuscript under change control.** Any edit there
+   needs a new freeze pass (D-0045). Never edit a submitted state in place. A
+   change "to the manuscript" reaches only the file edited: the letters, the
+   supplement and the DOCX channel (`build_docx.py`) each need their own edit
+   and render check.
+4. **Never author LaTeX, regex or code through a bash heredoc** (backslash
+   collapse has shipped corrupted macros). Use exact-match file editing; the
+   project skill `dtgsk-maintain` has an EOL-safe applier.
+5. **Line endings are per file and can change under you.** `core.autocrlf` is
+   true here: tracked text is stored LF, but many working copies are CRLF
+   (README.md +BOM, REVISION_STATUS.md, PROJECT_RULES.md, about half of
+   `src/**/*.py` incl. run_experiment.py and result_loader.py); SKILL.md is
+   LF +BOM. The papers/ freeze files are `-text` in .gitattributes and must stay
+   byte-exact. Check the bytes, lone CR included, before a multi-line edit.
+6. **Append-only trees:** `papers/build_prompt_phases/`,
+   `papers/review_2026_07_22/`, `papers/governance/remediation_2026_07_18/`.
+   Stale content there is correct: do not fix it (carve-out:
+   `phase_09/evidence_binding_verification.csv` is refreshed each pass).
+7. **Never run `papers/scripts/finalize_evidence.py`** (nor
+   `scripts/run_campaign.py` without `--skip-finalize`, which chains it).
+8. **Work only in this checkout.** Other copies exist (paths in memory): a
+   sibling checkout of the same remote only ever gets `git pull --ff-only`; the
+   PhD-Projects monorepo copy is a separate, divergent repository, never worked
+   in. Each freeze manifest hashes only its own tree.
+9. **The repository is PUBLIC; some files are deliberately untracked** (D-0049):
+   reviewers' reports, the response letter, the co-author handoff, seven
+   copyrighted PDFs, `papers/review_2026_08_24/PRIVATE_OPS.md`. Never re-add
+   them or push history that contains them; never fetch, merge or copy the
+   author's private history bundle into this repo or any public place. Tracked
+   files never quote the reviewers verbatim and never carry the bundle's
+   location or the purge SHAs (those live only in PRIVATE_OPS.md). The
+   pre-registration (`papers/review_2026_08_24/revision_experiments_preregistration.md`)
+   is public on purpose: keep it tracked.
+10. **A `.gitignore` glob that does not cross `/` is not an exclusion.** Check
+    with `git check-ignore -v <path>`.
+11. **The vendored analysis modules `analysis/statistical_tests.py` and
+    `analysis/statistics.py` stay untouched** (PROJECT_RULES 5.3; phase6b reads
+    `friedman_rank_test`'s `excluded=(2,)` default).
+12. **Generated files are never hand-edited:** `runbook.html`,
+    `docs/getting-started/runbook.md`, `docs/html/`. Edit the source and
+    regenerate; commit the generated files with it.
+13. **Gate side effects:** `validate_cross_format_parity.py` and
+    `validate_evidence_bindings.py` rewrite tracked CSVs unless given
+    `--csv <scratch path>`; `phase6b_run_analysis_newsuites.py` rewrites
+    `papers/analysis/` unless given `--out-root`.
+14. **Author style:** no em-dashes (U+2014) in new prose; plain, simple
+    sentences in anything readers or editors see.
+15. **Scratch stays outside the repo.** Temporary files go in the session
+    scratchpad; never create scratch trees, plan folders or agent scaffolding
+    under this root.
 
-Full detail and the remaining traps: [REVISION_STATUS.md](REVISION_STATUS.md) §7.
+## Fast paths
+
+- **Python:** the machine's global interpreter may import a foreign editable
+  `gsk-family` from another checkout. `run.py` and pytest find `src/` by
+  themselves; bare `gsk-*` and `python -m gsk_family...` need
+  `PYTHONPATH=src` (plus `PYTHONDONTWRITEBYTECODE=1`), or a venv made with
+  `py -3.10 -m venv .venv` and `pip install -e ".[dev]"`. Python 3.10.11 is the
+  attested version.
+- **Reproducing archived numbers:** pass `--numba-threads 1`; at D >= 50 also
+  set the six thread variables (OMP, MKL, OPENBLAS, VECLIB_MAXIMUM, NUMEXPR,
+  NUMBA) to 1 before Python starts (runbook.md Part 1 Step 5). `run.py` pins no
+  threads itself; `scripts/run_campaign.py` pins all six and
+  `scripts/run_revision_experiments.py` five.
+- **Tests and lint:** `python -m pytest -q -p no:cacheprovider` (about 2 min on
+  an idle machine, 7-10 min under load), `python -m ruff check . --no-cache`,
+  `python scripts/validate_profile_lock.py --root .`.
+- **Prove the paper is unaffected:** runbook.md Part 2, stage 8b: 13
+  papers/scripts gates plus `scripts/check_package_contents.py` (builds from
+  `git archive HEAD`, so run it after committing); all exit 0 (check_manifest
+  15/15 and sources 2/2, frozen analysis 115/115, parity 755 rows 0 FAIL).
+  Mind rule 13.
+- **Docs:** edit runbook.md, then `python scripts/build_runbook_html.py`, then
+  `python scripts/build_docs_html.py`. Any `docs/**/*.md` or `src/**/*.py`
+  change needs `build_docs_html.py` too: the API pages anchor every function by
+  its line number, and no test catches a stale docs/html.
+  `tests/smoke/test_runbook_html.py` fails when the runbook twins are stale or
+  a runbook anchor breaks.
+- **gsk-stats byte-identity proof:** `PYTHONHASHSEED=0`, non-strict, compare
+  against `git archive HEAD src` extracted to scratch.
+- **Ordinary commit vs freeze pass:** files outside papers/, the freeze
+  manifests and the four hash-gated modules take ordinary commits on `main`
+  (imperative subject, prose body with evidence, `Co-Authored-By` trailer, no
+  em-dashes). A freeze pass follows runbook.md Part 2 "Freeze-Pass Cycle";
+  first read REVISION_STATUS.md section 7 and all of Appendix A: its "Right
+  now" entries hold the per-pass traps (`\hl` cannot wrap `\ref`; audit for
+  lone CR; CITATION.cff carries no leading v, so a v2.x sweep misses it; run
+  check_reproducibility_manifest.py after every rebuild, not with the mint),
+  and "Conventions" holds the id and SHA rules (SHAs from `git rev-parse`,
+  never typed; CITATION.cff, SUBMISSION_KIT.md and
+  submission_package_manifest.json move with every tag; `published_commit`
+  names the previous close). Commit and push only when the author asks.
+- **Outside researchers asking how to run the code:** point them to
+  runbook.md Part 1 (or runbook.html in their clone).
+- The local project skill **`dtgsk-maintain`** (`.claude/skills/`, not in git)
+  holds these checklists, the EOL-safe edit applier and `verify.sh` (the whole
+  ladder). It exists only on the author's machine; elsewhere use the Edit tool
+  and runbook.md Part 2 stage 8b with the rule 13 redirects.
+
+## Lessons that generalise
+
+- Diagnoses from review instruments are usually right; their prescribed fixes
+  often are not (10 of 11 unsafe in one audit). Challenge the fix, not just the
+  finding, and verify against bytes or the render.
+- Read the built PDF or rendered page: source greps miss line-wrapped phrases
+  and table cells.
+- State the gap, never the causation. Closed, do not revive: the D-0051
+  diagnostic re-execution stays diagnostic (author, 2026-08-28); the CR-0015
+  "larger disclosure" (rejected on challenge); the C4 "fix" (refuted).
+- Publication was a squash through 2026-08-28: governance SHAs recorded before
+  then may not resolve. Since then ordinary commits are published as they are.
 
 ## Where detail lives
 
 | Need | File |
 |---|---|
-| **Current state, review, next steps** | **[REVISION_STATUS.md](REVISION_STATUS.md)** |
-| Orientation, directory tree | [REPO_MAP.md](REPO_MAP.md) |
-| Agent operating contract, commands | [SKILL.md](SKILL.md) |
-| Step-by-step procedures | [runbook.md](runbook.md) |
-| Project constitution, governance | [PROJECT_RULES.md](PROJECT_RULES.md) |
-| Module structure, data flow | [ARCHITECTURE.md](ARCHITECTURE.md) |
-| Design principles, how to extend | [DESIGN_GUIDE.md](DESIGN_GUIDE.md) |
-| Suite protocols, budgets, seeds | [BENCHMARK_RULES.md](BENCHMARK_RULES.md) |
-| Style, determinism, KATs | [CODING_STANDARD.md](CODING_STANDARD.md) |
-| Numba, threading, serial kernels | [PERFORMANCE_RULES.md](PERFORMANCE_RULES.md) |
-| Runtime-acceleration method | `docs/development/ACCELERATION_CAMPAIGN_PROMPT.md` (Appendix A) |
-| Decisions D-0001…D-0049 | `papers/governance/decision_log.md` |
-| What is published vs withheld, and why | `papers/governance/decision_log.md` **D-0049** |
-| Claim → evidence bindings | `papers/governance/claims_evidence_matrix.csv` |
+| Run and test the code (for anyone) | runbook.md Part 1, or runbook.html |
+| Pipeline, gates, freeze cycle (maintainers) | runbook.md Part 2 |
+| Settled decisions, trap table | REVISION_STATUS.md sections 4 and 7 |
+| Pass-by-pass history | REVISION_STATUS.md Appendix A (about line 1680; bold `**Pass-NN` entries from pass-49 on) |
+| Orientation, directory tree | REPO_MAP.md |
+| Agent operating contract | SKILL.md |
+| Module structure, data flow | ARCHITECTURE.md |
+| Design principles, how to extend | DESIGN_GUIDE.md |
+| Style, determinism, KATs, vendored exemptions | CODING_STANDARD.md |
+| Governance rules | PROJECT_RULES.md |
+| Suite protocols, budgets, seeds | BENCHMARK_RULES.md |
+| Threading and speed | PERFORMANCE_RULES.md |
+| Runtime-acceleration method | docs/development/ACCELERATION_CAMPAIGN_PROMPT.md (Appendix A) |
+| Decisions; what is public vs withheld | `papers/governance/decision_log.md` (D-0049) |
+| Claim to evidence bindings | `papers/governance/claims_evidence_matrix.csv` |
 
-⚠️ **[FINAL_RELEASE_REPORT.md](FINAL_RELEASE_REPORT.md) is historical** (CEC2017 only, pre-submission).
-It ends on "PUBLISH READY", which is no longer the project's state. Do not read it for current status.
-
-## Conventions
-
-- Freeze passes and tags advance together: submitted at **pass-38 / v2.13**; the round-1 revision
-  landed at **pass-41 / v2.14**, both **published**. A revision is always a new pass through change
-  control, never an edit to a tagged state (D-0045).
-- **Publication WAS a squash, through 2026-08-28.** The public history is one commit per
-  published state up to that point, because the development history could not be published, so a
-  commit SHA recorded by a governance record written before then — including older
-  `anchor_commit` values — does **not** resolve. Since the private branches were bundled out and
-  `main` became the only branch, ordinary commits are published as they are: `anchor_commit`
-  now resolves (verify with `git cat-file -e` — tag-relative identities go stale every pass).
-  `published_commit` names the PREVIOUS freeze's close, so its
-  tree is deliberately not the current freeze's. Disclosed in `README.md`.
-- Governance ids are sequential and must be verified free at apply time — read the CURRENT
-  next-free pair off the "Right now" block above (this bullet has lagged it two passes running).
-- Evidence releases are additive and non-superseding. Frozen analysis outputs are never re-minted;
-  new findings get a new release id.
-- Temporary files go in the session scratchpad, **outside** the repo. Never create scratch trees,
-  plan folders, or agent scaffolding directories anywhere under this root.
+FINAL_RELEASE_REPORT.md is historical (CEC2017 only, pre-submission); do not
+read it for current status.

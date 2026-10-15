@@ -118,14 +118,13 @@ brief**, three Markdown **operating** files, a newcomer **orientation map**, the
 **governance** set, and the **release report** (do not add further root guides
 or collapse these without an explicit request):
 
-Current state — read before anything else:
+Current state, read before anything else:
 
-- [`REVISION_STATUS.md`](REVISION_STATUS.md) — the single source of truth for
-  *current* state: the editorial status of `algorithms-4507562`, which reviewer
-  points are done vs open, the freeze pass, the open author decisions, and the
-  verified trap table.
-- `CLAUDE.md` — the short auto-loaded session brief; it points at
-  `REVISION_STATUS.md` and carries the never-break invariants.
+- `CLAUDE.md`: the short auto-loaded session brief. It carries the live state,
+  the open items and the never-break invariants.
+- [`REVISION_STATUS.md`](REVISION_STATUS.md): the detailed record behind it
+  (review, every pass, settled decisions, the verified trap table); read it by
+  section.
 
 Operating files:
 
@@ -584,9 +583,8 @@ and the `docs/prompt/` review prompts.
 
 Run targeted checks for narrow edits; run the full sequence for broad changes.
 
-**Tests** (the suite currently collects **618** tests across the tiers below;
-re-check with `python -m pytest --collect-only -q` rather than hard-coding a
-number into new docs):
+**Tests** (re-check the count with `python -m pytest --collect-only -q` rather
+than hard-coding a number into docs):
 
 ```powershell
 python -m pytest -q

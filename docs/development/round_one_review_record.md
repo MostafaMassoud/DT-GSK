@@ -100,7 +100,7 @@ second-round audit. Frozen state: pass-49 / tag v2.22.
 
 ## Where the rest lives
 
-- **Current state, always:** [`REVISION_STATUS.md`](../../REVISION_STATUS.md) — §2 for the
+- **Current state:** [`CLAUDE.md`](../../CLAUDE.md); the record behind it is [`REVISION_STATUS.md`](../../REVISION_STATUS.md), §2 for the
   disposition table, §3 for what each phase applied.
 - **Governance:** `papers/governance/decision_log.md` (D-0046 onward) and the change-request
   register.
