@@ -76,11 +76,6 @@ recurred five times). There is no hosted CI; never claim one.
 2. **Declined by the author 2026-10-15; do not redo without asking:** a pooled
    15-function CEC2013LSGO panel in gsk-stats (needs the vendored
    `analysis/statistical_tests.py`, rule 11).
-3. Optional: the "State snapshot" block (lines 13-19) of four
-   `docs/prompt/*.md` files (all but change-register-acceptance-review.md) is
-   stale: it calls REVISION_STATUS.md the place to start and gives next free
-   CR-0044 / D-0069 beside pass-73. Point it at CLAUDE.md "Right now", refresh
-   the ids, then rebuild docs/html.
 
 ## Never break these
 

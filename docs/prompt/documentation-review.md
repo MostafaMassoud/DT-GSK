@@ -10,51 +10,40 @@
 > the README section "Internal Quality-Assurance Instruments" for the full
 > framing.
 
-> **State snapshot refreshed 2026-08-29.** Any dated status, tag, pass number, or open-item
+> **State snapshot refreshed 2026-10-16.** Any dated status, tag, pass number, or open-item
 > list below this line is a point-in-time anchor from an earlier phase and is NOT current
-> state. The live state is [`REVISION_STATUS.md`](../../REVISION_STATUS.md) (start there) and
-> the `CLAUDE.md` "Right now" block. As of this refresh: **pass-73 / tag v2.46**
-> (decision log through **D-0068**, register through **CR-0043**,
-> next free **CR-0044 / D-0069** — verify free at apply time); the round-one revision at *Algorithms* (MDPI) is
-> complete and agent-side work is finished; resubmission is due **2026-09-01**
-> (deadline = planned date, zero slack).
+> state. The live state is the "Right now" block of [`CLAUDE.md`](../../CLAUDE.md) (start
+> there); the settled decisions and the pass-by-pass history are in
+> [`REVISION_STATUS.md`](../../REVISION_STATUS.md). As of this refresh the paper is
+> **published**: *Algorithms* 2026, 19(9), 769, https://doi.org/10.3390/a19090769. Its Data
+> Availability Statement names this repository's URL and tags `v2.13`/`v2.37`, so
+> `papers/main.tex` stays at v2.37. The last freeze is **pass-73 / tag v2.46**; later work
+> is ordinary commits on `main`. Next free governance ids: **CR-0054 / D-0079** (verify free
+> at apply time).
 >
-> Four things this refresh adds, because they change what a reviewer of this repository sees:
-> (1) the repository is **PRIVATE until upload day** and must be flipped public before the
-> SuSy upload — the Data Availability Statement names its URL and tags `v2.13`/`v2.37`;
+> Four things a reviewer of this repository should expect:
+> (1) the repository is **public**, and `main` is its only branch;
 > (2) the reviewer-facing response letter, both marked PDFs and the change register are
-> **untracked by design** (D-0049) and live in `papers/submission/` — do not expect them in
+> **untracked by design** (D-0049) and live in `papers/submission/`, so do not expect them in
 > `git ls-files`; (3) operational identifiers (the private history bundle's location, the two
-> dangling-commit SHAs and their purge-ticket text) were moved by the 2026-08-29
-> public-release cleanup into the withheld `papers/review_2026_08_24/PRIVATE_OPS.md`, so
-> tracked documents deliberately no longer print them; (4) `results/_revision/` staging was
-> quarantined outside the repository — the promoted releases under
+> dangling-commit SHAs and their purge-ticket text) live only in the withheld
+> `papers/review_2026_08_24/PRIVATE_OPS.md`, so tracked documents deliberately do not print
+> them; (4) `results/_revision/` is untracked staging, and the promoted releases under
 > `benchmarks/cec_reference_results/` are the canonical evidence.
 >
-> **Passes 53-55 (2026-08-29) closed the full remediation register**, so findings from
-> earlier applications of this instrument are largely discharged. Pass-53: the
-> Supplementary's boundary-sensitivity limitation agrees with Section S9.5, the
-> Conclusions state why the interaction-structure memory is retained, the
-> deterministic PDF epoch is pinned inside the builders. Pass-54: the C1 stage rename
-> reached both architecture tables, the pre-registration claim moved onto the checksum
-> binding the squashed public history preserves, the abstract's suite anaphor was
-> fixed, a cover-letter builder and the reproducibility-manifest gate were added.
-> Pass-55: the abstract is 199 rendered words with the registered sentences
-> byte-identical, an additive sentence scopes the inactive-at-D<=20 claim to the
-> gating taxonomy, six verified supplement caption refinements landed, three orphan
-> tables gained refs (seven alleged orphans REFUTED - covered by rendered en-dash
-> range references), three clearpage flushes cured the float inversions (supplement
-> now 83 pp), 87 algorithm-guide citations were re-based, and the change register
-> renders hunk context verbatim. Re-derive findings from the artifacts rather
-> than assuming any earlier list still holds. Known-and-accepted, not defects:
-> `benchmarks/cec_reference_results/README.md` carries stale release ids but is
+> Findings from earlier applications of this instrument were discharged through pass-73 (one
+> line per pass: `git log --oneline --grep="^Close pass"`). Re-derive findings from the
+> artifacts rather than assuming any earlier list still holds. Known-and-accepted, not
+> defects: `benchmarks/cec_reference_results/README.md` carries stale release ids but is
 > hash-bound in an immutable release; the monorepo path survives only in hash-bound,
 > append-only or dated-historical files; `git.dirty` is always true in the environment
-> attestation (the mint's own outputs sit in the tree); and the submission-day
-> operations (public flip, purge ticket, SuSy fields) are deliberately outstanding.
+> attestation (the mint's own outputs sit in the tree); the attestation and the supplement
+> keep the test count published with the paper (a re-mint is freeze-pass work); and the
+> GitHub Support purge request for the two dangling commits is an author action tracked in
+> the `CLAUDE.md` "Open items".
 >
-> **Check `git status -sb` before trusting remote state:** the cleanup commits were made
-> locally and deliberately not pushed, so `main` may be ahead of `origin/main`.
+> **Check `git status -sb` before trusting remote state:** `main` may be ahead of
+> `origin/main`.
 >
 > Where this file's instructions conflict with current governance (freeze passes, hash-gated
 > files, never-edit trees, material withheld under D-0049), **governance wins**.

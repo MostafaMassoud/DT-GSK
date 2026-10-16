@@ -172,51 +172,40 @@
 <blockquote>Artificial Intelligence* statement, which is the authoritative account. See</blockquote>
 <blockquote>the README section &quot;Internal Quality-Assurance Instruments&quot; for the full</blockquote>
 <blockquote>framing.</blockquote>
-<blockquote><strong>State snapshot refreshed 2026-08-29.</strong> Any dated status, tag, pass number, or open-item</blockquote>
+<blockquote><strong>State snapshot refreshed 2026-10-16.</strong> Any dated status, tag, pass number, or open-item</blockquote>
 <blockquote>list below this line is a point-in-time anchor from an earlier phase and is NOT current</blockquote>
-<blockquote>state. The live state is <a href="../../REVISION_STATUS.md"><code>REVISION_STATUS.md</code></a> (start there) and</blockquote>
-<blockquote>the <code>CLAUDE.md</code> &quot;Right now&quot; block. As of this refresh: <strong>pass-73 / tag v2.46</strong></blockquote>
-<blockquote>(decision log through <strong>D-0068</strong>, register through <strong>CR-0043</strong>,</blockquote>
-<blockquote>next free <strong>CR-0044 / D-0069</strong> — verify free at apply time); the round-one revision at *Algorithms* (MDPI) is</blockquote>
-<blockquote>complete and agent-side work is finished; resubmission is due <strong>2026-09-01</strong></blockquote>
-<blockquote>(deadline = planned date, zero slack).</blockquote>
+<blockquote>state. The live state is the &quot;Right now&quot; block of <a href="../../CLAUDE.md"><code>CLAUDE.md</code></a> (start</blockquote>
+<blockquote>there); the settled decisions and the pass-by-pass history are in</blockquote>
+<blockquote><a href="../../REVISION_STATUS.md"><code>REVISION_STATUS.md</code></a>. As of this refresh the paper is</blockquote>
+<blockquote><strong>published</strong>: *Algorithms* 2026, 19(9), 769, https://doi.org/10.3390/a19090769. Its Data</blockquote>
+<blockquote>Availability Statement names this repository&#x27;s URL and tags <code>v2.13</code>/<code>v2.37</code>, so</blockquote>
+<blockquote><code>papers/main.tex</code> stays at v2.37. The last freeze is <strong>pass-73 / tag v2.46</strong>; later work</blockquote>
+<blockquote>is ordinary commits on <code>main</code>. Next free governance ids: <strong>CR-0054 / D-0079</strong> (verify free</blockquote>
+<blockquote>at apply time).</blockquote>
 <blockquote></blockquote>
-<blockquote>Four things this refresh adds, because they change what a reviewer of this repository sees:</blockquote>
-<blockquote>(1) the repository is <strong>PRIVATE until upload day</strong> and must be flipped public before the</blockquote>
-<blockquote>SuSy upload — the Data Availability Statement names its URL and tags <code>v2.13</code>/<code>v2.37</code>;</blockquote>
+<blockquote>Four things a reviewer of this repository should expect:</blockquote>
+<blockquote>(1) the repository is <strong>public</strong>, and <code>main</code> is its only branch;</blockquote>
 <blockquote>(2) the reviewer-facing response letter, both marked PDFs and the change register are</blockquote>
-<blockquote><strong>untracked by design</strong> (D-0049) and live in <code>papers/submission/</code> — do not expect them in</blockquote>
+<blockquote><strong>untracked by design</strong> (D-0049) and live in <code>papers/submission/</code>, so do not expect them in</blockquote>
 <blockquote><code>git ls-files</code>; (3) operational identifiers (the private history bundle&#x27;s location, the two</blockquote>
-<blockquote>dangling-commit SHAs and their purge-ticket text) were moved by the 2026-08-29</blockquote>
-<blockquote>public-release cleanup into the withheld <code>papers/review_2026_08_24/PRIVATE_OPS.md</code>, so</blockquote>
-<blockquote>tracked documents deliberately no longer print them; (4) <code>results/_revision/</code> staging was</blockquote>
-<blockquote>quarantined outside the repository — the promoted releases under</blockquote>
+<blockquote>dangling-commit SHAs and their purge-ticket text) live only in the withheld</blockquote>
+<blockquote><code>papers/review_2026_08_24/PRIVATE_OPS.md</code>, so tracked documents deliberately do not print</blockquote>
+<blockquote>them; (4) <code>results/_revision/</code> is untracked staging, and the promoted releases under</blockquote>
 <blockquote><code>benchmarks/cec_reference_results/</code> are the canonical evidence.</blockquote>
 <blockquote></blockquote>
-<blockquote><strong>Passes 53-55 (2026-08-29) closed the full remediation register</strong>, so findings from</blockquote>
-<blockquote>earlier applications of this instrument are largely discharged. Pass-53: the</blockquote>
-<blockquote>Supplementary&#x27;s boundary-sensitivity limitation agrees with Section S9.5, the</blockquote>
-<blockquote>Conclusions state why the interaction-structure memory is retained, the</blockquote>
-<blockquote>deterministic PDF epoch is pinned inside the builders. Pass-54: the C1 stage rename</blockquote>
-<blockquote>reached both architecture tables, the pre-registration claim moved onto the checksum</blockquote>
-<blockquote>binding the squashed public history preserves, the abstract&#x27;s suite anaphor was</blockquote>
-<blockquote>fixed, a cover-letter builder and the reproducibility-manifest gate were added.</blockquote>
-<blockquote>Pass-55: the abstract is 199 rendered words with the registered sentences</blockquote>
-<blockquote>byte-identical, an additive sentence scopes the inactive-at-D&lt;=20 claim to the</blockquote>
-<blockquote>gating taxonomy, six verified supplement caption refinements landed, three orphan</blockquote>
-<blockquote>tables gained refs (seven alleged orphans REFUTED - covered by rendered en-dash</blockquote>
-<blockquote>range references), three clearpage flushes cured the float inversions (supplement</blockquote>
-<blockquote>now 83 pp), 87 algorithm-guide citations were re-based, and the change register</blockquote>
-<blockquote>renders hunk context verbatim. Re-derive findings from the artifacts rather</blockquote>
-<blockquote>than assuming any earlier list still holds. Known-and-accepted, not defects:</blockquote>
-<blockquote><code>benchmarks/cec_reference_results/README.md</code> carries stale release ids but is</blockquote>
+<blockquote>Findings from earlier applications of this instrument were discharged through pass-73 (one</blockquote>
+<blockquote>line per pass: <code>git log --oneline --grep=&quot;^Close pass&quot;</code>). Re-derive findings from the</blockquote>
+<blockquote>artifacts rather than assuming any earlier list still holds. Known-and-accepted, not</blockquote>
+<blockquote>defects: <code>benchmarks/cec_reference_results/README.md</code> carries stale release ids but is</blockquote>
 <blockquote>hash-bound in an immutable release; the monorepo path survives only in hash-bound,</blockquote>
 <blockquote>append-only or dated-historical files; <code>git.dirty</code> is always true in the environment</blockquote>
-<blockquote>attestation (the mint&#x27;s own outputs sit in the tree); and the submission-day</blockquote>
-<blockquote>operations (public flip, purge ticket, SuSy fields) are deliberately outstanding.</blockquote>
+<blockquote>attestation (the mint&#x27;s own outputs sit in the tree); the attestation and the supplement</blockquote>
+<blockquote>keep the test count published with the paper (a re-mint is freeze-pass work); and the</blockquote>
+<blockquote>GitHub Support purge request for the two dangling commits is an author action tracked in</blockquote>
+<blockquote>the <code>CLAUDE.md</code> &quot;Open items&quot;.</blockquote>
 <blockquote></blockquote>
-<blockquote><strong>Check <code>git status -sb</code> before trusting remote state:</strong> the cleanup commits were made</blockquote>
-<blockquote>locally and deliberately not pushed, so <code>main</code> may be ahead of <code>origin/main</code>.</blockquote>
+<blockquote><strong>Check <code>git status -sb</code> before trusting remote state:</strong> <code>main</code> may be ahead of</blockquote>
+<blockquote><code>origin/main</code>.</blockquote>
 <blockquote></blockquote>
 <blockquote>Where this file&#x27;s instructions conflict with current governance (freeze passes, hash-gated</blockquote>
 <blockquote>files, never-edit trees, material withheld under D-0049), <strong>governance wins</strong>.</blockquote>
