@@ -196,7 +196,7 @@
 <pre><code>VerificationResult</code></pre>
 <p>Reference comparison result compatible with runner JSON output.</p>
 <div class="method-list"><h3>Methods</h3>
-<section class="api-member" id="method-to-json-dict-85">
+<section class="api-member" id="method-to-json-dict-87">
 <div class="member-kind">method</div>
 <h2>to_json_dict</h2>
 <pre><code>to_json_dict(self) -&gt; dict[str, Any]</code></pre>
@@ -204,85 +204,85 @@
 </section>
 </div>
 </section>
-<section class="api-member" id="function-normalize-function-label-92">
+<section class="api-member" id="function-normalize-function-label-94">
 <div class="member-kind">function</div>
 <h2>normalize_function_label</h2>
 <pre><code>normalize_function_label(label: Any) -&gt; int</code></pre>
 <p>Normalize labels such as ``1``, ``F1`` or ``f1`` to an integer id.</p>
 </section>
-<section class="api-member" id="function-parse-optional-float-104">
+<section class="api-member" id="function-parse-optional-float-106">
 <div class="member-kind">function</div>
 <h2>parse_optional_float</h2>
 <pre><code>parse_optional_float(value: Any) -&gt; float | None</code></pre>
 <p>Parse a table cell, returning ``None`` for missing reference values.</p>
 </section>
-<section class="api-member" id="function-dimension-from-name-115">
+<section class="api-member" id="function-dimension-from-name-117">
 <div class="member-kind">function</div>
 <h2>_dimension_from_name</h2>
 <pre><code>_dimension_from_name(path: Path) -&gt; int | None</code></pre>
 <p>Extract a dimension suffix such as `_D10` from a summary filename.</p>
 </section>
-<section class="api-member" id="function-read-summary-table-123">
+<section class="api-member" id="function-read-summary-table-125">
 <div class="member-kind">function</div>
 <h2>_read_summary_table</h2>
 <pre><code>_read_summary_table(path: str | Path, optimizer: str, suite: str) -&gt; SummaryTable</code></pre>
 <p>Read a CSV summary table into normalized function cells.</p>
 </section>
-<section class="api-member" id="function-candidate-reference-tables-154">
+<section class="api-member" id="function-candidate-reference-tables-156">
 <div class="member-kind">function</div>
 <h2>_candidate_reference_tables</h2>
 <pre><code>_candidate_reference_tables(reference_root: str | Path, optimizer: str, suite: str, dimension: int | None) -&gt; list[Path]</code></pre>
 <p>Return matching reference table candidates for a generated dimension.</p>
 </section>
-<section class="api-member" id="function-load-reference-table-177">
+<section class="api-member" id="function-load-reference-table-179">
 <div class="member-kind">function</div>
 <h2>load_reference_table</h2>
 <pre><code>load_reference_table(reference_root: str | Path, optimizer: str, suite: str, dimension: int | None) -&gt; SummaryTable | None</code></pre>
 <p>Load the best matching imported reference summary table.</p>
 </section>
-<section class="api-member" id="function-load-generated-tables-190">
+<section class="api-member" id="function-load-generated-tables-192">
 <div class="member-kind">function</div>
 <h2>load_generated_tables</h2>
 <pre><code>load_generated_tables(run_dir: str | Path) -&gt; tuple[dict[str, Any], list[SummaryTable]]</code></pre>
 <p>Load generated summary tables for a run directory.</p>
 </section>
-<section class="api-member" id="function-is-reduced-budget-212">
+<section class="api-member" id="function-is-reduced-budget-225">
 <div class="member-kind">function</div>
 <h2>_is_reduced_budget</h2>
 <pre><code>_is_reduced_budget(env: dict[str, Any], override: bool | None) -&gt; bool</code></pre>
 <p>Infer whether a generated run should be treated as reduced budget.</p>
 </section>
-<section class="api-member" id="function-known-optimum-stats-221">
+<section class="api-member" id="function-known-optimum-stats-234">
 <div class="member-kind">function</div>
 <h2>_known_optimum_stats</h2>
 <pre><code>_known_optimum_stats(env: dict[str, Any]) -&gt; bool</code></pre>
 <p>Return True when generated stats are error-vs-optimum values.</p>
 </section>
-<section class="api-member" id="function-numeric-generated-stats-226">
+<section class="api-member" id="function-numeric-generated-stats-239">
 <div class="member-kind">function</div>
 <h2>_numeric_generated_stats</h2>
 <pre><code>_numeric_generated_stats(cell: SummaryCell) -&gt; dict[str, float]</code></pre>
 <p>Return generated statistics as finite floats or raise a hard error.</p>
 </section>
-<section class="api-member" id="function-compare-mean-236">
+<section class="api-member" id="function-compare-mean-249">
 <div class="member-kind">function</div>
 <h2>_compare_mean</h2>
 <pre><code>_compare_mean(gen_mean: float, ref_mean: float) -&gt; int</code></pre>
 <p>Compare generated and reference means with a small numeric tolerance.</p>
 </section>
-<section class="api-member" id="function-compare-generated-to-references-246">
+<section class="api-member" id="function-compare-generated-to-references-259">
 <div class="member-kind">function</div>
 <h2>compare_generated_to_references</h2>
 <pre><code>compare_generated_to_references(run_dir: str | Path, reference_root: str | Path, *, reduced_budget: bool | None = None) -&gt; VerificationResult</code></pre>
 <p>Compare generated summary tables to imported reference summaries.</p>
 </section>
-<section class="api-member" id="function-write-verification-json-388">
+<section class="api-member" id="function-write-verification-json-404">
 <div class="member-kind">function</div>
 <h2>write_verification_json</h2>
 <pre><code>write_verification_json(result: VerificationResult, path: str | Path) -&gt; None</code></pre>
 <p>Write a verification result JSON file.</p>
 </section>
-<section class="api-member" id="function-verify-run-directory-393">
+<section class="api-member" id="function-verify-run-directory-409">
 <div class="member-kind">function</div>
 <h2>verify_run_directory</h2>
 <pre><code>verify_run_directory(run_dir: str | Path, reference_root: str | Path, *, reduced_budget: bool | None = None, output_path: str | Path | None = None) -&gt; VerificationResult</code></pre>
@@ -299,20 +299,20 @@
 <a class="toc-level-2" href="#class-summarytable-43">SummaryTable</a>
 <a class="toc-level-2" href="#class-verificationfailure-54">VerificationFailure</a>
 <a class="toc-level-2" href="#class-verificationresult-65">VerificationResult</a>
-<a class="toc-level-2" href="#function-normalize-function-label-92">normalize_function_label</a>
-<a class="toc-level-2" href="#function-parse-optional-float-104">parse_optional_float</a>
-<a class="toc-level-2" href="#function-dimension-from-name-115">_dimension_from_name</a>
-<a class="toc-level-2" href="#function-read-summary-table-123">_read_summary_table</a>
-<a class="toc-level-2" href="#function-candidate-reference-tables-154">_candidate_reference_tables</a>
-<a class="toc-level-2" href="#function-load-reference-table-177">load_reference_table</a>
-<a class="toc-level-2" href="#function-load-generated-tables-190">load_generated_tables</a>
-<a class="toc-level-2" href="#function-is-reduced-budget-212">_is_reduced_budget</a>
-<a class="toc-level-2" href="#function-known-optimum-stats-221">_known_optimum_stats</a>
-<a class="toc-level-2" href="#function-numeric-generated-stats-226">_numeric_generated_stats</a>
-<a class="toc-level-2" href="#function-compare-mean-236">_compare_mean</a>
-<a class="toc-level-2" href="#function-compare-generated-to-references-246">compare_generated_to_references</a>
-<a class="toc-level-2" href="#function-write-verification-json-388">write_verification_json</a>
-<a class="toc-level-2" href="#function-verify-run-directory-393">verify_run_directory</a>
+<a class="toc-level-2" href="#function-normalize-function-label-94">normalize_function_label</a>
+<a class="toc-level-2" href="#function-parse-optional-float-106">parse_optional_float</a>
+<a class="toc-level-2" href="#function-dimension-from-name-117">_dimension_from_name</a>
+<a class="toc-level-2" href="#function-read-summary-table-125">_read_summary_table</a>
+<a class="toc-level-2" href="#function-candidate-reference-tables-156">_candidate_reference_tables</a>
+<a class="toc-level-2" href="#function-load-reference-table-179">load_reference_table</a>
+<a class="toc-level-2" href="#function-load-generated-tables-192">load_generated_tables</a>
+<a class="toc-level-2" href="#function-is-reduced-budget-225">_is_reduced_budget</a>
+<a class="toc-level-2" href="#function-known-optimum-stats-234">_known_optimum_stats</a>
+<a class="toc-level-2" href="#function-numeric-generated-stats-239">_numeric_generated_stats</a>
+<a class="toc-level-2" href="#function-compare-mean-249">_compare_mean</a>
+<a class="toc-level-2" href="#function-compare-generated-to-references-259">compare_generated_to_references</a>
+<a class="toc-level-2" href="#function-write-verification-json-404">write_verification_json</a>
+<a class="toc-level-2" href="#function-verify-run-directory-409">verify_run_directory</a>
 </aside>
   </div>
   <script src="../assets/search.js"></script>

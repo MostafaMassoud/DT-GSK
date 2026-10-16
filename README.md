@@ -779,8 +779,9 @@ Performance tuning must preserve:
 
 ### Parallel Backend Behavior
 
-The default `process` backend is true multi-core: each cell runs in a separate
-process pool, so work scales across physical cores without the GIL contention
+The default `process` backend is true multi-core: one process pool is shared
+across cells, and each cell's runs are spread over its workers, one cell at a
+time. Work therefore scales across physical cores without the GIL contention
 that a thread pool would impose on the JIT-compiled inner loops.
 
 - It self-heals on worker crashes. If a worker dies mid-run, the pool is rebuilt
@@ -951,10 +952,11 @@ this paragraph used to carry stopped being true and nobody noticed. **No** commi
 carrying an AI co-authorship trailer modifies any of the four hash-gated
 optimizer modules (`dt_gsk.py`, `_dt_core.py`, `_dt_profiles.py`, `_dt_rng.py`) --
 `papers/scripts/validate_provenance_claims.py` enforces that by hash, so it is a
-gate rather than a promise. Two such commits touch other files under
-`src/gsk_family/optimizers/`, and both are documentation-only: one updates a
-comment's cross-reference, the other adds a source-attribution docstring to a
-comparator. Neither changes behaviour.
+gate rather than a promise. Three such commits touch other files under
+`src/gsk_family/optimizers/`, and all three are documentation-only: one updates
+a comment's cross-reference, one adds a source-attribution docstring to a
+comparator, and one corrects a docstring's count of external baselines. None
+changes behaviour.
 Trailered commits DO appear under `benchmarks/cec_reference_results/` and
 `papers/analysis/`, and every one of them is a promotion or a re-derivation, not
 an authored number: files are copied byte-for-byte from a completed run into a

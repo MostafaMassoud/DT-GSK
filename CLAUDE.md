@@ -61,38 +61,22 @@ recurred five times). There is no hosted CI; never claim one.
 
 ## Open items (next steps)
 
-1. **Runner fixes, proposed as a separate session, not started; covers all of
-   this item. Ask the author whether to do it here or start that session.**
-   (a) `run.py --stats` drops F2 on CEC2013, CEC2020 and CEC2013LSGO:
-   `src/gsk_family/runners/run_experiment.py` (CRLF) about line 509,
-   `or (2,)`. Use
-   `tuple(sorted(SUITE_EXCLUDED_FUNCS.get(config.suite.upper(), set())))` from
-   `src/gsk_family/analysis/result_loader.py` (keys upper case; a bare set
-   fails mypy). An empty tuple is passed through by the vendored code (no
-   fallback to `(2,)`). The emitter swallows exceptions and prints only
-   `[stats] skipped`, so tests must assert that the panel printed (extend
-   `tests/smoke/test_stats_flag_smoke.py`). (b) When a summary folder has no
-   `<opt>_<suite>_D*.csv` (every run of a cell failed) or, on CEC2011, after
-   any skipped run, `src/gsk_family/runners/verification.py`
-   `load_generated_tables` (about lines 202-208) reads
-   `summary/skipped_runs.csv` and raises "missing a Function column"; test on
-   a tmp `summary/` holding only `environment.json` + `skipped_runs.csv`.
-   (c) Stale docs: PERFORMANCE_RULES.md about 203-205 (removed tiny-run
-   heuristic), README.md about 783 ("separate process pool" per cell). Then
-   remove the "known gap" note in docs/research/statistical_analysis.md and the
-   `skipped_runs.csv` wording in the runbook Troubleshooting row. Rebuild
-   docs/html (code line numbers move the API pages).
+1. **Author action: confirm whether the GitHub Support purge request was
+   filed; if not, file it** (nothing records a filing; ask before filing so
+   no duplicate ticket is opened). Checked
+   2026-10-16: both exposed commits are still served by direct SHA (commit
+   pages and API 200; the tree still lists the seven copyrighted PDFs; the
+   co-author handoff file still downloads). The repo has 0 forks and 0 pull
+   requests. The ready ticket text and SHAs live only in the withheld
+   `papers/review_2026_08_24/PRIVATE_OPS.md` section 2; never copy them into a
+   tracked file. After GitHub confirms, check each SHA with
+   `curl -s -o NUL -w "%{http_code}" https://api.github.com/repos/MostafaMassoud/DT-GSK/commits/<sha>`
+   (200 on 2026-10-16; expect 404 or 422). A raw.githubusercontent.com
+   directory URL returns 404 even before a purge and proves nothing.
 2. **Declined by the author 2026-10-15; do not redo without asking:** a pooled
    15-function CEC2013LSGO panel in gsk-stats (needs the vendored
    `analysis/statistical_tests.py`, rule 11).
-3. **Author-only, status unknown:** the GitHub Support purge request for the
-   two exposed commits was REOPENED 2026-08-28, to be filed after the public
-   flip (decision_log.md, "GitHub purge"); nothing records that it was filed.
-   Ask the author.
-4. Optional, needs author sign-off: README.md line 954 says "Two such commits
-   touch other files under" `src/gsk_family/optimizers/`; there are three
-   (3539977, 290854d, 86411e6).
-5. Optional: the "State snapshot" block (lines 13-19) of four
+3. Optional: the "State snapshot" block (lines 13-19) of four
    `docs/prompt/*.md` files (all but change-register-acceptance-review.md) is
    stale: it calls REVISION_STATUS.md the place to start and gives next free
    CR-0044 / D-0069 beside pass-73. Point it at CLAUDE.md "Right now", refresh

@@ -289,8 +289,8 @@ four dimensions (`29 * 4`).
 
 | Field | Meaning |
 | --- | --- |
-| `verdict` | `DEVIATES` when there are hard failures; `NOT_VERIFIED` when no hard failure exists but not a single function could be compared because no reference rows exist (`functions_checked == 0` with `missing_reference > 0`); otherwise `CONSISTENT`. A suite without a committed reference bank (`cec2020`, `cec2013lsgo`, `sphere`) therefore reports `NOT_VERIFIED`, never a vacuous `CONSISTENT`. |
-| `reason` | `"NO_REFERENCE"` accompanies a `NOT_VERIFIED` verdict; `null` otherwise. |
+| `verdict` | `DEVIATES` when there are hard failures; otherwise `NOT_VERIFIED` when nothing could be compared, either because no run of the bank succeeded (no summary table was generated, or `per_run.csv` holds no rows; reason `NO_GENERATED_RESULTS`) or because no reference rows exist (`functions_checked == 0` with `missing_reference > 0`; reason `NO_REFERENCE`); otherwise `CONSISTENT`. A suite without a committed reference bank (`cec2020`, `cec2013lsgo`, `sphere`) therefore reports `NOT_VERIFIED`, never a vacuous `CONSISTENT`. |
+| `reason` | `"NO_GENERATED_RESULTS"` or `"NO_REFERENCE"` accompanies a `NOT_VERIFIED` verdict (see `verdict`); `null` otherwise. |
 | `reduced_budget` | `true` when the run used a reduced budget or `runs < 25`. |
 | `functions_checked` | Function rows with both a generated and a reference mean. |
 | `hard_failures` | Count of hard failures (see below); drives the verdict. |

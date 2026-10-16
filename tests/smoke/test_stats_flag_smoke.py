@@ -49,6 +49,29 @@ def test_stats_flag_streams_analysis(tmp_path: Path) -> None:
     assert "AGSK-REF" in result.stdout
 
 
+def test_stats_flag_keeps_f2_outside_cec2017(tmp_path: Path) -> None:
+    # Only CEC2017 drops F2; the panel must print (the emitter swallows errors
+    # and would otherwise only log "[stats] skipped") and must rank all three
+    # requested CEC2020 functions, F2 included.
+    import subprocess
+
+    result = subprocess.run(
+        [
+            sys.executable, "-m", "gsk_family.cli.run",
+            "--optimizer", "agsk", "--suite", "cec2020",
+            "--dimension", "5", "--function", "1:3",
+            "--runs", "2", "--seed", "20240620", "--max-evaluations", "500",
+            "--output-root", str(tmp_path / "results"), "--overwrite", "--stats",
+        ],
+        cwd=PROJECT_ROOT, env=_env(), text=True, capture_output=True,
+        timeout=300, check=False,
+    )
+    assert result.returncode == 0, result.stderr
+    assert "[stats] skipped" not in result.stdout
+    assert "STATISTICAL ANALYSIS -- D=5" in result.stdout
+    assert "Functions compared: 3" in result.stdout
+
+
 def test_default_run_has_no_statistical_analysis(tmp_path: Path) -> None:
     result = _run(tmp_path)
     assert result.returncode == 0, result.stderr

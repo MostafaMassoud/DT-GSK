@@ -266,10 +266,8 @@ gsk-run --optimizer dt-gsk --suite cec2017 --dimension 10 --dimension 30 --stats
 ```
 
 `gsk-stats` remains the way to produce the figures, CSV, and LaTeX artifacts
-after a run; `--stats` is purely the live console/per-run report. One known gap,
-to be fixed separately: the runner's `--stats` panel still drops F2 on CEC2013,
-CEC2020 and CEC2013LSGO, while `gsk-stats` keeps it, so take the comparison for
-those suites from `gsk-stats`.
+after a run; `--stats` is purely the live console/per-run report. Like
+`gsk-stats`, the runner's `--stats` panel drops F2 only on CEC2017.
 
 **Self-validation against a committed reference table.** The `--stats` path has a
 generic self-validation hook: when it runs an optimizer that has *committed

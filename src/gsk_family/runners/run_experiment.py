@@ -23,6 +23,7 @@ from gsk_family.benchmark_adapter.protocol import (
     default_function_ids,
     is_native_dimension_suite,
 )
+from gsk_family.analysis.result_loader import SUITE_EXCLUDED_FUNCS
 from gsk_family.analysis.statistical_tests import (
     StatAnalysisResult,
     format_cross_dim_summary,
@@ -464,6 +465,20 @@ def _excluded_functions(config: ExperimentConfig, functions_run: set[int]) -> li
     return []
 
 
+def _stats_excluded_functions(config: ExperimentConfig, functions_run: set[int]) -> tuple[int, ...]:
+    """Return the functions the opt-in ``--stats`` panel excludes.
+
+    Only CEC2017 drops F2 (``result_loader.SUITE_EXCLUDED_FUNCS``), for a full
+    or a partial function request alike; every other suite keeps it
+    (Amendment 1 Section A1.1). The old ``or (2,)`` fallback dropped F2 on
+    CEC2013, CEC2020 and CEC2013LSGO.
+    """
+    run_all = _excluded_functions(config, functions_run)
+    if run_all:
+        return tuple(run_all)
+    return tuple(sorted(SUITE_EXCLUDED_FUNCS.get(config.suite.upper(), set())))
+
+
 def _statistical_analysis_enabled(config: ExperimentConfig, optimizer: str) -> bool:
     """Return True when the opt-in per-dim statistical analysis should run.
 
@@ -506,7 +521,7 @@ def _emit_statistical_analysis(
             excluded: tuple[int, ...] = ()
         else:
             summary_csv = dirs["summary"] / f"{optimizer}_{config.suite}_D{dim}.csv"
-            excluded = tuple(_excluded_functions(config, funcs_to_run)) or (2,)
+            excluded = _stats_excluded_functions(config, funcs_to_run)
         ref_base = Path(config.reference_root) / config.suite.lower()
         if not ref_base.is_dir() or not summary_csv.exists():
             return None

@@ -80,10 +80,9 @@ What happens, step by step:
 2. Because the seed policy is `unified` (the default), it draws one shared
    initial population per cell so every optimizer would start identically.
 3. It runs the 2 cells (`F1·D10` and `F3·D10`) at 3 runs each — `3 x 2 = 6`
-   run tasks — which the runner dispatches; the process pool only engages when
-   the task count exceeds the worker count, so for so few tasks the runner may
-   stay in-process (see the "Parallel Workflow" note below). Either way it
-   writes `per_run.csv`, the per-dimension summary CSV, median-run curve CSVs,
+   run tasks, which the runner dispatches to the process pool one cell at a time
+   (a cell with a single run task, or any cell when the worker count is 1, runs
+   inline; see the "Parallel Workflow" note below). It writes `per_run.csv`, the per-dimension summary CSV, median-run curve CSVs,
    optional convergence graph PNGs, checkpoint logs, `environment.json`, and
    `verification.json`.
 4. `gsk-validate --compare` reloads the generated summaries, finds the matching
@@ -220,8 +219,10 @@ receives the same deterministic payload it would receive in serial mode, and
 outputs are restored to serial order before writing, so artifacts are identical
 regardless of backend.
 
-For very small task counts the runner stays in-process (the spawn overhead would
-not pay off). If a worker process dies, the runner tears the pool down, rebuilds
+A cell runs inline in the parent process when it has a single run task or the
+worker count is 1; otherwise the shared process pool is used, even for a small
+campaign, which is never moved to a thread pool. If a
+worker process dies, the runner tears the pool down, rebuilds
 it, and retries a few times; after repeated failures it finishes the affected
 cell on the **serial** backend rather than the thread backend (parallel Numba
 kernels can deadlock under many Python threads). The optional `profile.json`

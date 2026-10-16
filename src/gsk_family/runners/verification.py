@@ -79,7 +79,9 @@ class VerificationResult:
     reference_root: str = ""
     #: Why the verdict is what it is when no comparison happened. ``None`` for
     #: genuine CONSISTENT/DEVIATES verdicts; ``"NO_REFERENCE"`` when every
-    #: attempted comparison found no reference row, so nothing was verified.
+    #: attempted comparison found no reference row, so nothing was verified;
+    #: ``"NO_GENERATED_RESULTS"`` when no run of the bank succeeded (no summary
+    #: table was generated, or per_run.csv holds no rows).
     reason: str | None = None
 
     def to_json_dict(self) -> dict[str, Any]:
@@ -195,6 +197,14 @@ def load_generated_tables(run_dir: str | Path) -> tuple[dict[str, Any], list[Sum
     env: dict[str, Any] = {}
     if env_path.exists():
         env = json.loads(env_path.read_text(encoding="utf-8"))
+    per_run = summary / "per_run.csv"
+    if per_run.is_file():
+        # A header-only per_run.csv means no run of this bank succeeded (for
+        # example an --overwrite rerun in which every run failed); summary
+        # tables left from an earlier run must not be verified as if current.
+        with per_run.open("r", newline="", encoding="utf-8") as handle:
+            if next(csv.DictReader(handle), None) is None:
+                return env, []
 
     optimizer = str(env.get("optimizer") or root.parent.name)
     suite = str(env.get("suite") or root.name)
@@ -203,7 +213,10 @@ def load_generated_tables(run_dir: str | Path) -> tuple[dict[str, Any], list[Sum
         tables.append(_read_summary_table(path, optimizer, suite))
     if not tables:
         for path in sorted(summary.glob("*.csv")):
-            if path.name in {"per_run.csv", "seed_schedule.csv"}:
+            # skipped_runs.csv lists failed runs (lower-case "function" column),
+            # not a summary table; reading it raised "missing a Function column"
+            # when no per-dimension table was written (every run failed).
+            if path.name in {"per_run.csv", "seed_schedule.csv", "skipped_runs.csv"}:
                 continue
             tables.append(_read_summary_table(path, optimizer, suite))
     return env, tables
@@ -360,6 +373,9 @@ def compare_generated_to_references(
     # non-finite or negative-error checks run without any reference.
     if hard_count:
         verdict, reason = "DEVIATES", None
+    elif not generated_tables:
+        # Nothing was generated (every run failed), so nothing was compared.
+        verdict, reason = "NOT_VERIFIED", "NO_GENERATED_RESULTS"
     elif checked == 0 and missing_reference > 0:
         verdict, reason = "NOT_VERIFIED", "NO_REFERENCE"
     else:

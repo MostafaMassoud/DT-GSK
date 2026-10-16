@@ -40,8 +40,10 @@ Two backends are selectable with `parallel_backend` (or `--parallel-backend`):
   parallelism with no GIL contention; the correct choice for real campaigns. If
   a worker dies (an intermittent Numba/spawn crash, or out of memory) the run
   rebuilds the pool and retries, and finishes a cell serially only if it keeps
-  failing, so the run always completes. Tiny runs (task count not greater than
-  the worker count) run in-process to avoid spawn overhead.
+  failing, so the run always completes. One pool is shared across cells, which
+  are dispatched one (function, dimension) cell at a time; a cell with a single
+  run task, or any cell when the worker count is 1, runs inline. A small
+  campaign is never moved to a thread pool.
 - `thread`: a `ThreadPoolExecutor`. The optimizer loop is Python/NumPy and holds
   the GIL, so threads do not scale for CPU-bound runs; worse, calling
   `parallel=True` Numba kernels from many threads can **deadlock**. Avoid it —

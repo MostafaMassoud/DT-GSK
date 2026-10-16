@@ -190,7 +190,7 @@
 <p>Two backends are selectable with <code>parallel_backend</code> (or <code>--parallel-backend</code>):</p>
 <ul>
 <li><code>process</code> (default): a reused <code>ProcessPoolExecutor</code> (spawn) — true multi-core</li>
-<p>parallelism with no GIL contention; the correct choice for real campaigns. If a worker dies (an intermittent Numba/spawn crash, or out of memory) the run rebuilds the pool and retries, and finishes a cell serially only if it keeps failing, so the run always completes. Tiny runs (task count not greater than the worker count) run in-process to avoid spawn overhead.</p>
+<p>parallelism with no GIL contention; the correct choice for real campaigns. If a worker dies (an intermittent Numba/spawn crash, or out of memory) the run rebuilds the pool and retries, and finishes a cell serially only if it keeps failing, so the run always completes. One pool is shared across cells, which are dispatched one (function, dimension) cell at a time; a cell with a single run task, or any cell when the worker count is 1, runs inline. A small campaign is never moved to a thread pool.</p>
 <li><code>thread</code>: a <code>ThreadPoolExecutor</code>. The optimizer loop is Python/NumPy and holds</li>
 <p>the GIL, so threads do not scale for CPU-bound runs; worse, calling <code>parallel=True</code> Numba kernels from many threads can <strong>deadlock</strong>. Avoid it — use the process backend, or <code>--serial</code> for a single-process run.</p>
 </ul>

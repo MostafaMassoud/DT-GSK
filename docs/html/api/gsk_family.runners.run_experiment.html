@@ -166,67 +166,67 @@
 <p class="source-path">Source: <code>src/gsk_family/runners/run_experiment.py</code></p>
 <p>Experiment runner for Python GSK-family experiments.</p>
 <h2 id="members">Members</h2>
-<section class="api-member" id="function-runtime-provenance-116">
+<section class="api-member" id="function-runtime-provenance-117">
 <div class="member-kind">function</div>
 <h2>_runtime_provenance</h2>
 <pre><code>_runtime_provenance(project_root: Path) -&gt; dict[str, Any]</code></pre>
 <p>Collect Python-truthful provenance fields for environment metadata.</p>
 </section>
-<section class="api-member" id="function-run-config-optimizer-params-140">
+<section class="api-member" id="function-run-config-optimizer-params-141">
 <div class="member-kind">function</div>
 <h2>_run_config_optimizer_params</h2>
 <pre><code>_run_config_optimizer_params(optimizer: str, options: dict[str, Any]) -&gt; dict[str, Any]</code></pre>
 <p>Return the resolved optimizer parameters recorded in ``run_config.json``.</p>
 </section>
-<section class="api-member" id="class-experimentrunsummary-161">
+<section class="api-member" id="class-experimentrunsummary-162">
 <div class="member-kind">class</div>
 <h2>ExperimentRunSummary</h2>
 <pre><code>ExperimentRunSummary</code></pre>
 <p>Summary returned by ``run_experiment``.</p>
 </section>
-<section class="api-member" id="function-build-config-171">
+<section class="api-member" id="function-build-config-172">
 <div class="member-kind">function</div>
 <h2>_build_config</h2>
 <pre><code>_build_config(config: ExperimentConfig | dict[str, Any] | None, kwargs: dict[str, Any]) -&gt; ExperimentConfig</code></pre>
 <p>Merge direct keyword overrides and return a normalized config.</p>
 </section>
-<section class="api-member" id="function-resolve-cells-186">
+<section class="api-member" id="function-resolve-cells-187">
 <div class="member-kind">function</div>
 <h2>_resolve_cells</h2>
 <pre><code>_resolve_cells(config: ExperimentConfig) -&gt; list[tuple[int, int]]</code></pre>
 <p>Resolve configured functions and dimensions into run cells.</p>
 </section>
-<section class="api-member" id="function-execution-ordered-cells-225">
+<section class="api-member" id="function-execution-ordered-cells-226">
 <div class="member-kind">function</div>
 <h2>_execution_ordered_cells</h2>
 <pre><code>_execution_ordered_cells(config: ExperimentConfig, cells: list[tuple[int, int]]) -&gt; list[tuple[int, int]]</code></pre>
 <p>Return reference-compatible dimension-major execution order for fixed-dimension suites.</p>
 </section>
-<section class="api-member" id="function-resolve-suite-warmup-cells-232">
+<section class="api-member" id="function-resolve-suite-warmup-cells-233">
 <div class="member-kind">function</div>
 <h2>_resolve_suite_warmup_cells</h2>
 <pre><code>_resolve_suite_warmup_cells(config: ExperimentConfig) -&gt; list[tuple[int, int]]</code></pre>
 <p>Return the default suite grid used for publication warmup.</p>
 </section>
-<section class="api-member" id="function-resolve-warmup-cells-254">
+<section class="api-member" id="function-resolve-warmup-cells-255">
 <div class="member-kind">function</div>
 <h2>_resolve_warmup_cells</h2>
 <pre><code>_resolve_warmup_cells(config: ExperimentConfig, selected_cells: list[tuple[int, int]]) -&gt; list[tuple[int, int]]</code></pre>
 <p>Return selected-cell or full-suite warmup cells.</p>
 </section>
-<section class="api-member" id="function-current-schedule-rows-261">
+<section class="api-member" id="function-current-schedule-rows-262">
 <div class="member-kind">function</div>
 <h2>_current_schedule_rows</h2>
 <pre><code>_current_schedule_rows(config: ExperimentConfig, optimizer: str, cells: list[tuple[int, int]]) -&gt; list[SeedScheduleRow]</code></pre>
 <p>Build seed schedule rows for one optimizer over resolved cells.</p>
 </section>
-<section class="api-member" id="function-row-key-285">
+<section class="api-member" id="function-row-key-286">
 <div class="member-kind">function</div>
 <h2>_row_key</h2>
 <pre><code>_row_key(row: dict[str, str]) -&gt; tuple[int, int, int]</code></pre>
 <p>Return the function, dimension, and run key for a per-run CSV row.</p>
 </section>
-<section class="api-member" id="function-bank-from-rows-290">
+<section class="api-member" id="function-bank-from-rows-291">
 <div class="member-kind">function</div>
 <h2>_bank_from_rows</h2>
 <pre><code>_bank_from_rows(rows: list[dict[str, Any]], statistics_basis: str) -&gt; tuple[dict[tuple[int, int], int], dict[tuple[int, int], list[float]]]</code></pre>
@@ -238,73 +238,83 @@ artifact count) and summarise the complete set instead of the new subset.
 The basis selects the column that ``stats.statistic_values`` would return --
 ``best_fitness`` for raw_objective, the precomputed ``error`` otherwise.</p>
 </section>
-<section class="api-member" id="function-matching-existing-rows-316">
+<section class="api-member" id="function-matching-existing-rows-317">
 <div class="member-kind">function</div>
 <h2>_matching_existing_rows</h2>
 <pre><code>_matching_existing_rows(rows: list[dict[str, str]]) -&gt; dict[tuple[int, int, int, int], dict[str, str]]</code></pre>
 <p>Index existing per-run rows by cell and seed for resume behavior.</p>
 </section>
-<section class="api-member" id="function-run-record-from-result-328">
+<section class="api-member" id="function-run-record-from-result-329">
 <div class="member-kind">function</div>
 <h2>_run_record_from_result</h2>
 <pre><code>_run_record_from_result(result: Any, run: int) -&gt; RunRecord</code></pre>
 <p>Convert an optimizer result into a normalized runner record.</p>
 </section>
-<section class="api-member" id="function-optimizer-population-size-345">
+<section class="api-member" id="function-optimizer-population-size-346">
 <div class="member-kind">function</div>
 <h2>_optimizer_population_size</h2>
 <pre><code>_optimizer_population_size(optimizer: str, optimizer_options: dict[str, Any]) -&gt; int</code></pre>
 <p>Return the population size required for a fair-start payload.</p>
 </section>
-<section class="api-member" id="function-run-one-354">
+<section class="api-member" id="function-run-one-355">
 <div class="member-kind">function</div>
 <h2>_run_one</h2>
 <pre><code>_run_one(config: ExperimentConfig, optimizer: str, func: int, dim: int, run: int, seed: int) -&gt; RunArtifact</code></pre>
 <p>Execute one optimizer/function/dimension/run cell.</p>
 </section>
-<section class="api-member" id="function-task-from-schedule-row-412">
+<section class="api-member" id="function-task-from-schedule-row-413">
 <div class="member-kind">function</div>
 <h2>_task_from_schedule_row</h2>
 <pre><code>_task_from_schedule_row(optimizer: str, row: SeedScheduleRow) -&gt; RunTask</code></pre>
 <p>Convert a seed schedule row into a parallel-dispatch task.</p>
 </section>
-<section class="api-member" id="function-log-console-423">
+<section class="api-member" id="function-log-console-424">
 <div class="member-kind">function</div>
 <h2>_log_console</h2>
 <pre><code>_log_console(enabled: bool, message: str) -&gt; None</code></pre>
 <p>Write one flushed console progress line when console logging is enabled.</p>
 </section>
-<section class="api-member" id="function-progress-bar-429">
+<section class="api-member" id="function-progress-bar-430">
 <div class="member-kind">function</div>
 <h2>_progress_bar</h2>
 <pre><code>_progress_bar(completed: int, total: int, *, width: int = 24) -&gt; str</code></pre>
 <p>Return a compact ASCII progress bar suitable for PowerShell logs.</p>
 </section>
-<section class="api-member" id="function-log-finalize-progress-438">
+<section class="api-member" id="function-log-finalize-progress-439">
 <div class="member-kind">function</div>
 <h2>_log_finalize_progress</h2>
 <pre><code>_log_finalize_progress(enabled: bool, optimizer: str, completed: int, total: int, label: str) -&gt; None</code></pre>
 <p>Print one finalization progress line outside the function summary table.</p>
 </section>
-<section class="api-member" id="function-format-number-list-449">
+<section class="api-member" id="function-format-number-list-450">
 <div class="member-kind">function</div>
 <h2>_format_number_list</h2>
 <pre><code>_format_number_list(values: list[int] | tuple[int, ...] | set[int]) -&gt; str</code></pre>
 <p>Return a reference-style bracketed integer list.</p>
 </section>
-<section class="api-member" id="function-format-dimension-label-454">
+<section class="api-member" id="function-format-dimension-label-455">
 <div class="member-kind">function</div>
 <h2>_format_dimension_label</h2>
 <pre><code>_format_dimension_label(dimensions: list[int] | tuple[int, ...] | set[int]) -&gt; str</code></pre>
 <p>Return a compact dimension label.</p>
 </section>
-<section class="api-member" id="function-excluded-functions-460">
+<section class="api-member" id="function-excluded-functions-461">
 <div class="member-kind">function</div>
 <h2>_excluded_functions</h2>
 <pre><code>_excluded_functions(config: ExperimentConfig, functions_run: set[int]) -&gt; list[int]</code></pre>
 <p>Return functions excluded from a run-all style request.</p>
 </section>
-<section class="api-member" id="function-statistical-analysis-enabled-467">
+<section class="api-member" id="function-stats-excluded-functions-468">
+<div class="member-kind">function</div>
+<h2>_stats_excluded_functions</h2>
+<pre><code>_stats_excluded_functions(config: ExperimentConfig, functions_run: set[int]) -&gt; tuple[int, ...]</code></pre>
+<p>Return the functions the opt-in ``--stats`` panel excludes.</p>
+<p>Only CEC2017 drops F2 (``result_loader.SUITE_EXCLUDED_FUNCS``), for a full
+or a partial function request alike; every other suite keeps it
+(Amendment 1 Section A1.1). The old ``or (2,)`` fallback dropped F2 on
+CEC2013, CEC2020 and CEC2013LSGO.</p>
+</section>
+<section class="api-member" id="function-statistical-analysis-enabled-482">
 <div class="member-kind">function</div>
 <h2>_statistical_analysis_enabled</h2>
 <pre><code>_statistical_analysis_enabled(config: ExperimentConfig, optimizer: str) -&gt; bool</code></pre>
@@ -316,7 +326,7 @@ native-dimension ``cec2011`` rollup are supported now that CEC2011
 reference rollups are committed -- CEC2011 emits a single per-suite panel
 (see ``_emit_statistical_analysis`` and ``close_streaming_table``).</p>
 </section>
-<section class="api-member" id="function-emit-statistical-analysis-484">
+<section class="api-member" id="function-emit-statistical-analysis-499">
 <div class="member-kind">function</div>
 <h2>_emit_statistical_analysis</h2>
 <pre><code>_emit_statistical_analysis(config: ExperimentConfig, optimizer: str, dirs: dict[str, Path], dim: int, funcs_to_run: set[int]) -&gt; &#x27;StatAnalysisResult | None&#x27;</code></pre>
@@ -326,43 +336,43 @@ end-of-run cross-dimension summary, or ``None`` when the panel could not be
 built. Never raises: any failure is logged as a one-line skip notice so a
 statistical hiccup can never crash an experiment run.</p>
 </section>
-<section class="api-member" id="function-statistics-label-552">
+<section class="api-member" id="function-statistics-label-567">
 <div class="member-kind">function</div>
 <h2>_statistics_label</h2>
 <pre><code>_statistics_label(statistics_basis: str) -&gt; str</code></pre>
 <p>Return a human-readable statistics basis label.</p>
 </section>
-<section class="api-member" id="function-max-nfes-label-557">
+<section class="api-member" id="function-max-nfes-label-572">
 <div class="member-kind">function</div>
 <h2>_max_nfes_label</h2>
 <pre><code>_max_nfes_label(config: ExperimentConfig) -&gt; str</code></pre>
 <p>Return a reference-style budget label.</p>
 </section>
-<section class="api-member" id="function-benchmark-backend-for-optimizer-566">
+<section class="api-member" id="function-benchmark-backend-for-optimizer-581">
 <div class="member-kind">function</div>
 <h2>_benchmark_backend_for_optimizer</h2>
 <pre><code>_benchmark_backend_for_optimizer(config: ExperimentConfig, optimizer: str) -&gt; str</code></pre>
 <p>Return the actual benchmark evaluator backend for one optimizer run.</p>
 </section>
-<section class="api-member" id="function-benchmark-backend-summary-575">
+<section class="api-member" id="function-benchmark-backend-summary-590">
 <div class="member-kind">function</div>
 <h2>_benchmark_backend_summary</h2>
 <pre><code>_benchmark_backend_summary(config: ExperimentConfig) -&gt; str</code></pre>
 <p>Return a concise backend summary for console/provenance output.</p>
 </section>
-<section class="api-member" id="function-statistics-basis-for-cells-585">
+<section class="api-member" id="function-statistics-basis-for-cells-600">
 <div class="member-kind">function</div>
 <h2>_statistics_basis_for_cells</h2>
 <pre><code>_statistics_basis_for_cells(config: ExperimentConfig, cells: list[tuple[int, int]]) -&gt; str</code></pre>
 <p>Return the statistics basis for the first resolved run cell.</p>
 </section>
-<section class="api-member" id="function-artifact-value-599">
+<section class="api-member" id="function-artifact-value-614">
 <div class="member-kind">function</div>
 <h2>_artifact_value</h2>
 <pre><code>_artifact_value(artifact: RunArtifact) -&gt; float</code></pre>
 <p>Return the result value in the artifact statistics basis.</p>
 </section>
-<section class="api-member" id="function-stats-by-dimension-610">
+<section class="api-member" id="function-stats-by-dimension-625">
 <div class="member-kind">function</div>
 <h2>_stats_by_dimension</h2>
 <pre><code>_stats_by_dimension(artifacts: list[RunArtifact], cell_wall_seconds: dict[tuple[int, int], float] | None = None) -&gt; dict[int, dict[int, tuple[Any, float, list[RunArtifact]]]]</code></pre>
@@ -371,109 +381,109 @@ statistical hiccup can never crash an experiment run.</p>
 (matching the reference ``cell_timer = tic`` row timing), not the sum of the
 per-run times. When ``cell_wall_seconds`` is absent it falls back to the sum.</p>
 </section>
-<section class="api-member" id="function-stats-by-function-640">
+<section class="api-member" id="function-stats-by-function-655">
 <div class="member-kind">function</div>
 <h2>_stats_by_function</h2>
 <pre><code>_stats_by_function(artifacts: list[RunArtifact], cell_wall_seconds: dict[tuple[int, int], float] | None = None) -&gt; dict[int, tuple[Any, float, list[RunArtifact]]]</code></pre>
 <p>Return summary statistics grouped by function across native dimensions.</p>
 </section>
-<section class="api-member" id="function-config-lines-666">
+<section class="api-member" id="function-config-lines-681">
 <div class="member-kind">function</div>
 <h2>_config_lines</h2>
 <pre><code>_config_lines(config: ExperimentConfig, optimizer: str, funcs_to_run: set[int], dims_to_run: set[int], output_dir: Path, project_root: Path, statistics_basis: str) -&gt; list[str]</code></pre>
 <p>Return detailed configuration lines matching the reference console style.</p>
 </section>
-<section class="api-member" id="function-optimizer-options-line-709">
+<section class="api-member" id="function-optimizer-options-line-724">
 <div class="member-kind">function</div>
 <h2>_optimizer_options_line</h2>
 <pre><code>_optimizer_options_line(config: ExperimentConfig, optimizer: str) -&gt; str</code></pre>
 <p>Return a concise optimizer-parameter line for the console table header.</p>
 </section>
-<section class="api-member" id="function-dimension-summary-lines-735">
+<section class="api-member" id="function-dimension-summary-lines-750">
 <div class="member-kind">function</div>
 <h2>_dimension_summary_lines</h2>
 <pre><code>_dimension_summary_lines(config: ExperimentConfig, optimizer: str, dim: int, by_func: dict[int, tuple[Any, float, list[RunArtifact]]]) -&gt; list[str]</code></pre>
 <p>Return the main per-dimension summary table.</p>
 </section>
-<section class="api-member" id="function-native-function-summary-lines-758">
+<section class="api-member" id="function-native-function-summary-lines-773">
 <div class="member-kind">function</div>
 <h2>_native_function_summary_lines</h2>
 <pre><code>_native_function_summary_lines(config: ExperimentConfig, optimizer: str, by_func: dict[int, tuple[Any, float, list[RunArtifact]]]) -&gt; list[str]</code></pre>
 <p>Return one CEC2011-style native-dimension summary table.</p>
 </section>
-<section class="api-member" id="function-dimension-summary-header-lines-778">
+<section class="api-member" id="function-dimension-summary-header-lines-793">
 <div class="member-kind">function</div>
 <h2>_dimension_summary_header_lines</h2>
 <pre><code>_dimension_summary_header_lines(config: ExperimentConfig, optimizer: str, dim: int, *, function_count: int, runs: int, first_artifact: RunArtifact) -&gt; list[str]</code></pre>
 <p>Return per-dimension summary table heading lines.</p>
 </section>
-<section class="api-member" id="function-native-function-summary-header-lines-815">
+<section class="api-member" id="function-native-function-summary-header-lines-830">
 <div class="member-kind">function</div>
 <h2>_native_function_summary_header_lines</h2>
 <pre><code>_native_function_summary_header_lines(config: ExperimentConfig, optimizer: str, *, function_count: int, runs: int, first_artifact: RunArtifact) -&gt; list[str]</code></pre>
 <p>Return one native-dimension suite table header for CEC2011.</p>
 </section>
-<section class="api-member" id="function-dimension-summary-row-841">
+<section class="api-member" id="function-dimension-summary-row-856">
 <div class="member-kind">function</div>
 <h2>_dimension_summary_row</h2>
 <pre><code>_dimension_summary_row(func: int, stats: Any, total_time: float) -&gt; str</code></pre>
 <p>Return one per-function summary row for a completed run batch.</p>
 </section>
-<section class="api-member" id="function-dimension-summary-footer-lines-855">
+<section class="api-member" id="function-dimension-summary-footer-lines-870">
 <div class="member-kind">function</div>
 <h2>_dimension_summary_footer_lines</h2>
 <pre><code>_dimension_summary_footer_lines(by_func: dict[int, tuple[Any, float, list[RunArtifact]]]) -&gt; list[str]</code></pre>
 <p>Return per-dimension summary table footer lines.</p>
 </section>
-<section class="api-member" id="function-comparison-lines-867">
+<section class="api-member" id="function-comparison-lines-882">
 <div class="member-kind">function</div>
 <h2>_comparison_lines</h2>
 <pre><code>_comparison_lines(config: ExperimentConfig, optimizer: str, dim: int | None, by_func: dict[int, tuple[Any, float, list[RunArtifact]]]) -&gt; list[str]</code></pre>
 <p>Return a reference-mean comparison table when matching references exist.</p>
 </section>
-<section class="api-member" id="function-write-text-940">
+<section class="api-member" id="function-write-text-955">
 <div class="member-kind">function</div>
 <h2>_write_text</h2>
 <pre><code>_write_text(path: Path, lines: list[str]) -&gt; None</code></pre>
 <p>Write text lines with UTF-8 encoding.</p>
 </section>
-<section class="api-member" id="function-write-skipped-runs-948">
+<section class="api-member" id="function-write-skipped-runs-963">
 <div class="member-kind">function</div>
 <h2>_write_skipped_runs</h2>
 <pre><code>_write_skipped_runs(path: Path, skipped_cells: list[dict[str, Any]]) -&gt; None</code></pre>
 <p>Persist every failed run with its exception text (full rewrite per call).</p>
 </section>
-<section class="api-member" id="function-run-log-lines-959">
+<section class="api-member" id="function-run-log-lines-974">
 <div class="member-kind">function</div>
 <h2>_run_log_lines</h2>
 <pre><code>_run_log_lines(optimizer: str, suite: str, dim: int, by_func: dict[int, tuple[Any, float, list[RunArtifact]]], timestamp: str) -&gt; list[str]</code></pre>
 <p>Return a detailed per-run log.</p>
 </section>
-<section class="api-member" id="function-native-run-log-lines-997">
+<section class="api-member" id="function-native-run-log-lines-1012">
 <div class="member-kind">function</div>
 <h2>_native_run_log_lines</h2>
 <pre><code>_native_run_log_lines(optimizer: str, suite: str, by_func: dict[int, tuple[Any, float, list[RunArtifact]]], timestamp: str) -&gt; list[str]</code></pre>
 <p>Return a detailed per-run log for native-dimension CEC2011 functions.</p>
 </section>
-<section class="api-member" id="function-write-compatibility-json-1035">
+<section class="api-member" id="function-write-compatibility-json-1050">
 <div class="member-kind">function</div>
 <h2>_write_compatibility_json</h2>
 <pre><code>_write_compatibility_json(summary_dir: Path, config: ExperimentConfig, optimizer: str, funcs_to_run: set[int], dims_to_run: set[int], statistics_basis: str) -&gt; None</code></pre>
 <p>Write run_config.json and phase0_protocol.json compatibility artifacts.</p>
 </section>
-<section class="api-member" id="function-task-progress-line-1113">
+<section class="api-member" id="function-task-progress-line-1128">
 <div class="member-kind">function</div>
 <h2>_task_progress_line</h2>
 <pre><code>_task_progress_line(optimizer: str, completed: int, total: int, task: RunTask, outcome: Any) -&gt; str</code></pre>
 <p>Return one compact completed-task progress line.</p>
 </section>
-<section class="api-member" id="function-emit-compatibility-outputs-1139">
+<section class="api-member" id="function-emit-compatibility-outputs-1154">
 <div class="member-kind">function</div>
 <h2>_emit_compatibility_outputs</h2>
 <pre><code>_emit_compatibility_outputs(config: ExperimentConfig, optimizer: str, dirs: dict[str, Path], artifacts: list[RunArtifact], project_root: Path, *, cell_wall_seconds: dict[tuple[int, int], float] | None = None, emit_config_lines: bool = True, emit_dimension_lines: bool = True) -&gt; None</code></pre>
 <p>Write and print reference-style summary artifacts.</p>
 </section>
-<section class="api-member" id="function-init-process-worker-1231">
+<section class="api-member" id="function-init-process-worker-1246">
 <div class="member-kind">function</div>
 <h2>_init_process_worker</h2>
 <pre><code>_init_process_worker(cfg: ExperimentConfig, numba_threads: int, expected_fp_sentinel: str | None = None) -&gt; None</code></pre>
@@ -488,13 +498,13 @@ second deterministic floating-point regime (NumPy fallback kernels; see
 the pool-rebuild logic retries and ultimately runs the cell on the
 parent&#x27;s already-verified serial backend instead of mixing regimes.</p>
 </section>
-<section class="api-member" id="function-process-run-task-1271">
+<section class="api-member" id="function-process-run-task-1286">
 <div class="member-kind">function</div>
 <h2>_process_run_task</h2>
 <pre><code>_process_run_task(task: RunTask) -&gt; RunArtifact</code></pre>
 <p>Top-level picklable worker: run one task using the per-process config.</p>
 </section>
-<section class="api-member" id="function-run-experiment-1286">
+<section class="api-member" id="function-run-experiment-1301">
 <div class="member-kind">function</div>
 <h2>run_experiment</h2>
 <pre><code>run_experiment(config: ExperimentConfig | dict[str, Any] | None = None, **kwargs: Any) -&gt; ExperimentRunSummary</code></pre>
@@ -506,57 +516,58 @@ parent&#x27;s already-verified serial backend instead of mixing regimes.</p>
 <h2>On This Page</h2>
 <a class="toc-level-1" href="#gsk-family-runners-run-experiment">gsk_family.runners.run_experiment</a>
 <a class="toc-level-2" href="#members">Members</a>
-<a class="toc-level-2" href="#function-runtime-provenance-116">_runtime_provenance</a>
-<a class="toc-level-2" href="#function-run-config-optimizer-params-140">_run_config_optimizer_params</a>
-<a class="toc-level-2" href="#class-experimentrunsummary-161">ExperimentRunSummary</a>
-<a class="toc-level-2" href="#function-build-config-171">_build_config</a>
-<a class="toc-level-2" href="#function-resolve-cells-186">_resolve_cells</a>
-<a class="toc-level-2" href="#function-execution-ordered-cells-225">_execution_ordered_cells</a>
-<a class="toc-level-2" href="#function-resolve-suite-warmup-cells-232">_resolve_suite_warmup_cells</a>
-<a class="toc-level-2" href="#function-resolve-warmup-cells-254">_resolve_warmup_cells</a>
-<a class="toc-level-2" href="#function-current-schedule-rows-261">_current_schedule_rows</a>
-<a class="toc-level-2" href="#function-row-key-285">_row_key</a>
-<a class="toc-level-2" href="#function-bank-from-rows-290">_bank_from_rows</a>
-<a class="toc-level-2" href="#function-matching-existing-rows-316">_matching_existing_rows</a>
-<a class="toc-level-2" href="#function-run-record-from-result-328">_run_record_from_result</a>
-<a class="toc-level-2" href="#function-optimizer-population-size-345">_optimizer_population_size</a>
-<a class="toc-level-2" href="#function-run-one-354">_run_one</a>
-<a class="toc-level-2" href="#function-task-from-schedule-row-412">_task_from_schedule_row</a>
-<a class="toc-level-2" href="#function-log-console-423">_log_console</a>
-<a class="toc-level-2" href="#function-progress-bar-429">_progress_bar</a>
-<a class="toc-level-2" href="#function-log-finalize-progress-438">_log_finalize_progress</a>
-<a class="toc-level-2" href="#function-format-number-list-449">_format_number_list</a>
-<a class="toc-level-2" href="#function-format-dimension-label-454">_format_dimension_label</a>
-<a class="toc-level-2" href="#function-excluded-functions-460">_excluded_functions</a>
-<a class="toc-level-2" href="#function-statistical-analysis-enabled-467">_statistical_analysis_enabled</a>
-<a class="toc-level-2" href="#function-emit-statistical-analysis-484">_emit_statistical_analysis</a>
-<a class="toc-level-2" href="#function-statistics-label-552">_statistics_label</a>
-<a class="toc-level-2" href="#function-max-nfes-label-557">_max_nfes_label</a>
-<a class="toc-level-2" href="#function-benchmark-backend-for-optimizer-566">_benchmark_backend_for_optimizer</a>
-<a class="toc-level-2" href="#function-benchmark-backend-summary-575">_benchmark_backend_summary</a>
-<a class="toc-level-2" href="#function-statistics-basis-for-cells-585">_statistics_basis_for_cells</a>
-<a class="toc-level-2" href="#function-artifact-value-599">_artifact_value</a>
-<a class="toc-level-2" href="#function-stats-by-dimension-610">_stats_by_dimension</a>
-<a class="toc-level-2" href="#function-stats-by-function-640">_stats_by_function</a>
-<a class="toc-level-2" href="#function-config-lines-666">_config_lines</a>
-<a class="toc-level-2" href="#function-optimizer-options-line-709">_optimizer_options_line</a>
-<a class="toc-level-2" href="#function-dimension-summary-lines-735">_dimension_summary_lines</a>
-<a class="toc-level-2" href="#function-native-function-summary-lines-758">_native_function_summary_lines</a>
-<a class="toc-level-2" href="#function-dimension-summary-header-lines-778">_dimension_summary_header_lines</a>
-<a class="toc-level-2" href="#function-native-function-summary-header-lines-815">_native_function_summary_header_lines</a>
-<a class="toc-level-2" href="#function-dimension-summary-row-841">_dimension_summary_row</a>
-<a class="toc-level-2" href="#function-dimension-summary-footer-lines-855">_dimension_summary_footer_lines</a>
-<a class="toc-level-2" href="#function-comparison-lines-867">_comparison_lines</a>
-<a class="toc-level-2" href="#function-write-text-940">_write_text</a>
-<a class="toc-level-2" href="#function-write-skipped-runs-948">_write_skipped_runs</a>
-<a class="toc-level-2" href="#function-run-log-lines-959">_run_log_lines</a>
-<a class="toc-level-2" href="#function-native-run-log-lines-997">_native_run_log_lines</a>
-<a class="toc-level-2" href="#function-write-compatibility-json-1035">_write_compatibility_json</a>
-<a class="toc-level-2" href="#function-task-progress-line-1113">_task_progress_line</a>
-<a class="toc-level-2" href="#function-emit-compatibility-outputs-1139">_emit_compatibility_outputs</a>
-<a class="toc-level-2" href="#function-init-process-worker-1231">_init_process_worker</a>
-<a class="toc-level-2" href="#function-process-run-task-1271">_process_run_task</a>
-<a class="toc-level-2" href="#function-run-experiment-1286">run_experiment</a>
+<a class="toc-level-2" href="#function-runtime-provenance-117">_runtime_provenance</a>
+<a class="toc-level-2" href="#function-run-config-optimizer-params-141">_run_config_optimizer_params</a>
+<a class="toc-level-2" href="#class-experimentrunsummary-162">ExperimentRunSummary</a>
+<a class="toc-level-2" href="#function-build-config-172">_build_config</a>
+<a class="toc-level-2" href="#function-resolve-cells-187">_resolve_cells</a>
+<a class="toc-level-2" href="#function-execution-ordered-cells-226">_execution_ordered_cells</a>
+<a class="toc-level-2" href="#function-resolve-suite-warmup-cells-233">_resolve_suite_warmup_cells</a>
+<a class="toc-level-2" href="#function-resolve-warmup-cells-255">_resolve_warmup_cells</a>
+<a class="toc-level-2" href="#function-current-schedule-rows-262">_current_schedule_rows</a>
+<a class="toc-level-2" href="#function-row-key-286">_row_key</a>
+<a class="toc-level-2" href="#function-bank-from-rows-291">_bank_from_rows</a>
+<a class="toc-level-2" href="#function-matching-existing-rows-317">_matching_existing_rows</a>
+<a class="toc-level-2" href="#function-run-record-from-result-329">_run_record_from_result</a>
+<a class="toc-level-2" href="#function-optimizer-population-size-346">_optimizer_population_size</a>
+<a class="toc-level-2" href="#function-run-one-355">_run_one</a>
+<a class="toc-level-2" href="#function-task-from-schedule-row-413">_task_from_schedule_row</a>
+<a class="toc-level-2" href="#function-log-console-424">_log_console</a>
+<a class="toc-level-2" href="#function-progress-bar-430">_progress_bar</a>
+<a class="toc-level-2" href="#function-log-finalize-progress-439">_log_finalize_progress</a>
+<a class="toc-level-2" href="#function-format-number-list-450">_format_number_list</a>
+<a class="toc-level-2" href="#function-format-dimension-label-455">_format_dimension_label</a>
+<a class="toc-level-2" href="#function-excluded-functions-461">_excluded_functions</a>
+<a class="toc-level-2" href="#function-stats-excluded-functions-468">_stats_excluded_functions</a>
+<a class="toc-level-2" href="#function-statistical-analysis-enabled-482">_statistical_analysis_enabled</a>
+<a class="toc-level-2" href="#function-emit-statistical-analysis-499">_emit_statistical_analysis</a>
+<a class="toc-level-2" href="#function-statistics-label-567">_statistics_label</a>
+<a class="toc-level-2" href="#function-max-nfes-label-572">_max_nfes_label</a>
+<a class="toc-level-2" href="#function-benchmark-backend-for-optimizer-581">_benchmark_backend_for_optimizer</a>
+<a class="toc-level-2" href="#function-benchmark-backend-summary-590">_benchmark_backend_summary</a>
+<a class="toc-level-2" href="#function-statistics-basis-for-cells-600">_statistics_basis_for_cells</a>
+<a class="toc-level-2" href="#function-artifact-value-614">_artifact_value</a>
+<a class="toc-level-2" href="#function-stats-by-dimension-625">_stats_by_dimension</a>
+<a class="toc-level-2" href="#function-stats-by-function-655">_stats_by_function</a>
+<a class="toc-level-2" href="#function-config-lines-681">_config_lines</a>
+<a class="toc-level-2" href="#function-optimizer-options-line-724">_optimizer_options_line</a>
+<a class="toc-level-2" href="#function-dimension-summary-lines-750">_dimension_summary_lines</a>
+<a class="toc-level-2" href="#function-native-function-summary-lines-773">_native_function_summary_lines</a>
+<a class="toc-level-2" href="#function-dimension-summary-header-lines-793">_dimension_summary_header_lines</a>
+<a class="toc-level-2" href="#function-native-function-summary-header-lines-830">_native_function_summary_header_lines</a>
+<a class="toc-level-2" href="#function-dimension-summary-row-856">_dimension_summary_row</a>
+<a class="toc-level-2" href="#function-dimension-summary-footer-lines-870">_dimension_summary_footer_lines</a>
+<a class="toc-level-2" href="#function-comparison-lines-882">_comparison_lines</a>
+<a class="toc-level-2" href="#function-write-text-955">_write_text</a>
+<a class="toc-level-2" href="#function-write-skipped-runs-963">_write_skipped_runs</a>
+<a class="toc-level-2" href="#function-run-log-lines-974">_run_log_lines</a>
+<a class="toc-level-2" href="#function-native-run-log-lines-1012">_native_run_log_lines</a>
+<a class="toc-level-2" href="#function-write-compatibility-json-1050">_write_compatibility_json</a>
+<a class="toc-level-2" href="#function-task-progress-line-1128">_task_progress_line</a>
+<a class="toc-level-2" href="#function-emit-compatibility-outputs-1154">_emit_compatibility_outputs</a>
+<a class="toc-level-2" href="#function-init-process-worker-1246">_init_process_worker</a>
+<a class="toc-level-2" href="#function-process-run-task-1286">_process_run_task</a>
+<a class="toc-level-2" href="#function-run-experiment-1301">run_experiment</a>
 </aside>
   </div>
   <script src="../assets/search.js"></script>

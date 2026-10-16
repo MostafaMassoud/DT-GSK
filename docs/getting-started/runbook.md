@@ -312,5 +312,5 @@ own result for every run of every algorithm is in
 | `No module named 'gsk_family'`, or `gsk-stats` is not recognized | The environment is not active in this window: activate it (Step 2). If it still fails, run `python -m pip install -e ".[dev]"` again. |
 | A run pauses for a minute or more after it starts, or after it prints its settings | Numba is compiling its kernels once; wait. |
 | The "Mean Comparison" table shows `v` and `Worse` after a short test | Expected when `--max-evaluations` cuts the budget. |
-| A run ends with `WARN <ALGORITHM> failed=N` instead of `PASS`, or stops with an error that mentions `skipped_runs.csv` (often a memory error, for example on CEC2013LSGO) | Lower `--workers` and run the same command again; only the missing runs are repeated. |
+| A run ends with `WARN <ALGORITHM> failed=N` instead of `PASS` (often a memory error, for example on CEC2013LSGO) | Lower `--workers` and run the same command again; only the missing runs are repeated. |
 | `gsk-stats` says `reference directory not found` | If the message lists the suites it found, fix the spelling after `--suite`. Otherwise the published results are missing: use a full clone (Step 1), and run the command from the project folder. |

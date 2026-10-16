@@ -180,3 +180,24 @@ class TestDataSourcePrecedence:
                            "--reference-root", str(ref), "--out", str(out), "--no-figures"])
         assert code == 0
         assert _ranks(out)["dt-gsk"] == 1.0
+
+
+class TestRunnerStatsExclusions:
+    """The runner's opt-in --stats panel follows the same per-suite rule."""
+
+    @staticmethod
+    def _excluded(suite: str, functions: set[int]) -> tuple[int, ...]:
+        from gsk_family.runners.config import config_from_mapping
+        from gsk_family.runners.run_experiment import _stats_excluded_functions
+
+        return _stats_excluded_functions(config_from_mapping({"suite": suite}), functions)
+
+    def test_cec2017_drops_f2_for_full_and_partial_requests(self):
+        assert self._excluded("cec2017", set(range(1, 31)) - {2}) == (2,)  # default run-all request
+        assert self._excluded("cec2017", set(range(1, 31))) == (2,)
+        assert self._excluded("cec2017", {1, 2, 3}) == (2,)
+
+    def test_other_suites_keep_f2(self):
+        for suite in ("cec2013", "cec2020", "cec2013lsgo"):
+            assert self._excluded(suite, {1, 2, 3}) == (), suite
+        assert self._excluded("sphere", {1}) == ()

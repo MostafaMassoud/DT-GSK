@@ -136,3 +136,46 @@ def test_validate_cli_default_references_are_checked(capsys) -> None:
     assert code == 0
     assert "reference root:" in captured.out
     assert "csv files:" in captured.out
+
+
+def test_all_runs_failed_is_not_verified_and_does_not_crash(tmp_path: Path) -> None:
+    """A summary folder holding only skipped_runs.csv (every run failed) must not
+    be read as a summary table, and must not get a vacuous CONSISTENT."""
+    summary = tmp_path / "results" / "dt-gsk" / "cec2013lsgo" / "summary"
+    summary.mkdir(parents=True)
+    (summary / "environment.json").write_text(
+        json.dumps({"optimizer": "dt-gsk", "suite": "cec2013lsgo", "runs": 25,
+                    "statistics_basis": "raw_objective"}),
+        encoding="utf-8",
+    )
+    lines = [
+        "optimizer,suite,function,dimension,run,seed,reason,traceback",
+        "dt-gsk,cec2013lsgo,1,1000,1,1022243691,MemoryError,trace",
+    ]
+    (summary / "skipped_runs.csv").write_text("".join(line + chr(10) for line in lines), encoding="utf-8")
+    result = verify_run_directory(summary.parent, tmp_path / "refs")
+    assert result.verdict == "NOT_VERIFIED"
+    assert result.reason == "NO_GENERATED_RESULTS"
+    assert result.functions_checked == 0
+
+
+def test_overwrite_rerun_where_every_run_failed_ignores_stale_tables(tmp_path: Path) -> None:
+    """--overwrite resets per_run.csv to its header but leaves the previous run's
+    summary table on disk; that stale table must not earn a CONSISTENT verdict."""
+    run_dir = _write_generated(tmp_path / "results", row="1,1,1,1,1,0\n")
+    ref_root = _write_reference(tmp_path / "refs", row="1,1,1,1,1,0\n")
+    summary = run_dir / "summary"
+    (summary / "per_run.csv").write_text(
+        "optimizer,suite,function,dimension,run,seed,best_fitness,error,nfes\n", encoding="utf-8"
+    )
+    result = verify_run_directory(run_dir, ref_root, reduced_budget=False)
+    assert result.verdict == "NOT_VERIFIED"
+    assert result.reason == "NO_GENERATED_RESULTS"
+
+    # A bank with at least one recorded run is verified as before.
+    (summary / "per_run.csv").write_text(
+        "optimizer,suite,function,dimension,run,seed,best_fitness,error,nfes\n"
+        "gsk,cec2017,1,10,1,1,1.0,1.0,100000\n",
+        encoding="utf-8",
+    )
+    assert verify_run_directory(run_dir, ref_root, reduced_budget=False).verdict == "CONSISTENT"

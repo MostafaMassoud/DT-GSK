@@ -197,12 +197,15 @@ later cell would run under a different regime. The mechanism is documented in
 
 ## 3. Parallel execution model
 
-3.1 **Backends.** Independent cells (`optimizer, suite, function, dimension, run`)
+3.1 **Backends.** Independent run tasks (`optimizer, suite, function, dimension, run`)
 are the unit of parallelism. Selectable via `--parallel-backend`:
 - `process` (default): a reused `ProcessPoolExecutor` over the spawn context —
   true multi-core, no GIL contention. **The only correct choice for real
-  campaigns.** Tiny runs (estimated task count not greater than the worker count)
-  fall back in-process to avoid spawn overhead.
+  campaigns.** One pool is created per invocation and reused across cells and
+  optimizers (rebuilt only after a worker crash, see 3.2); run tasks are
+  dispatched one (function, dimension) cell at a time, and a cell with a single
+  run task, or any cell when the worker count is 1, executes inline in the
+  parent process. A small campaign is never moved to a thread pool.
 - `thread`: a `ThreadPoolExecutor`. The optimizer loop is Python/NumPy and holds
   the GIL, so it does not scale for CPU-bound work; worse, calling
   `parallel=True` Numba kernels from many threads can **deadlock**. You **NEVER**
